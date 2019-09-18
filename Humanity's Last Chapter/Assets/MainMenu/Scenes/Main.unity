@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 366465465}
   - component: {fileID: 366465464}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: inHub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -566,12 +566,12 @@ PrefabInstance:
     - target: {fileID: 981411523061935250, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.0116014
+      value: -0.19
       objectReference: {fileID: 0}
     - target: {fileID: 981411523061935250, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.13748968
+      value: -3.21
       objectReference: {fileID: 0}
     - target: {fileID: 981411523061935250, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
         type: 3}
@@ -617,6 +617,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
+        type: 3}
+      propertyPath: buildingName
+      value: middle
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be00fac84afe6c46a8cc4862b1c22cf, type: 3}

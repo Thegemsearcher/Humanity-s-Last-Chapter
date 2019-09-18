@@ -5,8 +5,7 @@ using UnityEngine;
 public class clickOnBuilding : MonoBehaviour
 {
     public string buildingName;
-    public Canvas canvas;
-    public Canvas specificBuilding;
+    public Canvas specificBuildingCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,12 +21,11 @@ public class clickOnBuilding : MonoBehaviour
 
             if (GetComponent<Collider2D>().OverlapPoint(mousePosition))
             {
-                //
-                if (buildingName.Equals("middle"))
-                {
-                    canvas.gameObject.SetActive(true);
-                    specificBuilding.gameObject.SetActive(true);
-                }
+                specificBuildingCanvas.gameObject.SetActive(true);
+                //if (buildingName.Equals("middle"))
+                //{
+                //    specificBuildingCanvas.gameObject.SetActive(true);
+                //}
             }
         }
     }
