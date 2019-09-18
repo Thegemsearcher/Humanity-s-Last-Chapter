@@ -62,8 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ExitOnClick.cs" />
-    <Compile Include="Assets\LoadSceneOnClick.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\ExitOnClick.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\LoadSceneOnClick.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
