@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CampScript : MonoBehaviour
 {
@@ -28,8 +29,9 @@ public class CampScript : MonoBehaviour
     {
         GameObject go = Instantiate(character, pos, Quaternion.identity);
         go.transform.SetParent(UIforCamp.transform);
-        campRoster.Add(go);
         go.GetComponent<AddToPlayerRoster>().UIParent = UIscreenthingy;
+        go.GetComponent<Button>().onClick.AddListener(go.GetComponent<AddToPlayerRoster>().AddToPlayer);
+        campRoster.Add(go);
     }
 
     public void CreateRoster()
