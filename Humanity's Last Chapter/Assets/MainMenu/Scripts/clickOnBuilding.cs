@@ -33,7 +33,7 @@ public class clickOnBuilding : MonoBehaviour
                 }
                 if (buildingName.Equals("Camp"))
                 {
-
+                    GetComponent<CampScript>().CreateRoster();
                 }
             }
         }

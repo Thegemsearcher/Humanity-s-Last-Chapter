@@ -629,7 +629,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b402882b4c497dc4fb370cf3105f3c58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 0}
+  character: {fileID: 3642699830238041902, guid: 1e048e086c55d6d4390d4bf4f9e5f925,
+    type: 3}
+  UIscreenthingy: {fileID: 1481677029}
+  UIforCamp: {fileID: 935194662}
 --- !u!1 &588820526
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,10 +784,20 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
+        type: 3}
+      propertyPath: specificBuildingCanvas
+      value: 
+      objectReference: {fileID: 935194665}
+    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
+        type: 3}
+      propertyPath: buildingName
+      value: Camp
+      objectReference: {fileID: 0}
     - target: {fileID: 981411523061935250, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.8
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 981411523061935250, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
         type: 3}
@@ -835,16 +848,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
-        type: 3}
-      propertyPath: specificBuildingCanvas
-      value: 
-      objectReference: {fileID: 935194665}
-    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
-        type: 3}
-      propertyPath: buildingName
-      value: Camp
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be00fac84afe6c46a8cc4862b1c22cf, type: 3}
@@ -1393,7 +1396,7 @@ GameObject:
   - component: {fileID: 1208754904}
   - component: {fileID: 1208754903}
   m_Layer: 5
-  m_Name: Image
+  m_Name: hospitalImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1476,6 +1479,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
+        type: 3}
+      propertyPath: buildingName
+      value: middle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
+        type: 3}
+      propertyPath: specificBuildingCanvas
+      value: 
+      objectReference: {fileID: 774736949}
     - target: {fileID: 981411523061935250, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1531,16 +1544,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
-        type: 3}
-      propertyPath: buildingName
-      value: middle
-      objectReference: {fileID: 0}
-    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
-        type: 3}
-      propertyPath: specificBuildingCanvas
-      value: 
-      objectReference: {fileID: 774736949}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be00fac84afe6c46a8cc4862b1c22cf, type: 3}
 --- !u!1001 &1322725515
@@ -1565,6 +1568,16 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
+        type: 3}
+      propertyPath: buildingName
+      value: hospital
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
+        type: 3}
+      propertyPath: specificBuildingCanvas
+      value: 
+      objectReference: {fileID: 1154127835}
     - target: {fileID: 981411523061935250, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1620,16 +1633,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
-        type: 3}
-      propertyPath: buildingName
-      value: hospital
-      objectReference: {fileID: 0}
-    - target: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
-        type: 3}
-      propertyPath: specificBuildingCanvas
-      value: 
-      objectReference: {fileID: 1154127835}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7be00fac84afe6c46a8cc4862b1c22cf, type: 3}
 --- !u!1 &1481677029
@@ -1666,7 +1669,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -561, y: 150}
+  m_AnchoredPosition: {x: -566.8, y: 150}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1481677031
@@ -1717,7 +1720,7 @@ GameObject:
   - component: {fileID: 1686240692}
   - component: {fileID: 1686240691}
   m_Layer: 5
-  m_Name: Image
+  m_Name: campImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
