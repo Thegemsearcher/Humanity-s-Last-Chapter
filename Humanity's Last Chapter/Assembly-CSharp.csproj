@@ -101,6 +101,7 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/David/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/Jack/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>X:/Unity/unity/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
