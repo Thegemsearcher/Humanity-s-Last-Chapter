@@ -120,3 +120,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f8495ca0e20414cbd356f325fdafa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildingName: 
+  specificBuildingCanvas: {fileID: 0}
