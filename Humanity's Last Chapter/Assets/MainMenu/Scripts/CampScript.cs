@@ -44,8 +44,8 @@ public class CampScript : MonoBehaviour
         {
             int rand = Random.Range(2, 5);
             for (int i = 0; i < rand; i++)
-            {
-                CreateCharacter("placeholder " + i, new Vector3(-4.75f, 2 - i,0)/*310, 550 - (i * 75), 0)*/);
+            {                                                   //Added transform.localPosition.x and y here to make the position dynamic. Y-pos appears to be at the bottom of the camp-window, though.
+                CreateCharacter("placeholder " + i, new Vector3(transform.localPosition.x -4.75f, transform.localPosition.y - i,0)/*310, 550 - (i * 75), 0)*/);
             }
             existingRoster = true;
         }
