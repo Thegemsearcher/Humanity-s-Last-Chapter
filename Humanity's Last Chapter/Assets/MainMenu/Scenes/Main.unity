@@ -632,7 +632,7 @@ MonoBehaviour:
   character: {fileID: 3642699830238041902, guid: 1e048e086c55d6d4390d4bf4f9e5f925,
     type: 3}
   UIscreenthingy: {fileID: 1481677029}
-  UIforCamp: {fileID: 935194662}
+  UIforCamp: {fileID: 1686240689}
   Controller: {fileID: 2026593462}
 --- !u!1 &588820526
 GameObject:

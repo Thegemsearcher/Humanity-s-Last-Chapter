@@ -28,8 +28,8 @@ public class HubCharController : MonoBehaviour
         foreach (GameObject character in playerRoster)
         {
             i++;
-            character.GetComponent<RectTransform>().position = new Vector3(character.transform.parent.position.x - 50,
-                                                                            (character.transform.parent.position.y + 275) - (i * 85), 0);
+            character.GetComponent<RectTransform>().position = new Vector3(character.transform.parent.position.x - 0.6f,
+                                                                            (character.transform.parent.position.y + 3.3f) - (i * 1), 0);
             
         }
     }

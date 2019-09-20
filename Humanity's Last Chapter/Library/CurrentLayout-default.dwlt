@@ -73,7 +73,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 494}
   m_MaxSize: {x: 10004, y: 14044}
   vertical: 1
-  controlID: 100
+  controlID: 57
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 494}
   m_MaxSize: {x: 14006, y: 14044}
   vertical: 0
-  controlID: 33
+  controlID: 56
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 616}
   m_MaxSize: {x: 18008, y: 18066}
   vertical: 0
-  controlID: 31
+  controlID: 54
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -293,7 +293,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 616}
   m_MaxSize: {x: 14006, y: 18066}
   vertical: 1
-  controlID: 32
+  controlID: 55
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -393,7 +393,7 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/MainMenu/Scenes
   m_LastFoldersGridSize: 53
-  m_LastProjectPath: C:\Users\Patrik\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's
+  m_LastProjectPath: C:\Users\David\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's
     Last Chapter
   m_LockTracker:
     m_IsLocked: 0
@@ -549,21 +549,21 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 86}
+      scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 6cdaffff70e0ffffd4f1fffffef1fffff6f2ffff18f4ffff58faffff3e3a0000483a00006c3a0000763a0000903a0000e4410000
+      m_ExpandedIDs: ccd3ffff0ee7ffff58faffffb6360000da360000f8360000283700003c3f00007e3f0000ae3f0000b63f0000584600007c4600009a460000f2460000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Main Camera
-        m_OriginalName: Main Camera
+        m_Name: UIChar(Clone)
+        m_OriginalName: UIChar(Clone)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 14984
+        m_UserData: -11980
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -612,9 +612,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.6703715, y: 0.18559386, z: -10}
+    m_Target: {x: -1.5454307, y: 0.8628119, z: -22.837204}
     speed: 2
-    m_Value: {x: -1.6703715, y: 0.18559386, z: -10}
+    m_Value: {x: -1.5454307, y: 0.8628119, z: -22.837204}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -647,9 +647,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 22
+    m_Target: 11.559049
     speed: 2
-    m_Value: 22.000013
+    m_Value: 11.559049
   m_Ortho:
     m_Target: 1
     speed: 2
