@@ -29,7 +29,7 @@ public class HubCharController : MonoBehaviour
         {
             i++;
             character.GetComponent<RectTransform>().position = new Vector3(character.transform.parent.position.x - 50,
-                (character.transform.parent.position.y + 275) - (i * 85), 0);
+                                                                            (character.transform.parent.position.y + 275) - (i * 85), 0);
             
         }
     }
