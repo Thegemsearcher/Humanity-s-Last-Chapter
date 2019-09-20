@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AddToPlayerRoster.cs" />
+    <Compile Include="Assets\HubCharController.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CampScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\clickOnBuilding.cs" />

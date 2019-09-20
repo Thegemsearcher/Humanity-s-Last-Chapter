@@ -5,6 +5,8 @@ using UnityEngine;
 public class AddToPlayerRoster : MonoBehaviour
 {
     public GameObject UIParent;
+    public GameObject controller;
+    public bool owned = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,21 +17,25 @@ public class AddToPlayerRoster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        //    if (GetComponent<Collider2D>().OverlapPoint(mousePosition))
-        //    {
-        //        AddToPlayer();
-        //    }
-        //}
     }
     
     public void AddToPlayer()
     {
+        if (owned)
+        {
+            return;
+        }
         this.transform.SetParent(UIParent.transform);
-        GetComponent<RectTransform>().position = new Vector3(GetComponent<RectTransform>().position.x - 200, 
-            GetComponent<RectTransform>().position.y, 0);
+        //GetComponent<RectTransform>().position = new Vector3(GetComponent<RectTransform>().position.x - 200,
+        //    GetComponent<RectTransform>().position.y, 0);
+        GameObject[] controllers = GameObject.FindGameObjectsWithTag("Controller");
+        for (int i  = 0; i < controllers.Length; i++)
+        {
+            controllers[i].GetComponent<HubCharController>().AddToRoster(gameObject);
+        }
+
+        controller = controllers[0];
+        owned = true;
     }
 }

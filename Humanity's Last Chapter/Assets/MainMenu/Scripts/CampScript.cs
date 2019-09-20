@@ -8,15 +8,16 @@ public class CampScript : MonoBehaviour
     public GameObject character;
     public GameObject UIscreenthingy;
     public GameObject UIforCamp;
+    public GameObject Controller;
 
-    private List<GameObject> playerRoster = new List<GameObject>();
+    
     private List<GameObject> campRoster = new List<GameObject>();
-
+    private bool existingRoster = false;
    
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
@@ -31,21 +32,26 @@ public class CampScript : MonoBehaviour
         go.transform.SetParent(UIforCamp.transform);
         go.GetComponent<AddToPlayerRoster>().UIParent = UIscreenthingy;
         go.GetComponent<Button>().onClick.AddListener(go.GetComponent<AddToPlayerRoster>().AddToPlayer);
+        go.GetComponentInChildren<Text>().text = name;
         campRoster.Add(go);
     }
 
     public void CreateRoster()
     {
-        int rand = Random.Range(2, 5);
-        for (int i = 0; i < rand; i++)
+        if (!existingRoster)
         {
-            CreateCharacter("placeholder " + i, new Vector3(310, 550 - (i * 75), 0));
+            int rand = Random.Range(2, 5);
+            for (int i = 0; i < rand; i++)
+            {
+                CreateCharacter("placeholder " + i, new Vector3(310, 550 - (i * 75), 0));
+            }
+            existingRoster = true;
         }
     }
 
     public void SetRoster(List<GameObject> playerRoster)
     {
-        this.playerRoster = playerRoster;
+        //this.playerRoster = playerRoster;
     }
 
     static public void addToPlayer(GameObject character)

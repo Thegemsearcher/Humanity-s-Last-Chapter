@@ -136,6 +136,9 @@ MonoBehaviour:
   hp: 0
   atk: 0
   def: 0
+  characterUI: {fileID: 0}
+  prefabCharacterUI: {fileID: 7764590256463767525, guid: 2db83e11f7073c54ea336be12e635e6b,
+    type: 3}
 --- !u!114 &-3464877839991229020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIParent: {fileID: 0}
+  controller: {fileID: 0}
+  owned: 0
 --- !u!61 &-4122374623819251676
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -209,7 +214,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 47, y: -7}
+  m_AnchoredPosition: {x: 36.6, y: -7}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3642699830449446214
