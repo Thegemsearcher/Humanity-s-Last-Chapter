@@ -4,31 +4,81 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
+
+    public float speed = 5.0f;
+    public float edgeScrollSpeed = 0.5f;
+    private float zoom = 400;
+
+    private Camera myCam;
     // Start is called before the first frame update
     void Start()
     {
+        myCam = GetComponent<Camera>();
         
     }
-    public float speed = 5.0f;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        ScrollZoom();
+        EdgeScroll();
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             transform.Translate(new Vector3(-speed * Time.deltaTime, 0, 0));
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             transform.Translate(new Vector3(0, speed * Time.deltaTime, 0));
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
         {
             transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
         }
+    }
+    private void ScrollZoom()
+    {
+        float zoomchange = 80f;
+        if (Input.GetKey(KeyCode.KeypadPlus))
+        {
+            zoom -= zoomchange * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.KeypadMinus))
+        {
+            zoom += zoomchange * Time.deltaTime;
+        }
+        if (Input.mouseScrollDelta.y > 0)
+        {
+            zoom -= zoomchange * Time.deltaTime * 10;
+        }
+        if (Input.mouseScrollDelta.y < 0)
+        {
+            zoom += zoomchange * Time.deltaTime * 10;
+        }
+            
+        myCam.orthographicSize = zoom;
+    }
 
+    private void EdgeScroll() //if your mouse goes towards the edge of the screen the screen will go that way
+    {
+        int edgeSize = 75;
+        if (Input.mousePosition.x > Screen.width - edgeSize)
+        {
+            transform.Translate(new Vector3(speed * Time.deltaTime * edgeScrollSpeed, 0, 0));
+        }
+        if (Input.mousePosition.x < edgeSize)
+        {
+            transform.Translate(new Vector3(-speed * Time.deltaTime * edgeScrollSpeed, 0, 0));
+        }
+        if (Input.mousePosition.y > Screen.height - edgeSize)
+        {
+            transform.Translate(new Vector3(0, speed * Time.deltaTime * edgeScrollSpeed, 0));
+        }
+        if (Input.mousePosition.y <edgeSize)
+        {
+            transform.Translate(new Vector3(0, -speed * Time.deltaTime * edgeScrollSpeed, 0));
+        }
     }
 }

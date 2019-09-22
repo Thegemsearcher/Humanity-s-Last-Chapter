@@ -8,9 +8,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1656758311857883158}
+  - component: {fileID: 7672920776775706971}
   - component: {fileID: 3427300970475694039}
   - component: {fileID: 6895596188057859652}
+  - component: {fileID: 1949019286315225964}
   m_Layer: 5
   m_Name: HumanityBoi
   m_TagString: Character
@@ -18,20 +19,25 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1656758311857883158
-Transform:
+--- !u!224 &7672920776775706971
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6632232453216248047}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.190714, y: -0.001807332, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.190714, y: -0.001807332}
+  m_SizeDelta: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &3427300970475694039
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -96,3 +102,11 @@ MonoBehaviour:
   name: 
   health: 20
   id: 0
+--- !u!222 &1949019286315225964
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632232453216248047}
+  m_CullTransparentMesh: 0

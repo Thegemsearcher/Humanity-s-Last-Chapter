@@ -26,6 +26,7 @@ public class AddToPlayerRoster : MonoBehaviour
         {
             return;
         }
+        //DontDestroyOnLoad(gameObject);
         this.transform.SetParent(UIParent.transform);
         //GetComponent<RectTransform>().position = new Vector3(GetComponent<RectTransform>().position.x - 200,
         //    GetComponent<RectTransform>().position.y, 0);
@@ -34,7 +35,7 @@ public class AddToPlayerRoster : MonoBehaviour
         {
             controllers[i].GetComponent<HubCharController>().AddToRoster(gameObject);
         }
-
+        StaticCharacters.AddPC(gameObject);
         controller = controllers[0];
         owned = true;
     }

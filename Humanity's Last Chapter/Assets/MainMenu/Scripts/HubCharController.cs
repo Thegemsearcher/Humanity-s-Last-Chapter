@@ -27,9 +27,9 @@ public class HubCharController : MonoBehaviour
         go.GetComponent<Button>().onClick.AddListener(go.GetComponent<stats>().BringUpStats);
         foreach (GameObject character in playerRoster)
         {
-            i++;                                                                                                //Removed the off-sets here, because I think they should only be in the CampScript (maybe not?)
-            character.GetComponent<RectTransform>().position = new Vector3(character.transform.parent.position.x/* - 0.6f*/,
-                                                                            (character.transform.parent.position.y/* + 3.3f*/) - (i * 1), 0);
+            i++;                                  //Removed the off-sets here, because I think they should only be in the CampScript (maybe not?) YES IT IS NEEDED
+            character.GetComponent<RectTransform>().position = new Vector3(character.transform.parent.position.x - 0.6f,
+                                                                            (character.transform.parent.position.y + 3.3f) - (i * 1), 0);
             
         }
     }
