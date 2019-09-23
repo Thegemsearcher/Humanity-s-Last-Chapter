@@ -11,7 +11,6 @@ public class CharacterScript : MonoBehaviour {
     GameObject[] charactersO;
 
     void Start() {
-        Debug.Log("Start");
         if (name == "") {
             name = NameGenerator();
             id = GetId();
@@ -34,9 +33,7 @@ public class CharacterScript : MonoBehaviour {
     }
 
     public void LoadPlayer(int id) {
-        Debug.Log("LoadPlayer");
         CharacterData data = SaveSystem.LoadCharacter(id);
-        Debug.Log("ID: " + id + " Data Name: " + data.name);
 
         this.name = data.name;
         this.health = data.health;
