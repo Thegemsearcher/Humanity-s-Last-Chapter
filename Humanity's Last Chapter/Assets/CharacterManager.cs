@@ -11,20 +11,21 @@ public class CharacterManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach(GameObject pc in StaticCharacters.GetAllPCs())
-        {
-            GameObject newPC = Instantiate(humanityBoi);
-            //newPC.GetComponent<RectTransform>().localScale = new Vector3(170, 170, 1);
-            newPC.transform.localScale = new Vector3(170, 170, 1);
-            PCs.Add(newPC);
-        }
+        //foreach(GameObject pc in StaticCharacters.GetAllPCs())
+        //{
+        //    GameObject newPC = Instantiate(humanityBoi);
+        //    //newPC.GetComponent<RectTransform>().localScale = new Vector3(170, 170, 1);
+        //    newPC.transform.localScale = new Vector3(170, 170, 1);
+        //    PCs.Add(newPC);
+        //}
     }
 
     // Update is called once per frame
     void Update()
     {
+        GameObject[] pcs = GameObject.FindGameObjectsWithTag("Character");
         int i = 0, j = 0;
-        foreach (GameObject pc in PCs)
+        foreach (GameObject pc in pcs)
         {
             i++;
             j++;

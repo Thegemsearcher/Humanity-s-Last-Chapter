@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3427300970475694039}
   - component: {fileID: 6895596188057859652}
   - component: {fileID: 1949019286315225964}
+  - component: {fileID: 8453215702193933148}
   m_Layer: 5
   m_Name: HumanityBoi
   m_TagString: Character
@@ -110,3 +111,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6632232453216248047}
   m_CullTransparentMesh: 0
+--- !u!114 &8453215702193933148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6632232453216248047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc10bab95e63aaa428b191abb3c44eb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hp: 0
+  atk: 0
+  def: 0
+  characterUI: {fileID: 3642699830238041902, guid: 1e048e086c55d6d4390d4bf4f9e5f925,
+    type: 3}
+  prefabCharacterUI: {fileID: 7764590256463767525, guid: 2db83e11f7073c54ea336be12e635e6b,
+    type: 3}

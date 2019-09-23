@@ -14,7 +14,7 @@ public class CampScript : MonoBehaviour
     private List<GameObject> campRoster = new List<GameObject>();
     private bool existingRoster = false;
 
-    int /*offsetX = 0,*/ offsetY = -1;
+    float offsetX = 1, offsetY = -1.5f;
    
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,7 @@ public class CampScript : MonoBehaviour
             int rand = Random.Range(2, 5);
             for (int i = 0; i < rand; i++)
             {                                                   //Added transform.localPosition.x and y here to make the position dynamic. Y-pos appears to be at the bottom of the camp-window, though.
-                CreateCharacter("placeholder " + i, new Vector3(transform.localPosition.x, -1 * transform.localPosition.y - i + offsetY,0)/*310, 550 - (i * 75), 0)*/);
+                CreateCharacter("placeholder " + i, new Vector3(transform.localPosition.x + offsetX, -1 * transform.localPosition.y - i + offsetY,0)/*310, 550 - (i * 75), 0)*/);
             }
             existingRoster = true;
         }

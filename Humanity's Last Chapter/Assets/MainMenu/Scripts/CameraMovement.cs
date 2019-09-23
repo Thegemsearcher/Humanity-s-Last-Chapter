@@ -63,7 +63,7 @@ public class CameraMovement : MonoBehaviour
 
     private void EdgeScroll() //if your mouse goes towards the edge of the screen the screen will go that way
     {
-        int edgeSize = 75;
+        int edgeSize = 50;
         if (Input.mousePosition.x > Screen.width - edgeSize)
         {
             transform.Translate(new Vector3(speed * Time.deltaTime * edgeScrollSpeed, 0, 0));

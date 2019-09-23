@@ -15,7 +15,6 @@ public class CharacterScript : MonoBehaviour {
             name = NameGenerator();
             id = GetId();
         }
-        
     }
     private string NameGenerator() {
         name = firstName[(int)Random.Range(0, firstName.Length)] + " " + lastName[(int)Random.Range(0, lastName.Length)];
@@ -23,7 +22,7 @@ public class CharacterScript : MonoBehaviour {
     }
 
     private int GetId() {
-        int characterCounter = GameObject.Find("CharacterManager").transform.childCount;
+        int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount;
         id = characterCounter-1;
         return id;
     }

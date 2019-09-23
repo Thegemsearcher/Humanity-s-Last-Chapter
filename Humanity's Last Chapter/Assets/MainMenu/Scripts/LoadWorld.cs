@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.UI;
 
 public class LoadWorld : MonoBehaviour {
     GameObject characterO;
@@ -21,9 +22,33 @@ public class LoadWorld : MonoBehaviour {
         else {
             characterCounter = Directory.GetFiles(Application.persistentDataPath + "/Characters/").Length;
             for (int i = 0; i < characterCounter; i++) { //Gör vi såhär så raderar vi inte character utan kanske har en bool som säger om de ska visas eller inte
-                characterO = Instantiate(character, new Vector2(0, 0), Quaternion.identity) as GameObject;
-                characterO.transform.parent = GameObject.Find("CharacterManager").transform;
-                characterO.GetComponent<CharacterScript>().LoadPlayer(i);
+                if (character.GetComponent<AddToPlayerRoster>() != null)
+                {
+                    characterO = Instantiate(character);
+                    characterO.GetComponent<Button>().onClick.AddListener(characterO.GetComponent<AddToPlayerRoster>().AddToPlayer);
+                    characterO.GetComponentInChildren<Text>().text = characterO.GetComponent<CharacterScript>().name;
+                    GameObject go = GameObject.Find("forCharacters");
+                    GameObject actualParent = GameObject.Find("forCamp");
+                    characterO.transform.SetParent(go.transform, false);
+                    characterO.GetComponent<AddToPlayerRoster>().UIParent = go;
+                    GameObject[] controllers = GameObject.FindGameObjectsWithTag("Controller");
+                    for (int j = 0; j < controllers.Length; j++)
+                    {
+                        controllers[j].GetComponent<HubCharController>().AddToRoster(characterO);
+                    }
+                    characterO.GetComponent<AddToPlayerRoster>().owned = true;
+                    characterO.GetComponent<AddToPlayerRoster>().controller = controllers[0];
+                    //TODO: snälla fixa bättre, den ville bara inte för oss
+
+                    characterO.transform.localScale = new Vector3(5.9f, 0.9f, 1);
+
+                    characterO.GetComponent<CharacterScript>().LoadPlayer(i);
+                } else
+                {
+                    characterO = Instantiate(character, new Vector2(0, 0), Quaternion.identity) as GameObject;
+                    characterO.transform.parent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
+                    characterO.GetComponent<CharacterScript>().LoadPlayer(i);
+                }
             }
         }
     }

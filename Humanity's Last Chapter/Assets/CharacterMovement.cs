@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     private Vector3 mousePosition;
-    public float moveSpeed = 0.1f;
+    public float moveSpeed = 0.035f;
 
     private List<Vector3> waypoints = new List<Vector3>();
     private int currentWaypoint = 0;
@@ -19,8 +19,16 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(1))
+        bool toRemove = false;
+        if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftShift))
         {
+            mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            waypoints.Add(mousePosition);
+        }
+        if (Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftShift))
+        {
+            waypoints.Clear();
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
@@ -32,8 +40,14 @@ public class CharacterMovement : MonoBehaviour
             if (Vector3.Distance(transform.position, waypoints[currentWaypoint]) < 20 && waypoints.Count > currentWaypoint + 1)
             {
                 //Debug.Log("in if");
-                currentWaypoint++;
+                toRemove = true;
+                //currentWaypoint++;
             }
+        }
+        if (toRemove)
+        {
+            waypoints.Remove(waypoints[0]);
+            toRemove = false;
         }
     }
 }
