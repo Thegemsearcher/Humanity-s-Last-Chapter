@@ -78,8 +78,10 @@
     <Compile Include="Assets\MainMenu\Scripts\MissionManagerScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\PartyScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Recruit.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\SaveSlotManager.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveSystem.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SceneSwitcher.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\SetLevelScripts.cs" />
     <Compile Include="Assets\MainMenu\Scripts\StaticCharacters.cs" />
     <Compile Include="Assets\MainMenu\Scripts\stats.cs" />
     <Reference Include="Unity.Timeline.Editor">

@@ -32,4 +32,15 @@ public static class SaveSystem {
             return null;
         }
     }
+
+    public static void ActiveSave(int slot) {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/ActiveSave.txt";
+        FileStream stream = new FileStream(path, FileMode.Create);
+
+        //CharacterData data = new CharacterData(character);
+
+        formatter.Serialize(stream, slot);
+        stream.Close();
+    }
 }
