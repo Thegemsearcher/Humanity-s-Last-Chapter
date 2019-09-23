@@ -74,6 +74,7 @@
     <Compile Include="Assets\MainMenu\Scripts\ExitOnClick.cs" />
     <Compile Include="Assets\MainMenu\Scripts\HubCharController.cs" />
     <Compile Include="Assets\MainMenu\Scripts\LoadSceneOnClick.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\LoadWorld.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MissionManagerScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\PartyScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Recruit.cs" />
