@@ -723,7 +723,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1341454741
 MonoBehaviour:
@@ -750,6 +750,7 @@ GameObject:
   - component: {fileID: 1507006566}
   - component: {fileID: 1507006565}
   - component: {fileID: 1507006564}
+  - component: {fileID: 1507006567}
   m_Layer: 0
   m_Name: PCManager
   m_TagString: Untagged
@@ -799,6 +800,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1507006567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507006563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8980a2343f7fc2648bd95c5b05ddfad7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  character: {fileID: 6632232453216248047, guid: ff0430f229024c44fa7e3a21d306ed46,
+    type: 3}
 --- !u!1001 &1603026399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -815,6 +830,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895596188057859652, guid: ff0430f229024c44fa7e3a21d306ed46,
+        type: 3}
+      propertyPath: name
+      value: Greg
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895596188057859652, guid: ff0430f229024c44fa7e3a21d306ed46,
+        type: 3}
+      propertyPath: id
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1656758311857883158, guid: ff0430f229024c44fa7e3a21d306ed46,
         type: 3}
@@ -885,16 +910,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 173.08948
-      objectReference: {fileID: 0}
-    - target: {fileID: 6895596188057859652, guid: ff0430f229024c44fa7e3a21d306ed46,
-        type: 3}
-      propertyPath: name
-      value: Greg
-      objectReference: {fileID: 0}
-    - target: {fileID: 6895596188057859652, guid: ff0430f229024c44fa7e3a21d306ed46,
-        type: 3}
-      propertyPath: id
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff0430f229024c44fa7e3a21d306ed46, type: 3}

@@ -6,7 +6,7 @@ public static class SaveSystem {
 
     public static void SaveCharacter(CharacterScript character) {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/character("+character.id+").txt"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
+        string path = Application.persistentDataPath + "/Characters/character("+character.id+").txt"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
         FileStream stream = new FileStream(path, FileMode.Create);
 
         CharacterData data = new CharacterData(character);
@@ -16,7 +16,8 @@ public static class SaveSystem {
     }
 
     public static CharacterData LoadCharacter(int id) {
-        string path = Application.persistentDataPath + "/character("+id+".txt";
+        string path = Application.persistentDataPath + "/Characters/character("+id+").txt";
+        Debug.Log(path);
 
         if(File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();
