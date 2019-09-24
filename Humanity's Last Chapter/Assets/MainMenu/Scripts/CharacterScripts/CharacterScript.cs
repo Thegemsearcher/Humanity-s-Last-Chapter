@@ -23,7 +23,8 @@ public class CharacterScript : MonoBehaviour {
 
     private int GetId() {
         int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount;
-        id = characterCounter-1;
+        Debug.Log("characterCounter: " + characterCounter);
+        id = characterCounter;
         return id;
     }
 
