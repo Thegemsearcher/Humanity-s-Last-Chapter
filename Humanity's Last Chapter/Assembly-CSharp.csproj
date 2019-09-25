@@ -64,6 +64,7 @@
   <ItemGroup>
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\CampScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\clickOnBuilding.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Buttons\btnAppointScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CameraMovement.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\AddToPlayerRoster.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterData.cs" />
@@ -74,10 +75,12 @@
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\Recruit.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\StaticCharacters.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\stats.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\CharacterWindow.cs" />
     <Compile Include="Assets\MainMenu\Scripts\charDebug.cs" />
     <Compile Include="Assets\MainMenu\Scripts\ExitOnClick.cs" />
     <Compile Include="Assets\MainMenu\Scripts\HubCharController.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MissionManagerScript.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\partySelectorScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\LoadSceneOnClick.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\LoadWorld.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SaveSlotManager.cs" />
