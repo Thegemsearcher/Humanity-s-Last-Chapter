@@ -207,10 +207,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f5640a7fed3166498fb8ffd89b6ca6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgPortrait: {fileID: 0}
+  partyView: {fileID: 0}
+  btnSelectO: {fileID: 7786083290974343314}
   txtInfo: {fileID: 3787343033858371126}
   txtName: {fileID: 7286097116637519908}
   txtTraits: {fileID: 6593850378235802730}
+  ID: 0
+  isSelected: 0
 --- !u!1 &3776184504915161403
 GameObject:
   m_ObjectHideFlags: 0

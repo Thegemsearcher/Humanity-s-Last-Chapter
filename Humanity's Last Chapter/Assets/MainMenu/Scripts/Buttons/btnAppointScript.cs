@@ -10,12 +10,14 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
 
     private void Start() {
         isAppointed = false;
+        ShowBtn();
     }
 
     public void btnAppoint() {
-        partyView.GetComponent<partySelectorScript>().AppointCharacter(role);
-        isAppointed = true;
-        ShowBtn();
+        if(partyView.GetComponent<partySelectorScript>().AppointCharacter(role)) {
+            isAppointed = true;
+            ShowBtn();
+        }
     }
 
     public void btnRemove() {

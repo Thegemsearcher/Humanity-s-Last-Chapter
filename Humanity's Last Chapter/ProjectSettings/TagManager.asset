@@ -9,6 +9,9 @@ TagManager:
   - Character
   - CharacterManager
   - LoadManager
+  - PartyView
+  - CharacterWindow
+  - role
   layers:
   - Default
   - TransparentFX

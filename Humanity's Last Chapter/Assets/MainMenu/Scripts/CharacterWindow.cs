@@ -4,12 +4,16 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class CharacterWindow : MonoBehaviour {
-    public Texture2D imgPortrait;
+    public GameObject btnSelectO;
+    private GameObject partyView;
+    private Texture2D imgPortrait;
     public Text txtInfo, txtName, txtTraits;
     string info, name, traits;
-    int ID;
+    public int ID;
+    public bool isSelected;
 
     private void Start() {
+        partyView = GameObject.Find("selectPartyView");
         info = "C: - S: - R: - N: - E: -";
         traits = "Traits: -";
         txtInfo.text = info;
@@ -20,5 +24,19 @@ public class CharacterWindow : MonoBehaviour {
         this.name = name;
         this.ID = ID;
         txtName.text = name;
+    }
+
+    public void btnSelect() {
+        partyView.GetComponent<partySelectorScript>().SelectCharacter(ID);
+        isSelected = true;
+    }
+
+    public void ShowBtn() {
+        if(isSelected) {
+            btnSelectO.SetActive(false);
+        }
+        else {
+            btnSelectO.SetActive(true);
+        }
     }
 }
