@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\clickAndDrag.cs" />
     <Compile Include="Assets\FormationsScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\CampScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\clickOnBuilding.cs" />
@@ -89,7 +90,6 @@
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SceneSwitcher.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SetLevelScripts.cs" />
     <Reference Include="Unity.Timeline.Editor">
-<<<<<<< HEAD
       <HintPath>C:/Users/David/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
@@ -121,39 +121,6 @@
     </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>C:/Users/David/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
-=======
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.VSCode.Editor">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Timeline">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.Rider.Editor">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
-    </Reference>
-    <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.UI">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
->>>>>>> ed1444c65f99b0f16388f442e45cfba7dfb39747
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>X:/Unity/unity/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -333,7 +300,7 @@
       <HintPath>X:/Unity/unity/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
-      <HintPath>D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+      <HintPath>C:/Users/David/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>X:/Unity/unity/2019.2.5f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
