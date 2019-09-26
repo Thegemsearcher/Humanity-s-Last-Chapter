@@ -12,6 +12,7 @@ TagManager:
   - PartyView
   - CharacterWindow
   - role
+  - FuckingFindThisPieceOfShitPlease
   layers:
   - Default
   - TransparentFX
