@@ -8,6 +8,7 @@ public class CameraMovement : MonoBehaviour
     public float speed = 5.0f;
     public float edgeScrollSpeed = 0.5f;
     private float zoom = 400;
+    public bool edgeScrollEnabled = true;
 
     private Camera myCam;
     // Start is called before the first frame update
@@ -63,6 +64,17 @@ public class CameraMovement : MonoBehaviour
 
     private void EdgeScroll() //if your mouse goes towards the edge of the screen the screen will go that way
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!edgeScrollEnabled)
+                edgeScrollEnabled = true;
+            else
+                edgeScrollEnabled = false;
+        }
+        if (!edgeScrollEnabled)
+        {
+            return;
+        }
         int edgeSize = 50;
         if (Input.mousePosition.x > Screen.width - edgeSize)
         {
