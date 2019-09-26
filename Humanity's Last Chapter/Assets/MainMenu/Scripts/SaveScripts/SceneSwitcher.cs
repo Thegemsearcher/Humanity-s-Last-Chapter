@@ -14,6 +14,9 @@ public class SceneSwitcher : MonoBehaviour {
         foreach(GameObject go in charactersO) {
             go.GetComponent<CharacterScript>().SavePlayer();
         }
+
+        //ska fixa att int[] missionParty frång partySelectorScript skrivs till en fil
+
         SceneManager.LoadScene("MissionMap");
     }
 }

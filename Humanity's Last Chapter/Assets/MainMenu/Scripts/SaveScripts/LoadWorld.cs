@@ -11,9 +11,7 @@ public class LoadWorld : MonoBehaviour {
     int characterCounter;
 
     void Start() {
-        Debug.Log("LW: Start");
         if(!Directory.Exists(Application.persistentDataPath + "/Characters")) {
-            Debug.Log("It got here");
             BinaryFormatter formatter = new BinaryFormatter();
             string path = Application.persistentDataPath; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
             Directory.CreateDirectory(path + "/Party");
@@ -38,10 +36,11 @@ public class LoadWorld : MonoBehaviour {
                     }
                     characterO.GetComponent<AddToPlayerRoster>().owned = true;
                     characterO.GetComponent<AddToPlayerRoster>().controller = controllers[0];
+
                     //TODO: snälla fixa bättre, den ville bara inte för oss
+                    //Vad är det som inte fungerar?
 
                     characterO.transform.localScale = new Vector3(5.9f, 0.9f, 1);
-
                     characterO.GetComponent<CharacterScript>().LoadPlayer(i);
                 } else
                 {

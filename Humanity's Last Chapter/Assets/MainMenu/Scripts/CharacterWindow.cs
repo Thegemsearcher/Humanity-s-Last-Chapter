@@ -8,9 +8,8 @@ public class CharacterWindow : MonoBehaviour {
     private GameObject partyView;
     private Texture2D imgPortrait;
     public Text txtInfo, txtName, txtTraits;
-    string info, name, traits;
+    public string info, name, traits;
     public int ID;
-    public bool isSelected;
 
     private void Start() {
         partyView = GameObject.Find("selectPartyView");
@@ -28,10 +27,9 @@ public class CharacterWindow : MonoBehaviour {
 
     public void btnSelect() {
         partyView.GetComponent<partySelectorScript>().SelectCharacter(ID);
-        isSelected = true;
     }
 
-    public void ShowBtn() {
+    public void ShowBtn(bool isSelected) {
         if(isSelected) {
             btnSelectO.SetActive(false);
         }
