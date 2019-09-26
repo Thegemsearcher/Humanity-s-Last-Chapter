@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class clickAndDrag : MonoBehaviour
 {
+    Vector3 mousePos, lastMousePos;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,15 +15,16 @@ public class clickAndDrag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (gameObject.GetComponent<CircleCollider2D>().OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+        lastMousePos = mousePos;
+        mousePos = Input.mousePosition;
+        //när man hoverar över en karaktärs cirkel så blir den gul, när man klickar, håller inne och flyttra musen så följer den efter
+        if (gameObject.GetComponent<CircleCollider2D>().OverlapPoint(mousePos) || gameObject.GetComponent<CircleCollider2D>().OverlapPoint(lastMousePos))
         {
             gameObject.GetComponent<Image>().color = Color.yellow;
 
             if (Input.GetKey(KeyCode.Mouse0))
             {
-                gameObject.transform.position = new Vector3(Input.mousePosition.x/ gameObject.GetComponentInParent<Transform>().position.x, 
-                    Input.mousePosition.y / gameObject.GetComponentInParent<Transform>().position.y, 0);//Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                transform.position = mousePos;
             }
 
         } else
