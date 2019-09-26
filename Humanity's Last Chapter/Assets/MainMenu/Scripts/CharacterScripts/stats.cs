@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class stats : MonoBehaviour
 {
-    public int hp, atk, def;
+    public int hp, str, def;
     public GameObject characterUI;
     public GameObject prefabCharacterUI;
     // Start is called before the first frame update
