@@ -21,17 +21,17 @@ public class CharacterManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //ligger nu mera i personal movement
     {
-        GameObject[] pcs = GameObject.FindGameObjectsWithTag("Character");
-        int i = 0, j = 0;
-        foreach (GameObject pc in pcs)
-        {
-            i++;
-            j++;
-            forChar.x = transform.position.x + i * 50;
-            forChar.y = transform.position.y + j * 50;
-            pc.transform.position = forChar;
-        }
+        //GameObject[] pcs = GameObject.FindGameObjectsWithTag("Character");
+        //int i = 0, j = 0;
+        //foreach (GameObject pc in pcs)
+        //{
+        //    i++;
+        //    j++;
+        //    forChar.x = transform.position.x + i * 50;
+        //    forChar.y = transform.position.y + j * 50;
+        //    pc.transform.position = forChar;
+        //}
     }
 }
