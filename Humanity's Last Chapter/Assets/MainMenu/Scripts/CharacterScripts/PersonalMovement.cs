@@ -28,7 +28,8 @@ public class PersonalMovement : MonoBehaviour
 
     private void Positioning()
     {
-        if ((transform.parent.position + relativePos) != transform.parent.position/*Vector3.Distance(transform.position, transform.parent.position + relativePos) > 10*/)
+        if ((transform.parent.position + relativePos) != transform.parent.position &&
+            Vector3.Distance(transform.position, transform.parent.position + relativePos) > 10)
         {
             waypoints.Add(posPlusRel);
             //Debug.Log(" " + (gameObject.transform.parent.position + relativePos));
