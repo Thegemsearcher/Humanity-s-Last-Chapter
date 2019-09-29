@@ -24,6 +24,7 @@ public class PartyScript : MonoBehaviour {
                 characterO.transform.parent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
                 characterO.transform.localScale = new Vector3(170, 170, 1);
                 characterO.GetComponent<CharacterScript>().LoadPlayer(missionOrder[i]);
+                characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i * 50, i * 50);
                 //rollen karaktären har borde gå att bestämmas med i
             }
             

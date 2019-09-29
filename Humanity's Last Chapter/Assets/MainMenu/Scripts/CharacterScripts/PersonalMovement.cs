@@ -6,6 +6,7 @@ public class PersonalMovement : MonoBehaviour
     public float charactersMovespeed = 0.035f;
     public Vector3 relativePos = Vector3.zero;
     public Vector3 posPlusRel;
+    public Vector3 posi;
     private List<Vector3> waypoints = new List<Vector3>();
     // Start is called before the first frame update
     void Start()
@@ -16,7 +17,7 @@ public class PersonalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        posPlusRel = transform.parent.position + relativePos;
+        posi = transform.position;
         Positioning();
         Movement();
     }
@@ -26,16 +27,27 @@ public class PersonalMovement : MonoBehaviour
         waypoints.Add(pos);
     }
 
+    public void AddRelativeWaypoint()
+    {
+        posPlusRel = transform.parent.GetComponent<CharacterMovement>().NextWaypoint() + relativePos;
+        waypoints.Add(posPlusRel);
+    }
+
+    public void FlushWaypoints()
+    {
+        waypoints.Clear();
+    }
+
     private void Positioning()
     {
-        if ((transform.parent.position + relativePos) != transform.parent.position &&
-            Vector3.Distance(transform.position, transform.parent.position + relativePos) > 10)
-        {
-            waypoints.Add(posPlusRel);
-            //Debug.Log(" " + (gameObject.transform.parent.position + relativePos));
-            //Debug.Log("distance  :   " + Vector3.Distance(transform.position, gameObject.transform.parent.position + relativePos));
-            //Debug.Log("relative pos  :  " + relativePos);
-        }
+        //if ((transform.parent.position + relativePos) != transform.parent.position 
+        //    /*&& Vector3.Distance(transform.position, posPlusRel) > 10*/)
+        //{
+        //    waypoints.Add(posPlusRel);
+        //    //Debug.Log(" " + (gameObject.transform.parent.position + relativePos));
+        //    //Debug.Log("distance  :   " + Vector3.Distance(transform.position, gameObject.transform.parent.position + relativePos));
+        //    //Debug.Log("relative pos  :  " + relativePos);
+        //}
     }
 
     private void Movement()
@@ -45,12 +57,12 @@ public class PersonalMovement : MonoBehaviour
         if (waypoints.Count != 0)
         {
 
-            Debug.Log("in if 1 ");
+           // Debug.Log("in if 1 ");
             transform.position = Vector2.Lerp(transform.position, waypoints[0], charactersMovespeed);
 
-            if (Vector3.Distance(transform.position, waypoints[0]) < 20 /*&& waypoints.Count > 1*/)
+            if (Vector3.Distance(transform.position, waypoints[0]) < 10 /*&& waypoints.Count > 1*/)
             {
-                Debug.Log("in if 2 ");
+                //Debug.Log("in if 2 ");
                 toRemove = true;
                 //currentWaypoint++;
             }
