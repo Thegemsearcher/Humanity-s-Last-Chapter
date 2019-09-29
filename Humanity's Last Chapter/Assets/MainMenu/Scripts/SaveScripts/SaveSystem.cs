@@ -17,7 +17,6 @@ public static class SaveSystem {
 
     public static CharacterData LoadCharacter(int id) {
         string path = Application.persistentDataPath + "/Characters/character("+id+").txt";
-        Debug.Log(path);
 
         if(File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -42,5 +41,30 @@ public static class SaveSystem {
 
         formatter.Serialize(stream, slot);
         stream.Close();
+    }
+
+    public static void SavePartyOrder(int[] missionParty) {
+        BinaryFormatter formatter = new BinaryFormatter();
+        string path = Application.persistentDataPath + "/Party/partyOrder.txt";
+        FileStream stream = new FileStream(path, FileMode.Create);
+        formatter.Serialize(stream, missionParty);
+        stream.Close();
+
+    }
+
+    public static int[] LoadPartyOrder() {
+        string path = Application.persistentDataPath + "/Party/partyOrder.txt";
+
+        if(File.Exists(path)) {
+            BinaryFormatter formatter = new BinaryFormatter();
+            FileStream stream = new FileStream(path, FileMode.Open);
+
+            int[] missionParty = formatter.Deserialize(stream) as int[];
+            stream.Close();
+            return missionParty;
+        } else {
+            Debug.LogError("Save file not found in " + path);
+            return null;
+        }
     }
 }

@@ -14,7 +14,7 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
     private CharacterScript characterScript;
     private CharacterWindow windowScript;
     private btnAppointScript roleScript;
-    private int[] missionParty; //Denna intArray ska spara id för karaktärena som ska på mission
+    public int[] missionParty; //Denna intArray ska spara id för karaktärena som ska på mission
 
     void Start() {
         //Skriva ut character rutor för varje karaktär
@@ -25,7 +25,7 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
         
         missionParty = new int[5]; //Femman är hur många roller som kan vara på mission... ska vi ha oändligt kommer nog inte en array att fungera
         for (int i = 0; i < missionParty.Length; i++) {
-            missionParty[i] = (int)(100/contreverter);
+            missionParty[i] = -1;
         }
         CreateCharacterWindow();
         CreateRoleWindow();
@@ -94,9 +94,4 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
     public void SelectCharacter(int id) {
         selectedCharacter = id;
     }
-
-    public void btnGoToMission() {
-        //skriver över missionArray i en fil
-    }
-    
 }
