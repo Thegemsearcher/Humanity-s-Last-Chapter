@@ -59,3 +59,7 @@ sysinfo.txt
 *.unitypackage
 
 # Crashlytics generated file
+crashlytics-build.properties
+
+# Davids tillagda fil
+CurrentLayout-default.dwlt
