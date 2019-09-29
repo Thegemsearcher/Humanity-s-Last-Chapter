@@ -26,9 +26,10 @@ public class PersonalMovement : MonoBehaviour
         waypoints.Add(pos);
     }
 
-    public void AddRelativeWaypoint()
+    public void AddRelativeWaypoint(Vector3 toAdd)
     {
-        posPlusRel = transform.parent.GetComponent<CharacterMovement>().NextWaypoint() + relativePos;
+        Debug.Log("adding: " + toAdd);
+        posPlusRel = toAdd + relativePos;
         waypoints.Add(posPlusRel);
     }
 
@@ -53,21 +54,23 @@ public class PersonalMovement : MonoBehaviour
     {
         //transform.position = transform.parent.position + relativePos;
         bool toRemove = false;
-        if (waypoints.Count != 0)
+        Debug.Log("" + waypoints.Count);
+        if (waypoints.Count > 0)
         {
 
-           // Debug.Log("in if 1 ");
+            Debug.Log("in1");
             transform.position = Vector2.Lerp(transform.position, waypoints[0], charactersMovespeed);
-
-            if (Vector3.Distance(transform.position, waypoints[0]) < 10 /*&& waypoints.Count > 1*/)
+            //Debug.Log("" + posi.x + ", " + posi.y + " and waypoint at: " + +waypoints[0].x + ", " + waypoints[0]);
+            if (Vector3.Distance(transform.position, waypoints[0]) < 11 /*&& waypoints.Count > 1*/)
             {
-                //Debug.Log("in if 2 ");
+                Debug.Log("in2");
                 toRemove = true;
                 //currentWaypoint++;
             }
         }
         if (toRemove)
         {
+            Debug.Log("removed when pos at: " + posi.x + ", " + posi.y + " and waypoint at: " + + waypoints[0].x + ", " + waypoints[0]);
             waypoints.Remove(waypoints[0]);
             toRemove = false;
         }
