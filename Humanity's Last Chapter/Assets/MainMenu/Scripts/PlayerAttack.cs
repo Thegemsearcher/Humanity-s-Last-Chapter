@@ -7,7 +7,10 @@ public class PlayerAttack : MonoBehaviour
     private float timeBetweenAttack;
     public float startTimeBetweenAttack;
 
-    public Transform attackPos;
+    private GameObject[] enemiesO;
+    public GameObject enemyO;
+
+    public RectTransform attackPos;
     public LayerMask whatIsEnemy;
     public float attackRange;
     public int damage;
@@ -21,14 +24,16 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(timeBetweenAttack <= 0)
+
+        if (timeBetweenAttack <= 0)
         {
             //attack
             if (Input.GetKey(KeyCode.Space)) //change this to "if in range && has target" or something
             {
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemy);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
-                {
+                
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
+
+                for (int i = 0; i < enemiesToDamage.Length; i++) {
                     enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                 }
                 timeBetweenAttack = startTimeBetweenAttack;
@@ -43,6 +48,6 @@ public class PlayerAttack : MonoBehaviour
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        Gizmos.DrawWireSphere(transform.position, attackRange);
     }
 }

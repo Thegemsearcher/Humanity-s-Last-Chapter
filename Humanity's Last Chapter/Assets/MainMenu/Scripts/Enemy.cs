@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     public int health;
 
-    public GameObject bloodEffect;
+    public ParticleSystem bloodEffect;
 
     // Start is called before the first frame update
     void Start()
