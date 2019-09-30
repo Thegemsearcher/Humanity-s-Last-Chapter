@@ -7,15 +7,15 @@ public class PlayerAttack : MonoBehaviour
     private float timeBetweenAttack;
     public float startTimeBetweenAttack;
 
-    private GameObject[] enemiesO;
-    public GameObject enemyO;
-
     public RectTransform attackPos;
     public LayerMask whatIsEnemy;
     public float attackRange;
     public int damage;
     public int loadout;
     private string loadoutType = " ";
+
+    public GameObject projectile;
+    private GameObject projectile0;
 
     // Start is called before the first frame update
     void Start()
@@ -48,12 +48,18 @@ public class PlayerAttack : MonoBehaviour
                     {
                         enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
                     }
-                    timeBetweenAttack = startTimeBetweenAttack;
                 }
-                else if (loadoutType == "Ranged")
+                if (loadoutType == "Ranged")
                 {
+
+                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
                     
+                    projectile0.transform.parent = gameObject.transform;
+                    projectile0.transform.localScale = new Vector3(1, 1, 1);
+                    
+
                 }
+                timeBetweenAttack = startTimeBetweenAttack;
             }
 
         }

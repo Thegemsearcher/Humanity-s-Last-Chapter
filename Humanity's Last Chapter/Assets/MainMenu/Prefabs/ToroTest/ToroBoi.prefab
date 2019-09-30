@@ -183,7 +183,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTimeBetweenAttack: 0.3
-  enemyO: {fileID: 2588904187867742290, guid: ecf8ee21bade51a48891cccceee6b009, type: 3}
   attackPos: {fileID: 9190761247512095196, guid: 0d1f1ab9944b4e04d96c1ef39b84d680,
     type: 3}
   whatIsEnemy:
@@ -192,6 +191,9 @@ MonoBehaviour:
   attackRange: 0.18
   damage: 5
   loadout: 1
+  projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
+    type: 3}
+  shotPos: {fileID: 8363705130067369056, guid: 932dc691abceee34eb5d63360f859006, type: 3}
 --- !u!114 &7460171712911709565
 MonoBehaviour:
   m_ObjectHideFlags: 0

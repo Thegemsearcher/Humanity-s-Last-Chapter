@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponRotation : MonoBehaviour
 {
     public float offset;
+    private float rotZ;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +19,13 @@ public class WeaponRotation : MonoBehaviour
         //calculate direction between origin and target
         Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
         //calculate rotation
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         //set rotation
-        this.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+        Rotation();
+    }
+
+    public Quaternion Rotation()
+    {
+        return this.transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
     }
 }
