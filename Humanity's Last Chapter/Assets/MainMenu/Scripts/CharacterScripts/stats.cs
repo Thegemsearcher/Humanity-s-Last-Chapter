@@ -8,16 +8,25 @@ public class stats : MonoBehaviour
     public int hp, str, def;
     public GameObject characterUI;
     public GameObject prefabCharacterUI;
-    public CharacterStatWriter writer;
+    CharacterStatWriter writer;
+    public GameObject ItemPrefab;
+    GameObject item;
     // Start is called before the first frame update
     void Start()
     {
         hp = Random.Range(1, 11); //Just for show.
         characterUI = Instantiate(prefabCharacterUI, new Vector3(0,0,0), Quaternion.identity);
+        characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        characterUI.GetComponent<Canvas>().sortingOrder = 1;
         characterUI.GetComponentInChildren<Button>().onClick.AddListener(delegate { characterUI.SetActive(false); });
         //Set the script to the instance of the CharacterCanvas object, and then run the method in it.
         writer = prefabCharacterUI.GetComponent<CharacterStatWriter>();
         writer.GetStats(hp, str, def);
+
+        item = Instantiate(ItemPrefab, new Vector3(0, 0, 0), Quaternion.identity, characterUI.transform);
+        item.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        item.GetComponent<ItemScript>().SetSlot(GetComponent<Transform>().position); // + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
+        //item.GetComponent<ItemScript>().SetColor(new Color(1f, 0.8f, 0.8f, 255));
     }
 
     // Update is called once per frame

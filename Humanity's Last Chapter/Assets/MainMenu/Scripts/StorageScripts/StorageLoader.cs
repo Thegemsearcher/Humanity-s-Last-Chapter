@@ -7,22 +7,30 @@ public class StorageLoader : MonoBehaviour
 {
     public GameObject StoragePrefab;
     public GameObject ItemPrefab;
+    public GameObject Image;
     List<GameObject> items = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
         GetComponentInChildren<Button>().onClick.AddListener(delegate { StoragePrefab.SetActive(false); });
-        //Instantiate(ItemPrefab, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform);
-        //items.Add(ItemPrefab.GetComponent<ItemScript>().CreateItem());
-        items.Add(Instantiate(ItemPrefab, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform));
-        items.Add(Instantiate(ItemPrefab, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform));
-        items.Add(Instantiate(ItemPrefab, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform));
+        for(int x = 0;x < 81;x++)
+            items.Add(Instantiate(ItemPrefab, new Vector3(0, 0, 0), Quaternion.identity, gameObject.transform));
         int i = 0;
+        int j = 0;
         foreach(GameObject item in items)
         {
-            item.GetComponent<ItemScript>().SetSlot(new Vector3(-2.2f + i*0.5f, 3.9f, 0));
-            item.GetComponent<ItemScript>().SetColor(new Color(0.8f, 0.8f, 0.3f * i, 255));
-            i++;           
+            item.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            item.GetComponent<ItemScript>().SetSlot(Image.GetComponent<RectTransform>().position + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
+            i++;
+            if(i > 8)
+            {
+                i = 0;
+                j++;
+            }
+        }
+        for (int x = 0; x < 3; x++)
+        {
+            items[x].GetComponent<ItemScript>().SetColor(new Color(0.8f, 0.8f, 0.3f * i, 255));
         }
     }
 
@@ -32,7 +40,7 @@ public class StorageLoader : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (GetComponent<Collider2D>().OverlapPoint(mousePosition))
+            if (GetComponentInChildren<Collider2D>().OverlapPoint(mousePosition))
             {
                 if(MouseData.GetItem() != null)
                 {

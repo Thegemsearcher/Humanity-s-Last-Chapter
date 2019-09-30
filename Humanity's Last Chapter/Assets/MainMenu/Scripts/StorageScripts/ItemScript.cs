@@ -5,6 +5,7 @@ using UnityEngine;
 public class ItemScript : MonoBehaviour
 {
     bool held = false;
+    bool active = false;
     Vector3 slotPosition;
     // Start is called before the first frame update
     void Start()
@@ -15,28 +16,31 @@ public class ItemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !held)
+        if (active)
         {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (GetComponent<Collider2D>().OverlapPoint(mousePosition))
+            if (Input.GetMouseButtonDown(0) && !held) //If picking up this
             {
-                if (!held)
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                if (GetComponent<Collider2D>().OverlapPoint(mousePosition))
                 {
-                    held = true;
-                    MouseData.HoldItem(gameObject);
+                    if (!held)
+                    {
+                        held = true;
+                        MouseData.HoldItem(gameObject);
+                    }
                 }
             }
-        }
-        else if (Input.GetMouseButton(0) && held)
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            gameObject.GetComponent<Transform>().position = mousePosition;
-        }
-        else if (held)
-        {
-            held = false;
-            gameObject.GetComponent<Transform>().position = slotPosition;
-            MouseData.RemoveItem();
+            else if (Input.GetMouseButton(0) && held) //If holding onto this
+            {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                gameObject.GetComponent<Transform>().position = mousePosition;
+            }
+            else if (held) //If this was let go
+            {
+                held = false;
+                gameObject.GetComponent<Transform>().position = slotPosition;
+                MouseData.RemoveItem();
+            }
         }
     }
 
@@ -54,6 +58,12 @@ public class ItemScript : MonoBehaviour
     public void SetColor(Color newColor)
     {
         gameObject.GetComponent<SpriteRenderer>().color = newColor;
+        active = true;
+    }
+
+    public void SetInactive()
+    {
+        active = false;
     }
 
     public GameObject CreateItem()

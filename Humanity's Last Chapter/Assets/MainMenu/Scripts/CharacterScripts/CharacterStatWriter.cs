@@ -9,13 +9,12 @@ public class CharacterStatWriter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void GetStats(int hp, int str, int def)

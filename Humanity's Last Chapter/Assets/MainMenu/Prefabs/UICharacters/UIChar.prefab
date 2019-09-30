@@ -191,10 +191,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
-  atk: 0
+  str: 0
   def: 0
   characterUI: {fileID: 3642699830238041902}
   prefabCharacterUI: {fileID: 7764590256463767525, guid: 2db83e11f7073c54ea336be12e635e6b,
+    type: 3}
+  ItemPrefab: {fileID: 7328032005007390068, guid: fa1004ad50eeca94bb9b683b33e5a063,
     type: 3}
 --- !u!1 &3642699830449446213
 GameObject:
