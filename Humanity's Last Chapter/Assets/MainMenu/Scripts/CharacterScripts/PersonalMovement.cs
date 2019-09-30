@@ -13,6 +13,7 @@ public class PersonalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        charactersMovespeed = 1000f;
     }
 
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class PersonalMovement : MonoBehaviour
             direction = waypoints[currentWaypoint] - transform.position;
             
             //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
-            if (direction.magnitude < 1)
+            if (direction.magnitude < 10)
             {
                 currentWaypoint++;
                
