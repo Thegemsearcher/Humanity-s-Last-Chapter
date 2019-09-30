@@ -381,6 +381,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 5198299958716323529, guid: 4863d09bcf733a34da3c8b7fa2a87e71,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198299958716323529, guid: 4863d09bcf733a34da3c8b7fa2a87e71,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 420
+      objectReference: {fileID: 0}
+    - target: {fileID: 5198299958716323529, guid: 4863d09bcf733a34da3c8b7fa2a87e71,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 410
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4863d09bcf733a34da3c8b7fa2a87e71, type: 3}
 --- !u!1 &366465463
@@ -2333,7 +2348,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -656, y: 144.5}
+  m_AnchoredPosition: {x: -655.99994, y: 144.5}
   m_SizeDelta: {x: -12, y: -29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1481677031

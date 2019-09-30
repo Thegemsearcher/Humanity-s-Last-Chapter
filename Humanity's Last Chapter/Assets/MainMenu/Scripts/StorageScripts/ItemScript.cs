@@ -15,7 +15,7 @@ public class ItemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButton(0) && !held)
+        if (Input.GetMouseButtonDown(0) && !held)
         {
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (GetComponent<Collider2D>().OverlapPoint(mousePosition))
@@ -23,6 +23,7 @@ public class ItemScript : MonoBehaviour
                 if (!held)
                 {
                     held = true;
+                    MouseData.HoldItem(gameObject);
                 }
             }
         }
@@ -35,12 +36,24 @@ public class ItemScript : MonoBehaviour
         {
             held = false;
             gameObject.GetComponent<Transform>().position = slotPosition;
+            MouseData.RemoveItem();
         }
+    }
+
+    public Vector3 SlotPositon()
+    {
+        return slotPosition;
     }
 
     public void SetSlot(Vector3 SlotPosition)
     {
         slotPosition = SlotPosition;
+        gameObject.GetComponent<Transform>().position = slotPosition;
+    }
+
+    public void SetColor(Color newColor)
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = newColor;
     }
 
     public GameObject CreateItem()
