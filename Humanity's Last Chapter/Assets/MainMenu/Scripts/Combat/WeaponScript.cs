@@ -10,7 +10,7 @@ public class WeaponScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weapon0 = Instantiate(weapon, gameObject.transform.parent.position, Quaternion.identity);
+        weapon0 = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
         weapon0.transform.parent = gameObject.transform;
         weapon0.transform.localScale = new Vector3(1, 1, 1);
     }
