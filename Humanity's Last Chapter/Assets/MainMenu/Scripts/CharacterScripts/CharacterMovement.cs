@@ -20,11 +20,16 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         bool toRemove = false;
-        if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.LeftShift))
         {
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
+            foreach (Transform child in transform)
+            {
+                Debug.Log("will add: " + mousePosition);
+                child.gameObject.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
+            }
         }
         if (Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftShift))
         {
@@ -32,6 +37,12 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
+
+            foreach (Transform child in transform)
+            {
+                child.gameObject.GetComponentInChildren<PersonalMovement>().FlushWaypoints();
+                child.gameObject.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
+            }
         }
         if (waypoints.Count != 0)
         {

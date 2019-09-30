@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7200977568547554728}
   - component: {fileID: 7200977568547554734}
   - component: {fileID: 7200977568547554729}
+  - component: {fileID: -5564796476292440423}
   m_Layer: 9
   m_Name: BloodSplash
   m_TagString: Untagged
@@ -4816,3 +4817,15 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &-5564796476292440423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7200977568547554731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f00594c729e45e4588596aae0b9c610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
