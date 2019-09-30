@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PersonalMovement : MonoBehaviour
 {
-    public float charactersMovespeed = 1000f;
+    public float charactersMovespeed = 100f;
     public Vector3 relativePos = Vector3.zero;
     public Vector3 posPlusRel;
     public Vector3 posi;
@@ -13,7 +13,7 @@ public class PersonalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        charactersMovespeed = 1000f;
+        charactersMovespeed = 100f;
     }
 
     // Update is called once per frame
