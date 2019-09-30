@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6354076723546667535}
   - component: {fileID: 8479517147380141972}
   - component: {fileID: 8479517147380141970}
+  - component: {fileID: 7460171712911709565}
   m_Layer: 5
   m_Name: ToroBoi
   m_TagString: Character
@@ -129,6 +130,7 @@ MonoBehaviour:
   charactersMovespeed: 0.035
   relativePos: {x: 0, y: 0, z: 0}
   posPlusRel: {x: 0, y: 0, z: 0}
+  posi: {x: 0, y: 0, z: 0}
 --- !u!61 &6354076723546667535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -189,3 +191,17 @@ MonoBehaviour:
     m_Bits: 512
   attackRange: 0.18
   damage: 5
+  loadout: 1
+--- !u!114 &7460171712911709565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001411303830515558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7196b83e14e75459b443ca1136049c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 7626715680820893389, guid: 27a00eca5e3d49b46b5b9c0796c93edb, type: 3}

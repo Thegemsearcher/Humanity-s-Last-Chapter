@@ -27,7 +27,7 @@ TagManager:
   - buildingsInHub
   - Enemy
   - Obstacle
-  - 
+  - Weapon
   - 
   - 
   - 
@@ -51,4 +51,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Weapon
+    uniqueID: 3040816753
     locked: 0

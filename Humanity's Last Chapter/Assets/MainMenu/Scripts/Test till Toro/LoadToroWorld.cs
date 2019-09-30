@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LoadToroWorld : MonoBehaviour {
     public GameObject character, enemy;
-    private GameObject characterO, enemyO;
+    private GameObject characterO, enemyO, weapon0;
     private Vector3 characterPos, enemyPos;
     private float conterverter;
 
@@ -17,7 +17,9 @@ public class LoadToroWorld : MonoBehaviour {
 
         characterO = Instantiate(character, characterPos, Quaternion.identity);
         characterO.transform.parent = GameObject.Find("CharacterManager").transform;
+        characterO.transform.localScale = new Vector3(1, 1, 1);
         enemyO = Instantiate(enemy, enemyPos, Quaternion.identity);
         enemyO.transform.parent = GameObject.Find("EnemyManager").transform;
+        enemyO.transform.localScale = new Vector3(1, 1, 1);
     }
 }
