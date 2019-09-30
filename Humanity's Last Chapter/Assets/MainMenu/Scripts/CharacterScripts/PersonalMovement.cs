@@ -3,11 +3,13 @@ using UnityEngine;
 
 public class PersonalMovement : MonoBehaviour
 {
-    public float charactersMovespeed = 0.035f;
+    public float charactersMovespeed = 1000f;
     public Vector3 relativePos = Vector3.zero;
     public Vector3 posPlusRel;
     public Vector3 posi;
-    private List<Vector3> waypoints = new List<Vector3>();
+    public List<Vector3> waypoints = new List<Vector3>();
+    private int currentWaypoint = 0;
+    public Vector2 direction = Vector2.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +30,7 @@ public class PersonalMovement : MonoBehaviour
 
     public void AddRelativeWaypoint(Vector3 toAdd)
     {
-        Debug.Log("adding: " + toAdd);
+        //Debug.Log("adding: " + toAdd);
         posPlusRel = toAdd + relativePos;
         waypoints.Add(posPlusRel);
     }
@@ -40,39 +42,30 @@ public class PersonalMovement : MonoBehaviour
 
     private void Positioning()
     {
-        //if ((transform.parent.position + relativePos) != transform.parent.position 
-        //    /*&& Vector3.Distance(transform.position, posPlusRel) > 10*/)
-        //{
-        //    waypoints.Add(posPlusRel);
-        //    //Debug.Log(" " + (gameObject.transform.parent.position + relativePos));
-        //    //Debug.Log("distance  :   " + Vector3.Distance(transform.position, gameObject.transform.parent.position + relativePos));
-        //    //Debug.Log("relative pos  :  " + relativePos);
-        //}
     }
 
     private void Movement()
     {
-        //transform.position = transform.parent.position + relativePos;
-        bool toRemove = false;
-        Debug.Log("" + waypoints.Count);
-        if (waypoints.Count > 0)
+        //tog bort 'lerp- movementen' och la till vanligare movement istället
+        if (waypoints.Count != 0)
         {
-
-            Debug.Log("in1");
-            transform.position = Vector2.Lerp(transform.position, waypoints[0], charactersMovespeed);
-            //Debug.Log("" + posi.x + ", " + posi.y + " and waypoint at: " + +waypoints[0].x + ", " + waypoints[0]);
-            if (Vector3.Distance(transform.position, waypoints[0]) < 11 /*&& waypoints.Count > 1*/)
+            direction = waypoints[currentWaypoint] - transform.position;
+            
+            //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
+            if (direction.magnitude < 1)
             {
-                Debug.Log("in2");
-                toRemove = true;
-                //currentWaypoint++;
+                currentWaypoint++;
+               
             }
-        }
-        if (toRemove)
-        {
-            Debug.Log("removed when pos at: " + posi.x + ", " + posi.y + " and waypoint at: " + + waypoints[0].x + ", " + waypoints[0]);
-            waypoints.Remove(waypoints[0]);
-            toRemove = false;
+
+            direction = direction.normalized;
+            transform.position += new Vector3(direction.x * charactersMovespeed * Time.deltaTime, direction.y * charactersMovespeed * Time.deltaTime, 0);
+
+            if (currentWaypoint >= waypoints.Count)
+            {
+                currentWaypoint = 0;
+                waypoints.Clear();
+            }
         }
     }
 }
