@@ -54,8 +54,8 @@ public class PlayerAttack : MonoBehaviour
 
                     projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
                     
-                    projectile0.transform.parent = gameObject.transform;
-                    projectile0.transform.localScale = new Vector3(1, 1, 1);
+                    //projectile0.transform.parent = gameObject.transform;
+                    //projectile0.transform.localScale = new Vector3(1, 1, 1);
                     
 
                 }

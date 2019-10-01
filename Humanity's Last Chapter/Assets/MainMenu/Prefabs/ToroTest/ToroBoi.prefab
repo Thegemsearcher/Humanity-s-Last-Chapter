@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7971658715119557861}
   - component: {fileID: 8924092835976698438}
   - component: {fileID: 6354076723546667535}
-  - component: {fileID: 8479517147380141972}
   - component: {fileID: 8479517147380141970}
   - component: {fileID: 7460171712911709565}
   m_Layer: 5
@@ -131,6 +130,8 @@ MonoBehaviour:
   relativePos: {x: 0, y: 0, z: 0}
   posPlusRel: {x: 0, y: 0, z: 0}
   posi: {x: 0, y: 0, z: 0}
+  waypoints: []
+  direction: {x: 0, y: 0}
 --- !u!61 &6354076723546667535
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -157,19 +158,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
---- !u!114 &8479517147380141972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3001411303830515558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b3f4f4e61dacac4297a1132608c232c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 0.035
 --- !u!114 &8479517147380141970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +181,6 @@ MonoBehaviour:
   loadout: 1
   projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
     type: 3}
-  shotPos: {fileID: 8363705130067369056, guid: 932dc691abceee34eb5d63360f859006, type: 3}
 --- !u!114 &7460171712911709565
 MonoBehaviour:
   m_ObjectHideFlags: 0

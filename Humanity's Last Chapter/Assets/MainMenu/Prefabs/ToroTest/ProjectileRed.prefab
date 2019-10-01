@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6811632658982299904}
   - component: {fileID: 7525625175709401266}
+  - component: {fileID: 8617847169097922201}
   m_Layer: 0
   m_Name: ProjectileRed
   m_TagString: Untagged
@@ -80,3 +81,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8617847169097922201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5858428856328893007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed92190b85dc872429863bc9efbee349, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  speed: 2
+  lifeTime: 3
+  distance: 0.005
+  whatIsSolid:
+    serializedVersion: 2
+    m_Bits: 512
