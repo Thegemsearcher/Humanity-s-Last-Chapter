@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Pathfinding;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PersonalMovement : MonoBehaviour
@@ -13,7 +14,6 @@ public class PersonalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        charactersMovespeed = 100f;
     }
 
     // Update is called once per frame
@@ -51,17 +51,16 @@ public class PersonalMovement : MonoBehaviour
         if (waypoints.Count != 0)
         {
             direction = waypoints[currentWaypoint] - transform.position;
-            
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWaypoint]);
             //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
             if (direction.magnitude < 10)
             {
                 currentWaypoint++;
-               
             }
 
             direction = direction.normalized;
-            transform.position += new Vector3(direction.x * charactersMovespeed * Time.deltaTime, direction.y * charactersMovespeed * Time.deltaTime, 0);
-
+            //transform.position += new Vector3(direction.x * charactersMovespeed * Time.deltaTime, direction.y * charactersMovespeed * Time.deltaTime, 0);
+            
             if (currentWaypoint >= waypoints.Count)
             {
                 currentWaypoint = 0;

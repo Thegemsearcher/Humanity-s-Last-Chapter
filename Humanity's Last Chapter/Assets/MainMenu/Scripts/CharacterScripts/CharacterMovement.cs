@@ -67,7 +67,7 @@ public class CharacterMovement : MonoBehaviour
                 
             }
             direction = direction.normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
+            //transform.position += direction * moveSpeed * Time.deltaTime;
             if (currentWaypoint >= waypoints.Count)
             {
                 //Debug.Log("in");
