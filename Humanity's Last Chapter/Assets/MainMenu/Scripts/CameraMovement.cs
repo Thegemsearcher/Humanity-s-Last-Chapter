@@ -7,7 +7,7 @@ public class CameraMovement : MonoBehaviour
 
     public float speed = 5.0f;
     public float edgeScrollSpeed = 0.5f;
-    private float zoom = 400;
+    private float zoom = 5;
     public bool edgeScrollEnabled = true;
 
     private Camera myCam;
