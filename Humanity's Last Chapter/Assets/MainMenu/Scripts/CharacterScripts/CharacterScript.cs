@@ -24,7 +24,7 @@ public class CharacterScript : MonoBehaviour {
     private int GetId() {
         int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount;
         Debug.Log("characterCounter: " + characterCounter);
-        id = characterCounter;
+        id = characterCounter - 1;
         return id;
     }
 
@@ -38,5 +38,9 @@ public class CharacterScript : MonoBehaviour {
         this.name = data.name;
         this.health = data.health;
         this.id = data.id;
+    }
+
+    public void GetID() {
+        id = GetId();
     }
 }

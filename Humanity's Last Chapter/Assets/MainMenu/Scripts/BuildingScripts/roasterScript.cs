@@ -16,17 +16,17 @@ public class roasterScript : MonoBehaviour {
 
     public void CreateRoaster(GameObject parent) {
         conterverter = 78.55004f;
-        roasterPos = new Vector3(-3.8f, 1.23f, 1); //sjukt fult måste göras snyggare!
+        roasterPos = new Vector3(-280, 100, 1); //sjukt fult måste göras snyggare!
         rand = Random.Range(4, 5); //tycker vi senare ska ha denna på ett annat sätt
         for (int i = 0; i < rand; i++) {
-            if (i == 3) {
-                roasterPos.y = 1.23f;
-                roasterPos.x += 250 / conterverter;
+            if (i == 4) {
+                roasterPos.y = 100;
+                roasterPos.x += 250;
             }
             characterO = Instantiate(character, roasterPos, Quaternion.identity);
             characterO.transform.SetParent(parent.transform, false);
-            characterO.transform.localScale.Scale(new Vector3(0.01f, 0.01f, 0.01f));
-            roasterPos.y -= 120/conterverter;
+            characterO.transform.localScale.Scale(new Vector3(1, 1, 1));
+            roasterPos.y -= 100;
 
             
         }

@@ -132,7 +132,8 @@ MonoBehaviour:
     type: 3}
   prefabCharacterUI: {fileID: 7764590256463767525, guid: 2db83e11f7073c54ea336be12e635e6b,
     type: 3}
-  writer: {fileID: 0}
+  ItemPrefab: {fileID: 7328032005007390068, guid: fa1004ad50eeca94bb9b683b33e5a063,
+    type: 3}
 --- !u!114 &-8181363989787011633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,6 +149,9 @@ MonoBehaviour:
   charactersMovespeed: 0.035
   relativePos: {x: 0, y: 0, z: 0}
   posPlusRel: {x: 0, y: 0, z: 0}
+  posi: {x: 0, y: 0, z: 0}
+  waypoints: []
+  direction: {x: 0, y: 0}
 --- !u!61 &-5943769686876424826
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -40,7 +40,7 @@ public class LoadWorld : MonoBehaviour {
                     //TODO: snälla fixa bättre, den ville bara inte för oss
                     //Vad är det som inte fungerar?
 
-                    characterO.transform.localScale = new Vector3(5.9f, 0.9f, 1);
+                    characterO.transform.localScale = new Vector3(1, 1, 1);
                     characterO.GetComponent<CharacterScript>().LoadPlayer(i);
                 } else
                 {

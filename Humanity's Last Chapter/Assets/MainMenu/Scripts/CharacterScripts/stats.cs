@@ -26,7 +26,7 @@ public class stats : MonoBehaviour
         item = Instantiate(ItemPrefab, new Vector3(0, 0, 0), Quaternion.identity, characterUI.transform);
         item.GetComponent<SpriteRenderer>().sortingOrder = 1;
         item.GetComponent<ItemScript>().SetSlot(GetComponent<Transform>().position); // + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
-        //item.GetComponent<ItemScript>().SetColor(new Color(1f, 0.8f, 0.8f, 255));
+        item.GetComponent<ItemScript>().SetColor(new Color(1f, 0.8f, 0.8f, 255));
     }
 
     // Update is called once per frame
