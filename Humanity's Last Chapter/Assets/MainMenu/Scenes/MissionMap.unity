@@ -508,7 +508,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &279938855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -645,8 +645,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 279938854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45, y: -29, z: 0}
-  m_LocalScale: {x: 40.74221, y: 40.74221, z: 0}
+  m_LocalPosition: {x: 1.51, y: -1.75, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
@@ -756,7 +756,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.09, y: 0.06}
+  m_AnchoredPosition: {x: -6.04, y: -1.27}
   m_SizeDelta: {x: 2.56, y: 1.28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &292870286
@@ -882,7 +882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIezwTdMPhgIAAC0FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE2TojAQ/StWzivFhwjubRcdZw/zUeNuzYVLhEZSQkIlYdSZ8r9vJ4Cw7sn4ut9L9+sOX4Rx1UCmhdxKlj+JHMj3GTFn8m02Bh/hTA+C79gnDDnvLNelSaI2541qJhD3DE2JGrRk2Q9+qEyyi2DLWSFkvckPkAilFcIFrRRgSApt2Byhrxk54898ZSgXPPmROX3iaeXOrnjMgGuQk1TXcT03Xi78MIp7kuvEYeRGsReEPdlzwsBfecvQ28zdyAq1PKto3UBuuhr1/EUUOUjupbzAj50gtgyOrffJvrPwVssgjExeJqqKqb4Boi+NNSihjWqxfUzIGUVDbNWh6wSIlMAOpTZCU/5LUSjQvWGSXtZMorWdMPkpOr9rqo5duR+0as1VnusvbIGd6tN/CXPPhgsp6sfhYs81l+iSZcc3esmo0pOJTOH1WLxnbTvR6kj3FbyXwJ/FVoqW5xjUsjXUVoG/Hv/eektKyI4j3pV6B7bNOIdhAYbxmx6utv1zUrF6b8e86IBdJazndmtA4ph+YcF2p1Qvgaip4o+C3/QwXb4+8MCk0hjqu+SmvL1opUklG+uZ6abViZAcLNwX3QCnlb68ooy+n+FdbHLtXeSBmmfWX97HhtdzR7HwmO+6d6FXcboNS5Xi9ASqfGl1xTiMRZvAM/qUCM67FZt6MtB2rSxoNqEdWpb/u1pkvwyyYkEBn00UrrxgTt0lxBENYi9c5n4YErt7jGOftHrtCu3twanxUZzjng1fn9lW0sauey7pacs+azGxnPFC7DIJwF86hVvhIPESfKL5Jmdo0A60ZtzOm3ylpBLZEfL0JpTaTjdnLWk6qqSkYR9CGyQlif3cpORKrn8BUEsDBBQAAAgIAAAIIeyjUVp0bAAAAHcAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0rPQUVBKL0osyCgGChiCOKWZKSB2tFKSmXFymkliqom5ubmppaGxbqKBWaqFeaKxhaGpWYqRqalSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAgh7PBN0w+GAgAALQUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAgh7KNRWnRsAAAAdwAAAAkAJAAAAAAAAAAAAAAA0wIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAACKAwAAAAA=
+    dataString: UEsDBBQAAAgIAAAIIey70kYQcgIAABkFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE2T2jAM/SuMz13GCYRAb22WZXvYj1na2UsuJlGIB8fO2M4Cu8N/r+wkJKUnhKQnPT3J+SJcmhoyq/RG8/xJ5UC+T4izybfJEHyEE9srueWf0Oe889yWLon5nDdmuUJ/4GBGVWA1z37IvXDJFJ2N5IXS1TrfQ6KMNegumDCAIa2sQ0t0fU3ICX/uVg5yRiuMnfWJ1opOLmhmIC3oUSqd0oAu6SwMw7gD0ekyiulyHkdBB26xjcwEq2rI3SBDiSAMl9Nlh11EaFNK5ysPkThulx1MQ9dfCcFNx5bYc+3VSFhtGpwVE3LOcHpPkfqqJfB9ad0sY/hLURiwnTiane+5RhnbuuSnarWtmDm0PD+YaDwJGs49sbbq038Jd4EPF1pVj33jgLomtuTZ4Y2dM2bsSP2x+37gHni9jkwc2E7AewnyWW20amSOQasbB20MhPfD3+tsSQnZYfC3VG+cTT0soF92v2o3w8WPf0oEr3Zeynnr2ArlJfcXAhrX8wsJ+/sxXQn0OhZ/DPxm+/GhdYEHro3FUDeldPR2qtEulay9Zm6axiZKS/DujnQNkgl7fsUy9naHN7FR25vIA3NPqmvexfqXcgPx7iGf0pvQqzpel2VKdXwCU740VnAJA2kXeEadEiVle2JjTXrYttEFy0awfcPzf0+L7BazrJgzmMdxHK2C2R2jC1jGbLYMokUeRhHxt8clzsnEa0u0kwe3JofiEu+s/9JMNprV/txzzY4b/lmpkeRcFmqbaQD50la4EgeNTfBp5uuco0BbsJZLv2/ylRKhsgPk6bVQ6iddn6xm6VAlJTX/UNZ5UpL4T0tKLuTyF1BLAwQUAAAICAAACCHso1FadGwAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Kz0FFQSi9KLMgoBgoYgjilmSkgdrRSkplxcppJYqqJubm5qaWhsW6igVmqhXmisYWhqVmKkampUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIey70kYQcgIAABkFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIeyjUVp0bAAAAHcAAAAJACQAAAAAAAAAAAAAAL8CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAdgMAAAAA
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1738,7 +1738,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &1590850765
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1796,8 +1796,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1590850764}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -806, y: 387, z: 0}
-  m_LocalScale: {x: 15.102, y: 15.102, z: 0.30204}
+  m_LocalPosition: {x: -13.06, y: 5.85, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 0.30204}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -1837,7 +1837,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.17, y: 2.74}
+  m_AnchoredPosition: {x: -6.11, y: 2.75}
   m_SizeDelta: {x: 2.56, y: 2.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!212 &1668813043
