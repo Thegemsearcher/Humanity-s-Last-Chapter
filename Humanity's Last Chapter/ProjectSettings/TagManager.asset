@@ -15,6 +15,7 @@ TagManager:
   - FuckingFindThisPieceOfShitPlease
   - EnemyManager
   - Enemy
+  - Waypoint
   layers:
   - Default
   - TransparentFX
