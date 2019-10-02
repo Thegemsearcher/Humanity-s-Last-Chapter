@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7af27b023dc37ae4ea6e842b26759ecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterUI: {fileID: 3642699830238041902, guid: 1e048e086c55d6d4390d4bf4f9e5f925,
+  characterUI: {fileID: 9011984161932067652, guid: fe52b8ba56ec8bd499ac0565862ce0e5,
     type: 3}
   txtHealth: {fileID: 8475893878897229706}
   txtName: {fileID: 1503482586363317442}

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class stats : MonoBehaviour
 {
-    public int hp, str, def;
+    public int hp, maxHp, str, def, level, exp, nextLevel;
     public GameObject characterUI;
     public GameObject prefabCharacterUI;
     CharacterStatWriter writer;
@@ -14,7 +14,11 @@ public class stats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        hp = Random.Range(1, 11); //Just for show.
+        maxHp = Random.Range(1, 11);//Just for show.
+        str = Random.Range(1, 3);   //Just for show.
+        def = Random.Range(1, 3);   //Just for show.
+        hp = maxHp;
+        nextLevel = 10 + (5 * level);
         characterUI = Instantiate(prefabCharacterUI, new Vector3(0,0,0), Quaternion.identity);
         characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         characterUI.GetComponent<Canvas>().sortingOrder = 1;
@@ -36,7 +40,7 @@ public class stats : MonoBehaviour
     }
     public void BringUpStats()
     {
-        GetComponentInParent<AddToPlayerRoster>().controller.GetComponent<HubCharController>().CloseAllWindows();
+        //GetComponentInParent<AddToPlayerRoster>().controller.GetComponent<HubCharController>().CloseAllWindows();
         characterUI.SetActive(true);
     }
 }

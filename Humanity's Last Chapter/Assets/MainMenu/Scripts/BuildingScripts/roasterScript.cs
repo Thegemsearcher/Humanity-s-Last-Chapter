@@ -8,25 +8,25 @@ public class roasterScript : MonoBehaviour {
     public GameObject character;
     private GameObject characterO;
     private int rand;
-    private float conterverter;
     private Vector3 roasterPos;
 
     private void Start() {
     }
 
     public void CreateRoaster(GameObject parent) {
-        conterverter = 78.55004f;
-        roasterPos = new Vector3(-280, 100, 1); //sjukt fult måste göras snyggare!
-        rand = Random.Range(4, 5); //tycker vi senare ska ha denna på ett annat sätt
+        roasterPos = new Vector3(-310, 120, 1); //sjukt fult måste göras snyggare!
+        rand = Random.Range(6, 7); //tycker vi senare ska ha denna på ett annat sätt
         for (int i = 0; i < rand; i++) {
             if (i == 4) {
-                roasterPos.y = 100;
-                roasterPos.x += 250;
+                roasterPos.y = 120;
+                roasterPos.x += 370;
             }
             characterO = Instantiate(character, roasterPos, Quaternion.identity);
             characterO.transform.SetParent(parent.transform, false);
             characterO.transform.localScale.Scale(new Vector3(1, 1, 1));
-            roasterPos.y -= 100;
+            characterO.GetComponent<HireCharacter>().ShowBTN();
+            characterO.GetComponent<UIBoiScript>().isOwned = false;
+            roasterPos.y -= 105;
 
             
         }
