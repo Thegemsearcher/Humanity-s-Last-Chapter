@@ -10,16 +10,21 @@ public class Projectile : MonoBehaviour
     public float distance;
     public LayerMask whatIsSolid;
 
+    private Transform enemy;
+    private Vector2 target;
+
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("DestroyProjectile", lifeTime);
+        enemy = GameObject.FindWithTag("Enemy").transform;
+        target = new Vector2(enemy.position.x, enemy.position.y);
+        //Invoke("DestroyProjectile", lifeTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, transform.up, distance, whatIsSolid);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, target, distance, whatIsSolid);
         if (hitInfo.collider != null)
         {
             if (hitInfo.collider.CompareTag("Enemy"))
@@ -29,7 +34,7 @@ public class Projectile : MonoBehaviour
             DestroyProjectile();
         }
 
-        transform.Translate(Vector2.up * speed * Time.deltaTime);
+        transform.Translate(target * speed * Time.deltaTime);
     }
 
     void DestroyProjectile()

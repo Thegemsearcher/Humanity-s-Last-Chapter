@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6354076723546667535}
   - component: {fileID: 8479517147380141970}
   - component: {fileID: 7460171712911709565}
+  - component: {fileID: 3175783820038364088}
   m_Layer: 5
   m_Name: ToroBoi
   m_TagString: Character
@@ -121,7 +122,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3001411303830515558}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ab65ed766b3cf974cabf3769b01c95ba, type: 3}
   m_Name: 
@@ -194,3 +195,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7626715680820893389, guid: 27a00eca5e3d49b46b5b9c0796c93edb, type: 3}
+--- !u!114 &3175783820038364088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3001411303830515558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0ff39d8a6fd980478391acf515a7885, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {x: 0, y: 0, z: 0}
