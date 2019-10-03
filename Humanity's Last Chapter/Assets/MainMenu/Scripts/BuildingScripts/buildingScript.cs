@@ -6,15 +6,22 @@ public class buildingScript : MonoBehaviour { //Borde heta barrackScript
 
     public string buildingName;
     public int level;
+    public bool active;
 
     public GameObject BuildingWindow;
+    private GameObject[] buildings;
 
     private void Start() {
-        GetComponent<roasterScript>().CreateRoaster(BuildingWindow); //Flyttar vi denna kan vi nog ändra så att alla byggnader 
-        //kan använda denna script
+        buildings = GameObject.FindGameObjectsWithTag("Building");
     }
 
-    public void btnBarrack() {
+    public void btnEnterBuilding() {
         BuildingWindow.SetActive(true);
+        //foreach (GameObject building in buildings) {
+        //    if(!(building.GetComponent<buildingScript>().buildingName == buildingName)) {
+        //        building.SetActive(false);
+        //    }
+    //}
+        
     }
 }
