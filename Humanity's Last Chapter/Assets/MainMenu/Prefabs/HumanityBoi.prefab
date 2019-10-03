@@ -115,8 +115,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 0
+  maxHp: 0
   str: 0
   def: 0
+  level: 0
+  exp: 0
+  nextLevel: 0
   characterUI: {fileID: 3642699830238041902, guid: 1e048e086c55d6d4390d4bf4f9e5f925,
     type: 3}
   prefabCharacterUI: {fileID: 7764590256463767525, guid: 2db83e11f7073c54ea336be12e635e6b,
@@ -135,7 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab65ed766b3cf974cabf3769b01c95ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  charactersMovespeed: 1
+  charactersMovespeed: 0.1
   relativePos: {x: 0, y: 0, z: 0}
   posPlusRel: {x: 0, y: 0, z: 0}
   posi: {x: 0, y: 0, z: 0}
@@ -187,7 +191,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 0.1
   gravity: {x: NaN, y: NaN, z: NaN}
   groundMask:
     serializedVersion: 2

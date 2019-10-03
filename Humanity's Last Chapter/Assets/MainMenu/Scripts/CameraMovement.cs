@@ -5,10 +5,11 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
 
-    public float speed = 5.0f;
+    public float speed = 2f;
     public float edgeScrollSpeed = 0.5f;
     private float zoom = 5;
     public bool edgeScrollEnabled = true;
+    private float zoomSpeed = 2f;
 
     private Camera myCam;
     // Start is called before the first frame update
@@ -41,22 +42,21 @@ public class CameraMovement : MonoBehaviour
     }
     private void ScrollZoom()
     {
-        float zoomchange = 80f;
         if (Input.GetKey(KeyCode.KeypadPlus))
         {
-            zoom -= zoomchange * Time.deltaTime;
+            zoom -= zoomSpeed * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.KeypadMinus))
         {
-            zoom += zoomchange * Time.deltaTime;
+            zoom += zoomSpeed * Time.deltaTime;
         }
         if (Input.mouseScrollDelta.y > 0)
         {
-            zoom -= zoomchange * Time.deltaTime * 10;
+            zoom -= zoomSpeed * Time.deltaTime * 10;
         }
         if (Input.mouseScrollDelta.y < 0)
         {
-            zoom += zoomchange * Time.deltaTime * 10;
+            zoom += zoomSpeed * Time.deltaTime * 10;
         }
             
         myCam.orthographicSize = zoom;
