@@ -540,8 +540,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HireBTN: {fileID: 6216386847829345388}
-  txtHire: {fileID: 5487898313026906123}
-  cost: 0
 --- !u!1 &9011984161934332730
 GameObject:
   m_ObjectHideFlags: 0

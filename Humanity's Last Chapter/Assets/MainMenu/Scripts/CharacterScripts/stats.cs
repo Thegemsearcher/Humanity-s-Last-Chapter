@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class stats : MonoBehaviour
 {
     public int hp, maxHp, str, def, level, exp, nextLevel;
-    private int cost;
     public GameObject characterUI;
     public GameObject prefabCharacterUI;
     CharacterStatWriter writer;
@@ -39,11 +38,6 @@ public class stats : MonoBehaviour
     {
 
     }
-    public int GetCost() {
-        cost = (maxHp * 10) + (str * 3) + (def * 3);
-        return cost;
-    }
-
     public void BringUpStats()
     {
         //GetComponentInParent<AddToPlayerRoster>().controller.GetComponent<HubCharController>().CloseAllWindows();

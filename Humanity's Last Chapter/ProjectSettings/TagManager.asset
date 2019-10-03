@@ -16,7 +16,6 @@ TagManager:
   - EnemyManager
   - Enemy
   - Waypoint
-  - WorldManager
   layers:
   - Default
   - TransparentFX
