@@ -61,10 +61,9 @@ public class CharacterMovement : MonoBehaviour
 
             //transform.position = Vector2.Lerp(transform.position, waypoints[currentWaypoint], moveSpeed);
             //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
-            if (direction.magnitude < 20)
+            if (direction.magnitude < 2)
             {
                 currentWaypoint++;
-                
             }
             direction = direction.normalized;
             //transform.position += direction * moveSpeed * Time.deltaTime;
