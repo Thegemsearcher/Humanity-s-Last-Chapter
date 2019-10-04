@@ -105,6 +105,7 @@ MonoBehaviour:
   name: 
   health: 20
   id: 0
+  wpId: 
 --- !u!222 &7272047123591410641
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -128,6 +129,9 @@ MonoBehaviour:
   charactersMovespeed: 0.035
   relativePos: {x: 0, y: 0, z: 0}
   posPlusRel: {x: 0, y: 0, z: 0}
+  posi: {x: 0, y: 0, z: 0}
+  waypoints: []
+  direction: {x: 0, y: 0}
 --- !u!61 &5937066010037949755
 BoxCollider2D:
   m_ObjectHideFlags: 0

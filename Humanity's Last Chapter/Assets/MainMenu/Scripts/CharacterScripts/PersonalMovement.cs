@@ -52,7 +52,7 @@ public class PersonalMovement : MonoBehaviour
         {
             direction = waypoints[currentWaypoint] - transform.position;
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWaypoint]);
-            Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
+            //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
             if (direction.magnitude < 2)
             {
                 currentWaypoint++;
