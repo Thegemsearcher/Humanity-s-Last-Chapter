@@ -5,13 +5,14 @@ using UnityEngine.Tilemaps;
 
 public class Spawner : MonoBehaviour {
     public GameObject Enemy, Neutral, QuestGiver, character;
-    private GameObject parent, characterO;
+    private GameObject parent, createdObject;
     public Tilemap tilemap;
     private Vector3 place;
     private Vector3Int localPlace;
     private List<Vector3> enemySpawn, questGiverSpawn, neutralSpawn, characterSpawn;
     private int[] missionOrder;
     private int characterCounter;
+    private string wpId;
 
     // Start is called before the first frame update
     void Start() {
@@ -64,13 +65,21 @@ public class Spawner : MonoBehaviour {
         foreach (Vector3 place in characterSpawn) {
             
             if(missionOrder[characterCounter] >= 0) {
-                Debug.Log("Does it get here?");
-                characterO = Instantiate(character, place, Quaternion.identity) as GameObject;
-                characterO.transform.parent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
-                characterO.transform.localScale = new Vector3(1, 1, 1);
-                characterO.GetComponent<CharacterScript>().LoadPlayer(missionOrder[characterCounter]);
-                characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(characterCounter * 0.5f, characterCounter * 0.5f);
-                characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(characterO.transform.parent.position);
+                parent = GameObject.FindGameObjectWithTag("CharacterManager");
+                CreateTarget(place, character, parent.transform);
+                createdObject.transform.localScale = new Vector3(1, 1, 1);
+                createdObject.GetComponent<CharacterScript>().LoadPlayer(missionOrder[characterCounter]);
+                createdObject.GetComponent<PersonalMovement>().relativePos = new Vector3(characterCounter * 0.5f, characterCounter * 0.5f);
+                createdObject.GetComponent<PersonalMovement>().AddRelativeWaypoint(createdObject.transform.parent.position);
+
+                //Weapon Creation
+                wpId = createdObject.GetComponent<CharacterScript>().wpId;
+                Debug.Log("WpId: " + wpId);
+                if (wpId == "") {
+                    GetComponent<SpawnWeapon>().Spawn("wp0", createdObject);
+                }
+                
+
                 characterCounter++;
             }
             
@@ -79,6 +88,7 @@ public class Spawner : MonoBehaviour {
     }
 
     private void CreateTarget(Vector3 place, GameObject spawnTarget, Transform parent) {
-        Instantiate(spawnTarget, place, Quaternion.identity).transform.SetParent(parent, false);
+        createdObject = Instantiate(spawnTarget, place, Quaternion.identity);
+        createdObject.transform.SetParent(parent, false);
     }
 }
