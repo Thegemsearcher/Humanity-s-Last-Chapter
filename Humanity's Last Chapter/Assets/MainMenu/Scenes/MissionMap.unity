@@ -661,7 +661,6 @@ GameObject:
   m_Component:
   - component: {fileID: 292870285}
   - component: {fileID: 292870284}
-  - component: {fileID: 292870283}
   - component: {fileID: 292870286}
   m_Layer: 10
   m_Name: Car
@@ -670,27 +669,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!50 &292870283
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292870282}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &292870284
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -882,7 +860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIey70kYQcgIAABkFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE2T2jAM/SuMz13GCYRAb22WZXvYj1na2UsuJlGIB8fO2M4Cu8N/r+wkJKUnhKQnPT3J+SJcmhoyq/RG8/xJ5UC+T4izybfJEHyEE9srueWf0Oe889yWLon5nDdmuUJ/4GBGVWA1z37IvXDJFJ2N5IXS1TrfQ6KMNegumDCAIa2sQ0t0fU3ICX/uVg5yRiuMnfWJ1opOLmhmIC3oUSqd0oAu6SwMw7gD0ekyiulyHkdBB26xjcwEq2rI3SBDiSAMl9Nlh11EaFNK5ysPkThulx1MQ9dfCcFNx5bYc+3VSFhtGpwVE3LOcHpPkfqqJfB9ad0sY/hLURiwnTiane+5RhnbuuSnarWtmDm0PD+YaDwJGs49sbbq038Jd4EPF1pVj33jgLomtuTZ4Y2dM2bsSP2x+37gHni9jkwc2E7AewnyWW20amSOQasbB20MhPfD3+tsSQnZYfC3VG+cTT0soF92v2o3w8WPf0oEr3Zeynnr2ArlJfcXAhrX8wsJ+/sxXQn0OhZ/DPxm+/GhdYEHro3FUDeldPR2qtEulay9Zm6axiZKS/DujnQNkgl7fsUy9naHN7FR25vIA3NPqmvexfqXcgPx7iGf0pvQqzpel2VKdXwCU740VnAJA2kXeEadEiVle2JjTXrYttEFy0awfcPzf0+L7BazrJgzmMdxHK2C2R2jC1jGbLYMokUeRhHxt8clzsnEa0u0kwe3JofiEu+s/9JMNprV/txzzY4b/lmpkeRcFmqbaQD50la4EgeNTfBp5uuco0BbsJZLv2/ylRKhsgPk6bVQ6iddn6xm6VAlJTX/UNZ5UpL4T0tKLuTyF1BLAwQUAAAICAAACCHso1FadGwAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Kz0FFQSi9KLMgoBgoYgjilmSkgdrRSkplxcppJYqqJubm5qaWhsW6igVmqhXmisYWhqVmKkampUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIey70kYQcgIAABkFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIeyjUVp0bAAAAHcAAAAJACQAAAAAAAAAAAAAAL8CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAdgMAAAAA
+    dataString: UEsDBBQAAAgIAAAIIewqq1ScagIAAA8FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VE1z2kAM/SvMnhvGBjuG3lqHkB7yMaGdXHxZbBnvsN717EeAZPjv1a5t7NDpCSHpSXpPWn8SJnQDuZFqrVjxKAsg3yfE2eTbZAg+wJHupNiwD+hz3lhhKpdEfc4rNUyiP3QwLWswiuU/xI675ACdVrBSqnpV7CCV2mh0l5RrwJCSxqEFuj4n5Ig/N0sHOaE1S5z1gdYymJzRzEEYUKPUYBqEwSJaLJfLDhNMF3ESLOJ5lHTYFmpFzmndQOF4DBXicHZpFk1jnyqQZZcVTGPXVnLOdDckMafGi5DSRlukiAkFo0jaT+Y0qIDtKuNqjsHPZanBdIooerpjCrVrq5KfshW0pnrfTvdOuXV9wmAW+bHaqo//JNyEPlwqWT/0jcPANTEVy/ev9JRTbUaSj913Xye34kD5nm45vFUgnuRaSSsKDBplHdRqmN0Nfy/c0gry/eBvR71y2maQvd9wv1/H4ezpH1PO6q2XPmodGy694P4sQOFyfuHA/mh0VwK9boo/Gn7T3fi6usA9U9pgqGMp3HhbaZVLJSuvmWNjTSqVADWu0ICg3JxesI65XuJV7P+oe+oeUte9i/Xv4wri3UN+EFyFXuThsi1dycMj6OrZGs4EDFK7wBMKlUoh2hsbU+phG6tKmo9gO8uKr7dFtrfzvIwoREmSxMtwfkODW1gkdL4I49tiFsfEHx8TyJPyl3bQTh5cmxiKCzy0/vsyWSva+HsvFD2s2Uct9ZDJRCk3uQIQz22Fy+CgsAm+zGJVMBRoA8Yw4RdOPjPCZb6HIrsUyjzT1dEomg1VMtKwd2mcJyOp/6Bk5EzOfwFQSwMEFAAACAgAAAgh7KNRWnRsAAAAdwAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSs9BRUEovSizIKAYKGII4pZkpIHa0UpKZcXKaSWKqibm5uamlobFuooFZqoV5orGFoalZipGpqVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHsKqtUnGoCAAAPBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHso1FadGwAAAB3AAAACQAkAAAAAAAAAAAAAAC3AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAG4DAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1902,7 +1880,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1668813042}
   - component: {fileID: 1668813043}
-  - component: {fileID: 1668813044}
   - component: {fileID: 1668813045}
   m_Layer: 10
   m_Name: Wall
@@ -1979,27 +1956,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!50 &1668813044
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668813041}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &1668813045
 BoxCollider2D:
   m_ObjectHideFlags: 0
