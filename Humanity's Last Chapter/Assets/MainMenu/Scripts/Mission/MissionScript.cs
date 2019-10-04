@@ -47,3 +47,14 @@ public class MissionScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     }
 }
+//Name
+//Description
+//SourceID
+//MissionID
+//Next mission ID
+//Chain mission
+//Reward
+//Missionstatus
+//Objectives
+//Bonus Objective
+//Events
