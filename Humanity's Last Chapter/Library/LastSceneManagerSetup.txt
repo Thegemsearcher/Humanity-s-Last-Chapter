@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/MainMenu/Scenes/Backyard.unity
-=======
-- path: Assets/MainMenu/Scenes/CombatTesting.unity
->>>>>>> 8214d9398a59dcd69890c91cdc0bb5d9e0a6e04e
   isLoaded: 1
   isActive: 1
   isSubScene: 0

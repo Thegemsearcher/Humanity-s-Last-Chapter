@@ -18,13 +18,15 @@ public class SpawnWeapon : MonoBehaviour {
 
         for (int i = 0; i < weaponCounter; i++) {
             weapons[i] = (WeaponObject)AssetDatabase.LoadAssetAtPath("Assets/WeaponFolder/wp" + i + ".asset", typeof(WeaponObject));
-            Debug.Log("Weapon[" + i + "]: " + weapons[i].name);
         }
-        //weapons = (WeaponObject)AssetDatabase.LoadAllAssetsAtPath("Assets/Weaponfolder/wp.asset");
-        Debug.Log("Weapons: " + weapons.Length);
+        Debug.Log("weaponsLength: " + weapons.Length);
     }
 
     public void Spawn(string wpId, GameObject parent) {
+        if(weaponCounter == 0) {
+            Debug.Log("Hmmmmm");
+            Start();
+        }
 
         for (int i = 0; i < weapons.Length; i++) {
             if (wpId == weapons[i].name) {
@@ -34,13 +36,7 @@ public class SpawnWeapon : MonoBehaviour {
 
                 //Detta lär ju gå att göra snyggare... ska bara lista ut hur
                 weaponScript = WeaponO.GetComponent<weaponStats>();
-                weaponScript.WeaponName = weapons[i].WeaponName;
-                weaponScript.description = weapons[i].description;
-                weaponScript.range = weapons[i].range;
-                weaponScript.fireRate = weapons[i].fireRate;
-                weaponScript.damage = weapons[i].damage;
-                weaponScript.cost = weapons[i].cost;
-                weaponScript.sprite = weapons[i].sprite;
+                weaponScript.GetData(weapons[i].WeaponName, weapons[i].description, weapons[i].range, weapons[i].fireRate, weapons[i].damage, weapons[i].cost, weapons[i].sprite);
             }
         }
     }

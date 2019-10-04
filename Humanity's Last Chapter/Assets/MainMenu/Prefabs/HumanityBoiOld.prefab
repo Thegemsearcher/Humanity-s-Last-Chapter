@@ -108,6 +108,7 @@ MonoBehaviour:
   name: 
   health: 20
   id: 0
+  wpId: 
 --- !u!222 &1949019286315225964
 CanvasRenderer:
   m_ObjectHideFlags: 0

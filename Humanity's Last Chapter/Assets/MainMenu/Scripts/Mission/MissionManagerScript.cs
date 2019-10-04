@@ -1,16 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
 using UnityEngine;
 
 public class MissionManagerScript : MonoBehaviour {
-    public GameObject selectParty, Mission, MissionList;
+    public GameObject Mission, MissionList;
     private GameObject MissionO;
     public MissionObject[] missions;
     private MissionScript missionScript;
+    private int missionCounter;
 
     private void Start() {
-        for (int i = 0; i < missions.Length; i++) {
-            if(missions[i].avalible) {
+        missionCounter = Directory.GetFiles("Assets/MissionFolder/").Length / 2;
+        missions = new MissionObject[missionCounter];
+
+        for (int i = 0; i < missionCounter; i++) {
+            missions[i] = (MissionObject)AssetDatabase.LoadAssetAtPath("Assets/MissionFolder/mi" + i + ".asset", typeof(MissionObject));
+            if(missions[i].avalible && !(missions[i].completed)) {
                 missionScript = Mission.GetComponent<MissionScript>();
                 MissionO = Instantiate(Mission);
                 MissionO.transform.SetParent(MissionList.transform, false);
@@ -23,6 +30,6 @@ public class MissionManagerScript : MonoBehaviour {
     }
 
     public void btnSetup() {
-        selectParty.SetActive(true);
+        //selectParty.SetActive(true);
     }
 }
