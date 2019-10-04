@@ -319,8 +319,10 @@ Assets\MainMenu\Scripts\clickAndDrag.cs
 Assets\MainMenu\Scripts\Combat\DestroyBlood.cs
 Assets\MainMenu\Scripts\Combat\Enemy.cs
 Assets\MainMenu\Scripts\Combat\PlayerAttack.cs
+Assets\MainMenu\Scripts\Combat\SpawnWeapon.cs
 Assets\MainMenu\Scripts\Combat\WeaponRotation.cs
 Assets\MainMenu\Scripts\Combat\WeaponScript.cs
+Assets\MainMenu\Scripts\Combat\weaponStats.cs
 Assets\MainMenu\Scripts\DestroyGameObject.cs
 Assets\MainMenu\Scripts\EnterBuildingScript.cs
 Assets\MainMenu\Scripts\ExitOnClick.cs
@@ -347,5 +349,7 @@ Assets\MainMenu\Scripts\StorageScripts\StorageLoader.cs
 "Assets\MainMenu\Scripts\Test till Toro\LoadToroWorld.cs"
 Assets\MainMenu\Scripts\UIBoiScript.cs
 Assets\MainMenu\Scripts\Wandering.cs
+Assets\MainMenu\Scripts\Weapon\MakeWeaponObject.cs
+Assets\MainMenu\Scripts\Weapon\WeaponObject.cs
 Assets\MainMenu\Scripts\WorldScript.cs
 Assets\Spawner.cs
