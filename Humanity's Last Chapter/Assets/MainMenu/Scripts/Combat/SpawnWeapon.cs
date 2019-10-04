@@ -1,0 +1,47 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
+using UnityEditor.VersionControl;
+using UnityEngine;
+
+public class SpawnWeapon : MonoBehaviour {
+    private WeaponObject[] weapons;
+    public GameObject Weapon;
+    private GameObject WeaponO;
+    private int weaponCounter;
+    private weaponStats weaponScript;
+    
+    void Start() {
+        weaponCounter = Directory.GetFiles("Assets/WeaponFolder/").Length/2;
+        weapons = new WeaponObject[weaponCounter];
+
+        for (int i = 0; i < weaponCounter; i++) {
+            weapons[i] = (WeaponObject)AssetDatabase.LoadAssetAtPath("Assets/WeaponFolder/wp" + i + ".asset", typeof(WeaponObject));
+            Debug.Log("Weapon[" + i + "]: " + weapons[i].name);
+        }
+        //weapons = (WeaponObject)AssetDatabase.LoadAllAssetsAtPath("Assets/Weaponfolder/wp.asset");
+        Debug.Log("Weapons: " + weapons.Length);
+    }
+
+    public void Spawn(string wpId, GameObject parent) {
+
+        for (int i = 0; i < weapons.Length; i++) {
+            if (wpId == weapons[i].name) {
+                //spawn Weapon
+                WeaponO = Instantiate(Weapon);
+                WeaponO.transform.SetParent(parent.transform, false);
+
+                //Detta lär ju gå att göra snyggare... ska bara lista ut hur
+                weaponScript = WeaponO.GetComponent<weaponStats>();
+                weaponScript.WeaponName = weapons[i].WeaponName;
+                weaponScript.description = weapons[i].description;
+                weaponScript.range = weapons[i].range;
+                weaponScript.fireRate = weapons[i].fireRate;
+                weaponScript.damage = weapons[i].damage;
+                weaponScript.cost = weapons[i].cost;
+                weaponScript.sprite = weapons[i].sprite;
+            }
+        }
+    }
+}

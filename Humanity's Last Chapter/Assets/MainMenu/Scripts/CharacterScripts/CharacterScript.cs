@@ -7,13 +7,13 @@ public class CharacterScript : MonoBehaviour {
     public int health, id;
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
-
-    GameObject[] charactersO;
+    public string wpId;
 
     void Start() {
         if (name == "") {
             name = NameGenerator();
             id = GetId();
+            wpId = "wp0";
         }
     }
     private string NameGenerator() {
@@ -43,4 +43,5 @@ public class CharacterScript : MonoBehaviour {
     public void GetID() {
         id = GetId();
     }
+    
 }

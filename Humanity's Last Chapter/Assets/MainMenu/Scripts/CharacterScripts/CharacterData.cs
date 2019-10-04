@@ -6,11 +6,12 @@ using UnityEngine;
 public class CharacterData{
     
     public int id, health;
-    public string name;
+    public string name, wpId;
 
     public CharacterData(CharacterScript character) {
         id = character.id;
         health = character.health;
         name = character.name;
+        wpId = character.wpId;
     }
 }
