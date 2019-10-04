@@ -11,20 +11,23 @@ public class Projectile : MonoBehaviour
     public LayerMask whatIsSolid;
 
     private Transform enemy;
-    private Vector2 target;
+    private Vector3 targetPos;
+    private Vector3 velocity;
 
     // Start is called before the first frame update
     void Start()
     {
-        enemy = GameObject.FindWithTag("Enemy").transform;
-        target = new Vector2(enemy.position.x, enemy.position.y);
+        enemy = GameObject.FindGameObjectsWithTag("Enemy")[0].transform;
+        targetPos = new Vector3(enemy.position.x, enemy.position.y, enemy.position.z);
+        transform.rotation = Quaternion.LookRotation(targetPos);
+        velocity = new Vector3(targetPos.x - transform.position.x, targetPos.y - transform.position.y, targetPos.z - transform.position.z);
         //Invoke("DestroyProjectile", lifeTime);
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, target, distance, whatIsSolid);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, targetPos, distance, whatIsSolid);
         if (hitInfo.collider != null)
         {
             if (hitInfo.collider.CompareTag("Enemy"))
@@ -34,7 +37,9 @@ public class Projectile : MonoBehaviour
             DestroyProjectile();
         }
 
-        transform.Translate(target * speed * Time.deltaTime);
+        //velocity = targetPos - transform.position;
+        velocity.Normalize();
+        transform.position += velocity * speed * Time.deltaTime;
     }
 
     void DestroyProjectile()

@@ -26,7 +26,7 @@ public class FormationsScript : MonoBehaviour
         GameObject parentUI = GameObject.Find("ImageForCharacters");
         for (int i = 0; i < pcs.Length; i++)
         {
-            Vector3 relativePos = (UIelements[i].transform.position - UIelements[i].transform.parent.position) * 0.001f;
+            Vector3 relativePos = (UIelements[i].transform.position - UIelements[i].transform.parent.position) * 0.005f;
 
             //Debug.Log("pc pos  " + UIelements[i].transform.position.x + ", " + UIelements[i].transform.position.y);
             //Debug.Log("parent pos  " + UIelements[i].transform.parent.position.x + ", " + UIelements[i].transform.parent.position.y);
