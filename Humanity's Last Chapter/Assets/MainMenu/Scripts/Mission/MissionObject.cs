@@ -19,6 +19,7 @@ namespace QuestSystem {
         public string[] objectives;                         //Objectives
         public string[] bonusObjective;                     //Bonus Objective
         public string[] missionEvents;                      //Events
+
         private IMissionInformation information;
         public IMissionInformation Information {
             get {

@@ -262,36 +262,6 @@ MonoBehaviour:
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
---- !u!1 &185121390
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 185121392}
-  m_Layer: 5
-  m_Name: NeutralManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &185121392
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 185121390}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.827372, y: -0.74498105, z: 12.682783}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 203628099}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &203628097
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +271,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 203628099}
-  - component: {fileID: 203628100}
   - component: {fileID: 203628098}
   m_Layer: 5
   m_Name: GameManager
@@ -322,12 +291,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3e9d5afea509dc4497fffd2a8575203, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Enemy: {fileID: 18934995028022139, guid: adef20653844be14988274e6eb6103ca, type: 3}
-  Neutral: {fileID: 6803990791760217859, guid: 225ad2fde37bd3047ba358b3ededb1d3, type: 3}
-  QuestGiver: {fileID: 2407351559326671946, guid: 6412193273550f04c9bb6d181cdc55c0,
-    type: 3}
-  character: {fileID: 1464683741798525680, guid: 9d71d3b26b15b654bbcec29b90421764,
-    type: 3}
+  spawnableObjects:
+  - {fileID: 1464683741798525680, guid: 9d71d3b26b15b654bbcec29b90421764, type: 3}
+  - {fileID: 6803990791760217859, guid: 225ad2fde37bd3047ba358b3ededb1d3, type: 3}
+  - {fileID: 2407351559326671946, guid: 6412193273550f04c9bb6d181cdc55c0, type: 3}
+  - {fileID: 18934995028022139, guid: adef20653844be14988274e6eb6103ca, type: 3}
   tilemap: {fileID: 745806102}
 --- !u!4 &203628099
 Transform:
@@ -337,29 +305,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 203628097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.1486235, y: 1.2771395, z: -32.11275}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 575777995}
-  - {fileID: 185121392}
-  - {fileID: 798939193}
   - {fileID: 578863252}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &203628100
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 203628097}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99518efeef779b74a840b508714e0c06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Weapon: {fileID: 3897565785087902254, guid: abf29d4dc2513f74bb9c9f8662e4df40, type: 3}
 --- !u!1 &328173236
 GameObject:
   m_ObjectHideFlags: 0
@@ -533,36 +485,6 @@ MonoBehaviour:
   speed: 2
   edgeScrollSpeed: 0.5
   edgeScrollEnabled: 1
---- !u!1 &575777993
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 575777995}
-  m_Layer: 5
-  m_Name: EnemyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &575777995
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 575777993}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.827372, y: -0.74498105, z: 12.682783}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 203628099}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &578863250
 GameObject:
   m_ObjectHideFlags: 0
@@ -587,11 +509,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 578863250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.827372, y: -0.74498105, z: 12.682783}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 203628099}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &745806101
 GameObject:
@@ -1192,36 +1114,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 816048168}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &798939191
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 798939193}
-  m_Layer: 5
-  m_Name: QuestGiverManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &798939193
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 798939191}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.827372, y: -0.74498105, z: 12.682783}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 203628099}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &816048166
@@ -6034,6 +5926,7 @@ GameObject:
   - component: {fileID: 1962996312}
   - component: {fileID: 1962996311}
   - component: {fileID: 1962996313}
+  - component: {fileID: 1962996314}
   m_Layer: 5
   m_Name: MissionManager
   m_TagString: Untagged
@@ -6113,6 +6006,21 @@ MonoBehaviour:
   Mission: {fileID: 2415174132296087307, guid: b17f37ce31d7c8a4f85e14f3f0805091, type: 3}
   MissionList: {fileID: 156735333}
   missions: []
+--- !u!114 &1962996314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962996309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a9218b89eab1049a57586610bace65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: 904efdca9bb25024d8a546946f2e1a7e, type: 2}
+  QuestHolder: {fileID: 2415174132296087307, guid: b17f37ce31d7c8a4f85e14f3f0805091,
+    type: 3}
 --- !u!1 &2016030268
 GameObject:
   m_ObjectHideFlags: 0

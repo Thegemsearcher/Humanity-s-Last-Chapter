@@ -4,25 +4,29 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class MissionScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class MissionScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler { //Ska byta namn till QuestInfo eller QuestText
     private GameObject SelectedMission;
     public GameObject MissionInfo;
     public Text txtName, txtDescription, txtReward;
     public string missionName, description, gold, rs;
     public int goldReward, rsReward;
+    private ScriptableQuest quest;
+    
 
     void Start() {
-        txtName.text = missionName;
-        txtDescription.text = description;
+        quest = GetComponent<QuestObject>().quest;
+        Debug.Log("QuestName: " + quest.missionName);
+        txtName.text = quest.missionName;
+        txtDescription.text = quest.description;
 
-        if (goldReward > 0) {
-            gold = goldReward + " Gold ";
+        if (quest.goldReward > 0) {
+            gold = quest.goldReward + " Gold ";
         } else {
             gold = "";
         }
 
-        if (rsReward > 0) {
-            rs = rsReward + " RS ";
+        if (quest.rsReward > 0) {
+            rs = quest.rsReward + " RS ";
         }
         else {
             rs = "";

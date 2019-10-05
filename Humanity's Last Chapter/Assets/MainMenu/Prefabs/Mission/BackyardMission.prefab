@@ -240,6 +240,7 @@ GameObject:
   - component: {fileID: 2415174132296087351}
   - component: {fileID: 2415174132296087348}
   - component: {fileID: 2415174132296087349}
+  - component: {fileID: 71998751485370487}
   m_Layer: 5
   m_Name: BackyardMission
   m_TagString: Untagged
@@ -320,11 +321,39 @@ MonoBehaviour:
   txtName: {fileID: 2415174132196273966}
   txtDescription: {fileID: 8304134405074744658}
   txtReward: {fileID: 5958397470399420100}
-  missionName: 
-  description: 
+  missionName: A travellers Request I
+  description: A woundering traveller has offered a little gold and intell if you
+    can find his missing charm
   gold: 
   rs: 
-  goldReward: 0
+  goldReward: 20
+  rsReward: 2
+--- !u!114 &71998751485370487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415174132296087307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e976534ee734664fa6b56fe77b555af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titel: 
+  descrip: 
+  hint: 
+  dialog: 
+  id: 
+  nextID: 
+  isChainMission: 0
+  isAvalible: 0
+  isActive: 0
+  isCompleted: 0
+  objectives: []
+  bObjectives: []
+  events: []
+  gReward: 0
   rsReward: 0
 --- !u!1 &4706883513531792145
 GameObject:

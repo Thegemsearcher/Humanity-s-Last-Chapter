@@ -29,4 +29,8 @@ namespace QuestSystem {
  * Location Objective
  *  - go from point A to B
  *  - Timed, you have 10 mins to get to point B from A
+ *  
+ * Interact Objective
+ *  - talk to this boi
+ *  - interact with this item
  */

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
 using System.IO;
 using QuestSystem;
@@ -10,7 +8,7 @@ public class MakeMissionObject {
     [MenuItem("Assets/Create/Mission Object")]
     public static void CreateMissionObject() {
         MissionObject asset = ScriptableObject.CreateInstance<MissionObject>();
-        int missionCounter = Directory.GetFiles("Resources/MissionFolder/").Length;
+        int missionCounter = Directory.GetFiles("Resources/MissionFolder/mi").Length;
 
         if(!(missionCounter == 0)) { 
             missionCounter /= 2; //Vet inte varför den räknar dubbelt så fixade detta... om någon vet vad man kan göra så fixa det snyggare
