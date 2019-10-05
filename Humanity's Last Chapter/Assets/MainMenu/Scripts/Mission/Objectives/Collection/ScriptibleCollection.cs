@@ -11,5 +11,6 @@ public class ScriptableCollection : ScriptableObject {
     public int currentAmount; //starts at 0
     public bool isComplete, isBonus;
     public GameObject itemsToCollect; //Kanske ska bytas till något annat
+    public Transform[] spawnPos;
 
 }

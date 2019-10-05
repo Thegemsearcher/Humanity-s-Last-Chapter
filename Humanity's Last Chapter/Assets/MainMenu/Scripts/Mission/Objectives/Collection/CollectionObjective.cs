@@ -3,48 +3,41 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace QuestSystem {
-    public class CollectionObjective : IQuestObjectives {
+
+    public class CollectionObjective : MonoBehaviour {
         private string title, description, verb;
         private int collectionAmount; //Ammout of things that will be collected
         private int currentAmount; //starts at 0
         private bool isComplete, isBonus;
-        private GameObject itemsToCollect; //Kanske ska bytas till något annat
+        private GameObject itemsToCollect, itemO; //Kanske ska bytas till något annat
+        private Transform[] spawnPos;
+        private ScriptableCollection data;
 
-        public CollectionObjective(string titleVerb, int totalAmount, GameObject item, string descrip, bool bonus) {
-            title = titleVerb + " " + totalAmount + " " + item.name;
-            verb = titleVerb;
-            description = descrip;
-            itemsToCollect = item;
-            collectionAmount = totalAmount;
+        public CollectionObjective(ScriptableCollection coQuest) {
+            data = coQuest;
+            collectionAmount = data.collectionAmount;
+            title = data.verb + " " + collectionAmount + " " + data.itemsToCollect.name;
+            verb = data.verb;
+            description = data.description;
+            itemsToCollect = data.itemsToCollect;
             currentAmount = 0;
-            isBonus = bonus;
+            isBonus = data.isBonus;
+            spawnPos = data.spawnPos;
+            Debug.Log("Title: " + title);
+            SpawnTarget();
             CheckProgress();
         }
 
-        public string Title {
-            get {
-                return title;
+        private void SpawnTarget() {
+            for (int i = 0; i < collectionAmount; i++) {
+                itemO = Instantiate(itemsToCollect, spawnPos[i].position, Quaternion.identity);
+                Debug.Log("How many characters to collect? " + collectionAmount);
+                //itemO.tag = verb + "Quest";
+                itemO.transform.SetParent(GameObject.Find("SpawnHolder").transform, false);
             }
         }
 
-        public string Description {
-            get {
-                return description;
-            }
-        }
-
-        public bool IsComplete {
-            get {
-                return isComplete;
-            }
-        }
-
-        public bool IsBonus {
-            get {
-                return isBonus;
-            }
-        }
-
+        
         public void CheckProgress() {
             if(currentAmount >= collectionAmount) {
                 isComplete = true;

@@ -15,7 +15,6 @@ public class MissionScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Start() {
         quest = GetComponent<QuestObject>().quest;
-        Debug.Log("QuestName: " + quest.missionName);
         txtName.text = quest.missionName;
         txtDescription.text = quest.description;
 

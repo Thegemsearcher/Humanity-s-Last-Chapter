@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 [System.Serializable]
 public class ScriptableQuest : ScriptableObject {
@@ -15,7 +16,7 @@ public class ScriptableQuest : ScriptableObject {
     public bool isChainMission;                         //Chain mission
     public int goldReward, rsReward;                    //Reward
     public bool avalible, active, completed;            //Missionstatus
-    public string[] objectives;                         //Objectives
     public string[] bonusObjective;                     //Bonus Objective
     public string[] missionEvents;                      //Events
+    public Object[] objectives;                         //Quests that will be used...
 }

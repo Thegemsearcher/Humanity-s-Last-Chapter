@@ -25,7 +25,7 @@ MonoBehaviour:
   avalible: 1
   active: 1
   completed: 0
-  objectives:
-  - co0
   bonusObjective: []
   missionEvents: []
+  objectives:
+  - {fileID: 11400000, guid: aaf11d48cf6b37d4cb694b5136f7589d, type: 2}

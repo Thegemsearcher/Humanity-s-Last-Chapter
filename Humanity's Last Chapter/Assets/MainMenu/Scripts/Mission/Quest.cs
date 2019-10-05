@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 namespace QuestSystem {
-    public class Quest {
+    public class Quest : MonoBehaviour {
 
         public Quest() {
 
