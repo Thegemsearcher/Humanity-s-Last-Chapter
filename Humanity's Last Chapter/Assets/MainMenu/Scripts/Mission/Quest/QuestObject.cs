@@ -27,7 +27,6 @@ public class QuestObject : MonoBehaviour {
         }
         else {
             id = quest.objectives[objectiveCounter].name[0].ToString() + quest.objectives[objectiveCounter].name[1].ToString();
-            Debug.Log("Id: " + id);
 
             switch (id) { //Jättefult, I know... kommer någon på bättre lösning vi kan använda?
                 case "co":
