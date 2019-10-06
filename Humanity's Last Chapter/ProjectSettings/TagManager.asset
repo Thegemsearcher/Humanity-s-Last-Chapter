@@ -19,6 +19,7 @@ TagManager:
   - WorldManager
   - Faction
   - EnemySpawn
+  - Location
   layers:
   - Default
   - TransparentFX

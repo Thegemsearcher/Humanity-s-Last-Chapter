@@ -17,7 +17,7 @@ namespace QuestSystem {
         public CollectionObjective(ScriptableCollection coQuest) {
             data = coQuest;
             collectionAmount = data.collectionAmount;
-            title = data.verb + " " + collectionAmount + " " + data.itemsToCollect.name;
+            //title = data.verb + " " + collectionAmount + " " + data.itemsToCollect.name;
             verb = data.verb;
             description = data.description;
             itemsToCollect = data.itemsToCollect;
@@ -44,19 +44,20 @@ namespace QuestSystem {
             enemiesLeft = 0;
             foreach(GameObject enemy in objectiveList) {
                 if(enemy.GetComponent<MarkusEnemy>().id == data.name+"Enemy") {
-                    enemiesLeft++;
+                    return false;
                 }
             }
-            currentAmount = collectionAmount - enemiesLeft;
+            return true;
+            //currentAmount = collectionAmount - enemiesLeft;
 
-            if(currentAmount >= collectionAmount) {
-                Debug.Log("Quest Complete!");
-                isComplete = true;
-            }
-            else {
-                isComplete = false;
-            }
-            return isComplete;
+            //if(currentAmount >= collectionAmount) {
+            //    Debug.Log("Quest Complete!");
+            //    isComplete = true;
+            //}
+            //else {
+            //    isComplete = false;
+            //}
+            //return isComplete;
         }
 
         public void UpdateProgress() {
@@ -64,9 +65,9 @@ namespace QuestSystem {
         }
 
         // 0/x items collected
-        public override string ToString() {
-            return currentAmount +"/"+ collectionAmount + " "+itemsToCollect.name + " " + verb+"ed!";
-        }
+        //public override string ToString() {
+        //    return currentAmount +"/"+ collectionAmount + " "+itemsToCollect.name + " " + verb+"ed!";
+        //}
     }
 }
 
