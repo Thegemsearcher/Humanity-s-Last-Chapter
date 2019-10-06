@@ -8,7 +8,7 @@ public class CharacterMovement : MonoBehaviour
     public float moveSpeed = 1000f;
 
     Vector3 direction = Vector3.zero;
-
+    public List<GameObject> pcs = new List<GameObject>();
     public List<Vector3> waypoints = new List<Vector3>();
     private int currentWaypoint = 0;
 
@@ -24,7 +24,10 @@ public class CharacterMovement : MonoBehaviour
         InputMovement();
         Movement();
     }
-
+    public void AddPc(GameObject toAdd)
+    {
+        pcs.Add(toAdd);
+    }
     private void InputMovement()
     {
         if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.LeftShift))
@@ -32,10 +35,10 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
-            foreach (Transform child in transform)
+            foreach (GameObject child in pcs)
             {
                 //Debug.Log("will add: " + mousePosition);
-                child.gameObject.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
+                child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
             }
         }
         if (Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftShift))
@@ -45,10 +48,10 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
 
-            foreach (Transform child in transform)
+            foreach (GameObject child in pcs)
             {
-                child.gameObject.GetComponentInChildren<PersonalMovement>().FlushWaypoints();
-                child.gameObject.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
+                child.GetComponentInChildren<PersonalMovement>().FlushWaypoints();
+                child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
             }
         }
     }
