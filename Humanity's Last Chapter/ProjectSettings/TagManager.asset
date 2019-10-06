@@ -22,8 +22,13 @@ TagManager:
   - ItemHolder
   - Location
   - Item
+<<<<<<< HEAD
   - QuestStarted
   - ObjectiveStarted
+=======
+  - ItemGrid
+  - Loot
+>>>>>>> 66be31711bb60c2ecc114edbb8e515faf6705ead
   layers:
   - Default
   - TransparentFX
