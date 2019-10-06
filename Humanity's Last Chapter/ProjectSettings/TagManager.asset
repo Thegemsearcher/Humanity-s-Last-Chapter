@@ -20,6 +20,10 @@ TagManager:
   - Faction
   - EnemySpawn
   - ItemHolder
+  - Location
+  - Item
+  - ItemGrid
+  - Loot
   layers:
   - Default
   - TransparentFX

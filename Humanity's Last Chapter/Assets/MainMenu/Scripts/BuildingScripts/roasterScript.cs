@@ -12,7 +12,7 @@ public class roasterScript : MonoBehaviour {
 
     private void Start() {
         roasterPos = new Vector3(-310, 120, 1); //sjukt fult måste göras snyggare!
-        rand = Random.Range(10, 12); //tycker vi senare ska ha denna på ett annat sätt
+        rand = Random.Range(4, 6); //tycker vi senare ska ha denna på ett annat sätt
         for (int i = 0; i < rand; i++) {
             if (i == 4) {
                 roasterPos.y = 120;

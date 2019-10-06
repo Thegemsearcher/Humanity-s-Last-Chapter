@@ -11,7 +11,8 @@ public class stats : MonoBehaviour
     public GameObject prefabCharacterUI;
     CharacterStatWriter writer;
     public GameObject ItemPrefab;
-    GameObject item;
+    private GameObject itemGrid;
+    List<GameObject> items = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
@@ -20,18 +21,46 @@ public class stats : MonoBehaviour
         def = Random.Range(1, 3);   //Just for show.
         hp = maxHp;
         nextLevel = 10 + (5 * level);
+
+        //Fix CharacterCanvas
         characterUI = Instantiate(prefabCharacterUI, new Vector3(0,0,0), Quaternion.identity);
         characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         characterUI.GetComponent<Canvas>().sortingOrder = 1;
         characterUI.GetComponentInChildren<Button>().onClick.AddListener(delegate { characterUI.SetActive(false); });
+       
         //Set the script to the instance of the CharacterCanvas object, and then run the method in it.
         writer = prefabCharacterUI.GetComponent<CharacterStatWriter>();
         writer.GetStats(hp, str, def);
 
-        item = Instantiate(ItemPrefab, new Vector3(0, 0, 0), Quaternion.identity, characterUI.transform);
-        item.GetComponent<SpriteRenderer>().sortingOrder = 2;
-        item.GetComponent<ItemScript>().SetSlot(new Vector3(0, 0, 0)); // + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
-        item.GetComponent<ItemScript>().SetColor(new Color(1f, 0.8f, 0.8f, 255));
+        //Create items
+        foreach (Transform t in characterUI.transform)
+        {
+            if (t.tag == "ItemGrid")
+            {
+                itemGrid = t.gameObject;
+            }
+        }
+        for (int x = 0; x < 6; x++)
+            items.Add(Instantiate(ItemPrefab, itemGrid.transform));
+        int i = 0;
+        int j = 0;
+
+        //This is dumb, but CharacterCanvas is a canvas, so it's dumb.
+        for (int x = 0; x < characterUI.transform.childCount; x++)
+            characterUI.transform.GetChild(x).transform.position += new Vector3(-4f, 1.9f, 0);
+
+        //Configure items
+        foreach (GameObject item in items)
+        {
+            item.GetComponent<ItemScript>().SetSlot(item.transform.position + new Vector3(0 + i * 0.6f, 0 - j * 0.6f, 0)); // + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
+            item.GetComponent<ItemScript>().SetColor(new Color(Random.value, Random.value, Random.value, 255));
+            i++;
+            if (i > 2)
+            {
+                i = 0;
+                j++;
+            }
+        }
     }
 
     // Update is called once per frame
