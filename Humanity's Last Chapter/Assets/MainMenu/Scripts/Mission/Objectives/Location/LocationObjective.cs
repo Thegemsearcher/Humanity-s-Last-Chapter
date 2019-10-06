@@ -26,11 +26,18 @@ namespace QuestSystem {
             isComlete = false;
             isBonus = data.isBonus;
             loScript = Location.GetComponent<LocationScript>();
-            characters = GameObject.FindGameObjectsWithTag("Characters");
+            //characters = GameObject.FindGameObjectsWithTag("Character");
+        }
+
+        private void GetCharacters() {
+            Debug.Log("I think this did it!");
+            characters = GameObject.FindGameObjectsWithTag("Character");
         }
 
         public bool CheckProgress() {
-            Debug.Log("Does it get here?");
+            if(characters == null) {
+                GetCharacters();
+            }
             foreach (GameObject character in characters) {
                 if (loScript.GetComponent<BoxCollider2D>().bounds.Contains(character.transform.position)) {
                     if(clearOutTarget.Length == 0) {

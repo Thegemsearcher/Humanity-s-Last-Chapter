@@ -23,10 +23,10 @@ public class Spawner : MonoBehaviour {
                 localPlace = (new Vector3Int(i, j, (int)tilemap.transform.position.y));
                 place = tilemap.CellToWorld(localPlace);
                 if(tilemap.HasTile(localPlace)) {
-
                     for (int k = 0; k < spawnableObjects.Length; k++) {
-                        if(spawnableObjects[k].name == tilemap.GetSprite(localPlace).name) {
-                            if(spawnableObjects[k].name == "HumanityBoi") {
+                        if (spawnableObjects[k].name == tilemap.GetSprite(localPlace).name) {
+                            if(spawnableObjects[k].name == "MarkusBoi") {
+                                
                                 CharacterSpawn(spawnableObjects[k], place);
                             }
                             else {
@@ -46,8 +46,8 @@ public class Spawner : MonoBehaviour {
             CreateTarget(place, character, parent.transform);
             createdObject.transform.localScale = new Vector3(1, 1, 1);
             createdObject.GetComponent<CharacterScript>().LoadPlayer(missionOrder[characterCounter]);
-            createdObject.GetComponent<PersonalMovement>().relativePos = new Vector3(characterCounter * 0.5f, characterCounter * 0.5f);
-            createdObject.GetComponent<PersonalMovement>().AddRelativeWaypoint(createdObject.transform.parent.position);
+            //createdObject.GetComponent<PersonalMovement>().relativePos = new Vector3(characterCounter * 0.5f, characterCounter * 0.5f);
+            //createdObject.GetComponent<PersonalMovement>().AddRelativeWaypoint(createdObject.transform.parent.position);
             characterCounter++;
         }
 

@@ -7,7 +7,7 @@ using QuestSystem;
 public class MakeLocation {
 
     [MenuItem("Assets/Create/Location Objective")]
-    public void CreateLocationObjective() {
+    public static void CreateLocationObjective() {
         LocationObject asset = ScriptableObject.CreateInstance<LocationObject>();
         int missionCounter = 0;
         missionCounter = Directory.GetFiles("Assets/MissionFolder/LocationObjectives/").Length;

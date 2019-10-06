@@ -1,5 +1,9 @@
 sceneSetups:
-- path: Assets/MainMenu/Scenes/Main.unity
+<<<<<<< HEAD
+- path: Assets/MainMenu/Scenes/Backyard.unity
+=======
+- path: Assets/MainMenu/Scenes/MissionMap.unity
+>>>>>>> 4c7bb8c13441a57aeff7ee958eefe2b492ca162e
   isLoaded: 1
   isActive: 1
   isSubScene: 0

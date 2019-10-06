@@ -15,4 +15,6 @@ public class CharacterManager : MonoBehaviour
     void Update() //ligger nu mera i personal movement
     {
     }
+
+    
 }
