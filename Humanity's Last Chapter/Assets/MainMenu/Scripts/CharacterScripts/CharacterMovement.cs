@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Pathfinding;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        waypoints.Add(new Vector3(1, 0, 0));   
     }
 
     // Update is called once per frame
@@ -35,11 +36,11 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
-            foreach (GameObject child in pcs)
-            {
-                //Debug.Log("will add: " + mousePosition);
-                child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
-            }
+            //foreach (GameObject child in pcs)
+            //{
+            //    //Debug.Log("will add: " + mousePosition);
+            //    child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
+            //}
         }
         if (Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftShift))
         {
@@ -48,11 +49,11 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
 
-            foreach (GameObject child in pcs)
-            {
-                child.GetComponentInChildren<PersonalMovement>().FlushWaypoints();
-                child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
-            }
+            //foreach (GameObject child in pcs)
+            //{
+            //    child.GetComponentInChildren<PersonalMovement>().FlushWaypoints();
+            //    child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
+            //}
         }
     }
 
@@ -61,14 +62,14 @@ public class CharacterMovement : MonoBehaviour
         if (waypoints.Count != 0)
         {
             direction = waypoints[currentWaypoint] - transform.position;
-
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWaypoint]);
             //transform.position = Vector2.Lerp(transform.position, waypoints[currentWaypoint], moveSpeed);
             //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
             if (direction.magnitude < 2)
             {
                 currentWaypoint++;
             }
-            direction = direction.normalized;
+            //direction = direction.normalized;
             //transform.position += direction * moveSpeed * Time.deltaTime;
             if (currentWaypoint >= waypoints.Count)
             {
