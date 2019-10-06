@@ -24,20 +24,22 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
 
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //    target.z = transform.position.z;
-        //}
-        //transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
-
+        MovementForTest();
     }
 
     public void TakeDamage(int damage)
     {
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
         health -= damage;
-        Debug.Log("damage TAKEN !");
+    }
+
+    void MovementForTest()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            target.z = transform.position.z;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
     }
 }
