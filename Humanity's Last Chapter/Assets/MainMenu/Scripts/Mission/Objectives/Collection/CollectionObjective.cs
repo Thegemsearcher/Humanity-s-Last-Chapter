@@ -6,10 +6,11 @@ namespace QuestSystem {
 
     public class CollectionObjective : MonoBehaviour {
         private string title, description, verb;
-        private int collectionAmount; //Ammout of things that will be collected
+        private int collectionAmount, enemiesLeft; //Ammout of things that will be collected
         private int currentAmount; //starts at 0
         private bool isComplete, isBonus;
         private GameObject itemsToCollect, itemO; //Kanske ska bytas till något annat
+        private GameObject[] objectiveList;
         private Transform[] spawnPos;
         private ScriptableCollection data;
 
@@ -23,7 +24,7 @@ namespace QuestSystem {
             currentAmount = 0;
             isBonus = data.isBonus;
             spawnPos = data.spawnPos;
-            Debug.Log("Title: " + title);
+            enemiesLeft = 0;
             SpawnTarget();
             CheckProgress();
         }
@@ -31,20 +32,31 @@ namespace QuestSystem {
         private void SpawnTarget() {
             for (int i = 0; i < collectionAmount; i++) {
                 itemO = Instantiate(itemsToCollect, spawnPos[i].position, Quaternion.identity);
-                Debug.Log("How many characters to collect? " + collectionAmount);
-                //itemO.tag = verb + "Quest";
                 itemO.transform.SetParent(GameObject.Find("SpawnHolder").transform, false);
+                itemO.GetComponent<MarkusEnemy>().id = data.name + "Enemy";
             }
         }
 
-        
-        public void CheckProgress() {
+
+        public bool CheckProgress() {
+            objectiveList = GameObject.FindGameObjectsWithTag("Enemy");
+
+            enemiesLeft = 0;
+            foreach(GameObject enemy in objectiveList) {
+                if(enemy.GetComponent<MarkusEnemy>().id == data.name+"Enemy") {
+                    enemiesLeft++;
+                }
+            }
+            currentAmount = collectionAmount - enemiesLeft;
+
             if(currentAmount >= collectionAmount) {
+                Debug.Log("Quest Complete!");
                 isComplete = true;
             }
             else {
                 isComplete = false;
             }
+            return isComplete;
         }
 
         public void UpdateProgress() {
