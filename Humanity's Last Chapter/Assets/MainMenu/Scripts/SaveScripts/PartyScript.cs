@@ -21,12 +21,13 @@ public class PartyScript : MonoBehaviour {
         for (int i = 0; i < missionOrder.Length; i++) {
             if(missionOrder[i] >= 0) {
                 characterO = Instantiate(character) as GameObject;
-                characterO.transform.parent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
+                //characterO.transform.parent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
                 characterO.transform.localScale = new Vector3(1, 1, 1);
                 characterO.GetComponent<CharacterScript>().LoadPlayer(missionOrder[i]);
-                characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i * 50, i * 50);
-                characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(characterO.transform.parent.position);
+                characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i , i);
+                characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
                 //rollen karaktären har borde gå att bestämmas med i
+                gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
             }
             
         }

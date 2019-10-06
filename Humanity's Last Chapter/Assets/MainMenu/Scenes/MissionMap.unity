@@ -661,7 +661,6 @@ GameObject:
   m_Component:
   - component: {fileID: 292870285}
   - component: {fileID: 292870284}
-  - component: {fileID: 292870283}
   - component: {fileID: 292870286}
   m_Layer: 10
   m_Name: Car
@@ -670,27 +669,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!50 &292870283
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 292870282}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!212 &292870284
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -882,7 +860,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAAAIIey70kYQcgIAABkFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE2T2jAM/SuMz13GCYRAb22WZXvYj1na2UsuJlGIB8fO2M4Cu8N/r+wkJKUnhKQnPT3J+SJcmhoyq/RG8/xJ5UC+T4izybfJEHyEE9srueWf0Oe889yWLon5nDdmuUJ/4GBGVWA1z37IvXDJFJ2N5IXS1TrfQ6KMNegumDCAIa2sQ0t0fU3ICX/uVg5yRiuMnfWJ1opOLmhmIC3oUSqd0oAu6SwMw7gD0ekyiulyHkdBB26xjcwEq2rI3SBDiSAMl9Nlh11EaFNK5ysPkThulx1MQ9dfCcFNx5bYc+3VSFhtGpwVE3LOcHpPkfqqJfB9ad0sY/hLURiwnTiane+5RhnbuuSnarWtmDm0PD+YaDwJGs49sbbq038Jd4EPF1pVj33jgLomtuTZ4Y2dM2bsSP2x+37gHni9jkwc2E7AewnyWW20amSOQasbB20MhPfD3+tsSQnZYfC3VG+cTT0soF92v2o3w8WPf0oEr3Zeynnr2ArlJfcXAhrX8wsJ+/sxXQn0OhZ/DPxm+/GhdYEHro3FUDeldPR2qtEulay9Zm6axiZKS/DujnQNkgl7fsUy9naHN7FR25vIA3NPqmvexfqXcgPx7iGf0pvQqzpel2VKdXwCU740VnAJA2kXeEadEiVle2JjTXrYttEFy0awfcPzf0+L7BazrJgzmMdxHK2C2R2jC1jGbLYMokUeRhHxt8clzsnEa0u0kwe3JofiEu+s/9JMNprV/txzzY4b/lmpkeRcFmqbaQD50la4EgeNTfBp5uuco0BbsJZLv2/ylRKhsgPk6bVQ6iddn6xm6VAlJTX/UNZ5UpL4T0tKLuTyF1BLAwQUAAAICAAACCHso1FadGwAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Kz0FFQSi9KLMgoBgoYgjilmSkgdrRSkplxcppJYqqJubm5qaWhsW6igVmqhXmisYWhqVmKkampUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAIIey70kYQcgIAABkFAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAIIeyjUVp0bAAAAHcAAAAJACQAAAAAAAAAAAAAAL8CAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAdgMAAAAA
+    dataString: UEsDBBQAAAgIAAAIIeyksE0TagIAAA4FAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVEtzokAQ/ivWnDcWKATd2y4xZg95VMxWLlxGaGTKYYaaR9Sk/O/bM4AQ92T79evrr3v4IkzoBnIj1Vqx4lEWQH5OiLPJj8ngfIAj3UmxYZ/Qx7yzwlQuiPqYV2qYRDx0aVrWYBTLf4kdd8EBglawUqp6VewgldpohEvKNaBLSeOyBUJfE3LEn5ulSzmhNUuc9YnWMpic0cxBGFCj0GAahMEiWiyXyy4nmC7iJFjE8yjpcttUK3JO6wYKN8dQIQ5nl2bRNPahAqfsooJp7NpKzpnuSBJzarwIKW20xRExoGAUh/bMnAYVsF1lXM1x8nNZajCdIoqe7phC7dqq5LdsBa2p3rfsPii3rk8YzCJPq636+F/ATejdpZL1Q984DFwTU7F8/0pPOdVmJPkYvvvO3IoD5Xu65fBegXiSayWtKNBplHWpVsPsbvh7mS2tIN8PeEv1CrTNIHu/4X6/boazH/+YclZvvfRRC2y49IL7swCFy/mDhP3R6K4Eoo7FXw1vdDe+rs5xz5Q26OqmFI7eVlrlQsnKa+amsSaVSoCHO9INCMrN6QXLmOsdXvlGba8899S9o6555+ufx1WKh4f4ILhyvcjDZVm6kodH0NWzNZwJGEg7xxPqlEoh2hMba9KnbawqaT5K21lWfD8tsr2d52VEIUqSJF6G8xsa3MIiofNFGN8Wszgm/vaYwDkpf2mJdvLg1sRQXOCd9Z+XyVrRxp97oehhzT5rOZKciVJucgUgntsKF+KgsAk+zGJVMBRoA8Yw4fdNvjLCZb6HIrsUyvykq6NRNBuqZKRhH9I4JCOp/55k5EzO/wBQSwMEFAAACAgAAAgh7KNRWnRsAAAAdwAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSs9BRUEovSizIKAYKGII4pZkpIHa0UpKZcXKaSWKqibm5uamlobFuooFZqoV5orGFoalZipGpqVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAACCHspLBNE2oCAAAOBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAACCHso1FadGwAAAB3AAAACQAkAAAAAAAAAAAAAAC3AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAG4DAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1608,6 +1586,11 @@ GameObject:
   - component: {fileID: 1507006565}
   - component: {fileID: 1507006564}
   - component: {fileID: 1507006567}
+  - component: {fileID: 1507006568}
+  - component: {fileID: 1507006570}
+  - component: {fileID: 1507006569}
+  - component: {fileID: 1507006571}
+  - component: {fileID: 1507006572}
   m_Layer: 0
   m_Name: PCManager
   m_TagString: CharacterManager
@@ -1628,6 +1611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
+  pcs: []
   waypoints: []
 --- !u!114 &1507006565
 MonoBehaviour:
@@ -1672,6 +1656,105 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1464683741798525680, guid: 9d71d3b26b15b654bbcec29b90421764,
     type: 3}
+--- !u!114 &1507006568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507006563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a075b776962683419520b034fe56b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1507006569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507006563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 2
+  radius: 0.5
+  height: 0.01
+  repathRate: 0.5
+  canSearch: 1
+  canMove: 1
+  maxSpeed: 5
+  gravity: {x: NaN, y: NaN, z: NaN}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  centerOffsetCompatibility: NaN
+  orientation: 1
+  enableRotation: 1
+  targetCompatibility: {fileID: 0}
+  maxAcceleration: -2.5
+  rotationSpeed: 360
+  slowdownDistance: 6
+  pickNextWaypointDist: 0.2
+  endReachedDistance: 0.2
+  alwaysDrawGizmos: 0
+  slowWhenNotFacingTarget: 1
+  whenCloseToDestination: 0
+  constrainInsideGraph: 0
+--- !u!114 &1507006570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507006563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  drawGizmos: 1
+  detailedGizmos: 0
+  startEndModifier:
+    addPoints: 0
+    exactStartPoint: 3
+    exactEndPoint: 3
+    useRaycasting: 0
+    mask:
+      serializedVersion: 2
+      m_Bits: 4294967295
+    useGraphRaycasting: 0
+  traversableTags: -1
+  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  graphMask:
+    value: -1
+--- !u!114 &1507006571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507006563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
+  posToTarget: {x: 0, y: 0, z: 0}
+--- !u!222 &1507006572
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507006563}
+  m_CullTransparentMesh: 0
 --- !u!1 &1531354043
 GameObject:
   m_ObjectHideFlags: 0
@@ -1902,7 +1985,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1668813042}
   - component: {fileID: 1668813043}
-  - component: {fileID: 1668813044}
   - component: {fileID: 1668813045}
   m_Layer: 10
   m_Name: Wall
@@ -1979,27 +2061,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 2
   m_SpriteSortPoint: 0
---- !u!50 &1668813044
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668813041}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &1668813045
 BoxCollider2D:
   m_ObjectHideFlags: 0
