@@ -10,7 +10,7 @@ public class ItemScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -37,6 +37,17 @@ public class ItemScript : MonoBehaviour
             }
             else if (held) //If this was let go
             {
+                Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                List<GameObject> items = new List<GameObject>(GameObject.FindGameObjectsWithTag("Item"));
+                foreach (GameObject item in items)
+                {
+                    if (item != gameObject && item.GetComponent<Collider2D>().OverlapPoint(mousePosition))
+                    {
+                        SwitchPositions(gameObject, item);
+                        break;
+                    }
+                }
+
                 held = false;
                 gameObject.GetComponent<Transform>().position = slotPosition;
                 MouseData.RemoveItem();
@@ -69,5 +80,13 @@ public class ItemScript : MonoBehaviour
     public GameObject CreateItem()
     {
         return gameObject;
+    }
+
+    public void SwitchPositions(GameObject droppedItem, GameObject onItem)
+    {
+        Vector2 droppedItemPosition = droppedItem.GetComponent<ItemScript>().SlotPositon();
+        Vector3 onItemPosition = onItem.GetComponent<ItemScript>().SlotPositon();
+        droppedItem.GetComponent<ItemScript>().SetSlot(onItemPosition);
+        onItem.GetComponent<ItemScript>().SetSlot(droppedItemPosition);
     }
 }
