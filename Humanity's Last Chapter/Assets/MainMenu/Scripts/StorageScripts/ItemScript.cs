@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ItemScript : MonoBehaviour
 {
@@ -53,6 +54,11 @@ public class ItemScript : MonoBehaviour
                 MouseData.RemoveItem();
             }
         }
+        if(!held)
+        {
+            if(transform.position != slotPosition)
+                gameObject.GetComponent<Transform>().position = slotPosition;
+        }
     }
 
     public Vector3 SlotPositon()
@@ -68,7 +74,7 @@ public class ItemScript : MonoBehaviour
 
     public void SetColor(Color newColor)
     {
-        gameObject.GetComponent<SpriteRenderer>().color = newColor;
+        gameObject.GetComponent<Image>().color = newColor;
         active = true;
     }
 
@@ -84,8 +90,20 @@ public class ItemScript : MonoBehaviour
 
     public void SwitchPositions(GameObject droppedItem, GameObject onItem)
     {
+        //Make sure parents aren't already the same.
+        if (droppedItem.transform.parent != onItem.transform.parent)
+        {
+            //Save parents
+            Transform droppedParent = droppedItem.transform.parent;
+            Transform onParent = onItem.transform.parent;
+            //Transfer parents
+            droppedItem.transform.SetParent(onParent, true);
+            onItem.transform.SetParent(droppedParent, true);
+        }
+        //Save positions
         Vector2 droppedItemPosition = droppedItem.GetComponent<ItemScript>().SlotPositon();
         Vector3 onItemPosition = onItem.GetComponent<ItemScript>().SlotPositon();
+        //Transfer positions
         droppedItem.GetComponent<ItemScript>().SetSlot(onItemPosition);
         onItem.GetComponent<ItemScript>().SetSlot(droppedItemPosition);
     }
