@@ -12,15 +12,12 @@ public class StorageLoader : MonoBehaviour
     void Start()
     {
         for(int x = 0;x < 81;x++)
-            items.Add(Instantiate(ItemPrefab));
+            items.Add(Instantiate(ItemPrefab, gameObject.transform.GetChild(0).transform));
         int i = 0;
         int j = 0;
         foreach(GameObject item in items)
         {
-            item.transform.SetParent(gameObject.transform.GetChild(0).transform);
-            item.transform.position = new Vector3(0, 0, 0);
-            item.GetComponent<SpriteRenderer>().sortingOrder = 1;
-          //  item.GetComponent<ItemScript>().SetSlot(GetComponent<RectTransform>().position + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
+            item.GetComponent<ItemScript>().SetSlot(GetComponent<RectTransform>().position + new Vector3(-2.4f + i * 0.6f, 2.5f - j * 0.6f, 0));
             i++;
             if(i > 8)
             {
