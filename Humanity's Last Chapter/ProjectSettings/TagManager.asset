@@ -20,6 +20,10 @@ TagManager:
   - Faction
   - EnemySpawn
   - ItemHolder
+  - Location
+  - Item
+  - QuestStarted
+  - ObjectiveStarted
   layers:
   - Default
   - TransparentFX

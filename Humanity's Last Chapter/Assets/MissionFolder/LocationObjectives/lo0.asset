@@ -15,7 +15,7 @@ MonoBehaviour:
   titel: Enter the Dinner room
   description: A distresscall has been located from the dinner room, we have to investigate!
   id: lo0
-  Location: {fileID: 295710700596327343, guid: c2dc0179040877b4a9446390a0e5f487, type: 3}
+  Location: {fileID: 907308099358535236, guid: c2dc0179040877b4a9446390a0e5f487, type: 3}
   clearOutTarget: []
   isComlete: 0
   isBonus: 0

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace QuestSystem {
     public class LocationObjective : MonoBehaviour {
-        private string titel = "t.ex. Enter the Kitchen";
+        public string title = "t.ex. Enter the Kitchen";
         private string description = "t.ex. A distress call from the Dinner Room calls for an investigation";
         private string id = "t.ex. lo0";
         private GameObject Location;
@@ -18,7 +18,7 @@ namespace QuestSystem {
 
         public void GetData(LocationObject data) {
             this.data = data;
-            titel = data.titel;
+            title = data.titel;
             description = data.description;
             id = data.id;
             Location = data.Location;
@@ -26,26 +26,29 @@ namespace QuestSystem {
             isComlete = false;
             isBonus = data.isBonus;
             loScript = Location.GetComponent<LocationScript>();
-            //characters = GameObject.FindGameObjectsWithTag("Character");
-        }
-
-        private void GetCharacters() {
-            Debug.Log("I think this did it!");
             characters = GameObject.FindGameObjectsWithTag("Character");
+
+            GameObject[] Locations = GameObject.FindGameObjectsWithTag("Location");
+            foreach(GameObject location in Locations) {
+                if(location.name == data.Location.name) {
+                    Location = location;
+                    break;
+                }
+            }
         }
 
         public bool CheckProgress() {
-            if(characters == null) {
-                GetCharacters();
-            }
             foreach (GameObject character in characters) {
-                if (loScript.GetComponent<BoxCollider2D>().bounds.Contains(character.transform.position)) {
-                    if(clearOutTarget.Length == 0) {
-                        return true;
-                    }
-                }
+                isComlete = Location.GetComponent<LocationScript>().isInRoom;
+                //Debug.Log("LocationPos: " + loScript.GetComponent<BoxCollider2D>().bounds);
+                //if (loScript.GetComponent<BoxCollider2D>().bounds.Contains(character.transform.position)) {
+                //    Debug.Log("It works now!");
+                //    if (clearOutTarget.Length == 0) {
+                //        return true;
+                //    }
+                //}
             }
-            return false;
+            return isComlete;
         }
     }
 }

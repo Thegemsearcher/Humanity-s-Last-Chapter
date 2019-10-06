@@ -5,7 +5,7 @@ using UnityEngine;
 namespace QuestSystem {
 
     public class CollectionObjective : MonoBehaviour {
-        private string title, description, verb;
+        public string title, description, verb;
         private int collectionAmount, enemiesLeft; //Ammout of things that will be collected
         private int currentAmount; //starts at 0
         private bool isComplete, isBonus;
@@ -17,7 +17,8 @@ namespace QuestSystem {
         public void GetData(ScriptableCollection coQuest) {
             data = coQuest;
             collectionAmount = data.collectionAmount;
-            //title = data.verb + " " + collectionAmount + " " + data.itemsToCollect.name;
+            title = data.verb + " " + collectionAmount + " " + data.itemsToCollect.name;
+            Debug.Log("Title: " + title);
             verb = data.verb;
             description = data.description;
             itemsToCollect = data.itemsToCollect;
@@ -37,7 +38,6 @@ namespace QuestSystem {
             }
         }
 
-
         public bool CheckProgress() {
             objectiveList = GameObject.FindGameObjectsWithTag("Enemy");
             enemiesLeft = 0;
@@ -47,28 +47,13 @@ namespace QuestSystem {
                     return false;
                 }
             }
-            Debug.Log("Done right");
             return true;
-            //currentAmount = collectionAmount - enemiesLeft;
-
-            //if(currentAmount >= collectionAmount) {
-            //    Debug.Log("Quest Complete!");
-            //    isComplete = true;
-            //}
-            //else {
-            //    isComplete = false;
-            //}
-            //return isComplete;
         }
 
         public void UpdateProgress() {
             throw new System.NotImplementedException();
         }
-
-        // 0/x items collected
-        //public override string ToString() {
-        //    return currentAmount +"/"+ collectionAmount + " "+itemsToCollect.name + " " + verb+"ed!";
-        //}
+        
     }
 }
 
