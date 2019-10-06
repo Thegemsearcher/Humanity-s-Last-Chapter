@@ -29,6 +29,27 @@ public class CharacterMovement : MonoBehaviour
     {
         pcs.Add(toAdd);
     }
+    /// <summary>
+    /// obs fungerar ej just nu
+    /// </summary>
+    /// <param name="rotateTowards"></param>
+    public void RotateFormation(Vector3 rotateTowards)
+    {
+        //Vector3 to = new Vector3(rotateTowards.x, rotateTowards.y, 0);
+        //Vector3 from = new Vector3(transform.position.x, transform.position.y, 0);
+        //float angle = Vector3.Angle(from, to);
+        //foreach (GameObject pc in pcs)
+        //{
+        //    Debug.Log("gnasl");
+        //    Vector3 toSet = pc.GetComponent<PersonalMovement>().relativePos;
+        //    float x = Mathf.Cos(angle) * (toSet.x - from.x) - Mathf.Sin(angle) * (toSet.y - from.y) + from.x;
+        //    float y = Mathf.Sin(angle) * (toSet.x - from.x) - Mathf.Cos(angle) * (toSet.y - from.y) + from.y;
+        //    toSet.x = x;
+        //    toSet.y = y;
+        //    pc.GetComponent<PersonalMovement>().relativePos = toSet;
+        //}
+    }
+
     private void InputMovement()
     {
         if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.LeftShift))
@@ -41,6 +62,8 @@ public class CharacterMovement : MonoBehaviour
             //    //Debug.Log("will add: " + mousePosition);
             //    child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
             //}
+            
+            RotateFormation(mousePosition);
         }
         if (Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftShift))
         {
@@ -54,6 +77,7 @@ public class CharacterMovement : MonoBehaviour
             //    child.GetComponentInChildren<PersonalMovement>().FlushWaypoints();
             //    child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
             //}
+            RotateFormation(mousePosition);
         }
     }
 
