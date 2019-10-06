@@ -107,6 +107,7 @@ MonoBehaviour:
   name: 
   health: 20
   id: 0
+  wpId: 
 --- !u!222 &7971658715119557861
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -177,6 +178,7 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 512
+  aggroDistance: 3
   attackRange: 0.18
   damage: 5
   loadout: 1
@@ -207,4 +209,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ff39d8a6fd980478391acf515a7885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition: {x: 0, y: 0, z: 0}
+  speed: 1.5

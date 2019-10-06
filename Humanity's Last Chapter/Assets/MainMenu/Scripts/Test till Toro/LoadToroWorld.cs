@@ -13,8 +13,8 @@ public class LoadToroWorld : MonoBehaviour {
         //Ladda Världen
         conterverter = 78.55004f;
         characterPos = new Vector3(-3.8427f, -1.2129f, 0);
-        enemyPos = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0);
-        //enemyPos = new Vector3(0, 0, 0);
+        //enemyPos = new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0);
+        enemyPos = new Vector3(0, 0, 0);
 
         characterO = Instantiate(character, characterPos, Quaternion.identity);
         characterO.transform.parent = GameObject.Find("CharacterManager").transform;

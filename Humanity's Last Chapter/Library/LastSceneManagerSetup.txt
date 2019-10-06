@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/MainMenu/Scenes/MissionMap.unity
+=======
+- path: Assets/MainMenu/Scenes/CombatTesting.unity
+>>>>>>> a9b4a403df47686c0f48fdbf8c9ffb4b4cc1c5b7
   isLoaded: 1
   isActive: 1
   isSubScene: 0
