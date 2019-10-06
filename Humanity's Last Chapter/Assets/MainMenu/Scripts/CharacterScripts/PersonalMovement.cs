@@ -11,16 +11,17 @@ public class PersonalMovement : MonoBehaviour
     public List<Vector3> waypoints = new List<Vector3>();
     private int currentWaypoint = 0;
     public Vector2 direction = Vector2.zero;
+    private GameObject manager;
     // Start is called before the first frame update
     void Start()
     {
+        manager = GameObject.FindGameObjectWithTag("CharacterManager");
     }
 
     // Update is called once per frame
     void Update()
     {
         posi = transform.position;
-        Positioning();
         Movement();
     }
 
@@ -43,6 +44,7 @@ public class PersonalMovement : MonoBehaviour
 
     private void Positioning()
     {
+        waypoints.Add(manager.transform.position + relativePos);
     }
 
     private void Movement()
@@ -55,6 +57,7 @@ public class PersonalMovement : MonoBehaviour
             //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
             if (direction.magnitude < 2)
             {
+                Positioning();
                 currentWaypoint++;
             }
 

@@ -15,6 +15,10 @@ public class QuestStarter : MonoBehaviour {
         QuestHolderO.GetComponent<QuestObject>().GetQuest(quest);
     }
 
+    private void Update() {
+        QuestHolderO.GetComponent<QuestObject>().CheckObjective();
+    }
+
     public void ActivateQuest() {
         Debug.Log("Does it get here?");
         QuestHolderO = Instantiate(QuestHolder);

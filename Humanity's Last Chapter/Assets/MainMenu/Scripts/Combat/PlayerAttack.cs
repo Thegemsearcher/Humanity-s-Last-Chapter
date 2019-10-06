@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -9,10 +10,17 @@ public class PlayerAttack : MonoBehaviour
 
     public RectTransform attackPos;
     public LayerMask whatIsEnemy;
+
+    private float targetDistance;
+    public float aggroDistance;
+
     public float attackRange;
     public int damage;
     public int loadout;
     private string loadoutType = " ";
+
+    private Transform enemy;
+    private Vector3 targetPos;
 
     public GameObject projectile;
     private GameObject projectile0;
@@ -20,25 +28,22 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (loadout == 0)
-        {
-            loadoutType = "Melee";
-        }
-        else if (loadout == 1)
-        {
-            loadoutType = "Ranged";
-        }
+        CheckLoadout();
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        enemy = GetNearestTarget().transform;
+        targetPos = enemy.position;
+        targetDistance = Vector3.Distance(targetPos, transform.position);
+        Debug.Log("Distance: " + targetDistance);
         if (timeBetweenAttack <= 0)
         {
+
             //attack
 
-            if (Input.GetKey(KeyCode.Space)) //change this to "if in range && has target" or something
+            if (targetDistance <= aggroDistance) //change this to "if in range && has target" or something
             {
                 if (loadoutType == "Melee")
                 {
@@ -53,10 +58,10 @@ public class PlayerAttack : MonoBehaviour
                 {
 
                     projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-                    
+
                     //projectile0.transform.parent = gameObject.transform;
                     //projectile0.transform.localScale = new Vector3(1, 1, 1);
-                    
+
 
                 }
                 timeBetweenAttack = startTimeBetweenAttack;
@@ -69,9 +74,26 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
+    GameObject GetNearestTarget()
+    {
+        return GameObject.FindGameObjectsWithTag("Enemy").Aggregate((o1, o2) => Vector3.Distance(o1.transform.position, this.transform.position) > Vector3.Distance(o2.transform.position, this.transform.position) ? o2 : o1);
+    }
+
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    void CheckLoadout()
+    {
+        if (loadout == 0)
+        {
+            loadoutType = "Melee";
+        }
+        else if (loadout == 1)
+        {
+            loadoutType = "Ranged";
+        }
     }
 }
