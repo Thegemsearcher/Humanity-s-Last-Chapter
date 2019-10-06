@@ -413,6 +413,7 @@ MonoBehaviour:
   name: 
   health: 0
   id: 0
+  wpId: 
 --- !u!114 &9011984161932067649
 MonoBehaviour:
   m_ObjectHideFlags: 0
