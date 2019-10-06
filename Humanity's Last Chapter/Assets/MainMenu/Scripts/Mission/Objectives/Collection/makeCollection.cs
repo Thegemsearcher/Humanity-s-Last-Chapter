@@ -14,7 +14,6 @@ public class makeCollection {
         if (!(missionCounter == 0)) {
             missionCounter /= 2; //Vet inte varför den räknar dubbelt så fixade detta... om någon vet vad man kan göra så fixa det snyggare
         }
-        Debug.Log("MissionCounter: " + missionCounter);
         AssetDatabase.CreateAsset(asset, "Assets/MissionFolder/CollectionObjectives/co" + missionCounter + ".asset");
         AssetDatabase.SaveAssets();
         EditorUtility.FocusProjectWindow();

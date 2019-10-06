@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\CreateCharacter.cs" />
+    <Compile Include="Assets\LocationScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BehvaiourTree.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\BarrackWindow.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\buildingScript.cs" />
@@ -116,8 +117,9 @@
     <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Collection\CollectionObjective.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Collection\makeCollection.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Collection\ScriptibleCollection.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\InteractiveObjective.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\LocationObjective.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Location\LocationObject.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Location\LocationObjective.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Location\MakeLocation.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Quest.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Quest\MakeQuestObject.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Quest\QuestObject.cs" />
