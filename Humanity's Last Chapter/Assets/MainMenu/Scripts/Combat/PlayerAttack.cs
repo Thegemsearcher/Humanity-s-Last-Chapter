@@ -5,14 +5,15 @@ using System.Linq;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public float speed = 1.5f;
+    private Vector3 destination;
+    private bool walking;
+
     private float timeBetweenAttack;
     public float startTimeBetweenAttack;
 
     public RectTransform attackPos;
     public LayerMask whatIsEnemy;
-
-    private float targetDistance;
-    public float aggroDistance;
 
     public float attackRange;
     public int damage;
@@ -20,7 +21,9 @@ public class PlayerAttack : MonoBehaviour
     private string loadoutType = " ";
 
     private Transform enemy;
-    private Vector3 targetPos;
+    private Vector3 enemyPos;
+    private float enemyDistance;
+    public float aggroDistance;
 
     public GameObject projectile;
     private GameObject projectile0;
@@ -28,22 +31,23 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        destination = transform.position;
+
         CheckLoadout();
     }
 
     // Update is called once per frame
     void Update()
     {
+        MoveToDestination();
+
         enemy = GetNearestTarget().transform;
-        targetPos = enemy.position;
-        targetDistance = Vector3.Distance(targetPos, transform.position);
-        Debug.Log("Distance: " + targetDistance);
+        enemyPos = enemy.position;
+        enemyDistance = Vector3.Distance(enemyPos, transform.position);
+        Debug.Log("Distance: " + enemyDistance);
         if (timeBetweenAttack <= 0)
         {
-
-            //attack
-
-            if (targetDistance <= aggroDistance) //change this to "if in range && has target" or something
+            if (enemyDistance <= aggroDistance) //change this to "if in range && has target" or something
             {
                 if (loadoutType == "Melee")
                 {
@@ -56,22 +60,28 @@ public class PlayerAttack : MonoBehaviour
                 }
                 if (loadoutType == "Ranged")
                 {
-
                     projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
 
                     //projectile0.transform.parent = gameObject.transform;
                     //projectile0.transform.localScale = new Vector3(1, 1, 1);
-
-
                 }
                 timeBetweenAttack = startTimeBetweenAttack;
             }
-
         }
         else
         {
             timeBetweenAttack -= Time.deltaTime;
         }
+    }
+
+    void MoveToDestination()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            destination = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            destination.z = transform.position.z;
+        }
+        transform.position = Vector3.MoveTowards(transform.position, destination, speed * Time.deltaTime);
     }
 
     GameObject GetNearestTarget()
