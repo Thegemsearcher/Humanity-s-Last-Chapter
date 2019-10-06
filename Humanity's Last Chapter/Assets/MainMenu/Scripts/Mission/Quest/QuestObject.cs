@@ -10,7 +10,7 @@ public class QuestObject : MonoBehaviour {
     private string[] bObjectives, events;
     private int gReward, rsReward, objectiveCounter;
     private Object[] objectives;
-    private CollectionObjective coQuest;
+    private CollectionObjective coQuest, coHolder;
     private LocationObjective loQuest;
     public ScriptableQuest quest;
 
@@ -21,45 +21,46 @@ public class QuestObject : MonoBehaviour {
 
     //Alla objectives borde skapas samtidigt, men de blir checkade i ordning! Borde isåfall ha coQuest etc som array så att den vet vilken den ska kolla in inte srkiver över varandra...
 
-    public void NextObjective() { 
-        id = quest.objectives[objectiveCounter].name[0].ToString() + quest.objectives[objectiveCounter].name[1].ToString();
-        Debug.Log("Id: " + id);
+    public void NextObjective() {
+        if (objectiveCounter >= quest.objectives.Length) {
+            isCompleted = true;
+        }
+        else {
+            id = quest.objectives[objectiveCounter].name[0].ToString() + quest.objectives[objectiveCounter].name[1].ToString();
+            Debug.Log("Id: " + id);
 
-        switch (id) { //Jättefult, I know... kommer någon på bättre lösning vi kan använda?
-            case "co":
-                coQuest = new CollectionObjective(quest.objectives[objectiveCounter] as ScriptableCollection);
-                Debug.Log("coQuest: " + coQuest);
-                break;
-            case "lo":
-                loQuest = new LocationObjective(quest.objectives[objectiveCounter] as LocationObject);
-                break;
-            case "io":
-                //Interactive quest;
-                break;
-            case "":
-                Debug.Log("Id error! "+id);
-                break;
+            switch (id) { //Jättefult, I know... kommer någon på bättre lösning vi kan använda?
+                case "co":
+                    GetComponent<CollectionObjective>().GetData(quest.objectives[objectiveCounter] as ScriptableCollection);
+                    //Debug.Log("coQuest: " + coHolder);
+                    break;
+                case "lo":
+                    GetComponent<LocationObjective>().GetData(quest.objectives[objectiveCounter] as LocationObject);
+                    break;
+                case "io":
+                    //Interactive quest;
+                    break;
+                case "":
+                    Debug.Log("Id error! " + id);
+                    break;
+            }
+            objectiveCounter++;
         }
-        objectiveCounter++;
-        if(objectiveCounter > quest.objectives.Length) {
-            Debug.Log("Quest Complete!");
-        }
-        
+    }
+
+    private void Update() {
+        CheckObjective();
     }
 
     public void CheckObjective() {
         switch (id) { //Jättefult, I know... kommer någon på bättre lösning vi kan använda?
             case "co":
-                //Debug.Log("What is coQuest: " + coQuest);
-                if(!(coQuest == null)) {
-                    if (coQuest.GetComponent<CollectionObjective>().CheckProgress()) {
-                        NextObjective();
-                    }
+                if (GetComponent<CollectionObjective>().CheckProgress()) {
+                    NextObjective();
                 }
-                
                 break;
             case "lo":
-                if (loQuest.GetComponent<LocationObjective>().CheckProgress()) {
+                if (GetComponent<LocationObjective>().CheckProgress()) {
                     NextObjective();
                 }
                 break;
@@ -71,8 +72,8 @@ public class QuestObject : MonoBehaviour {
                 break;
 
         }
-        
-        
+
+
     }
 
 

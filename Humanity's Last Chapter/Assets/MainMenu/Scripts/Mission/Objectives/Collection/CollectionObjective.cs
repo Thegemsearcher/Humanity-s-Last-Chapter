@@ -14,7 +14,7 @@ namespace QuestSystem {
         private Transform[] spawnPos;
         private ScriptableCollection data;
 
-        public CollectionObjective(ScriptableCollection coQuest) {
+        public void GetData(ScriptableCollection coQuest) {
             data = coQuest;
             collectionAmount = data.collectionAmount;
             //title = data.verb + " " + collectionAmount + " " + data.itemsToCollect.name;
@@ -40,13 +40,14 @@ namespace QuestSystem {
 
         public bool CheckProgress() {
             objectiveList = GameObject.FindGameObjectsWithTag("Enemy");
-
             enemiesLeft = 0;
             foreach(GameObject enemy in objectiveList) {
                 if(enemy.GetComponent<MarkusEnemy>().id == data.name+"Enemy") {
+                    
                     return false;
                 }
             }
+            Debug.Log("Done right");
             return true;
             //currentAmount = collectionAmount - enemiesLeft;
 

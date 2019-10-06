@@ -16,7 +16,7 @@ namespace QuestSystem {
 
         LocationObject data;
 
-        public LocationObjective(LocationObject data) {
+        public void GetData(LocationObject data) {
             this.data = data;
             titel = data.titel;
             description = data.description;

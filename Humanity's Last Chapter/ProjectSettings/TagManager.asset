@@ -17,7 +17,9 @@ TagManager:
   - Enemy
   - Waypoint
   - WorldManager
-  - Item
+  - Faction
+  - EnemySpawn
+  - ItemHolder
   layers:
   - Default
   - TransparentFX
@@ -57,4 +59,7 @@ TagManager:
     locked: 0
   - name: Weapon
     uniqueID: 3040816753
+    locked: 0
+  - name: Object
+    uniqueID: 1853802723
     locked: 0
