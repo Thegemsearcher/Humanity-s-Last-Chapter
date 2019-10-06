@@ -37,26 +37,26 @@ public class StorageLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            if (GetComponentInChildren<Collider2D>().OverlapPoint(mousePosition))
-            {
-                if(MouseData.GetItem() != null)
-                {
-                    foreach (GameObject item in items)
-                    {
-                        if (item != MouseData.GetItem() && item.GetComponent<Collider2D>().OverlapPoint(mousePosition))
-                        {
-                            SwitchPositions(MouseData.GetItem(), item);
-                            Debug.Log("Items switched");
-                            break;
-                        }
-                    }
-                    Debug.Log("Dropped item in storage");
-                }
-            }
-        }
+        //if (Input.GetMouseButtonUp(0))
+        //{
+        //    Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        //    if (GetComponentInChildren<Collider2D>().OverlapPoint(mousePosition))
+        //    {
+        //        if(MouseData.GetItem() != null)
+        //        {
+        //            foreach (GameObject item in items)
+        //            {
+        //                if (item != MouseData.GetItem() && item.GetComponent<Collider2D>().OverlapPoint(mousePosition))
+        //                {
+        //                    SwitchPositions(MouseData.GetItem(), item);
+        //                    Debug.Log("Items switched");
+        //                    break;
+        //                }
+        //            }
+        //            Debug.Log("Dropped item in storage");
+        //        }
+        //    }
+        //}
     }
 
     public void AddItem(GameObject go)
