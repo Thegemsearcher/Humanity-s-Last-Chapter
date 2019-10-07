@@ -8,6 +8,7 @@ public class CharacterScript : MonoBehaviour {
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
     public string wpId;
+    public bool inHospital, isEnlisted;
 
     void Start() {
         if (name == "") {
@@ -16,6 +17,7 @@ public class CharacterScript : MonoBehaviour {
             wpId = "wp0";
         }
     }
+
     private string NameGenerator() {
         name = firstName[(int)Random.Range(0, firstName.Length)] + " " + lastName[(int)Random.Range(0, lastName.Length)];
         return name;

@@ -23,11 +23,11 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
         windows = GameObject.FindGameObjectsWithTag("CharacterWindow");
         selectedCharacter = -1;
         
-        missionParty = new int[5]; //Femman är hur många roller som kan vara på mission... ska vi ha oändligt kommer nog inte en array att fungera
+        missionParty = new int[ammoutOfRole]; //Femman är hur många roller som kan vara på mission... ska vi ha oändligt kommer nog inte en array att fungera
         for (int i = 0; i < missionParty.Length; i++) {
             missionParty[i] = -1;
         }
-        CreateCharacterWindow();
+        //CreateCharacterWindow();
         CreateRoleWindow();
     }
 
@@ -48,15 +48,10 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
     }
 
     private void CreateRoleWindow() {
-        roleWindowPos = new Vector3(162.5f / contreverter, 300 / contreverter, 0);
-
         for (int i = 0; i < ammoutOfRole; i++) {
             roleWindowO = Instantiate(roleWindow);
-            roleWindowO.transform.parent = GameObject.Find("RoleWindowManager").transform;
-            roleWindowO.transform.localScale = new Vector3(1, 1, 1);
-            roleWindowO.transform.position = roleWindowPos;
             roleWindowO.GetComponent<btnAppointScript>().roleId = i;
-            roleWindowPos.y -= 100 / contreverter;
+            roleWindowO.transform.SetParent(GameObject.Find("forRole").transform, false);
         }
     }
 

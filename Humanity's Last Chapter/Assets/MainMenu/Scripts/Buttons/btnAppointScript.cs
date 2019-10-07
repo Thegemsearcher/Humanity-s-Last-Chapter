@@ -5,18 +5,22 @@ using UnityEngine.UI;
 
 public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
 
-    public GameObject btnAppointO, btnRemoveO;
-    private GameObject partyView;
+    public GameObject btnAppointO, btnRemoveO, characterWindow;
+    private GameObject partyView, forCommand;
     private GameObject[] characters;
     public Text txtRole, txtName, txtSkill;
-    private CharacterWindow windowScript;
+    private CharacterScript characterScript;
     string role, name, skill;
     public int roleId;
     private int characterID;
     private bool isAppointed;
 
     private void Start() {
+        characterWindow = GameObject.FindGameObjectWithTag("EnlistList");
         partyView = GameObject.FindGameObjectWithTag("PartyView");
+        forCommand = GameObject.Find("forCommand");
+
+
         switch(roleId) {
             case 0:
                 role = "Commander";
@@ -49,14 +53,18 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
     }
 
     public void btnAppoint() {
+        forCommand.GetComponent<EnlistList>().GetRole(roleId);
+        //Fyll CharacterWindow med karaktärer
+
+
         characterID = partyView.GetComponent<partySelectorScript>().AppointCharacter(roleId);
         
         if (characterID >= 0) {
-            characters = GameObject.FindGameObjectsWithTag("CharacterWindow");
-            foreach(GameObject window in characters) {
-                windowScript = window.GetComponent<CharacterWindow>();
-                if(windowScript.ID == characterID) {
-                    txtName.text = windowScript.name;
+            characters = GameObject.FindGameObjectsWithTag("Character");
+            foreach(GameObject character in characters) {
+                characterScript = character.GetComponent<CharacterScript>();
+                if(characterScript.id == characterID) {
+                    txtName.text = characterScript.name;
                     txtSkill.text = 0.ToString(); //0 ska sen ersättas med karaktärens skill i den valda rollen, vet inte hur vi gör det än
                     break;
                 }
@@ -86,5 +94,11 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
             btnAppointO.SetActive(true);
             btnRemoveO.SetActive(false);
         }
+    }
+
+    public void GetEnlist(string enlistName, int skill, int characterID) {
+        txtName.text = enlistName;
+        txtSkill.text = skill.ToString();
+        this.characterID = characterID;
     }
 }

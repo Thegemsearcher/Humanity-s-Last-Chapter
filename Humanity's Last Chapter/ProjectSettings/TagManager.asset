@@ -18,6 +18,15 @@ TagManager:
   - Enemy
   - EnemySpawn
   - QuestGiver
+  - Building
+  - PartyView
+  - LoadManager
+  - Controller
+  - CharacterWindow
+  - role
+  - ForUI
+  - EnlistList
+  - UICharacterRole
   layers:
   - Default
   - TransparentFX
