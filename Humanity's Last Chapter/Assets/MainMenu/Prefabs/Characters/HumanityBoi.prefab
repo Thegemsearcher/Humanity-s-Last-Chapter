@@ -106,6 +106,8 @@ MonoBehaviour:
   health: 20
   id: 0
   wpId: 
+  inHospital: 0
+  isEnlisted: 0
 --- !u!114 &3017468683588421300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,7 +148,6 @@ MonoBehaviour:
   charactersMovespeed: 0.1
   relativePos: {x: 0, y: 0, z: 0}
   posPlusRel: {x: 0, y: 0, z: 0}
-  posi: {x: 0, y: 0, z: 0}
   waypoints: []
   direction: {x: 0, y: 0}
 --- !u!114 &4737378338171547674
@@ -196,7 +197,7 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   maxSpeed: 5
-  gravity: {x: NaN, y: NaN, z: NaN}
+  gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -279,7 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  startTimeBetweenAttack: 0.3
+  startTimeBetweenAttack: 0.75
   attackPos: {fileID: 9190761247512095196, guid: 0d1f1ab9944b4e04d96c1ef39b84d680,
     type: 3}
   whatIsEnemy:

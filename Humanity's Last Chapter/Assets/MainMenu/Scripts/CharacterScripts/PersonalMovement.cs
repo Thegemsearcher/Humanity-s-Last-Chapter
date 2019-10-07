@@ -9,7 +9,6 @@ public class PersonalMovement : MonoBehaviour
     public float charactersMovespeed = 100f;
     public Vector3 relativePos = Vector3.zero;
     public Vector3 posPlusRel;
-    public Vector3 posi;
     public List<Vector3> waypoints = new List<Vector3>();
     private int currentWaypoint = 0;
     public Vector2 direction = Vector2.zero;
@@ -25,13 +24,12 @@ public class PersonalMovement : MonoBehaviour
     void Update()
     {
         BT.Start();
-        posi = transform.position;
         Movement();
     }
 
     public void AddWaypoint(Vector3 pos)
     {
-        waypoints.Add(pos);
+        waypoints.Add(new Vector3(pos.x, pos.y, 0));
     }
 
     public void AddRelativeWaypoint(Vector3 toAdd)

@@ -73,7 +73,8 @@ public class PlayerAttack : MonoBehaviour
         //{
         //    timeBetweenAttack -= Time.deltaTime;
         //}
-        timeBetweenAttack -= Time.deltaTime;
+        if (timeBetweenAttack > 0)
+            timeBetweenAttack -= Time.deltaTime;
     }
 
     public NodeStates IsRanged()
@@ -88,16 +89,21 @@ public class PlayerAttack : MonoBehaviour
     {
         GameObject go = GetNearestTarget();
         if (go.Equals(gameObject))
+        {
+            Debug.Log("no enemies");
             return NodeStates.fail;
+        }
 
         enemy = go.transform;
         enemyPos = enemy.position;
         enemyDistance = Vector3.Distance(enemyPos, transform.position);
-        //Debug.Log("Distance: " + enemyDistance);
+        //Debug.Log("Distance: " + enemyPos + "   " + transform.position);
         if (timeBetweenAttack <= 0)
         {
+            //Debug.Log("can attack");
             if (enemyDistance <= aggroDistance) //change this to "if in range && has target" or something
             {
+                //Debug.Log("in range");
                 return NodeStates.success;
             }
         }
@@ -135,7 +141,9 @@ public class PlayerAttack : MonoBehaviour
     GameObject GetNearestTarget()
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+        {
             return gameObject;
+        }
 
         return GameObject.FindGameObjectsWithTag("Enemy").Aggregate((o1, o2) => Vector3.Distance(o1.transform.position, this.transform.position) 
         > Vector3.Distance(o2.transform.position, this.transform.position) ? o2 : o1);

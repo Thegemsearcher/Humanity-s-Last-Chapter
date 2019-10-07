@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 5798374557679830890}
   - component: {fileID: 2330008970415871737}
   - component: {fileID: 7272047123591410641}
-  - component: {fileID: 8183667445621847410}
   - component: {fileID: 5937066010037949755}
   - component: {fileID: 9216562635089469631}
   m_Layer: 9
@@ -106,6 +105,8 @@ MonoBehaviour:
   health: 20
   id: 0
   wpId: 
+  inHospital: 0
+  isEnlisted: 0
 --- !u!222 &7272047123591410641
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -114,24 +115,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2588904187867742290}
   m_CullTransparentMesh: 0
---- !u!114 &8183667445621847410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2588904187867742290}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab65ed766b3cf974cabf3769b01c95ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  charactersMovespeed: 0.035
-  relativePos: {x: 0, y: 0, z: 0}
-  posPlusRel: {x: 0, y: 0, z: 0}
-  posi: {x: 0, y: 0, z: 0}
-  waypoints: []
-  direction: {x: 0, y: 0}
 --- !u!61 &5937066010037949755
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -171,5 +154,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
+  speed: 1.5
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}
