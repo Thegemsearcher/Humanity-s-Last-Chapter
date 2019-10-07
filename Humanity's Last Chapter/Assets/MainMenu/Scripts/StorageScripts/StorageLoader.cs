@@ -27,7 +27,8 @@ public class StorageLoader : MonoBehaviour
         }
         for (int x = 0; x < 3; x++)
         {
-            items[x].GetComponent<ItemScript>().SetColor(new Color(0.8f, 0.8f, 0.3f * i, 255));
+            //items[x].GetComponent<ItemScript>().SetColor(new Color(Random.value, Random.value, Random.value, 255));
+            items[x].GetComponent<ItemScript>().CreateItem("wp0");
         }
     }
 

@@ -12,14 +12,18 @@ public class stats : MonoBehaviour
     CharacterStatWriter writer;
     public GameObject ItemPrefab;
     private GameObject itemGrid;
-    List<GameObject> items = new List<GameObject>();
+    public List<GameObject> items = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
-        maxHp = Random.Range(1, 11);//Just for show.
+        if(maxHp == 0) {
+            maxHp = Random.Range(1, 11);//Just for show.
+            hp = maxHp;
+        }
+        
         str = Random.Range(1, 3);   //Just for show.
         def = Random.Range(1, 3);   //Just for show.
-        hp = maxHp;
+       
         nextLevel = 10 + (5 * level);
 
         //Fix CharacterCanvas
@@ -42,18 +46,23 @@ public class stats : MonoBehaviour
         }
         for (int x = 0; x < 6; x++)
             items.Add(Instantiate(ItemPrefab, itemGrid.transform));
-        int i = 0;
-        int j = 0;
+        for (int x = 0; x < GetComponent<CharacterScript>().itemID.Length; x++)
+        {
+            string itemId = GetComponent<CharacterScript>().itemID[x];
+            if (itemId != null)
+                items[x].GetComponent<ItemScript>().CreateItem(itemId);
+        }
 
         //This is dumb, but CharacterCanvas is a canvas, so it's dumb.
         for (int x = 0; x < characterUI.transform.childCount; x++)
             characterUI.transform.GetChild(x).transform.position += new Vector3(-4f, 1.9f, 0);
 
         //Configure items
+        int i = 0;
+        int j = 0;
         foreach (GameObject item in items)
         {
             item.GetComponent<ItemScript>().SetSlot(item.transform.position + new Vector3(0 + i * 0.6f, 0 - j * 0.6f, 0)); // + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
-            item.GetComponent<ItemScript>().SetColor(new Color(Random.value, Random.value, Random.value, 255));
             i++;
             if (i > 2)
             {
@@ -77,5 +86,10 @@ public class stats : MonoBehaviour
     {
         //GetComponentInParent<AddToPlayerRoster>().controller.GetComponent<HubCharController>().CloseAllWindows();
         characterUI.SetActive(true);
+    }
+
+    public void GetStats(int maxHp, int hp) { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!
+        this.maxHp = maxHp;
+        this.hp = hp;
     }
 }
