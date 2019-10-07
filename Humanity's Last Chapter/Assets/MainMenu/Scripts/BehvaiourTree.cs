@@ -15,6 +15,31 @@ public class BehvaiourTree : MonoBehaviour
     {
         
     }
+    public RootNode GetPcBt()
+    {
+        List<Node> nodes = new List<Node>();
+
+        LeafNode inCombatRange = new LeafNode(GetComponent<PlayerAttack>().InCombatRange);
+        LeafNode isRanged = new LeafNode(GetComponent<PlayerAttack>().IsRanged);
+        LeafNode atkMelee = new LeafNode(GetComponent<PlayerAttack>().MeleeAttack);
+        LeafNode atkRanged = new LeafNode(GetComponent<PlayerAttack>().RangeAttack);
+        List<Node> forMeleeSelector = new List<Node>();
+        forMeleeSelector.Add(isRanged);
+        forMeleeSelector.Add(atkMelee);
+        Selector meleeSelector = new Selector(forMeleeSelector);
+        List<Node> forCombatSequence = new List<Node>();
+        forCombatSequence.Add(inCombatRange);
+        forCombatSequence.Add(meleeSelector);
+        forCombatSequence.Add(atkRanged);
+        Sequence forCombat = new Sequence(forCombatSequence);
+
+        nodes.Add(forCombat);
+
+
+        RootNode toReturn = new RootNode(nodes);
+        return toReturn;
+    }
+
 }
 /// <summary>
 /// startar processen, går igenom alla noder och kör deras evaluates.

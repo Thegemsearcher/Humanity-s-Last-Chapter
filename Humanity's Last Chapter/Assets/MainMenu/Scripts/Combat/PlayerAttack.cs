@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using static Node;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -31,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        destination = transform.position;
+        //destination = transform.position;
 
         CheckLoadout();
     }
@@ -39,42 +40,89 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        MoveToDestination();
+        //MoveToDestination();
 
-        enemy = GetNearestTarget().transform;
+        //enemy = GetNearestTarget().transform;
+        //enemyPos = enemy.position;
+        //enemyDistance = Vector3.Distance(enemyPos, transform.position);
+        //Debug.Log("Distance: " + enemyDistance);
+        //if (timeBetweenAttack <= 0)
+        //{
+        //    if (enemyDistance <= aggroDistance) //change this to "if in range && has target" or something
+        //    {
+        //        if (loadoutType == "Melee")
+        //        {
+        //            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
+
+        //            for (int i = 0; i < enemiesToDamage.Length; i++)
+        //            {
+        //                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+        //            }
+        //        }
+        //        if (loadoutType == "Ranged")
+        //        {
+        //            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+
+        //            //projectile0.transform.parent = gameObject.transform;
+        //            //projectile0.transform.localScale = new Vector3(1, 1, 1);
+        //        }
+        //        timeBetweenAttack = startTimeBetweenAttack;
+        //    }
+        //}
+        //else
+        //{
+        //    timeBetweenAttack -= Time.deltaTime;
+        //}
+        timeBetweenAttack -= Time.deltaTime;
+    }
+
+    public NodeStates IsRanged()
+    {
+        if (loadoutType == "Ranged")
+            return NodeStates.success;
+        else
+            return NodeStates.fail;
+    }
+
+    public NodeStates InCombatRange()
+    {
+        GameObject go = GetNearestTarget();
+        if (go.Equals(gameObject))
+            return NodeStates.fail;
+
+        enemy = go.transform;
         enemyPos = enemy.position;
         enemyDistance = Vector3.Distance(enemyPos, transform.position);
-        Debug.Log("Distance: " + enemyDistance);
+        //Debug.Log("Distance: " + enemyDistance);
         if (timeBetweenAttack <= 0)
         {
             if (enemyDistance <= aggroDistance) //change this to "if in range && has target" or something
             {
-                if (loadoutType == "Melee")
-                {
-                    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
-
-                    for (int i = 0; i < enemiesToDamage.Length; i++)
-                    {
-                        enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                    }
-                }
-                if (loadoutType == "Ranged")
-                {
-                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-
-                    //projectile0.transform.parent = gameObject.transform;
-                    //projectile0.transform.localScale = new Vector3(1, 1, 1);
-                }
-                timeBetweenAttack = startTimeBetweenAttack;
+                return NodeStates.success;
             }
         }
-        else
-        {
-            timeBetweenAttack -= Time.deltaTime;
-        }
+        return NodeStates.fail;
     }
 
-    void MoveToDestination()
+    public NodeStates RangeAttack()
+    {
+        projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+        timeBetweenAttack = startTimeBetweenAttack;
+        return NodeStates.success;
+    }
+
+    public NodeStates MeleeAttack()
+    {
+        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
+
+        for (int i = 0; i < enemiesToDamage.Length; i++)
+        {
+            enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+        }
+        return NodeStates.success;
+    }
+
+    private void MoveToDestination()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -86,7 +134,11 @@ public class PlayerAttack : MonoBehaviour
 
     GameObject GetNearestTarget()
     {
-        return GameObject.FindGameObjectsWithTag("Enemy").Aggregate((o1, o2) => Vector3.Distance(o1.transform.position, this.transform.position) > Vector3.Distance(o2.transform.position, this.transform.position) ? o2 : o1);
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+            return gameObject;
+
+        return GameObject.FindGameObjectsWithTag("Enemy").Aggregate((o1, o2) => Vector3.Distance(o1.transform.position, this.transform.position) 
+        > Vector3.Distance(o2.transform.position, this.transform.position) ? o2 : o1);
     }
 
     void OnDrawGizmosSelected()
