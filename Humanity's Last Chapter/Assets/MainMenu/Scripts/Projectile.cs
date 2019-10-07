@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
         {
             if (enemy.GetComponent<BoxCollider2D>().OverlapPoint(transform.position))
             {
-                Debug.Log("skaträffas");
+                //Debug.Log("skaträffas");
                 enemy.GetComponent<Enemy>().TakeDamage(damage);
                 DestroyProjectile();
             }

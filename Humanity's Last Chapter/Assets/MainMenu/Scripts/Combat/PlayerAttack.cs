@@ -16,6 +16,7 @@ public class PlayerAttack : MonoBehaviour
     public RectTransform attackPos;
     public LayerMask whatIsEnemy;
     public LayerMask humansAndBuildings;
+    RaycastHit2D hitInfo;
 
     public float attackRange;
     public int damage;
@@ -80,10 +81,10 @@ public class PlayerAttack : MonoBehaviour
 
     public NodeStates LineOfSight()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, enemyPos, aggroDistance, humansAndBuildings);
+        hitInfo = Physics2D.Raycast(transform.position, enemyPos, aggroDistance, humansAndBuildings);
         if (hitInfo.collider != null)
         {
-            Debug.Log("nånting är fel");
+            //Debug.Log("nånting är fel");
             return NodeStates.fail;
         }
 
@@ -103,7 +104,7 @@ public class PlayerAttack : MonoBehaviour
         GameObject go = GetNearestTarget();
         if (go.Equals(gameObject))
         {
-            Debug.Log("no enemies");
+            //Debug.Log("no enemies");
             return NodeStates.fail;
         }
 
