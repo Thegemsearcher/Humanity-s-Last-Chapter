@@ -4,26 +4,20 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Building
-  - Controller
-  - Character
-  - CharacterManager
-  - LoadManager
-  - PartyView
-  - CharacterWindow
-  - role
-  - FuckingFindThisPieceOfShitPlease
-  - EnemyManager
-  - Enemy
-  - Waypoint
-  - WorldManager
-  - Faction
-  - EnemySpawn
-  - ItemHolder
   - Location
-  - Item
   - ItemGrid
+  - CharacterManager
+  - Character
+  - Item
   - Loot
+  - FuckingFindThisPieceOfShitPlease
+  - Waypoint
+  - ObjectiveStarted
+  - QuestStarted
+  - Faction
+  - Enemy
+  - EnemySpawn
+  - QuestGiver
   layers:
   - Default
   - TransparentFX
@@ -33,10 +27,6 @@ TagManager:
   - UI
   - 
   - 
-  - buildingsInHub
-  - Enemy
-  - Obstacle
-  - Weapon
   - 
   - 
   - 
@@ -56,14 +46,12 @@ TagManager:
   - 
   - 
   - 
-  - backdrop
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: Weapon
-    uniqueID: 3040816753
-    locked: 0
-  - name: Object
-    uniqueID: 1853802723
     locked: 0
