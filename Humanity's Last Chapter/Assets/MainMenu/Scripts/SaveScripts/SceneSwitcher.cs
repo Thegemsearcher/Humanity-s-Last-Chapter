@@ -15,7 +15,6 @@ public class SceneSwitcher : MonoBehaviour {
         SceneManager.LoadScene("Main");
     }
     public void GoToMission() {
-        Debug.Log("Does it get here?");
         //Sparar alla karaktärer
         charactersO = GameObject.FindGameObjectsWithTag("Character");
         foreach(GameObject go in charactersO) {

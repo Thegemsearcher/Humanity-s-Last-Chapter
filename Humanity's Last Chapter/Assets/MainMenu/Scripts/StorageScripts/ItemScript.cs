@@ -8,6 +8,7 @@ public class ItemScript : MonoBehaviour
     bool held = false;
     bool active = false;
     Vector3 slotPosition;
+    public string ItemID;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,7 +76,12 @@ public class ItemScript : MonoBehaviour
     public void SetColor(Color newColor)
     {
         gameObject.GetComponent<Image>().color = newColor;
-        active = true;
+    }
+
+    public bool IsActive()
+    {
+        Debug.Log(active);
+        return active;
     }
 
     public void SetInactive()
@@ -83,9 +89,11 @@ public class ItemScript : MonoBehaviour
         active = false;
     }
 
-    public GameObject CreateItem()
+    public void CreateItem(string itemID)
     {
-        return gameObject;
+        SetColor(new Color(0.4f, 0.4f, 0.4f, 1f));
+        ItemID = itemID;
+        active = true;
     }
 
     public void SwitchPositions(GameObject droppedItem, GameObject onItem)

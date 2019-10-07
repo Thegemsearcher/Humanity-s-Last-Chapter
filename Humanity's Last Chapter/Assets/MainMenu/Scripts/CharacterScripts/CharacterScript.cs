@@ -8,9 +8,11 @@ public class CharacterScript : MonoBehaviour {
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
     public string wpId;
+    public string[] itemID;
     public bool inHospital, isEnlisted;
 
     void Start() {
+        itemID = new string[6];
         if (name == "") {
             name = NameGenerator();
             id = GetId();
@@ -31,6 +33,18 @@ public class CharacterScript : MonoBehaviour {
     }
 
     public void SavePlayer() {
+        int i = 0;
+        foreach(Transform item in gameObject.GetComponent<stats>().characterUI.transform.GetChild(3).transform)
+        {
+            if (item.tag == "Item")
+            {
+                if (item.GetComponent<ItemScript>().IsActive())
+                {
+                    itemID[i] = item.GetComponent<ItemScript>().ItemID;
+                    i++;
+                }
+            }
+        }
         SaveSystem.SaveCharacter(this);
     }
 
@@ -40,6 +54,7 @@ public class CharacterScript : MonoBehaviour {
         this.name = data.name;
         this.health = data.health;
         this.id = data.id;
+        this.itemID = data.itemID;
     }
 
     public void GetID() {
