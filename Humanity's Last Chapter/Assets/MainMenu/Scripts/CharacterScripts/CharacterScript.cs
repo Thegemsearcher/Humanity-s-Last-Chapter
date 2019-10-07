@@ -45,7 +45,7 @@ public class CharacterScript : MonoBehaviour {
                 }
             }
         }
-        SaveSystem.SaveCharacter(this);
+        SaveSystem.SaveCharacter(this, GetComponent<stats>());
     }
 
     public void LoadPlayer(int id) {
@@ -55,6 +55,7 @@ public class CharacterScript : MonoBehaviour {
         this.health = data.health;
         this.id = data.id;
         this.itemID = data.itemID;
+        GetComponent<stats>().GetStats(data.maxHp, data.hp);
     }
 
     public void GetID() {

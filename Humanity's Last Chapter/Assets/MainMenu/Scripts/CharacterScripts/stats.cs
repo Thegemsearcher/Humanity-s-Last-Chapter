@@ -16,10 +16,14 @@ public class stats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maxHp = Random.Range(1, 11);//Just for show.
+        if(maxHp == 0) {
+            maxHp = Random.Range(1, 11);//Just for show.
+            hp = maxHp;
+        }
+        
         str = Random.Range(1, 3);   //Just for show.
         def = Random.Range(1, 3);   //Just for show.
-        hp = maxHp;
+       
         nextLevel = 10 + (5 * level);
 
         //Fix CharacterCanvas
@@ -82,5 +86,10 @@ public class stats : MonoBehaviour
     {
         //GetComponentInParent<AddToPlayerRoster>().controller.GetComponent<HubCharController>().CloseAllWindows();
         characterUI.SetActive(true);
+    }
+
+    public void GetStats(int maxHp, int hp) { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!
+        this.maxHp = maxHp;
+        this.hp = hp;
     }
 }
