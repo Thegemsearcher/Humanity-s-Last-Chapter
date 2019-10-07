@@ -18,7 +18,6 @@ namespace QuestSystem {
             data = coQuest;
             collectionAmount = data.collectionAmount;
             title = data.verb + " " + collectionAmount + " " + data.itemsToCollect.name;
-            Debug.Log("Title: " + title);
             verb = data.verb;
             description = data.description;
             itemsToCollect = data.itemsToCollect;

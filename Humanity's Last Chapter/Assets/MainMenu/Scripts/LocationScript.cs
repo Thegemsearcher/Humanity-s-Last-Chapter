@@ -12,7 +12,7 @@ public class LocationScript : MonoBehaviour {
     
 
     void Start() {
-        room = GetComponent<BoxCollider2D>();
+        //room = GetComponent<BoxCollider2D>();
     }
 
     public void OnTriggerEnter2D(Collider2D other) {

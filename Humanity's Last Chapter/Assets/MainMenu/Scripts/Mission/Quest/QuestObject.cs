@@ -13,6 +13,7 @@ public class QuestObject : MonoBehaviour {
     private Object[] objectives;
     private CollectionObjective coQuest, coHolder;
     private LocationObjective loQuest;
+    private InteractObject ioQuest;
     public ScriptableQuest quest;
 
     private float textTimer, timeStamp;
@@ -56,6 +57,8 @@ public class QuestObject : MonoBehaviour {
                     txtObjective.text = GetComponent<LocationObjective>().title;
                     break;
                 case "io":
+                    GetComponent<InteractionObjective>().GetData(quest.objectives[objectiveCounter] as InteractObject);
+                    txtObjective.text = GetComponent<InteractionObjective>().title;
                     //Interactive quest;
                     break;
                 case "":
@@ -78,19 +81,20 @@ public class QuestObject : MonoBehaviour {
 
     public void CheckObjective() {
         switch (id) { //Jättefult, I know... kommer någon på bättre lösning vi kan använda?
-            case "co":
+            case "co": //CollectionObjective
                 if (GetComponent<CollectionObjective>().CheckProgress()) {
                     NextObjective();
                 }
                 break;
-            case "lo":
+            case "lo": //LocationObjective
                 if (GetComponent<LocationObjective>().CheckProgress()) {
                     NextObjective();
                 }
                 break;
-            case "io":
-                NextObjective();
-                //Interactive quest;
+            case "io": //InteractiveObjective
+                if (GetComponent<InteractionObjective>().CheckProgress()) {
+                    NextObjective();
+                }
                 break;
             case "":
                 Debug.Log("Id error! " + id);

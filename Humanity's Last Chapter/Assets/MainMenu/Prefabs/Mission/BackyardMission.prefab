@@ -243,6 +243,7 @@ GameObject:
   - component: {fileID: 71998751485370487}
   - component: {fileID: -2138209275628604864}
   - component: {fileID: 183835748240285694}
+  - component: {fileID: 566422585720971074}
   m_Layer: 5
   m_Name: BackyardMission
   m_TagString: Untagged
@@ -349,6 +350,8 @@ MonoBehaviour:
   id: 
   nextID: 
   quest: {fileID: 0}
+  txtQuest: {fileID: 0}
+  txtObjective: {fileID: 0}
 --- !u!114 &-2138209275628604864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,6 +364,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf65ff1e185036448421593c88c912c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: 
+  description: 
+  verb: 
 --- !u!114 &183835748240285694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +379,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9d05440150ec894d8440689f611132f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: t.ex. Enter the Kitchen
+--- !u!114 &566422585720971074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415174132296087307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d451aab003c36140898818e98cbc756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  title: t.ex. Talk with this person
 --- !u!1 &4706883513531792145
 GameObject:
   m_ObjectHideFlags: 0

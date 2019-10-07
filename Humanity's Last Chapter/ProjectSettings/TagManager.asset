@@ -10,6 +10,14 @@ TagManager:
   - Character
   - Item
   - Loot
+  - FuckingFindThisPieceOfShitPlease
+  - Waypoint
+  - ObjectiveStarted
+  - QuestStarted
+  - Faction
+  - Enemy
+  - EnemySpawn
+  - QuestGiver
   layers:
   - Default
   - TransparentFX
