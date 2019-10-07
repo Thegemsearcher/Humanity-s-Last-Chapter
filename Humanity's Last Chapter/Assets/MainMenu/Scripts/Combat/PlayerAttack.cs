@@ -15,6 +15,7 @@ public class PlayerAttack : MonoBehaviour
 
     public RectTransform attackPos;
     public LayerMask whatIsEnemy;
+    public LayerMask humansAndBuildings;
 
     public float attackRange;
     public int damage;
@@ -75,6 +76,18 @@ public class PlayerAttack : MonoBehaviour
         //}
         if (timeBetweenAttack > 0)
             timeBetweenAttack -= Time.deltaTime;
+    }
+
+    public NodeStates LineOfSight()
+    {
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, enemyPos, aggroDistance, humansAndBuildings);
+        if (hitInfo.collider != null)
+        {
+            Debug.Log("nånting är fel");
+            return NodeStates.fail;
+        }
+
+        return NodeStates.success;
     }
 
     public NodeStates IsRanged()

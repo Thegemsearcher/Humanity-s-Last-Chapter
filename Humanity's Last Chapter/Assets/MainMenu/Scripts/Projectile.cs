@@ -28,15 +28,25 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, targetPos, distance, whatIsSolid);
-        if (hitInfo.collider != null)
+        if (enemy != null)
         {
-            if (hitInfo.collider.CompareTag("Enemy"))
+            if (enemy.GetComponent<BoxCollider2D>().OverlapPoint(transform.position))
             {
-                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                Debug.Log("skaträffas");
+                enemy.GetComponent<Enemy>().TakeDamage(damage);
+                DestroyProjectile();
             }
-            DestroyProjectile();
         }
+        //RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, targetPos, distance, whatIsSolid);
+        //if (hitInfo.collider != null)
+        //{
+        //    if (hitInfo.collider.CompareTag("Enemy"))
+        //    {
+        //        Debug.Log("skaträffas");
+        //        hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+        //    }
+        //    DestroyProjectile();
+        //}
 
         //velocity = targetPos - transform.position;
         direction.Normalize();

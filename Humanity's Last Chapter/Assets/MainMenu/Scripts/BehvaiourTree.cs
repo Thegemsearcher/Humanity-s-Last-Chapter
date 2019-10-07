@@ -19,10 +19,12 @@ public class BehvaiourTree : MonoBehaviour
     {
         List<Node> nodes = new List<Node>();
 
+        #region combat
         LeafNode inCombatRange = new LeafNode(GetComponent<PlayerAttack>().InCombatRange);
         LeafNode isRanged = new LeafNode(GetComponent<PlayerAttack>().IsRanged);
         LeafNode atkMelee = new LeafNode(GetComponent<PlayerAttack>().MeleeAttack);
         LeafNode atkRanged = new LeafNode(GetComponent<PlayerAttack>().RangeAttack);
+        LeafNode lineOfSight = new LeafNode(GetComponent<PlayerAttack>().LineOfSight);
         List<Node> forMeleeSelector = new List<Node>();
         forMeleeSelector.Add(isRanged);
         forMeleeSelector.Add(atkMelee);
@@ -30,8 +32,10 @@ public class BehvaiourTree : MonoBehaviour
         List<Node> forCombatSequence = new List<Node>();
         forCombatSequence.Add(inCombatRange);
         forCombatSequence.Add(meleeSelector);
+        forCombatSequence.Add(lineOfSight);
         forCombatSequence.Add(atkRanged);
         Sequence forCombat = new Sequence(forCombatSequence);
+        #endregion
 
         nodes.Add(forCombat);
 
