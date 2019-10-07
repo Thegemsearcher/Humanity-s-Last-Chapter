@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PersonalMovement : MonoBehaviour
 {
+    public RootNode BT;
+
     public float charactersMovespeed = 100f;
     public Vector3 relativePos = Vector3.zero;
     public Vector3 posPlusRel;
@@ -15,12 +17,14 @@ public class PersonalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BT = GetComponent<BehvaiourTree>().GetPcBt();
         manager = GameObject.FindGameObjectWithTag("CharacterManager");
     }
 
     // Update is called once per frame
     void Update()
     {
+        BT.Start();
         posi = transform.position;
         Movement();
     }

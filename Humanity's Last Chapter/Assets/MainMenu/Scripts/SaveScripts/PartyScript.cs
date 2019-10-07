@@ -23,6 +23,7 @@ public class PartyScript : MonoBehaviour {
                 characterO = Instantiate(character) as GameObject;
                 //characterO.transform.parent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
                 characterO.transform.localScale = new Vector3(1, 1, 1);
+                characterO.transform.position = new Vector3(i, i);
                 characterO.GetComponent<CharacterScript>().LoadPlayer(missionOrder[i]);
                 characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i , i);
                 characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);

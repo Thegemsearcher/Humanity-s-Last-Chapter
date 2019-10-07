@@ -9,6 +9,7 @@ public class CharacterMovement : MonoBehaviour
     public float moveSpeed = 1000f;
 
     Vector3 direction = Vector3.zero;
+
     public List<GameObject> pcs = new List<GameObject>();
     public List<Vector3> waypoints = new List<Vector3>();
     private int currentWaypoint = 0;
@@ -42,10 +43,7 @@ public class CharacterMovement : MonoBehaviour
         //{
         //    Debug.Log("gnasl");
         //    Vector3 toSet = pc.GetComponent<PersonalMovement>().relativePos;
-        //    float x = Mathf.Cos(angle) * (toSet.x - from.x) - Mathf.Sin(angle) * (toSet.y - from.y) + from.x;
-        //    float y = Mathf.Sin(angle) * (toSet.x - from.x) - Mathf.Cos(angle) * (toSet.y - from.y) + from.y;
-        //    toSet.x = x;
-        //    toSet.y = y;
+        //    toSet = Quaternion.Euler(new Vector3(0,0,angle)) * toSet;
         //    pc.GetComponent<PersonalMovement>().relativePos = toSet;
         //}
     }

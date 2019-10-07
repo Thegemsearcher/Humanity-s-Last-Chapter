@@ -17,7 +17,9 @@ GameObject:
   - component: {fileID: 2519075351692824955}
   - component: {fileID: 4143146671646250599}
   - component: {fileID: 4739883335938604941}
-  - component: {fileID: -8367303952004869539}
+  - component: {fileID: -1517981695887567796}
+  - component: {fileID: 8658573829318196213}
+  - component: {fileID: 8460625342677450066}
   m_Layer: 5
   m_Name: HumanityBoi
   m_TagString: Character
@@ -75,7 +77,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1853802723
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: bbf5ba4aa465f614b867b64ed2c7ddac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -239,7 +241,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0045930147, y: 0}
+  m_Offset: {x: -0.0080072135, y: 0.008100152}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -250,26 +252,55 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.509186, y: 0.5}
+  m_Size: {x: 0.22478077, y: 0.3001964}
   m_EdgeRadius: 0
---- !u!50 &-8367303952004869539
-Rigidbody2D:
-  serializedVersion: 4
+--- !u!114 &-1517981695887567796
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464683741798525680}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a075b776962683419520b034fe56b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8658573829318196213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464683741798525680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95b965680a4a752449d6c2c48200d2de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1.5
+  startTimeBetweenAttack: 0.3
+  attackPos: {fileID: 9190761247512095196, guid: 0d1f1ab9944b4e04d96c1ef39b84d680,
+    type: 3}
+  whatIsEnemy:
+    serializedVersion: 2
+    m_Bits: 256
+  attackRange: 0.18
+  damage: 0
+  loadout: 1
+  aggroDistance: 3
+  projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
+    type: 3}
+--- !u!114 &8460625342677450066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464683741798525680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f7196b83e14e75459b443ca1136049c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 7626715680820893389, guid: 27a00eca5e3d49b46b5b9c0796c93edb, type: 3}
