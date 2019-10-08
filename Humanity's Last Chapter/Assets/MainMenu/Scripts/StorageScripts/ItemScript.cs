@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -92,7 +93,7 @@ public class ItemScript : MonoBehaviour
     {
         SetColor(new Color(0.4f, 0.4f, 0.4f, 1f));
         ItemID = itemID;
-        //gameObject.GetComponent<Image>().sprite = GetComponent<Sprites>().wp0;
+        gameObject.transform.GetChild(0).GetComponent<Text>().text = itemID;
         active = true;
     }
 

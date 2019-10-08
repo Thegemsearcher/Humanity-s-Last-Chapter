@@ -21,19 +21,16 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (character.GetComponent<PlayerAttack>().loadout == 1)
-        {
-            spread = 0;
-        }
-        if (character.GetComponent<PlayerAttack>().loadout == 2)
-        {
-            spread = 1;
-        }
         enemy = GetNearestTarget().transform;
         targetPos = new Vector3(enemy.position.x + Random.Range(-spread, spread), enemy.position.y + Random.Range(-spread, spread), enemy.position.z);
         //transform.rotation = Quaternion.LookRotation(targetPos);
         direction = targetPos - transform.position;
         Invoke("DestroyProjectile", lifeTime);
+    }
+
+    public void CreateProjectile(float spread)
+    {
+        this.spread = spread;
     }
 
     // Update is called once per frame

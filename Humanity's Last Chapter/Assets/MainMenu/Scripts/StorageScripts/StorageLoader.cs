@@ -28,7 +28,18 @@ public class StorageLoader : MonoBehaviour
         for (int x = 0; x < 3; x++)
         {
             //items[x].GetComponent<ItemScript>().SetColor(new Color(Random.value, Random.value, Random.value, 255));
-            items[x].GetComponent<ItemScript>().CreateItem("wp0");
+            switch(x)
+            {
+                case 0:
+                    items[x].GetComponent<ItemScript>().CreateItem("Melee");
+                    break;
+                case 1:
+                    items[x].GetComponent<ItemScript>().CreateItem("Pistol");
+                    break;
+                case 2:
+                    items[x].GetComponent<ItemScript>().CreateItem("Shotgun");
+                    break;
+            }
         }
     }
 

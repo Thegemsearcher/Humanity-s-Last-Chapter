@@ -35,6 +35,27 @@ public class PlayerAttack : MonoBehaviour
     {
         //destination = transform.position;
 
+        foreach(GameObject item in gameObject.GetComponent<stats>().items)
+        {
+            if(item.GetComponent<ItemScript>().IsActive())
+            {
+                switch(item.GetComponent<ItemScript>().ItemID)
+                    {
+                    case "Melee":
+                        loadout = 0;
+                        break;
+
+                    case "Pistol":
+                        loadout = 1;
+                        break;
+
+                    case "Shotgun":
+                        loadout = 2;
+                        break;
+                }
+                break;
+            }
+        }
         CheckLoadout();
     }
 
@@ -133,15 +154,17 @@ public class PlayerAttack : MonoBehaviour
         {
             //projectile0.GetComponent<Projectile>().spread = 0f;
             projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+            projectile0.GetComponent<Projectile>().CreateProjectile(0f);
             //projectile0.GetComponent<Projectile>().character = gameObject;
         }
         if (loadoutType == "Shotgun")
         {
-            //projectile0.GetComponent<Projectile>().spread = 1f;
-            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+
+            for (int i = 0; i < 4; i++)
+            {
+                projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+                projectile0.GetComponent<Projectile>().CreateProjectile(1f);
+            }
         }
         attackTimer = timeBetweenAttack;
     }
@@ -178,14 +201,20 @@ public class PlayerAttack : MonoBehaviour
         if (loadout == 0)
         {
             loadoutType = "Melee";
+            damage = 5;
+            timeBetweenAttack = 0.5f;
         }
         else if (loadout == 1)
         {
             loadoutType = "Pistol";
+            damage = 10;
+            timeBetweenAttack = 1;
         }
         else if (loadout == 2)
         {
             loadoutType = "Shotgun";
+            damage = 4;
+            timeBetweenAttack = 3;
         }
     }
 }
