@@ -25,13 +25,13 @@ public class HospitalScript : MonoBehaviour {
         foreach (GameObject character in Characters) {
             statsScript = character.GetComponent<stats>();
 
-            //if (statsScript.hp < statsScript.maxHp) { //För att bara få de skadade karaktärena
+            if (statsScript.hp < statsScript.maxHp) { //För att bara få de skadade karaktärena
                 characterScript = character.GetComponent<CharacterScript>();
 
                 UIHolder = Instantiate(UIHospital);
                 UIHolder.transform.SetParent(parent.transform, false);
                 UIHolder.GetComponent<UIHealthBoi>().GetData(characterScript.name, characterScript.id, statsScript.hp, statsScript.maxHp);
-            //}
+            }
         }
 
     }

@@ -53,28 +53,7 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
     }
 
     public void btnAppoint() {
-        forCommand.GetComponent<EnlistList>().GetRole(roleId);
-        //Fyll CharacterWindow med karaktärer
-
-
-        characterID = partyView.GetComponent<partySelectorScript>().AppointCharacter(roleId);
-        
-        if (characterID >= 0) {
-            characters = GameObject.FindGameObjectsWithTag("Character");
-            foreach(GameObject character in characters) {
-                characterScript = character.GetComponent<CharacterScript>();
-                if(characterScript.id == characterID) {
-                    txtName.text = characterScript.name;
-                    txtSkill.text = 0.ToString(); //0 ska sen ersättas med karaktärens skill i den valda rollen, vet inte hur vi gör det än
-                    break;
-                }
-            }
-            isAppointed = true;
-            ShowBtn();
-        }
-        else {
-            Debug.Log("No character selected!");
-        }
+        forCommand.GetComponent<EnlistList>().IsEnlisted(roleId);
     }
 
     public void btnRemove() {
@@ -100,5 +79,8 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
         txtName.text = enlistName;
         txtSkill.text = skill.ToString();
         this.characterID = characterID;
+        partyView.GetComponent<partySelectorScript>().AppointCharacter(roleId, characterID);
+        isAppointed = true;
+        ShowBtn();
     }
 }

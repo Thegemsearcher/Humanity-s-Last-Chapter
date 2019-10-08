@@ -41,6 +41,7 @@ public class UIHealthBoi : MonoBehaviour {
                         transform.SetParent(SlotParent, false);
                         SlotParent.GetComponent<HealingSlotScript>().isUsed = true;
                         inSlot = true;
+                        character.GetComponent<CharacterScript>().inHospital = true;
                         break;
                     }
                 }
@@ -55,6 +56,12 @@ public class UIHealthBoi : MonoBehaviour {
     public void MoveToList() {
         GetComponentInParent<HealingSlotScript>().isUsed = false;
         transform.SetParent(CharacterParent.transform, false);
+        foreach (GameObject character in characters) {
+            if (character.GetComponent<CharacterScript>().id == id) {
+                character.GetComponent<CharacterScript>().inHospital = true;
+                break;
+            }
+        }
     }
 
     public void GetData(string name, int id, int hp, int maxHp) {

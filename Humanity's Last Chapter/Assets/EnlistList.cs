@@ -9,7 +9,7 @@ public class EnlistList : MonoBehaviour {
     public GameObject UIRole;
     private CharacterScript characterScript;
     
-    public void GetRole(int roleID) {
+    public void IsEnlisted(int roleID) {
         characters = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject character in characters) {
             characterScript = character.GetComponent<CharacterScript>();
@@ -27,6 +27,5 @@ public class EnlistList : MonoBehaviour {
         foreach (Transform child in transform) {
             Destroy(child.gameObject);
         }
-        GameObject.FindGameObjectWithTag("EnlistList").SetActive(false);
     }
 }

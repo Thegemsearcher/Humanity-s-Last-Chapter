@@ -51,37 +51,23 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
         for (int i = 0; i < ammoutOfRole; i++) {
             roleWindowO = Instantiate(roleWindow);
             roleWindowO.GetComponent<btnAppointScript>().roleId = i;
-            roleWindowO.transform.SetParent(GameObject.Find("forRole").transform, false);
+            roleWindowO.transform.SetParent(GameObject.FindGameObjectWithTag("ForRole").transform, false);
         }
     }
 
 
-    public int AppointCharacter(int role) { //Lägger till karaktärens id till arren med id för karaktärer som går på mission
-        windows = GameObject.FindGameObjectsWithTag("CharacterWindow");
-        if (selectedCharacter >= 0) { 
-            foreach (GameObject window in windows) {
-                windowScript = window.GetComponent<CharacterWindow>();
-                if(windowScript.ID == selectedCharacter) {
-                    missionParty[role] = selectedCharacter;
-                    windowScript.ShowBtn(true);
-                }
-            }
-
-            //Diseabla alla appoint knappar
-            id = selectedCharacter;
-            selectedCharacter = -1; //För att se till att inte samma karaktär kan vara på flera platser
-            return id;
-        }
-        return -1;
-
+    public void AppointCharacter(int role, int characterID) { //Lägger till karaktärens id till arren med id för karaktärer som går på mission
+        missionParty[role] = characterID;
     }
 
     public void RemoveCharacter(int role) { //tar bort en karaktärs id från arrayen med id så att karaktären inte går på mission eller kan vara på en annan roll
-        foreach (GameObject window in windows) {
-            windowScript = window.GetComponent<CharacterWindow>();
-            if (missionParty[role] == windowScript.ID) {
+        characters = GameObject.FindGameObjectsWithTag("Character");
+        foreach (GameObject character in characters) {
+            characterScript = character.GetComponent<CharacterScript>();
+
+            if (missionParty[role] == characterScript.id) {
+                characterScript.isEnlisted = false;
                 missionParty[role] = -1;
-                windowScript.ShowBtn(false);
             }
         }
     }

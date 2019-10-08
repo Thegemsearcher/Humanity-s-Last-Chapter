@@ -23,6 +23,7 @@ public class SceneSwitcher : MonoBehaviour {
 
         //sparar vilka som ska gå på mission
         selectPartyView = GameObject.FindGameObjectWithTag("PartyView");
+        Debug.Log(selectPartyView.GetComponent<partySelectorScript>().missionParty[0]);
         SaveSystem.SavePartyOrder(selectPartyView.GetComponent<partySelectorScript>().missionParty);
 
         SceneManager.LoadScene("MissionMap");

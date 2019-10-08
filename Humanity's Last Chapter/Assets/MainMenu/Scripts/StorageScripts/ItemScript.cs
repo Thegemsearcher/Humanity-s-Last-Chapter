@@ -80,7 +80,6 @@ public class ItemScript : MonoBehaviour
 
     public bool IsActive()
     {
-        Debug.Log(active);
         return active;
     }
 

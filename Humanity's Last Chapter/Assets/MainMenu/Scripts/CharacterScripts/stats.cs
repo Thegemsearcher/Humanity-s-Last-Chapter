@@ -17,7 +17,7 @@ public class stats : MonoBehaviour
     void Start()
     {
         if(maxHp == 0) {
-            maxHp = Random.Range(1, 11);//Just for show.
+            maxHp = Random.Range(6, 11);//Just for show.
             hp = maxHp;
         }
         

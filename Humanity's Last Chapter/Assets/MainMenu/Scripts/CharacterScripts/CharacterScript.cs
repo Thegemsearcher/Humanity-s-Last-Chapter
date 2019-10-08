@@ -11,7 +11,10 @@ public class CharacterScript : MonoBehaviour {
     public string[] itemID;
     public bool inHospital, isEnlisted;
 
+    private stats statsScript;
+
     void Start() {
+        statsScript = GetComponent<stats>();
         itemID = new string[6];
         if (name == "") {
             name = NameGenerator();
@@ -34,16 +37,24 @@ public class CharacterScript : MonoBehaviour {
 
     public void SavePlayer() {
         int i = 0;
-        foreach(Transform item in gameObject.GetComponent<stats>().characterUI.transform.GetChild(3).transform)
-        {
-            if (item.tag == "Item")
-            {
-                if (item.GetComponent<ItemScript>().IsActive())
-                {
+        foreach (Transform item in gameObject.GetComponent<stats>().characterUI.transform.GetChild(3).transform) {
+            if (item.tag == "Item") {
+                if (item.GetComponent<ItemScript>().IsActive()) {
                     itemID[i] = item.GetComponent<ItemScript>().ItemID;
                     i++;
                 }
             }
+        }
+
+        if (inHospital) {
+            statsScript.hp += 5;
+            if (statsScript.hp > statsScript.maxHp) {
+                statsScript.hp = statsScript.maxHp;
+            }
+        }
+
+        if(isEnlisted) {
+            statsScript.hp -= 2;
         }
         SaveSystem.SaveCharacter(this, GetComponent<stats>());
     }
