@@ -9,14 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 90252cbfb3ca9dd4f81777c952bef8e4, type: 3}
   m_Name: co0
-  m_EditorClassIdentifier: Assembly-CSharp::ScriptableCollection
-  verb: 
-  description: 
-  collectionAmount: 0
+  m_EditorClassIdentifier: 
+  verb: Kill
+  description: Kill the targets
+  collectionAmount: 6
   currentAmount: 0
   isComplete: 0
   isBonus: 0
-  itemsToCollect: {fileID: 0}
-  spawnPos: []
+  itemsToCollect: {fileID: 2588904187867742290, guid: ecf8ee21bade51a48891cccceee6b009,
+    type: 3}
+  spawnPos:
+  - {fileID: 7659630455665969880, guid: d3f174d33659b704b98adab11d47fa93, type: 3}
+  - {fileID: 1864329402393362703, guid: 34f44e6948160a84388655630306b56a, type: 3}
+  - {fileID: 5481734801795116692, guid: ab59d1a30d0214145af67f03bd68dc23, type: 3}
+  - {fileID: 7982892571410994001, guid: 545fdbb9b3bbbb44aa42fe3a68abb6ad, type: 3}
+  - {fileID: 1531384597919140906, guid: d59c66bfb352d7944b7bdb9d1a76a888, type: 3}
+  - {fileID: 989868744169779897, guid: db6843c0caf42d143ba9b8c740be5e4d, type: 3}
