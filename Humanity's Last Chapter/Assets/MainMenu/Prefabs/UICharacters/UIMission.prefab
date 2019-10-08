@@ -169,7 +169,7 @@ GameObject:
   - component: {fileID: 1331542749992927570}
   m_Layer: 5
   m_Name: UIMission
-  m_TagString: Character
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
