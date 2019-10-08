@@ -90,8 +90,9 @@ public class PlayerAttack : MonoBehaviour
 
     public NodeStates RangeAttack()
     {
-        projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-        attackTimer = timeBetweenAttack;
+        //projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+        //attackTimer = timeBetweenAttack;
+        TestCombat();
         return NodeStates.success;
     }
 
@@ -108,39 +109,41 @@ public class PlayerAttack : MonoBehaviour
 
     private void TestCombat()
     {
-        enemy = GetNearestTarget().transform;
-        enemyPos = enemy.position;
-        enemyDistance = Vector3.Distance(enemyPos, transform.position);
-        Debug.Log("Distance: " + enemyDistance);
-        if (attackTimer <= 0)
-        {
-            if (enemyDistance <= aggroDistance)
-            {
-                if (loadoutType == "Melee")
-                {
-                    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
+        //enemy = GetNearestTarget().transform;
+        //enemyPos = enemy.position;
+        //enemyDistance = Vector3.Distance(enemyPos, transform.position);
+        //Debug.Log("Distance: " + enemyDistance);
+        //if (attackTimer <= 0)
+        //{
+        //    if (enemyDistance <= aggroDistance)
+        //    {
+        //        if (loadoutType == "Melee")
+        //        {
+        //            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
 
-                    for (int i = 0; i < enemiesToDamage.Length; i++)
-                    {
-                        enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-                    }
-                }
-                if (loadoutType == "Pistol")
-                {
-                    //projectile0.GetComponent<Projectile>().spread = 0f;
-                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-                }
-                if (loadoutType == "Shotgun")
-                {
-                    //projectile0.GetComponent<Projectile>().spread = 1f;
-                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-                }
-                attackTimer = timeBetweenAttack;
-            }
+        //            for (int i = 0; i < enemiesToDamage.Length; i++)
+        //            {
+        //                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+        //            }
+        //        }
+                
+        //    }
+        //}
+        if (loadoutType == "Pistol")
+        {
+            //projectile0.GetComponent<Projectile>().spread = 0f;
+            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+            //projectile0.GetComponent<Projectile>().character = gameObject;
         }
+        if (loadoutType == "Shotgun")
+        {
+            //projectile0.GetComponent<Projectile>().spread = 1f;
+            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+        }
+        attackTimer = timeBetweenAttack;
     }
 
     private void TestMoveToDestination()

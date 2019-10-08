@@ -102,5 +102,5 @@ MonoBehaviour:
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 256
-  character: {fileID: 3001411303830515558, guid: f76249b9fa0979a4db2803ddfc059cbb,
+  character: {fileID: 1464683741798525680, guid: 9d71d3b26b15b654bbcec29b90421764,
     type: 3}
