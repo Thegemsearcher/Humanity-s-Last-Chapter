@@ -67,9 +67,7 @@ public class WanderingEnemy : MonoBehaviour
         //Debug.Log("" + currentWP);
         if (currentWP < waypoints.Length)
         {
-            Debug.Log("" + waypoints[currentWP]);
-            Debug.Log("" + enemyAstar);
-            if (Vector2.Distance(waypoints[currentWP], enemyAstar.position) < 3.0f)
+            if (Vector2.Distance(waypoints[currentWP], enemyAstar.position) < 1.3f)
             {
                 return NodeStates.success;
             }
