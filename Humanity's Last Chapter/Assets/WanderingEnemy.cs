@@ -24,7 +24,7 @@ public class WanderingEnemy : MonoBehaviour
         {
             return;
         }
-        if (Vector2.Distance(waypoints[currentWP].transform.position, enemyAI.destination) < 3.0f)
+        if (Vector2.Distance(waypoints[currentWP].transform.position, enemyAI.position ) < 3.0f)
         {
             currentWP++;
             enemyAI.destination = waypoints[currentWP].transform.position;
