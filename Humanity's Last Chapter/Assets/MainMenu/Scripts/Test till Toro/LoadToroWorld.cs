@@ -8,6 +8,7 @@ public class LoadToroWorld : MonoBehaviour {
     private List<GameObject> enemies;
     private Vector3 characterPos, enemyPos;
     private float conterverter;
+    private float randomPos = 1;
 
     void Start() {
         //Ladda Världen
@@ -26,15 +27,15 @@ public class LoadToroWorld : MonoBehaviour {
         enemies = new List<GameObject>();
         GameObject nme = GameObject.FindWithTag("Enemy");
         enemies.Add(nme);
-        nme = Instantiate(enemy, new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0), Quaternion.identity);
+        nme = Instantiate(enemy, new Vector3(Random.Range(-randomPos, randomPos), Random.Range(-randomPos, randomPos), 0), Quaternion.identity);
         nme.transform.parent = GameObject.Find("EnemyManager").transform;
         nme.transform.localScale = new Vector3(1, 1, 1);
         enemies.Add(nme);
-        nme = Instantiate(enemy, new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0), Quaternion.identity);
+        nme = Instantiate(enemy, new Vector3(Random.Range(-randomPos, randomPos), Random.Range(-randomPos, randomPos), 0), Quaternion.identity);
         nme.transform.parent = GameObject.Find("EnemyManager").transform;
         nme.transform.localScale = new Vector3(1, 1, 1);
         enemies.Add(nme);
-        nme = Instantiate(enemy, new Vector3(Random.Range(-3, 3), Random.Range(-3, 3), 0), Quaternion.identity);
+        nme = Instantiate(enemy, new Vector3(Random.Range(-randomPos, randomPos), Random.Range(-randomPos, randomPos), 0), Quaternion.identity);
         nme.transform.parent = GameObject.Find("EnemyManager").transform;
         nme.transform.localScale = new Vector3(1, 1, 1);
     }

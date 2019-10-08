@@ -10,8 +10,8 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 destination;
     private bool walking;
 
-    private float timeBetweenAttack;
-    public float startTimeBetweenAttack;
+    private float attackTimer;
+    public float timeBetweenAttack;
 
     public RectTransform attackPos;
     public LayerMask whatIsEnemy;
@@ -31,7 +31,6 @@ public class PlayerAttack : MonoBehaviour
     public GameObject projectile;
     private GameObject projectile0;
 
-    // Start is called before the first frame update
     void Start()
     {
         //destination = transform.position;
@@ -39,44 +38,14 @@ public class PlayerAttack : MonoBehaviour
         CheckLoadout();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        //MoveToDestination();
+        //For testing only
+        //TestMoveToDestination();
+        //TestCombat();
 
-        //enemy = GetNearestTarget().transform;
-        //enemyPos = enemy.position;
-        //enemyDistance = Vector3.Distance(enemyPos, transform.position);
-        //Debug.Log("Distance: " + enemyDistance);
-        //if (timeBetweenAttack <= 0)
-        //{
-        //    if (enemyDistance <= aggroDistance) //change this to "if in range && has target" or something
-        //    {
-        //        if (loadoutType == "Melee")
-        //        {
-        //            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
-
-        //            for (int i = 0; i < enemiesToDamage.Length; i++)
-        //            {
-        //                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-        //            }
-        //        }
-        //        if (loadoutType == "Ranged")
-        //        {
-        //            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-
-        //            //projectile0.transform.parent = gameObject.transform;
-        //            //projectile0.transform.localScale = new Vector3(1, 1, 1);
-        //        }
-        //        timeBetweenAttack = startTimeBetweenAttack;
-        //    }
-        //}
-        //else
-        //{
-        //    timeBetweenAttack -= Time.deltaTime;
-        //}
-        if (timeBetweenAttack > 0)
-            timeBetweenAttack -= Time.deltaTime;
+        if (attackTimer > 0)
+            attackTimer -= Time.deltaTime;
     }
 
     public NodeStates LineOfSight()
@@ -84,7 +53,6 @@ public class PlayerAttack : MonoBehaviour
         hitInfo = Physics2D.Raycast(transform.position, enemyPos, aggroDistance, humansAndBuildings);
         if (hitInfo.collider != null)
         {
-            //Debug.Log("nånting är fel");
             return NodeStates.fail;
         }
 
@@ -93,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
 
     public NodeStates IsRanged()
     {
-        if (loadoutType == "Ranged")
+        if (loadoutType == "Pistol")
             return NodeStates.success;
         else
             return NodeStates.fail;
@@ -104,20 +72,16 @@ public class PlayerAttack : MonoBehaviour
         GameObject go = GetNearestTarget();
         if (go.Equals(gameObject))
         {
-            //Debug.Log("no enemies");
             return NodeStates.fail;
         }
 
         enemy = go.transform;
         enemyPos = enemy.position;
         enemyDistance = Vector3.Distance(enemyPos, transform.position);
-        //Debug.Log("Distance: " + enemyPos + "   " + transform.position);
-        if (timeBetweenAttack <= 0)
+        if (attackTimer <= 0)
         {
-            //Debug.Log("can attack");
-            if (enemyDistance <= aggroDistance) //change this to "if in range && has target" or something
+            if (enemyDistance <= aggroDistance)
             {
-                //Debug.Log("in range");
                 return NodeStates.success;
             }
         }
@@ -127,7 +91,7 @@ public class PlayerAttack : MonoBehaviour
     public NodeStates RangeAttack()
     {
         projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-        timeBetweenAttack = startTimeBetweenAttack;
+        attackTimer = timeBetweenAttack;
         return NodeStates.success;
     }
 
@@ -142,7 +106,44 @@ public class PlayerAttack : MonoBehaviour
         return NodeStates.success;
     }
 
-    private void MoveToDestination()
+    private void TestCombat()
+    {
+        enemy = GetNearestTarget().transform;
+        enemyPos = enemy.position;
+        enemyDistance = Vector3.Distance(enemyPos, transform.position);
+        Debug.Log("Distance: " + enemyDistance);
+        if (attackTimer <= 0)
+        {
+            if (enemyDistance <= aggroDistance)
+            {
+                if (loadoutType == "Melee")
+                {
+                    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
+
+                    for (int i = 0; i < enemiesToDamage.Length; i++)
+                    {
+                        enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+                    }
+                }
+                if (loadoutType == "Pistol")
+                {
+                    //projectile0.GetComponent<Projectile>().spread = 0f;
+                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+                }
+                if (loadoutType == "Shotgun")
+                {
+                    //projectile0.GetComponent<Projectile>().spread = 1f;
+                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+                    projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
+                }
+                attackTimer = timeBetweenAttack;
+            }
+        }
+    }
+
+    private void TestMoveToDestination()
     {
         if (Input.GetMouseButtonDown(1))
         {
@@ -177,7 +178,11 @@ public class PlayerAttack : MonoBehaviour
         }
         else if (loadout == 1)
         {
-            loadoutType = "Ranged";
+            loadoutType = "Pistol";
+        }
+        else if (loadout == 2)
+        {
+            loadoutType = "Shotgun";
         }
     }
 }
