@@ -29,7 +29,7 @@ public class WanderingEnemy : MonoBehaviour
         enemyAstar = GetComponent<IAstarAI>();
         currentWP = 0;
         //enemyAstar.destination = waypoints[currentWP];
-        Debug.Log("" + waypoints.Length);
+        //Debug.Log("" + waypoints.Length);
         BT = GetComponent<BehvaiourTree>().GetEnemyBt();
     }
 
@@ -65,9 +65,14 @@ public class WanderingEnemy : MonoBehaviour
             return NodeStates.fail;
         }
         //Debug.Log("" + currentWP);
-        if (Vector2.Distance(waypoints[currentWP], enemyAstar.position) < 3.0f)
+        if (currentWP < waypoints.Length)
         {
-            return NodeStates.success;
+            Debug.Log("" + waypoints[currentWP]);
+            Debug.Log("" + enemyAstar);
+            if (Vector2.Distance(waypoints[currentWP], enemyAstar.position) < 3.0f)
+            {
+                return NodeStates.success;
+            }
         }
 
         return NodeStates.fail;

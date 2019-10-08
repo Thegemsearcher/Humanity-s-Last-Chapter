@@ -53,7 +53,7 @@ public class Projectile : MonoBehaviour
         {
             if (hitInfo.collider.CompareTag("Enemy"))
             {
-                Debug.Log("skaträffas");
+                //Debug.Log("skaträffas");
                 hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
             }
             DestroyProjectile();
