@@ -2327,7 +2327,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2046095032}
   m_HandleRect: {fileID: 2046095031}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2396,7 +2396,7 @@ RectTransform:
   m_GameObject: {fileID: 1172021689}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.037555, z: 1}
   m_Children: []
   m_Father: {fileID: 1707402365}
   m_RootOrder: 0
@@ -3563,7 +3563,7 @@ RectTransform:
   m_GameObject: {fileID: 2021361160}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.62502, y: 0.46255, z: 1}
   m_Children:
   - {fileID: 1707402365}
   - {fileID: 1102224153}
@@ -3572,7 +3572,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 50}
+  m_AnchoredPosition: {x: 401.2, y: 159.4}
   m_SizeDelta: {x: 210, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2021361162
