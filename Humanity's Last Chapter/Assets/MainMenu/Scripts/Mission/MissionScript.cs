@@ -16,7 +16,7 @@ public class MissionScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     void Start() {
         quest = GetComponent<QuestObject>().quest;
         txtName.text = quest.missionName;
-        txtDescription.text = quest.description;
+        //txtDescription.text = quest.description;
 
         if (quest.goldReward > 0) {
             gold = quest.goldReward + " Gold ";
@@ -31,7 +31,7 @@ public class MissionScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             rs = "";
         }
 
-        txtReward.text = "Reward: " + gold + rs;
+        //txtReward.text = "Reward: " + gold + rs;
         SelectedMission = GameObject.Find("forSelectedMission");
     }
 
