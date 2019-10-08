@@ -122,7 +122,7 @@
     <Compile Include="Assets\MainMenu\Scripts\Mission\MissionScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Collection\CollectionObjective.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Collection\makeCollection.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Collection\ScriptibleCollection.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Collection\ScriptableCollection.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Interaction\InteractionObjective.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Interaction\InteractObject.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Objectives\Interaction\MakeInteraction.cs" />
