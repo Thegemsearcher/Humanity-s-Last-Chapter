@@ -12,16 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: co0
   m_EditorClassIdentifier: Assembly-CSharp::ScriptableCollection
-  verb: Collect
-  description: Testtset
-  collectionAmount: 4
+  verb: Kill
+  description: Kill the targets
+  collectionAmount: 6
   currentAmount: 0
   isComplete: 0
   isBonus: 0
-  itemsToCollect: {fileID: 18934995028022139, guid: adef20653844be14988274e6eb6103ca,
+  itemsToCollect: {fileID: 2588904187867742290, guid: ecf8ee21bade51a48891cccceee6b009,
     type: 3}
   spawnPos:
-  - {fileID: 9047227175598873176, guid: db5bbf63100528b42a704e04b065ab07, type: 3}
-  - {fileID: 5470013576287031279, guid: b2d15c316b8f49f4c9898e1a336b3684, type: 3}
-  - {fileID: 5225246537802327491, guid: 8ca440e073aa04d4cb438a6b413c0aff, type: 3}
-  - {fileID: 7043251166449239754, guid: 0311cce7fbce94c4ca69a3e1223d2f17, type: 3}
+  - {fileID: 7659630455665969880, guid: d3f174d33659b704b98adab11d47fa93, type: 3}
+  - {fileID: 1864329402393362703, guid: 34f44e6948160a84388655630306b56a, type: 3}
+  - {fileID: 5481734801795116692, guid: ab59d1a30d0214145af67f03bd68dc23, type: 3}
+  - {fileID: 7982892571410994001, guid: 545fdbb9b3bbbb44aa42fe3a68abb6ad, type: 3}
+  - {fileID: 1531384597919140906, guid: d59c66bfb352d7944b7bdb9d1a76a888, type: 3}
+  - {fileID: 989868744169779897, guid: db6843c0caf42d143ba9b8c740be5e4d, type: 3}

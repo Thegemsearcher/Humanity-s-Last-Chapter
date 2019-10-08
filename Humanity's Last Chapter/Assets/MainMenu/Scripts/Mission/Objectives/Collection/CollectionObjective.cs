@@ -33,7 +33,7 @@ namespace QuestSystem {
             for (int i = 0; i < collectionAmount; i++) {
                 itemO = Instantiate(itemsToCollect, spawnPos[i].position, Quaternion.identity);
                 itemO.transform.SetParent(GameObject.Find("SpawnHolder").transform, false);
-                itemO.GetComponent<MarkusEnemy>().id = data.name + "Enemy";
+                itemO.GetComponent<Enemy>().id = data.name + "Enemy";
             }
         }
 
@@ -41,7 +41,7 @@ namespace QuestSystem {
             objectiveList = GameObject.FindGameObjectsWithTag("Enemy");
             enemiesLeft = 0;
             foreach(GameObject enemy in objectiveList) {
-                if(enemy.GetComponent<MarkusEnemy>().id == data.name+"Enemy") {
+                if(enemy.GetComponent<Enemy>().id == data.name+"Enemy") {
                     
                     return false;
                 }

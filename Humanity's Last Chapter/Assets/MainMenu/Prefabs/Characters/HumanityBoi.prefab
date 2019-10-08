@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: -1517981695887567796}
   - component: {fileID: 8658573829318196213}
   - component: {fileID: 8460625342677450066}
+  - component: {fileID: 6779060348685499534}
   m_Layer: 10
   m_Name: HumanityBoi
   m_TagString: Character
@@ -106,6 +107,7 @@ MonoBehaviour:
   health: 20
   id: 0
   wpId: 
+  itemID: []
   inHospital: 0
   isEnlisted: 0
 --- !u!114 &3017468683588421300
@@ -133,6 +135,7 @@ MonoBehaviour:
     type: 3}
   ItemPrefab: {fileID: 7328032005007390068, guid: fa1004ad50eeca94bb9b683b33e5a063,
     type: 3}
+  items: []
 --- !u!114 &3635717509634122910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,10 +242,10 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.0080072135, y: 0.008100152}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -253,7 +256,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.22478077, y: 0.3001964}
+  m_Size: {x: 0.2, y: 0.3}
   m_EdgeRadius: 0
 --- !u!114 &-1517981695887567796
 MonoBehaviour:
@@ -308,3 +311,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7626715680820893389, guid: 27a00eca5e3d49b46b5b9c0796c93edb, type: 3}
+--- !u!50 &6779060348685499534
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464683741798525680}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

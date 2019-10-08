@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MarkusEnemy : MonoBehaviour {
+public class Enemy1 : MonoBehaviour {
 
     public string id;
     public int hp;

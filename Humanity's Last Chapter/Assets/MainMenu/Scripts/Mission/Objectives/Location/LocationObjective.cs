@@ -38,6 +38,7 @@ namespace QuestSystem {
         }
 
         public bool CheckProgress() {
+            
             foreach (GameObject character in characters) {
                 isComlete = Location.GetComponent<LocationScript>().isInRoom;
                 //Debug.Log("LocationPos: " + loScript.GetComponent<BoxCollider2D>().bounds);

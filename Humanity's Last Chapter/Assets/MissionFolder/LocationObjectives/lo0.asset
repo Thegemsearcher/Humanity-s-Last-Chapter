@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo0
   m_EditorClassIdentifier: 
-  titel: Enter the Dinner room
-  description: It seems that the signal is from the Dinner room
+  titel: Search For His Family
+  description: The guy asked if we could look for his family
   id: lo0
-  Location: {fileID: 907308099358535236, guid: c2dc0179040877b4a9446390a0e5f487, type: 3}
+  Location: {fileID: 4560324561953636126, guid: a8ce8bfcc1f071145995c1dcd28e9fae,
+    type: 3}
   clearOutTarget: []
   isComlete: 0
   isBonus: 0

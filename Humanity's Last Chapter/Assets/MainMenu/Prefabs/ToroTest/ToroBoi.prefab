@@ -107,6 +107,9 @@ MonoBehaviour:
   health: 20
   id: 0
   wpId: 
+  itemID: []
+  inHospital: 0
+  isEnlisted: 0
 --- !u!222 &7971658715119557861
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -130,7 +133,6 @@ MonoBehaviour:
   charactersMovespeed: 0.035
   relativePos: {x: 0, y: 0, z: 0}
   posPlusRel: {x: 0, y: 0, z: 0}
-  posi: {x: 0, y: 0, z: 0}
   waypoints: []
   direction: {x: 0, y: 0}
 --- !u!61 &6354076723546667535
@@ -143,7 +145,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -178,6 +180,9 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 512
+  humansAndBuildings:
+    serializedVersion: 2
+    m_Bits: 0
   attackRange: 0.18
   damage: 5
   loadout: 1

@@ -13,11 +13,11 @@ public class QuestGiver : MonoBehaviour {
 
     public void OnTriggerExit2D(Collider2D collision) {
         isInteracted = false;
+        Debug.Log("Is out");
     }
 
     public void OnTriggerStay2D(Collider2D collision) {
         //Något som säger att man ska klicka på E för att prata kanske...
-
         if (Input.GetKeyDown(KeyCode.E)) {
             isInteracted = true;
         }
