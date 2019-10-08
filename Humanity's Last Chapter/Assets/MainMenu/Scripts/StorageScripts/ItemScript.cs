@@ -58,7 +58,7 @@ public class ItemScript : MonoBehaviour
         if (!held)
         {
             if (transform.position != slotPosition)
-                gameObject.GetComponent<Transform>().position = slotPosition;
+                gameObject.GetComponent<Transform>().position = slotPosition; //varför inte bara transform.position = slotPosition?
         }
     }
 
@@ -92,7 +92,7 @@ public class ItemScript : MonoBehaviour
     {
         SetColor(new Color(0.4f, 0.4f, 0.4f, 1f));
         ItemID = itemID;
-        gameObject.GetComponent<Image>().sprite = GetComponent<Sprites>().wp0;
+        //gameObject.GetComponent<Image>().sprite = GetComponent<Sprites>().wp0;
         active = true;
     }
 

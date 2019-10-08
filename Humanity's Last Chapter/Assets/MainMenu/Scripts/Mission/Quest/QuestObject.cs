@@ -10,10 +10,6 @@ public class QuestObject : MonoBehaviour {
     private bool isChainMission, isAvalible, isActive, isCompleted;
     private string[] bObjectives, events;
     private int gReward, rsReward, objectiveCounter;
-    private Object[] objectives;
-    private CollectionObjective coQuest, coHolder;
-    private LocationObjective loQuest;
-    private InteractObject ioQuest;
     public ScriptableQuest quest;
 
     private float textTimer, timeStamp;

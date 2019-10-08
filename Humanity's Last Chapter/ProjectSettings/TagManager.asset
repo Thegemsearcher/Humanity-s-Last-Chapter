@@ -28,6 +28,9 @@ TagManager:
   - EnlistList
   - UICharacterRole
   - ForRole
+  - ItemSlot
+  - TextItemName
+  - TextItemDescrip
   layers:
   - Default
   - TransparentFX
