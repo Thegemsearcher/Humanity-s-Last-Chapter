@@ -6,6 +6,7 @@ using System.Linq;
 public class Projectile : MonoBehaviour
 {
     public int damage;
+    public float spread;
     public float speed;
     public float lifeTime;
     public float distance;
@@ -15,11 +16,21 @@ public class Projectile : MonoBehaviour
     private Vector3 targetPos;
     private Vector3 direction;
 
+    public GameObject character;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (character.GetComponent<PlayerAttack>().loadout == 1)
+        {
+            spread = 0;
+        }
+        if (character.GetComponent<PlayerAttack>().loadout == 2)
+        {
+            spread = 1;
+        }
         enemy = GetNearestTarget().transform;
-        targetPos = enemy.position;
+        targetPos = new Vector3(enemy.position.x + Random.Range(-spread, spread), enemy.position.y + Random.Range(-spread, spread), enemy.position.z);
         //transform.rotation = Quaternion.LookRotation(targetPos);
         direction = targetPos - transform.position;
         Invoke("DestroyProjectile", lifeTime);
@@ -28,25 +39,25 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (enemy != null)
+        //if (enemy != null)
+        //{
+        //    if (enemy.GetComponent<BoxCollider2D>().OverlapPoint(transform.position))
+        //    {
+        //        //Debug.Log("skaträffas");
+        //        enemy.GetComponent<Enemy>().TakeDamage(damage);
+        //        DestroyProjectile();
+        //    }
+        //}
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, targetPos, distance, whatIsSolid);
+        if (hitInfo.collider != null)
         {
-            if (enemy.GetComponent<BoxCollider2D>().OverlapPoint(transform.position))
+            if (hitInfo.collider.CompareTag("Enemy"))
             {
                 //Debug.Log("skaträffas");
-                enemy.GetComponent<Enemy>().TakeDamage(damage);
-                DestroyProjectile();
+                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
             }
+            DestroyProjectile();
         }
-        //RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, targetPos, distance, whatIsSolid);
-        //if (hitInfo.collider != null)
-        //{
-        //    if (hitInfo.collider.CompareTag("Enemy"))
-        //    {
-        //        Debug.Log("skaträffas");
-        //        hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
-        //    }
-        //    DestroyProjectile();
-        //}
 
         //velocity = targetPos - transform.position;
         direction.Normalize();

@@ -95,9 +95,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
+  spread: 1
   speed: 5
   lifeTime: 3
   distance: 0.175
   whatIsSolid:
     serializedVersion: 2
     m_Bits: 256
+  character: {fileID: 1464683741798525680, guid: 9d71d3b26b15b654bbcec29b90421764,
+    type: 3}

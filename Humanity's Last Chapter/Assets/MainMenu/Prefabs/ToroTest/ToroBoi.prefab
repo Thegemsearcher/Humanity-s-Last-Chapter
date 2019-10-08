@@ -174,12 +174,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1.5
-  startTimeBetweenAttack: 0.3
+  timeBetweenAttack: 1
   attackPos: {fileID: 9190761247512095196, guid: 0d1f1ab9944b4e04d96c1ef39b84d680,
     type: 3}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 256
   humansAndBuildings:
     serializedVersion: 2
     m_Bits: 0

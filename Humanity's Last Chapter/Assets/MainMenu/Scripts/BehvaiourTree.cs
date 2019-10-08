@@ -44,6 +44,22 @@ public class BehvaiourTree : MonoBehaviour
         return toReturn;
     }
 
+    public RootNode GetEnemyBt()
+    {
+        List<Node> nodes = new List<Node>();
+
+        LeafNode closeToWaypoint = new LeafNode(GetComponent<WanderingEnemy>().CloseToWaypoint);
+        LeafNode nextWaypoint = new LeafNode(GetComponent<WanderingEnemy>().NextWaypoint);
+        List<Node> forWanderSequence = new List<Node>();
+        forWanderSequence.Add(closeToWaypoint);
+        forWanderSequence.Add(nextWaypoint);
+        Sequence wanderSequence = new Sequence(forWanderSequence);
+
+        nodes.Add(wanderSequence);
+
+        RootNode toReturn = new RootNode(nodes);
+        return toReturn;
+    }
 }
 /// <summary>
 /// startar processen, går igenom alla noder och kör deras evaluates.
