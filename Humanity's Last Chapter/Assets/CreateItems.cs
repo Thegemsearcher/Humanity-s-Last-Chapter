@@ -17,7 +17,7 @@ public class CreateItems : MonoBehaviour {
     public int ammoutOfItems;
 
     private void Start() {
-        GetComponent<StorageScript>().GetSlots();
+        //GetComponent<StorageScript>().GetSlots();
         ItemSlots = GameObject.FindGameObjectsWithTag("ItemSlot");
         int i = 0;
         

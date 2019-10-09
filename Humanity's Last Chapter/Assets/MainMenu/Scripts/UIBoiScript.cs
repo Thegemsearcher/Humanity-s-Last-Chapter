@@ -14,7 +14,7 @@ public class UIBoiScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private stats statsScript;
     private int cha, str, def, intelligence, dex, com, nrg, snt, hp, maxHp, nextLevel, lvl;
     private int exp;
-    public bool isOwned;
+    public bool isOwned, isInItems;
 
     void Start() {
         characterScript = GetComponent<CharacterScript>();
@@ -46,14 +46,23 @@ public class UIBoiScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        if(isOwned) {
+        if(isOwned && !isInItems) {
             InfoBox.SetActive(true);
         }
     }
     public void OnPointerExit(PointerEventData eventData) {
-        if(isOwned) {
+        if(isOwned && !isInItems) {
             InfoBox.SetActive(false);
         }
-        
+    }
+
+    public void OpenItems() {
+        isInItems = true;
+
+        //Make it false for all other UIItems
+    }
+
+    public void CloseItems() {
+        isInItems = false;
     }
 }

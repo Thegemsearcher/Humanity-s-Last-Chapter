@@ -7,11 +7,9 @@ public class StorageScript : MonoBehaviour {
     public GameObject ItemSlot;
     public int slotsCounter;
 
-    public void GetSlots() {
+    private void Start() {
         for(int i = 0; i < slotsCounter; i++) {
             Instantiate(ItemSlot, transform);
         }
-        
     }
-
 }

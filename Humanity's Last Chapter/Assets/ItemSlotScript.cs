@@ -8,11 +8,13 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public bool isActive;
     public string itemName, itemDescrip;
-    private Text txtName, txtDescrip;
+    public Text txtName, txtDescrip;
 
     void Start() {
-        txtName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
-        txtDescrip = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
+        //if((txtName.isN)) {
+            txtName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
+            txtDescrip = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
+        //}
     }
 
     public void Equip() {
