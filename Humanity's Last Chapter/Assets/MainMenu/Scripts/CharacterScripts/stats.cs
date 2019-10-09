@@ -46,7 +46,7 @@ public class stats : MonoBehaviour
         }
         for (int x = 0; x < 6; x++)
             items.Add(Instantiate(ItemPrefab, itemGrid.transform));
-        GetComponent<CharacterScript>().LoadPlayer(GetComponent<CharacterScript>().id);
+        //GetComponent<CharacterScript>().LoadPlayer(GetComponent<CharacterScript>().id);
         for (int x = 0; x < GetComponent<CharacterScript>().itemID.Length; x++)
         {
             string itemId = GetComponent<CharacterScript>().itemID[x];

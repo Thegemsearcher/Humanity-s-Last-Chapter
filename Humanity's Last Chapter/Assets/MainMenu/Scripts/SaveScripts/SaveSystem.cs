@@ -32,6 +32,12 @@ public static class SaveSystem {
         }
     }
 
+    public static void DeleteCharacter(CharacterScript character)
+    {
+        string path = Application.persistentDataPath + "/Characters/character(" + character.id + ").txt"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
+        File.Delete(path);
+    }
+
     public static void ActiveSave(int slot) {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/ActiveSave.txt";

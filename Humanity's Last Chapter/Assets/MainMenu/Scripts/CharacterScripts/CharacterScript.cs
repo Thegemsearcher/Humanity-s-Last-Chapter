@@ -36,27 +36,40 @@ public class CharacterScript : MonoBehaviour {
     }
 
     public void SavePlayer() {
-        int i = 0;
-        foreach (Transform item in gameObject.GetComponent<stats>().characterUI.transform.GetChild(3).transform) {
-            if (item.tag == "Item") {
-                if (item.GetComponent<ItemScript>().IsActive()) {
-                    itemID[i] = item.GetComponent<ItemScript>().ItemID;
-                    i++;
+        if (statsScript.hp > 0)
+        {
+            int i = 0;
+            foreach (Transform item in gameObject.GetComponent<stats>().characterUI.transform.GetChild(3).transform)
+            {
+                if (item.tag == "Item")
+                {
+                    if (item.GetComponent<ItemScript>().IsActive())
+                    {
+                        itemID[i] = item.GetComponent<ItemScript>().ItemID;
+                        i++;
+                    }
                 }
             }
-        }
 
-        if (inHospital) {
-            statsScript.hp += 5;
-            if (statsScript.hp > statsScript.maxHp) {
-                statsScript.hp = statsScript.maxHp;
+            if (inHospital)
+            {
+                statsScript.hp += 5;
+                if (statsScript.hp > statsScript.maxHp)
+                {
+                    statsScript.hp = statsScript.maxHp;
+                }
             }
-        }
 
-        if(isEnlisted) {
-            statsScript.hp -= 2;
+            if (isEnlisted)
+            {
+                statsScript.hp -= 2;
+            }
+            SaveSystem.SaveCharacter(this, GetComponent<stats>());
         }
-        SaveSystem.SaveCharacter(this, GetComponent<stats>());
+        else
+        {
+            SaveSystem.DeleteCharacter(this);
+        }
     }
 
     public void LoadPlayer(int id) {
