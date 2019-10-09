@@ -48,14 +48,33 @@ public class BehvaiourTree : MonoBehaviour
     {
         List<Node> nodes = new List<Node>();
 
+        #region Movement
         LeafNode closeToWaypoint = new LeafNode(GetComponent<WanderingEnemy>().CloseToWaypoint);
         LeafNode nextWaypoint = new LeafNode(GetComponent<WanderingEnemy>().NextWaypoint);
         List<Node> forWanderSequence = new List<Node>();
         forWanderSequence.Add(closeToWaypoint);
         forWanderSequence.Add(nextWaypoint);
         Sequence wanderSequence = new Sequence(forWanderSequence);
+        #endregion
 
-        nodes.Add(wanderSequence);
+        #region Combat
+        LeafNode inAggroRange = new LeafNode(GetComponent<Enemy>().InAggroRange);
+        LeafNode melee = new LeafNode(GetComponent<Enemy>().InMeleeRange);
+        LeafNode moveCloser = new LeafNode(GetComponent<Enemy>().MoveTowardsClosestPc);
+        Inverter invMelee = new Inverter(melee);
+        List<Node> forCombatSequence = new List<Node>();
+        forCombatSequence.Add(inAggroRange);
+        forCombatSequence.Add(invMelee);
+        forCombatSequence.Add(moveCloser);
+        Sequence combatSequence = new Sequence(forCombatSequence);
+        #endregion
+        
+        List<Node> forGeneralSelector = new List<Node>();
+        forGeneralSelector.Add(combatSequence);
+        forGeneralSelector.Add(wanderSequence);
+        Selector generalSelector = new Selector(forGeneralSelector);
+
+        nodes.Add(generalSelector);
 
         RootNode toReturn = new RootNode(nodes);
         return toReturn;

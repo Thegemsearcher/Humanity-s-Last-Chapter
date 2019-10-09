@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public string id;
 
     GameObject[] pcs;
-    public float aggroRange = 1.5f;
+    public float aggroRange = 20f;
     public float atkRange = 0.5f;
     public int dmg = 1;
     public LayerMask pcLayer;
