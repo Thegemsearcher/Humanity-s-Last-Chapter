@@ -25,16 +25,30 @@ public class BehvaiourTree : MonoBehaviour
         LeafNode atkMelee = new LeafNode(GetComponent<PlayerAttack>().MeleeAttack);
         LeafNode atkRanged = new LeafNode(GetComponent<PlayerAttack>().RangeAttack);
         LeafNode lineOfSight = new LeafNode(GetComponent<PlayerAttack>().LineOfSight);
+        LeafNode aggroRange = new LeafNode(GetComponent<PlayerAttack>().WithinAggroRange);
+        LeafNode moveCloser = new LeafNode(GetComponent<PlayerAttack>().MoveTowardsEnemy);
+
+        List<Node> forRangedSequence = new List<Node>();
+        forRangedSequence.Add(isRanged);
+        forRangedSequence.Add(inCombatRange);
+        forRangedSequence.Add(lineOfSight);
+        forRangedSequence.Add(atkRanged);
+        Sequence rangedSequence = new Sequence(forRangedSequence);
+
+        List<Node> meleeCombatIfInRange = new List<Node>();
+        meleeCombatIfInRange.Add(inCombatRange);
+        meleeCombatIfInRange.Add(atkMelee);
+        Sequence ifInMelee = new Sequence(meleeCombatIfInRange);
+        Inverter invMelee = new Inverter(ifInMelee);
         List<Node> forMeleeSelector = new List<Node>();
-        forMeleeSelector.Add(isRanged);
-        forMeleeSelector.Add(atkMelee);
-        Selector meleeSelector = new Selector(forMeleeSelector);
-        List<Node> forCombatSequence = new List<Node>();
-        forCombatSequence.Add(inCombatRange);
-        forCombatSequence.Add(meleeSelector);
-        forCombatSequence.Add(lineOfSight);
-        forCombatSequence.Add(atkRanged);
-        Sequence forCombat = new Sequence(forCombatSequence);
+        forMeleeSelector.Add(aggroRange);
+        forMeleeSelector.Add(invMelee);
+        forMeleeSelector.Add(moveCloser);
+        Sequence meleeSequence = new Sequence(forMeleeSelector);
+        List<Node> forCombatSelector = new List<Node>();
+        forCombatSelector.Add(rangedSequence);
+        forCombatSelector.Add(meleeSequence);
+        Selector forCombat = new Selector(forCombatSelector);
         #endregion
 
         nodes.Add(forCombat);

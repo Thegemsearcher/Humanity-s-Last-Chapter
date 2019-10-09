@@ -12,10 +12,13 @@ public class Enemy : MonoBehaviour
     public string id;
 
     GameObject[] pcs;
-    public float aggroRange = 20f;
-    public float atkRange = 0.5f;
+    public float aggroRange = 4f;
+    public float atkRange = 0.75f;
     public int dmg = 1;
     public LayerMask pcLayer;
+    
+    private float attackTimer;
+    public float timeBetweenAttack;
 
     public ParticleSystem bloodEffect;
 
@@ -33,8 +36,8 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        MovementForTest();
+        if (attackTimer > 0)
+            attackTimer -= Time.deltaTime;
     }
 
     public void TakeDamage(int damage)
@@ -45,10 +48,13 @@ public class Enemy : MonoBehaviour
 
     public NodeStates InAggroRange()
     {
+        
         foreach (GameObject pc in pcs)
         {
+            //Debug.Log(""+ Vector3.Distance(transform.position, pc.transform.position));
             if (Vector3.Distance(transform.position, pc.transform.position) < aggroRange)
             {
+                //Debug.Log("pcn är inom aggrorangen");
                 return NodeStates.success;
             }
         }
@@ -63,7 +69,10 @@ public class Enemy : MonoBehaviour
         {
             if (Vector3.Distance(transform.position, pc.transform.position) < Vector3.Distance(transform.position, closestPc.transform.position))
             {
-                closestPc = pc;
+                if (pc.gameObject.activeInHierarchy)
+                {
+                    closestPc = pc;
+                }
             }
         }
         GetComponent<AIDestinationSetter>().SetPosTarget(closestPc.transform.position);
@@ -72,14 +81,25 @@ public class Enemy : MonoBehaviour
 
     public NodeStates InMeleeRange()
     {
+        if (attackTimer > 0)
+        {
+            return NodeStates.fail;
+        }
+        attackTimer = timeBetweenAttack;
         Collider2D[] pcsToDamage = Physics2D.OverlapCircleAll(transform.position, atkRange, pcLayer);
-
+        bool hitPc = false;
         for (int i = 0; i < pcsToDamage.Length; i++)
         {
+            hitPc = true;
             pcsToDamage[i].GetComponent<stats>().hp -= dmg;
+            if (pcsToDamage[i].GetComponent<stats>().hp < 1)
+            {
+                pcsToDamage[i].gameObject.SetActive(false);
+            }
         }
-
-        return NodeStates.success;
+        if (hitPc)
+            return NodeStates.success;
+        return NodeStates.fail;
     }
     void MovementForTest()
     {

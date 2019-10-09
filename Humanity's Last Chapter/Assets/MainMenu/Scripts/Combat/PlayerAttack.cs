@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using static Node;
+using Pathfinding;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -126,6 +127,22 @@ public class PlayerAttack : MonoBehaviour
             enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
         }
         return NodeStates.success;
+    }
+
+    public NodeStates MoveTowardsEnemy()
+    {
+        GameObject target = GetNearestTarget();
+        GetComponent<AIDestinationSetter>().SetPosTarget(target.transform.position);
+        return NodeStates.success;
+    }
+    public NodeStates WithinAggroRange()
+    {
+        if (Vector3.Distance(GetNearestTarget().transform.position,transform.position) < aggroDistance)
+        {
+            return NodeStates.success;
+        }
+
+        return NodeStates.fail;
     }
 
     private void TestCombat()

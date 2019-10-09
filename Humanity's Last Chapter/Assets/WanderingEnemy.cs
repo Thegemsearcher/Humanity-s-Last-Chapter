@@ -108,7 +108,7 @@ public class WanderingEnemy : MonoBehaviour
             currentWP = 0;
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWP]);
         }
-        Debug.Log("" + currentWP);
+        //Debug.Log("" + currentWP);
         return NodeStates.success;
     }
 }
