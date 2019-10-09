@@ -6,17 +6,28 @@ using static Node;
 
 public class WanderingEnemy : MonoBehaviour
 {
-    IAstarAI enemyAstar;
-    Vector3[] waypoints;
+    //IAstarAI enemyAstar;
+
+    GameObject[] toGoTo;
+    public Vector3[] waypoints;
     int currentWP;
-    float offset = 1.5f;
+    float offset = 3f;
     RootNode BT;
     // Start is called before the first frame update
     void Start()
     {
+        //toGoTo = GameObject.FindGameObjectsWithTag("Enemy");
+        //waypoints = new Vector3[toGoTo.Length];
+        //for (int i = 0;i < toGoTo.Length; i++)
+        //{
+        //    waypoints[i] = toGoTo[i].transform.position;
+        //}
+
+        GameObject[] walls = GameObject.FindGameObjectsWithTag("Building");
+
         waypoints = new Vector3[3];
         //waypoints = GameObject.FindGameObjectsWithTag("Waypoint");
-        Vector3 toAdd = new Vector3(Random.Range(transform.position.x - offset, transform.position.x + offset), 
+        Vector3 toAdd = new Vector3(Random.Range(transform.position.x - offset, transform.position.x + offset),
             Random.Range(transform.position.y - offset, transform.position.y + offset), 0);
         waypoints[0] = toAdd;
         toAdd = new Vector3(Random.Range(transform.position.x - offset, transform.position.x + offset),
@@ -26,7 +37,19 @@ public class WanderingEnemy : MonoBehaviour
             Random.Range(transform.position.y - offset, transform.position.y + offset), 0);
         waypoints[2] = toAdd;
 
-        enemyAstar = GetComponent<IAstarAI>();
+        foreach (GameObject go in walls)
+        {
+            for (int i = 0; i < waypoints.Length;i++)
+            {
+                if (go.GetComponent<BoxCollider2D>().OverlapPoint(waypoints[i]))
+                {
+                    waypoints[i] = transform.position;
+                }
+            }
+        }
+
+        GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWP]);
+        //enemyAstar = GetComponent<IAstarAI>();
         currentWP = 0;
         //enemyAstar.destination = waypoints[currentWP];
         //Debug.Log("" + waypoints.Length);
@@ -64,15 +87,18 @@ public class WanderingEnemy : MonoBehaviour
         {
             return NodeStates.fail;
         }
-        //Debug.Log("" + currentWP);
+       
         if (currentWP < waypoints.Length)
         {
-            if (Vector2.Distance(waypoints[currentWP], enemyAstar.position) < 1.3f)
+            if (Vector2.Distance(waypoints[currentWP], transform.position) < 1.3f)
             {
                 return NodeStates.success;
             }
         }
-
+        //else
+        //{
+        //    currentWP = 0;
+        //}
         return NodeStates.fail;
     }
 
@@ -81,12 +107,13 @@ public class WanderingEnemy : MonoBehaviour
         currentWP++;
         if (currentWP < waypoints.Length)
         {
-            enemyAstar.destination = waypoints[currentWP];
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWP]);
         }
-        if (currentWP > waypoints.Length)
+        else
         {
             currentWP = 0;
         }
+        //Debug.Log("" + currentWP);
         return NodeStates.success;
     }
 }

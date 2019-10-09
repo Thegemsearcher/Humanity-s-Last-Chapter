@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -6092645434220300714}
   - component: {fileID: -3224004440005431849}
   - component: {fileID: 708710664304955074}
+  - component: {fileID: -3816015861366409819}
   m_Layer: 8
   m_Name: Enemy1
   m_TagString: Enemy
@@ -135,6 +136,12 @@ MonoBehaviour:
   health: 40
   speed: 1.5
   id: 
+  aggroRange: 1.5
+  atkRange: 0.5
+  dmg: 5
+  pcLayer:
+    serializedVersion: 2
+    m_Bits: 1024
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}
 --- !u!61 &-3477304486119057493
@@ -175,6 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa33be39beda6b45aaead180de42c0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waypoints: []
 --- !u!114 &-6092645434220300714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,3 +259,18 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 1
   whenCloseToDestination: 0
   constrainInsideGraph: 0
+--- !u!114 &-3816015861366409819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2588904187867742290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
+  target: {fileID: 0}
+  posToTarget: {x: 0, y: 0, z: 0}
