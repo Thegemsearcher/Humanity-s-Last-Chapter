@@ -11,15 +11,23 @@ public class LoadWorld : MonoBehaviour {
     int characterCounter;
     private Vector2 characterPos;
 
+    public List<ScriptableQuest> questList; //Har alla quests som mall
+
+    private List<CharacterScript> characterList;
+    private List<stats> statsList;
+    private List<ScriptableQuest> progressList; //Ändrar bools i quest som t.ex. isActive eller isComplete
+    private WorldScript worldScript;
+
     void Start() {
+
+
         characterPos = new Vector2(0, 210);
-        if(!Directory.Exists(Application.persistentDataPath + "/Characters") || !Directory.Exists(Application.persistentDataPath + "/Party")) {
+        if (!Directory.Exists(Application.persistentDataPath + "/Characters") || !Directory.Exists(Application.persistentDataPath + "/Party")) {
             BinaryFormatter formatter = new BinaryFormatter();
             string path = Application.persistentDataPath; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
             Directory.CreateDirectory(path + "/Party");
             Directory.CreateDirectory(path + "/Characters");
-        }
-        else {
+        } else {
             characterCounter = Directory.GetFiles(Application.persistentDataPath + "/Characters/").Length;
             for (int i = 0; i < characterCounter; i++) { //Gör vi såhär så raderar vi inte character utan kanske har en bool som säger om de ska visas eller inte
                 characterO = Instantiate(character, characterPos, Quaternion.identity) as GameObject;
@@ -28,40 +36,31 @@ public class LoadWorld : MonoBehaviour {
                 characterO.GetComponent<CharacterScript>().LoadPlayer(i);
 
                 characterPos.y -= 105;
-
-
-
-
-                //if (character.GetComponent<AddToPlayerRoster>() != null)
-                //{
-                //    characterO = Instantiate(character);
-                //    characterO.GetComponent<Button>().onClick.AddListener(characterO.GetComponent<AddToPlayerRoster>().AddToPlayer);
-                //    characterO.GetComponentInChildren<Text>().text = characterO.GetComponent<CharacterScript>().name;
-                //    GameObject go = GameObject.Find("forCharacters");
-                //    GameObject actualParent = GameObject.Find("forCamp");
-                //    characterO.transform.SetParent(go.transform, false);
-                //    characterO.GetComponent<AddToPlayerRoster>().UIParent = go;
-                //    GameObject[] controllers = GameObject.FindGameObjectsWithTag("Controller");
-                //    for (int j = 0; j < controllers.Length; j++)
-                //    {
-                //        controllers[j].GetComponent<HubCharController>().AddToRoster(characterO);
-                //    }
-                //    characterO.GetComponent<AddToPlayerRoster>().owned = true;
-                //    characterO.GetComponent<AddToPlayerRoster>().controller = controllers[0];
-
-                //    //TODO: snälla fixa bättre, den ville bara inte för oss
-                //    //Vad är det som inte fungerar?
-
-                //    characterO.transform.localScale = new Vector3(1, 1, 1);
-                //    characterO.GetComponent<CharacterScript>().LoadPlayer(i);
-                //} else
-                //{
-                //characterO = Instantiate(character, new Vector2(0, 0), Quaternion.identity) as GameObject;
-                //characterO.transform.SetParent(GameObject.FindGameObjectWithTag("CharacterManager").transform, false);
-                //characterO.GetComponent<CharacterScript>().LoadPlayer(i);
-                //}
             }
         }
+        
+        //LoadData();
+        //foreach(CharacterScript characterScript in characterList) {
+        //    characterO = Instantiate(character);
+        //    characterO.GetComponent<CharacterScript>().
+        //}
+
+
     }
-    
+    public void LoadData() {
+        SaveData data = SaveSystem.LoadWorld(worldScript.saveSlot); //Den behöver få saveSlot tidigare... tror man bara rakt ut kan skicka den från den tidigare scenen
+        characterList = data.characterList;
+        statsList = data.statsList;
+        progressList = data.questList;
+        worldScript = data.world;
+    }
+
+    public void SaveData() {
+        SaveSystem.SaveWorld(characterList, statsList, progressList, worldScript);
+    }
+
+    //CharacterList och statsList ska sen vara samma List
+    //QuestList ska innehålla status på alla quest, active, complete etc etc
+    //WorldScript innehåller alla resurser man har, itemStorage?
+
 }

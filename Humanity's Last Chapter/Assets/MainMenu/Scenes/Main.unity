@@ -5290,7 +5290,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 56114326}
   m_HandleRect: {fileID: 56114325}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6200,6 +6200,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 9011984161932067652, guid: fe52b8ba56ec8bd499ac0565862ce0e5,
     type: 3}
+  questList:
+  - {fileID: 11400000, guid: 904efdca9bb25024d8a546946f2e1a7e, type: 2}
 --- !u!4 &1392273276
 Transform:
   m_ObjectHideFlags: 0
@@ -7357,6 +7359,7 @@ MonoBehaviour:
   txtRS: {fileID: 879972115}
   gold: 0
   rs: 0
+  saveSlot: 0
 --- !u!114 &1653027989
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -6,11 +6,13 @@ using TMPro;
 
 public class WorldScript : MonoBehaviour {
     public TextMeshProUGUI txtGold, txtRS;
-    public int gold, rs;
+    public int gold, rs, saveSlot;
 
     void Start() {
         gold = 200;
         rs = 0;
+
+        saveSlot = 0; //Behöver får denna från MainMenu
     }
 
     // Update is called once per frame
