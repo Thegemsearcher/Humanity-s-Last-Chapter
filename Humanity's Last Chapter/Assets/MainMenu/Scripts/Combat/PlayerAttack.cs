@@ -83,7 +83,7 @@ public class PlayerAttack : MonoBehaviour
 
     public NodeStates IsRanged()
     {
-        if (loadoutType == "Pistol")
+        if (loadoutType != "Melee")
             return NodeStates.success;
         else
             return NodeStates.fail;

@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
-    path: Assets/MainMenu/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/MainMenu/Scenes/Main menu.unity
     guid: a36eb2a7ca594874dacb04f5eeeaf687
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainMenu/Scenes/MissionMap.unity
     guid: 4441cebb62bc5ed47b269dd1996491c3
+  - enabled: 1
+    path: Assets/MainMenu/Scenes/SaveScreen.unity
+    guid: d244a1655286452459c80221b2bcf7c9
   m_configObjects: {}

@@ -62,7 +62,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\CreateCharacter.cs" />
     <Compile Include="Assets\CreateItems.cs" />
     <Compile Include="Assets\EnlistList.cs" />
     <Compile Include="Assets\HealingSlotScript.cs" />
@@ -139,6 +138,7 @@
     <Compile Include="Assets\MainMenu\Scripts\Objects\Items\HealingItems\MakeHealingItem.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Obsolete\BulletScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Obsolete\charDebug.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Obsolete\CreateCharacter.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Obsolete\DestroyGameObject.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Obsolete\EnemyMovement.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Obsolete\LoadedAssets.cs" />
