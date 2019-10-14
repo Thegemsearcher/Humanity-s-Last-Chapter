@@ -35,7 +35,7 @@ public class AddToPlayerRoster : MonoBehaviour
         {
             controllers[i].GetComponent<HubCharController>().AddToRoster(gameObject);
         }
-        StaticCharacters.AddPC(gameObject);
+        //StaticCharacters.AddPC(gameObject);
         controller = controllers[0];
         owned = true;
     }

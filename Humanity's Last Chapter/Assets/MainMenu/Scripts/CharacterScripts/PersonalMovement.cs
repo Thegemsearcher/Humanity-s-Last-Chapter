@@ -16,7 +16,7 @@ public class PersonalMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BT = GetComponent<BehvaiourTree>().GetPcBt();
+        BT = GetComponent<BehaviourTree>().GetPcBt();
         manager = GameObject.FindGameObjectWithTag("CharacterManager");
     }
 

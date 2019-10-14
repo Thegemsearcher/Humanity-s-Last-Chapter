@@ -52,7 +52,7 @@ public class WanderingEnemy : MonoBehaviour
         currentWP = 0;
         //enemyAstar.destination = waypoints[currentWP];
         //Debug.Log("" + waypoints.Length);
-        BT = GetComponent<BehvaiourTree>().GetEnemyBt();
+        BT = GetComponent<BehaviourTree>().GetEnemyBt();
     }
 
     // Update is called once per frame
