@@ -40,11 +40,12 @@ public class BehaviourTree : MonoBehaviour
         meleeCombatIfInRange.Add(atkMelee);
         Sequence ifInMelee = new Sequence(meleeCombatIfInRange);
         Inverter invMelee = new Inverter(ifInMelee);
-        List<Node> forMeleeSelector = new List<Node>();
-        forMeleeSelector.Add(aggroRange);
-        forMeleeSelector.Add(invMelee);
-        forMeleeSelector.Add(moveCloser);
-        Sequence meleeSequence = new Sequence(forMeleeSelector);
+        List<Node> forMeleeSequence = new List<Node>();
+        forMeleeSequence.Add(aggroRange);
+        forMeleeSequence.Add(invMelee);
+        forMeleeSequence.Add(lineOfSight);
+        forMeleeSequence.Add(moveCloser);
+        Sequence meleeSequence = new Sequence(forMeleeSequence);
         List<Node> forCombatSelector = new List<Node>();
         forCombatSelector.Add(rangedSequence);
         forCombatSelector.Add(meleeSequence);
