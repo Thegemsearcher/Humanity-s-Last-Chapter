@@ -127,6 +127,12 @@ MonoBehaviour:
   maxHp: 0
   str: 0
   def: 0
+  Int: 0
+  dex: 0
+  cha: 0
+  ldr: 0
+  nrg: 0
+  snt: 0
   level: 0
   exp: 0
   nextLevel: 0
@@ -211,11 +217,11 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   maxAcceleration: 10
   rotationSpeed: 360
-  slowdownDistance: 6
+  slowdownDistance: 2
   pickNextWaypointDist: 0.2
   endReachedDistance: 0.1
   alwaysDrawGizmos: 1
-  slowWhenNotFacingTarget: 1
+  slowWhenNotFacingTarget: 0
   whenCloseToDestination: 1
   constrainInsideGraph: 0
 --- !u!114 &4143146671646250599
@@ -345,3 +351,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2194448d366d7343a2562e3b52fa611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quirkArr: []
