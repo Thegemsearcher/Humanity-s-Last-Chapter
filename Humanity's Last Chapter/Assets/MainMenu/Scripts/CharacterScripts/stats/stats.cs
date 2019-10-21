@@ -111,6 +111,14 @@ public class stats : MonoBehaviour
         }
       
         quirkList.Add(quirk);
+
+        maxHp += quirk.hp;
+        str += quirk.str;
+        def += quirk.def;
+        Int += quirk.Int;
+        dex += quirk.dex;
+        cha += quirk.cha;
+        ldr += quirk.ldr;
         //foreach (QuirkObject quirk in quirkList)
         //{
         //    Debug.Log(quirk.quirkName);
