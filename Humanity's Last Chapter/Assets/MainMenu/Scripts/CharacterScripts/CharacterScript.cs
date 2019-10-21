@@ -73,13 +73,13 @@ public class CharacterScript : MonoBehaviour {
     }
 
     public void LoadPlayer(int id) {
-        CharacterData data = SaveSystem.LoadCharacter(id);
+        //CharacterData data = SaveSystem.LoadCharacter(id);
 
-        this.name = data.name;
-        this.health = data.health;
-        this.id = data.id;
-        this.itemID = data.itemID;
-        GetComponent<stats>().GetStats(data.maxHp, data.hp);
+        ////this.name = data.name;
+        //this.health = data.health;
+        //this.id = data.id;
+        //this.itemID = data.itemID;
+        //GetComponent<stats>().GetStats(data.maxHp, data.hp);
     }
 
     public void GetID() {

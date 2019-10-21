@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class stats : MonoBehaviour
 {
-    public int hp, maxHp, str, def, level, exp, nextLevel;
+    public int hp, maxHp, str, def, Int, dex, cha, ldr, nrg, snt, level, exp, nextLevel;
     private int cost;
     public GameObject characterUI;
     public GameObject prefabCharacterUI;
@@ -13,6 +13,7 @@ public class stats : MonoBehaviour
     public GameObject ItemPrefab;
     private GameObject itemGrid;
     public List<GameObject> items = new List<GameObject>();
+    List<QuirkObject> quirkList;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,13 @@ public class stats : MonoBehaviour
         
         str = Random.Range(1, 3);   //Just for show.
         def = Random.Range(1, 3);   //Just for show.
-       
+        Int = Random.Range(1, 3);   //Just for show.
+        dex = Random.Range(1, 3);   //Just for show.
+        cha = Random.Range(1, 3);   //Just for show.
+        ldr = Random.Range(1, 3);   //Just for show.
+        nrg = Random.Range(1, 3);   //Just for show.
+        snt = Random.Range(1, 3);   //Just for show.
+
         nextLevel = 10 + (5 * level);
 
         //Fix CharacterCanvas
@@ -76,7 +83,8 @@ public class stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
+        //Debug.Log("quirkList: " + quirkList.Count);
     }
     public int GetCost() {
         cost = (maxHp * 10) + (str * 3) + (def * 3);
@@ -92,5 +100,25 @@ public class stats : MonoBehaviour
     public void GetStats(int maxHp, int hp) { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!
         this.maxHp = maxHp;
         this.hp = hp;
+    }
+
+    public void AddQuirk(QuirkObject quirk)
+    {
+        //Debug.Log("Am I here?");
+        if (quirkList == null)
+        {
+            InitiateList();
+        }
+      
+        quirkList.Add(quirk);
+        //foreach (QuirkObject quirk in quirkList)
+        //{
+        //    Debug.Log(quirk.quirkName);
+        //}
+    }
+    void InitiateList()
+    {
+       
+        quirkList = new List<QuirkObject>();
     }
 }

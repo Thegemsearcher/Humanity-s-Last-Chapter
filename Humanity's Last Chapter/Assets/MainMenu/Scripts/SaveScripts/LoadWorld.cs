@@ -11,7 +11,7 @@ public class LoadWorld : MonoBehaviour {
     public GameObject character;
     int characterCounter;
     private Vector2 characterPos;
-
+    int randomQuirk;
     public List<ScriptableQuest> questList; //Har alla quests som mall
 
     private List<CharacterScript> characterList;
@@ -23,7 +23,7 @@ public class LoadWorld : MonoBehaviour {
 
     void Start() {
         quirkArray = GetAtPath<QuirkObject>("QuirkFolder");
-
+        randomQuirk = Random.Range(0, 10);   //Just for show.
         characterPos = new Vector2(0, 210);
         if (!Directory.Exists(Application.persistentDataPath + "/Characters") || !Directory.Exists(Application.persistentDataPath + "/Party")) {
             BinaryFormatter formatter = new BinaryFormatter();
@@ -37,6 +37,8 @@ public class LoadWorld : MonoBehaviour {
                 characterO.transform.SetParent(GameObject.FindGameObjectWithTag("CharacterManager").transform, false);
                 characterO.GetComponent<UIBoiScript>().isOwned = true;
                 characterO.GetComponent<CharacterScript>().LoadPlayer(i);
+
+                characterO.GetComponent<stats>().AddQuirk(quirkArray[randomQuirk]);
 
                 characterPos.y -= 105;
             }

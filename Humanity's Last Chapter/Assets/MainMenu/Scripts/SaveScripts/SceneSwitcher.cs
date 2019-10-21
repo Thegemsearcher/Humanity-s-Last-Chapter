@@ -12,7 +12,7 @@ public class SceneSwitcher : MonoBehaviour {
         foreach (GameObject go in charactersO) {
             go.GetComponent<CharacterScript>().SavePlayer();
         }
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Hub");
     }
     public void GoToMission() {
         //Sparar alla karaktärer
@@ -23,7 +23,7 @@ public class SceneSwitcher : MonoBehaviour {
 
         //sparar vilka som ska gå på mission
         selectPartyView = GameObject.FindGameObjectWithTag("PartyView");
-        Debug.Log(selectPartyView.GetComponent<partySelectorScript>().missionParty[0]);
+        //Debug.Log(selectPartyView.GetComponent<partySelectorScript>().missionParty[0]);
         SaveSystem.SavePartyOrder(selectPartyView.GetComponent<partySelectorScript>().missionParty);
 
         SceneManager.LoadScene("MissionMap");

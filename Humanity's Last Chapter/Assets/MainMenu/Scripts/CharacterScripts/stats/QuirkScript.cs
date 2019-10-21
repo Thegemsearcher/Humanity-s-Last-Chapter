@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class QuirkScript : MonoBehaviour
 {
+    public QuirkObject[] quirkArr;
+
     // Start is called before the first frame update
     void Start()
     {
