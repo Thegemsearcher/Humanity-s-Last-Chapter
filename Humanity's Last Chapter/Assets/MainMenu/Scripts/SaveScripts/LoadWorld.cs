@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor;
 using UnityEngine.UI;
 
 public class LoadWorld : MonoBehaviour {
@@ -18,8 +19,10 @@ public class LoadWorld : MonoBehaviour {
     private List<ScriptableQuest> progressList; //Ändrar bools i quest som t.ex. isActive eller isComplete
     private WorldScript worldScript;
 
-    void Start() {
+    public QuirkObject[] quirkArray;
 
+    void Start() {
+        quirkArray = GetAtPath<QuirkObject>("QuirkFolder");
 
         characterPos = new Vector2(0, 210);
         if (!Directory.Exists(Application.persistentDataPath + "/Characters") || !Directory.Exists(Application.persistentDataPath + "/Party")) {
@@ -57,6 +60,33 @@ public class LoadWorld : MonoBehaviour {
 
     public void SaveData() {
         SaveSystem.SaveWorld(characterList, statsList, progressList, worldScript);
+    }
+
+    public static T[] GetAtPath<T>(string path) {
+        ArrayList al = new ArrayList();
+        string[] fileEntries = Directory.GetFiles(Application.dataPath + "/" + path);
+
+        foreach (string fileName in fileEntries) {
+
+            int index = fileName.LastIndexOf("/");
+            string localPath = "Assets";
+
+            if (index > 0) {
+                localPath += fileName.Substring(index);
+            }
+
+            Object t = AssetDatabase.LoadAssetAtPath(localPath, typeof(T));
+
+            if (t != null) {
+                al.Add(t);
+            }
+        }
+
+        T[] result = new T[al.Count];
+        for (int i = 0; i < al.Count; i++) {
+            result[i] = (T)al[i];
+        }
+        return result;
     }
 
     //CharacterList och statsList ska sen vara samma List
