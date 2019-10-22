@@ -55,11 +55,7 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
-            //foreach (GameObject child in pcs)
-            //{
-            //    //Debug.Log("will add: " + mousePosition);
-            //    child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
-            //}
+            
             
             RotateFormation(mousePosition);
         }
@@ -69,12 +65,8 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
+            
 
-            //foreach (GameObject child in pcs)
-            //{
-            //    child.GetComponentInChildren<PersonalMovement>().FlushWaypoints();
-            //    child.GetComponentInChildren<PersonalMovement>().AddRelativeWaypoint(mousePosition);
-            //}
             RotateFormation(mousePosition);
         }
     }
@@ -85,7 +77,6 @@ public class CharacterMovement : MonoBehaviour
         {
             direction = waypoints[currentWaypoint] - transform.position;
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWaypoint]);
-            //transform.position = Vector2.Lerp(transform.position, waypoints[currentWaypoint], moveSpeed);
             //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
             if (direction.magnitude < 2)
             {

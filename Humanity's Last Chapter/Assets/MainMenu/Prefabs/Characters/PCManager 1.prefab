@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6668247576253444290}
-  - component: {fileID: 6668247576253444289}
   - component: {fileID: 6668247576253444288}
   - component: {fileID: 6668247576253444291}
   - component: {fileID: 6668247576253444300}
@@ -38,21 +37,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6668247576253444289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6668247576253444295}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2be1a9de60ce367449f63d319a87699d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  humanityBoi: {fileID: 6632232453216248047, guid: ff0430f229024c44fa7e3a21d306ed46,
-    type: 3}
-  PCs: []
 --- !u!114 &6668247576253444288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 1464683741798525680, guid: 9d71d3b26b15b654bbcec29b90421764,
     type: 3}
+  UIHealth: {fileID: 0}
 --- !u!114 &6668247576253444300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +125,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 5
+  maxSpeed: 10
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2

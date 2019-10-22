@@ -56,6 +56,7 @@ public class PersonalMovement : MonoBehaviour
     {
         waypoint = manager.transform.position + relativePos;
         GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+        
         //tog bort 'lerp- movementen' och la till vanligare movement istället
         //if (waypoints.Count != 0)
         //{

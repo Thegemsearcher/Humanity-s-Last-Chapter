@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5043005668118588207}
-  - component: {fileID: 5043005668118588204}
   - component: {fileID: 5043005668118588205}
   m_Layer: 0
   m_Name: PCManager
@@ -32,21 +31,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5043005668118588204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5043005668118588202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2be1a9de60ce367449f63d319a87699d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  humanityBoi: {fileID: 6632232453216248047, guid: ff0430f229024c44fa7e3a21d306ed46,
-    type: 3}
-  PCs: []
 --- !u!114 &5043005668118588205
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,3 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 0.1
+  pcs: []
+  waypoints: []
