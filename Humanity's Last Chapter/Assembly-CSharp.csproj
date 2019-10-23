@@ -112,10 +112,10 @@
     <Compile Include="Assets\MainMenu\Scripts\EnlistList.cs" />
     <Compile Include="Assets\MainMenu\Scripts\ExitOnClick.cs" />
     <Compile Include="Assets\MainMenu\Scripts\LocationScript.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Mission\Interfeces\IMissionInformation.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Mission\Interfeces\IQuest.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Mission\Interfeces\IQuestIdentifier.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Mission\Interfeces\IQuestObjectives.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Mission\Interfaces\IMissionInformation.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Mission\Interfaces\IQuest.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Mission\Interfaces\IQuestIdentifier.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Mission\Interfaces\IQuestObjectives.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\MakeMissionObject.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\MissionInformation.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\MissionManagerScript.cs" />

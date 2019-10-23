@@ -47,7 +47,6 @@ public class MissionScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     }
     public void OnPointerExit(PointerEventData eventData) {
         MissionInfo.SetActive(false);
-
     }
 }
 //Name
