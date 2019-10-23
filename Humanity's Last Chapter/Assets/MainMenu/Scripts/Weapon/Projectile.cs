@@ -45,10 +45,10 @@ public class Projectile : MonoBehaviour
         //        DestroyProjectile();
         //    }
         //}
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, targetPos, distance, whatIsSolid);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, direction/*targetPos*/, distance, whatIsSolid);
         if (hitInfo.collider != null)
         {
-            if (hitInfo.collider.CompareTag("Enemy"))
+            if (hitInfo != false/*hitInfo.collider.CompareTag("Enemy")*/)
             {
                 //Debug.Log("skaträffas");
                 hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
