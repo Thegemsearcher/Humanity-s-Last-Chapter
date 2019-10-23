@@ -11,7 +11,8 @@ public class PersonalMovement : MonoBehaviour
     public Vector3 posPlusRel;
     public List<Vector3> waypoints = new List<Vector3>();
     Vector3 waypoint;
-
+    RaycastHit2D positionBy;
+    public LayerMask buildingLayer;
     private int currentWaypoint = 0;
     public Vector2 direction = Vector2.zero;
     private GameObject manager;
@@ -55,8 +56,18 @@ public class PersonalMovement : MonoBehaviour
     private void Movement()
     {
         waypoint = manager.transform.position + relativePos;
-        GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
         
+        positionBy = Physics2D.Raycast(manager.transform.position, relativePos, relativePos.magnitude, buildingLayer);
+        if (positionBy != false)
+        {
+            waypoint = positionBy.point;
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+        } else
+        {
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+        }
+
+
         //tog bort 'lerp- movementen' och la till vanligare movement istället
         //if (waypoints.Count != 0)
         //{

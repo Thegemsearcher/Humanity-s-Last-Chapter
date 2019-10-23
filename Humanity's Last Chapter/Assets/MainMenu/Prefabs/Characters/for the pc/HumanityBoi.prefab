@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: -1517981695887567796}
   - component: {fileID: 8658573829318196213}
   - component: {fileID: 8460625342677450066}
-  - component: {fileID: 6779060348685499534}
   - component: {fileID: 4327539020883183433}
   m_Layer: 10
   m_Name: HumanityBoi
@@ -159,6 +158,9 @@ MonoBehaviour:
   relativePos: {x: 0, y: 0, z: 0}
   posPlusRel: {x: 0, y: 0, z: 0}
   waypoints: []
+  buildingLayer:
+    serializedVersion: 2
+    m_Bits: 512
   direction: {x: 0, y: 0}
 --- !u!114 &4737378338171547674
 MonoBehaviour:
@@ -318,27 +320,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapon: {fileID: 7626715680820893389, guid: 27a00eca5e3d49b46b5b9c0796c93edb, type: 3}
---- !u!50 &6779060348685499534
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464683741798525680}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &4327539020883183433
 MonoBehaviour:
   m_ObjectHideFlags: 0
