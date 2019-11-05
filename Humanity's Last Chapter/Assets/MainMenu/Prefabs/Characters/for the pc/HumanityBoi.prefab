@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 8658573829318196213}
   - component: {fileID: 8460625342677450066}
   - component: {fileID: 4327539020883183433}
+  - component: {fileID: 7120935731847993643}
   m_Layer: 10
   m_Name: HumanityBoi
   m_TagString: Character
@@ -333,3 +334,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quirkArr: []
+--- !u!50 &7120935731847993643
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464683741798525680}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 0
+  m_Constraints: 0
