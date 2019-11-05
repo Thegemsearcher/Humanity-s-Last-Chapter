@@ -6,6 +6,8 @@ public class PersonalMovement : MonoBehaviour
 {
     public RootNode BT;
 
+    bool debugger = true;
+
     public float charactersMovespeed = 100f;
     public Vector3 relativePos = Vector3.zero;
     public Vector3 posPlusRel;
@@ -27,6 +29,8 @@ public class PersonalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (debugger && positionBy)
+            Debug.DrawLine(manager.transform.position, positionBy.point);
         BT.Start();
         Movement();
     }
@@ -60,7 +64,10 @@ public class PersonalMovement : MonoBehaviour
         positionBy = Physics2D.Raycast(manager.transform.position, relativePos, relativePos.magnitude, buildingLayer);
         if (positionBy != false)
         {
-            waypoint = positionBy.point;
+            Vector2 v = positionBy.point - (Vector2)transform.position;
+            v.Normalize();
+            v *= 0.1f;
+            waypoint = positionBy.point + v;
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
         } else
         {

@@ -11,6 +11,8 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 destination;
     private bool walking;
 
+    bool debugging = true;
+
     private float attackTimer;
     public float timeBetweenAttack;
 
@@ -47,10 +49,14 @@ public class PlayerAttack : MonoBehaviour
                         break;
 
                     case "Pistol":
+                        if (debugging)
+                            Debug.Log("has pistol");
                         loadout = 1;
                         break;
 
                     case "Shotgun":
+                        if (debugging)
+                            Debug.Log("has shotgun");
                         loadout = 2;
                         break;
                 }
@@ -176,7 +182,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (loadoutType == "Shotgun")
         {
-
+            Debug.Log("using Shotgun");
             for (int i = 0; i < 4; i++)
             {
                 projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
