@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\HPinCombat.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BehaviourTree.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\BarrackWindow.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\buildingScript.cs" />
@@ -168,6 +169,7 @@
     <Compile Include="Assets\MainMenu\Scripts\Weapon\WeaponRotation.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\WeaponScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\weaponStats.cs" />
+    <Compile Include="Assets\UIControls.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
