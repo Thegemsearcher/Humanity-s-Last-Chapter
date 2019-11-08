@@ -370,3 +370,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBar: {fileID: 3323780373087322680, guid: 06f9f2d4e1a2652498751e95ce610556,
     type: 3}
+  namePlate: {fileID: 1777085911663271481, guid: 544d406dd188f614b8edc1397fa53a23,
+    type: 3}
