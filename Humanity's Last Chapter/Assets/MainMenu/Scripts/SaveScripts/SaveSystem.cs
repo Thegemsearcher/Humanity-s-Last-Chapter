@@ -1,19 +1,33 @@
 ﻿using UnityEngine;
 using System.IO;
+using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 
 public static class SaveSystem {
 
+    public static List<CharacterData> dataList = new List<CharacterData>(); //Serialize all characters
+    public static WorldData worldData; //Serialize world stats
+    public static SaveData saveData; //Everything that will be saved should bi added to this one!
+
     //Uppdateras vid varje scenbyte
-    public static void SaveWorld(List<CharacterScript> characterList, List<stats> statsList, List<ScriptableQuest> questList, WorldScript world) {
+    public static void SaveWorld(WorldScript saveWorld) {
+        int i = 0;
+        dataList.Clear();
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/Saves/save"+world.saveSlot+".save"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
+        string path = Application.persistentDataPath + "/Saves/save" + saveWorld.saveNr + ".save"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
         FileStream stream = new FileStream(path, FileMode.Create);
+        
+        foreach (CharacterScript character in saveWorld.characterList) {
+            CharacterData data = new CharacterData(character, saveWorld.statsList[i]);
+            dataList.Add(data);
+            i++;
+        }
 
-        SaveData data = new SaveData(characterList, statsList, questList, world);
+        worldData = new WorldData(saveWorld);
+        saveData = new SaveData(dataList, worldData);
+        formatter.Serialize(stream, saveData);
 
-        formatter.Serialize(stream, data);
         stream.Close();
     }
 
@@ -24,37 +38,9 @@ public static class SaveSystem {
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(path, FileMode.Open);
 
-            SaveData data = formatter.Deserialize(stream) as SaveData;
+            saveData = formatter.Deserialize(stream) as SaveData;
             stream.Close();
-            return data;
-        } else {
-            Debug.LogError("Save file not found in " + path);
-            return null;
-        }
-    }
-
-    //Behöver bara uppdateras engång per installation/När något i dessa blir uppdaterade
-    public static void SaveAssets(List<WeaponObject> weaponList, List<ScriptableCollection> COList, List<LocationObject> LOList, List<InteractObject> IOList) {
-        BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/Objects.save"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
-        FileStream stream = new FileStream(path, FileMode.Create);
-
-        AssetsData data = new AssetsData(weaponList, COList, LOList, IOList);
-
-        formatter.Serialize(stream, data);
-        stream.Close();
-    }
-
-    public static AssetsData LoadAssets() {
-        string path = Application.persistentDataPath + "/Objects.save";
-
-        if (File.Exists(path)) {
-            BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
-
-            AssetsData data = formatter.Deserialize(stream) as AssetsData;
-            stream.Close();
-            return data;
+            return saveData;
         } else {
             Debug.LogError("Save file not found in " + path);
             return null;
@@ -63,7 +49,7 @@ public static class SaveSystem {
 
     //Allt under denna kan inte tas bort riktigt än men snart:
 
-    public static void SaveCharacter(CharacterScript character, stats Stats) {
+    public static void SaveCharacter(CharacterScript character, Stats Stats) {
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/Characters/character("+character.id+").txt"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
         FileStream stream = new FileStream(path, FileMode.Create);

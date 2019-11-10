@@ -503,11 +503,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Mission: {fileID: 2434720687953010269, guid: 798c417980c583c4283b9b39a5d85eb3, type: 3}
   MissionList: {fileID: 1832058414}
-  missions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &148903586 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8635584178788621570, guid: 7be00fac84afe6c46a8cc4862b1c22cf,
@@ -6200,8 +6195,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   character: {fileID: 9011984161932067652, guid: fe52b8ba56ec8bd499ac0565862ce0e5,
     type: 3}
-  questList:
-  - {fileID: 11400000, guid: 904efdca9bb25024d8a546946f2e1a7e, type: 2}
+  questTemp: []
+  weaponTemp: []
+  coTemp: []
+  loTemp: []
+  ioTemp: []
+  quirkArray: []
 --- !u!4 &1392273276
 Transform:
   m_ObjectHideFlags: 0
@@ -7312,7 +7311,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1653027987}
-  - component: {fileID: 1653027988}
   - component: {fileID: 1653027990}
   - component: {fileID: 1653027989}
   m_Layer: 5
@@ -7343,23 +7341,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 430}
   m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1653027988
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653027986}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd09c11be093294458c70b2ca560707d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtGold: {fileID: 1988198508}
-  txtRS: {fileID: 879972115}
-  gold: 0
-  rs: 0
-  saveSlot: 0
 --- !u!114 &1653027989
 MonoBehaviour:
   m_ObjectHideFlags: 0

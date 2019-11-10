@@ -24,7 +24,7 @@ public class HubCharController : MonoBehaviour
     {
         int i = 0;
         playerRoster.Add(go);
-        go.GetComponent<Button>().onClick.AddListener(go.GetComponent<stats>().BringUpStats);
+        go.GetComponent<Button>().onClick.AddListener(go.GetComponent<Stats>().BringUpStats);
         foreach (GameObject character in playerRoster)
         {
             i++;                                  //Removed the off-sets here, because I think they should only be in the CampScript (maybe not?) YES IT IS NEEDED
@@ -38,7 +38,7 @@ public class HubCharController : MonoBehaviour
     {
         foreach (GameObject character in playerRoster)
         {
-            character.GetComponent<stats>().characterUI.SetActive(false);
+            character.GetComponent<Stats>().characterUI.SetActive(false);
         }
     }
 }

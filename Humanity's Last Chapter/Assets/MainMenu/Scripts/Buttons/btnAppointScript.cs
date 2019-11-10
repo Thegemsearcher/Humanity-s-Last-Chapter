@@ -10,7 +10,7 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
     private GameObject[] characters;
     public Text txtRole, txtName, txtSkill;
     private CharacterScript characterScript;
-    string role, name, skill;
+    string role, strName, skill;
     public int roleId;
     private int characterID;
     private bool isAppointed;
@@ -41,11 +41,11 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
                 role = "Guard";
                 break;
         }
-        name = "-";
+        strName = "-";
         skill = "-";
 
         txtRole.text = role;
-        txtName.text = name;
+        txtName.text = strName;
         txtSkill.text = skill;
 
         isAppointed = false;
@@ -58,7 +58,7 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
 
     public void btnRemove() {
         partyView.GetComponent<partySelectorScript>().RemoveCharacter(roleId);
-        txtName.text = name;
+        txtName.text = strName;
         txtSkill.text = skill;
         isAppointed = false;
         ShowBtn();

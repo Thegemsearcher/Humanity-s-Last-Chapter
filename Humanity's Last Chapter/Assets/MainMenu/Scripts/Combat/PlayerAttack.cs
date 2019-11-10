@@ -38,7 +38,7 @@ public class PlayerAttack : MonoBehaviour
     {
         //destination = transform.position;
 
-        foreach(GameObject item in gameObject.GetComponent<stats>().items)
+        foreach(GameObject item in gameObject.GetComponent<Stats>().items)
         {
             if(item.GetComponent<ItemScript>().IsActive())
             {

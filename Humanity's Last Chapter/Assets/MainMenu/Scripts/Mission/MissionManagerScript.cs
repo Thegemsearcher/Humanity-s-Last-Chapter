@@ -8,7 +8,7 @@ using UnityEngine;
 public class MissionManagerScript : MonoBehaviour {
     public GameObject Mission, MissionList;
     private GameObject MissionO;
-    public MissionObject[] missions;
+    //public MissionObject[] missions;
     private MissionScript missionScript;
     private int missionCounter;
 

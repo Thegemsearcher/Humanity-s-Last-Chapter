@@ -8,7 +8,7 @@ public class CharacterWindow : MonoBehaviour {
     private GameObject partyView;
     private Texture2D imgPortrait;
     public Text txtInfo, txtName, txtTraits;
-    public string info, name, traits;
+    public string info, strName, traits;
     public int ID;
 
     private void Start() {
@@ -19,10 +19,10 @@ public class CharacterWindow : MonoBehaviour {
         txtTraits.text = traits;
     }
 
-    public void GetInfo(string name, int ID) {
-        this.name = name;
+    public void GetInfo(string strName, int ID) {
+        this.strName = strName;
         this.ID = ID;
-        txtName.text = name;
+        txtName.text = strName;
     }
 
     public void btnSelect() {

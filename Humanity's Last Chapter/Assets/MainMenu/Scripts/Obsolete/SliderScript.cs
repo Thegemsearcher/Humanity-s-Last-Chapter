@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SliderScript : MonoBehaviour {
     public Slider slider;
     private int minValue, maxValue;
-    private stats statsScript;
+    private Stats statsScript;
     public string type;
     
     void Start() {

@@ -9,16 +9,16 @@ namespace QuestSystem {
 
         }
 
-        private List<IQuestObjectives> objectives;
+        //private List<IQuestObjectives> objectives;
 
-        private bool IsComplete() {
-            for (int i = 0; i < objectives.Count; i++) {
-                if(objectives[i].IsComplete != false && objectives[i].IsBonus == false) {
-                    return false;
-                }
-            }
-            return true; //Get reward!!
-        }
+        //private bool IsComplete() {
+        //    for (int i = 0; i < objectives.Count; i++) {
+        //        if(objectives[i].IsComplete != false && objectives[i].IsBonus == false) {
+        //            return false;
+        //        }
+        //    }
+        //    return true; //Get reward!!
+        //}
     }
 }
 /* Objectives:

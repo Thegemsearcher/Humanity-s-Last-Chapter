@@ -6,65 +6,78 @@ using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor;
 using UnityEngine.UI;
 
-public class LoadWorld : MonoBehaviour {
-    GameObject characterO;
+public class LoadWorld : MonoBehaviour { //Heta LoadHub?
+    private GameObject characterO;
     public GameObject character;
-    int characterCounter;
     private Vector2 characterPos;
-    int randomQuirk;
-    public List<ScriptableQuest> questList; //Har alla quests som mall
+    private string path;
+    private int randomQuirk;
 
-    private List<CharacterScript> characterList;
-    private List<stats> statsList;
-    private List<ScriptableQuest> progressList; //Ändrar bools i quest som t.ex. isActive eller isComplete
-    private WorldScript worldScript;
+    private Transform transParent;
+
+    private GameObject[] characterArr; //Används som en holder för att hålla alla karaktärer som finns så den kan spara dem  
+    private List<CharacterScript> characterScriptList;  //Håller alla characterScripts som finns i sparfilen
+    private List<Stats> statsList;  //Håller alla stats som finns i sparfilen
+    //private WorldScript worldScript;    //Håller questProgression och pengar som finns i sparfilen
+
+    //Assets
+    public ScriptableQuest[] questTemp; //Har alla quests som mall
+    public WeaponObject[] weaponTemp;
+    public ScriptableCollection[] coTemp;
+    public LocationObject[] loTemp;
+    public InteractObject[] ioTemp;
 
     public QuirkObject[] quirkArray;
 
     void Start() {
-        quirkArray = GetAtPath<QuirkObject>("QuirkFolder");
-        randomQuirk = Random.Range(0, 10);   //Just for show.
-        characterPos = new Vector2(0, 210);
-        if (!Directory.Exists(Application.persistentDataPath + "/Characters") || !Directory.Exists(Application.persistentDataPath + "/Party")) {
-            BinaryFormatter formatter = new BinaryFormatter();
-            string path = Application.persistentDataPath; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
-            Directory.CreateDirectory(path + "/Party");
-            Directory.CreateDirectory(path + "/Characters");
+        GetAssets(); //Får alla assets
+
+        InstantiateLists(); //Skapar alla listor, kan man ha den som awake?
+
+        if (WorldScript.world == null) { //Kollar om det finns en world (Borde bara vara falsk om man startar nytt game eller startar från hubben dirr)
+            WorldScript.world = new WorldScript();
+            WorldScript.world.Reset();
         } else {
-            characterCounter = Directory.GetFiles(Application.persistentDataPath + "/Characters/").Length;
-            for (int i = 0; i < characterCounter; i++) { //Gör vi såhär så raderar vi inte character utan kanske har en bool som säger om de ska visas eller inte
-                characterO = Instantiate(character, characterPos, Quaternion.identity) as GameObject;
-                characterO.transform.SetParent(GameObject.FindGameObjectWithTag("CharacterManager").transform, false);
-                characterO.GetComponent<UIBoiScript>().isOwned = true;
-                characterO.GetComponent<CharacterScript>().LoadPlayer(i);
-
-                characterO.GetComponent<stats>().AddQuirk(quirkArray[randomQuirk]);
-
-                characterPos.y -= 105;
-            }
+            LoadCharacters();
         }
-        
-        //LoadData();
-        //foreach(CharacterScript characterScript in characterList) {
-        //    characterO = Instantiate(character);
-        //    characterO.GetComponent<CharacterScript>().
+        randomQuirk = Random.Range(0, 10);   //Just for show.
+
+        //path = Application.persistentDataPath;
+        //if (!Directory.Exists(path + "/Saves")) { //Kollar om foldern Saves finns
+        //    Directory.CreateDirectory(path + "/Saves");
         //}
 
+        //if (Directory.Exists(path + "/Saves/save" + 0 + ".txt")) { //Om sparfilen finns laddar den sparfilen
+        //    //LoadData();
+        //}
 
     }
-    public void LoadData() {
-        SaveData data = SaveSystem.LoadWorld(worldScript.saveSlot); //Den behöver få saveSlot tidigare... tror man bara rakt ut kan skicka den från den tidigare scenen
-        characterList = data.characterList;
-        statsList = data.statsList;
-        progressList = data.questList;
-        worldScript = data.world;
+    public void LoadCharacters() { //Ser till att alla karaktärer ritas ut med rätt världen
+        characterScriptList = WorldScript.world.characterList;
+        statsList = WorldScript.world.statsList;
+
+        Debug.Log("CharacterLenght(Load World): " + characterScriptList.Count);
+
+        transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
+        foreach (CharacterScript characterScript in characterScriptList) {
+            characterO = Instantiate(character);
+            characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+            characterO.GetComponent<Stats>().LoadPlayer(statsList[0]);
+            statsList.Remove(statsList[0]);
+            characterO.transform.SetParent(transParent, false);
+        }
+        characterScriptList.Clear(); //Rensar listan
     }
 
-    public void SaveData() {
-        SaveSystem.SaveWorld(characterList, statsList, progressList, worldScript);
+    public void GetAssets() { //Får alla assets
+        weaponTemp = GetAtPath<WeaponObject>("WeaponFolder");
+        loTemp = GetAtPath<LocationObject>("MissionFolder/LocationObjectives");
+        coTemp = GetAtPath<ScriptableCollection>("MissionFolder/CollectionObjectives");
+        ioTemp = GetAtPath<InteractObject>("MissionFolder/InteractObjectives");
+        quirkArray = GetAtPath<QuirkObject>("QuirkFolder");
     }
 
-    public static T[] GetAtPath<T>(string path) {
+    public static T[] GetAtPath<T>(string path) { //Hittar assets i deras folders
         ArrayList al = new ArrayList();
         string[] fileEntries = Directory.GetFiles(Application.dataPath + "/" + path);
 
@@ -89,6 +102,11 @@ public class LoadWorld : MonoBehaviour {
             result[i] = (T)al[i];
         }
         return result;
+    }
+
+    private void InstantiateLists() {
+        characterScriptList = new List<CharacterScript>();
+        statsList = new List<Stats>();
     }
 
     //CharacterList och statsList ska sen vara samma List

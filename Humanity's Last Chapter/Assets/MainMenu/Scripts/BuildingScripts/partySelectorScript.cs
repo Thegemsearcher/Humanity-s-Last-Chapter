@@ -38,7 +38,7 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
             characterScript = character.GetComponent<CharacterScript>();
             characterWindowO = Instantiate(characterWindow);
             characterWindowO.transform.parent = GameObject.Find("CharacterWindowManager").transform;
-            characterWindowO.GetComponent<CharacterWindow>().GetInfo(characterScript.name, characterScript.id); //Vad används denna till?
+            characterWindowO.GetComponent<CharacterWindow>().GetInfo(characterScript.strName, characterScript.id); //Vad används denna till?
             characterWindowO.transform.localScale = new Vector3(1, 1, 1);
             characterWindowO.transform.position = characterWindowPos;
             characterWindowPos.y -= 100 / contreverter;

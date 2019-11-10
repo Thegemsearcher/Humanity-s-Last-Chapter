@@ -11,14 +11,14 @@ public class UIBoiScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public Slider healthSlider, expSlider;
     public GameObject InfoBox;
     private CharacterScript characterScript;
-    private stats statsScript;
+    private Stats statsScript;
     private int cha, str, def, intelligence, dex, com, nrg, snt, hp, maxHp, nextLevel, lvl;
     private int exp;
     public bool isOwned, isInItems;
 
     void Start() {
         characterScript = GetComponent<CharacterScript>();
-        statsScript = GetComponent<stats>();
+        statsScript = GetComponent<Stats>();
 
         str = statsScript.str;
         def = statsScript.def;
@@ -28,7 +28,7 @@ public class UIBoiScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         exp = statsScript.exp;
         nextLevel = statsScript.nextLevel;
 
-        txtName.text = characterScript.name;
+        txtName.text = characterScript.strName;
         txtSkills.text = "STR: " + str + "\nDEF: " + def;
         txtHp.text = hp + "/" + maxHp;
         txtExp.text = exp + "/" + nextLevel;

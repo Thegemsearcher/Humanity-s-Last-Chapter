@@ -4,18 +4,11 @@ using UnityEngine;
 
 [System.Serializable]
 public class SaveData {
+    public List<CharacterData> characterDataList;
+    public WorldData worldData;
 
-    public List<CharacterScript> characterList;
-    public List<stats> statsList;
-    public List<ScriptableQuest> questList;
-    public WorldScript world;
-
-    public SaveData(List<CharacterScript> characterList, List<stats> statsList, List<ScriptableQuest> questList, WorldScript world) {
-        this.characterList = characterList;
-        this.statsList = statsList;
-        this.questList = questList;
-        this.world = world;
+    public SaveData(List<CharacterData> characterDataList, WorldData worldData) {
+        this.characterDataList = characterDataList;
+        this.worldData = worldData;
     }
-
-    //Denna ska användas vid load av alla scener och uppdateras vid scenbyte!
 }

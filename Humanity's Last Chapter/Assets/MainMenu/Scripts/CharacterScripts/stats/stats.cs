@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class stats : MonoBehaviour
-{
+
+public class Stats : MonoBehaviour {
     public int hp, maxHp, str, def, Int, dex, cha, ldr, nrg, snt, level, exp, nextLevel;
     private int cost;
     public GameObject characterUI;
@@ -15,13 +15,12 @@ public class stats : MonoBehaviour
     public List<GameObject> items = new List<GameObject>();
     List<QuirkObject> quirkList;
     // Start is called before the first frame update
-    void Start()
-    {
-        if(maxHp == 0) {
+    void Start() {
+        if (maxHp == 0) {
             maxHp = Random.Range(6, 11);//Just for show.
             hp = maxHp;
         }
-        
+
         str = Random.Range(1, 3);   //Just for show.
         def = Random.Range(1, 3);   //Just for show.
         Int = Random.Range(1, 3);   //Just for show.
@@ -34,28 +33,25 @@ public class stats : MonoBehaviour
         nextLevel = 10 + (5 * level);
 
         //Fix CharacterCanvas
-        characterUI = Instantiate(prefabCharacterUI, new Vector3(0,0,0), Quaternion.identity);
+        characterUI = Instantiate(prefabCharacterUI, new Vector3(0, 0, 0), Quaternion.identity);
         characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         characterUI.GetComponent<Canvas>().sortingOrder = 1;
         characterUI.GetComponentInChildren<Button>().onClick.AddListener(delegate { characterUI.SetActive(false); });
-       
+
         //Set the script to the instance of the CharacterCanvas object, and then run the method in it.
         writer = prefabCharacterUI.GetComponent<CharacterStatWriter>();
         writer.GetStats(hp, str, def);
 
         //Create items
-        foreach (Transform t in characterUI.transform)
-        {
-            if (t.tag == "ItemGrid")
-            {
+        foreach (Transform t in characterUI.transform) {
+            if (t.tag == "ItemGrid") {
                 itemGrid = t.gameObject;
             }
         }
         for (int x = 0; x < 6; x++)
             items.Add(Instantiate(ItemPrefab, itemGrid.transform));
         //GetComponent<CharacterScript>().LoadPlayer(GetComponent<CharacterScript>().id);
-        for (int x = 0; x < GetComponent<CharacterScript>().itemID.Length; x++)
-        {
+        for (int x = 0; x < GetComponent<CharacterScript>().itemID.Length; x++) {
             string itemId = GetComponent<CharacterScript>().itemID[x];
             if (itemId != null)
                 items[x].GetComponent<ItemScript>().CreateItem(itemId);
@@ -68,31 +64,22 @@ public class stats : MonoBehaviour
         //Configure items
         int i = 0;
         int j = 0;
-        foreach (GameObject item in items)
-        {
+        foreach (GameObject item in items) {
             item.GetComponent<ItemScript>().SetSlot(item.transform.position + new Vector3(0 + i * 0.6f, 0 - j * 0.6f, 0)); // + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
             i++;
-            if (i > 2)
-            {
+            if (i > 2) {
                 i = 0;
                 j++;
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        //Debug.Log("quirkList: " + quirkList.Count);
-    }
     public int GetCost() {
         cost = (maxHp * 10) + (str * 3) + (def * 3);
         return cost;
     }
 
-    public void BringUpStats()
-    {
+    public void BringUpStats() {
         //GetComponentInParent<AddToPlayerRoster>().controller.GetComponent<HubCharController>().CloseAllWindows();
         characterUI.SetActive(true);
     }
@@ -102,14 +89,11 @@ public class stats : MonoBehaviour
         this.hp = hp;
     }
 
-    public void AddQuirk(QuirkObject quirk)
-    {
-        //Debug.Log("Am I here?");
-        if (quirkList == null)
-        {
+    public void AddQuirk(QuirkObject quirk) {
+        if (quirkList == null) {
             InitiateList();
         }
-      
+
         quirkList.Add(quirk);
 
         maxHp += quirk.hp;
@@ -119,14 +103,26 @@ public class stats : MonoBehaviour
         dex += quirk.dex;
         cha += quirk.cha;
         ldr += quirk.ldr;
-        //foreach (QuirkObject quirk in quirkList)
-        //{
-        //    Debug.Log(quirk.quirkName);
-        //}
     }
-    void InitiateList()
-    {
-       
+
+    void InitiateList() {
+
         quirkList = new List<QuirkObject>();
+    }
+
+    public void LoadPlayer(Stats data) { //Vill ersätta detta med något som typ "this.stats = data" men vet inte hur...
+        hp = data.hp;
+        maxHp = data.maxHp;
+        str = data.str;
+        def = data.def;
+        Int = data.Int;
+        dex = data.dex;
+        cha = data.cha;
+        ldr = data.ldr;
+        nrg = data.nrg;
+        snt = data.snt;
+        level = data.level;
+        exp = data.exp;
+        nextLevel = data.nextLevel;
     }
 }

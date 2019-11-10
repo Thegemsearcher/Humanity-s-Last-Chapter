@@ -11,7 +11,7 @@ public class roasterWindowScript : MonoBehaviour {
     private Vector2 characterPos;
 
     void Start() {
-        txtHealth.text = GetComponent<CharacterScript>().name;
+        txtHealth.text = GetComponent<CharacterScript>().strName;
         txtName.text = "Health: " + GetComponent<CharacterScript>().health.ToString();
     }
     

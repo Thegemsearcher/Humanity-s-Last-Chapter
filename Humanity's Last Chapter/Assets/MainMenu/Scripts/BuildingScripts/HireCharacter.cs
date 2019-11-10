@@ -11,12 +11,12 @@ public class HireCharacter : MonoBehaviour {
     private int childCounter;
     private CharacterScript characterScript;
     private UIBoiScript boiScript;
-    private stats statsScript;
+    private Stats statsScript;
 
     private void Start() {
         Manager = GameObject.FindGameObjectWithTag("CharacterManager");
         World = GameObject.Find("WorldManager");
-        statsScript = GetComponent<stats>();
+        statsScript = GetComponent<Stats>();
 
         cost = statsScript.GetCost();
         txtHire.text = "Hire! (" + cost + ")";
@@ -25,21 +25,20 @@ public class HireCharacter : MonoBehaviour {
     public void btnHire() {
         characterScript = GetComponent<CharacterScript>();
         boiScript = GetComponent<UIBoiScript>();
-        
-        if(cost <= World.GetComponent<WorldScript>().gold) {
-            World.GetComponent<WorldScript>().gold -= cost;
+
+        if (cost <= WorldScript.world.gold) {
+            WorldScript.world.gold -= cost;
             childCounter = Manager.transform.childCount;
             transform.SetParent(Manager.transform, false);
             characterScript.GetID();
             boiScript.GetPos(childCounter);
             GetComponent<UIBoiScript>().isOwned = true;
             HireBTN.SetActive(false);
-        }
-        else {
+        } else {
             Debug.Log("Not enough gold!");
         }
 
-        
+
     }
 
     public void ShowBTN() {

@@ -6,17 +6,18 @@ using UnityEngine;
 public class CharacterData {
 
     public int id, health, hp, maxHp;
-    public string name, wpId;
+    public string strName, wpId;
     public string[] itemID;
 
-    public CharacterData(CharacterScript character, stats Stats) {
+    public CharacterData(CharacterScript character, Stats stats) {
         id = character.id;
         health = character.health;
-        name = character.name;
+        strName = character.strName;
         wpId = character.wpId;
         itemID = character.itemID;
-        this.hp = Stats.hp;
-        this.maxHp = Stats.maxHp;
+
+        hp = stats.hp;
+        maxHp = stats.maxHp;
 
     }
 }

@@ -41,15 +41,15 @@ public class Spawner : MonoBehaviour {
         tilemap.ClearAllTiles();
     }
     public void CharacterSpawn(GameObject character, Vector3 place) {
-        if (missionOrder[characterCounter] >= 0) {
-            parent = GameObject.FindGameObjectWithTag("CharacterManager");
-            CreateTarget(place, character, parent.transform);
-            createdObject.transform.localScale = new Vector3(1, 1, 1);
-            createdObject.GetComponent<CharacterScript>().LoadPlayer(missionOrder[characterCounter]);
-            //createdObject.GetComponent<PersonalMovement>().relativePos = new Vector3(characterCounter * 0.5f, characterCounter * 0.5f);
-            //createdObject.GetComponent<PersonalMovement>().AddRelativeWaypoint(createdObject.transform.parent.position);
-            characterCounter++;
-        }
+        //if (missionOrder[characterCounter] >= 0) {
+        //    parent = GameObject.FindGameObjectWithTag("CharacterManager");
+        //    CreateTarget(place, character, parent.transform);
+        //    createdObject.transform.localScale = new Vector3(1, 1, 1);
+        //    createdObject.GetComponent<CharacterScript>().LoadPlayer(missionOrder[characterCounter]);
+        //    //createdObject.GetComponent<PersonalMovement>().relativePos = new Vector3(characterCounter * 0.5f, characterCounter * 0.5f);
+        //    //createdObject.GetComponent<PersonalMovement>().AddRelativeWaypoint(createdObject.transform.parent.position);
+        //    characterCounter++;
+        //}
 
     }
 

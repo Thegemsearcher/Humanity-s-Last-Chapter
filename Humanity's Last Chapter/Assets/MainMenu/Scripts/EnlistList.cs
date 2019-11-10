@@ -17,7 +17,7 @@ public class EnlistList : MonoBehaviour {
             //If missionReady and !inHospital
             if(!characterScript.isEnlisted && !characterScript.inHospital) {
                 Holder = Instantiate(UIRole);
-                Holder.GetComponent<UICharacterRole>().GetData(characterScript.name, characterScript.id, roleID);
+                Holder.GetComponent<UICharacterRole>().GetData(characterScript.strName, characterScript.id, roleID);
                 Holder.transform.SetParent(transform, false);
             }
         }
