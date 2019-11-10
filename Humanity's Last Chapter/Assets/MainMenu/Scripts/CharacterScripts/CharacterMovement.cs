@@ -1,6 +1,7 @@
 ﻿using Pathfinding;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
@@ -9,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     public float moveSpeed = 1000f;
 
     Vector3 direction = Vector3.zero;
+    RaycastHit2D ray;
 
     public List<GameObject> pcs = new List<GameObject>();
     public List<Vector3> waypoints = new List<Vector3>();
@@ -65,7 +67,22 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
+
+            ray = Physics2D.Raycast(transform.position,mousePosition, Vector2.Distance(transform.position, mousePosition));
             
+            if (!ray)
+            {
+                Debug.DrawLine(transform.position, ray.point);
+                Vector3 v = transform.position;
+                foreach (GameObject go in pcs)
+                {
+                    if (Vector2.Distance(go.transform.position, mousePosition) < Vector2.Distance(v, mousePosition))
+                    {
+                        v = go.transform.position;
+                    }
+                }
+                transform.position = v;
+            }
 
             RotateFormation(mousePosition);
         }
