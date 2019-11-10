@@ -11,20 +11,20 @@ public class HPinCombat : MonoBehaviour
     void Start()
     {
         localScale = transform.localScale;
-        startHP = attachedToPlayer.GetComponent<stats>().hp;
+        startHP = attachedToPlayer.GetComponent<Stats>().hp;
         //Debug.Log(localScale.x);
     }
 
     // Update is called once per frame
     void Update()
     {
-        localScale.x = attachedToPlayer.GetComponent<stats>().hp/startHP;
+        localScale.x = attachedToPlayer.GetComponent<Stats>().hp/startHP;
         transform.localScale = 0.5f * localScale;
         //Debug.Log(localScale.x);
         //test
         if (Input.GetKeyDown(KeyCode.T))
         {
-            attachedToPlayer.GetComponent<stats>().hp--;
+            attachedToPlayer.GetComponent<Stats>().hp--;
         }
     }
 }
