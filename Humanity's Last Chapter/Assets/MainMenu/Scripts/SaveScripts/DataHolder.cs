@@ -21,7 +21,7 @@ public class DataHolder : MonoBehaviour {
         statsList = new List<Stats>();
 
         if (!Directory.Exists(Application.persistentDataPath + "/Saves")) {
-            Directory.CreateDirectory(path + "/Saves)");
+            Directory.CreateDirectory(Application.persistentDataPath + "/Saves");
         }
 
         path = Application.persistentDataPath + "/Saves/";
