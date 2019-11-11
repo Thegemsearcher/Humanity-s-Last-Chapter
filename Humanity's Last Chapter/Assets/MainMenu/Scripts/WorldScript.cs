@@ -30,8 +30,10 @@ public class WorldScript {
 
         characterArr = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject character in characterArr) {
-            characterList.Add(character.GetComponent<CharacterScript>());
-            statsList.Add(character.GetComponent<Stats>());
+            if (character.GetComponent<Stats>().hp > 0) {
+                characterList.Add(character.GetComponent<CharacterScript>());
+                statsList.Add(character.GetComponent<Stats>());
+            }
         }
         SaveSystem.SaveWorld(this);
     }

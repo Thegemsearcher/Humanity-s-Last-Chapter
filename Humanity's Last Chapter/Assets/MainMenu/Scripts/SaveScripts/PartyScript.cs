@@ -26,6 +26,8 @@ public class PartyScript : MonoBehaviour {
         LoadAssets();
 
         if (WorldScript.world == null) {
+            WorldScript.world = new WorldScript();
+            WorldScript.world.Reset();
             TestCharacters();
         } else {
             LoadWorld();
@@ -40,20 +42,23 @@ public class PartyScript : MonoBehaviour {
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
         foreach (CharacterScript characterScript in characterScriptList) {
 
-            characterO = Instantiate(character);
+            //if(characterScript.GetComponent<CharacterScript>().isEnlisted) {
+                characterO = Instantiate(character);
 
-            characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
-            characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
+                characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+                characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
 
-            //Annan kod
-            characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember, partyMember);
-            characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
-            gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
+                //Annan kod
+                characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember, partyMember);
+                characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
+                gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
 
-            CreateUI(characterScript, statsList[partyMember]);
-            
-            characterO.transform.SetParent(transParent, false);
-            partyMember++;
+                CreateUI(characterScript, statsList[partyMember]);
+
+                characterO.transform.SetParent(transParent, false);
+                partyMember++;
+            //}
+           
         }
         characterScriptList.Clear(); //Rensar listan
 
