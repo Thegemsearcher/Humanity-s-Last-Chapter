@@ -20,6 +20,10 @@ public class DataHolder : MonoBehaviour {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
 
+        if (!Directory.Exists(Application.persistentDataPath + "/Saves")) {
+            Directory.CreateDirectory(path + "/Saves)");
+        }
+
         path = Application.persistentDataPath + "/Saves/";
         saveCounter = Directory.GetFiles(path).Length;
 
