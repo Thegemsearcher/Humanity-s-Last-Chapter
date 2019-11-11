@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class CharacterScript : MonoBehaviour {
     public string strName = "";
-    public int health, id;
+    public int id, inventorySize;
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
-    public string wpId;
+    public string rangedId, meleeId, clothId, headId;
     public string[] itemID;
     public bool inHospital, isEnlisted;
 
@@ -16,12 +16,13 @@ public class CharacterScript : MonoBehaviour {
 
     void Start() {
         statsScript = GetComponent<Stats>();
-        itemID = new string[6];
         if (strName == "") {
+            inventorySize = 4;
             strName = NameGenerator();
             id = GetId();
-            wpId = "wp0";
+            rangedId = "wp0";
         }
+        itemID = new string[inventorySize];
     }
 
     private string NameGenerator() {
@@ -31,7 +32,6 @@ public class CharacterScript : MonoBehaviour {
 
     private int GetId() {
         int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount;
-        //Debug.Log("characterCounter: " + characterCounter);
         id = characterCounter - 1;
         return id;
     }
@@ -67,7 +67,7 @@ public class CharacterScript : MonoBehaviour {
     public void LoadPlayer(CharacterScript data) {
         strName = data.strName;
         id = data.id;
-        wpId = data.wpId;
+        rangedId = data.rangedId;
         itemID = data.itemID;
         inHospital = data.inHospital;
         isEnlisted = data.isEnlisted;

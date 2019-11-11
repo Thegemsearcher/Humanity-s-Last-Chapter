@@ -84,9 +84,8 @@ public class DataHolder {
             
             CharacterScript character = new CharacterScript();
             character.id = characterData.id;
-            character.health = characterData.health;
             character.strName = characterData.strName;
-            character.wpId = characterData.wpId;
+            character.rangedId = characterData.wpId;
             character.itemID = characterData.itemID;
             characterList.Add(character);
 

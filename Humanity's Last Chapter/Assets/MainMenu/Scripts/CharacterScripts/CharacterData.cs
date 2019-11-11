@@ -5,15 +5,14 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterData {
 
-    public int id, health, hp, maxHp;
+    public int id, hp, maxHp;
     public string strName, wpId;
     public string[] itemID;
 
     public CharacterData(CharacterScript character, Stats stats) {
         id = character.id;
-        health = character.health;
         strName = character.strName;
-        wpId = character.wpId;
+        wpId = character.rangedId;
         itemID = character.itemID;
 
         hp = stats.hp;

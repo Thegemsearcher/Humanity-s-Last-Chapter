@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class weaponStats : MonoBehaviour {
-    public string WeaponName = "Weapon name Here";
+public class weaponStats : MonoBehaviour { //Ännu en klass med liten bokstav...
+    public string weaponName = "Weapon name Here";
     public string description = "Info about the weapon";
     public int cost, damage;
     public float fireRate, range, timeStamp, distEnemy;
@@ -42,15 +42,15 @@ public class weaponStats : MonoBehaviour {
             }
         }
     }
-    public void GetData(string weaponName, string description, float range, float fireRate, int damage, int cost, Sprite sprite) {
-        this.WeaponName = weaponName;
-        this.description = description;
-        this.range = range;
-        this.fireRate = fireRate;
-        this.damage = damage;
-        this.cost = cost;
-        this.sprite = sprite;
-        GetComponent<SpriteRenderer>().sprite = sprite;
+    public void GetData(WeaponObject wpo) {
+        weaponName = wpo.weaponName;
+        description = wpo.description;
+        range = wpo.range;
+        fireRate = wpo.fireRate;
+        damage = wpo.damage;
+        cost = wpo.cost;
+        sprite = wpo.sprite;
+        GetComponent<SpriteRenderer>().sprite = wpo.sprite;
     }
                 
 

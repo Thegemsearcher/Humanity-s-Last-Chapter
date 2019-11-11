@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e067ec5cbd64744ad4db07c8899acd, type: 3}
   m_Name: wp4
   m_EditorClassIdentifier: 
-  WeaponName: PaddeDestroyer
+  weaponName: Weapon name Here
   description: 'The ultimate padde killer '
   cost: 20
   damage: 3
   fireRate: 0.2
   range: 30
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 3f158022c27e59f4dac6465d9c8fa0cf, type: 3}

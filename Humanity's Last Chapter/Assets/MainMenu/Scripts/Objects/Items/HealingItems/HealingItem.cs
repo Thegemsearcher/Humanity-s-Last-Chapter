@@ -16,6 +16,5 @@ public class HealingItem : MonoBehaviour {
         id = hio.name;
         healPower = hio.healPower;
         itemDescrip = hio.description;
-
     }
 }

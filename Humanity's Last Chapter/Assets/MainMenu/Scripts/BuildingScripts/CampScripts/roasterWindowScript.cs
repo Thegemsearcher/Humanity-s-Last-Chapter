@@ -12,7 +12,7 @@ public class roasterWindowScript : MonoBehaviour {
 
     void Start() {
         txtHealth.text = GetComponent<CharacterScript>().strName;
-        txtName.text = "Health: " + GetComponent<CharacterScript>().health.ToString();
+        txtName.text = "Health: " + GetComponent<Stats>().hp.ToString();
     }
     
     public void btnHire() {

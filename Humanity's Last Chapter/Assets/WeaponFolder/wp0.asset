@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e067ec5cbd64744ad4db07c8899acd, type: 3}
   m_Name: wp0
   m_EditorClassIdentifier: 
-  WeaponName: Handgun
+  weaponName: Pistol
   description: Small and weak but can still hurt
   cost: 20
   damage: 2
