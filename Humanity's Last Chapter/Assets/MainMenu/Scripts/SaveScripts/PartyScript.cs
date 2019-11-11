@@ -24,28 +24,26 @@ public class PartyScript : MonoBehaviour {
     void Start() {
         InstantiateLists();
         LoadAssets();
-        LoadWorld();
+
+        if (WorldScript.world == null) {
+            TestCharacters();
+        } else {
+            LoadWorld();
+        }
     }
 
     public void SpawnCharacters() {
         characterScriptList = WorldScript.world.characterList;
         statsList = WorldScript.world.statsList;
 
-
         partyMember = 0;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
         foreach (CharacterScript characterScript in characterScriptList) {
 
-           
-
             characterO = Instantiate(character);
-            Debug.Log("statsLenght: " + statsList.Count);
-            Debug.Log("CharacterLenght: " + characterScriptList.Count);
 
             characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
             characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
-
-            
 
             //Annan kod
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember, partyMember);
@@ -56,8 +54,6 @@ public class PartyScript : MonoBehaviour {
             
             characterO.transform.SetParent(transParent, false);
             partyMember++;
-
-            
         }
         characterScriptList.Clear(); //Rensar listan
 
@@ -94,16 +90,18 @@ public class PartyScript : MonoBehaviour {
         SpawnCharacters();
     }
 
-    public void SaveData() {
-        //    characterArr = GameObject.FindGameObjectsWithTag("Character");
+    private void TestCharacters() { //Spawnar tre gubbar ifall man inte kommer från huben
+        for (int i = 0; i < 3; i++) {
+            characterO = Instantiate(character);
 
-        //    foreach (GameObject character in characterArr) {
-        //        characterScriptList.Add(character.GetComponent<CharacterScript>());
-        //        statsList.Add(character.GetComponent<stats>());
-        //    }
+            characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i, i);
+            characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
+            gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
 
-        //    //worldScript = GameObject.Find("WorldManager").GetComponent<WorldScript>();
-        //    SaveSystem.SaveWorld(characterScriptList, statsList);
+            //CreateUI(characterO.GetComponent<CharacterScript>(), statsList[i]);
+
+            characterO.transform.SetParent(transParent, false);
+        }
     }
 
     public void CreateUI(CharacterScript characterScript, Stats characterStats) {
