@@ -5,39 +5,22 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DataHolder : MonoBehaviour {
-    private int activeSave;
+public class DataHolder {
 
-    private int saveCounter;
+    public static DataHolder dataHolder;
+
+    public int activeSave;
+
     private string path;
-
-    private int[] saveNrArr;
 
     private List<CharacterScript> characterList;
     private List<Stats> statsList;
 
-    void Start() {
+    public void NewHolder() {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
 
-        if (!Directory.Exists(Application.persistentDataPath + "/Saves")) {
-            Directory.CreateDirectory(Application.persistentDataPath + "/Saves");
-        }
-
         path = Application.persistentDataPath + "/Saves/";
-        saveCounter = Directory.GetFiles(path).Length;
-
-        saveNrArr = new int[saveCounter];
-        for (int i = 0; i < saveCounter; i++) {
-            SaveData data = SaveSystem.LoadWorld(i);
-            if(data == null) {
-                Debug.Log("Save Slot empty!");
-                //saveCounter++;
-
-            } else {
-                saveNrArr[i] = data.worldData.saveNr;
-            }
-        }
     }
 
     public void BtnContinue() {
@@ -69,23 +52,23 @@ public class DataHolder : MonoBehaviour {
     }
 
     public void BtnPlay() {
-        foreach (int saveNr in saveNrArr) {
-            if (saveNr == activeSave) {
-                WorldData(saveNr);
-                break;
-            }
+        if (File.Exists(path + "save" + activeSave + ".save")) {
+            WorldData(activeSave);
+            StartGame();
+        } else {
+            Debug.Log("Can't find Save" + activeSave);
         }
-        StartGame();
+        
     }
 
     public void BtnDelete() {
-        foreach (int saveNr in saveNrArr) {
-            if (saveNr == activeSave) {
-                FileUtil.DeleteFileOrDirectory(path + "/Saves/save"+saveNr);
-                Debug.Log("Deleted: save" + saveNr);
-                break;
-            }
+        if(File.Exists(path + "save" + activeSave + ".save")) {
+            FileUtil.DeleteFileOrDirectory(path + "save" + activeSave + ".save");
+            Debug.Log("Deleted: save" + activeSave);
+        } else {
+            Debug.Log("Can't find Save" + activeSave);
         }
+        
     }
 
     private void WorldData(int saveNr) {
@@ -120,9 +103,5 @@ public class DataHolder : MonoBehaviour {
 
     private void StartGame() {
         SceneManager.LoadScene("Hub"); //Kanske ska worldScript ha koll på active scene?
-    }
-
-    public void GetSave(int activeSave) {
-        this.activeSave = activeSave;
     }
 }

@@ -10,7 +10,7 @@ public class QuestStarter : MonoBehaviour {
 
     void Start() { //Start ska sen bort!
         QuestHolderO = Instantiate(QuestHolder);
-        QuestHolderO.transform.parent = GameObject.Find("forMissions").transform;
+        QuestHolderO.transform.SetParent(GameObject.Find("forMissions").transform, false);
         QuestHolderO.transform.localScale.Scale(new Vector3(1, 1, 1));
         QuestHolderO.GetComponent<QuestObject>().GetQuest(quest);
     }

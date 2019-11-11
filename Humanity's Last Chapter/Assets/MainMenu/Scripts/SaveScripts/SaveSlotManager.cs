@@ -7,47 +7,27 @@ using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveSlotManager : MonoBehaviour {
-    public int activeSave;
+    public GameObject saveSlot;
+    private GameObject saveHolder, parent;
+
+    private int saveCounter;
     private string path;
-    private int characterCounter;
 
     void Start() {
-        path = Application.persistentDataPath;
+        path = Application.persistentDataPath + "/Saves/";
+        saveCounter = Directory.GetFiles(path).Length;
+        parent = GameObject.FindGameObjectWithTag("forSaves");
 
-        if (!Directory.Exists(Application.persistentDataPath + "/SaveSlot1")) {
-            BinaryFormatter formatter = new BinaryFormatter();
-            for (int i = 1; i <= 9; i++) {
-                Directory.CreateDirectory(path + "/SaveSlot" + i);
-                Directory.CreateDirectory(path + "/SaveSlot" + i + "/Party");
-                Directory.CreateDirectory(path + "/SaveSlot" + i + "/Characters");
+        for (int i = 0; i < saveCounter; i++) {
+            if (!File.Exists(path + "save" + i + ".save")) {
+                Debug.Log("Save Slot empty!");
+                saveCounter++;
+            } else {
+                SaveData data = SaveSystem.LoadWorld(i);
+                saveHolder = Instantiate(saveSlot);
+                saveHolder.GetComponent<SaveSlot>().activeSave = i;
+                saveHolder.transform.SetParent(parent.transform, false);
             }
         }
-    }
-
-    public void SetSlot(int save) {
-        activeSave = save;
-        //Ska unselecta alla andra slots
-    }
-
-    public void DeleteSave() {
-        path = Application.persistentDataPath + "/SaveSlot" + activeSave;
-        characterCounter = Directory.GetFiles(path + "/Characters/").Length;
-        for (int i = 0; i < characterCounter; i++) { //Detta är baserat på att det inte kan finnas flera characterer i party än som finns
-            if (Directory.Exists(path + "/Party/Character(" + i + ").txt")) {
-                FileUtil.DeleteFileOrDirectory(path + "/Party/Character(" + i + ").txt");
-            }
-            FileUtil.DeleteFileOrDirectory(path + "/Characters/Character(" + i + ").txt");
-        }
-
-        //Kan tas bort när vi använder endast saveSlots
-        characterCounter = Directory.GetFiles(Application.persistentDataPath + "/Characters/").Length;
-        for (int i = 0; i < characterCounter; i++) {
-            if (Directory.Exists(Application.persistentDataPath + "/Party/Character(" + i + ").txt")) { 
-                FileUtil.DeleteFileOrDirectory(Application.persistentDataPath + "/Party/Character(" + i + ").txt");
-            }
-            FileUtil.DeleteFileOrDirectory(Application.persistentDataPath + "/Characters/Character(" + i + ").txt");
-        }
-
-
     }
 }

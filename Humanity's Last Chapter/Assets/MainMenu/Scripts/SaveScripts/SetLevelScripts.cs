@@ -8,7 +8,7 @@ public class SetLevelScripts : MonoBehaviour {
 
     void SetSlot() {
         saveManager = GameObject.Find("SlotManager");
-        saveManager.GetComponent<SaveSlotManager>().activeSave = setSaveSlot;
+        //saveManager.GetComponent<SaveSlotManager>().activeSave = setSaveSlot;
     }
 
 }

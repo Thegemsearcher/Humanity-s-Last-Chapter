@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\HPinCombat.cs" />
+    <Compile Include="Assets\LoadMainMenu.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BehaviourTree.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\BarrackWindow.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BuildingScripts\buildingScript.cs" />
