@@ -32,6 +32,7 @@ TagManager:
   - TextItemName
   - TextItemDescrip
   - forSaves
+  - CharacterUiInMissionMapCusImStupid
   layers:
   - Default
   - TransparentFX

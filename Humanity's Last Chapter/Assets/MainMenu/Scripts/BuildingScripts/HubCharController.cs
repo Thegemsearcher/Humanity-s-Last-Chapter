@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class HubCharController : MonoBehaviour
 {
-
-
     private List<GameObject> playerRoster = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
@@ -30,7 +28,6 @@ public class HubCharController : MonoBehaviour
             i++;                                  //Removed the off-sets here, because I think they should only be in the CampScript (maybe not?) YES IT IS NEEDED
             character.GetComponent<RectTransform>().position = new Vector3(character.transform.parent.position.x - 0.6f,
                                                                             (character.transform.parent.position.y + 3.3f) - (i * 1), 0);
-            
         }
     }
 
