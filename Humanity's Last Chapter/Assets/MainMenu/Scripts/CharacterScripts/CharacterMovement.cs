@@ -68,21 +68,21 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
 
-            ray = Physics2D.Raycast(transform.position,mousePosition, Vector2.Distance(transform.position, mousePosition));
+            //ray = Physics2D.Raycast(transform.position,mousePosition, Vector2.Distance(transform.position, mousePosition));
             
-            if (!ray)
-            {
-                Debug.DrawLine(transform.position, ray.point);
-                Vector3 v = transform.position;
-                foreach (GameObject go in pcs)
-                {
-                    if (Vector2.Distance(go.transform.position, mousePosition) < Vector2.Distance(v, mousePosition))
-                    {
-                        v = go.transform.position;
-                    }
-                }
-                transform.position = v;
-            }
+            //if (!ray)
+            //{
+            //    Debug.DrawLine(transform.position, ray.point);
+            //    Vector3 v = transform.position;
+            //    foreach (GameObject go in pcs)
+            //    {
+            //        if (Vector2.Distance(go.transform.position, mousePosition) < Vector2.Distance(v, mousePosition))
+            //        {
+            //            v = go.transform.position;
+            //        }
+            //    }
+            //    transform.position = v;
+            //}
 
             RotateFormation(mousePosition);
         }

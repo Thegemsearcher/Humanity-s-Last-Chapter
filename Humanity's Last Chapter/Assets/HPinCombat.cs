@@ -12,6 +12,7 @@ public class HPinCombat : MonoBehaviour
     {
         localScale = transform.localScale;
         startHP = attachedToPlayer.GetComponent<Stats>().hp;
+
         //Debug.Log(localScale.x);
     }
 

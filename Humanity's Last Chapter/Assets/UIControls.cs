@@ -19,6 +19,7 @@ public class UIControls : MonoBehaviour
 
         currentNamePlate = Instantiate(namePlate);
         currentNamePlate.GetComponent<TextMesh>().text = GetComponent<CharacterScript>().name;
+        currentNamePlate.GetComponent<MeshRenderer>().sortingOrder = 1;
     }
 
     // Update is called once per frame
