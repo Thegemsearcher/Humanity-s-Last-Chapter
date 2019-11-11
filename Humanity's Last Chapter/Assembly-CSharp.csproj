@@ -163,6 +163,7 @@
     <Compile Include="Assets\MainMenu\Scripts\Weapon\WeaponScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\weaponStats.cs" />
     <Compile Include="Assets\MainMenu\Scripts\WorldScript.cs" />
+    <Compile Include="Assets\SaveSlot.cs" />
     <Compile Include="Assets\UIControls.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
