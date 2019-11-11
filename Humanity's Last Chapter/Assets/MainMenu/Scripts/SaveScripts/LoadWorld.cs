@@ -63,6 +63,7 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
             characterO = Instantiate(character);
             characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
             characterO.GetComponent<Stats>().LoadPlayer(statsList[0]);
+            characterO.GetComponent<CharacterScript>().isEnlisted = false;
             statsList.Remove(statsList[0]);
             characterO.transform.SetParent(transParent, false);
         }
