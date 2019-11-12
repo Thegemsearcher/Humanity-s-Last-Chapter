@@ -23,7 +23,7 @@ public class UIControls : MonoBehaviour
         currentHPBar.GetComponent<HPinCombat>().attachedToPlayer = gameObject;
 
         currentNamePlate = Instantiate(namePlate);
-        currentNamePlate.GetComponent<TextMesh>().text = GetComponent<CharacterScript>().name;
+        currentNamePlate.GetComponent<TextMesh>().text = GetComponent<CharacterScript>().strName;
         currentNamePlate.GetComponent<MeshRenderer>().sortingOrder = 1;
 
         ParentForUiRepresentation = GameObject.Find("forCharacters");
