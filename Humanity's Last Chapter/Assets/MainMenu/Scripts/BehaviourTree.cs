@@ -94,6 +94,49 @@ public class BehaviourTree : MonoBehaviour
         RootNode toReturn = new RootNode(nodes);
         return toReturn;
     }
+
+    public RootNode GetRangedEnemyBt()
+    {
+        List<Node> nodes = new List<Node>();
+
+        #region Movement
+        LeafNode closeToWaypoint = new LeafNode(GetComponent<RangedEnemy>().CloseToWaypoint);
+        LeafNode nextWaypoint = new LeafNode(GetComponent<RangedEnemy>().NextWaypoint);
+        List<Node> forWanderSequence = new List<Node>();
+        forWanderSequence.Add(closeToWaypoint);
+        forWanderSequence.Add(nextWaypoint);
+        Sequence wanderSequence = new Sequence(forWanderSequence);
+        #endregion
+
+        #region combat
+        LeafNode rangeAndLineOfSight = new LeafNode(GetComponent<RangedEnemy>().PcInRange);
+        LeafNode rangedAttack = new LeafNode(GetComponent<RangedEnemy>().RangedAttack);
+        List<Node> forCombatSequence = new List<Node>();
+        forCombatSequence.Add(rangeAndLineOfSight);
+        forCombatSequence.Add(rangedAttack);
+        LeafNode hasSeenPc = new LeafNode(GetComponent<RangedEnemy>().HasSeenPc);
+        LeafNode moveToLastSeen = new LeafNode(GetComponent<RangedEnemy>().TowardsLastSeenPc);
+        List<Node> forMoveTowardsSequence = new List<Node>();
+        forMoveTowardsSequence.Add(hasSeenPc);
+        forMoveTowardsSequence.Add(moveToLastSeen);
+        Sequence combatSequence = new Sequence(forCombatSequence);
+        Sequence moveTowardsSequence = new Sequence(forMoveTowardsSequence);
+        List<Node> forMainCombatSelector = new List<Node>();
+        forMainCombatSelector.Add(combatSequence);
+        forMainCombatSelector.Add(moveTowardsSequence);
+        Selector combatSelector = new Selector(forMainCombatSelector);
+        #endregion
+
+        List<Node> forGeneralSelector = new List<Node>();
+        forGeneralSelector.Add(combatSelector);
+        forGeneralSelector.Add(wanderSequence);
+        Selector generalSelector = new Selector(forGeneralSelector);
+
+        nodes.Add(generalSelector);
+
+        RootNode toReturn = new RootNode(nodes);
+        return toReturn;
+    }
 }
 /// <summary>
 /// startar processen, går igenom alla noder och kör deras evaluates.

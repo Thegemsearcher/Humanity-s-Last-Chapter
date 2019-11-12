@@ -1913,7 +1913,7 @@ RectTransform:
   - {fileID: 1007198562}
   - {fileID: 737733287}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2772,7 +2772,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2046095032}
   m_HandleRect: {fileID: 2046095031}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5246,7 +5246,7 @@ PrefabInstance:
     - target: {fileID: 6668247576253444290, guid: 987ebc145d10a3545b6d0f443c38731b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6668247576253444290, guid: 987ebc145d10a3545b6d0f443c38731b,
         type: 3}

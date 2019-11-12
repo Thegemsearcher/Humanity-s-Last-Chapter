@@ -1,15 +1,21 @@
-﻿using System.Collections;
+﻿using Pathfinding;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Node;
 
 public class RangedEnemy : MonoBehaviour
 {
-    Vector3 setPosTo = new Vector3(0, 0, 0);
+    Vector3 setPosTo = new Vector3(0, 0, 0), lastSeenPlayerPos = Vector2.zero;
     GameObject[] toGoTo;
     public Vector3[] waypoints;
     int currentWP;
     float offset = 3f;
     RootNode BT;
+    GameObject targetedPc;
+    float range = 3;
+    public GameObject Projectile;
+    GameObject projectile;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,13 +43,92 @@ public class RangedEnemy : MonoBehaviour
             }
         }
 
-
-
+        GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWP]);
+        currentWP = 0;
+        //Debug.Log("" + waypoints.Length);
+        BT = GetComponent<BehaviourTree>().GetRangedEnemyBt();
+    }
+    public NodeStates CloseToWaypoint()
+    {
+        if (waypoints.Length == 0)
+        {
+            return NodeStates.fail;
+        }
+        if (Vector2.Distance(waypoints[currentWP], transform.position) < 0.5f)
+        {
+            return NodeStates.success;
+        }
+        return NodeStates.fail;
     }
 
+    public NodeStates NextWaypoint()
+    {
+        currentWP++;
+        if (currentWP < waypoints.Length)
+        {
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWP]);
+        } else
+        {
+            currentWP = 0;
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWP]);
+        }
+        //Debug.Log("" + currentWP);
+        return NodeStates.success;
+    }
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public NodeStates PcInRange()
+    {
+        foreach (GameObject go in GetComponent<Enemy>().pcs)
+        {
+            Vector2 v = go.transform.position - transform.position;
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, v, range, 9);
+            if (targetedPc == null && !ray && Vector2.Distance(go.transform.position, transform.position) < range)
+            {
+                targetedPc = go;
+            } else if (!ray && Vector2.Distance(go.transform.position,transform.position) < Vector2.Distance(targetedPc.transform.position,transform.position))
+            {
+                targetedPc = go;
+            }
+        }
+
+        if (targetedPc != null)
+            return NodeStates.success;
+
+        return NodeStates.fail;
+    }
+
+    public NodeStates RangedAttack()
+    {
+        if (!(GetComponent<Enemy>().attackTimer <= 0))
+            return NodeStates.fail;
+        projectile = Instantiate(projectile, transform.position, Quaternion.identity);
+        projectile.GetComponent<Projectile>().CreateProjectile(0f);
+        projectile.GetComponent<Projectile>().whatIsSolid = 10;
+        projectile.GetComponent<Projectile>().SetTargetPos(targetedPc.transform.position);
+
+        GetComponent<Enemy>().attackTimer = GetComponent<Enemy>().timeBetweenAttack;
+        lastSeenPlayerPos = targetedPc.transform.position;
+        targetedPc = null;
+
+        return NodeStates.success;
+    }
+
+    public NodeStates HasSeenPc()
+    {
+        if (lastSeenPlayerPos.x != 0 && lastSeenPlayerPos.y != 0)
+            return NodeStates.fail;
+
+        return NodeStates.success;
+    }
+
+    public NodeStates TowardsLastSeenPc()
+    {
+        GetComponent<AIDestinationSetter>().SetPosTarget(lastSeenPlayerPos);
+        return NodeStates.fail;
     }
 }

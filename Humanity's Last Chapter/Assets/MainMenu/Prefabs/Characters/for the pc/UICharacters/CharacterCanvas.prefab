@@ -76,7 +76,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Information
+  m_Text: 'Health: 10
+
+    Strength: 2
+
+    Defence: 2'
 --- !u!1 &3739146633815750427
 GameObject:
   m_ObjectHideFlags: 0

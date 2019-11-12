@@ -11,13 +11,13 @@ public class Enemy : MonoBehaviour
     private Vector3 target;
     public string id;
 
-    GameObject[] pcs;
+    public GameObject[] pcs;
     public float aggroRange = 4f;
     public float atkRange = 0.75f;
     public int dmg = 1;
     public LayerMask pcLayer;
     
-    private float attackTimer;
+    public float attackTimer;
     public float timeBetweenAttack;
 
     public ParticleSystem bloodEffect;
@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
         }
         if (attackTimer > 0)
             attackTimer -= Time.deltaTime;
+        RemovePcFromList();
     }
 
     public void RemovePcFromList()
