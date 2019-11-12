@@ -22,10 +22,15 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         enemy = GetNearestTarget().transform;
-        targetPos = new Vector3(enemy.position.x + Random.Range(-spread, spread), enemy.position.y + Random.Range(-spread, spread), enemy.position.z);
+        targetPos = new Vector3(targetPos.x + Random.Range(-spread, spread), targetPos.y + Random.Range(-spread, spread), targetPos.z);
         //transform.rotation = Quaternion.LookRotation(targetPos);
         direction = targetPos - transform.position;
         Invoke("DestroyProjectile", lifeTime);
+    }
+
+    public void SetTargetPos(Vector3 v)
+    {
+        targetPos = v;
     }
 
     public void CreateProjectile(float spread)

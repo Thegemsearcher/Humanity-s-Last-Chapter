@@ -129,6 +129,7 @@ public class PlayerAttack : MonoBehaviour
 
     public NodeStates MeleeAttack()
     {
+        Debug.Log("melee");
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
 
         for (int i = 0; i < enemiesToDamage.Length; i++)
@@ -179,10 +180,9 @@ public class PlayerAttack : MonoBehaviour
         if (loadoutType == "Pistol")
         {
             Debug.Log("pistol skott");
-            //projectile0.GetComponent<Projectile>().spread = 0f;
             projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
             projectile0.GetComponent<Projectile>().CreateProjectile(0f);
-            //projectile0.GetComponent<Projectile>().character = gameObject;
+            projectile0.GetComponent<Projectile>().SetTargetPos(GetNearestTarget().transform.position);
         }
         if (loadoutType == "Shotgun")
         {

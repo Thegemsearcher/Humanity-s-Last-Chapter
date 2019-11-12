@@ -309,7 +309,7 @@ MonoBehaviour:
   attackRange: 0.18
   damage: 0
   loadout: 1
-  aggroDistance: 30
+  aggroDistance: 3
   projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
     type: 3}
 --- !u!114 &8460625342677450066

@@ -40,6 +40,11 @@ public class Enemy : MonoBehaviour
             attackTimer -= Time.deltaTime;
     }
 
+    public void RemovePcFromList()
+    {
+       pcs = GameObject.FindGameObjectsWithTag("Character");
+    }
+
     public void TakeDamage(int damage)
     {
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
@@ -95,6 +100,7 @@ public class Enemy : MonoBehaviour
             if (pcsToDamage[i].GetComponent<Stats>().hp < 1)
             {
                 pcsToDamage[i].gameObject.SetActive(false);
+                RemovePcFromList();
             }
         }
         if (hitPc)
