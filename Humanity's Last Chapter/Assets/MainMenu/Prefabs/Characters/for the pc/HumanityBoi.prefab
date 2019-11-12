@@ -303,13 +303,13 @@ MonoBehaviour:
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 256
-  humansAndBuildings:
+  Buildings:
     serializedVersion: 2
-    m_Bits: 1536
+    m_Bits: 512
   attackRange: 0.18
   damage: 0
   loadout: 1
-  aggroDistance: 3
+  aggroDistance: 30
   projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
     type: 3}
 --- !u!114 &8460625342677450066
@@ -375,6 +375,6 @@ MonoBehaviour:
     type: 3}
   namePlate: {fileID: 1777085911663271481, guid: 544d406dd188f614b8edc1397fa53a23,
     type: 3}
-  ParentForUiRepresentation: {fileID: 0}
   UiRepresentation: {fileID: 5710482156269927666, guid: 51156798005c5054482ab2cbb72d3a6b,
     type: 3}
+  CurrentUiRepresentation: {fileID: 0}

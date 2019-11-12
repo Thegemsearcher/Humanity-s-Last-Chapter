@@ -18,7 +18,7 @@ public class PlayerAttack : MonoBehaviour
 
     public RectTransform attackPos;
     public LayerMask whatIsEnemy;
-    public LayerMask humansAndBuildings;
+    public LayerMask Buildings;
     RaycastHit2D hitInfo;
 
     public float attackRange;
@@ -72,14 +72,17 @@ public class PlayerAttack : MonoBehaviour
         //TestMoveToDestination();
         //TestCombat();
 
+        Debug.DrawLine(transform.position, GetNearestTarget().transform.position);
+
         if (attackTimer > 0)
             attackTimer -= Time.deltaTime;
     }
 
     public NodeStates LineOfSight()
     {
-        hitInfo = Physics2D.Raycast(transform.position, enemyPos, aggroDistance, humansAndBuildings);
-        if (hitInfo.collider != null)
+        hitInfo = Physics2D.Raycast(transform.position, GetNearestTarget().transform.position, aggroDistance, Buildings);
+        Debug.DrawLine(transform.position, hitInfo.point);
+        if (hitInfo)
         {
             return NodeStates.fail;
         }
@@ -175,6 +178,7 @@ public class PlayerAttack : MonoBehaviour
         //}
         if (loadoutType == "Pistol")
         {
+            Debug.Log("pistol skott");
             //projectile0.GetComponent<Projectile>().spread = 0f;
             projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
             projectile0.GetComponent<Projectile>().CreateProjectile(0f);

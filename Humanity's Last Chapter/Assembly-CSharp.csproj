@@ -164,6 +164,7 @@
     <Compile Include="Assets\MainMenu\Scripts\Weapon\WeaponScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\weaponStats.cs" />
     <Compile Include="Assets\MainMenu\Scripts\WorldScript.cs" />
+    <Compile Include="Assets\RangedEnemy.cs" />
     <Compile Include="Assets\SaveSlot.cs" />
     <Compile Include="Assets\StartMissionUI.cs" />
     <Compile Include="Assets\UIControls.cs" />
