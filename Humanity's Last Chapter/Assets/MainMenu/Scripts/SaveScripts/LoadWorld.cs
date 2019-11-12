@@ -33,7 +33,8 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
         } else {
             LoadCharacters();
         }
-        randomQuirk = Random.Range(0, 10);   //picks out the quirk.
+        randomQuirk = Random.Range(0, 5);   //picks out the quirk.
+        randomQuirk *= 2;
     }
 
     public void LoadCharacters() { //Ser till att alla karaktärer ritas ut med rätt världen
