@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\AbilityScript.cs" />
     <Compile Include="Assets\HPinCombat.cs" />
     <Compile Include="Assets\LoadMainMenu.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Assets.cs" />
