@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIControls : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class UIControls : MonoBehaviour
 
     GameObject ParentForUiRepresentation;
     public GameObject UiRepresentation;
-    GameObject currentUiRepresentation;
+    public GameObject CurrentUiRepresentation;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +26,15 @@ public class UIControls : MonoBehaviour
         currentNamePlate.GetComponent<TextMesh>().text = GetComponent<CharacterScript>().name;
         currentNamePlate.GetComponent<MeshRenderer>().sortingOrder = 1;
 
-        //ParentForUiRepresentation = GameObject.Find("CharacterHolder");
-        //currentUiRepresentation = Instantiate(UiRepresentation);
-        //currentUiRepresentation.transform.SetParent(ParentForUiRepresentation.transform);
-        //currentUiRepresentation.transform.localPosition = new Vector3(0, 0, 0);
+        ParentForUiRepresentation = GameObject.Find("forCharacters");
+        //GameObject.Find("CharacterScroll").SetActive(true);
+        CurrentUiRepresentation = Instantiate(UiRepresentation);
+        CurrentUiRepresentation.transform.SetParent(ParentForUiRepresentation.transform);
+        CurrentUiRepresentation.GetComponent<UIBoiScript>().GetPos(ParentForUiRepresentation.GetComponentsInChildren<UIBoiScript>().Length);
+        CurrentUiRepresentation.GetComponent<Button>().onClick.AddListener(CurrentUiRepresentation.GetComponent<Stats>().BringUpStats);
+        CurrentUiRepresentation.GetComponent<UIBoiScript>().isOwned = true;
+        CurrentUiRepresentation.transform.localScale = new Vector3(0.4f,1,1);
+        //GetComponent<UpdateUiBoiInMission>().UIBoi = CurrentUiRepresentation;
     }
 
     // Update is called once per frame
@@ -36,10 +42,29 @@ public class UIControls : MonoBehaviour
     {
         currentHPBar.transform.position = transform.position + hpBarOffset;
         currentNamePlate.transform.position = transform.position + namePlateOffset;
+
+        if (CurrentUiRepresentation == null)
+            Debug.Log("wat");
+
+        Stats statsScript = GetComponent<Stats>();
+        if (statsScript != null)
+            CurrentUiRepresentation.GetComponent<UIBoiScript>().SetStats(statsScript);
     }
     private void OnDestroy()
     {
         Destroy(currentHPBar);
         Destroy(currentNamePlate);
+    }
+
+    private void OnDisable()
+    {
+        if (!gameObject.activeSelf)
+        {
+            GetComponent<Stats>().hp = 0;
+            CurrentUiRepresentation.GetComponent<UIBoiScript>().SetStats(GetComponent<Stats>());
+
+            currentHPBar.SetActive(false);
+            currentNamePlate.SetActive(false);
+        }
     }
 }

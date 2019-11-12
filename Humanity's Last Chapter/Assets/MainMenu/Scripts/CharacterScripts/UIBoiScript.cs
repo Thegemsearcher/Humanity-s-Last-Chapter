@@ -41,8 +41,26 @@ public class UIBoiScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         }
     }
 
+    public void SetStats(Stats statsScript)
+    {
+        str = statsScript.str;
+        def = statsScript.def;
+        hp = statsScript.hp;
+        lvl = statsScript.level;
+        maxHp = statsScript.maxHp;
+        exp = statsScript.exp;
+        nextLevel = statsScript.nextLevel;
+
+        txtSkills.text = "STR: " + str + "\nDEF: " + def;
+        txtHp.text = hp + "/" + maxHp;
+        txtExp.text = exp + "/" + nextLevel;
+
+        healthSlider.value = hp / maxHp;
+        expSlider.value = exp / nextLevel;
+    }
+
     public void GetPos(int childCounter) {
-        transform.position = new Vector2(0, 210 - (105 * childCounter));
+        transform.position = new Vector3(0, 210 - (105 * childCounter),0);
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
