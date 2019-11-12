@@ -18,6 +18,7 @@ public class Assets {
 
     public QuirkObject[] quirkArray;
 
+
     public static Assets assets;
 
     public void GetAssets() { //Får alla assets
