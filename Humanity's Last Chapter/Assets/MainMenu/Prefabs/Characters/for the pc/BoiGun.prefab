@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 455831641408296040}
   - component: {fileID: 2506332982729748347}
   - component: {fileID: -3057197027856591342}
+  - component: {fileID: 2435637664238410056}
   m_Layer: 11
   m_Name: BoiGun
   m_TagString: Untagged
@@ -94,3 +95,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: 0
+--- !u!114 &2435637664238410056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626715680820893389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b58ebdb8973e04681d539d8acf6c2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 0
+  projectile: {fileID: 6992307948102544577, guid: 93519f2e89390a94386a4ca33481d646,
+    type: 3}

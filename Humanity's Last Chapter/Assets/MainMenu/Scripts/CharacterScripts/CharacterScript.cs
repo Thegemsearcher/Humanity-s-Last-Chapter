@@ -20,7 +20,7 @@ public class CharacterScript : MonoBehaviour {
             inventorySize = 4;
             strName = NameGenerator();
             id = GetId();
-            rangedId = "wp0";
+            rangedId = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
         }
         itemID = new string[inventorySize];
     }

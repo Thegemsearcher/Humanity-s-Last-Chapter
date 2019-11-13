@@ -5,19 +5,13 @@ using UnityEngine;
 public class WeaponScript : MonoBehaviour
 {
     public GameObject weapon;
-    private GameObject weapon0;
+    private GameObject weaponO;
 
     // Start is called before the first frame update
     void Start()
     {
-        weapon0 = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
-        weapon0.transform.parent = gameObject.transform;
-        weapon0.transform.localScale = new Vector3(1, 1, 1);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       
+        //weaponO = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
+        //weaponO.transform.parent = gameObject.transform;
+        //weaponO.transform.localScale = new Vector3(1, 1, 1);
     }
 }

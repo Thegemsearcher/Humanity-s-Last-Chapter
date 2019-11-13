@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
 
-    public bool isActive;
+    public bool isActive, inside;
     public string itemName, itemDescrip;
     public Text txtName, txtDescrip;
 
@@ -29,12 +29,13 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             txtName.text = itemName;
             txtDescrip.text = itemDescrip;
         }
-        
+        inside = true;
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        //txtName.text = "-";
-        //txtDescrip.text = "";
+        txtName.text = "-";
+        txtDescrip.text = "";
+        inside = false;
     }
 
     public void GetItem(string itemName, string itemDescrip) {

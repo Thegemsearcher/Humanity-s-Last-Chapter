@@ -707,6 +707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  inside: 0
   itemName: 
   itemDescrip: 
   txtName: {fileID: 0}
@@ -1283,6 +1284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  inside: 0
   itemName: 
   itemDescrip: 
   txtName: {fileID: 0}
@@ -1488,7 +1490,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &313071471
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1508,7 +1510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -503, y: -140}
+  m_AnchoredPosition: {x: -198, y: -121}
   m_SizeDelta: {x: 700, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &313071472
@@ -2604,8 +2606,8 @@ GameObject:
   - component: {fileID: 538222489}
   - component: {fileID: 538222488}
   m_Layer: 5
-  m_Name: ItemSlot (3)
-  m_TagString: Untagged
+  m_Name: ItemSlot
+  m_TagString: CharacterSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2642,6 +2644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  inside: 0
   itemName: 
   itemDescrip: 
   txtName: {fileID: 0}
@@ -2825,7 +2828,7 @@ GameObject:
   - component: {fileID: 547754564}
   m_Layer: 5
   m_Name: ItemSlot
-  m_TagString: Untagged
+  m_TagString: CharacterSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2862,6 +2865,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  inside: 0
   itemName: 
   itemDescrip: 
   txtName: {fileID: 0}
@@ -4237,6 +4241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  inside: 0
   itemName: 
   itemDescrip: 
   txtName: {fileID: 0}
@@ -6480,6 +6485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  inside: 0
   itemName: 
   itemDescrip: 
   txtName: {fileID: 0}
@@ -6642,8 +6648,8 @@ GameObject:
   - component: {fileID: 1250715487}
   - component: {fileID: 1250715486}
   m_Layer: 5
-  m_Name: ItemSlot (2)
-  m_TagString: Untagged
+  m_Name: ItemSlot
+  m_TagString: CharacterSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6680,6 +6686,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  inside: 0
   itemName: 
   itemDescrip: 
   txtName: {fileID: 0}
@@ -7321,7 +7328,7 @@ GameObject:
   - component: {fileID: 1392273276}
   - component: {fileID: 1392273275}
   - component: {fileID: 1392273277}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: LoadManager
   m_TagString: LoadManager
   m_Icon: {fileID: 0}
@@ -7587,7 +7594,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 435}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1466049764
 MonoBehaviour:
@@ -8295,8 +8302,8 @@ GameObject:
   - component: {fileID: 1591326465}
   - component: {fileID: 1591326464}
   m_Layer: 5
-  m_Name: ItemSlot (1)
-  m_TagString: Untagged
+  m_Name: ItemSlot
+  m_TagString: CharacterSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8333,6 +8340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 0
+  inside: 0
   itemName: 
   itemDescrip: 
   txtName: {fileID: 0}
@@ -8689,6 +8697,7 @@ GameObject:
   - component: {fileID: 1653027987}
   - component: {fileID: 1653027990}
   - component: {fileID: 1653027989}
+  - component: {fileID: 1653027988}
   m_Layer: 5
   m_Name: WorldManager
   m_TagString: Untagged
@@ -8717,6 +8726,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 430}
   m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1653027988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653027986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81dc72c0727eaf94490c536833250b25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tGold: {fileID: 1988198508}
+  tRs: {fileID: 879972115}
 --- !u!114 &1653027989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9494,7 +9517,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -297, y: 187}
+  m_AnchoredPosition: {x: -359, y: 171}
   m_SizeDelta: {x: 550, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1816935203

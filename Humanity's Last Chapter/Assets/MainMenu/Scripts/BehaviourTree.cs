@@ -25,8 +25,8 @@ public class BehaviourTree : MonoBehaviour
         LeafNode atkMelee = new LeafNode(GetComponent<PlayerAttack>().MeleeAttack);
         LeafNode atkRanged = new LeafNode(GetComponent<PlayerAttack>().RangeAttack);
         LeafNode lineOfSight = new LeafNode(GetComponent<PlayerAttack>().LineOfSight);
-        LeafNode aggroRange = new LeafNode(GetComponent<PlayerAttack>().WithinAggroRange);
-        LeafNode moveCloser = new LeafNode(GetComponent<PlayerAttack>().MoveTowardsEnemy);
+        //LeafNode aggroRange = new LeafNode(GetComponent<PlayerAttack>().WithinAggroRange);
+        //LeafNode moveCloser = new LeafNode(GetComponent<PlayerAttack>().MoveTowardsEnemy);
 
         List<Node> forRangedSequence = new List<Node>();
         forRangedSequence.Add(isRanged);
@@ -41,10 +41,10 @@ public class BehaviourTree : MonoBehaviour
         Sequence ifInMelee = new Sequence(meleeCombatIfInRange);
         Inverter invMelee = new Inverter(ifInMelee);
         List<Node> forMeleeSequence = new List<Node>();
-        forMeleeSequence.Add(aggroRange);
+        //forMeleeSequence.Add(aggroRange);
         forMeleeSequence.Add(invMelee);
         forMeleeSequence.Add(lineOfSight);
-        forMeleeSequence.Add(moveCloser);
+        //forMeleeSequence.Add(moveCloser);
         Sequence meleeSequence = new Sequence(forMeleeSequence);
         List<Node> forCombatSelector = new List<Node>();
         forCombatSelector.Add(rangedSequence);

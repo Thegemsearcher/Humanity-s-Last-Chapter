@@ -42,8 +42,8 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Instantiate(bloodEffect, transform.position, Quaternion.identity);
         health -= damage;
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
     }
 
     public NodeStates InAggroRange()

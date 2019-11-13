@@ -2772,7 +2772,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2046095032}
   m_HandleRect: {fileID: 2046095031}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -5299,6 +5299,12 @@ PrefabInstance:
       propertyPath: UIHealth
       value: 
       objectReference: {fileID: 3659370681292497822, guid: fbc973dfd00cdf543b6222ad4229c314,
+        type: 3}
+    - target: {fileID: 6668247576253444291, guid: 987ebc145d10a3545b6d0f443c38731b,
+        type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 7626715680820893389, guid: 27a00eca5e3d49b46b5b9c0796c93edb,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 987ebc145d10a3545b6d0f443c38731b, type: 3}

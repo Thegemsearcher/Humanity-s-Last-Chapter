@@ -33,6 +33,7 @@ TagManager:
   - TextItemDescrip
   - forSaves
   - CharacterUiInMissionMapCusImStupid
+  - CharacterSlot
   layers:
   - Default
   - TransparentFX

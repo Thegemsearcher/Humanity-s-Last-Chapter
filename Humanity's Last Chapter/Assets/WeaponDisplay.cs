@@ -9,7 +9,6 @@ public class WeaponDisplay : MonoBehaviour {
     public int cost, damage;
     public float fireRate, range;
     public Sprite sprite;
-    
 
     public void GetData(WeaponObject wpo) {
         weaponName = wpo.weaponName;

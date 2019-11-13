@@ -7,10 +7,10 @@ public class WorldScript {
 
     public static WorldScript world;
 
-    public int gold, rs, saveNr;
+    public int gold, rs, saveNr, storageSize;
     public bool isActive; //Den sparningen som startar om man klickar continue
 
-    public List<string> storageList;
+    public string[] storageArr;
 
     public List<CharacterScript> characterList;
     public List<Stats> statsList;
@@ -19,12 +19,16 @@ public class WorldScript {
 
     public void Reset() {
         characterList = new List<CharacterScript>();
-        storageList = new List<string>();
         statsList = new List<Stats>();
+        storageSize = 64;
+        storageArr = new string[storageSize];
+
         gold = 400;
         isActive = true;
         rs = 0;
         saveNr = 0;
+
+        ClearInventory();
 
         AddItem("hi0", 3);
         AddItem("hi1", 2);
@@ -33,10 +37,28 @@ public class WorldScript {
         AddItem("wp2", 1);
     }
 
+    public void ClearInventory() {
+        for (int i = 0; i < storageSize; i++) {
+            storageArr[i] = "";
+        }
+    }
+
     public void AddItem(string id, int amount) {
         for(int i = 0; i < amount; i++) {
-            storageList.Add(id);
+            for(int j = 0; j < storageSize; j++) {
+                if(storageArr[j] == "") {
+                    storageArr[j] = id;
+                    break;
+                }
+            }
         }
+    }
+
+    public void MoveItem(int oldSpot, int newSpot, string id) {
+        storageArr[oldSpot] = "";
+        storageArr[newSpot] = id;
+        Debug.Log("OldSpot : " + oldSpot + " storageArr[" + oldSpot + "]: " + storageArr[oldSpot]);
+        //Create Item igen
     }
 
     public void Save() {

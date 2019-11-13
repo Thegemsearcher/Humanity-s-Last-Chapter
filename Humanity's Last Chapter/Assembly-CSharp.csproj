@@ -63,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AbilityScript.cs" />
+    <Compile Include="Assets\BulletM.cs" />
     <Compile Include="Assets\HPinCombat.cs" />
     <Compile Include="Assets\LoadMainMenu.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Assets.cs" />
@@ -166,9 +167,11 @@
     <Compile Include="Assets\MainMenu\Scripts\Weapon\weaponStats.cs" />
     <Compile Include="Assets\MainMenu\Scripts\WorldScript.cs" />
     <Compile Include="Assets\RangedEnemy.cs" />
+    <Compile Include="Assets\ResourceText.cs" />
     <Compile Include="Assets\SaveSlot.cs" />
     <Compile Include="Assets\StartMissionUI.cs" />
     <Compile Include="Assets\UIControls.cs" />
+    <Compile Include="Assets\WeaponAttack.cs" />
     <Compile Include="Assets\WeaponDisplay.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
