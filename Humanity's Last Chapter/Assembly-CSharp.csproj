@@ -159,6 +159,7 @@
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SceneSwitcher.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SetLevelScripts.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\WorldData.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\ShopScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\MakeWeaponObject.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\Projectile.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\WeaponObject.cs" />

@@ -7,10 +7,10 @@ public class WorldScript {
 
     public static WorldScript world;
 
-    public int gold, rs, saveNr, storageSize;
+    public int gold, rs, saveNr, storageSize, shopSize, shopLevel;
     public bool isActive; //Den sparningen som startar om man klickar continue
 
-    public string[] storageArr;
+    public string[] storageArr, shopArr;
 
     public List<CharacterScript> characterList;
     public List<Stats> statsList;
@@ -21,7 +21,10 @@ public class WorldScript {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
         storageSize = 64;
+        shopSize = 4;
+        shopLevel = 0;
         storageArr = new string[storageSize];
+        shopArr = new string[shopSize];
 
         gold = 400;
         isActive = true;
@@ -35,11 +38,19 @@ public class WorldScript {
 
         AddItem("wp1", 2);
         AddItem("wp2", 1);
+
+        FillShop();
     }
 
     public void ClearInventory() {
         for (int i = 0; i < storageSize; i++) {
             storageArr[i] = "";
+        }
+    }
+
+    public void FillShop() {
+        for (int i = 0; i < shopSize; i++) {
+            shopArr[i] = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
         }
     }
 

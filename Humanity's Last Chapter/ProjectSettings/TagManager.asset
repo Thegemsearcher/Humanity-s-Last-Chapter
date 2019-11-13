@@ -34,6 +34,7 @@ TagManager:
   - forSaves
   - CharacterUiInMissionMapCusImStupid
   - CharacterSlot
+  - StoreSlot
   layers:
   - Default
   - TransparentFX
