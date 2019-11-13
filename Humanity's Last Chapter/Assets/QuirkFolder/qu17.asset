@@ -10,17 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca956dcf6f15b942b45f56ac7395f1e, type: 3}
-  m_Name: qu9
+  m_Name: qu17
   m_EditorClassIdentifier: 
-  quirkName: Genocider
-  quirkDescription: in this world it's kill or be killed
+  quirkName: Lazy
+  quirkDescription: if I can accomplish this without doing anything then that's what
+    I'm gonna do
   hp: 0
-  str: 3
-  def: 3
-  Int: 0
-  dex: 2
-  cha: -6
-  ldr: -6
+  str: 0
+  def: 0
+  Int: 1
+  dex: -2
+  cha: 0
+  ldr: 0
   nrg: 0
   snt: 0
-  quirk: {fileID: 0}
+  quirk: {fileID: 11400000, guid: 6c2d391544166f24c8e08ce272a24bc2, type: 2}

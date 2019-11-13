@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca956dcf6f15b942b45f56ac7395f1e, type: 3}
-  m_Name: qu9
+  m_Name: qu14
   m_EditorClassIdentifier: 
-  quirkName: Genocider
-  quirkDescription: in this world it's kill or be killed
+  quirkName: Charismatic
+  quirkDescription: hey, how's it going
   hp: 0
-  str: 3
-  def: 3
+  str: 0
+  def: -2
   Int: 0
-  dex: 2
-  cha: -6
-  ldr: -6
+  dex: 0
+  cha: 3
+  ldr: 3
   nrg: 0
   snt: 0
-  quirk: {fileID: 0}
+  quirk: {fileID: 11400000, guid: ebe43800080db74419a2dd87f84b1d9c, type: 2}

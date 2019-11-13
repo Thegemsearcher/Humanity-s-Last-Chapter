@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ca956dcf6f15b942b45f56ac7395f1e, type: 3}
-  m_Name: qu9
+  m_Name: qu11
   m_EditorClassIdentifier: 
-  quirkName: Genocider
-  quirkDescription: in this world it's kill or be killed
+  quirkName: Reckless
+  quirkDescription: we have to finish this as fast as possible for everyones sake
   hp: 0
-  str: 3
-  def: 3
-  Int: 0
-  dex: 2
-  cha: -6
-  ldr: -6
+  str: 2
+  def: -3
+  Int: -1
+  dex: 3
+  cha: 0
+  ldr: 0
   nrg: 0
   snt: 0
-  quirk: {fileID: 0}
+  quirk: {fileID: 11400000, guid: ca870305c481cd7408d34e0eb9c37143, type: 2}
