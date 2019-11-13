@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Stats : MonoBehaviour {
     public int hp, maxHp, str, def, Int, dex, cha, ldr, nrg, snt, level, exp, nextLevel;
     private int cost;
+    private int randomQuirk;
     public GameObject characterUI;
     public GameObject prefabCharacterUI;
     CharacterStatWriter writer;
@@ -31,7 +32,9 @@ public class Stats : MonoBehaviour {
         snt = Random.Range(1, 3);   //Just for show.
 
         nextLevel = 10 + (5 * level);
-
+        randomQuirk = Random.Range(0, 9);
+        randomQuirk *= 2;
+        AddQuirk(Assets.assets.quirkArray[randomQuirk]);
         //Fix CharacterCanvas
         characterUI = Instantiate(prefabCharacterUI, new Vector3(0, 0, 0), Quaternion.identity);
         characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -103,6 +106,7 @@ public class Stats : MonoBehaviour {
         dex += quirk.dex;
         cha += quirk.cha;
         ldr += quirk.ldr;
+       
     }
 
     void InitiateList() {
