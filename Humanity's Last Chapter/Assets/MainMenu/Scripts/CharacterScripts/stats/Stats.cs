@@ -8,6 +8,7 @@ public class Stats : MonoBehaviour {
     public int hp, maxHp, str, def, Int, dex, cha, ldr, nrg, snt, level, exp, nextLevel;
     private int cost;
     private int randomQuirk;
+    private string quirkName;
     public GameObject characterUI;
     public GameObject prefabCharacterUI;
     CharacterStatWriter writer;
@@ -43,7 +44,7 @@ public class Stats : MonoBehaviour {
 
         //Set the script to the instance of the CharacterCanvas object, and then run the method in it.
         writer = prefabCharacterUI.GetComponent<CharacterStatWriter>();
-        writer.GetStats(hp, str, def, Int, dex, cha);
+        writer.GetStats(hp, str, def, Int, dex, cha, quirkName);
 
         //Create items
         foreach (Transform t in characterUI.transform) {
@@ -99,6 +100,7 @@ public class Stats : MonoBehaviour {
 
         quirkList.Add(quirk);
 
+        quirkName = quirk.quirkName;
         maxHp += quirk.hp;
         str += quirk.str;
         def += quirk.def;
