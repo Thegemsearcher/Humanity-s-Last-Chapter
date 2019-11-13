@@ -43,7 +43,7 @@ public class Stats : MonoBehaviour {
 
         //Set the script to the instance of the CharacterCanvas object, and then run the method in it.
         writer = prefabCharacterUI.GetComponent<CharacterStatWriter>();
-        writer.GetStats(hp, str, def);
+        writer.GetStats(hp, str, def, Int, dex, cha);
 
         //Create items
         foreach (Transform t in characterUI.transform) {
