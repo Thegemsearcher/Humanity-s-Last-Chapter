@@ -97,12 +97,7 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < pcsToDamage.Length; i++)
         {
             hitPc = true;
-            pcsToDamage[i].GetComponent<Stats>().hp -= dmg;
-            if (pcsToDamage[i].GetComponent<Stats>().hp < 1)
-            {
-                pcsToDamage[i].gameObject.SetActive(false);
-                RemovePcFromList();
-            }
+            pcsToDamage[i].GetComponent<Stats>().TakeDamage(dmg);
         }
         if (hitPc)
             return NodeStates.success;

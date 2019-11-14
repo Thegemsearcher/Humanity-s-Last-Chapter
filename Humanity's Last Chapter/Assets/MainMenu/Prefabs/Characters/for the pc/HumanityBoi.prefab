@@ -147,6 +147,8 @@ MonoBehaviour:
   ItemPrefab: {fileID: 7328032005007390068, guid: fa1004ad50eeca94bb9b683b33e5a063,
     type: 3}
   items: []
+  bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
+    type: 3}
 --- !u!114 &3635717509634122910
 MonoBehaviour:
   m_ObjectHideFlags: 0

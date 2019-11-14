@@ -55,17 +55,15 @@ public class Projectile : MonoBehaviour
         {
             if (hitInfo != false/*hitInfo.collider.CompareTag("Enemy")*/)
             {
-                //Debug.Log("skaträffas");
-                //if (whatIsSolid == 8)
-                hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
-                //else if (whatIsSolid == 10)
-                //{
-                //    hitInfo.collider.GetComponent<Stats>().hp -= damage;
-                //    if (hitInfo.collider.GetComponent<Stats>().hp < 1)
-                //    {
-                //        hitInfo.collider.gameObject.SetActive(false);
-                //    }
-                //}
+                Debug.Log(LayerMask.LayerToName(whatIsSolid.value));
+                if (LayerMaskContains(whatIsSolid, 8))
+                {
+                    hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                }
+                else if (LayerMaskContains(whatIsSolid, 10))
+                {
+                    hitInfo.collider.GetComponent<Stats>().TakeDamage(damage);
+                }
             }
             DestroyProjectile();
         }
@@ -79,6 +77,11 @@ public class Projectile : MonoBehaviour
     {
         //Instantiate(destroyEffect, transform.position, Quaternion.identity); //to make a visual when bullet collides maybe?
         Destroy(gameObject);
+    }
+
+    public bool LayerMaskContains(LayerMask lm, int layer)
+    {
+        return lm == (lm | (1 << layer));
     }
 
     GameObject GetNearestTarget()

@@ -16,6 +16,8 @@ public class Stats : MonoBehaviour {
     private GameObject itemGrid;
     public List<GameObject> items = new List<GameObject>();
     List<QuirkObject> quirkList;
+
+    public ParticleSystem bloodEffect;
     // Start is called before the first frame update
     void Start() {
         if (maxHp == 0) {
@@ -114,6 +116,16 @@ public class Stats : MonoBehaviour {
     void InitiateList() {
 
         quirkList = new List<QuirkObject>();
+    }
+
+    public void TakeDamage(int damage)
+    {
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        hp -= damage;
+        if (hp < 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void LoadPlayer(Stats data) { //Vill ersätta detta med något som typ "this.stats = data" men vet inte hur...
