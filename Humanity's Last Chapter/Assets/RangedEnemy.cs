@@ -50,6 +50,7 @@ public class RangedEnemy : MonoBehaviour
     }
     public NodeStates CloseToWaypoint()
     {
+        Debug.Log(waypoints[currentWP]);
         if (waypoints.Length == 0)
         {
             return NodeStates.fail;
@@ -64,6 +65,7 @@ public class RangedEnemy : MonoBehaviour
     public NodeStates NextWaypoint()
     {
         currentWP++;
+        Debug.Log(waypoints[currentWP]);
         if (currentWP < waypoints.Length)
         {
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWP]);
@@ -78,7 +80,8 @@ public class RangedEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        BT.Start();
+        Debug.Log("i ranged enemy: " + BT);
     }
 
     public NodeStates PcInRange()

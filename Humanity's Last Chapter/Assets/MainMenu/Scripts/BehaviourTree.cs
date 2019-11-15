@@ -97,6 +97,7 @@ public class BehaviourTree : MonoBehaviour
 
     public RootNode GetRangedEnemyBt()
     {
+        Debug.Log("tar ett Bt för ranged enemy");
         List<Node> nodes = new List<Node>();
 
         #region Movement

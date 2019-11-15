@@ -179,7 +179,7 @@ public class PlayerAttack : MonoBehaviour
         //}
         if (loadoutType == "Pistol")
         {
-            Debug.Log("pistol skott");
+            //Debug.Log("pistol skott");
             projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
             projectile0.GetComponent<Projectile>().CreateProjectile(0f);
             projectile0.GetComponent<Projectile>().SetTargetPos(GetNearestTarget().transform.position);

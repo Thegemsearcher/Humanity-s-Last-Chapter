@@ -55,7 +55,7 @@ public class Projectile : MonoBehaviour
         {
             if (hitInfo != false/*hitInfo.collider.CompareTag("Enemy")*/)
             {
-                Debug.Log(LayerMask.LayerToName(whatIsSolid.value));
+                //Debug.Log(LayerMask.LayerToName(whatIsSolid.value));
                 if (LayerMaskContains(whatIsSolid, 8))
                 {
                     hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
