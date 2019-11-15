@@ -11,15 +11,12 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public Text txtName, txtDescrip;
 
     void Start() {
-        //if((txtName.isN)) {
-            txtName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
-            txtDescrip = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
-        //}
+        txtName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
+        txtDescrip = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
     }
 
     public void Equip() {
         if(isActive) {
-            //Child change parent
             isActive = false;
         }
     }

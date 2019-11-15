@@ -21,7 +21,7 @@ public class WorldScript {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
         storageSize = 64;
-        shopSize = 4;
+        shopSize = 10;
         shopLevel = 0;
         storageArr = new string[storageSize];
         shopArr = new string[shopSize];
@@ -32,6 +32,7 @@ public class WorldScript {
         saveNr = 0;
 
         ClearInventory();
+        ClearShop();
 
         AddItem("hi0", 3);
         AddItem("hi1", 2);
@@ -48,9 +49,25 @@ public class WorldScript {
         }
     }
 
+    public void ClearShop() {
+        for (int i = 0; i < shopSize; i++) {
+            shopArr[i] = "";
+        }
+    }
+
     public void FillShop() {
         for (int i = 0; i < shopSize; i++) {
             shopArr[i] = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
+        }
+    }
+    public void AddToStore(string id, int amount) {
+        for (int i = 0; i < amount; i++) {
+            for (int j = 0; j < shopSize; j++) {
+                if (shopArr[j] == "") {
+                    shopArr[j] = id;
+                    break;
+                }
+            }
         }
     }
 

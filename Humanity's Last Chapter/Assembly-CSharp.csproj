@@ -65,6 +65,7 @@
     <Compile Include="Assets\AbilityScript.cs" />
     <Compile Include="Assets\BulletM.cs" />
     <Compile Include="Assets\HPinCombat.cs" />
+    <Compile Include="Assets\ItemInfo.cs" />
     <Compile Include="Assets\LoadMainMenu.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Assets.cs" />
     <Compile Include="Assets\MainMenu\Scripts\BehaviourTree.cs" />
@@ -170,6 +171,7 @@
     <Compile Include="Assets\RangedEnemy.cs" />
     <Compile Include="Assets\ResourceText.cs" />
     <Compile Include="Assets\SaveSlot.cs" />
+    <Compile Include="Assets\ShopSlotScript.cs" />
     <Compile Include="Assets\StartMissionUI.cs" />
     <Compile Include="Assets\UIControls.cs" />
     <Compile Include="Assets\WeaponAttack.cs" />
