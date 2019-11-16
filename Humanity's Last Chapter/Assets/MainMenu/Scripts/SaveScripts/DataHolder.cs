@@ -20,6 +20,11 @@ public class DataHolder {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
 
+        if(Assets.assets == null) {
+            Assets.assets = new Assets();
+            Assets.assets.GetAssets();
+        }
+
         path = Application.persistentDataPath + "/Saves/";
     }
 
@@ -78,6 +83,11 @@ public class DataHolder {
         WorldScript.world.gold = data.worldData.gold;
         WorldScript.world.rs = data.worldData.rs;
         WorldScript.world.saveNr = data.worldData.saveNr;
+        WorldScript.world.storageSize = data.worldData.storageSize;
+        WorldScript.world.shopSize = data.worldData.shopSize;
+        WorldScript.world.shopLevel = data.worldData.shopLevel;
+        WorldScript.world.storageArr = data.worldData.storageArr;
+        WorldScript.world.shopArr = data.worldData.shopArr;
         WorldScript.world.isActive = data.worldData.isActive;
 
         foreach (CharacterData characterData in data.characterDataList) {

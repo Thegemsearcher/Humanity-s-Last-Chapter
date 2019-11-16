@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":3.9038844108581545,"y":-5.024779796600342,"z":-34.591796875},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":11.86950397491455,"orthographic":true}
-=======
 ﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":-0.981461763381958,"y":0.418435275554657,"z":69.59991455078125},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":12.777728080749512,"orthographic":true}
->>>>>>> MarkusTest

@@ -72,15 +72,12 @@ public class PlayerAttack : MonoBehaviour {
         return NodeStates.success;
     }
 
-<<<<<<< HEAD
-    public NodeStates MeleeAttack()
-    {
-        //Debug.Log("melee");
-        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
-=======
-    public NodeStates WithinAggroRange() {
->>>>>>> MarkusTest
+    //public NodeStates MeleeAttack() {
+    //    //Debug.Log("melee");
+    //    Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
+    //}
 
+    public NodeStates WithinAggroRange() {
         return NodeStates.success;
     }
 
@@ -95,49 +92,10 @@ public class PlayerAttack : MonoBehaviour {
         tWeapon = GetComponentInChildren<WeaponAttack>();
     }
 
-<<<<<<< HEAD
-    private void TestCombat()
-    {
-        //enemy = GetNearestTarget().transform;
-        //enemyPos = enemy.position;
-        //enemyDistance = Vector3.Distance(enemyPos, transform.position);
-        //Debug.Log("Distance: " + enemyDistance);
-        //if (attackTimer <= 0)
-        //{
-        //    if (enemyDistance <= aggroDistance)
-        //    {
-        //        if (loadoutType == "Melee")
-        //        {
-        //            Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
-
-        //            for (int i = 0; i < enemiesToDamage.Length; i++)
-        //            {
-        //                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
-        //            }
-        //        }
-                
-        //    }
-        //}
-        if (loadoutType == "Pistol")
-        {
-            //Debug.Log("pistol skott");
-            projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-            projectile0.GetComponent<Projectile>().CreateProjectile(0f);
-            projectile0.GetComponent<Projectile>().SetTargetPos(GetNearestTarget().transform.position);
-        }
-        if (loadoutType == "Shotgun")
-        {
-            Debug.Log("using Shotgun");
-            for (int i = 0; i < 4; i++)
-            {
-                projectile0 = Instantiate(projectile, transform.position, Quaternion.identity);
-                projectile0.GetComponent<Projectile>().CreateProjectile(1f);
-=======
     public NodeStates IsRanged() {
         if (tWeapon != null) {
             if (tWeapon.IsRange()) {
                 return NodeStates.success;
->>>>>>> MarkusTest
             }
         } else {
             tWeapon = GetComponentInChildren<WeaponAttack>();
