@@ -6,20 +6,17 @@ using UnityEngine.EventSystems;
 
 public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
 
-    public bool isActive;
+    public bool isActive, inside;
     public string itemName, itemDescrip;
     public Text txtName, txtDescrip;
 
     void Start() {
-        //if((txtName.isN)) {
-            txtName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
-            txtDescrip = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
-        //}
+        txtName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
+        txtDescrip = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
     }
 
     public void Equip() {
         if(isActive) {
-            //Child change parent
             isActive = false;
         }
     }
@@ -29,12 +26,13 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             txtName.text = itemName;
             txtDescrip.text = itemDescrip;
         }
-        
+        inside = true;
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        //txtName.text = "-";
-        //txtDescrip.text = "";
+        txtName.text = "-";
+        txtDescrip.text = "";
+        inside = false;
     }
 
     public void GetItem(string itemName, string itemDescrip) {

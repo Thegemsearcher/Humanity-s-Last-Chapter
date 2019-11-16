@@ -13,17 +13,17 @@ public class PartyScript : MonoBehaviour {
     private List<Stats> statsList;
     //private WorldScript worldScript;
     private Transform transParent;
-    private GameObject[] characterArr; //Används som en holder för att hålla alla karaktärer som finns så den kan spara dem  
 
-    public ScriptableQuest[] questTemp; //Har alla quests som mall
-    public WeaponObject[] weaponTemp;
-    public ScriptableCollection[] coTemp;
-    public LocationObject[] loTemp;
-    public InteractObject[] ioTemp;
+    public GameObject weapon;
+    private GameObject weaponO;
 
     void Start() {
         InstantiateLists();
-        LoadAssets();
+
+        if (Assets.assets == null) {
+            Assets.assets = new Assets();
+            Assets.assets.GetAssets();
+        }
 
         if (WorldScript.world == null) {
             WorldScript.world = new WorldScript();
@@ -43,55 +43,30 @@ public class PartyScript : MonoBehaviour {
         foreach (CharacterScript characterScript in characterScriptList) {
 
             //if(characterScript.GetComponent<CharacterScript>().isEnlisted) {
-                characterO = Instantiate(character);
+            characterO = Instantiate(character);
 
-                characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
-                characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
+            characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+            characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
+            
+            //Annan kod
+            characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember, partyMember);
+            characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
+            gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
 
-                //Annan kod
-                characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember, partyMember);
-                characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
-                gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
+            Debug.Log("wpID: " + characterScript.rangedId);
+            SpawnWeapon(characterScript.rangedId, characterO.transform);
 
-                CreateUI(characterScript, statsList[partyMember]);
+            CreateUI(characterScript, statsList[partyMember]);
 
-                characterO.transform.SetParent(transParent, false);
-                partyMember++;
+            characterO.transform.SetParent(transParent, false);
+            partyMember++;
             //}
-           
+
         }
         characterScriptList.Clear(); //Rensar listan
-
-
-
-        //characterO = Instantiate(character) as GameObject;
-        ////characterO.transform.parent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
-        //characterO.transform.localScale = new Vector3(1, 1, 1);
-        //characterO.transform.position = new Vector3(1, 1);
-        //characterO.GetComponent<CharacterScript>().LoadPlayer(missionOrder[i]);
-        
-        //characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i, i);
-        //characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
-        ////rollen karaktären har borde gå att bestämmas med i
-        //gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
-
-        //characterStats = characterO.GetComponent<stats>();
-        //characterScript = characterO.GetComponent<CharacterScript>();
-        //CreateUI(characterScript, characterStats);
-    }
-    private void LoadAssets() {
-        weaponTemp = GetAtPath<WeaponObject>("WeaponFolder");
-        loTemp = GetAtPath<LocationObject>("MissionFolder/LocationObjectives");
-        coTemp = GetAtPath<ScriptableCollection>("MissionFolder/CollectionObjectives");
-        ioTemp = GetAtPath<InteractObject>("MissionFolder/InteractObjectives");
     }
 
     private void LoadWorld() {
-        //SaveData data = SaveSystem.LoadWorld(0); //Den behöver få saveSlot tidigare... tror man bara rakt ut kan skicka den från den tidigare scenen
-        //characterScriptList = data.characterList;
-        //statsList = data.statsList;
-        ////worldScript = data.world;
-
         SpawnCharacters();
     }
 
@@ -103,6 +78,8 @@ public class PartyScript : MonoBehaviour {
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
 
+            SpawnWeapon("wp"+Random.Range(0, Assets.assets.weaponTemp.Length), characterO.transform);
+
             //CreateUI(characterO.GetComponent<CharacterScript>(), statsList[i]);
 
             characterO.transform.SetParent(transParent, false);
@@ -113,36 +90,23 @@ public class PartyScript : MonoBehaviour {
         characterO = Instantiate(UIHealth);
         uiHealth = characterO.GetComponent<UIHealthBoi>();
         uiHealth.GetData(characterScript.strName, characterScript.id, characterStats.hp, characterStats.maxHp); //Måste gå att kunna göra snyggare!
-        characterO.transform.SetParent(GameObject.Find("forCharacter").transform, false);
+        //characterO.transform.SetParent(GameObject.Find("forCharacter").transform, false);
     }
 
-    public static T[] GetAtPath<T>(string path) { //Hittar assets i deras folders
-        ArrayList al = new ArrayList();
-        string[] fileEntries = Directory.GetFiles(Application.dataPath + "/" + path);
+    public void SpawnWeapon(string wpId, Transform parent) {
+        weaponO = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
+        weaponO.transform.SetParent(parent, false);
+        weaponO.transform.localScale = new Vector3(1, 1, 1);
 
-        foreach (string fileName in fileEntries) {
-            int index = fileName.LastIndexOf("/");
-            string localPath = "Assets";
-
-            if (index > 0) {
-                localPath += fileName.Substring(index);
-            }
-
-            Object t = AssetDatabase.LoadAssetAtPath(localPath, typeof(T));
-
-            if (t != null) {
-                al.Add(t);
+        foreach (WeaponObject wp in Assets.assets.weaponTemp) {
+            if (wp.name == wpId) {
+                weaponO.GetComponent<WeaponAttack>().GetData(wp);
+                break;
             }
         }
-
-        T[] result = new T[al.Count];
-
-        for (int i = 0; i < al.Count; i++) {
-            result[i] = (T)al[i];
-        }
-        return result;
     }
 
+    
     private void InstantiateLists() {
         characterScriptList = new List<CharacterScript>();
         statsList = new List<Stats>();
