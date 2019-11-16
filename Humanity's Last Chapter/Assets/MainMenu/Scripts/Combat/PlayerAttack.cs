@@ -129,7 +129,7 @@ public class PlayerAttack : MonoBehaviour
 
     public NodeStates MeleeAttack()
     {
-        Debug.Log("melee");
+        //Debug.Log("melee");
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
 
         for (int i = 0; i < enemiesToDamage.Length; i++)

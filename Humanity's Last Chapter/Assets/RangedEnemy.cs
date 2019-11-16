@@ -47,10 +47,11 @@ public class RangedEnemy : MonoBehaviour
         currentWP = 0;
         //Debug.Log("" + waypoints.Length);
         BT = GetComponent<BehaviourTree>().GetRangedEnemyBt();
+        Debug.Log("skapas som den ska");
     }
     public NodeStates CloseToWaypoint()
     {
-        Debug.Log(waypoints[currentWP]);
+        //Debug.Log(waypoints[currentWP]);
         if (waypoints.Length == 0)
         {
             return NodeStates.fail;
@@ -65,7 +66,7 @@ public class RangedEnemy : MonoBehaviour
     public NodeStates NextWaypoint()
     {
         currentWP++;
-        Debug.Log(waypoints[currentWP]);
+        //Debug.Log(waypoints[currentWP]);
         if (currentWP < waypoints.Length)
         {
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWP]);
@@ -80,8 +81,14 @@ public class RangedEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (BT == null)
+        {
+            Debug.Log("inget BT");
+            return;
+        }
+        Debug.Log("går in i update");
         BT.Start();
-        Debug.Log("i ranged enemy: " + BT);
+        Debug.Log("i ranged enemy: " );
     }
 
     public NodeStates PcInRange()
@@ -100,20 +107,24 @@ public class RangedEnemy : MonoBehaviour
         }
 
         if (targetedPc != null)
+        {
+            //Debug.Log("ser en karaktär");
             return NodeStates.success;
+        }
 
+        //Debug.Log("kan inte se en karaktär");
         return NodeStates.fail;
     }
 
     public NodeStates RangedAttack()
     {
-        if (!(GetComponent<Enemy>().attackTimer <= 0))
+        if (GetComponent<Enemy>().attackTimer > 0)
             return NodeStates.fail;
-        projectile = Instantiate(projectile, transform.position, Quaternion.identity);
+        projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
         projectile.GetComponent<Projectile>().CreateProjectile(0f);
-        projectile.GetComponent<Projectile>().whatIsSolid = 10;
         projectile.GetComponent<Projectile>().SetTargetPos(targetedPc.transform.position);
 
+        projectile.GetComponent<Projectile>().whatIsSolid = GetComponent<Enemy>().pcLayer;
         GetComponent<Enemy>().attackTimer = GetComponent<Enemy>().timeBetweenAttack;
         lastSeenPlayerPos = targetedPc.transform.position;
         targetedPc = null;

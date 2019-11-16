@@ -3608,6 +3608,12 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3714644390309531196, guid: 1bedd59abca17f64cad4cb6f2343ae94,
+        type: 3}
+      propertyPath: bloodEffect
+      value: 
+      objectReference: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1bedd59abca17f64cad4cb6f2343ae94, type: 3}
 --- !u!1 &1340531576

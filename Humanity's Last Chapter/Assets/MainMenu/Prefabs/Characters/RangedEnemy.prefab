@@ -277,7 +277,7 @@ MonoBehaviour:
   dmg: 1
   pcLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 1024
   attackTimer: 0
-  timeBetweenAttack: 0
+  timeBetweenAttack: 2
   bloodEffect: {fileID: 0}
