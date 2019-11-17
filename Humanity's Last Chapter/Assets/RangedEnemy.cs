@@ -97,9 +97,12 @@ public class RangedEnemy : MonoBehaviour
         {
             Vector2 v = go.transform.position - transform.position;
             RaycastHit2D ray = Physics2D.Raycast(transform.position, v, range, 9);
-            if (targetedPc == null && !ray && Vector2.Distance(go.transform.position, transform.position) < range)
+            if (targetedPc == null)
             {
-                targetedPc = go;
+                if (!ray && Vector2.Distance(go.transform.position, transform.position) < range)
+                {
+                    targetedPc = go;
+                }
             } else if (!ray && Vector2.Distance(go.transform.position,transform.position) < Vector2.Distance(targetedPc.transform.position,transform.position))
             {
                 targetedPc = go;
