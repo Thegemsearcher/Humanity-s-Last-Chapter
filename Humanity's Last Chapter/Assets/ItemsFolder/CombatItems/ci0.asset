@@ -15,3 +15,4 @@ MonoBehaviour:
   texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   itemName: Strong Cookie
   description: This cookie will give you strong power!!!
+  cost: 100

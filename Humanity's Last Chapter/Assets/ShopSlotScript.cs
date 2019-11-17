@@ -18,7 +18,7 @@ public class ShopSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     void Update() {
         if (inside && isActive) {
             if (Input.GetMouseButtonDown(0)) {
-                if (tag == "ShopSlot") {
+                if (tag == "StoreSlot") {
                     if (WorldScript.world.gold >= cost) {
                         WorldScript.world.gold -= cost;
                         WorldScript.world.AddItem(itemID, 1);

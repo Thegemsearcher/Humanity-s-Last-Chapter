@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Minigun
   description: BAM BAM BAM BAM
-  cost: 120
-  damage: 1
+  cost: 300
+  damage: 2
   bullets: 1
-  wpLevel: 1
+  wpLevel: 2
   fireRate: 0.05
   range: 15
   spread: 0.5

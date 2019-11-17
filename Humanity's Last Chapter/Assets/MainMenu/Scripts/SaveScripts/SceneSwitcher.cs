@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour {
 
     public void GoToHub() {
+        WorldScript.world.date++;
+        WorldScript.world.FillShop();
         WorldScript.world.Save();
         SceneManager.LoadScene("Hub");
     }

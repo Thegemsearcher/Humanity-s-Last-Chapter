@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Padde Killer
   description: 'The ultimate padde killer '
-  cost: 20
-  damage: 3
+  cost: 250
+  damage: 2
   bullets: 1
   wpLevel: 2
   fireRate: 0.4

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Shotgun
   description: "Varf\xF6r skjuta ett skott n\xE4r man kan skjuta m\xE5nga?"
-  cost: 300
+  cost: 120
   damage: 6
   bullets: 5
   wpLevel: 1

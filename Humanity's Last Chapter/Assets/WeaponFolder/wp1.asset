@@ -15,9 +15,9 @@ MonoBehaviour:
   weaponName: Rifle
   description: Simple rifle with slow fire and high damage
   cost: 80
-  damage: 8
+  damage: 12
   bullets: 1
-  wpLevel: 0
+  wpLevel: 1
   fireRate: 2
   range: 40
   spread: 0.2

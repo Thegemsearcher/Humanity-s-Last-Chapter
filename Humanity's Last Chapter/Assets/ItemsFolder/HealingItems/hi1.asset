@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Drugz
   description: Don't worry it's for a school project
   healPower: 1000
+  cost: 600

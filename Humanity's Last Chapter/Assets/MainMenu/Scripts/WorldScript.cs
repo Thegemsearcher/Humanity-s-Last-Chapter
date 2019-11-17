@@ -7,8 +7,10 @@ public class WorldScript {
 
     public static WorldScript world;
 
-    public int gold, rs, saveNr, storageSize, shopSize, shopLevel;
+    public int gold, rs, saveNr, storageSize, shopSize, shopLevel, date;
     public bool isActive; //Den sparningen som startar om man klickar continue
+    private bool isChoosing;
+    private int itemTest;
 
     public string[] storageArr, shopArr;
 
@@ -22,7 +24,7 @@ public class WorldScript {
         statsList = new List<Stats>();
         storageSize = 64;
         shopSize = 10;
-        shopLevel = 0;
+        shopLevel = 1;
         storageArr = new string[storageSize];
         shopArr = new string[shopSize];
 
@@ -30,6 +32,7 @@ public class WorldScript {
         isActive = true;
         rs = 0;
         saveNr = 0;
+        date = 1;
 
         ClearInventory();
         ClearShop();
@@ -57,7 +60,25 @@ public class WorldScript {
 
     public void FillShop() {
         for (int i = 0; i < shopSize; i++) {
-            shopArr[i] = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
+            isChoosing = true;
+            switch (Random.Range(0,2)) {
+                case 0: //Weapon
+                    while (isChoosing) {
+                        itemTest = Random.Range(0, Assets.assets.weaponTemp.Length);
+                        if (Assets.assets.weaponTemp[itemTest].wpLevel <= shopLevel) {
+                            shopArr[i] = "wp" + itemTest;
+                            isChoosing = false;
+                        }
+                    }
+                    break;
+                case 1: //Healing
+                    shopArr[i] = "hi" + Random.Range(0, Assets.assets.healingTemp.Length);
+                    break;
+                case 2: //Combat
+                    shopArr[i] = "ci" + Random.Range(0, Assets.assets.combatTemp.Length);
+                    break;
+            }
+            
         }
     }
     public void AddToStore(string id, int amount) {

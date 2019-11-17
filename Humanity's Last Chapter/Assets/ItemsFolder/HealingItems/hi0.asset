@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Weak Bandage
   description: A bandage to coverup small wounds!!!
   healPower: 2
+  cost: 30
