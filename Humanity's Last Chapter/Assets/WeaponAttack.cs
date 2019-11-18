@@ -35,7 +35,9 @@ public class WeaponAttack : MonoBehaviour {
         if (closestEnemy != null) {
             Vector3 difference = closestEnemy.transform.position - transform.position;
             rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+            gameObject.transform.parent.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+
+            //gameObject.transform.parent
         }
 
         //Kan ha en ifstats eller bool som säger om den endast ska sikta mot den om den är i range
