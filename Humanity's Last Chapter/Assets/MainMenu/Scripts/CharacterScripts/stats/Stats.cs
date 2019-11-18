@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Stats : MonoBehaviour {
+public class Stats : MonoBehaviour
+{
     public int hp, maxHp, str, def, Int, dex, cha, ldr, nrg, snt, level, exp, nextLevel;
     private int cost;
     private int randomQuirk;
@@ -16,28 +17,34 @@ public class Stats : MonoBehaviour {
     private GameObject itemGrid;
     public List<GameObject> items = new List<GameObject>();
     List<QuirkObject> quirkList;
-
+    public bool shit;
     public ParticleSystem bloodEffect;
     // Start is called before the first frame update
-    void Start() {
-        if (maxHp == 0) {
+    void Start()
+    {
+        if (maxHp == 0)
+        {
             maxHp = Random.Range(6, 11);//Just for show.
             hp = maxHp;
         }
+        Debug.Log("Shit is " + shit);
+        if (shit == false)
+        {
+            shit = true;
+            str = Random.Range(1, 3);   //Just for show.
+            def = Random.Range(1, 3);   //Just for show.
+            Int = Random.Range(1, 3);   //Just for show.
+            dex = Random.Range(1, 3);   //Just for show.
+            cha = Random.Range(1, 3);   //Just for show.
+            ldr = Random.Range(1, 3);   //Just for show.
+            nrg = Random.Range(1, 3);   //Just for show.
+            snt = Random.Range(1, 3);   //Just for show.
 
-        str = Random.Range(1, 3);   //Just for show.
-        def = Random.Range(1, 3);   //Just for show.
-        Int = Random.Range(1, 3);   //Just for show.
-        dex = Random.Range(1, 3);   //Just for show.
-        cha = Random.Range(1, 3);   //Just for show.
-        ldr = Random.Range(1, 3);   //Just for show.
-        nrg = Random.Range(1, 3);   //Just for show.
-        snt = Random.Range(1, 3);   //Just for show.
-
-        nextLevel = 10 + (5 * level);
-        randomQuirk = Random.Range(0, 9);
-        randomQuirk *= 2;
-        AddQuirk(Assets.assets.quirkArray[randomQuirk]);
+            nextLevel = 10 + (5 * level);
+            randomQuirk = Random.Range(0, 9);
+            randomQuirk *= 2;
+            AddQuirk(Assets.assets.quirkArray[randomQuirk]);
+        }
         //Fix CharacterCanvas
         characterUI = Instantiate(prefabCharacterUI, new Vector3(0, 0, 0), Quaternion.identity);
         characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -49,15 +56,18 @@ public class Stats : MonoBehaviour {
         writer.GetStats(hp, str, def, Int, dex, cha, quirkName);
 
         //Create items
-        foreach (Transform t in characterUI.transform) {
-            if (t.tag == "ItemGrid") {
+        foreach (Transform t in characterUI.transform)
+        {
+            if (t.tag == "ItemGrid")
+            {
                 itemGrid = t.gameObject;
             }
         }
         for (int x = 0; x < 6; x++)
             items.Add(Instantiate(ItemPrefab, itemGrid.transform));
         //GetComponent<CharacterScript>().LoadPlayer(GetComponent<CharacterScript>().id);
-        for (int x = 0; x < GetComponent<CharacterScript>().itemID.Length; x++) {
+        for (int x = 0; x < GetComponent<CharacterScript>().itemID.Length; x++)
+        {
             string itemId = GetComponent<CharacterScript>().itemID[x];
             if (itemId != null)
                 items[x].GetComponent<ItemScript>().CreateItem(itemId);
@@ -70,33 +80,40 @@ public class Stats : MonoBehaviour {
         //Configure items
         int i = 0;
         int j = 0;
-        foreach (GameObject item in items) {
+        foreach (GameObject item in items)
+        {
             item.GetComponent<ItemScript>().SetSlot(item.transform.position + new Vector3(0 + i * 0.6f, 0 - j * 0.6f, 0)); // + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
             i++;
-            if (i > 2) {
+            if (i > 2)
+            {
                 i = 0;
                 j++;
             }
         }
     }
 
-    public int GetCost() {
+    public int GetCost()
+    {
         cost = (maxHp * 10) + (str * 3) + (def * 3);
         return cost;
     }
 
-    public void BringUpStats() {
+    public void BringUpStats()
+    {
         //GetComponentInParent<AddToPlayerRoster>().controller.GetComponent<HubCharController>().CloseAllWindows();
         characterUI.SetActive(true);
     }
 
-    public void GetStats(int maxHp, int hp) { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!
+    public void GetStats(int maxHp, int hp)
+    { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!
         this.maxHp = maxHp;
         this.hp = hp;
     }
 
-    public void AddQuirk(QuirkObject quirk) {
-        if (quirkList == null) {
+    public void AddQuirk(QuirkObject quirk)
+    {
+        if (quirkList == null)
+        {
             InitiateList();
         }
 
@@ -110,10 +127,11 @@ public class Stats : MonoBehaviour {
         dex += quirk.dex;
         cha += quirk.cha;
         ldr += quirk.ldr;
-       
+
     }
 
-    void InitiateList() {
+    void InitiateList()
+    {
 
         quirkList = new List<QuirkObject>();
     }
@@ -128,7 +146,9 @@ public class Stats : MonoBehaviour {
         }
     }
 
-    public void LoadPlayer(Stats data) { //Vill ersätta detta med något som typ "this.stats = data" men vet inte hur...
+    public void LoadPlayer(Stats data)
+    { //Vill ersätta detta med något som typ "this.stats = data" men vet inte hur...
+        shit = data.shit;
         hp = data.hp;
         maxHp = data.maxHp;
         str = data.str;
