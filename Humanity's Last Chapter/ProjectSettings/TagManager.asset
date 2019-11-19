@@ -4,47 +4,33 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Location
-  - ItemGrid
-  - CharacterManager
+  - Building
   - Character
   - Item
-  - Loot
-  - FuckingFindThisPieceOfShitPlease
-  - Waypoint
-  - ObjectiveStarted
-  - QuestStarted
-  - Faction
+  - CharacterUiInMissionMapCusImStupid
+  - ItemGrid
+  - TextItemDescrip
+  - TextItemName
   - Enemy
-  - EnemySpawn
-  - QuestGiver
-  - Building
+  - AbilitySlot
+  - ForRole
+  - CharacterSlot
+  - EnlistList
+  - ForItemStorage
   - PartyView
+  - ForStoreStorage
   - LoadManager
+  - CharacterManager
   - Controller
   - CharacterWindow
   - role
-  - ForUI
-  - EnlistList
   - UICharacterRole
-  - ForRole
-  - ItemSlot
-  - TextItemName
-  - TextItemDescrip
-  - forSaves
-  - CharacterUiInMissionMapCusImStupid
-  - CharacterSlot
   - StoreSlot
-  - ForItemStorage
-  - ForStoreStorage
-<<<<<<< HEAD
-  - WeaponSlot
-  - ClothSlot
-  - InventorySlot
+  - ItemSlot
   - StorageMoveParent
-=======
-  - AbilitySlot
->>>>>>> 56ee3893d21f6663479796ecd6cf9352b113f25b
+  - ClothSlot
+  - WeaponSlot
+  - InventorySlot
   layers:
   - Default
   - TransparentFX
@@ -54,9 +40,9 @@ TagManager:
   - UI
   - 
   - 
-  - Enemy
-  - building
-  - BOI
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -81,10 +67,4 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
-    locked: 0
-  - name: BoiUi
-    uniqueID: 1407955477
-    locked: 0
-  - name: New Layer
-    uniqueID: 1047069207
     locked: 0
