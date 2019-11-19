@@ -44,16 +44,13 @@ public class PartyScript : MonoBehaviour {
 
             //if(characterScript.GetComponent<CharacterScript>().isEnlisted) {
             characterO = Instantiate(character);
-
             characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
             characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
             
             //Annan kod
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember, partyMember);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
-            gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
-
-            Debug.Log("wpID: " + characterScript.rangedId);
+            gameObject.GetComponent<CharacterMovement>().AddPc(characterO);        
             SpawnWeapon(characterScript.rangedId, characterO.transform);
 
             CreateUI(characterScript, statsList[partyMember]);

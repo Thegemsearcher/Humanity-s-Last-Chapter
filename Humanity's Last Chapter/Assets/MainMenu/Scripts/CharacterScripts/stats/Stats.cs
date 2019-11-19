@@ -19,6 +19,7 @@ public class Stats : MonoBehaviour
     List<QuirkObject> quirkList;
     public bool shit;
     public ParticleSystem bloodEffect;
+    public List<string> quirkIDList;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,9 +28,10 @@ public class Stats : MonoBehaviour
             maxHp = Random.Range(6, 11);//Just for show.
             hp = maxHp;
         }
-        Debug.Log("Shit is " + shit);
+       
         if (shit == false)
         {
+            quirkIDList = new List<string>();
             shit = true;
             str = Random.Range(1, 3);   //Just for show.
             def = Random.Range(1, 3);   //Just for show.
@@ -44,7 +46,9 @@ public class Stats : MonoBehaviour
             randomQuirk = Random.Range(0, 9);
             randomQuirk *= 2;
             AddQuirk(Assets.assets.quirkArray[randomQuirk]);
+
         }
+        Debug.Log("Str is " + str);
         //Fix CharacterCanvas
         characterUI = Instantiate(prefabCharacterUI, new Vector3(0, 0, 0), Quaternion.identity);
         characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -53,7 +57,20 @@ public class Stats : MonoBehaviour
 
         //Set the script to the instance of the CharacterCanvas object, and then run the method in it.
         writer = prefabCharacterUI.GetComponent<CharacterStatWriter>();
-        writer.GetStats(hp, str, def, Int, dex, cha, quirkName);
+        foreach(string quirkId in quirkIDList)
+        {
+            foreach(QuirkObject quirk in Assets.assets.quirkArray)
+            {
+                if(quirk.name == quirkId)
+                {
+                    writer.GetStats(hp, str, def, Int, dex, cha, quirk.quirkName);
+                    break;
+                }
+            }
+         
+
+        }
+       
 
         //Create items
         foreach (Transform t in characterUI.transform)
@@ -116,8 +133,9 @@ public class Stats : MonoBehaviour
         {
             InitiateList();
         }
-
+        quirkIDList.Add(quirk.name);
         quirkList.Add(quirk);
+    
 
         quirkName = quirk.quirkName;
         maxHp += quirk.hp;
@@ -148,6 +166,7 @@ public class Stats : MonoBehaviour
 
     public void LoadPlayer(Stats data)
     { //Vill ersätta detta med något som typ "this.stats = data" men vet inte hur...
+        quirkIDList = data.quirkIDList;
         shit = data.shit;
         hp = data.hp;
         maxHp = data.maxHp;
