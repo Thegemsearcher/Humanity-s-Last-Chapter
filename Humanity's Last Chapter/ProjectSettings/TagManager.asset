@@ -37,6 +37,7 @@ TagManager:
   - StoreSlot
   - ForItemStorage
   - ForStoreStorage
+  - AbilitySlot
   layers:
   - Default
   - TransparentFX

@@ -54,6 +54,7 @@ public class AbilityScript : MonoBehaviour
     }
     public void SpawnTurret()
     {
-
+        GameObject go = Instantiate(Turret);
+        go.transform.position = (new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0));
     }
 }

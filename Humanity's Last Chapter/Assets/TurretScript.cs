@@ -15,6 +15,7 @@ public class TurretScript : MonoBehaviour
     RaycastHit2D ray;
     GameObject[] enemies;
     GameObject closestEnemy;
+    float offsetRot = 270;
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +61,7 @@ public class TurretScript : MonoBehaviour
         float rotZ;
         Vector3 difference = closestEnemy.transform.position - transform.position;
         rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        gameObject.transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, rotZ);
+        gameObject.transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, rotZ + offsetRot);
     }
 
 }
