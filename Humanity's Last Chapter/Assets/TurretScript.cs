@@ -15,16 +15,32 @@ public class TurretScript : MonoBehaviour
     RaycastHit2D ray;
     GameObject[] enemies;
     GameObject closestEnemy;
+    float offsetRot = 270;
+    float StartTimer = 15;
+    float timer = 0;
+    Transform timerUi;
+    Vector3 timerLocalScale = Vector3.zero;
+    RootNode Bt;
     // Start is called before the first frame update
     void Start()
     {
-        
+        Bt = GetComponent<BehaviourTree>().GetTurretBt();
+        timerUi = transform.GetChild(1);
+        timerLocalScale = timerUi.localScale;
     }
 
     // Update is called once per frame
     void Update()
     {
-        InRangeAndSight();
+        if (attackTimer > 0)
+            attackTimer -= Time.deltaTime;
+        if (Bt != null)
+            Bt.Start();
+        timerLocalScale.x = (StartTimer - timer) / StartTimer;
+        timerUi.localScale = 0.5f * timerLocalScale;
+        timer += Time.deltaTime;
+        if (timer >= StartTimer)
+            Destroy(gameObject, 0);
     }
     public NodeStates InRangeAndSight()
     {
@@ -54,13 +70,25 @@ public class TurretScript : MonoBehaviour
         return NodeStates.fail;
     }
 
+    public NodeStates Shoot()
+    {
+        if (attackTimer > 0)
+            return NodeStates.fail;
+        projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
+        projectile.transform.localScale = new Vector3(0.3f,0.5f,1);
+        projectile.GetComponent<Projectile>().CreateProjectile(0f);
+        projectile.GetComponent<Projectile>().SetTargetPos(closestEnemy.transform.position);
+        projectile.GetComponent<Projectile>().whatIsSolid = whatIsEnemy;
+        attackTimer = timeBetweenAttacks;
+        return NodeStates.success;
+    }
 
     public void Rotate()
     {
         float rotZ;
         Vector3 difference = closestEnemy.transform.position - transform.position;
         rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        gameObject.transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, rotZ);
+        gameObject.transform.GetChild(0).rotation = Quaternion.Euler(0f, 0f, rotZ + offsetRot);
     }
 
 }

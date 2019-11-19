@@ -60,6 +60,11 @@ public class RangedEnemy : MonoBehaviour
         {
             return NodeStates.success;
         }
+        if (GetComponent<Enemy>().hasSeenEnemy)
+        {
+            GetComponent<Enemy>().hasSeenEnemy = false;
+            return NodeStates.success;
+        }
         return NodeStates.fail;
     }
 
@@ -112,6 +117,7 @@ public class RangedEnemy : MonoBehaviour
         if (targetedPc != null)
         {
             //Debug.Log("ser en karaktär");
+            GetComponent<Enemy>().hasSeenEnemy = true;
             return NodeStates.success;
         }
 

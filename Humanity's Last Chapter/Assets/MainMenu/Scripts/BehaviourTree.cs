@@ -95,6 +95,24 @@ public class BehaviourTree : MonoBehaviour
         return toReturn;
     }
 
+    public RootNode GetTurretBt()
+    {
+        List<Node> nodes = new List<Node>();
+        #region turretAttack
+        LeafNode canAttack = new LeafNode(GetComponent<TurretScript>().InRangeAndSight);
+        LeafNode shoot = new LeafNode(GetComponent<TurretScript>().Shoot);
+        List<Node> forSequence = new List<Node>();
+        forSequence.Add(canAttack);
+        forSequence.Add(shoot);
+        Sequence sel = new Sequence(forSequence);
+        #endregion
+
+        nodes.Add(sel);
+
+        RootNode toReturn = new RootNode(nodes);
+        return toReturn;
+    }
+
     public RootNode GetRangedEnemyBt()
     {
         Debug.Log("tar ett Bt för ranged enemy");

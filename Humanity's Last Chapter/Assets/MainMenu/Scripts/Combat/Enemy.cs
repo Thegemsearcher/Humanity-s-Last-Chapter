@@ -21,7 +21,7 @@ public class Enemy : MonoBehaviour
     public float timeBetweenAttack;
 
     public ParticleSystem bloodEffect;
-
+    public bool hasSeenEnemy = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -54,17 +54,19 @@ public class Enemy : MonoBehaviour
 
     public NodeStates InAggroRange()
     {
-        
         foreach (GameObject pc in pcs)
         {
             //Debug.Log(""+ Vector3.Distance(transform.position, pc.transform.position));
             if (Vector3.Distance(transform.position, pc.transform.position) < aggroRange)
             {
+                //closestPC = Vector3.Distance(transform.position, pc.transform.position);
                 //Debug.Log("pcn är inom aggrorangen");
+                //iCombatTree = true;
+                hasSeenEnemy = true;
                 return NodeStates.success;
             }
         }
-        
+        //iCombatTree = false;
         return NodeStates.fail;
     }
 
