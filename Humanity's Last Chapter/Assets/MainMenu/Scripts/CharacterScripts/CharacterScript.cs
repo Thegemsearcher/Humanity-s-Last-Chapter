@@ -21,8 +21,13 @@ public class CharacterScript : MonoBehaviour {
             strName = NameGenerator();
             id = GetId();
             rangedId = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
+            itemID = new string[inventorySize];
+
+            for(int i = 0; i < itemID.Length; i++) {
+                itemID[i] = "";
+            }
         }
-        itemID = new string[inventorySize];
+        
     }
 
     private string NameGenerator() {

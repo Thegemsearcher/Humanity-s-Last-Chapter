@@ -11,6 +11,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Vector2 mousePos;
     private GameObject moveParent;
     private Transform oldParent;
+    private ItemInfo itemInfo;
     private GameObject[] ItemSlots, WeaponSlots, ClothSlots, InventorySlots;
 
     void Start() {
@@ -23,6 +24,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
         moveParent = GameObject.FindGameObjectWithTag("StorageMoveParent");
         slotNr = GetComponentInParent<ItemSlotScript>().slotNr;
+        itemInfo = GetComponent<ItemInfo>();
         id = GetComponent<ItemInfo>().id;
     }
 
@@ -52,23 +54,14 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void Place() {
         held = false;
-        //foreach (GameObject itemSlot in ItemSlots) {
+        foreach (GameObject itemSlot in ItemSlots) {
 
-        //    if(itemSlot.GetComponent<ItemSlotScript>().inside) {
-        //        newSlotNr = itemSlot.GetComponent<ItemSlotScript>().slotNr;
-        //        if (WorldScript.world.storageArr[newSlotNr] == "") {
-        //            Move(itemSlot);
-        //            break;
-        //        }
-        //    }
-        //}
-
-        foreach (GameObject weaponSlot in WeaponSlots) {
-            if (weaponSlot.GetComponent<ItemSlotScript>().inside) {
-                if (!weaponSlot.GetComponent<ItemSlotScript>().isActive) {
-                    weaponSlot.GetComponent<ItemSlotScript>().isActive = true;
+            if (itemSlot.GetComponent<ItemSlotScript>().inside) {
+                if (!itemSlot.GetComponent<ItemSlotScript>().isActive) {
+                    itemSlot.GetComponent<ItemSlotScript>().isActive = true;
+                    itemSlot.GetComponent<ItemSlotScript>().GetItem(itemInfo.strName, itemInfo.strDesc, oldParent.GetComponent<ItemSlotScript>().Parent);
                     slotNr = newSlotNr;
-                    gameObject.transform.SetParent(weaponSlot.transform, false);
+                    gameObject.transform.SetParent(itemSlot.transform, false);
                     transform.position = transform.parent.position;
                     oldParent = transform.parent;
                 } else {
@@ -79,6 +72,26 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 break;
             }
         }
+        if (id[0] == 'w') {
+            foreach (GameObject weaponSlot in WeaponSlots) {
+                if (weaponSlot.GetComponent<ItemSlotScript>().inside) {
+                    if (!weaponSlot.GetComponent<ItemSlotScript>().isActive) {
+                        weaponSlot.GetComponent<ItemSlotScript>().isActive = true;
+                        weaponSlot.GetComponent<ItemSlotScript>().GetItem(itemInfo.strName, itemInfo.strDesc, oldParent.GetComponent<ItemSlotScript>().Parent);
+                        slotNr = newSlotNr;
+                        gameObject.transform.SetParent(weaponSlot.transform, false);
+                        transform.position = transform.parent.position;
+                        oldParent = transform.parent;
+                    } else {
+                        Debug.Log("Slot[" + newSlotNr + "] is taken");
+                        gameObject.transform.SetParent(oldParent, false);
+                        transform.position = transform.parent.position;
+                    }
+                    break;
+                }
+            }
+        }
+        
         //foreach (GameObject clothSlot in ClothSlots) {
         //    if (clothSlot.GetComponent<ItemSlotScript>().inside) {
         //        if (WorldScript.world.storageArr[slotNr] == "") {
