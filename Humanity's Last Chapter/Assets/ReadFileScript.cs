@@ -67,6 +67,10 @@ public static class ReadFileScript
             {
                 NewRoad(Convert.ToSingle(words[i + 1]) * 2, Convert.ToSingle(words[i + 2]) * 2);
             }
+            else if(words[i] == "j")
+            {
+                NewRoad(Convert.ToSingle(words[i + 1]) * 2, Convert.ToSingle(words[i + 2]) * 2);
+            }
         }
 
         foreach (GameObject wall in wallsPrefab.GetComponent<GameObjectList>().GetObjects())
