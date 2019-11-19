@@ -10,7 +10,7 @@ public class WanderingEnemy : MonoBehaviour
     Vector3 setPosTo = new Vector3(0,0,0);
     GameObject[] toGoTo;
     public Vector3[] waypoints;
-    int currentWP;
+    public int currentWP;
     float offset = 3f;
     RootNode BT;
     // Start is called before the first frame update
@@ -91,6 +91,11 @@ public class WanderingEnemy : MonoBehaviour
         }
         if (Vector2.Distance(waypoints[currentWP], transform.position) < 0.5f)
         {
+            return NodeStates.success;
+        }
+        if (GetComponent<Enemy>().hasSeenEnemy)
+        {
+            GetComponent<Enemy>().hasSeenEnemy = false;
             return NodeStates.success;
         }
         return NodeStates.fail;

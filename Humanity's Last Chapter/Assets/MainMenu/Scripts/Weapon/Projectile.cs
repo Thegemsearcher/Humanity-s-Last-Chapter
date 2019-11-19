@@ -52,7 +52,7 @@ public class Projectile : MonoBehaviour
         //}
         if (LayerMaskContains(whatIsSolid, 10))
         {
-            Debug.Log("bör träffa spelaren");
+            //Debug.Log("bör träffa spelaren");
         }
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, direction/*targetPos*/, distance, whatIsSolid);
         if (hitInfo.collider != null)
