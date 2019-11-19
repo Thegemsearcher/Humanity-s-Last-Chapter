@@ -10,18 +10,18 @@ public class WeaponRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        //transform.localPosition = new Vector3(0,100,0);
     }
 
     // Update is called once per frame
     void Update()
     {
         //calculate direction between origin and target
-        Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
+        //Vector3 difference = Camera.main.ScreenToWorldPoint(Input.mousePosition) - this.transform.position;
         //calculate rotation
-        rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        //rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         //set rotation
-        Rotation();
+        //Rotation();
     }
 
     public Quaternion Rotation()

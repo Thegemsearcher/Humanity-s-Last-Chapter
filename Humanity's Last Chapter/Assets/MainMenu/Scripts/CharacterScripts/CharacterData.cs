@@ -9,10 +9,12 @@ public class CharacterData {
     public string strName, wpId;
     public string[] itemID;
     public bool shit;
-      
+    public List<string> quirkID;
 
 
     public CharacterData(CharacterScript character, Stats stats) {
+        quirkID = new List<string>();
+        quirkID = stats.quirkIDList;
         id = character.id;
         strName = character.strName;
         wpId = character.rangedId;
@@ -27,9 +29,9 @@ public class CharacterData {
         dex = stats.dex;
         cha = stats.cha;
         ldr = stats.ldr;
-        nrg = stats.nrg;
         snt = stats.snt;
         exp = stats.exp;
+
 
     }
 }

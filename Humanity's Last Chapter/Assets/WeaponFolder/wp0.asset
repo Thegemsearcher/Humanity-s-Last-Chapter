@@ -21,4 +21,4 @@ MonoBehaviour:
   fireRate: 1
   range: 20
   spread: 0.2
-  sprite: {fileID: 21300000, guid: 3f158022c27e59f4dac6465d9c8fa0cf, type: 3}
+  sprite: {fileID: 21300000, guid: 6b72a0e88814cc3458e7c5383dd88a97, type: 3}

@@ -102,8 +102,21 @@ public class DataHolder {
             Stats stats = new Stats();
             stats.hp = characterData.hp;
             stats.maxHp = characterData.maxHp;
+
+           
+            stats.quirkIDList = characterData.quirkID;
+
+            stats.shit = characterData.shit;
+
+            stats.str = characterData.str;
+            stats.def = characterData.def;
+            stats.Int = characterData.Int;
+            stats.dex = characterData.dex;
+            stats.cha = characterData.cha;
+            stats.ldr = characterData.ldr;
+            stats.snt = characterData.snt;
+            stats.exp = characterData.exp;
             statsList.Add(stats);
-            
         }
         
         WorldScript.world.characterList = characterList;

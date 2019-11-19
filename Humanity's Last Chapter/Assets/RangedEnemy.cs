@@ -83,12 +83,12 @@ public class RangedEnemy : MonoBehaviour
     {
         if (BT == null)
         {
-            Debug.Log("inget BT");
+            //Debug.Log("inget BT");
             return;
         }
-        Debug.Log("går in i update");
+        //Debug.Log("går in i update");
         BT.Start();
-        Debug.Log("i ranged enemy: " );
+        //Debug.Log("i ranged enemy: " );
     }
 
     public NodeStates PcInRange()
