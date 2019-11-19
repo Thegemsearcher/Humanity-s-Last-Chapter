@@ -20,9 +20,7 @@ public class CharacterStatWriter : MonoBehaviour
     public void GetStats(int hp, int str, int def, int Int, int dex, int cha, string name)
     {
         text.GetComponent<Text>().text = "Health: " + hp + "\nStrength: " + str + "\nDefence: " + def + "\nIntelligence: " + Int + "\nDexterity: " + dex + "\nCharisma: " + cha + "\nQuirk: " + name;
-<<<<<<< HEAD
+
         //Debug.Log("strnght: " + str);
-=======
->>>>>>> 66240be52f7737904f290499d2e0122d69382638
     }
 }

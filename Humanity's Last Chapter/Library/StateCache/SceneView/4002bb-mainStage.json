@@ -1,13 +1,1 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":0.21866461634635926,"y":3.6893975734710695,"z":-222.220703125},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":12.497862815856934,"orthographic":true}
-=======
-<<<<<<< HEAD
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":1.3295096158981324,"y":-1.2456607818603516,"z":-447.15234375},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":12.376947402954102,"orthographic":true}
-=======
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":1.026399850845337,"y":3.0513904094696047,"z":-221.2487030029297},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":5.444766044616699,"orthographic":true}
->>>>>>> 56ee3893d21f6663479796ecd6cf9352b113f25b
->>>>>>> 66240be52f7737904f290499d2e0122d69382638
-=======
-﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":1.3295096158981324,"y":-1.2456607818603516,"z":-447.15234375},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":12.376947402954102,"orthographic":true}
->>>>>>> b01df502bd5d91a64bf7ab7b55f8fcdd970b34f8
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":true,"pivot":{"x":-1.3146674633026124,"y":0.01506255567073822,"z":-222.671875},"rotation":{"x":0.0,"y":0.0,"z":0.0,"w":1.0},"size":17.007863998413087,"orthographic":true}

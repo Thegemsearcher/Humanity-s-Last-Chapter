@@ -48,11 +48,7 @@ public class Stats : MonoBehaviour
             AddQuirk(Assets.assets.quirkArray[randomQuirk]);
 
         }
-<<<<<<< HEAD
         //Debug.Log("Str is " + str);
-=======
->>>>>>> 66240be52f7737904f290499d2e0122d69382638
-        //Fix CharacterCanvas
         characterUI = Instantiate(prefabCharacterUI, new Vector3(0, 0, 0), Quaternion.identity);
         characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
         characterUI.GetComponent<Canvas>().sortingOrder = 1;
