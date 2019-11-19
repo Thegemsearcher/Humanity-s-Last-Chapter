@@ -42,29 +42,31 @@ public static class ReadFileScript
     {
         for (int i = 0; i < words.Length; i++)
         {
+            //if (words[i] == "b")
+            //{
+            //    NewBuilding(Convert.ToInt32(words[i + 1]) * 2);
+            //}
+            //else if (words[i] == "w")
+            //{
+            //    NewWall(Convert.ToSingle(words[i + 1].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 2].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 3].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 4].Replace(',', '.')) * 2);
+            //}
+            //else if (words[i] == "r")
+            //{
+            //    NewRoad(Convert.ToSingle(words[i + 1].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 2].Replace(',', '.')) * 2);
+            //}
+            //Davids dator
             if (words[i] == "b")
             {
-                NewBuilding(Convert.ToInt32(words[i + 1]));
+                NewBuilding(Convert.ToInt32(words[i + 1]) * 2);
             }
             else if (words[i] == "w")
             {
-                NewWall(Convert.ToSingle(words[i + 1].Replace(',', '.')), Convert.ToSingle(words[i + 2].Replace(',', '.')), Convert.ToSingle(words[i + 3].Replace(',', '.')), Convert.ToSingle(words[i + 4].Replace(',', '.')));
+                NewWall(Convert.ToSingle(words[i + 1]) * 2, Convert.ToSingle(words[i + 2]) * 2, Convert.ToSingle(words[i + 3]) * 2, Convert.ToSingle(words[i + 4]) * 2);
             }
             else if (words[i] == "r")
             {
-                NewRoad(Convert.ToSingle(words[i + 1].Replace(',', '.')), Convert.ToSingle(words[i + 2].Replace(',', '.')));
+                NewRoad(Convert.ToSingle(words[i + 1]) * 2, Convert.ToSingle(words[i + 2]) * 2);
             }
-            //Davids dator
-            //if (words[i] == "b")
-            //{
-            //    NewBuilding(Convert.ToInt32(words[i + 1]));
-            //} else if (words[i] == "w")
-            //{
-            //    NewWall(Convert.ToSingle(words[i + 1]), Convert.ToSingle(words[i + 2]), Convert.ToSingle(words[i + 3]), Convert.ToSingle(words[i + 4]));
-            //} else if (words[i] == "r")
-            //{
-            //    NewRoad(Convert.ToSingle(words[i + 1]), Convert.ToSingle(words[i + 2]));
-            //}
         }
 
         foreach (GameObject wall in wallsPrefab.GetComponent<GameObjectList>().GetObjects())
@@ -82,7 +84,7 @@ public static class ReadFileScript
             road.AddComponent<SpriteRenderer>();
             road.GetComponent<SpriteRenderer>().sprite = roadSprite;
             road.GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Tiled;
-            road.GetComponent<SpriteRenderer>().size = new Vector2(1, 1);
+            road.GetComponent<SpriteRenderer>().size = new Vector2(2, 2);
             road.transform.position = new Vector3(road.GetComponent<RoadScript>().GetValue(0), road.GetComponent<RoadScript>().GetValue(1), 0);
         }
         PrefabUtility.SaveAsPrefabAsset(roadsPrefab, savePath + ".roads.prefab");
