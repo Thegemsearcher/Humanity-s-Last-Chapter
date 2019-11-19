@@ -8,7 +8,9 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public bool isActive, inside;
     public string itemName, itemDescrip;
+    public int slotNr;
     public Text txtName, txtDescrip;
+    private GameObject Parent;
 
     void Start() {
         txtName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
@@ -23,21 +25,22 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void OnPointerEnter(PointerEventData eventData) {
         if(isActive) {
-            txtName.text = itemName;
-            txtDescrip.text = itemDescrip;
+            Parent.GetComponent<UpdateInfo>().UpdateText(itemName, itemDescrip);
         }
         inside = true;
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        txtName.text = "-";
-        txtDescrip.text = "";
+        if (isActive) {
+            Parent.GetComponent<UpdateInfo>().UpdateText("-", "");
+        }
         inside = false;
     }
 
-    public void GetItem(string itemName, string itemDescrip) {
+    public void GetItem(string itemName, string itemDescrip, GameObject Parent) {
         this.itemName = itemName;
         this.itemDescrip = itemDescrip;
+        this.Parent = Parent;
         isActive = true;
     }
 }

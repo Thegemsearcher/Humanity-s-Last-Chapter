@@ -97,7 +97,6 @@ public class ShopScript : MonoBehaviour {
     private void FillShop(string[] inventory, GameObject[] shopSlots) {
         for (int i = 0; i < inventory.Length; i++) {
             if(inventory[i] != "") {
-                Debug.Log("Inventory["+i+"]: " + inventory[i]);
                 sss = shopSlots[i].GetComponent<ShopSlotScript>();
                 switch (inventory[i][0]) {
                     case 'h':
@@ -105,7 +104,7 @@ public class ShopScript : MonoBehaviour {
                             if (healingItem.name == inventory[i]) {
                                 ItemO = Instantiate(shopItem, shopSlots[i].transform);
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
-                                itemInfo.GetData(healingItem.texture, healingItem.itemName, healingItem.description, healingItem.cost);
+                                itemInfo.GetData(healingItem.texture, healingItem.itemName, healingItem.description, healingItem.name, healingItem.cost);
                                 sss.GetItem(itemInfo.strName, itemInfo.strDesc, inventory[i], itemInfo.cost, i, gameObject);
                                 break;
                             }
@@ -116,7 +115,7 @@ public class ShopScript : MonoBehaviour {
                             if (combatItem.name == inventory[i]) {
                                 ItemO = Instantiate(shopItem, shopSlots[i].transform);
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
-                                itemInfo.GetData(combatItem.texture, combatItem.itemName, combatItem.description, combatItem.cost);
+                                itemInfo.GetData(combatItem.texture, combatItem.itemName, combatItem.description, combatItem.name, combatItem.cost);
                                 sss.GetItem(itemInfo.strName, itemInfo.strDesc, inventory[i], itemInfo.cost, i, gameObject);
                                 break;
                             }
@@ -127,7 +126,7 @@ public class ShopScript : MonoBehaviour {
                             if (weapon.name == inventory[i]) {
                                 ItemO = Instantiate(shopItem, shopSlots[i].transform);
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
-                                itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.cost);
+                                itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost);
                                 sss.GetItem(itemInfo.strName, itemInfo.strDesc, inventory[i], itemInfo.cost, i, gameObject);
                                 break;
                             }

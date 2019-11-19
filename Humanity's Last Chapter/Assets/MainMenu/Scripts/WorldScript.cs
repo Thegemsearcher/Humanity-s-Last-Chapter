@@ -106,7 +106,6 @@ public class WorldScript {
     public void MoveItem(int oldSpot, int newSpot, string id) {
         storageArr[oldSpot] = "";
         storageArr[newSpot] = id;
-        Debug.Log("OldSpot : " + oldSpot + " storageArr[" + oldSpot + "]: " + storageArr[oldSpot]);
         //Create Item igen
     }
 

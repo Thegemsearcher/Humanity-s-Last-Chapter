@@ -37,6 +37,10 @@ TagManager:
   - StoreSlot
   - ForItemStorage
   - ForStoreStorage
+  - WeaponSlot
+  - ClothSlot
+  - InventorySlot
+  - StorageMoveParent
   layers:
   - Default
   - TransparentFX
