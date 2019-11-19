@@ -17,6 +17,8 @@ public class PartyScript : MonoBehaviour {
     public GameObject weapon;
     private GameObject weaponO;
 
+    public GameObject AbilityToInstantiate;
+
     void Start() {
         InstantiateLists();
 
@@ -40,6 +42,8 @@ public class PartyScript : MonoBehaviour {
 
         partyMember = 0;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
+        
+
         foreach (CharacterScript characterScript in characterScriptList) {
 
             //if(characterScript.GetComponent<CharacterScript>().isEnlisted) {
@@ -48,7 +52,7 @@ public class PartyScript : MonoBehaviour {
             characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
             
             //Annan kod
-            characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember, partyMember);
+            characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember * 0.5f, partyMember * 0.5f);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);        
             SpawnWeapon(characterScript.rangedId, characterO.transform);
@@ -56,6 +60,9 @@ public class PartyScript : MonoBehaviour {
             CreateUI(characterScript, statsList[partyMember]);
 
             characterO.transform.SetParent(transParent, false);
+
+            //abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = characterO
+
             partyMember++;
             //}
 
@@ -68,6 +75,16 @@ public class PartyScript : MonoBehaviour {
     }
 
     private void TestCharacters() { //Spawnar tre gubbar ifall man inte kommer från huben
+
+        //Ability test
+        Debug.Log("skapa en turret ability");
+        GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
+        GameObject go = Instantiate(AbilityToInstantiate);
+        go.transform.SetParent(abilitySlots[0].transform, false);
+        go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[0];
+        go.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.turret;
+        abilitySlots[0].GetComponent<AbilitySlotScript>().AttachedAbility = go;
+
         for (int i = 0; i < 3; i++) {
             characterO = Instantiate(character);
 

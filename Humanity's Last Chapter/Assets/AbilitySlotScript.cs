@@ -20,15 +20,16 @@ public class AbilitySlotScript : MonoBehaviour
         //    return;
         if (Input.GetKeyDown(BoundKey))
         {
+            Debug.Log("" + AttachedAbility.name);
             Activate();
         }
     }
 
     public void Activate()
     {
-        Debug.Log(BoundKey + " Activated");
         if (AttachedAbility == null)
             return;
+        Debug.Log(BoundKey + " Activated");
         AttachedAbility.GetComponent<AbilityScript>().Activate();
     }
 }
