@@ -21,18 +21,18 @@ public class AbilityScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (active)
-        //{
-        //    switch (abilityType)
-        //    {
-        //        case AbilityType.turret:
+        if (active)
+        {
+            switch (abilityType)
+            {
+                case AbilityType.turret:
 
-        //            TurretActivate();
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
+                    TurretActivate();
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     public void Activate()
