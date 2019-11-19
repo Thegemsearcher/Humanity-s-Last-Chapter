@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class StorageScript : MonoBehaviour {
     
-    public GameObject ItemSlot;
-    private GameObject LoadManager;
-    private GameObject[] itemSlots;
-    public int slotsCounter;
+    public GameObject StorageWindow, WindowParent;
+    private GameObject Holder;
 
-    private void Start() {
-        for(int i = 0; i < slotsCounter; i++) {
-            Instantiate(ItemSlot, transform);
-        }
-        itemSlots = GameObject.FindGameObjectsWithTag("ItemSlot");
-        LoadManager = GameObject.FindGameObjectWithTag("LoadManager");
-        LoadManager.GetComponent<CreateItems>().FillSlots(WorldScript.world.storageArr, itemSlots);
+    public void BtnStorage() {
+        Holder = Instantiate(StorageWindow);
+        Holder.transform.SetParent(WindowParent.transform, false);
+        Holder.transform.position = Vector3.zero;
     }
 }

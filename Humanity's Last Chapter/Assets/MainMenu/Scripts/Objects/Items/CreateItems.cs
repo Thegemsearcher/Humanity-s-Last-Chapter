@@ -3,60 +3,54 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CreateItems : MonoBehaviour {
-
-    private HealingItemObject[] hio;
-    private CombatItemObject[] cio;
-    private WeaponObject[] wpo;
-    public GameObject HeItem, CoItem, WpItem;
+    
+    public GameObject Item;
     private GameObject ItemO;
 
     private ItemSlotScript iss;
-    private HealingItem hi;
-    private CombatItem ci;
-    private WeaponDisplay wp;
+    private ItemInfo itemInfo;
 
-    public void FillSlots(string[] inventory, GameObject[] itemSlots) {
-        hio = Assets.assets.healingTemp;
-        cio = Assets.assets.combatTemp;
-        wpo = Assets.assets.weaponTemp;
+    public void FillSlots(string[] inventory, GameObject[] itemSlots, GameObject DescParent) {
 
         for (int i = 0; i < inventory.Length; i++) {
-            Debug.Log("ID: " + inventory[i]);
             iss = itemSlots[i].GetComponent<ItemSlotScript>();
 
             if (!(inventory[i] == "")) {
                 switch (inventory[i][0]) {
                     case 'h': //Healingitem
-                        for (int j = 0; j < hio.Length; j++) {
-                            if (hio[j].name == inventory[i]) {
-                                ItemO = Instantiate(HeItem, itemSlots[i].transform);
-                                hi = ItemO.GetComponent<HealingItem>();
-                                hi.GetData(hio[j], itemSlots, i);
-                                iss.GetItem(hi.itemName, hi.itemDescrip);
+                        foreach (HealingItemObject healing in Assets.assets.healingTemp) {
+                            if (healing.name == inventory[i]) {
+                                ItemO = Instantiate(Item);
+                                ItemO.transform.SetParent(itemSlots[i].transform, false);
+                                itemInfo = ItemO.GetComponent<ItemInfo>();
+                                itemInfo.GetData(healing.texture, healing.itemName, healing.description, healing.name, healing.cost);
+                                iss.GetComponent<ItemSlotScript>().GetItem(healing.itemName, healing.description, DescParent);
                                 break;
                             }
                         }
                         break;
 
                     case 'c':
-                        for (int j = 0; j < cio.Length; j++) {
-                            if (cio[j].name == inventory[i]) {
-                                ItemO = Instantiate(CoItem, itemSlots[i].transform);
-                                ci = ItemO.GetComponent<CombatItem>();
-                                ci.GetData(cio[j]);
-                                iss.GetItem(ci.itemName, ci.itemDescrip);
+                        foreach (CombatItemObject combat in Assets.assets.combatTemp) {
+                            if (combat.name == inventory[i]) {
+                                ItemO = Instantiate(Item);
+                                ItemO.transform.SetParent(itemSlots[i].transform, false);
+                                itemInfo = ItemO.GetComponent<ItemInfo>();
+                                itemInfo.GetData(combat.texture, combat.itemName, combat.description, combat.name, combat.cost);
+                                iss.GetComponent<ItemSlotScript>().GetItem(combat.itemName, combat.description, DescParent);
                                 break;
                             }
                         }
                         break;
 
                     case 'w':
-                        for (int j = 0; j < wpo.Length; j++) {
-                            if (wpo[j].name == inventory[i]) {
-                                ItemO = Instantiate(WpItem, itemSlots[i].transform);
-                                wp = ItemO.GetComponent<WeaponDisplay>();
-                                wp.GetData(wpo[j]);
-                                iss.GetItem(wp.weaponName, wp.description);
+                        foreach (WeaponObject weapon in Assets.assets.weaponTemp) {
+                            if (weapon.name == inventory[i]) {
+                                ItemO = Instantiate(Item);
+                                ItemO.transform.SetParent(itemSlots[i].transform, false);
+                                itemInfo = ItemO.GetComponent<ItemInfo>();
+                                itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost);
+                                iss.GetComponent<ItemSlotScript>().GetItem(weapon.weaponName, weapon.description, DescParent);
                                 break;
                             }
                         }
