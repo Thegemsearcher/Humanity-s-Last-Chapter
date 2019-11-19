@@ -47,7 +47,7 @@ public class RangedEnemy : MonoBehaviour
         currentWP = 0;
         //Debug.Log("" + waypoints.Length);
         BT = GetComponent<BehaviourTree>().GetRangedEnemyBt();
-        Debug.Log("skapas som den ska");
+        //.Log("skapas som den ska");
     }
     public NodeStates CloseToWaypoint()
     {

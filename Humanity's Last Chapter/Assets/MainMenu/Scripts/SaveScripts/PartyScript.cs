@@ -85,6 +85,12 @@ public class PartyScript : MonoBehaviour {
         go.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.turret;
         abilitySlots[0].GetComponent<AbilitySlotScript>().AttachedAbility = go;
 
+        GameObject go2 = Instantiate(AbilityToInstantiate);
+        go2.transform.SetParent(abilitySlots[1].transform, false);
+        go2.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[1];
+        go2.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.grenade;
+        abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
+
         for (int i = 0; i < 3; i++) {
             characterO = Instantiate(character);
 

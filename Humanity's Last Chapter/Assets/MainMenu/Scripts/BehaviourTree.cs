@@ -85,8 +85,8 @@ public class BehaviourTree : MonoBehaviour
         #endregion
         
         List<Node> forGeneralSelector = new List<Node>();
-        //forGeneralSelector.Add(combatSequence);
-        //forGeneralSelector.Add(wanderSequence);
+        forGeneralSelector.Add(combatSequence);
+        forGeneralSelector.Add(wanderSequence);
         Selector generalSelector = new Selector(forGeneralSelector);
 
         nodes.Add(generalSelector);
@@ -115,7 +115,7 @@ public class BehaviourTree : MonoBehaviour
 
     public RootNode GetRangedEnemyBt()
     {
-        Debug.Log("tar ett Bt för ranged enemy");
+        //Debug.Log("tar ett Bt för ranged enemy");
         List<Node> nodes = new List<Node>();
 
         #region Movement

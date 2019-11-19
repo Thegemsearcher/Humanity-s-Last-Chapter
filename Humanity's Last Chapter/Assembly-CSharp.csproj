@@ -67,6 +67,7 @@
     <Compile Include="Assets\BulletM.cs" />
     <Compile Include="Assets\CharacterBox.cs" />
     <Compile Include="Assets\CreateCharacterBox.cs" />
+    <Compile Include="Assets\GrenadeScript.cs" />
     <Compile Include="Assets\HPinCombat.cs" />
     <Compile Include="Assets\ItemInfo.cs" />
     <Compile Include="Assets\LoadMainMenu.cs" />

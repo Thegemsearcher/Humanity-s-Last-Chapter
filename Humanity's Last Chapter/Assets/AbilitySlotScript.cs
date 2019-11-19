@@ -20,7 +20,7 @@ public class AbilitySlotScript : MonoBehaviour
         //    return;
         if (Input.GetKeyDown(BoundKey))
         {
-            Debug.Log("" + AttachedAbility.name);
+            //Debug.Log("" + AttachedAbility.name);
             Activate();
         }
     }
@@ -29,7 +29,7 @@ public class AbilitySlotScript : MonoBehaviour
     {
         if (AttachedAbility == null)
             return;
-        Debug.Log(BoundKey + " Activated");
+        //Debug.Log(BoundKey + " Activated");
         AttachedAbility.GetComponent<AbilityScript>().Activate();
     }
 }

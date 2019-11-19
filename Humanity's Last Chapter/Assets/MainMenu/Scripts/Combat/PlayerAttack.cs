@@ -56,7 +56,7 @@ public class PlayerAttack : MonoBehaviour {
         }
         if (hitInfo.collider.CompareTag("Enemy"))
         {
-            Debug.Log(enemyPos);
+            //Debug.Log(enemyPos);
             Debug.DrawLine(transform.position, hitInfo.point);
             return NodeStates.success;
         }
