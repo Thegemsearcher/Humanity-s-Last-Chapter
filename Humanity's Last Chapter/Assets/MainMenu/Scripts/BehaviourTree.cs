@@ -85,8 +85,8 @@ public class BehaviourTree : MonoBehaviour
         #endregion
         
         List<Node> forGeneralSelector = new List<Node>();
-        forGeneralSelector.Add(combatSequence);
-        forGeneralSelector.Add(wanderSequence);
+        //forGeneralSelector.Add(combatSequence);
+        //forGeneralSelector.Add(wanderSequence);
         Selector generalSelector = new Selector(forGeneralSelector);
 
         nodes.Add(generalSelector);

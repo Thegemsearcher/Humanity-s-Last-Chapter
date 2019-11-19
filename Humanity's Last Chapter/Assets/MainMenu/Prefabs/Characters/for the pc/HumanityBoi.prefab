@@ -305,7 +305,7 @@ MonoBehaviour:
   attackRange: 0.18
   humansAndBuildings:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 256

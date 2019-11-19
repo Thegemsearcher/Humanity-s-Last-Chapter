@@ -50,12 +50,17 @@ public class PlayerAttack : MonoBehaviour {
     //Gemensama funktioner behöver inte ändras för att markus eller toro kod ska fungera
     #region Gemensama funktioner
     public NodeStates LineOfSight() {
-        hitInfo = Physics2D.Raycast(transform.position, enemyPos, aggroDistance, humansAndBuildings);
-        if (hitInfo.collider != null) {
+        hitInfo = Physics2D.Raycast(transform.position, enemyPos - transform.position, aggroDistance/*, humansAndBuildings*/);
+        if (hitInfo.collider == null) {
             return NodeStates.fail;
         }
-        Debug.DrawLine(transform.position, hitInfo.point);
-        return NodeStates.success;
+        if (hitInfo.collider.CompareTag("Enemy"))
+        {
+            Debug.Log(enemyPos);
+            Debug.DrawLine(transform.position, hitInfo.point);
+            return NodeStates.success;
+        }
+        return NodeStates.fail;
     }
 
     public NodeStates MeleeAttack() {
@@ -107,6 +112,7 @@ public class PlayerAttack : MonoBehaviour {
     public NodeStates InCombatRange() {
         if (tWeapon != null) {
             if (tWeapon.InCombat(aggroDistance)) {
+                enemyPos = tWeapon.closestEnemy.transform.position;
                 return NodeStates.success;
             }
         }
