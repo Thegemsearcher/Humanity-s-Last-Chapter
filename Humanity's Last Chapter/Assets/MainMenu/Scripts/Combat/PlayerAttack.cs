@@ -54,6 +54,7 @@ public class PlayerAttack : MonoBehaviour {
         if (hitInfo.collider != null) {
             return NodeStates.fail;
         }
+        Debug.DrawLine(transform.position, hitInfo.point);
         return NodeStates.success;
     }
 

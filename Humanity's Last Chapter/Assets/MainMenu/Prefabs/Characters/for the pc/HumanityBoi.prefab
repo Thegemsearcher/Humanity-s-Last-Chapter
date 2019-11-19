@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Sprite: {fileID: 21300000, guid: 4ca4c0e53066d0142a9153f8c93e0fdc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
-  m_FlipY: 0
+  m_FlipY: 1
   m_DrawMode: 0
   m_Size: {x: 0.8, y: 0.6}
   m_AdaptiveModeThreshold: 0.5
@@ -150,6 +150,7 @@ MonoBehaviour:
   shit: 0
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}
+  quirkIDList: []
 --- !u!114 &3635717509634122910
 MonoBehaviour:
   m_ObjectHideFlags: 0

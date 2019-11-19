@@ -33,10 +33,12 @@ public class WeaponAttack : MonoBehaviour {
 
     public void Rotation() {
         if (closestEnemy != null) {
-            Vector3 difference = closestEnemy.transform.position - transform.position;
-            rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-            gameObject.transform.parent.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
-
+            if (Vector2.Distance(transform.position,closestEnemy.transform.position) < wo.range)
+            {
+                Vector3 difference = closestEnemy.transform.position - transform.position;
+                rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                gameObject.transform.parent.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
+            }
             //gameObject.transform.parent
         }
 
