@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb6b6c743d9284d4ba3b89bfeda947fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  roadSprite: {fileID: 21300000, guid: 024020dacbef75f46b327f9489e883c7, type: 3}
+  wallSprite: {fileID: 21300000, guid: 2845094f1c8ef244da3e97a775dd6fc4, type: 3}
 --- !u!114 &1005564990
 MonoBehaviour:
   m_ObjectHideFlags: 0

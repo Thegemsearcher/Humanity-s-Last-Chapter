@@ -258,3 +258,5 @@ D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\obj\Debug\Assembly-CSha
 D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\obj\Debug\Assembly-CSharp.csproj.CopyComplete
 D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\obj\Debug\Assembly-CSharp.dll
 D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\obj\Debug\Assembly-CSharp.pdb
+C:\Users\Patrik\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\Patrik\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\obj\Debug\Assembly-CSharp.dll
