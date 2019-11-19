@@ -54,6 +54,17 @@ public static class ReadFileScript
             {
                 NewRoad(Convert.ToSingle(words[i + 1].Replace(',', '.')), Convert.ToSingle(words[i + 2].Replace(',', '.')));
             }
+            //Davids dator
+            //if (words[i] == "b")
+            //{
+            //    NewBuilding(Convert.ToInt32(words[i + 1]));
+            //} else if (words[i] == "w")
+            //{
+            //    NewWall(Convert.ToSingle(words[i + 1]), Convert.ToSingle(words[i + 2]), Convert.ToSingle(words[i + 3]), Convert.ToSingle(words[i + 4]));
+            //} else if (words[i] == "r")
+            //{
+            //    NewRoad(Convert.ToSingle(words[i + 1]), Convert.ToSingle(words[i + 2]));
+            //}
         }
 
         foreach (GameObject wall in wallsPrefab.GetComponent<GameObjectList>().GetObjects())
