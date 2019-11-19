@@ -14,7 +14,7 @@ public class CharacterData {
 
     public CharacterData(CharacterScript character, Stats stats) {
         quirkID = new List<string>();
-        quirkID = stats.quirkIDList;
+        
         id = character.id;
         strName = character.strName;
         wpId = character.rangedId;
@@ -22,7 +22,8 @@ public class CharacterData {
         shit = stats.shit;
         hp = stats.hp;
         maxHp = stats.maxHp;
-       
+        quirkID = stats.quirkIDList;
+
         str = stats.str;
         def = stats.def;
         Int = stats.Int;

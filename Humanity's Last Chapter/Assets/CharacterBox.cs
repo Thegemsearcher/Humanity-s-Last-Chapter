@@ -16,7 +16,7 @@ public class CharacterBox : MonoBehaviour {
     private GameObject ItemO;
 
     public GameObject Item;
-
+    private ItemSlotScript iss;
     private GameObject Character, DescParent;
 
     private string rangedId, clothId;
@@ -31,7 +31,7 @@ public class CharacterBox : MonoBehaviour {
 
         for (int i = 0; i < itemSlots.Length; i++) {
             if(characterScript.itemID[i] != "") {
-                //Skapar ett item i itemSlot[i]
+                CreateItem(characterScript.itemID[i], itemSlots[i]);
             }
         }
 
@@ -53,9 +53,66 @@ public class CharacterBox : MonoBehaviour {
     }
 
     private void OnDestroy() {
-        rangedId = rangedSlot.GetComponentInChildren<ItemInfo>().id;
-        Debug.Log("rangedID: " + rangedId);
+        if (rangedSlot.GetComponentInChildren<ItemInfo>() != null) {
+            rangedId = rangedSlot.GetComponentInChildren<ItemInfo>().id;
+        } else {
+            rangedId = "";
+        }
+        
+        inventoryArr = new string[itemSlots.Length];
+        for (int i = 0; i < inventoryArr.Length; i++) {
+            if(itemSlots[i].GetComponentInChildren<ItemInfo>() != null) {
+                inventoryArr[i] = itemSlots[i].GetComponentInChildren<ItemInfo>().id;
+                characterScript.itemID[i] = inventoryArr[i];
+                Debug.Log("ID: " + inventoryArr[i]);
+            }
+            
+        }
         characterScript.rangedId = rangedId;
         //Updaterar characterScript;
+    }
+
+    private void CreateItem(string id, GameObject Slot) {
+        iss = Slot.GetComponent<ItemSlotScript>();
+        switch (id[0]) {
+            case 'h': //Healingitem
+                foreach (HealingItemObject healing in Assets.assets.healingTemp) {
+                    if (healing.name == id) {
+                        ItemO = Instantiate(Item);
+                        ItemO.transform.SetParent(Slot.transform, false);
+                        itemInfo = ItemO.GetComponent<ItemInfo>();
+                        itemInfo.GetData(healing.texture, healing.itemName, healing.description, healing.name, healing.cost);
+                        iss.GetComponent<ItemSlotScript>().GetItem(healing.itemName, healing.description, DescParent);
+                        break;
+                    }
+                }
+                break;
+
+            case 'c':
+                foreach (CombatItemObject combat in Assets.assets.combatTemp) {
+                    if (combat.name == id) {
+                        ItemO = Instantiate(Item);
+                        ItemO.transform.SetParent(Slot.transform, false);
+                        itemInfo = ItemO.GetComponent<ItemInfo>();
+                        itemInfo.GetData(combat.texture, combat.itemName, combat.description, combat.name, combat.cost);
+                        iss.GetComponent<ItemSlotScript>().GetItem(combat.itemName, combat.description, DescParent);
+                        break;
+                    }
+                }
+                break;
+
+            case 'w':
+                foreach (WeaponObject weapon in Assets.assets.weaponTemp) {
+                    if (weapon.name == id) {
+                        ItemO = Instantiate(Item);
+                        ItemO.transform.SetParent(Slot.transform, false);
+                        itemInfo = ItemO.GetComponent<ItemInfo>();
+                        itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost);
+                        iss.GetComponent<ItemSlotScript>().GetItem(weapon.weaponName, weapon.description, DescParent);
+                        break;
+                    }
+                }
+                break;
+        }
     }
 }

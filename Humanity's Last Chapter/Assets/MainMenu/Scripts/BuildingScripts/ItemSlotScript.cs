@@ -10,7 +10,7 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public string itemName, itemDescrip;
     public int slotNr;
     public Text txtName, txtDescrip;
-    private GameObject Parent;
+    public GameObject Parent;
 
     void Start() {
         txtName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
