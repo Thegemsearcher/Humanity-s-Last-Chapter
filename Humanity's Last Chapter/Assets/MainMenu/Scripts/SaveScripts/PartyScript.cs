@@ -42,7 +42,8 @@ public class PartyScript : MonoBehaviour {
 
         partyMember = 0;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
-        
+
+        GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
 
         foreach (CharacterScript characterScript in characterScriptList) {
 
@@ -60,9 +61,15 @@ public class PartyScript : MonoBehaviour {
             CreateUI(characterScript, statsList[partyMember]);
 
             characterO.transform.SetParent(transParent, false);
-
-            //abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = characterO
-
+            if (characterO.GetComponent<Stats>().items.Count > 0)
+            {
+                GameObject go = Instantiate(AbilityToInstantiate);
+                go.transform.SetParent(abilitySlots[partyMember].transform, false);
+                go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
+                go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<Stats>().items[0].GetComponent<CombatItemObject>().abilityType;
+                abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
+            }
+           
             partyMember++;
             //}
 
