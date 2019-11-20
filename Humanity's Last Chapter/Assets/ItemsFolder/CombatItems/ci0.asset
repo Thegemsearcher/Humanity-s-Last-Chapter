@@ -16,3 +16,4 @@ MonoBehaviour:
   itemName: Strong Cookie
   description: This cookie will give you strong power!!!
   cost: 100
+  abilityType: 2

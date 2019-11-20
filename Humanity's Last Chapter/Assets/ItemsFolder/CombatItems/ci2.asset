@@ -17,3 +17,4 @@ MonoBehaviour:
   description: 'An explosive device thrown by you, who are a less explocive device
     #goodeworkspace #bossoftheyear'
   cost: 10
+  abilityType: 1

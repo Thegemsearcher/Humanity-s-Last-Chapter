@@ -17,3 +17,4 @@ MonoBehaviour:
   description: A bandage to coverup small wounds!!!
   healPower: 2
   cost: 30
+  abilityType: 3

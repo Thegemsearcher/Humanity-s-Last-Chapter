@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51030d96f20984e44834efb9f33e1d02, type: 3}
-  m_Name: ci1
+  m_Name: ci3
   m_EditorClassIdentifier: 
   texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  itemName: Spicy Milk
-  description: Who knew milk could be spicy?
-  cost: 80
-  abilityType: 2
+  itemName: Turret
+  description: Places a turret once per mission
+  cost: 200
+  abilityType: 0
