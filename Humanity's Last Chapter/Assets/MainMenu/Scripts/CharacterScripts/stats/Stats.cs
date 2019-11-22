@@ -33,14 +33,14 @@ public class Stats : MonoBehaviour
         {
             quirkIDList = new List<string>();
             shit = true;
-            str = Random.Range(1, 3);   //Just for show.
-            def = Random.Range(1, 3);   //Just for show.
-            Int = Random.Range(1, 3);   //Just for show.
-            dex = Random.Range(1, 3);   //Just for show.
-            cha = Random.Range(1, 3);   //Just for show.
-            ldr = Random.Range(1, 3);   //Just for show.
-            nrg = Random.Range(1, 3);   //Just for show.
-            snt = Random.Range(1, 3);   //Just for show.
+            str = Random.Range(1, 3);   
+            def = Random.Range(1, 3);   
+            Int = Random.Range(1, 3);   
+            dex = Random.Range(1, 3);   
+            cha = Random.Range(1, 3);   
+            ldr = Random.Range(1, 3);   
+            nrg = Random.Range(1, 3);   
+            snt = Random.Range(1, 3);   
 
             nextLevel = 10 + (5 * level);
             randomQuirk = Random.Range(0, 9);
@@ -156,16 +156,28 @@ public class Stats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        int procentage = 100;
+        int randomChance = 0;
+
         damage -= def;
         if (damage < 1)
         {
             damage = 1;
+        }
+        procentage -= dex;
+        randomChance = Random.Range(0, 101);
+        if (randomChance > procentage)
+        {
+            damage = 0;
+            Debug.Log("success");
         }
         hp -= damage;
         if (hp < 0)
         {
             gameObject.SetActive(false);
         }
+
+      
     }
 
     public void LoadPlayer(Stats data)
