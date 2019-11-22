@@ -156,6 +156,11 @@ public class Stats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        damage -= def;
+        if (damage < 1)
+        {
+            damage = 1;
+        }
         hp -= damage;
         if (hp < 0)
         {
