@@ -38,6 +38,11 @@ public class PartyScript : MonoBehaviour {
 
     public void SpawnCharacters() {
         characterScriptList = WorldScript.world.characterList;
+        Debug.Log(characterScriptList);
+        foreach (CharacterScript characterScript in characterScriptList)
+        {
+            Debug.Log(characterScript);
+        }
         statsList = WorldScript.world.statsList;
 
         partyMember = 0;
@@ -60,31 +65,60 @@ public class PartyScript : MonoBehaviour {
 
             CreateUI(characterScript, statsList[partyMember]);
 
-            //characterO.transform.SetParent(transParent, false);
-            //if (characterO == null)
-            //    Debug.Log("wat");
-            //if (characterO.GetComponent<Stats>() == null)
-            //    Debug.Log("wat 2.0");
-            //if (characterO.GetComponent<Stats>().items != null)
-            //{
-            //    if (characterO.GetComponent<Stats>().items.Count > 0)
-            //    {
-            //        GameObject go = Instantiate(AbilityToInstantiate);
-            //        go.transform.SetParent(abilitySlots[partyMember].transform, false);
-            //        go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
-            //        CombatItemObject c = new CombatItemObject();
-            //        if (characterO.GetComponent<Stats>().items[0].TryGetComponent<CombatItemObject>(out c))
-            //        {
-            //            go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<Stats>().items[0].GetComponent<CombatItemObject>().abilityType;
-            //        } else
-            //        {
-            //            go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<Stats>().items[0].GetComponent<HealingItemObject>().abilityType;
-            //        }
+            
 
-            //        abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
-            //    }
-            //}
-           
+            //characterO.transform.SetParent(transParent, false);
+
+            if (characterO == null)
+                Debug.Log("wat");
+            if (characterO.GetComponent<CharacterScript>() != null)
+            {
+                if (characterO.GetComponent<CharacterScript>().itemID != null)
+                {
+                    if (characterO.GetComponent<CharacterScript>().itemID.Length > 0)
+                    {
+                        GameObject go = Instantiate(AbilityToInstantiate);
+                        go.transform.SetParent(abilitySlots[partyMember].transform, false);
+                        go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
+
+                        //Assets.assets.combatTemp
+                        string id = characterO.GetComponent<CharacterScript>().itemID[0];
+                        if (id.Contains("ci"))
+                        {
+                            foreach (CombatItemObject item in Assets.assets.combatTemp)
+                            {
+                                if (id == item.name)
+                                {
+                                    //weapon har all info man vill ha
+                                }
+                            }
+                        }
+                        if (id.Contains("hi"))
+                        {
+                            foreach (HealingItemObject item in Assets.assets.healingTemp)
+                            {
+                                if (id == item.name)
+                                {
+                                    //weapon har all info man vill ha
+                                }
+                            }
+                        }
+
+                        abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
+                    }
+            
+
+                    //CombatItemObject c = new CombatItemObject();
+                    //if (characterO.GetComponent<CharacterScript>().itemID[0].TryGetComponent<CombatItemObject>(out c))
+                    //{
+                    //    go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<CharacterScript>().itemID[0].GetComponent<CombatItemObject>().abilityType;
+                    //} else
+                    //{
+                    //    go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<CharacterScript>().itemID[0].GetComponent<HealingItemObject>().abilityType;
+                    //}
+
+                }
+            }
             partyMember++;
             //}
 

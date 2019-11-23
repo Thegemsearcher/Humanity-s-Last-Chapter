@@ -76,7 +76,6 @@ public class CharacterScript : MonoBehaviour {
         itemID = data.itemID;
         inHospital = data.inHospital;
         isEnlisted = data.isEnlisted;
-
         //Stats ändringar
         if (inHospital) {
             statsScript.hp += 5;
