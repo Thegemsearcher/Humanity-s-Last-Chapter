@@ -60,15 +60,30 @@ public class PartyScript : MonoBehaviour {
 
             CreateUI(characterScript, statsList[partyMember]);
 
-            characterO.transform.SetParent(transParent, false);
-            if (characterO.GetComponent<Stats>().items.Count > 0)
-            {
-                GameObject go = Instantiate(AbilityToInstantiate);
-                go.transform.SetParent(abilitySlots[partyMember].transform, false);
-                go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
-                go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<Stats>().items[0].GetComponent<CombatItemObject>().abilityType;
-                abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
-            }
+            //characterO.transform.SetParent(transParent, false);
+            //if (characterO == null)
+            //    Debug.Log("wat");
+            //if (characterO.GetComponent<Stats>() == null)
+            //    Debug.Log("wat 2.0");
+            //if (characterO.GetComponent<Stats>().items != null)
+            //{
+            //    if (characterO.GetComponent<Stats>().items.Count > 0)
+            //    {
+            //        GameObject go = Instantiate(AbilityToInstantiate);
+            //        go.transform.SetParent(abilitySlots[partyMember].transform, false);
+            //        go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
+            //        CombatItemObject c = new CombatItemObject();
+            //        if (characterO.GetComponent<Stats>().items[0].TryGetComponent<CombatItemObject>(out c))
+            //        {
+            //            go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<Stats>().items[0].GetComponent<CombatItemObject>().abilityType;
+            //        } else
+            //        {
+            //            go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<Stats>().items[0].GetComponent<HealingItemObject>().abilityType;
+            //        }
+
+            //        abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
+            //    }
+            //}
            
             partyMember++;
             //}
