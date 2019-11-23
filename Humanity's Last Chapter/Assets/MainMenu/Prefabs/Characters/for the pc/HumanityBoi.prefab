@@ -112,6 +112,8 @@ MonoBehaviour:
   meleeId: 
   clothId: 
   headId: 
+  activeHealing: 
+  activeCombat: 
   itemID: []
   inHospital: 0
   isEnlisted: 0
@@ -375,6 +377,6 @@ MonoBehaviour:
     type: 3}
   namePlate: {fileID: 1777085911663271481, guid: 544d406dd188f614b8edc1397fa53a23,
     type: 3}
-  UiRepresentation: {fileID: 5710482156269927666, guid: 51156798005c5054482ab2cbb72d3a6b,
+  UiRepresentation: {fileID: 2825698919333860584, guid: 14f5ef4c6a98fca4caf8b4ec0dfa9b34,
     type: 3}
   CurrentUiRepresentation: {fileID: 0}
