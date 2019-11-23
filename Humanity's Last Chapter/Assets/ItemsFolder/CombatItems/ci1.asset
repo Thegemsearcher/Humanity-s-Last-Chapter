@@ -13,5 +13,19 @@ MonoBehaviour:
   m_Name: ci1
   m_EditorClassIdentifier: 
   texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+<<<<<<< Updated upstream
   itemName: Spicy Milk
   description: Who knew milk could be spicy?
+=======
+  abilityType: 0
+  itemName: Turret XCI
+  description: Turret XCI was a common turret in the army
+  cost: 300
+  damage: 5
+  range: 80
+  aoe: 0
+  cooldownTimer: 120
+  fireRate: 0.3
+  weaponSpread: 0.5
+  turretTimer: 30
+>>>>>>> Stashed changes

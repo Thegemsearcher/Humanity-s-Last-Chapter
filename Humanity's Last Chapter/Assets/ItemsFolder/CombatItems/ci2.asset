@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: ci2
   m_EditorClassIdentifier: 
   texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  itemName: Handgranade
+  abilityType: 1
+  itemName: Improvised Grenade
   description: 'An explosive device thrown by you, who are a less explocive device
     #goodeworkspace #bossoftheyear'
+<<<<<<< Updated upstream
+=======
+  cost: 30
+  damage: 40
+  range: 30
+  aoe: 4
+  cooldownTimer: 60
+  fireRate: 0
+  weaponSpread: 0
+  turretTimer: 0
+>>>>>>> Stashed changes

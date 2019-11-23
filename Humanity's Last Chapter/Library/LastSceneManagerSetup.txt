@@ -1,5 +1,9 @@
 sceneSetups:
+<<<<<<< Updated upstream
 - path: Assets/MainMenu/Scenes/Hub.unity
+=======
+- path: Assets/MainMenu/Scenes/MissionMap.unity
+>>>>>>> Stashed changes
   isLoaded: 1
   isActive: 1
   isSubScene: 0

@@ -8,7 +8,7 @@ public class CharacterScript : MonoBehaviour {
     public int id, inventorySize;
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
-    public string rangedId, meleeId, clothId, headId;
+    public string rangedId, meleeId, clothId, headId, activeHealing, activeCombat;
     public string[] itemID;
     public bool inHospital, isEnlisted;
 
@@ -16,11 +16,24 @@ public class CharacterScript : MonoBehaviour {
 
     void Start() {
         statsScript = GetComponent<Stats>();
+        activeCombat = "ci" + Random.Range(0, Assets.assets.combatTemp.Length); //Test
+        activeHealing = "hi" + Random.Range(0, Assets.assets.healingTemp.Length); //Test
+
         if (strName == "") {
             inventorySize = 4;
             strName = NameGenerator();
             id = GetId();
             rangedId = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
+<<<<<<< Updated upstream
+=======
+            activeCombat = "ci" + Random.Range(0, Assets.assets.combatTemp.Length);
+            activeHealing = "hi" + Random.Range(0, Assets.assets.healingTemp.Length);
+            itemID = new string[inventorySize];
+
+            for(int i = 0; i < itemID.Length; i++) {
+                itemID[i] = "";
+            }
+>>>>>>> Stashed changes
         }
         itemID = new string[inventorySize];
     }
@@ -36,33 +49,33 @@ public class CharacterScript : MonoBehaviour {
         return id;
     }
 
-    public void SavePlayer() {
-        if (statsScript.hp > 0) {
-            int i = 0;
-            foreach (Transform item in gameObject.GetComponent<Stats>().characterUI.transform.GetChild(3).transform) {
-                if (item.tag == "Item") {
-                    if (item.GetComponent<ItemScript>().IsActive()) {
-                        itemID[i] = item.GetComponent<ItemScript>().ItemID;
-                        i++;
-                    }
-                }
-            }
+    //public void SavePlayer() { //Kallas inte på längre
+    //    if (statsScript.hp > 0) {
+    //        int i = 0;
+    //        foreach (Transform item in gameObject.GetComponent<Stats>().characterUI.transform.GetChild(3).transform) {
+    //            if (item.tag == "Item") {
+    //                if (item.GetComponent<ItemScript>().IsActive()) {
+    //                    itemID[i] = item.GetComponent<ItemScript>().ItemID;
+    //                    i++;
+    //                }
+    //            }
+    //        }
 
-            if (inHospital) {
-                statsScript.hp += 5;
-                if (statsScript.hp > statsScript.maxHp) {
-                    statsScript.hp = statsScript.maxHp;
-                }
-            }
+    //        if (inHospital) {
+    //            statsScript.hp += 5;
+    //            if (statsScript.hp > statsScript.maxHp) {
+    //                statsScript.hp = statsScript.maxHp;
+    //            }
+    //        }
 
-            if (isEnlisted) {
-                statsScript.hp -= 2;
-            }
-            SaveSystem.SaveCharacter(this, GetComponent<Stats>());
-        } else {
-            SaveSystem.DeleteCharacter(this);
-        }
-    }
+    //        if (isEnlisted) {
+    //            statsScript.hp -= 2;
+    //        }
+    //        SaveSystem.SaveCharacter(this, GetComponent<Stats>());
+    //    } else {
+    //        SaveSystem.DeleteCharacter(this);
+    //    }
+    //}
 
     public void LoadPlayer(CharacterScript data) {
         strName = data.strName;

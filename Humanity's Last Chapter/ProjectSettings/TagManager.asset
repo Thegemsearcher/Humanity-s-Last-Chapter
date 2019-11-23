@@ -29,6 +29,7 @@ TagManager:
   - UICharacterRole
   - ForRole
   - ItemSlot
+<<<<<<< Updated upstream
   - TextItemName
   - TextItemDescrip
   - forSaves
@@ -37,6 +38,20 @@ TagManager:
   - StoreSlot
   - ForItemStorage
   - ForStoreStorage
+=======
+  - StorageMoveParent
+  - ClothSlot
+  - WeaponSlot
+  - InventorySlot
+  - forSaves
+  - FuckingFindThisPieceOfShitPlease
+  - QuestStarted
+  - Waypoint
+  - ObjectiveStarted
+  - Location
+  - QuestGiver
+  - AbilityUI
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX

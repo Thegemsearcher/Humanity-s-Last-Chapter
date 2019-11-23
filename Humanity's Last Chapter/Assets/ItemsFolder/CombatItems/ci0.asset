@@ -13,5 +13,19 @@ MonoBehaviour:
   m_Name: ci0
   m_EditorClassIdentifier: 
   texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+<<<<<<< Updated upstream
   itemName: Strong Cookie
   description: This cookie will give you strong power!!!
+=======
+  abilityType: 0
+  itemName: Improvised Turret
+  description: It can shoot atleast!
+  cost: 200
+  damage: 4
+  range: 60
+  aoe: 0
+  cooldownTimer: 120
+  fireRate: 1
+  weaponSpread: 0.1
+  turretTimer: 30
+>>>>>>> Stashed changes

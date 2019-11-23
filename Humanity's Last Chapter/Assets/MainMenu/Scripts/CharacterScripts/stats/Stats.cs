@@ -21,6 +21,7 @@ public class Stats : MonoBehaviour {
             hp = maxHp;
         }
 
+<<<<<<< Updated upstream
         str = Random.Range(1, 3);   //Just for show.
         def = Random.Range(1, 3);   //Just for show.
         Int = Random.Range(1, 3);   //Just for show.
@@ -56,11 +57,33 @@ public class Stats : MonoBehaviour {
             if (itemId != null)
                 items[x].GetComponent<ItemScript>().CreateItem(itemId);
         }
+=======
+        }
+        //Debug.Log("Str is " + str);
+        //characterUI = Instantiate(prefabCharacterUI, new Vector3(0, 0, 0), Quaternion.identity);
+        //characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
+        //characterUI.GetComponent<Canvas>().sortingOrder = 1;
+        //characterUI.GetComponentInChildren<Button>().onClick.AddListener(delegate { characterUI.SetActive(false); });
 
-        //This is dumb, but CharacterCanvas is a canvas, so it's dumb.
-        for (int x = 0; x < characterUI.transform.childCount; x++)
-            characterUI.transform.GetChild(x).transform.position += new Vector3(-4f, 1.9f, 0);
+        //Set the script to the instance of the CharacterCanvas object, and then run the method in it.
+        //writer = prefabCharacterUI.GetComponent<CharacterStatWriter>();
+        //foreach(string quirkId in quirkIDList)
+        //{
+        //    foreach(QuirkObject quirk in Assets.assets.quirkArray)
+        //    {
+        //        if(quirk.name == quirkId)
+        //        {
+        //            writer.GetStats(hp, str, def, Int, dex, cha, quirk.quirkName);
+        //            break;
+        //        }
+        //    }
 
+
+        //}
+>>>>>>> Stashed changes
+
+
+<<<<<<< Updated upstream
         //Configure items
         int i = 0;
         int j = 0;
@@ -72,6 +95,43 @@ public class Stats : MonoBehaviour {
                 j++;
             }
         }
+=======
+        //Create items
+        //    foreach (Transform t in characterUI.transform)
+        //    {
+        //        if (t.tag == "ItemGrid")
+        //        {
+        //            itemGrid = t.gameObject;
+        //        }
+        //    }
+        //    for (int x = 0; x < 6; x++)
+        //        items.Add(Instantiate(ItemPrefab, itemGrid.transform));
+        //    //GetComponent<CharacterScript>().LoadPlayer(GetComponent<CharacterScript>().id);
+        //    for (int x = 0; x < GetComponent<CharacterScript>().itemID.Length; x++)
+        //    {
+        //        string itemId = GetComponent<CharacterScript>().itemID[x];
+        //        if (itemId != null)
+        //            items[x].GetComponent<ItemScript>().CreateItem(itemId);
+        //    }
+
+        //    //This is dumb, but CharacterCanvas is a canvas, so it's dumb.
+        //    for (int x = 0; x < characterUI.transform.childCount; x++)
+        //        characterUI.transform.GetChild(x).transform.position += new Vector3(-4f, 1.9f, 0);
+
+        //    //Configure items
+        //    int i = 0;
+        //    int j = 0;
+        //    foreach (GameObject item in items)
+        //    {
+        //        item.GetComponent<ItemScript>().SetSlot(item.transform.position + new Vector3(0 + i * 0.6f, 0 - j * 0.6f, 0)); // + new Vector3(-2f + i * 0.5f, 2.1f - j * 0.5f, 0));//new Vector3(-2.2f + i*0.5f, 3.9f, 0));
+        //        i++;
+        //        if (i > 2)
+        //        {
+        //            i = 0;
+        //            j++;
+        //        }
+        //    }
+>>>>>>> Stashed changes
     }
 
     public int GetCost() {
@@ -81,7 +141,7 @@ public class Stats : MonoBehaviour {
 
     public void BringUpStats() {
         //GetComponentInParent<AddToPlayerRoster>().controller.GetComponent<HubCharController>().CloseAllWindows();
-        characterUI.SetActive(true);
+        //characterUI.SetActive(true);
     }
 
     public void GetStats(int maxHp, int hp) { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!
@@ -110,7 +170,51 @@ public class Stats : MonoBehaviour {
         quirkList = new List<QuirkObject>();
     }
 
+<<<<<<< Updated upstream
     public void LoadPlayer(Stats data) { //Vill ersätta detta med något som typ "this.stats = data" men vet inte hur...
+=======
+    public void TakeDamage(int damage)
+    {
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        int procentage = 100;
+        int randomChance = 0;
+
+        damage -= def;
+        if (damage < 1)
+        {
+            damage = 1;
+        }
+        procentage -= dex;
+        randomChance = Random.Range(0, 101);
+        if (randomChance > procentage)
+        {
+            damage = 0;
+            Debug.Log("success");
+        }
+        hp -= damage;
+        if (hp < 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void TakeDamage() {
+
+    }
+
+    public void HealCharacter(int healAmount) {
+        hp += healAmount;
+
+        if(hp > maxHp) {
+            hp = maxHp;
+        }
+    }
+
+    public void LoadPlayer(Stats data)
+    { //Vill ersätta detta med något som typ "this.stats = data" men vet inte hur...
+        quirkIDList = data.quirkIDList;
+        shit = data.shit;
+>>>>>>> Stashed changes
         hp = data.hp;
         maxHp = data.maxHp;
         str = data.str;

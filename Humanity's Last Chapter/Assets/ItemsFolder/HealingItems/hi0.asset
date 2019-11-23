@@ -15,4 +15,10 @@ MonoBehaviour:
   texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   itemName: Weak Bandage
   description: A bandage to coverup small wounds!!!
+<<<<<<< Updated upstream
   healPower: 2
+=======
+  healPower: 50
+  cost: 30
+  cooldownTimer: 10
+>>>>>>> Stashed changes
