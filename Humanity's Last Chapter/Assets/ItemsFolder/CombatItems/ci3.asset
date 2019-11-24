@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51030d96f20984e44834efb9f33e1d02, type: 3}
   m_Name: ci3
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 29aab9ec9704fba43bb97125915f65ee, type: 3}
+  icon: {fileID: 21300000, guid: de3a3fec5c42678459fe7c230c93e7b5, type: 3}
+  sprite: {fileID: 21300000, guid: de3a3fec5c42678459fe7c230c93e7b5, type: 3}
   itemName: MKV Grenade
-  description: Turn your enemies to dust!
+  description: A explosive on a stick!
   cost: 50
   coolDownTimer: 20
   placeRange: 6

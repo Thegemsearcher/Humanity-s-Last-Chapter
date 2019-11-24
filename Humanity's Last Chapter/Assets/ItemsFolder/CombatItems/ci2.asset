@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51030d96f20984e44834efb9f33e1d02, type: 3}
   m_Name: ci2
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  sprite: {fileID: 21300000, guid: 29aab9ec9704fba43bb97125915f65ee, type: 3}
-  itemName: Handgranade
-  description: 'An explosive device thrown by you, who are a less explocive device
-    #goodeworkspace #bossoftheyear'
+  icon: {fileID: 21300000, guid: ecbe4bb3a11720b4c956f399f3498903, type: 3}
+  sprite: {fileID: 21300000, guid: 877ae97b727269146b4a514a147f20b8, type: 3}
+  itemName: Antique Grenade
+  description: It worked before, why wouldn't it work now?
   cost: 10
   coolDownTimer: 20
   placeRange: 6
