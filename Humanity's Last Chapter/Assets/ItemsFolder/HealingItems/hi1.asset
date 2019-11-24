@@ -17,6 +17,6 @@ MonoBehaviour:
   description: Don't worry it's for a school project
   healPower: 1000
   cost: 600
-  coolDownTimer: 120
+  coolDownTimer: 10
   abilityType: 2
   sprite: {fileID: 21300000, guid: 415789639d14136428f89e44ac220b8c, type: 3}

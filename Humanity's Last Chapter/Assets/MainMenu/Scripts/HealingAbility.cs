@@ -8,15 +8,16 @@ public class HealingAbility : MonoBehaviour {
     public KeyCode BoundKey;
     public Sprite defultSprite;
     private HealingItemObject healingItem;
-    private GameObject Character;
+    private GameObject Character, pivotCharacter;
     private bool isReady;
 
     private void Start() {
         healingItem = null;
     }
 
-    public void GetItem(GameObject Character) {
+    public void GetItem(GameObject Character, GameObject pivotCharacter) {
         this.Character = Character;
+        this.pivotCharacter = pivotCharacter;
         healingItem = Character.GetComponent<Abilities>().healingItem;
         if (healingItem != null) {
             GetComponent<Image>().sprite = healingItem.sprite;
@@ -43,9 +44,9 @@ public class HealingAbility : MonoBehaviour {
 
     public void Activate() {
         if(isReady) {
-            Debug.Log("Character name: " + Character.GetComponent<CharacterScript>().strName);
+            Debug.Log("Character name: " + pivotCharacter.GetComponent<CharacterScript>().strName);
             Character.GetComponent<Abilities>().healingReady = false; //Ska flyttas till mer passande plats
-            Character.GetComponent<Stats>().HealCharacter(healingItem.healPower);
+            pivotCharacter.GetComponent<Stats>().HealCharacter(healingItem.healPower);
         }
     }
 }

@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ActiveCharacter : MonoBehaviour {
 
-    private GameObject activeCharacter;
+    private GameObject activeCharacter, pivotCharacter;
     public GameObject WeaponAbility, HealingAbility, CombatAbility;
 
     private CharacterScript characterScript;
     private Abilities abilities; //Används för att veta vilka abilities karaktären har och veta när de är redo
 
-    public void SwitchCharacter(GameObject activeCharacter) {
+    public void SwitchCharacter(GameObject activeCharacter, GameObject pivotCharacter) {
         this.activeCharacter = activeCharacter;
+        this.pivotCharacter = pivotCharacter;
         characterScript = GetComponent<CharacterScript>();
         abilities = activeCharacter.GetComponent<Abilities>();
         UpdateEquipment();
@@ -19,7 +20,7 @@ public class ActiveCharacter : MonoBehaviour {
 
     private void UpdateEquipment() {
         WeaponAbility.GetComponent<WeaponAbility>().GetItem(activeCharacter);
-        HealingAbility.GetComponent<HealingAbility>().GetItem(activeCharacter);
+        HealingAbility.GetComponent<HealingAbility>().GetItem(activeCharacter, pivotCharacter);
         CombatAbility.GetComponent<CombatAbility>().GetItem(activeCharacter);
     } 
 }

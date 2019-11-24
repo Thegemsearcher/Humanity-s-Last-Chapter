@@ -6,6 +6,7 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
 
     private GameObject ActiveCharacter;
     private CharacterScript characterScript;
+    public GameObject pivotCharacter;
 
     //Så att man endast går in i foreach loopen en gång per karaktär och inte varje gång man byter karaktär
     public WeaponObject weapon;
@@ -19,11 +20,7 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
 
     private void Start() {
         ActiveCharacter = GameObject.FindGameObjectWithTag("ActiveCharacter");
-        characterScript = GetComponent<CharacterScript>();
-
-        
-       
-        
+        characterScript = pivotCharacter.GetComponent<CharacterScript>();
 
         if(healingId == null) {
             healingId = "hi0";
@@ -39,7 +36,7 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
 
 
     public void BtnSelect() {
-        ActiveCharacter.GetComponent<ActiveCharacter>().SwitchCharacter(gameObject);
+        ActiveCharacter.GetComponent<ActiveCharacter>().SwitchCharacter(gameObject, pivotCharacter);
     }
 
     private void Update() {
