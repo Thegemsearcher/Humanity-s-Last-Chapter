@@ -7,6 +7,7 @@ public class CharacterStatWriter : MonoBehaviour
 {
     public GameObject text;
     // Start is called before the first frame update
+    //not in use for the moment!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     void Start()
     {
     }

@@ -19,10 +19,11 @@ public class UIBoiScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     void Start() {
         characterScript = GetComponent<CharacterScript>();
         statsScript = GetComponent<Stats>();
-
+        //Debug.Log("HP before: " + hp);
         str = statsScript.str;
         def = statsScript.def;
         hp = statsScript.hp;
+        //Debug.Log("He After: " + hp);
         lvl = statsScript.level;
         maxHp = statsScript.maxHp;
         exp = statsScript.exp;

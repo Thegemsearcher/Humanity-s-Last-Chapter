@@ -39,12 +39,13 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
     public void LoadCharacters() { //Ser till att alla karaktärer ritas ut med rätt världen
         characterScriptList = WorldScript.world.characterList;
         statsList = WorldScript.world.statsList;
-        
+        //Debug.Log("Ch script has length: " + characterScriptList.Count + "and statsList have Length: " + statsList.Count);
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
         foreach (CharacterScript characterScript in characterScriptList) {
             characterO = Instantiate(character);
             characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
             characterO.GetComponent<Stats>().LoadPlayer(statsList[0]);
+            Debug.Log("hp is: " + statsList[0].hp);
             characterO.GetComponent<CharacterScript>().isEnlisted = false;
             //randomQuirk = Random.Range(0, 9);   //picks out the quirk.
             //randomQuirk *= 2;

@@ -116,6 +116,7 @@ public class WorldScript {
         characterArr = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject character in characterArr) {
             if (character.GetComponent<Stats>().hp > 0) {
+                //Debug.Log("hp is: " + character.GetComponent<Stats>().hp);
                 characterList.Add(character.GetComponent<CharacterScript>());
                 statsList.Add(character.GetComponent<Stats>());
             }
