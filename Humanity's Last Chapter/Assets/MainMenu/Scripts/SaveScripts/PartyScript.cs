@@ -37,12 +37,10 @@ public class PartyScript : MonoBehaviour {
 
     public void SpawnCharacters() {
         characterScriptList = WorldScript.world.characterList;
-<<<<<<< Updated upstream
         statsList = WorldScript.world.statsList;
 
         partyMember = 0;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
-=======
         Debug.Log(characterScriptList);
         foreach (CharacterScript characterScript in characterScriptList) {
             Debug.Log(characterScript);
@@ -53,8 +51,7 @@ public class PartyScript : MonoBehaviour {
         
 
         GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
-
->>>>>>> Stashed changes
+        
         foreach (CharacterScript characterScript in characterScriptList) {
 
             //if(characterScript.GetComponent<CharacterScript>().isEnlisted) {
@@ -67,18 +64,12 @@ public class PartyScript : MonoBehaviour {
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember, partyMember);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
-<<<<<<< Updated upstream
 
             Debug.Log("wpID: " + characterScript.rangedId);
-=======
->>>>>>> Stashed changes
             SpawnWeapon(characterScript.rangedId, characterO.transform);
 
             CreateUI(characterScript, statsList[partyMember]);
-
-<<<<<<< Updated upstream
             characterO.transform.SetParent(transParent, false);
-=======
 
 
             //characterO.transform.SetParent(transParent, false);
@@ -124,7 +115,6 @@ public class PartyScript : MonoBehaviour {
 
             //    }
             //}
->>>>>>> Stashed changes
             partyMember++;
             //}
 
@@ -137,8 +127,6 @@ public class PartyScript : MonoBehaviour {
     }
 
     private void TestCharacters() { //Spawnar tre gubbar ifall man inte kommer från huben
-<<<<<<< Updated upstream
-=======
 
         //Ability test
         //Debug.Log("skapa en turret ability");
@@ -154,8 +142,7 @@ public class PartyScript : MonoBehaviour {
         //go2.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[1];
         //go2.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.grenade;
         //abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
-
->>>>>>> Stashed changes
+        
         for (int i = 0; i < 3; i++) {
             characterO = Instantiate(character);
 

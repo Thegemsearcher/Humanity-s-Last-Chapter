@@ -24,8 +24,6 @@ public class CharacterScript : MonoBehaviour {
             strName = NameGenerator();
             id = GetId();
             rangedId = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
-<<<<<<< Updated upstream
-=======
             activeCombat = "ci" + Random.Range(0, Assets.assets.combatTemp.Length);
             activeHealing = "hi" + Random.Range(0, Assets.assets.healingTemp.Length);
             itemID = new string[inventorySize];
@@ -33,7 +31,6 @@ public class CharacterScript : MonoBehaviour {
             for(int i = 0; i < itemID.Length; i++) {
                 itemID[i] = "";
             }
->>>>>>> Stashed changes
         }
         itemID = new string[inventorySize];
     }

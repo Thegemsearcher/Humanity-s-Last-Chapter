@@ -2,23 +2,6 @@
 //using System.Collections.Generic;
 //using UnityEngine;
 
-<<<<<<< Updated upstream
-public class AbilityScript : MonoBehaviour
-{
-    public GameObject AttachedSlot;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-}
-=======
 //public class AbilityScript : MonoBehaviour
 //{
 //    public GameObject Turret;
@@ -123,4 +106,3 @@ public class AbilityScript : MonoBehaviour
 //        go.transform.position = mousePos;
 //    }
 //}
->>>>>>> Stashed changes

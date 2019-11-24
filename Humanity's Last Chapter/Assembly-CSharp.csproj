@@ -63,19 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\AbilityScript.cs" />
-<<<<<<< Updated upstream
-    <Compile Include="Assets\BulletM.cs" />
-=======
     <Compile Include="Assets\AbilitySlotScript.cs" />
     <Compile Include="Assets\AbilitySlotScriptTest.cs" />
     <Compile Include="Assets\AbilityUI.cs" />
     <Compile Include="Assets\BulletM.cs" />
-    <Compile Include="Assets\CharacterBox.cs" />
     <Compile Include="Assets\CombatAbility.cs" />
-    <Compile Include="Assets\CreateCharacterBox.cs" />
-    <Compile Include="Assets\GrenadeScript.cs" />
     <Compile Include="Assets\HealingAbility.cs" />
->>>>>>> Stashed changes
     <Compile Include="Assets\HPinCombat.cs" />
     <Compile Include="Assets\ItemInfo.cs" />
     <Compile Include="Assets\LoadMainMenu.cs" />
@@ -180,31 +173,15 @@
     <Compile Include="Assets\MainMenu\Scripts\Weapon\WeaponScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\weaponStats.cs" />
     <Compile Include="Assets\MainMenu\Scripts\WorldScript.cs" />
-<<<<<<< Updated upstream
-=======
-    <Compile Include="Assets\MapLoading\GameObjectList.cs" />
-    <Compile Include="Assets\MapLoading\LoadMapButtonScript.cs" />
-    <Compile Include="Assets\MapLoading\RoadScript.cs" />
-    <Compile Include="Assets\MapLoading\WallScript.cs" />
-    <Compile Include="Assets\MapPrefabFinisher.cs" />
-    <Compile Include="Assets\MoveItem.cs" />
     <Compile Include="Assets\PortraitScript.cs" />
->>>>>>> Stashed changes
     <Compile Include="Assets\RangedEnemy.cs" />
     <Compile Include="Assets\ResourceText.cs" />
     <Compile Include="Assets\SaveSlot.cs" />
     <Compile Include="Assets\ShopSlotScript.cs" />
     <Compile Include="Assets\StartMissionUI.cs" />
-<<<<<<< Updated upstream
-    <Compile Include="Assets\UIControls.cs" />
-=======
-    <Compile Include="Assets\TurretScript.cs" />
     <Compile Include="Assets\UICharacterMission.cs" />
     <Compile Include="Assets\UIControls.cs" />
-    <Compile Include="Assets\UpdateInfo.cs" />
-    <Compile Include="Assets\UpgradeShop.cs" />
     <Compile Include="Assets\WeaponAbility.cs" />
->>>>>>> Stashed changes
     <Compile Include="Assets\WeaponAttack.cs" />
     <Compile Include="Assets\WeaponDisplay.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
