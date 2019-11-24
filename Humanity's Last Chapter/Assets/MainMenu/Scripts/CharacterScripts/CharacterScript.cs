@@ -8,7 +8,7 @@ public class CharacterScript : MonoBehaviour {
     public int id, inventorySize;
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
-    public string rangedId, meleeId, clothId, headId;
+    public string rangedId, meleeId, combatId, healingId, clothId, headId;
     public string[] itemID;
     public bool inHospital, isEnlisted;
 
@@ -16,6 +16,8 @@ public class CharacterScript : MonoBehaviour {
 
     void Start() {
         statsScript = GetComponent<Stats>();
+        combatId = "ci" + Random.Range(0, Assets.assets.combatTemp.Length);
+        healingId = "hi" + Random.Range(0, Assets.assets.healingTemp.Length);
         if (strName == "") {
             inventorySize = 4;
             strName = NameGenerator();

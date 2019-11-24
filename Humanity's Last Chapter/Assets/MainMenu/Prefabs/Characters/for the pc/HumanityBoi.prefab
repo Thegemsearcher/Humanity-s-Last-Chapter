@@ -110,6 +110,8 @@ MonoBehaviour:
   inventorySize: 0
   rangedId: 
   meleeId: 
+  combatId: 
+  healingId: 
   clothId: 
   headId: 
   itemID: []
@@ -379,6 +381,6 @@ MonoBehaviour:
     type: 3}
   namePlate: {fileID: 1777085911663271481, guid: 544d406dd188f614b8edc1397fa53a23,
     type: 3}
-  UiRepresentation: {fileID: 5710482156269927666, guid: 51156798005c5054482ab2cbb72d3a6b,
+  UiRepresentation: {fileID: 5856801309094642161, guid: 15aac1381daf6ad4bb2de4f98689bc7c,
     type: 3}
   CurrentUiRepresentation: {fileID: 0}

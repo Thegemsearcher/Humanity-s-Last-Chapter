@@ -29,11 +29,13 @@ public class UIControls : MonoBehaviour
         ParentForUiRepresentation = GameObject.Find("forCharacters");
         //GameObject.Find("CharacterScroll").SetActive(true);
         CurrentUiRepresentation = Instantiate(UiRepresentation);
-        CurrentUiRepresentation.transform.SetParent(ParentForUiRepresentation.transform);
-        CurrentUiRepresentation.GetComponent<UIBoiScript>().GetPos(ParentForUiRepresentation.GetComponentsInChildren<UIBoiScript>().Length);
+        CurrentUiRepresentation.transform.SetParent(ParentForUiRepresentation.transform, false);
+        CurrentUiRepresentation.GetComponent<CharacterScript>().LoadPlayer(GetComponent<CharacterScript>());
+        CurrentUiRepresentation.GetComponent<Stats>().LoadPlayer(GetComponent<Stats>());
+        //CurrentUiRepresentation.GetComponent<UIBoiScript>().GetPos(ParentForUiRepresentation.GetComponentsInChildren<UIBoiScript>().Length);
         CurrentUiRepresentation.GetComponent<Button>().onClick.AddListener(CurrentUiRepresentation.GetComponent<Stats>().BringUpStats);
-        CurrentUiRepresentation.GetComponent<UIBoiScript>().isOwned = true;
-        CurrentUiRepresentation.transform.localScale = new Vector3(0.4f,1,1);
+        //CurrentUiRepresentation.GetComponent<UIBoiScript>().isOwned = true;
+        CurrentUiRepresentation.transform.localScale = new Vector3(1,1,1);
         //GetComponent<UpdateUiBoiInMission>().UIBoi = CurrentUiRepresentation;
     }
 
@@ -47,8 +49,16 @@ public class UIControls : MonoBehaviour
             Debug.Log("wat");
 
         Stats statsScript = GetComponent<Stats>();
-        if (statsScript != null)
-            CurrentUiRepresentation.GetComponent<UIBoiScript>().SetStats(statsScript);
+        if (statsScript != null) {
+            CurrentUiRepresentation.GetComponent<Stats>().LoadPlayer(statsScript);
+                //CurrentUiRepresentation.GetComponent<UIBoiScript>().SetStats(statsScript);
+        }
+        CharacterScript characterScript = GetComponent<CharacterScript>();
+        if(characterScript != null) {
+            CurrentUiRepresentation.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+        }
+
+
     }
     private void OnDestroy()
     {
@@ -62,7 +72,7 @@ public class UIControls : MonoBehaviour
         {
             GetComponent<Stats>().hp = 0;
             if (CurrentUiRepresentation != null)
-                CurrentUiRepresentation.GetComponent<UIBoiScript>().SetStats(GetComponent<Stats>());
+                //CurrentUiRepresentation.GetComponent<UIBoiScript>().SetStats(GetComponent<Stats>());
             if (currentHPBar != null)
                 currentHPBar.SetActive(false);
             if (currentNamePlate != null)

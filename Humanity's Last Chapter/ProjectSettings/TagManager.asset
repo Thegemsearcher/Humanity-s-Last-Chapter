@@ -31,6 +31,14 @@ TagManager:
   - ClothSlot
   - WeaponSlot
   - InventorySlot
+  - forSaves
+  - FuckingFindThisPieceOfShitPlease
+  - QuestStarted
+  - Waypoint
+  - ObjectiveStarted
+  - QuestGiver
+  - Location
+  - ActiveCharacter
   layers:
   - Default
   - TransparentFX

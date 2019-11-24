@@ -111,6 +111,8 @@ MonoBehaviour:
   inventorySize: 0
   rangedId: 
   meleeId: 
+  combatId: 
+  healingId: 
   clothId: 
   headId: 
   itemID: []
@@ -136,13 +138,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a426da5dc25f854ba7e362468ca9f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
+  health: 20
   speed: 1.5
   id: 
   pcs: []
   aggroRange: 4
   atkRange: 0.5
-  dmg: 5
+  dmg: 1
   pcLayer:
     serializedVersion: 2
     m_Bits: 1024
@@ -150,6 +152,7 @@ MonoBehaviour:
   timeBetweenAttack: 2
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}
+  hasSeenEnemy: 0
 --- !u!61 &-3477304486119057493
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -189,6 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
+  currentWP: 0
 --- !u!114 &-6092645434220300714
 MonoBehaviour:
   m_ObjectHideFlags: 0

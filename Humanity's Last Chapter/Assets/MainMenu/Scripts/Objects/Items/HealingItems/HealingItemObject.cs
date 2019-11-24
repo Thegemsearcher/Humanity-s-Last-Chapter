@@ -11,5 +11,7 @@ public class HealingItemObject : ScriptableObject {
     public string description = "t.ex. A bandage to coverup small wounds!!!";
     public int healPower; //Hur mycket extra hp den ger när den används
     public int cost;
+    public int coolDownTimer;
     public AbilityType abilityType;
+    public Sprite sprite;
 }

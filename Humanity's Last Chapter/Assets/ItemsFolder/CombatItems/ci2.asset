@@ -17,4 +17,6 @@ MonoBehaviour:
   description: 'An explosive device thrown by you, who are a less explocive device
     #goodeworkspace #bossoftheyear'
   cost: 10
+  coolDownTimer: 20
   abilityType: 1
+  sprite: {fileID: 21300000, guid: 29aab9ec9704fba43bb97125915f65ee, type: 3}
