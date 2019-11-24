@@ -16,7 +16,6 @@ public class LocationScript : MonoBehaviour {
     }
 
     public void OnTriggerEnter2D(Collider2D other) {
-        Debug.Log("It do get here!");
         //txtLocation.text = location;
         isInRoom = true;
 

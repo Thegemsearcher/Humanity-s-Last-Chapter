@@ -16,14 +16,14 @@ public class WeaponAttack : MonoBehaviour {
 
     private void Start() {
         playerAttack = GetComponent<PlayerAttack>();
-        transform.position = new Vector3(0, 0, 1);
+        //transform.position = new Vector3(0, 0, 1);
     }
 
     public void GetData(WeaponObject wo) {
         this.wo = wo;
         GetComponent<SpriteRenderer>().sprite = wo.sprite;
         gameObject.name = wo.weaponName;
-        transform.position = Vector2.zero;
+        //transform.position = Vector2.zero;
     }
 
     private void Update() {
@@ -59,6 +59,7 @@ public class WeaponAttack : MonoBehaviour {
 
     //For tha nöds
     public bool IsRange() {
+        GetClosestEnemy();
         if (closest <= wo.range && closest >= minRange) { //Min range är avståndet då den byter till melee attack
             return true;
         }

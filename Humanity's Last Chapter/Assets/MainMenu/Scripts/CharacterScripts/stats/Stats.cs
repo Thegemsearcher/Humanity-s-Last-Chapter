@@ -157,13 +157,11 @@ public class Stats : MonoBehaviour {
     }
 
     public void HealCharacter(int healAmount) { //Det sparas inte...
-        Debug.Log("Old hp: " + hp);
         hp += healAmount;
 
         if (hp >= maxHp) {
             hp = maxHp;
         }
-        Debug.Log("New hp: " + hp);
     }
 
     public void LoadPlayer(Stats data) { //Vill ersätta detta med något som typ "this.stats = data" men vet inte hur...

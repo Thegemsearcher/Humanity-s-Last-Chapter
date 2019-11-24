@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class WeaponAbility : MonoBehaviour {
 
+    public Sprite defultSprite;
     public KeyCode BoundKey;
     private bool isReady;
     private GameObject Character;
@@ -15,9 +16,14 @@ public class WeaponAbility : MonoBehaviour {
     }
 
     public void GetItem(GameObject Character) {
-        this.Character = Character;
-        weapon = Character.GetComponent<Abilities>().weapon;
-        GetComponent<Image>().sprite = weapon.sprite;
+        if(Character != null) {
+            this.Character = Character;
+            weapon = Character.GetComponent<Abilities>().weapon;
+            GetComponent<Image>().sprite = weapon.sprite;
+        }else {
+            GetComponent<Image>().sprite = defultSprite;
+        }
+        
     }
 
     private void Update() {

@@ -94,7 +94,7 @@ public class CharacterBox : MonoBehaviour {
                         ItemO = Instantiate(Item);
                         ItemO.transform.SetParent(Slot.transform, false);
                         itemInfo = ItemO.GetComponent<ItemInfo>();
-                        itemInfo.GetData(combat.texture, combat.itemName, combat.description, combat.name, combat.cost);
+                        itemInfo.GetData(combat.icon, combat.itemName, combat.description, combat.name, combat.cost);
                         iss.GetComponent<ItemSlotScript>().GetItem(combat.itemName, combat.description, DescParent);
                         break;
                     }

@@ -39,8 +39,7 @@ public class PartyScript : MonoBehaviour {
     public void SpawnCharacters() {
         characterScriptList = WorldScript.world.characterList;
         Debug.Log(characterScriptList);
-        foreach (CharacterScript characterScript in characterScriptList)
-        {
+        foreach (CharacterScript characterScript in characterScriptList) {
             Debug.Log(characterScript);
         }
         statsList = WorldScript.world.statsList;
@@ -56,49 +55,40 @@ public class PartyScript : MonoBehaviour {
             characterO = Instantiate(character);
             characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
             characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
-            
+
             //Annan kod
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember * 0.5f, partyMember * 0.5f);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
-            gameObject.GetComponent<CharacterMovement>().AddPc(characterO);        
+            gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
             SpawnWeapon(characterScript.rangedId, characterO.transform);
 
             CreateUI(characterScript, statsList[partyMember]);
 
-            
+
 
             //characterO.transform.SetParent(transParent, false);
 
             if (characterO == null)
                 Debug.Log("wat");
-            if (characterO.GetComponent<CharacterScript>() != null)
-            {
-                if (characterO.GetComponent<CharacterScript>().itemID != null)
-                {
-                    if (characterO.GetComponent<CharacterScript>().itemID.Length > 0)
-                    {
+            if (characterO.GetComponent<CharacterScript>() != null) {
+                if (characterO.GetComponent<CharacterScript>().itemID != null) {
+                    if (characterO.GetComponent<CharacterScript>().itemID.Length > 0) {
                         GameObject go = Instantiate(AbilityToInstantiate);
                         go.transform.SetParent(abilitySlots[partyMember].transform, false);
                         go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
 
                         //Assets.assets.combatTemp
                         string id = characterO.GetComponent<CharacterScript>().itemID[0];
-                        if (id.Contains("ci"))
-                        {
-                            foreach (CombatItemObject item in Assets.assets.combatTemp)
-                            {
-                                if (id == item.name)
-                                {
+                        if (id.Contains("ci")) {
+                            foreach (CombatItemObject item in Assets.assets.combatTemp) {
+                                if (id == item.name) {
                                     //weapon har all info man vill ha
                                 }
                             }
                         }
-                        if (id.Contains("hi"))
-                        {
-                            foreach (HealingItemObject item in Assets.assets.healingTemp)
-                            {
-                                if (id == item.name)
-                                {
+                        if (id.Contains("hi")) {
+                            foreach (HealingItemObject item in Assets.assets.healingTemp) {
+                                if (id == item.name) {
                                     //weapon har all info man vill ha
                                 }
                             }
@@ -106,7 +96,7 @@ public class PartyScript : MonoBehaviour {
 
                         abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
                     }
-            
+
 
                     //CombatItemObject c = new CombatItemObject();
                     //if (characterO.GetComponent<CharacterScript>().itemID[0].TryGetComponent<CombatItemObject>(out c))
@@ -154,7 +144,7 @@ public class PartyScript : MonoBehaviour {
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
 
-            SpawnWeapon("wp"+Random.Range(0, Assets.assets.weaponTemp.Length), characterO.transform);
+            SpawnWeapon("wp" + Random.Range(0, Assets.assets.weaponTemp.Length), characterO.transform);
 
             //CreateUI(characterO.GetComponent<CharacterScript>(), statsList[i]);
 
@@ -182,7 +172,7 @@ public class PartyScript : MonoBehaviour {
         }
     }
 
-    
+
     private void InstantiateLists() {
         characterScriptList = new List<CharacterScript>();
         statsList = new List<Stats>();

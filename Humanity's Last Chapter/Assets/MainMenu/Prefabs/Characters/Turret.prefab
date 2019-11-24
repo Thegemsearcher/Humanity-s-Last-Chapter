@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4686303609022878946}
   - component: {fileID: 4686303609022878945}
   - component: {fileID: 4686303609022878944}
+  - component: {fileID: 3263064306826708788}
   m_Layer: 9
   m_Name: Turret
   m_TagString: Building
@@ -100,7 +101,7 @@ MonoBehaviour:
   range: 25
   dmg: 1
   attackTimer: 0
-  timeBetweenAttacks: 2
+  fireRate: 0
   Projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
     type: 3}
   whatIsEnemy:
@@ -144,6 +145,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25347233, y: 0.2672249}
   m_EdgeRadius: 0
+--- !u!114 &3263064306826708788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686303609022878949}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00cd9f73cec0ef04589ee476baaee368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4686303609852163180
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,6 +167,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4686303609852163179}
   - component: {fileID: 4686303609852163178}
+  - component: {fileID: 7324059615723262879}
   m_Layer: 9
   m_Name: Barrel
   m_TagString: Untagged
@@ -212,7 +226,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 29aab9ec9704fba43bb97125915f65ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -224,6 +238,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7324059615723262879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4686303609852163180}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9b58ebdb8973e04681d539d8acf6c2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset: 270
+  projectile: {fileID: 6992307948102544577, guid: 93519f2e89390a94386a4ca33481d646,
+    type: 3}
+  closestEnemy: {fileID: 0}
 --- !u!1 &6804778227922599099
 GameObject:
   m_ObjectHideFlags: 0

@@ -30,8 +30,9 @@ public class AbilityScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (active)
-        {
+       
+        if (active) {
+            Debug.Log("Active: " + active);
             switch (abilityType)
             {
                 case AbilityType.turret:
@@ -48,8 +49,10 @@ public class AbilityScript : MonoBehaviour
 
     public void Activate()
     {
-        if (!canBeActivated)
-            return;
+        drawUnderMouse = Instantiate(ForMouse);
+        drawUnderMouse.SetActive(false);
+        //if (!canBeActivated)
+        //    return;
         switch (abilityType)
         {
             case AbilityType.turret:

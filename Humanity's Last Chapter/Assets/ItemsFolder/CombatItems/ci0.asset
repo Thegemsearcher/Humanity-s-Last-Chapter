@@ -12,10 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51030d96f20984e44834efb9f33e1d02, type: 3}
   m_Name: ci0
   m_EditorClassIdentifier: 
-  texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  itemName: Improvised Turret
-  description: It can fire!
-  cost: 200
-  coolDownTimer: 120
-  abilityType: 0
+  icon: {fileID: 0}
   sprite: {fileID: 21300000, guid: bea956915454d6b49a5d4c93ec09a9f8, type: 3}
+  itemName: Minigun Turret
+  description: Place a minigun on the ground!
+  cost: 200
+  coolDownTimer: 10
+  placeRange: 2
+  damage: 2
+  aoe: 0
+  abilityType: 0
+  combatType: 0
+  attachedWeapon: {fileID: 11400000, guid: 105bc5f1113698143bb556d8b798b3ef, type: 2}
+  AttachedAbility: {fileID: 1248578579405061495, guid: 1018b2abd21f8104386c461bc159aef4,
+    type: 3}

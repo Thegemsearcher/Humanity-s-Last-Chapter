@@ -16,15 +16,16 @@ public class HealingAbility : MonoBehaviour {
     }
 
     public void GetItem(GameObject Character, GameObject pivotCharacter) {
-        this.Character = Character;
-        this.pivotCharacter = pivotCharacter;
-        healingItem = Character.GetComponent<Abilities>().healingItem;
-        if (healingItem != null) {
+        if (Character != null) {
+            this.Character = Character;
+            this.pivotCharacter = pivotCharacter;
+            healingItem = Character.GetComponent<Abilities>().healingItem;
+
             GetComponent<Image>().sprite = healingItem.sprite;
         } else {
             GetComponent<Image>().sprite = defultSprite;
         }
-        
+
     }
 
     private void Update() {

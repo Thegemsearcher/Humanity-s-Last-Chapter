@@ -115,7 +115,7 @@ public class ShopScript : MonoBehaviour {
                             if (combatItem.name == inventory[i]) {
                                 ItemO = Instantiate(shopItem, shopSlots[i].transform);
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
-                                itemInfo.GetData(combatItem.texture, combatItem.itemName, combatItem.description, combatItem.name, combatItem.cost);
+                                itemInfo.GetData(combatItem.icon, combatItem.itemName, combatItem.description, combatItem.name, combatItem.cost);
                                 sss.GetItem(itemInfo.strName, itemInfo.strDesc, inventory[i], itemInfo.cost, i, gameObject);
                                 break;
                             }

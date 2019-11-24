@@ -12,7 +12,7 @@ public class CombatItem : MonoBehaviour {
     
 
     public void GetData(CombatItemObject cio) {
-        GetComponent<Image>().sprite = cio.texture; //Ändrar bilden till den som är vald i assets
+        GetComponent<Image>().sprite = cio.icon; //Ändrar bilden till den som är vald i assets
         itemName = cio.itemName;
         id = cio.name;
         itemDescrip = cio.description;

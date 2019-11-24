@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Node;
 
-public class TurretScript : MonoBehaviour
-{
+public class TurretScript : MonoBehaviour {
     public float range;
     public int dmg;
     public float attackTimer;
-    public int timeBetweenAttacks;
+    public float fireRate;
     GameObject projectile;
     public GameObject Projectile;
     public LayerMask whatIsEnemy;
@@ -22,16 +21,20 @@ public class TurretScript : MonoBehaviour
     Vector3 timerLocalScale = Vector3.zero;
     RootNode Bt;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         Bt = GetComponent<BehaviourTree>().GetTurretBt();
         timerUi = transform.GetChild(1);
         timerLocalScale = timerUi.localScale;
     }
 
+    public void GetData(WeaponObject weapon) {
+        dmg = weapon.damage;
+        range = weapon.range;
+        fireRate = weapon.fireRate;
+    }
+
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (attackTimer > 0)
             attackTimer -= Time.deltaTime;
         if (Bt != null)
@@ -42,17 +45,14 @@ public class TurretScript : MonoBehaviour
         if (timer >= StartTimer)
             Destroy(gameObject, 0);
     }
-    public NodeStates InRangeAndSight()
-    {
+    public NodeStates InRangeAndSight() {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         float closest = Mathf.Infinity;
 
-        foreach (GameObject enemy in enemies)
-        {
+        foreach (GameObject enemy in enemies) {
             float testClosest = (Vector3.Distance(transform.position, enemy.transform.position));
 
-            if (testClosest < closest)
-            {
+            if (testClosest < closest) {
                 closest = testClosest;
                 closestEnemy = enemy;
             }
@@ -60,31 +60,28 @@ public class TurretScript : MonoBehaviour
         ray = Physics2D.Raycast(transform.position, closestEnemy.transform.position - transform.position);
         if (!ray)
             return NodeStates.fail;
-        else if (ray.collider.tag.Equals("Enemy"))
-        {
+        else if (ray.collider.tag.Equals("Enemy")) {
             Rotate();
             Debug.DrawLine(transform.position, ray.point);
             return NodeStates.success;
         }
-            
+
         return NodeStates.fail;
     }
 
-    public NodeStates Shoot()
-    {
+    public NodeStates Shoot() {
         if (attackTimer > 0)
             return NodeStates.fail;
         projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
-        projectile.transform.localScale = new Vector3(0.3f,0.5f,1);
+        projectile.transform.localScale = new Vector3(0.3f, 0.5f, 1);
         projectile.GetComponent<Projectile>().CreateProjectile(0f);
         projectile.GetComponent<Projectile>().SetTargetPos(closestEnemy.transform.position);
         projectile.GetComponent<Projectile>().whatIsSolid = whatIsEnemy;
-        attackTimer = timeBetweenAttacks;
+        attackTimer = fireRate;
         return NodeStates.success;
     }
 
-    public void Rotate()
-    {
+    public void Rotate() {
         float rotZ;
         Vector3 difference = closestEnemy.transform.position - transform.position;
         rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;

@@ -906,7 +906,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BoundKey: 101
+  combatType: 0
   defultSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  itemTemp: {fileID: 8270737185196914436, guid: 013e386d1c417084692f814c6bb8843e,
+    type: 3}
+  projectile: {fileID: 3620269701590060656, guid: 476741dbd5541ca44a735c0ca5368cf9,
+    type: 3}
+  turret: {fileID: 4686303609022878949, guid: 12d8cd5a8a50ed14caacd48ff2cf8016, type: 3}
 --- !u!114 &362752662
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3518,6 +3524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e98b386c61cc74ba246216bb8efe01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defultSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   BoundKey: 113
 --- !u!1 &1531354043
 GameObject:
