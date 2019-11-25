@@ -11,6 +11,9 @@ public class Enemy : MonoBehaviour
     private Vector3 target;
     public string id;
 
+    public int inventorySize;
+    private string[] inventory;
+
     public GameObject[] pcs;
     public float aggroRange = 4f;
     public float atkRange = 0.75f;
@@ -27,6 +30,8 @@ public class Enemy : MonoBehaviour
     {
         target = transform.position;
         pcs = GameObject.FindGameObjectsWithTag("Character");
+        inventory = new string[inventorySize];
+        GetInventory();
     }
 
     // Update is called once per frame
@@ -39,6 +44,15 @@ public class Enemy : MonoBehaviour
         if (attackTimer > 0)
             attackTimer -= Time.deltaTime;
         RemovePcFromList();
+    }
+
+    private void GetInventory()
+    {
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            inventory[i] = "hi0";
+        }
+        GetComponent<InventoryScript>().inventory = inventory;
     }
 
     public void RemovePcFromList()
