@@ -96,6 +96,7 @@ public class QuestObject : MonoBehaviour {
         WorldScript.world.rs += quest.rsReward;
 
         if (quest.isChainMission) { //Kan ändras så at det finns flera olika missions som startar beroend på hur questen går
+            Debug.Log("Yes");
             MissionManager.GetComponent<MissionManagerScript>().StartQuest(quest.nextMission);
         }
     }

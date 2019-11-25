@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verb: Kill
   description: Kill the targets
-  collectionAmount: 6
+  collectionAmount: 1
   currentAmount: 0
   isComplete: 0
   isBonus: 0

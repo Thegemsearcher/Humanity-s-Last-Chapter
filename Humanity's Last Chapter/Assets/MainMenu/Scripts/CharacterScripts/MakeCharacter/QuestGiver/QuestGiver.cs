@@ -13,7 +13,6 @@ public class QuestGiver : MonoBehaviour {
 
     public void OnTriggerExit2D(Collider2D collision) {
         isInteracted = false;
-        Debug.Log("Is out");
     }
 
     public void OnTriggerStay2D(Collider2D collision) {

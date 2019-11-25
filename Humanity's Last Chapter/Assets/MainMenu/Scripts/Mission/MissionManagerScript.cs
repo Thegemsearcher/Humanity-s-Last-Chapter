@@ -24,10 +24,12 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
     public ScriptableQuest testQuest;
     public bool isTesting;
     private string title, objective;
+    private List<string> announceOrder;
 
     private void Start() {
         txtQuest = GameObject.FindGameObjectWithTag("QuestStarted").GetComponent<Text>();
         txtObjective = GameObject.FindGameObjectWithTag("ObjectiveStarted").GetComponent<Text>();
+        announceOrder = new List<string>();
         txtQuest.text = "";
         txtObjective.text = "";
         timer = 4f;
@@ -42,8 +44,9 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
     }
 
     public void StartQuest(ScriptableQuest startedQuest) {
+        title = "Quest started: " + startedQuest.missionName;
+        announceOrder.Add(title);
         quest = new QuestObject(startedQuest, gameObject);
-        title = "Quest started: " + quest.titel;
         activeQuestList.Add(quest);
     }
 
@@ -59,6 +62,7 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
 
     public void NewObjective(string objective) {
         this.objective = "Objective: " + objective;
+        announceOrder.Add(this.objective);
         isAnnounced = true;
     }
 
@@ -76,20 +80,40 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
 
     private void AnnonceQuest() {
         timeStamp += Time.deltaTime;
-        if(title != "") {
-            if (timeStamp >= timer) {
-                title = "";
-                timeStamp = 0;
-            }
-            txtQuest.text = title;
-        } else if (objective != "") {
-            if (timeStamp >= timer) {
-                objective = "";
-                timeStamp = 0;
-            }
-            txtObjective.text = objective;
-        } else {
-            isAnnounced = false;
+        if(timeStamp >= timer) {
+            announceOrder.RemoveAt(0);
+            txtQuest.text = "";
+            txtObjective.text = "";
+            timeStamp = 0;
         }
+
+        string toAnnounce = announceOrder[0];
+        switch (toAnnounce[0]) {
+            case 'Q':
+                txtQuest.text = toAnnounce;
+                break;
+            case 'O':
+                txtObjective.text = toAnnounce;
+                break;
+            default:
+                Debug.Log("Error! Nothing to announce... " + toAnnounce[0]);
+                break;
+        }
+        
+        //if(title != "") {
+        //    if (timeStamp >= timer) {
+        //        title = "";
+        //        timeStamp = 0;
+        //    }
+        //    txtQuest.text = title;
+        //} else if (objective != "") {
+        //    if (timeStamp >= timer) {
+        //        objective = "";
+        //        timeStamp = 0;
+        //    }
+        //    txtObjective.text = objective;
+        //} else {
+        //    isAnnounced = false;
+        //}
     }
 }
