@@ -45,7 +45,6 @@ public class HealingAbility : MonoBehaviour {
 
     public void Activate() {
         if(isReady) {
-            Debug.Log("Character name: " + pivotCharacter.GetComponent<CharacterScript>().strName);
             Character.GetComponent<Abilities>().healingReady = false; //Ska flyttas till mer passande plats
             pivotCharacter.GetComponent<Stats>().HealCharacter(healingItem.healPower);
         }

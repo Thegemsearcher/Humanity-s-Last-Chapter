@@ -14,25 +14,25 @@ public class MissionScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     
 
     void Start() {
-        quest = GetComponent<QuestObject>().quest;
-        txtName.text = quest.missionName;
-        //txtDescription.text = quest.description;
+        //quest = GetComponent<QuestObject>().quest;
+        //txtName.text = quest.missionName;
+        ////txtDescription.text = quest.description;
 
-        if (quest.goldReward > 0) {
-            gold = quest.goldReward + " Gold ";
-        } else {
-            gold = "";
-        }
+        //if (quest.goldReward > 0) {
+        //    gold = quest.goldReward + " Gold ";
+        //} else {
+        //    gold = "";
+        //}
 
-        if (quest.rsReward > 0) {
-            rs = quest.rsReward + " RS ";
-        }
-        else {
-            rs = "";
-        }
+        //if (quest.rsReward > 0) {
+        //    rs = quest.rsReward + " RS ";
+        //}
+        //else {
+        //    rs = "";
+        //}
 
-        //txtReward.text = "Reward: " + gold + rs;
-        SelectedMission = GameObject.Find("forSelectedMission");
+        ////txtReward.text = "Reward: " + gold + rs;
+        //SelectedMission = GameObject.Find("forSelectedMission");
     }
 
     public void Pressed() {

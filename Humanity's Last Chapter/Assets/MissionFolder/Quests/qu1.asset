@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: qu1
   m_EditorClassIdentifier: 
-  missionName: Mission name Here
+  missionName: Did it get here?
   description: 
   hint: 
   dialog: 
   sourceID: 
   missionID: 
-  nextMissionID: 
-  isChainMission: 0
+  nextMission: {fileID: 11400000, guid: 1147b8d7306402848a324ee82e0314df, type: 2}
+  isChainMission: 1
   goldReward: 0
   rsReward: 0
   avalible: 0

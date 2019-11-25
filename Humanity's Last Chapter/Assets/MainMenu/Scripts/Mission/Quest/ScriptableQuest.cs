@@ -11,9 +11,7 @@ public class ScriptableQuest : ScriptableObject {
     public string description;                          //Description
     public string hint;                                 //Mission hint
     public string dialog;                               //dialog
-    public string sourceID;                             //SourceID
-    public string missionID;                            //MissionID
-    public string nextMissionID;                        //Next mission ID
+    public ScriptableQuest nextMission;                 //Next mission
     public bool isChainMission;                         //Chain mission
     public int goldReward, rsReward;                    //Reward
     public bool avalible, active, completed;            //Missionstatus

@@ -18,7 +18,7 @@ MonoBehaviour:
   dialog: 
   sourceID: 
   missionID: qu0
-  nextMissionID: qu1
+  nextMission: {fileID: 11400000, guid: e68f79900c77a3d4e86f7a6ace5868fa, type: 2}
   isChainMission: 1
   goldReward: 40
   rsReward: 5
