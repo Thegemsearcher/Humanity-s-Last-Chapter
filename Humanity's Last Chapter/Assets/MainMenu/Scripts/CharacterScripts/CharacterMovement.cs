@@ -67,9 +67,9 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Input.mousePosition;
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
-
+            transform.position = mousePosition;
             //ray = Physics2D.Raycast(transform.position,mousePosition, Vector2.Distance(transform.position, mousePosition));
-            
+
             //if (!ray)
             //{
             //    Debug.DrawLine(transform.position, ray.point);
