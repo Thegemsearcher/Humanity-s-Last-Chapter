@@ -4768,6 +4768,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: RangedEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 7146514785514354983, guid: 1bedd59abca17f64cad4cb6f2343ae94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6150889978483404947, guid: 1bedd59abca17f64cad4cb6f2343ae94,
         type: 3}
       propertyPath: m_LocalPosition.x

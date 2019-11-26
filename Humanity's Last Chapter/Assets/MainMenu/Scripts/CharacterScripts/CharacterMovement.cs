@@ -26,11 +26,12 @@ public class CharacterMovement : MonoBehaviour
     Vector3 startDrawPos = Vector3.zero, endDrawPos = Vector3.zero;
     bool drawBox = false;
     public Texture semiTransBox;
-
+    Rect drawBoxRect = Rect.zero;
     // Start is called before the first frame update
     void Start()
     {
-        waypoints.Add(new Vector3(1, 0, 0));   
+        waypoints.Add(new Vector3(1, 0, 0));
+        //transform.position = new Vector3(3, 3, 0);
     }
 
     // Update is called once per frame
@@ -59,6 +60,8 @@ public class CharacterMovement : MonoBehaviour
             drawBox = true;
             endDrawPos = Input.mousePosition;
             endPos = mousePosition;
+            CreateRectFromMouse();
+            SelectChars(drawBoxRect);
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
@@ -71,10 +74,11 @@ public class CharacterMovement : MonoBehaviour
             endPos = Vector3.zero;
             startDrawPos = Vector3.zero;
             endDrawPos = Vector3.zero;
+            drawBoxRect = Rect.zero;
         }
     }
     
-    void OnGUI()
+    void CreateRectFromMouse()
     {
         float width, height;
         if (startDrawPos.x > endDrawPos.x)
@@ -102,19 +106,23 @@ public class CharacterMovement : MonoBehaviour
                 toDrawBox = new Rect(endDrawPos.x, Screen.height - startDrawPos.y, width, height);
         }
 
-        SelectChars(toDrawBox);
-        GUI.DrawTexture(toDrawBox, semiTransBox);
+        drawBoxRect = toDrawBox;
+    }
+
+    void OnGUI()
+    {
+        
+        GUI.DrawTexture(drawBoxRect, semiTransBox);
     }
 
     public void SelectChars(Rect toSelect)
     {
         Vector3 v;
-        Vector3 testScreen = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        Vector3 testScreen = new Vector3(Screen.width/2, Screen.height/2, 0);
         foreach (GameObject go in pcs)
         {
             v = Camera.main.WorldToScreenPoint(go.transform.position);
-
-            Debug.DrawLine(testScreen, v);
+            v.y = Screen.height - v.y;
             if (toSelect.Contains(v))
             {
                 go.GetComponent<SpriteRenderer>().color = Color.green;

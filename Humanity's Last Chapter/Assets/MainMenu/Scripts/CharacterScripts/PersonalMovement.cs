@@ -41,7 +41,32 @@ public class PersonalMovement : MonoBehaviour
         BT.Start();
         Movement();
     }
+    /*float width, height;
+        if (startPos.x > endPos.x)
+            width = startPos.x - endPos.x;
+        else
+            width = endPos.x - startPos.x;
 
+        if (startPos.y > endPos.y)
+            height = startPos.y - endPos.y;
+        else
+            height = endPos.y - startPos.y;
+        Rect toSelect;
+
+        if (endPos.x > startPos.x)
+        {
+            if (endPos.y > startPos.y)
+                toSelect = new Rect(startPos.x, Screen.height - endPos.y, width, height);
+            else
+                toSelect = new Rect(startPos.x, Screen.height - startPos.y, width, height);
+        } else
+        {
+            if (endPos.y > startPos.y)
+                toSelect = new Rect(endPos.x, Screen.height - endPos.y, width, height);
+            else
+                toSelect = new Rect(endPos.x, Screen.height - startPos.y, width, height);
+        }
+     */
     public void AddWaypoint(Vector3 pos)
     {
         waypoints.Add(new Vector3(pos.x, pos.y, 0));

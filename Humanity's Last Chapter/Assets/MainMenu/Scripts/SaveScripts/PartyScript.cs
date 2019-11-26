@@ -71,32 +71,32 @@ public class PartyScript : MonoBehaviour {
 
             if (characterO == null)
                 Debug.Log("wat");
-            if (characterO.GetComponent<CharacterScript>() != null) {
-                if (characterO.GetComponent<CharacterScript>().inventory != null) {
-                    if (characterO.GetComponent<CharacterScript>().inventory.Length > 0) {
-                        GameObject go = Instantiate(AbilityToInstantiate);
-                        go.transform.SetParent(abilitySlots[partyMember].transform, false);
-                        go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
+            //if (characterO.GetComponent<CharacterScript>() != null) {
+            //    if (characterO.GetComponent<CharacterScript>().inventory != null) {
+            //        if (characterO.GetComponent<CharacterScript>().inventory.Length > 0) {
+            //            GameObject go = Instantiate(AbilityToInstantiate);
+            //            go.transform.SetParent(abilitySlots[partyMember].transform, false);
+            //            go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
 
-                        //Assets.assets.combatTemp
-                        string id = characterO.GetComponent<CharacterScript>().inventory[0];
-                        if (id.Contains("ci")) {
-                            foreach (CombatItemObject item in Assets.assets.combatTemp) {
-                                if (id == item.name) {
-                                    //weapon har all info man vill ha
-                                }
-                            }
-                        }
-                        if (id.Contains("hi")) {
-                            foreach (HealingItemObject item in Assets.assets.healingTemp) {
-                                if (id == item.name) {
-                                    //weapon har all info man vill ha
-                                }
-                            }
-                        }
+            //            //Assets.assets.combatTemp
+            //            string id = characterO.GetComponent<CharacterScript>().inventory[0];
+            //            if (id.Contains("ci")) {
+            //                foreach (CombatItemObject item in Assets.assets.combatTemp) {
+            //                    if (id == item.name) {
+            //                        //weapon har all info man vill ha
+            //                    }
+            //                }
+            //            }
+            //            if (id.Contains("hi")) {
+            //                foreach (HealingItemObject item in Assets.assets.healingTemp) {
+            //                    if (id == item.name) {
+            //                        //weapon har all info man vill ha
+            //                    }
+            //                }
+            //            }
 
-                        abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
-                    }
+            //            abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
+            //        }
 
 
                     //CombatItemObject c = new CombatItemObject();
@@ -108,13 +108,14 @@ public class PartyScript : MonoBehaviour {
                     //    go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<CharacterScript>().itemID[0].GetComponent<HealingItemObject>().abilityType;
                     //}
 
-                }
-            }
+                //}
+            //}
             partyMember++;
             //}
 
         }
         characterScriptList.Clear(); //Rensar listan
+        transform.position = new Vector3(3, 3, 0);
     }
 
     private void LoadWorld() {
@@ -140,7 +141,6 @@ public class PartyScript : MonoBehaviour {
 
         for (int i = 0; i < 3; i++) {
             characterO = Instantiate(character);
-
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i, i);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
@@ -151,6 +151,8 @@ public class PartyScript : MonoBehaviour {
 
             characterO.transform.SetParent(transParent, false);
         }
+
+        transform.position = new Vector3(3,3,0);
     }
 
     public void CreateUI(CharacterScript characterScript, Stats characterStats) {
