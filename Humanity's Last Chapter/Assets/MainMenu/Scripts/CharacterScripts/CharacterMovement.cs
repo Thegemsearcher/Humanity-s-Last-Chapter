@@ -102,8 +102,27 @@ public class CharacterMovement : MonoBehaviour
                 toDrawBox = new Rect(endDrawPos.x, Screen.height - startDrawPos.y, width, height);
         }
 
-
+        SelectChars(toDrawBox);
         GUI.DrawTexture(toDrawBox, semiTransBox);
+    }
+
+    public void SelectChars(Rect toSelect)
+    {
+        Vector3 v;
+        Vector3 testScreen = new Vector3(Screen.width / 2, Screen.height / 2, 0);
+        foreach (GameObject go in pcs)
+        {
+            v = Camera.main.WorldToScreenPoint(go.transform.position);
+
+            Debug.DrawLine(testScreen, v);
+            if (toSelect.Contains(v))
+            {
+                go.GetComponent<SpriteRenderer>().color = Color.green;
+            } else
+            {
+                go.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
     }
 
     public void AddPc(GameObject toAdd)

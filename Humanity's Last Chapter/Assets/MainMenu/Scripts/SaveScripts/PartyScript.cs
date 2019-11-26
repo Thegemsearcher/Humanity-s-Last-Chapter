@@ -124,7 +124,7 @@ public class PartyScript : MonoBehaviour {
     private void TestCharacters() { //Spawnar tre gubbar ifall man inte kommer från huben
 
         //Ability test
-        Debug.Log("skapa en turret ability");
+        //Debug.Log("skapa en turret ability");
         GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
         GameObject go = Instantiate(AbilityToInstantiate);
         go.transform.SetParent(abilitySlots[0].transform, false);
