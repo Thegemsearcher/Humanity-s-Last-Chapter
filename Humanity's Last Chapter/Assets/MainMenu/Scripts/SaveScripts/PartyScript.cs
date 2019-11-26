@@ -14,6 +14,7 @@ public class PartyScript : MonoBehaviour {
     //private WorldScript worldScript;
     private Transform transParent;
 
+
     public GameObject weapon;
     private GameObject weaponO;
 

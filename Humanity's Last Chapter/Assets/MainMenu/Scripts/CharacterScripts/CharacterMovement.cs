@@ -13,6 +13,9 @@ public class CharacterMovement : MonoBehaviour
     RaycastHit2D ray;
 
     public List<GameObject> pcs = new List<GameObject>();
+
+    private List<GameObject> selectedCharacters;
+
     public List<Vector3> waypoints = new List<Vector3>();
     private int currentWaypoint = 0;
 
@@ -25,6 +28,9 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        pcs = GameObject.FindGameObjectsWithTag("Character").ToList<GameObject>();
+        if (selectedCharacters == null)
+            selectedCharacters = pcs;
         InputMovement();
         Movement();
     }
@@ -68,21 +74,7 @@ public class CharacterMovement : MonoBehaviour
             mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
             waypoints.Add(mousePosition);
             transform.position = mousePosition;
-            //ray = Physics2D.Raycast(transform.position,mousePosition, Vector2.Distance(transform.position, mousePosition));
-
-            //if (!ray)
-            //{
-            //    Debug.DrawLine(transform.position, ray.point);
-            //    Vector3 v = transform.position;
-            //    foreach (GameObject go in pcs)
-            //    {
-            //        if (Vector2.Distance(go.transform.position, mousePosition) < Vector2.Distance(v, mousePosition))
-            //        {
-            //            v = go.transform.position;
-            //        }
-            //    }
-            //    transform.position = v;
-            //}
+            
 
             RotateFormation(mousePosition);
         }

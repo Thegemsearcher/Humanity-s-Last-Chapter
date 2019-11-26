@@ -35,7 +35,8 @@ public class UIBoiScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         txtExp.text = exp + "/" + nextLevel;
 
         healthSlider.value = hp / maxHp;
-        expSlider.value = exp / nextLevel;
+        if (nextLevel != 0)
+            expSlider.value = exp / nextLevel;
 
         if(!isOwned) {
             InfoBox.SetActive(true);

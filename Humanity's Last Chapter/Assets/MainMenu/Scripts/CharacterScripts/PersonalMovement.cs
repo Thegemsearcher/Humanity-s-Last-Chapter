@@ -18,6 +18,8 @@ public class PersonalMovement : MonoBehaviour
     private int currentWaypoint = 0;
     public Vector2 direction = Vector2.zero;
     private GameObject manager;
+    public bool ByFormation = true;
+    public Vector2 posNotFormation = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +31,10 @@ public class PersonalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            ByFormation = true;
+        }
         if (debugger && positionBy)
             Debug.DrawLine(manager.transform.position, positionBy.point);
         BT.Start();
@@ -59,6 +65,11 @@ public class PersonalMovement : MonoBehaviour
 
     private void Movement()
     {
+        if (!ByFormation)
+        {
+            GetComponent<AIDestinationSetter>().SetPosTarget(posNotFormation);
+            return;
+        }
         waypoint = manager.transform.position + relativePos;
         
         positionBy = Physics2D.Raycast(manager.transform.position, relativePos, relativePos.magnitude, buildingLayer);
@@ -73,28 +84,6 @@ public class PersonalMovement : MonoBehaviour
         {
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
         }
-
-
-        //tog bort 'lerp- movementen' och la till vanligare movement istället
-        //if (waypoints.Count != 0)
-        //{
-        //    direction = waypoints[currentWaypoint] - transform.position;
-        //    GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWaypoint]);
-        //    //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
-        //    if (direction.magnitude < 2)
-        //    {
-        //        Positioning();
-        //        currentWaypoint++;
-        //    }
-
-        //    direction = direction.normalized;
-        //    //transform.position += new Vector3(direction.x * charactersMovespeed * Time.deltaTime, direction.y * charactersMovespeed * Time.deltaTime, 0);
-
-        //    if (currentWaypoint >= waypoints.Count)
-        //    {
-        //        currentWaypoint = 0;
-        //        waypoints.Clear();
-        //    }
-        //}
+        
     }
 }
