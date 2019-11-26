@@ -15,9 +15,17 @@ public class CharacterMovement : MonoBehaviour
     public List<GameObject> pcs = new List<GameObject>();
 
     private List<GameObject> selectedCharacters;
+    bool posForFormation = true;
 
     public List<Vector3> waypoints = new List<Vector3>();
     private int currentWaypoint = 0;
+
+    //For strategygame select units
+    Vector3 startPos = Vector3.zero, endPos = Vector3.zero;
+    //För att rita ut rutan som vi selectar
+    Vector3 startDrawPos = Vector3.zero, endDrawPos = Vector3.zero;
+    bool drawBox = false;
+    public Texture semiTransBox;
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +39,73 @@ public class CharacterMovement : MonoBehaviour
         pcs = GameObject.FindGameObjectsWithTag("Character").ToList<GameObject>();
         if (selectedCharacters == null)
             selectedCharacters = pcs;
+        AddSelectedCharacters();
+        if (drawBox)
+            OnGUI();
         InputMovement();
         Movement();
     }
+
+    public void AddSelectedCharacters()
+    {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            startDrawPos = Input.mousePosition;
+            startPos = mousePosition;
+        }
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            drawBox = true;
+            endDrawPos = Input.mousePosition;
+            endPos = mousePosition;
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse0))
+        {
+            foreach (GameObject go in pcs)
+            {
+
+            }
+            drawBox = false;
+            startPos = Vector3.zero;
+            endPos = Vector3.zero;
+            startDrawPos = Vector3.zero;
+            endDrawPos = Vector3.zero;
+        }
+    }
+    
+    void OnGUI()
+    {
+        float width, height;
+        if (startDrawPos.x > endDrawPos.x)
+            width = startDrawPos.x - endDrawPos.x;
+        else
+            width = endDrawPos.x - startDrawPos.x;
+
+        if (startDrawPos.y > endDrawPos.y)
+            height = startDrawPos.y - endDrawPos.y;
+        else
+            height = endDrawPos.y - startDrawPos.y;
+        Rect toDrawBox;
+
+        if (endDrawPos.x > startDrawPos.x)
+        {
+            if (endDrawPos.y > startDrawPos.y)
+                toDrawBox = new Rect(startDrawPos.x, Screen.height - endDrawPos.y, width, height);
+            else
+                toDrawBox = new Rect(startDrawPos.x, Screen.height - startDrawPos.y, width, height);
+        } else
+        {
+            if (endDrawPos.y > startDrawPos.y)
+                toDrawBox = new Rect(endDrawPos.x, Screen.height - endDrawPos.y, width, height);
+            else
+                toDrawBox = new Rect(endDrawPos.x, Screen.height - startDrawPos.y, width, height);
+        }
+
+
+        GUI.DrawTexture(toDrawBox, semiTransBox);
+    }
+
     public void AddPc(GameObject toAdd)
     {
         pcs.Add(toAdd);
@@ -58,47 +130,56 @@ public class CharacterMovement : MonoBehaviour
 
     private void InputMovement()
     {
-        if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.LeftShift))
-        {
-            mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-            waypoints.Add(mousePosition);
-            
-            
-            RotateFormation(mousePosition);
-        }
-        if (Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftShift))
+        //if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.LeftShift))
+        //{
+        //    mousePosition = Input.mousePosition;
+        //    mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        //    waypoints.Add(mousePosition);
+
+
+        //    RotateFormation(mousePosition);
+        //}
+        mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+        if (Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftShift) && posForFormation)
         {
             waypoints.Clear();
-            mousePosition = Input.mousePosition;
-            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            
             waypoints.Add(mousePosition);
             transform.position = mousePosition;
             
 
             RotateFormation(mousePosition);
+        }else
+        {
+            foreach (GameObject go in selectedCharacters)
+            {
+                go.GetComponent<PersonalMovement>().ByFormation = false;
+                go.GetComponent<PersonalMovement>().posNotFormation = mousePosition;
+
+            }
         }
     }
 
     private void Movement()
     {
-        if (waypoints.Count != 0)
-        {
-            direction = waypoints[currentWaypoint] - transform.position;
-            GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWaypoint]);
-            //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
-            if (direction.magnitude < 2)
-            {
-                currentWaypoint++;
-            }
-            //direction = direction.normalized;
-            //transform.position += direction * moveSpeed * Time.deltaTime;
-            if (currentWaypoint >= waypoints.Count)
-            {
-                //Debug.Log("in");
-                currentWaypoint = 0;
-                waypoints.Clear();
-            }
-        }
+        //if (waypoints.Count != 0)
+        //{
+        //    direction = waypoints[currentWaypoint] - transform.position;
+        //    GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWaypoint]);
+        //    //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
+        //    if (direction.magnitude < 2)
+        //    {
+        //        currentWaypoint++;
+        //    }
+        //    //direction = direction.normalized;
+        //    //transform.position += direction * moveSpeed * Time.deltaTime;
+        //    if (currentWaypoint >= waypoints.Count)
+        //    {
+        //        //Debug.Log("in");
+        //        currentWaypoint = 0;
+        //        waypoints.Clear();
+        //    }
+        //}
     }
 }

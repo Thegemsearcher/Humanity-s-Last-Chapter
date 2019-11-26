@@ -2924,7 +2924,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2046095032}
   m_HandleRect: {fileID: 2046095031}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -6207,5 +6207,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1248578579405061495, guid: 1018b2abd21f8104386c461bc159aef4,
         type: 3}
+    - target: {fileID: 6668247576253444288, guid: 987ebc145d10a3545b6d0f443c38731b,
+        type: 3}
+      propertyPath: semiTransBox
+      value: 
+      objectReference: {fileID: 2800000, guid: 0356c7d2ca69006409839cf05d07f148, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 987ebc145d10a3545b6d0f443c38731b, type: 3}

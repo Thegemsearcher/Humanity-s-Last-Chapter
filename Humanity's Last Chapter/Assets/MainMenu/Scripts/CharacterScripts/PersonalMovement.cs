@@ -16,10 +16,11 @@ public class PersonalMovement : MonoBehaviour
     RaycastHit2D positionBy;
     public LayerMask buildingLayer;
     private int currentWaypoint = 0;
-    public Vector2 direction = Vector2.zero;
+   // public Vector2 direction = Vector2.zero;
     private GameObject manager;
     public bool ByFormation = true;
     public Vector2 posNotFormation = Vector3.zero;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -1,9 +1,5 @@
 sceneSetups:
-<<<<<<< HEAD
 - path: Assets/MainMenu/Scenes/MissionMap.unity
-=======
-- path: Assets/MainMenu/Scenes/Hub.unity
->>>>>>> bac5ee7cf63812cc1cebc6ad652e67c339db84fe
   isLoaded: 1
   isActive: 1
   isSubScene: 0
