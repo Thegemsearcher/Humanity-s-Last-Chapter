@@ -39,6 +39,7 @@ TagManager:
   - QuestGiver
   - Location
   - ActiveCharacter
+  - HospitalSlot
   layers:
   - Default
   - TransparentFX
