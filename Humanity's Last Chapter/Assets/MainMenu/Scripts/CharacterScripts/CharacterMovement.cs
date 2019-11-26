@@ -141,7 +141,7 @@ public class CharacterMovement : MonoBehaviour
         //}
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        if (Input.GetMouseButton(1) && !Input.GetKey(KeyCode.LeftShift) && posForFormation)
+        if (Input.GetKeyDown(KeyCode.Mouse1)/*&& !Input.GetKey(KeyCode.LeftShift)*/ && posForFormation)
         {
             waypoints.Clear();
             
@@ -150,7 +150,7 @@ public class CharacterMovement : MonoBehaviour
             
 
             RotateFormation(mousePosition);
-        }else
+        }else if (!posForFormation)
         {
             foreach (GameObject go in selectedCharacters)
             {
