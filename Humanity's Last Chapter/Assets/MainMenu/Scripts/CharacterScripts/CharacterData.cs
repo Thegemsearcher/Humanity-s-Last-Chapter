@@ -18,7 +18,7 @@ public class CharacterData {
         id = character.id;
         strName = character.strName;
         wpId = character.rangedId;
-        itemID = character.itemID;
+        itemID = character.inventory;
         shit = stats.shit;
         hp = stats.hp;
         maxHp = stats.maxHp;

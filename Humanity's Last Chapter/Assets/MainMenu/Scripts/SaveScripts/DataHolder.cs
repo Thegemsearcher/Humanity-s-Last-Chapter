@@ -96,7 +96,7 @@ public class DataHolder {
             character.id = characterData.id;
             character.strName = characterData.strName;
             character.rangedId = characterData.wpId;
-            character.itemID = characterData.itemID;
+            character.inventory = characterData.itemID;
             characterList.Add(character);
 
             Stats stats = new Stats();

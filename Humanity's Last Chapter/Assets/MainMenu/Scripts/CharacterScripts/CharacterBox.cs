@@ -30,8 +30,8 @@ public class CharacterBox : MonoBehaviour {
         txtName.text = characterScript.strName;
 
         for (int i = 0; i < itemSlots.Length; i++) {
-            if(characterScript.itemID[i] != "") {
-                CreateItem(characterScript.itemID[i], itemSlots[i]);
+            if(characterScript.inventory[i] != "") {
+                CreateItem(characterScript.inventory[i], itemSlots[i]);
             }
         }
 
@@ -63,7 +63,7 @@ public class CharacterBox : MonoBehaviour {
         for (int i = 0; i < inventoryArr.Length; i++) {
             if(itemSlots[i].GetComponentInChildren<ItemInfo>() != null) {
                 inventoryArr[i] = itemSlots[i].GetComponentInChildren<ItemInfo>().id;
-                characterScript.itemID[i] = inventoryArr[i];
+                characterScript.inventory[i] = inventoryArr[i];
                 Debug.Log("ID: " + inventoryArr[i]);
             }
             

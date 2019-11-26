@@ -9,7 +9,7 @@ public class CharacterScript : MonoBehaviour {
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
     public string rangedId, meleeId, combatId, healingId, clothId, headId;
-    public string[] itemID;
+    public string[] inventory;
     public bool inHospital, isEnlisted;
 
     private Stats statsScript;
@@ -23,10 +23,10 @@ public class CharacterScript : MonoBehaviour {
             strName = NameGenerator();
             id = GetId();
             rangedId = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
-            itemID = new string[inventorySize];
+            inventory = new string[inventorySize];
 
-            for(int i = 0; i < itemID.Length; i++) {
-                itemID[i] = "";
+            for(int i = 0; i < inventory.Length; i++) {
+                inventory[i] = "";
             }
         }
         
@@ -49,7 +49,7 @@ public class CharacterScript : MonoBehaviour {
             foreach (Transform item in gameObject.GetComponent<Stats>().characterUI.transform.GetChild(3).transform) {
                 if (item.tag == "Item") {
                     if (item.GetComponent<ItemScript>().IsActive()) {
-                        itemID[i] = item.GetComponent<ItemScript>().ItemID;
+                        inventory[i] = item.GetComponent<ItemScript>().ItemID;
                         i++;
                     }
                 }
@@ -75,7 +75,7 @@ public class CharacterScript : MonoBehaviour {
         strName = data.strName;
         id = data.id;
         rangedId = data.rangedId;
-        itemID = data.itemID;
+        inventory = data.inventory;
         inHospital = data.inHospital;
         isEnlisted = data.isEnlisted;
         //Stats ändringar

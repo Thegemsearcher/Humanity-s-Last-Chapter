@@ -72,14 +72,14 @@ public class PartyScript : MonoBehaviour {
             if (characterO == null)
                 Debug.Log("wat");
             if (characterO.GetComponent<CharacterScript>() != null) {
-                if (characterO.GetComponent<CharacterScript>().itemID != null) {
-                    if (characterO.GetComponent<CharacterScript>().itemID.Length > 0) {
+                if (characterO.GetComponent<CharacterScript>().inventory != null) {
+                    if (characterO.GetComponent<CharacterScript>().inventory.Length > 0) {
                         GameObject go = Instantiate(AbilityToInstantiate);
                         go.transform.SetParent(abilitySlots[partyMember].transform, false);
                         go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
 
                         //Assets.assets.combatTemp
-                        string id = characterO.GetComponent<CharacterScript>().itemID[0];
+                        string id = characterO.GetComponent<CharacterScript>().inventory[0];
                         if (id.Contains("ci")) {
                             foreach (CombatItemObject item in Assets.assets.combatTemp) {
                                 if (id == item.name) {

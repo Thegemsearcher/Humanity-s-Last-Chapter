@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     public float atkRange = 0.75f;
     public int dmg = 1;
     public LayerMask pcLayer;
-    
+
     public float attackTimer;
     public float timeBetweenAttack;
 
@@ -52,12 +52,12 @@ public class Enemy : MonoBehaviour
         {
             inventory[i] = "hi0";
         }
-        GetComponent<InventoryScript>().inventory = inventory;
+        GetComponent<InventoryScript>().GetInventory(inventory);
     }
 
     public void RemovePcFromList()
     {
-       pcs = GameObject.FindGameObjectsWithTag("Character");
+        pcs = GameObject.FindGameObjectsWithTag("Character");
     }
 
     public void TakeDamage(int damage)
