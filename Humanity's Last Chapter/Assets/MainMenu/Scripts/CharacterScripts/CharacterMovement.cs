@@ -105,7 +105,7 @@ public class CharacterMovement : MonoBehaviour
         drawBoxRect = toDrawBox;
     }
 
-    void OnGUI()
+    void OnGUI() //Vad händer här
     {
         
         GUI.DrawTexture(drawBoxRect, semiTransBox);

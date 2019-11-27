@@ -86,7 +86,6 @@ public class LootScript : MonoBehaviour
         }
         if (charactersInRange > 0)
         {
-            Debug.Log("Active: " + isActive);
             isActive = true;
         }
         else

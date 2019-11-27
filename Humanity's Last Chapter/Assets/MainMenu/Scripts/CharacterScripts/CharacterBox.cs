@@ -29,11 +29,11 @@ public class CharacterBox : MonoBehaviour {
         characterScript = Character.GetComponent<CharacterScript>();
         txtName.text = characterScript.strName;
 
-        for (int i = 0; i < itemSlots.Length; i++) {
-            if(characterScript.inventory[i] != "") {
-                CreateItem(characterScript.inventory[i], itemSlots[i]);
-            }
-        }
+        //for (int i = 0; i < itemSlots.Length; i++) {
+        //    if(characterScript.inventory[i] != "") {
+        //        CreateItem(characterScript.inventory[i], itemSlots[i]);
+        //    }
+        //}
 
         if (characterScript.rangedId != "") { //Spawnar vapen i weaponSlot
             ItemO = Instantiate(Item);
