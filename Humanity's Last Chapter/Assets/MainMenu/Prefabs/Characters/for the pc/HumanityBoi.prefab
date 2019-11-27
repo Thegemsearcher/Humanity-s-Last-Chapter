@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 4327539020883183433}
   - component: {fileID: 7120935731847993643}
   - component: {fileID: 5230496633669514308}
+  - component: {fileID: 8702118172551665094}
   m_Layer: 10
   m_Name: HumanityBoi
   m_TagString: Character
@@ -173,7 +174,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   ByFormation: 1
-  posNotFormation: {x: 0, y: 0}
+  posNotFormation: {x: 0, y: 0, z: 0}
 --- !u!114 &4737378338171547674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -385,3 +386,17 @@ MonoBehaviour:
   UiRepresentation: {fileID: 5856801309094642161, guid: 15aac1381daf6ad4bb2de4f98689bc7c,
     type: 3}
   CurrentUiRepresentation: {fileID: 0}
+--- !u!114 &8702118172551665094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464683741798525680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d4794782651f40428951df246a182c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lootBox: {fileID: 4150398682782584063, guid: 46d1dacedbe07f543a7429112eac4bfb, type: 3}
+  inventory: []

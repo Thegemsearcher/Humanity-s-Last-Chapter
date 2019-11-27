@@ -8,7 +8,7 @@ public class CharacterScript : MonoBehaviour {
     public int id, inventorySize;
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
-    public string rangedId, meleeId, combatId, healingId, clothId, headId;
+    public string rangedId, combatId, healingId, clothId, headId;
     public string[] inventory;
     public bool inHospital, isEnlisted;
 
@@ -19,15 +19,11 @@ public class CharacterScript : MonoBehaviour {
         combatId = "ci" + Random.Range(0, Assets.assets.combatTemp.Length);
         healingId = "hi" + Random.Range(0, Assets.assets.healingTemp.Length);
         if (strName == "") {
-            inventorySize = 4;
+            inventorySize = 5;
             strName = NameGenerator();
             id = GetId();
             rangedId = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
             inventory = new string[inventorySize];
-
-            for(int i = 0; i < inventory.Length; i++) {
-                inventory[i] = "";
-            }
         }
         
     }
@@ -89,6 +85,48 @@ public class CharacterScript : MonoBehaviour {
 
     public void GetID() {
         id = GetId();
+    }
+
+    public void OnDeath() {
+        PrepareInventory();
+        GetComponent<InventoryScript>().GetInventory(inventory);
+    }
+
+    private void PrepareInventory() {
+        int i = 0;
+        if (rangedId != null) {
+            inventory[i] = rangedId;
+        } else {
+            inventory[i] = "";
+        }
+        i++;
+
+        if (combatId != null) {
+            inventory[i] = combatId;
+        } else {
+            inventory[i] = "";
+        }
+        i++;
+
+        if (healingId != null) {
+            inventory[i] = healingId;
+        } else {
+            inventory[i] = "";
+        }
+        i++;
+
+        if (clothId != null) {
+            inventory[i] = clothId;
+        } else {
+            inventory[i] = "";
+        }
+        i++;
+
+        if (headId != null) {
+            inventory[i] = headId;
+        } else {
+            inventory[i] = "";
+        }
     }
     
 }

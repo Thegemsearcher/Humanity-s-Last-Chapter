@@ -151,7 +151,8 @@ public class Stats : MonoBehaviour {
             Debug.Log("success");
         }
         hp -= damage;
-        if (hp < 0) {
+        if (hp <= 0) {
+            GetComponent<CharacterScript>().OnDeath();
             gameObject.SetActive(false);
         }
     }

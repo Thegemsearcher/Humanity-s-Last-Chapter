@@ -11,12 +11,14 @@ public class InventoryScript : MonoBehaviour
     public void GetInventory(string[] inventory)
     {
         this.inventory = inventory;
-    }
-
-    void OnDestroy() //Den kommer hit när man stänger av...
-    {
         holder = Instantiate(lootBox);
         holder.transform.position = transform.position;
         holder.GetComponent<LootScript>().GetItems(inventory);
     }
+
+    void OnDestroy() //Den kommer hit när man stänger av...
+    {
+        
+    }
+
 }
