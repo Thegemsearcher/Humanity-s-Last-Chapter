@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LootScript : MonoBehaviour
 {
+    private string strName;
     public string[] inventory;
     private GameObject[] characters;
     private float distance;
@@ -12,11 +13,26 @@ public class LootScript : MonoBehaviour
     private int inventorySize;
     private bool isActive;
 
+    public GameObject lootInfo;
+    private GameObject holder;
+
     private CharacterScript cs;
 
     private void Start()
     {
         range = 20;
+    }
+
+    private void OnMouseEnter()
+    {
+        holder = Instantiate(lootInfo);
+        //holder.transform.position = new Vector2(transform.position.x + 25, transform.position.y + 25);
+        holder.GetComponent<LootInfoScript>().GetData(strName, inventory);
+    }
+
+    private void OnMouseExit()
+    {
+        Destroy(holder);
     }
 
     private void OnMouseDown()
@@ -59,9 +75,10 @@ public class LootScript : MonoBehaviour
         }
     }
 
-    public void GetItems(string[] inventory)
+    public void GetItems(string[] inventory, string strName)
     {
         this.inventory = inventory;
+        this.strName = strName;
         inventorySize = inventory.Length;
         characters = GameObject.FindGameObjectsWithTag("Character");
     }

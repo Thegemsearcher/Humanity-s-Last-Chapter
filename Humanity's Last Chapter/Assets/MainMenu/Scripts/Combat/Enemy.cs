@@ -46,7 +46,7 @@ public class Enemy : MonoBehaviour {
         for (int i = 0; i < inventory.Length; i++) {
             inventory[i] = "hi0";
         }
-        GetComponent<InventoryScript>().GetInventory(inventory);
+        GetComponent<InventoryScript>().GetInventory(inventory, gameObject.name);
     }
 
     public void RemovePcFromList() {

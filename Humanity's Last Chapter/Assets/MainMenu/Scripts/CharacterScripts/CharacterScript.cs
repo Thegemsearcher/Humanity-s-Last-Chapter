@@ -89,7 +89,7 @@ public class CharacterScript : MonoBehaviour {
 
     public void OnDeath() {
         PrepareInventory();
-        GetComponent<InventoryScript>().GetInventory(inventory);
+        GetComponent<InventoryScript>().GetInventory(inventory, strName);
     }
 
     private void PrepareInventory() {

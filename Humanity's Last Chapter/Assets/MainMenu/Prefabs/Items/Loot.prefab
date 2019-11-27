@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: []
+  lootInfo: {fileID: 6108717994639666474, guid: 0e447bb32f4386e45a5d603681709c27,
+    type: 3}
 --- !u!61 &-8705282252720601363
 BoxCollider2D:
   m_ObjectHideFlags: 0
