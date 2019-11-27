@@ -103,8 +103,9 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         foreach (GameObject inventorySlot in InventorySlots) {
             if (inventorySlot.GetComponent<ItemSlotScript>().inside /*&& inventorySlot.GetComponent<ItemSlotScript>().slotNr != slotNr*/) {
                 newSlotNr = inventorySlot.GetComponent<ItemSlotScript>().slotNr;
-                
-                if (WorldScript.world.storageArr[newSlotNr] == "") {
+
+                Debug.Log("Slot[" + newSlotNr + ": " + WorldScript.world.storageArr[newSlotNr]);
+                if (WorldScript.world.storageArr[newSlotNr] == "" || WorldScript.world.storageArr[newSlotNr] == null) {
                     Move(inventorySlot);
                 } else {
                     Debug.Log("Slot[" + newSlotNr + "] is taken");
