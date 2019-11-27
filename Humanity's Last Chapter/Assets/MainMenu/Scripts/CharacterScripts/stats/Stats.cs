@@ -148,10 +148,10 @@ public class Stats : MonoBehaviour {
         randomChance = Random.Range(0, 101);
         if (randomChance > procentage) {
             damage = 0;
-            Debug.Log("success");
         }
         hp -= damage;
-        if (hp < 0) {
+        if (hp <= 0) {
+            GetComponent<CharacterScript>().OnDeath();
             gameObject.SetActive(false);
         }
     }

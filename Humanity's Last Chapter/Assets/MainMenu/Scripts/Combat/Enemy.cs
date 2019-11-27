@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Node;
 
-public class Enemy : MonoBehaviour
-{
+public class Enemy : MonoBehaviour {
     public int health;
     public float speed = 1.5f;
     private Vector3 target;
@@ -26,19 +25,16 @@ public class Enemy : MonoBehaviour
     public ParticleSystem bloodEffect;
     public bool hasSeenEnemy = false;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         target = transform.position;
         pcs = GameObject.FindGameObjectsWithTag("Character");
         inventory = new string[inventorySize];
-        GetInventory();
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (health <= 0)
-        {
+    void Update() {
+        if (health <= 0) {
+            GetInventory();
             Destroy(gameObject);
         }
         if (attackTimer > 0)
@@ -46,33 +42,26 @@ public class Enemy : MonoBehaviour
         RemovePcFromList();
     }
 
-    private void GetInventory()
-    {
-        for (int i = 0; i < inventory.Length; i++)
-        {
+    private void GetInventory() {
+        for (int i = 0; i < inventory.Length; i++) {
             inventory[i] = "hi0";
         }
         GetComponent<InventoryScript>().GetInventory(inventory);
     }
 
-    public void RemovePcFromList()
-    {
+    public void RemovePcFromList() {
         pcs = GameObject.FindGameObjectsWithTag("Character");
     }
 
-    public void TakeDamage(int damage)
-    {
+    public void TakeDamage(int damage) {
         health -= damage;
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
     }
 
-    public NodeStates InAggroRange()
-    {
-        foreach (GameObject pc in pcs)
-        {
+    public NodeStates InAggroRange() {
+        foreach (GameObject pc in pcs) {
             //Debug.Log(""+ Vector3.Distance(transform.position, pc.transform.position));
-            if (Vector3.Distance(transform.position, pc.transform.position) < aggroRange)
-            {
+            if (Vector3.Distance(transform.position, pc.transform.position) < aggroRange) {
                 //closestPC = Vector3.Distance(transform.position, pc.transform.position);
                 //Debug.Log("pcn är inom aggrorangen");
                 //iCombatTree = true;
@@ -84,15 +73,11 @@ public class Enemy : MonoBehaviour
         return NodeStates.fail;
     }
 
-    public NodeStates MoveTowardsClosestPc()
-    {
+    public NodeStates MoveTowardsClosestPc() {
         GameObject closestPc = pcs[0];
-        foreach (GameObject pc in pcs)
-        {
-            if (Vector3.Distance(transform.position, pc.transform.position) < Vector3.Distance(transform.position, closestPc.transform.position))
-            {
-                if (pc.gameObject.activeInHierarchy)
-                {
+        foreach (GameObject pc in pcs) {
+            if (Vector3.Distance(transform.position, pc.transform.position) < Vector3.Distance(transform.position, closestPc.transform.position)) {
+                if (pc.gameObject.activeInHierarchy) {
                     closestPc = pc;
                 }
             }
@@ -101,17 +86,14 @@ public class Enemy : MonoBehaviour
         return NodeStates.success;
     }
 
-    public NodeStates InMeleeRange()
-    {
-        if (attackTimer > 0)
-        {
+    public NodeStates InMeleeRange() {
+        if (attackTimer > 0) {
             return NodeStates.fail;
         }
         attackTimer = timeBetweenAttack;
         Collider2D[] pcsToDamage = Physics2D.OverlapCircleAll(transform.position, atkRange, pcLayer);
         bool hitPc = false;
-        for (int i = 0; i < pcsToDamage.Length; i++)
-        {
+        for (int i = 0; i < pcsToDamage.Length; i++) {
             hitPc = true;
             pcsToDamage[i].GetComponent<Stats>().TakeDamage(dmg);
         }
@@ -119,8 +101,7 @@ public class Enemy : MonoBehaviour
             return NodeStates.success;
         return NodeStates.fail;
     }
-    void MovementForTest()
-    {
+    void MovementForTest() {
         //if (Input.GetMouseButtonDown(0))
         //{
         //    target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
