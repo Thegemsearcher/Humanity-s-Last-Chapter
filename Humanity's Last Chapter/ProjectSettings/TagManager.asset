@@ -40,6 +40,7 @@ TagManager:
   - Location
   - ActiveCharacter
   - HospitalSlot
+  - Glow
   layers:
   - Default
   - TransparentFX
