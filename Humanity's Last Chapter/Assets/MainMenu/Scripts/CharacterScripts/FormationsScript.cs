@@ -31,6 +31,7 @@ public class FormationsScript : MonoBehaviour
             //Debug.Log("pc pos  " + UIelements[i].transform.position.x + ", " + UIelements[i].transform.position.y);
             //Debug.Log("parent pos  " + UIelements[i].transform.parent.position.x + ", " + UIelements[i].transform.parent.position.y);
             //Debug.Log("relative pos  " + relativePos.x + ", " + relativePos.y);
+            pcs[i].GetComponent<PersonalMovement>().relativePosNonRotated = relativePos;
             pcs[i].GetComponent<PersonalMovement>().relativePos = relativePos;
         }
     }

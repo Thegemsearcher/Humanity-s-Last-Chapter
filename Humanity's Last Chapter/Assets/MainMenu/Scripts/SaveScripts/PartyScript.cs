@@ -59,6 +59,7 @@ public class PartyScript : MonoBehaviour {
 
             //Annan kod
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember * 0.5f, partyMember * 0.5f);
+            characterO.GetComponent<PersonalMovement>().relativePosNonRotated = new Vector3(partyMember * 0.5f, partyMember * 0.5f);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
             SpawnWeapon(characterScript.rangedId, characterO.transform);
@@ -140,12 +141,12 @@ public class PartyScript : MonoBehaviour {
         go2.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.grenade;
         abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
 
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 3; i++) {
             characterO = Instantiate(character);
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i, i);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
-
+            characterO.GetComponent<PersonalMovement>().relativePosNonRotated = new Vector3(i, i);
             SpawnWeapon("wp" + Random.Range(0, Assets.assets.weaponTemp.Length), characterO.transform);
 
             //CreateUI(characterO.GetComponent<CharacterScript>(), statsList[i]);

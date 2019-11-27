@@ -10,6 +10,7 @@ public class PersonalMovement : MonoBehaviour
 
     public float charactersMovespeed = 100f;
     public Vector3 relativePos = Vector3.zero;
+    public Vector3 relativePosNonRotated = Vector3.zero;
     public Vector3 posPlusRel;
     public List<Vector3> waypoints = new List<Vector3>();
     Vector3 waypoint;

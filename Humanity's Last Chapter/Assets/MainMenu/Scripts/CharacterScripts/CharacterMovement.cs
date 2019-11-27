@@ -9,7 +9,7 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 mousePosition;
     public float moveSpeed = 1000f;
 
-    Vector3 direction = Vector3.zero;
+    Vector3 rotDirection = Vector3.zero, rotStart = Vector3.zero;
     RaycastHit2D ray;
 
     public List<GameObject> pcs = new List<GameObject>();
@@ -19,6 +19,8 @@ public class CharacterMovement : MonoBehaviour
 
     public List<Vector3> waypoints = new List<Vector3>();
     private int currentWaypoint = 0;
+
+    public GameObject toDrawForRotation;
 
     //For strategygame select units
     Vector3 startPos = Vector3.zero, endPos = Vector3.zero;
@@ -30,6 +32,8 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<LineRenderer>().alignment = LineAlignment.View;
+        GetComponent<LineRenderer>().useWorldSpace = true;
         waypoints.Add(new Vector3(1, 0, 0));
         //transform.position = new Vector3(3, 3, 0);
     }
@@ -44,7 +48,35 @@ public class CharacterMovement : MonoBehaviour
         if (drawBox)
             OnGUI();
         InputMovement();
-        Movement();
+        //Movement();
+        InputRotation();
+    }
+
+    void InputRotation()
+    {
+        mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            rotStart = mousePosition;
+            GetComponent<LineRenderer>().enabled = true;
+        }
+        if (Input.GetKey(KeyCode.Mouse1))
+        {
+            rotDirection = mousePosition;
+            Vector3[] v = new Vector3[2];
+            rotDirection.z = 0;
+            rotStart.z = 0;
+            v[0] = rotStart;
+            v[1] = rotDirection;
+            GetComponent<LineRenderer>().SetPositions(v);
+            
+            //Debug.Log(v + "" + rotStart +""+ rotDirection);
+        }
+        if (Input.GetKeyUp(KeyCode.Mouse1))
+        {
+            GetComponent<LineRenderer>().enabled = false;
+            RotateFormation();
+        }
     }
 
     public void AddSelectedCharacters()
@@ -107,7 +139,6 @@ public class CharacterMovement : MonoBehaviour
 
     void OnGUI()
     {
-        
         GUI.DrawTexture(drawBoxRect, semiTransBox);
     }
 
@@ -146,8 +177,17 @@ public class CharacterMovement : MonoBehaviour
     /// obs fungerar ej just nu
     /// </summary>
     /// <param name="rotateTowards"></param>
-    public void RotateFormation(Vector3 rotateTowards)
+    public void RotateFormation()
     {
+        Vector3 difference = rotDirection - rotStart;
+        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        Quaternion rot = Quaternion.Euler(0f, 0f, rotZ);
+        foreach (GameObject pc in pcs)
+        {
+            Vector3 toSet = pc.GetComponent<PersonalMovement>().relativePosNonRotated;
+            toSet = rot * toSet;
+            pc.GetComponent<PersonalMovement>().relativePos = toSet;
+        }
         //Vector3 to = new Vector3(rotateTowards.x, rotateTowards.y, 0);
         //Vector3 from = new Vector3(transform.position.x, transform.position.y, 0);
         //float angle = Vector3.Angle(from, to);
@@ -155,7 +195,7 @@ public class CharacterMovement : MonoBehaviour
         //{
         //    Debug.Log("gnasl");
         //    Vector3 toSet = pc.GetComponent<PersonalMovement>().relativePos;
-        //    toSet = Quaternion.Euler(new Vector3(0,0,angle)) * toSet;
+        //    toSet = Quaternion.Euler(new Vector3(0, 0, angle)) * toSet;
         //    pc.GetComponent<PersonalMovement>().relativePos = toSet;
         //}
     }
@@ -181,7 +221,7 @@ public class CharacterMovement : MonoBehaviour
             transform.position = mousePosition;
             
 
-            RotateFormation(mousePosition);
+            //RotateFormation(mousePosition);
         }else if (!posForFormation && Input.GetKeyDown(KeyCode.Mouse1))
         {
             foreach (GameObject go in selectedCharacters)
@@ -193,25 +233,25 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
-    private void Movement()
-    {
-        //if (waypoints.Count != 0)
-        //{
-        //    direction = waypoints[currentWaypoint] - transform.position;
-        //    GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWaypoint]);
-        //    //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
-        //    if (direction.magnitude < 2)
-        //    {
-        //        currentWaypoint++;
-        //    }
-        //    //direction = direction.normalized;
-        //    //transform.position += direction * moveSpeed * Time.deltaTime;
-        //    if (currentWaypoint >= waypoints.Count)
-        //    {
-        //        //Debug.Log("in");
-        //        currentWaypoint = 0;
-        //        waypoints.Clear();
-        //    }
-        //}
-    }
+    //private void Movement()
+    //{
+    //    //if (waypoints.Count != 0)
+    //    //{
+    //    //    direction = waypoints[currentWaypoint] - transform.position;
+    //    //    GetComponent<AIDestinationSetter>().SetPosTarget(waypoints[currentWaypoint]);
+    //    //    //Debug.Log("distance  :   " + Vector3.Distance(transform.position, waypoints[currentWaypoint]));
+    //    //    if (direction.magnitude < 2)
+    //    //    {
+    //    //        currentWaypoint++;
+    //    //    }
+    //    //    //direction = direction.normalized;
+    //    //    //transform.position += direction * moveSpeed * Time.deltaTime;
+    //    //    if (currentWaypoint >= waypoints.Count)
+    //    //    {
+    //    //        //Debug.Log("in");
+    //    //        currentWaypoint = 0;
+    //    //        waypoints.Clear();
+    //    //    }
+    //    //}
+    //}
 }
