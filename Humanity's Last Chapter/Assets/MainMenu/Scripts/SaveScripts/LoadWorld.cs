@@ -41,19 +41,24 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
         statsList = WorldScript.world.statsList;
         //Debug.Log("Ch script has length: " + characterScriptList.Count + "and statsList have Length: " + statsList.Count);
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
+        int i = 0;
         foreach (CharacterScript characterScript in characterScriptList) {
             characterO = Instantiate(character);
             characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
-            characterO.GetComponent<Stats>().LoadPlayer(statsList[0]);
-            //Debug.Log("hp is: " + statsList[0].hp);
+            characterO.GetComponent<Stats>().LoadPlayer(statsList[i]);
+            //Debug.Log("hp is: " + statsList[i].hp);
+            Debug.Log("hp is: " + WorldScript.world.statsList[i].hp);
             characterO.GetComponent<CharacterScript>().isEnlisted = false;
             //randomQuirk = Random.Range(0, 9);   //picks out the quirk.
             //randomQuirk *= 2;
             //characterO.GetComponent<Stats>().AddQuirk(Assets.assets.quirkArray[randomQuirk]);
-            statsList.Remove(statsList[0]);
+            //statsList.Remove(statsList[i]);
             characterO.transform.SetParent(transParent, false);
+            i++;
+            
         }
         characterScriptList.Clear(); //Rensar listan
+       
     }
 
     private void InstantiateLists() {

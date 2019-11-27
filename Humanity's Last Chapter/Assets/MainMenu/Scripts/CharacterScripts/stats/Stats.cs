@@ -35,8 +35,7 @@ public class Stats : MonoBehaviour {
             dex = Random.Range(1, 3);
             cha = Random.Range(1, 3);
             ldr = Random.Range(1, 3);
-            nrg = Random.Range(1, 3);
-            snt = Random.Range(1, 3);
+            snt = 100;
 
             nextLevel = 10 + (5 * level);
             randomQuirk = Random.Range(0, 9);
@@ -106,10 +105,10 @@ public class Stats : MonoBehaviour {
         //characterUI.SetActive(true);
     }
 
-    public void GetStats(int maxHp, int hp) { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!
-        this.maxHp = maxHp;
-        this.hp = hp;
-    }
+    //public void GetStats(int maxHp, int hp) { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!
+    //    this.maxHp = maxHp;
+    //    this.hp = hp;
+    //}
 
     public void AddQuirk(QuirkObject quirk) {
         if (quirkList == null) {
