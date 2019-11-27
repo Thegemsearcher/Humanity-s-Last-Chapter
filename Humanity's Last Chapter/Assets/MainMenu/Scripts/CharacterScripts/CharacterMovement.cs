@@ -65,10 +65,6 @@ public class CharacterMovement : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            foreach (GameObject go in pcs)
-            {
-
-            }
             drawBox = false;
             startPos = Vector3.zero;
             endPos = Vector3.zero;
@@ -125,11 +121,20 @@ public class CharacterMovement : MonoBehaviour
             v.y = Screen.height - v.y;
             if (toSelect.Contains(v))
             {
+                selectedCharacters.Add(go);
                 go.GetComponent<SpriteRenderer>().color = Color.green;
             } else
             {
+                selectedCharacters.Remove(go);
                 go.GetComponent<SpriteRenderer>().color = Color.white;
             }
+        }
+        if (selectedCharacters.Count > 0)
+        {
+            posForFormation = false;
+        }else
+        {
+            posForFormation = true;
         }
     }
 
@@ -177,7 +182,7 @@ public class CharacterMovement : MonoBehaviour
             
 
             RotateFormation(mousePosition);
-        }else if (!posForFormation)
+        }else if (!posForFormation && Input.GetKeyDown(KeyCode.Mouse1))
         {
             foreach (GameObject go in selectedCharacters)
             {

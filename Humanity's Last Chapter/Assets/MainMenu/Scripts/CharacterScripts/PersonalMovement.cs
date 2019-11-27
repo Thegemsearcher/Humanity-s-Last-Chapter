@@ -19,7 +19,7 @@ public class PersonalMovement : MonoBehaviour
    // public Vector2 direction = Vector2.zero;
     private GameObject manager;
     public bool ByFormation = true;
-    public Vector2 posNotFormation = Vector3.zero;
+    public Vector3 posNotFormation = Vector3.zero;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +35,7 @@ public class PersonalMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ByFormation = true;
+            GetComponent<SpriteRenderer>().color = Color.white;
         }
         if (debugger && positionBy)
             Debug.DrawLine(manager.transform.position, positionBy.point);
@@ -91,13 +92,26 @@ public class PersonalMovement : MonoBehaviour
 
     private void Movement()
     {
+        positionBy = Physics2D.Raycast(posNotFormation, relativePos, relativePos.magnitude, buildingLayer);
         if (!ByFormation)
         {
-            GetComponent<AIDestinationSetter>().SetPosTarget(posNotFormation);
+            waypoint = posNotFormation + relativePos;
+            if (positionBy != false)
+            {
+                Vector2 v = positionBy.point - (Vector2)transform.position;
+                v.Normalize();
+                v *= 0.1f;
+                waypoint = positionBy.point + v;
+                GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+            } else
+            {
+                GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+            }
+            //GetComponent<AIDestinationSetter>().SetPosTarget(posNotFormation);
             return;
         }
         waypoint = manager.transform.position + relativePos;
-        
+
         positionBy = Physics2D.Raycast(manager.transform.position, relativePos, relativePos.magnitude, buildingLayer);
         if (positionBy != false)
         {
