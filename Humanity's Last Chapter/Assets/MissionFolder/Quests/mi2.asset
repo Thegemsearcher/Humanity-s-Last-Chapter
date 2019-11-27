@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
-  m_Name: qu2
+  m_Name: mi2
   m_EditorClassIdentifier: 
   missionName: save the civillian
   description: We have found a survivor, lets save him before he dies
   hint: 
   dialog: 
-  sourceID: 
-  missionID: 
-  nextMissionID: 
+  nextMission: {fileID: 0}
   isChainMission: 0
   goldReward: 0
   rsReward: 0

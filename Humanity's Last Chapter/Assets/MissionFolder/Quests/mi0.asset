@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
-  m_Name: qu0
+  m_Name: mi0
   m_EditorClassIdentifier: 
   missionName: An Unexpected Attack
   description: Creatures from all around you have moved for an attack!
   hint: Kill the creatures
   dialog: 
-  sourceID: 
-  missionID: qu0
   nextMission: {fileID: 11400000, guid: e68f79900c77a3d4e86f7a6ace5868fa, type: 2}
   isChainMission: 1
   goldReward: 40
