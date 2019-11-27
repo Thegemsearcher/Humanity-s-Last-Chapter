@@ -139,7 +139,7 @@ public class CharacterMovement : MonoBehaviour
 
     void OnGUI() //Vad händer här
     {
-        GUI.DrawTexture(drawBoxRect, semiTransBox);
+        //GUI.DrawTexture(drawBoxRect, semiTransBox);
     }
 
     public void SelectChars(Rect toSelect)

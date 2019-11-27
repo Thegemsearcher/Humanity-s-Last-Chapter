@@ -72,11 +72,11 @@ public class UIControls : MonoBehaviour
     {
         if (!gameObject.activeSelf)
         {
-            GetComponent<Stats>().hp = 0;
+            //GetComponent<Stats>().hp = 5;
             if (CurrentUiRepresentation != null)
                 //CurrentUiRepresentation.GetComponent<UIBoiScript>().SetStats(GetComponent<Stats>());
-            if (currentHPBar != null)
-                currentHPBar.SetActive(false);
+                if (currentHPBar != null)
+                    currentHPBar.SetActive(false);
             if (currentNamePlate != null)
                 currentNamePlate.SetActive(false);
         }
