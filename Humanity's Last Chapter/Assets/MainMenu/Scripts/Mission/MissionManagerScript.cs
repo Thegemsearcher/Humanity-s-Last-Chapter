@@ -8,23 +8,22 @@ using UnityEngine.UI;
 
 public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på alla missions som finns och dess progression
 
-    //public GameObject Mission, MissionList;
-    private GameObject MissionO;
-    //private ScriptableQuest quest;
-    private QuestObject quest;
-
-    public List<QuestObject> activeQuestList;
-    //public MissionObject[] missions;
-    private MissionScript missionScript;
-    private int missionCounter;
-    private Text txtQuest, txtObjective;
-    private bool isAnnounced;
-    private float timer, timeStamp;
-
-    public ScriptableQuest testQuest;
     public bool isTesting;
+    public ScriptableQuest testQuest;
+    public List<QuestObject> activeQuestList;
+
+    private int missionCounter;
+    private float timer, timeStamp;
+    private bool isAnnounced;
     private string title, objective;
+    private QuestObject quest;
+    private Text txtQuest, txtObjective;
     private List<string> announceOrder;
+
+    private void Awake() {
+        activeQuestList = new List<QuestObject>();
+        announceOrder = new List<string>();
+    }
 
     private void Start() {
         txtQuest = GameObject.FindGameObjectWithTag("QuestStarted").GetComponent<Text>();
@@ -99,21 +98,5 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
                 Debug.Log("Error! Nothing to announce... " + toAnnounce[0]);
                 break;
         }
-        
-        //if(title != "") {
-        //    if (timeStamp >= timer) {
-        //        title = "";
-        //        timeStamp = 0;
-        //    }
-        //    txtQuest.text = title;
-        //} else if (objective != "") {
-        //    if (timeStamp >= timer) {
-        //        objective = "";
-        //        timeStamp = 0;
-        //    }
-        //    txtObjective.text = objective;
-        //} else {
-        //    isAnnounced = false;
-        //}
     }
 }

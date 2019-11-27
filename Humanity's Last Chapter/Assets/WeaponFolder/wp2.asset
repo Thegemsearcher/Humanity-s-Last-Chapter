@@ -19,7 +19,7 @@ MonoBehaviour:
   bullets: 1
   wpLevel: 2
   fireRate: 0.05
-  range: 15
+  range: 4
   spread: 0.5
   sprite: {fileID: 21300000, guid: d4fb65e666e36b348a0ce58311da2ec1, type: 3}
   coolDownTimer: 300

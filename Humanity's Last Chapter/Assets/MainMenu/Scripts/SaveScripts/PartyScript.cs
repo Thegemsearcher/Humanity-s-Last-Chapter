@@ -122,6 +122,7 @@ public class PartyScript : MonoBehaviour {
         SpawnCharacters();
     }
 
+    //Ska bort sen när vi är klara med att testa saker
     private void TestCharacters() { //Spawnar tre gubbar ifall man inte kommer från huben
 
         //Ability test
@@ -139,7 +140,7 @@ public class PartyScript : MonoBehaviour {
         go2.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.grenade;
         abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 1; i++) {
             characterO = Instantiate(character);
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i, i);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
