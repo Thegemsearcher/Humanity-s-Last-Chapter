@@ -86,17 +86,21 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
             timeStamp = 0;
         }
 
-        string toAnnounce = announceOrder[0];
-        switch (toAnnounce[0]) {
-            case 'Q':
-                txtQuest.text = toAnnounce;
-                break;
-            case 'O':
-                txtObjective.text = toAnnounce;
-                break;
-            default:
-                Debug.Log("Error! Nothing to announce... " + toAnnounce[0]);
-                break;
+        if (announceOrder.Count <= 0) {
+            isAnnounced = false;
+        } else {
+            string toAnnounce = announceOrder[0];
+            switch (toAnnounce[0]) {
+                case 'Q':
+                    txtQuest.text = toAnnounce;
+                    break;
+                case 'O':
+                    txtObjective.text = toAnnounce;
+                    break;
+                default:
+                    Debug.Log("Error! Nothing to announce... " + toAnnounce[0]);
+                    break;
+            }
         }
     }
 }
