@@ -45,7 +45,7 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
             characterO = Instantiate(character);
             characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
             characterO.GetComponent<Stats>().LoadPlayer(statsList[0]);
-            Debug.Log("hp is: " + statsList[0].hp);
+            //Debug.Log("hp is: " + statsList[0].hp);
             characterO.GetComponent<CharacterScript>().isEnlisted = false;
             //randomQuirk = Random.Range(0, 9);   //picks out the quirk.
             //randomQuirk *= 2;
