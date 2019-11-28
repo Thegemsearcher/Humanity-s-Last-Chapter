@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEngine.UI;
 
 public class LoadWorld : MonoBehaviour { //Heta LoadHub?
-    private GameObject characterO;
+    private GameObject holder;
     public GameObject character;
     private Vector2 characterPos;
     private string path;
@@ -43,22 +43,21 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
         int i = 0;
         foreach (CharacterScript characterScript in characterScriptList) {
-            characterO = Instantiate(character);
-            characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
-            characterO.GetComponent<Stats>().LoadPlayer(statsList[i]);
+            holder = Instantiate(character);
+            holder.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+            holder.GetComponent<Stats>().LoadPlayer(statsList[i]);
             //Debug.Log("hp is: " + statsList[i].hp);
             Debug.Log("hp is: " + WorldScript.world.statsList[i].hp);
-            characterO.GetComponent<CharacterScript>().isEnlisted = false;
+            holder.GetComponent<CharacterScript>().isEnlisted = false;
             //randomQuirk = Random.Range(0, 9);   //picks out the quirk.
             //randomQuirk *= 2;
             //characterO.GetComponent<Stats>().AddQuirk(Assets.assets.quirkArray[randomQuirk]);
             //statsList.Remove(statsList[i]);
-            characterO.transform.SetParent(transParent, false);
+            holder.transform.SetParent(transParent, false);
             i++;
             
         }
         characterScriptList.Clear(); //Rensar listan
-       
     }
 
     private void InstantiateLists() {

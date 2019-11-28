@@ -6,14 +6,14 @@ using System.IO;
 
 public class PartyScript : MonoBehaviour {
     private GameObject characterO;
-    public GameObject character, UIHealth;
+    public GameObject character, UIHealth, MissionManager;
     private int partyMember;                //Används för att bestämma vilken position karaktären spawnar på
     private UIHealthBoi uiHealth;
     private List<CharacterScript> characterScriptList;
+    private List<QuestObject> questList;
     private List<Stats> statsList;
     //private WorldScript worldScript;
     private Transform transParent;
-
 
     public GameObject weapon;
     private GameObject weaponO;
@@ -39,14 +39,15 @@ public class PartyScript : MonoBehaviour {
 
     public void SpawnCharacters() {
         characterScriptList = WorldScript.world.characterList;
-        Debug.Log(characterScriptList);
-        foreach (CharacterScript characterScript in characterScriptList) {
-            Debug.Log(characterScript);
-        }
         statsList = WorldScript.world.statsList;
+        questList = WorldScript.world.questList;
 
         partyMember = 0;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
+
+        foreach (QuestObject quest in questList) {
+            MissionManager.GetComponent<MissionManagerScript>().activeQuestList.Add(quest);
+        }
 
         GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
 
@@ -63,8 +64,6 @@ public class PartyScript : MonoBehaviour {
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
             SpawnWeapon(characterScript.rangedId, characterO.transform);
-
-            CreateUI(characterScript, statsList[partyMember]);
 
 
 
@@ -148,20 +147,10 @@ public class PartyScript : MonoBehaviour {
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
             characterO.GetComponent<PersonalMovement>().relativePosNonRotated = new Vector3(i, i);
             SpawnWeapon("wp" + Random.Range(0, Assets.assets.weaponTemp.Length), characterO.transform);
-
-            //CreateUI(characterO.GetComponent<CharacterScript>(), statsList[i]);
-
             characterO.transform.SetParent(transParent, false);
         }
 
         transform.position = new Vector3(3,3,0);
-    }
-
-    public void CreateUI(CharacterScript characterScript, Stats characterStats) {
-        characterO = Instantiate(UIHealth);
-        uiHealth = characterO.GetComponent<UIHealthBoi>();
-        uiHealth.GetData(characterScript.strName, characterScript.id, characterStats.hp, characterStats.maxHp); //Måste gå att kunna göra snyggare!
-        //characterO.transform.SetParent(GameObject.Find("forCharacter").transform, false);
     }
 
     public void SpawnWeapon(string wpId, Transform parent) {

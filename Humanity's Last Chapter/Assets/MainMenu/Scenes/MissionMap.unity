@@ -120,6 +120,50 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &88541410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 88541412}
+  - component: {fileID: 88541411}
+  m_Layer: 0
+  m_Name: SceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &88541411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88541410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8e83ec956bac424abc2ed07dc815f3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MissionManager: {fileID: 1471797285}
+--- !u!4 &88541412
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 88541410}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0015070587, y: 0.60364467, z: -4158.117}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &159755627
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,7 +337,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 688656921}
+      - m_Target: {fileID: 88541411}
         m_MethodName: GoToHub
         m_Mode: 1
         m_Arguments:
@@ -1590,7 +1634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &688656920
 Transform:
   m_ObjectHideFlags: 0
@@ -1618,6 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e83ec956bac424abc2ed07dc815f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MissionManager: {fileID: 0}
 --- !u!114 &688656922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2924,7 +2969,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2046095032}
   m_HandleRect: {fileID: 2046095031}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3391,6 +3436,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Map1.walls
+      objectReference: {fileID: 0}
+    - target: {fileID: 250773257797442149, guid: 529692297aceab44eb2f3e343a9b994d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6975552124051334011, guid: 529692297aceab44eb2f3e343a9b994d,
         type: 3}
@@ -4137,7 +4187,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   titel: 
+  id: 
   isCompleted: 0
+  objectiveCounter: 0
 --- !u!114 &1471797291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5596,6 +5648,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Map1.roads
       objectReference: {fileID: 0}
+    - target: {fileID: 6922364177283649326, guid: 71b43e1ab62f8984ba8163192afbc6c4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5000312106486423581, guid: 71b43e1ab62f8984ba8163192afbc6c4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5941,7 +5998,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6267,6 +6324,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1248578579405061495, guid: 1018b2abd21f8104386c461bc159aef4,
         type: 3}
+    - target: {fileID: 6668247576253444291, guid: 987ebc145d10a3545b6d0f443c38731b,
+        type: 3}
+      propertyPath: MissionManager
+      value: 
+      objectReference: {fileID: 1471797285}
     - target: {fileID: 6668247576253444288, guid: 987ebc145d10a3545b6d0f443c38731b,
         type: 3}
       propertyPath: semiTransBox

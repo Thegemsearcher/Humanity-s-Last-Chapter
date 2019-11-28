@@ -6,26 +6,33 @@ using System.Collections.Generic;
 
 public static class SaveSystem {
 
-    public static List<CharacterData> dataList = new List<CharacterData>(); //Serialize all characters
+    public static List<CharacterData> characterDataList = new List<CharacterData>(); //Serialize all characters
+    public static List<QuestData> questDataList = new List<QuestData>(); //Serialize all quests
     public static WorldData worldData; //Serialize world stats
     public static SaveData saveData; //Everything that will be saved should bi added to this one!
 
     //Uppdateras vid varje scenbyte
     public static void SaveWorld(WorldScript saveWorld) {
         int i = 0;
-        dataList.Clear();
+        characterDataList.Clear();
+        questDataList.Clear();
         BinaryFormatter formatter = new BinaryFormatter();
         string path = Application.persistentDataPath + "/Saves/save" + saveWorld.saveNr + ".save"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
         FileStream stream = new FileStream(path, FileMode.Create);
         
         foreach (CharacterScript character in saveWorld.characterList) {
             CharacterData data = new CharacterData(character, saveWorld.statsList[i]);
-            dataList.Add(data);
+            characterDataList.Add(data);
             i++;
+        }
+        Debug.Log("QuestList: " + WorldScript.world.questList.Count);
+        foreach (QuestObject questProgression in WorldScript.world.questList) {
+            QuestData questData = new QuestData(questProgression.id, questProgression.objectiveCounter);
+            questDataList.Add(questData);
         }
 
         worldData = new WorldData(saveWorld);
-        saveData = new SaveData(dataList, worldData);
+        saveData = new SaveData(characterDataList, questDataList, worldData);
         formatter.Serialize(stream, saveData);
 
         stream.Close();

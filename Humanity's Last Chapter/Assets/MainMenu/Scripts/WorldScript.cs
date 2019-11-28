@@ -16,12 +16,14 @@ public class WorldScript {
 
     public List<CharacterScript> characterList;
     public List<Stats> statsList;
+    public List<QuestObject> questList;
 
     private GameObject[] characterArr;
 
     public void Reset() {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
+        questList = new List<QuestObject>();
         storageSize = 64;
         shopSize = 10;
         shopLevel = 1;
@@ -116,7 +118,6 @@ public class WorldScript {
         characterArr = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject character in characterArr) {
             if (character.GetComponent<Stats>().hp > 0) {
-                //Debug.Log("hp is: " + character.GetComponent<Stats>().hp);
                 characterList.Add(character.GetComponent<CharacterScript>());
                 statsList.Add(character.GetComponent<Stats>());
             }
@@ -124,8 +125,8 @@ public class WorldScript {
         SaveSystem.SaveWorld(this);
     }
 
-    public void Load() {
-        
+    public void GetQuests(List<QuestObject> questList) {
+        this.questList = questList;
     }
 
 }

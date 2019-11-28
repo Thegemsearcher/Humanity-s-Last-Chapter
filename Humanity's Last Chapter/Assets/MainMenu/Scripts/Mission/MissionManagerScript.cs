@@ -32,14 +32,20 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
         txtQuest.text = "";
         txtObjective.text = "";
         timer = 4f;
+
+        LoadQuests();
         
         if (isTesting) {
             StartQuest(testQuest); //for test
         }
     }
 
-    public void btnSetup() {
-        //selectParty.SetActive(true);
+    public void LoadQuests() {
+        if (activeQuestList != null) {
+            foreach (QuestObject quest in activeQuestList) {
+                quest.UpdateQuest(gameObject);
+            }
+        }
     }
 
     public void StartQuest(ScriptableQuest startedQuest) {

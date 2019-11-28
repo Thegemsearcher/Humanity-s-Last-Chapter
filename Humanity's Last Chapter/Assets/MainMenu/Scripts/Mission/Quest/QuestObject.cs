@@ -6,10 +6,10 @@ using UnityEngine.UI;
 
 public class QuestObject : MonoBehaviour {
 
-    public string titel;
-    private string id, objective;
+    public string titel, id;
+    private string objective;
     public bool isCompleted;
-    private int objectiveCounter;
+    public int objectiveCounter;
     //public Object[] objectives;
     private ScriptableQuest quest;
     private GameObject MissionManager;
@@ -25,6 +25,7 @@ public class QuestObject : MonoBehaviour {
         this.quest = quest;
         this.MissionManager = MissionManager;
         titel = quest.missionName;
+        id = quest.name;
         isCompleted = false;
         coObjective = MissionManager.GetComponent<CollectionObjective>();
         loObjective = MissionManager.GetComponent<LocationObjective>();
@@ -36,21 +37,12 @@ public class QuestObject : MonoBehaviour {
         //txtObjective.text = "";
     }
 
-    //public void GetQuest(ScriptableQuest quest) {
-    //    this.quest = quest;
-    //    //txtQuest = GameObject.FindGameObjectWithTag("QuestStarted").GetComponent<Text>();
-    //    //txtObjective = GameObject.FindGameObjectWithTag("ObjectiveStarted").GetComponent<Text>();
-    //    //txtQuest.text = "";
-    //    //txtObjective.text = "";
-    //    //Funderar på att ha texterna som en prefab så att de skapar en text som sen förstör sig själv
-
-
-    //    //textTimer = 1;
-    //    //if (!isActive) {
-    //    //    txtQuest.text = quest.missionName;
-    //    //}
-    //    NextObjective();
-    //}
+    public void UpdateQuest(GameObject MissionManager) {
+        this.MissionManager = MissionManager;
+        coObjective = MissionManager.GetComponent<CollectionObjective>();
+        loObjective = MissionManager.GetComponent<LocationObjective>();
+        ioObjective = MissionManager.GetComponent<InteractionObjective>();
+    }
 
     //Alla objectives borde skapas samtidigt, men de blir checkade i ordning! Borde isåfall ha coQuest etc som array så att den vet vilken den ska kolla in inte srkiver över varandra...
 

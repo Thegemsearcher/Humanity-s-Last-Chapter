@@ -41,6 +41,7 @@ TagManager:
   - ActiveCharacter
   - HospitalSlot
   - Glow
+  - ForMission
   layers:
   - Default
   - TransparentFX
