@@ -16,6 +16,10 @@ public class EnlistList : MonoBehaviour {
     }
     public void IsEnlisted(int roleID) {
         characters = GameObject.FindGameObjectsWithTag("Character");
+        if (characters.Length == 0)
+        {
+            return;
+        }
         foreach (GameObject character in characters) {
             characterScript = character.GetComponent<CharacterScript>();
 
