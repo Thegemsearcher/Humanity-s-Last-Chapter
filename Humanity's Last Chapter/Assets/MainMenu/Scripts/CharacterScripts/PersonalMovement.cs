@@ -7,7 +7,7 @@ public class PersonalMovement : MonoBehaviour
     public RootNode BT;
 
     bool debugger = true;
-
+    public bool moving = true;
     public float charactersMovespeed = 100f;
     public Vector3 relativePos = Vector3.zero;
     public Vector3 relativePosNonRotated = Vector3.zero;
@@ -93,6 +93,7 @@ public class PersonalMovement : MonoBehaviour
 
     private void Movement()
     {
+        moving = true;
         positionBy = Physics2D.Raycast(posNotFormation, relativePos, relativePos.magnitude, buildingLayer);
         if (!ByFormation)
         {
@@ -126,5 +127,10 @@ public class PersonalMovement : MonoBehaviour
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
         }
         
+
+        if (Vector2.Distance(waypoint, transform.position) < 0.5f)
+        {
+            moving = false;
+        }
     }
 }
