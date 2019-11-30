@@ -62,6 +62,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ChangeNameScript.cs" />
+    <Compile Include="Assets\CommunityTitle.cs" />
     <Compile Include="Assets\FootAnim.cs" />
     <Compile Include="Assets\LoadQuests.cs" />
     <Compile Include="Assets\LootInfoScript.cs" />

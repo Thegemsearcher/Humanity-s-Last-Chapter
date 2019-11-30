@@ -43,9 +43,16 @@ public class SaveGameScript : MonoBehaviour { //Markus Wilroth
         } else {
             if (CheckSaves()) { //Finns inget annat save med det namnet
                 WorldScript.world.saveName = inSaveName;
+                //WorldScript.world.saveId = "save" + saveCounter;
+                WorldScript.world.Save(false);
+            } else {
+                WorldScript.world.saveName = inSaveName;
                 WorldScript.world.saveId = "save" + saveCounter;
                 WorldScript.world.Save(false);
-            } 
+            }
+            //WorldScript.world.saveName = inSaveName;
+            //WorldScript.world.saveId = "save" + saveCounter;
+            //WorldScript.world.Save(false);
         }
         Destroy(gameObject);
         

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class LoadWorld : MonoBehaviour { //Heta LoadHub?
     private GameObject holder;
-    public GameObject character;
+    public GameObject character, CampName;
     private Vector2 characterPos;
     private string path;
     private int randomQuirk;
@@ -33,7 +33,7 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
         } else {
             LoadCharacters();
         }
-        
+        CampName.GetComponent<CommunityTitle>().title.text = WorldScript.world.saveName;
     }
 
     public void LoadCharacters() { //Ser till att alla karaktärer ritas ut med rätt världen
