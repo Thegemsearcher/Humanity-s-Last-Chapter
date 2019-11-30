@@ -10,7 +10,6 @@ public class SaveSlot : MonoBehaviour {
     public Text txtSaveName;
 
     private void Start() {
-        Debug.Log("SaveId: " + saveId + "\nSaveName: " + saveName);
         if (saveName == "" || saveName == null) {
             saveName = saveId;
         }

@@ -9,11 +9,15 @@ public class WorldManagerScript : MonoBehaviour {
     private bool isMenuUp;
 
     void Update() {
-        if (holder == null) {
+        if (holder == null) { //Kollar om något annat fönster är öppet som är skapat härifrån
             if (Input.GetKeyDown(KeyCode.Escape)) {
                 holder = Instantiate(pauseMenu);
                 holder.transform.SetParent(parent.transform, false);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.F5)) {
+            WorldScript.world.Save(true);
         }
     }
 }
