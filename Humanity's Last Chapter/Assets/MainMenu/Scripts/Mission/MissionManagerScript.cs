@@ -51,7 +51,8 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
     public void StartQuest(ScriptableQuest startedQuest) {
         title = "Quest started: " + startedQuest.missionName;
         announceOrder.Add(title);
-        quest = new QuestObject(startedQuest, gameObject);
+        quest = new QuestObject();
+        quest.GetData(startedQuest, gameObject);
         activeQuestList.Add(quest);
     }
 

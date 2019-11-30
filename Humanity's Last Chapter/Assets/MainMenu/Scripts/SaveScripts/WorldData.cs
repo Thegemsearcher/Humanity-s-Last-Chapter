@@ -6,19 +6,21 @@ using UnityEngine;
 public class WorldData {
 
     //public List<CharacterScript> characterList;
-    public int gold, rs, saveNr, storageSize, shopSize, shopLevel;
+    public int gold, rs, storageSize, shopSize, shopLevel;
+    public string saveId, saveName;
     public string[] storageArr, shopArr;
     public bool isActive; //Den sparningen som startar om man klickar continue
 
-    public WorldData(WorldScript gameData) {
-        gold = gameData.gold;
-        rs = gameData.rs;
-        saveNr = gameData.saveNr;
-        storageSize = gameData.storageSize;
-        shopSize = gameData.shopSize;
-        shopLevel = gameData.shopLevel;
-        storageArr = gameData.storageArr;
-        shopArr = gameData.shopArr;
-        isActive = gameData.isActive;
+    public WorldData(WorldScript world) {
+        gold = world.gold;
+        rs = world.rs;
+        saveId = world.saveId;
+        storageSize = world.storageSize;
+        shopSize = world.shopSize;
+        shopLevel = world.shopLevel;
+        storageArr = world.storageArr;
+        shopArr = world.shopArr;
+        isActive = world.isActive;
+        saveName = world.saveName;
     }
 }

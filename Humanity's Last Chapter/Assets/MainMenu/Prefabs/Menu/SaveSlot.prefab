@@ -220,4 +220,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeSave: 0
-  saveName: {fileID: 6503706826297328690}
+  saveId: 
+  saveName: 
+  txtSaveName: {fileID: 6503706826297328690}

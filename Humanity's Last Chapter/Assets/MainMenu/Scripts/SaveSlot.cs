@@ -6,10 +6,15 @@ using UnityEngine.UI;
 public class SaveSlot : MonoBehaviour {
 
     public int activeSave;
-    public Text saveName;
+    public string saveId, saveName;
+    public Text txtSaveName;
 
     private void Start() {
-        saveName.text = "Save - " + activeSave;
+        Debug.Log("SaveId: " + saveId + "\nSaveName: " + saveName);
+        if (saveName == "" || saveName == null) {
+            saveName = saveId;
+        }
+        txtSaveName.text = "Save - " + saveName;
     }
 
     public void ActivateSave() {

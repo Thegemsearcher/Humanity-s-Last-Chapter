@@ -11,13 +11,20 @@ public static class SaveSystem {
     public static WorldData worldData; //Serialize world stats
     public static SaveData saveData; //Everything that will be saved should bi added to this one!
 
+    private static string path;
+
     //Uppdateras vid varje scenbyte
-    public static void SaveWorld(WorldScript saveWorld) {
+    public static void SaveWorld(WorldScript saveWorld, bool isAuto) {
         int i = 0;
         characterDataList.Clear();
         questDataList.Clear();
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/Saves/save" + saveWorld.saveNr + ".save"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
+        if(isAuto) {
+            path = Application.persistentDataPath + "/Saves/AutoSave.save";
+        } else {
+            path = Application.persistentDataPath + "/Saves/" + saveWorld.saveId + ".save";
+        }
+         //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
         FileStream stream = new FileStream(path, FileMode.Create);
         
         foreach (CharacterScript character in saveWorld.characterList) {
@@ -25,9 +32,8 @@ public static class SaveSystem {
             characterDataList.Add(data);
             i++;
         }
-        Debug.Log("QuestList: " + WorldScript.world.questList.Count);
         foreach (QuestObject questProgression in WorldScript.world.questList) {
-            QuestData questData = new QuestData(questProgression.id, questProgression.objectiveCounter);
+            QuestData questData = new QuestData(questProgression.id, questProgression.questStage);
             questDataList.Add(questData);
         }
 
@@ -38,8 +44,12 @@ public static class SaveSystem {
         stream.Close();
     }
 
-    public static SaveData LoadWorld(int SaveSlot) {
-        string path = Application.persistentDataPath + "/Saves/save"+SaveSlot+".save";
+    public static SaveData LoadWorld(string saveId, bool isAuto) {
+        if (isAuto) {
+            path = Application.persistentDataPath + "/Saves/AutoSave.save";
+        } else {
+            path = Application.persistentDataPath + "/Saves/"+saveId+".save";
+        }
 
         if (File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();

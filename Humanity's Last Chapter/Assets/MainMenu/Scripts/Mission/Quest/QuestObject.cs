@@ -9,8 +9,7 @@ public class QuestObject : MonoBehaviour {
     public string titel, id;
     private string objective;
     public bool isCompleted;
-    public int objectiveCounter;
-    //public Object[] objectives;
+    public int questStage;
     private ScriptableQuest quest;
     private GameObject MissionManager;
 
@@ -18,10 +17,10 @@ public class QuestObject : MonoBehaviour {
     private LocationObjective loObjective;
     private InteractionObjective ioObjective;
 
-    //private float textTimer, timeStamp;
-    //public Text txtQuest, txtObjective;
+    public QuestObject() { 
+    }
 
-    public QuestObject(ScriptableQuest quest, GameObject MissionManager) {
+    public void GetData(ScriptableQuest quest, GameObject MissionManager) {
         this.quest = quest;
         this.MissionManager = MissionManager;
         titel = quest.missionName;
@@ -31,10 +30,6 @@ public class QuestObject : MonoBehaviour {
         loObjective = MissionManager.GetComponent<LocationObjective>();
         ioObjective = MissionManager.GetComponent<InteractionObjective>();
         NextObjective();
-        //txtQuest = GameObject.FindGameObjectWithTag("QuestStarted").GetComponent<Text>();
-        //txtObjective = GameObject.FindGameObjectWithTag("ObjectiveStarted").GetComponent<Text>();
-        //txtQuest.text = "";
-        //txtObjective.text = "";
     }
 
     public void UpdateQuest(GameObject MissionManager) {
@@ -48,34 +43,34 @@ public class QuestObject : MonoBehaviour {
 
     public void NextObjective() {
         
-        if (objectiveCounter >= quest.objectives.Length) {
+        if (questStage >= quest.objectives.Length) {
             CompletedQuest();
             objective = "Quest Completed!";
         }
         else {
-            id = quest.objectives[objectiveCounter].name[0].ToString();
+            id = quest.objectives[questStage].name[0].ToString();
 
             switch (id) {
                 case "c":
                     //MissionManager.GetComponent<CollectionObjective>().GetData(quest.objectives[objectiveCounter] as ScriptableCollection);
-                    coObjective.GetData(quest.objectives[objectiveCounter] as ScriptableCollection);
+                    coObjective.GetData(quest.objectives[questStage] as ScriptableCollection);
                     objective = coObjective.title;
                     break;
 
                 case "l":
-                    loObjective.GetData(quest.objectives[objectiveCounter] as LocationObject);
+                    loObjective.GetData(quest.objectives[questStage] as LocationObject);
                     objective = loObjective.title;
                     break;
 
                 case "i":
-                    ioObjective.GetData(quest.objectives[objectiveCounter] as InteractObject);
+                    ioObjective.GetData(quest.objectives[questStage] as InteractObject);
                     objective = ioObjective.title;
                     break;
                 case "":
                     objective = "Error! no more Objectives";
                     break;
             }
-            objectiveCounter++;
+            questStage++;
             MissionManager.GetComponent<MissionManagerScript>().NewObjective(objective);
         }
     }

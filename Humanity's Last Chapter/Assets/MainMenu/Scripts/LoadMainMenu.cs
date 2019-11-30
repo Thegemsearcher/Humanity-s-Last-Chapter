@@ -15,9 +15,6 @@ public class LoadMainMenu : MonoBehaviour {
             DataHolder.dataHolder = new DataHolder();
             DataHolder.dataHolder.NewHolder();
         }
-        else {
-            Debug.Log("Error! Dataholder already exists!");
-        }
     }
 
     public void BtnContinue() {

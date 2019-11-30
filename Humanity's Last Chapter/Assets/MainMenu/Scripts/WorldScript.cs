@@ -7,8 +7,9 @@ public class WorldScript {
 
     public static WorldScript world;
 
-    public int gold, rs, saveNr, storageSize, shopSize, shopLevel, date;
+    public int gold, rs, storageSize, shopSize, shopLevel, date;
     public bool isActive; //Den sparningen som startar om man klickar continue
+    public string saveName, saveId;
     private bool isChoosing;
     private int itemTest;
 
@@ -33,7 +34,8 @@ public class WorldScript {
         gold = 400;
         isActive = true;
         rs = 0;
-        saveNr = 0;
+        saveId = "save0";
+        saveName = "New World";
         date = 1;
 
         ClearInventory();
@@ -83,6 +85,7 @@ public class WorldScript {
             
         }
     }
+
     public void AddToStore(string id, int amount) {
         for (int i = 0; i < amount; i++) {
             for (int j = 0; j < shopSize; j++) {
@@ -111,7 +114,7 @@ public class WorldScript {
         //Create Item igen
     }
 
-    public void Save() {
+    public void Save(bool isAuto) {
         characterList.Clear();
         statsList.Clear();
 
@@ -122,7 +125,7 @@ public class WorldScript {
                 statsList.Add(character.GetComponent<Stats>());
             }
         }
-        SaveSystem.SaveWorld(this);
+        SaveSystem.SaveWorld(this, isAuto);
     }
 
     public void GetQuests(List<QuestObject> questList) {

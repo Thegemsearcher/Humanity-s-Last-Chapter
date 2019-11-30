@@ -1,10 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System;
-using UnityEditor;
-using System.IO;
+﻿using System.IO;
 using UnityEngine;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveSlotManager : MonoBehaviour {
     public GameObject saveSlot;
@@ -18,16 +13,33 @@ public class SaveSlotManager : MonoBehaviour {
         saveCounter = Directory.GetFiles(path).Length;
         parent = GameObject.FindGameObjectWithTag("forSaves");
 
+        AutoSave();
+        AllSaves();
+    }
+
+    private void AllSaves() {
         for (int i = 0; i < saveCounter; i++) {
-            if (!File.Exists(path + "save" + i + ".save")) {
-                Debug.Log("Save Slot empty!");
+            string saveId = "save" + i;
+            if (!File.Exists(path + saveId + ".save")) {
                 saveCounter++;
             } else {
-                SaveData data = SaveSystem.LoadWorld(i);
+                SaveData data = SaveSystem.LoadWorld(saveId, false);
                 saveHolder = Instantiate(saveSlot);
-                saveHolder.GetComponent<SaveSlot>().activeSave = i;
+                saveHolder.GetComponent<SaveSlot>().saveId = saveId;
+                saveHolder.GetComponent<SaveSlot>().saveName = data.worldData.saveName;
                 saveHolder.transform.SetParent(parent.transform, false);
             }
+        }
+    }
+
+    private void AutoSave() {
+        if (File.Exists(path + "AutoSave.save")) {
+            saveCounter--;
+            SaveData data = SaveSystem.LoadWorld("AutoSave", true);
+            saveHolder = Instantiate(saveSlot);
+            saveHolder.GetComponent<SaveSlot>().saveId = "AutoSave";
+            saveHolder.GetComponent<SaveSlot>().saveName = "AutoSave";
+            saveHolder.transform.SetParent(parent.transform, false);
         }
     }
 }
