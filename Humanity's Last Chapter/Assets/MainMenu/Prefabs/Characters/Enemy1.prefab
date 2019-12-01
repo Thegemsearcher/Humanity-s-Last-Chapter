@@ -156,6 +156,8 @@ MonoBehaviour:
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}
   hasSeenEnemy: 0
+  EnemyCorpse: {fileID: 9007655463013522353, guid: 298a45655b5dd084d8399b036e874fd2,
+    type: 3}
 --- !u!61 &4090975341072565151
 BoxCollider2D:
   m_ObjectHideFlags: 0

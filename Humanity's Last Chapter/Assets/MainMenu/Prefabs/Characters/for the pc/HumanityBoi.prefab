@@ -250,6 +250,8 @@ MonoBehaviour:
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}
   quirkIDList: []
+  PCCorpse: {fileID: 7977335717556039672, guid: a1c2c527c923a2646baa51bfcfd291b9,
+    type: 3}
 --- !u!114 &3635717509634122910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab65ed766b3cf974cabf3769b01c95ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moving: 1
   charactersMovespeed: 0.1
   relativePos: {x: 0, y: 0, z: 0}
   relativePosNonRotated: {x: 0, y: 0, z: 0}

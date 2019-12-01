@@ -19,6 +19,8 @@ public class Stats : MonoBehaviour {
     public bool shit;
     public ParticleSystem bloodEffect;
     public List<string> quirkIDList;
+    public GameObject PCCorpse;
+
     // Start is called before the first frame update
     void Start() {
         if (maxHp == 0) {
@@ -43,6 +45,7 @@ public class Stats : MonoBehaviour {
             AddQuirk(Assets.assets.quirkArray[randomQuirk]);
 
         }
+        #region Gammal kod
         //Debug.Log("Str is " + str);
         //characterUI = Instantiate(prefabCharacterUI, new Vector3(0, 0, 0), Quaternion.identity);
         //characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -93,6 +96,7 @@ public class Stats : MonoBehaviour {
         //        j++;
         //    }
         //}
+        #endregion
     }
 
     public int GetCost() {
@@ -150,6 +154,9 @@ public class Stats : MonoBehaviour {
         }
         hp -= damage;
         if (hp <= 0) {
+            GameObject corpse = Instantiate(PCCorpse);
+            corpse.transform.position = transform.position;
+            corpse.transform.rotation = transform.rotation * Quaternion.Euler(0f, 0f, 180);
             GetComponent<CharacterScript>().OnDeath();
             gameObject.SetActive(false);
         }

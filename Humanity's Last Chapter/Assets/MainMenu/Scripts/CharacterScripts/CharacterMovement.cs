@@ -45,8 +45,8 @@ public class CharacterMovement : MonoBehaviour
         if (selectedCharacters == null)
             selectedCharacters = pcs;
         AddSelectedCharacters();
-        if (drawBox)
-            OnGUI();
+        //if (drawBox)
+            //OnGUI();
         InputMovement();
         //Movement();
         InputRotation();
@@ -137,9 +137,9 @@ public class CharacterMovement : MonoBehaviour
         drawBoxRect = toDrawBox;
     }
 
-    void OnGUI() //Vad händer här
+    void OnGUI() //Det är så rutan ritas ut när man klickar vänstterklick och håller inne, jag vet inte varför jag får ett error
     {
-        //GUI.DrawTexture(drawBoxRect, semiTransBox);
+        GUI.DrawTexture(drawBoxRect, semiTransBox);
     }
 
     public void SelectChars(Rect toSelect)
@@ -181,7 +181,7 @@ public class CharacterMovement : MonoBehaviour
     {
         Vector3 difference = rotDirection - rotStart;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        Quaternion rot = Quaternion.Euler(0f, 0f, rotZ);
+        Quaternion rot = Quaternion.Euler(0f, 0f, rotZ + 90);
         foreach (GameObject pc in pcs)
         {
             Vector3 toSet = pc.GetComponent<PersonalMovement>().relativePosNonRotated;
