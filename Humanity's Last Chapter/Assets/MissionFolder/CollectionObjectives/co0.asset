@@ -18,7 +18,7 @@ MonoBehaviour:
   currentAmount: 0
   isComplete: 0
   isBonus: 0
-  itemsToCollect: {fileID: 2588904187867742290, guid: ecf8ee21bade51a48891cccceee6b009,
+  itemsToCollect: {fileID: 4090975341072565159, guid: ecf8ee21bade51a48891cccceee6b009,
     type: 3}
   spawnPos:
   - {fileID: 7659630455665969880, guid: d3f174d33659b704b98adab11d47fa93, type: 3}

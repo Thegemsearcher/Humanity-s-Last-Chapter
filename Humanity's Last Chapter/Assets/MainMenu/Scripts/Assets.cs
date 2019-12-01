@@ -9,6 +9,7 @@ public class Assets {
     public WeaponObject[] weaponTemp;
     public HealingItemObject[] healingTemp;
     public CombatItemObject[] combatTemp;
+    public ClothItemObject[] clothTemp;
 
     //Quest
     public ScriptableQuest[] questTemp; //Har alla quests som mall
