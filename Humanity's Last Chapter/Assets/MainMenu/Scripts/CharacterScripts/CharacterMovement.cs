@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+
     private Vector3 mousePosition;
     public float moveSpeed = 1000f;
 
@@ -41,6 +42,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         pcs = GameObject.FindGameObjectsWithTag("Character").ToList<GameObject>();
         if (selectedCharacters == null)
             selectedCharacters = pcs;

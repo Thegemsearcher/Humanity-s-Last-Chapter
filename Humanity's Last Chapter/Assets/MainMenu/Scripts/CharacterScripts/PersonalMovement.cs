@@ -5,7 +5,7 @@ using UnityEngine;
 public class PersonalMovement : MonoBehaviour
 {
     public RootNode BT;
-
+    //public bool muzzleFlash = false;
     bool debugger = true;
     public bool moving = true;
     public float charactersMovespeed = 100f;
@@ -33,6 +33,7 @@ public class PersonalMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //GetComponentInChildren<Animator>().SetBool("flashAAA", false);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             ByFormation = true;
@@ -42,6 +43,8 @@ public class PersonalMovement : MonoBehaviour
             Debug.DrawLine(manager.transform.position, positionBy.point);
         BT.Start();
         Movement();
+
+      
     }
     /*float width, height;
         if (startPos.x > endPos.x)
