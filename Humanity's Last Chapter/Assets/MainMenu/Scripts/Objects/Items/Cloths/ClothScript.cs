@@ -15,6 +15,14 @@ public class ClothScript : MonoBehaviour {
         Cloth
     }
 
+    public enum ClothCategory {
+        StartGear,
+        LowLevel,
+        MedLevel,
+        HighLevel,
+        Faction
+    }
+
     private void Start() {
         characterScript = GetComponent<CharacterScript>();
         stats = GetComponent<Stats>();

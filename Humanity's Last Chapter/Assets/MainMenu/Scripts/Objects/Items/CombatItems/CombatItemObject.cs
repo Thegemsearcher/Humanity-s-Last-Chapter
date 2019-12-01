@@ -16,7 +16,7 @@ public class CombatItemObject : ScriptableObject {
     public int placeRange;
     public int damage; //Grenade Damage
     public float aoe; //Area of Effect (Grenade blast)
-    public AbilityType abilityType;
+    public AbilityType abilityType; 
     public CombatType combatType;
     public WeaponObject attachedWeapon;
     

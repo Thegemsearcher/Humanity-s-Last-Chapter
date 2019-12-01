@@ -7,11 +7,12 @@ using static ClothScript;
 public class ClothItemObject : ScriptableObject {
 
     public Sprite icon;
-    public Sprite sprite;
+    public Sprite portrait;
     public string itemName = "Red Jacket";
     public string description = "A warm red jacket";
     public int cost = 10;
-    public ClothType clothType;
+    public ClothType clothType; //If it is headGear or cloth
+    public ClothCategory clothCategory; //When this item can be aquired
 
     //Boost the Item gives while wearing it
     public int maxHp = 0;
