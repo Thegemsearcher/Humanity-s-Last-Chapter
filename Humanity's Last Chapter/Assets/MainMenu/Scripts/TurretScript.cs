@@ -48,7 +48,8 @@ public class TurretScript : MonoBehaviour {
     public NodeStates InRangeAndSight() {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         float closest = Mathf.Infinity;
-
+        if (enemies.Length < 1)
+            return NodeStates.fail;
         foreach (GameObject enemy in enemies) {
             float testClosest = (Vector3.Distance(transform.position, enemy.transform.position));
 
