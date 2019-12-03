@@ -42,6 +42,8 @@ TagManager:
   - HospitalSlot
   - Glow
   - ForMission
+  - ForActiveQuest
+  - QuestDesc
   layers:
   - Default
   - TransparentFX

@@ -122,6 +122,7 @@ public class Stats : MonoBehaviour {
         ldr = stats.ldr;
         nrg = stats.nrg;
         snt = stats.snt;
+        hp = maxHp;
     }
 
     //public void GetStats(int maxHp, int hp) { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!

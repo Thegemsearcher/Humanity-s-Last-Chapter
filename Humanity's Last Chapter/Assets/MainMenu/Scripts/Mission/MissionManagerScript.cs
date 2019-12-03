@@ -49,6 +49,7 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
     }
 
     public void StartQuest(ScriptableQuest startedQuest) {
+        Debug.Log("Does it get here twice");
         title = "Quest started: " + startedQuest.missionName;
         announceOrder.Add(title);
         quest = new QuestObject();

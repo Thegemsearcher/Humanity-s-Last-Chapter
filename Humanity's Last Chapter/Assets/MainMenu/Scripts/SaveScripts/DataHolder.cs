@@ -15,13 +15,17 @@ public class DataHolder {
 
     private List<CharacterScript> characterList;
     private List<Stats> statsList;
-    private List<QuestObject> questList;
+    private List<ScriptableQuest> avalibleQuests;
+    private List<ScriptableQuest> completedQuests;
+    private List<ScriptableQuest> failedQuests;
     public GameObject btnContinue;
 
     public void NewHolder() {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
-        questList = new List<QuestObject>();
+        avalibleQuests = new List<ScriptableQuest>();
+        completedQuests = new List<ScriptableQuest>();
+        failedQuests = new List<ScriptableQuest>();
 
         if(Assets.assets == null) {
             Assets.assets = new Assets();
@@ -125,15 +129,29 @@ public class DataHolder {
         }
 
         foreach (QuestData questData in data.questDataList) {
-            QuestObject quest = new QuestObject();
-            quest.id = questData.id;
-            quest.questStage = questData.questStage;
-            questList.Add(quest);
-
+            ScriptableQuest quest = FindQuest(questData.id);
+            if (questData.isComplet) {
+                completedQuests.Add(quest);
+            } else if (questData.isFailed) {
+                failedQuests.Add(quest);
+            } else {
+                avalibleQuests.Add(quest);
+            }
         }
-        WorldScript.world.questList = questList;
+        WorldScript.world.avalibleQuests = avalibleQuests;
+        WorldScript.world.completedQuests = completedQuests;
         WorldScript.world.characterList = characterList;
         WorldScript.world.statsList = statsList;
+    }
+
+    private ScriptableQuest FindQuest(string questId) {
+        foreach (ScriptableQuest quest in Assets.assets.questTemp) {
+            if (quest.name == questId) {
+                return quest;
+            }
+        }
+        Debug.Log("Error! Quest: " + questId + " not found!");
+        return null;
     }
 
     private void StartGame() {

@@ -37,11 +37,13 @@ public class GrenadeScript : MonoBehaviour {
         transform.position += direction * speed * Time.deltaTime;
     }
     void Explode() {
-        foreach (GameObject enemy in enemies) {
-            enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            if (GetComponent<CircleCollider2D>().OverlapPoint(enemy.transform.position)) {
-                enemy.GetComponent<SpriteRenderer>().color = Color.green;
-                enemy.GetComponent<Enemy>().TakeDamage(damage);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (enemies != null) {
+            foreach (GameObject enemy in enemies) {
+                if (GetComponent<CircleCollider2D>().OverlapPoint(enemy.transform.position)) {
+                    enemy.GetComponent<SpriteRenderer>().color = Color.green;
+                    enemy.GetComponent<Enemy>().TakeDamage(damage);
+                }
             }
         }
     }

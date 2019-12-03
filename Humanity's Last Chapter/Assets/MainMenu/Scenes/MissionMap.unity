@@ -4202,7 +4202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd9d51eb9102e3469a32e1ab96ff705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 1
+  isTesting: 0
   testQuest: {fileID: 11400000, guid: 904efdca9bb25024d8a546946f2e1a7e, type: 2}
   activeQuestList: []
 --- !u!1 &1518621885

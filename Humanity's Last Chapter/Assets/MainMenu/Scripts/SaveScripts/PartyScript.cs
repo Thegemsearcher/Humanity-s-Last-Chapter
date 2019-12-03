@@ -10,7 +10,8 @@ public class PartyScript : MonoBehaviour {
     private int partyMember;                //Används för att bestämma vilken position karaktären spawnar på
     private UIHealthBoi uiHealth;
     private List<CharacterScript> characterScriptList;
-    private List<QuestObject> questList;
+    //private List<QuestObject> questList;
+    private ScriptableQuest activeQuest;
     private List<Stats> statsList;
     //private WorldScript worldScript;
     private Transform transParent;
@@ -40,14 +41,14 @@ public class PartyScript : MonoBehaviour {
     public void SpawnCharacters() {
         characterScriptList = WorldScript.world.characterList;
         statsList = WorldScript.world.statsList;
-        questList = WorldScript.world.questList;
+        activeQuest = WorldScript.world.activeQuest;
 
         partyMember = 0;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
 
-        foreach (QuestObject quest in questList) {
-            MissionManager.GetComponent<MissionManagerScript>().activeQuestList.Add(quest);
-        }
+        //foreach (QuestObject quest in questList) {
+            MissionManager.GetComponent<MissionManagerScript>().StartQuest(activeQuest);
+        //}
 
         GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
 

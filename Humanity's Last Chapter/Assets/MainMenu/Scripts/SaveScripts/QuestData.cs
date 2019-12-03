@@ -5,10 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class QuestData {
     public string id;
-    public int questStage;
+    public bool isComplet, isFailed;
 
-    public QuestData(string id, int questStage) {
+    public QuestData(string id, bool isComplet, bool isFailed) {
         this.id = id;
-        this.questStage = questStage;
+        this.isComplet = isComplet;
+        this.isFailed = isFailed;
     }
 }

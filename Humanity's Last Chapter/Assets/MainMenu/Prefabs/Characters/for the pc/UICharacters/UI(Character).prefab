@@ -227,14 +227,19 @@ MonoBehaviour:
   level: 0
   exp: 0
   nextLevel: 0
-  characterUI: {fileID: 0}
-  prefabCharacterUI: {fileID: 0}
-  ItemPrefab: {fileID: 0}
+  characterUI: {fileID: 3642699830238041902, guid: 1e048e086c55d6d4390d4bf4f9e5f925,
+    type: 3}
+  prefabCharacterUI: {fileID: 7764590256463767525, guid: 2db83e11f7073c54ea336be12e635e6b,
+    type: 3}
+  ItemPrefab: {fileID: 7328032005007390068, guid: fa1004ad50eeca94bb9b683b33e5a063,
+    type: 3}
   items: []
   shit: 0
-  bloodEffect: {fileID: 0}
+  bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
+    type: 3}
   quirkIDList: []
-  PCCorpse: {fileID: 0}
+  PCCorpse: {fileID: 7977335717556039672, guid: a1c2c527c923a2646baa51bfcfd291b9,
+    type: 3}
 --- !u!114 &1124000639610959738
 MonoBehaviour:
   m_ObjectHideFlags: 0

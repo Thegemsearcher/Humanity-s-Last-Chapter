@@ -32,8 +32,16 @@ public static class SaveSystem {
             characterDataList.Add(data);
             i++;
         }
-        foreach (QuestObject questProgression in WorldScript.world.questList) {
-            QuestData questData = new QuestData(questProgression.id, questProgression.questStage);
+        foreach (ScriptableQuest avalibleQuest in saveWorld.avalibleQuests) {
+            QuestData questData = new QuestData(avalibleQuest.name, false, false);
+            questDataList.Add(questData);
+        }
+        foreach (ScriptableQuest completedQuest in saveWorld.completedQuests) {
+            QuestData questData = new QuestData(completedQuest.name, true, false);
+            questDataList.Add(questData);
+        }
+        foreach (ScriptableQuest failedQuest in saveWorld.failedQuests) {
+            QuestData questData = new QuestData(failedQuest.name, false, true);
             questDataList.Add(questData);
         }
 
