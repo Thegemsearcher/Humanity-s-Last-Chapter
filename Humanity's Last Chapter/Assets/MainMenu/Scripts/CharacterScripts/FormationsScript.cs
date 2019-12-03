@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FormationsScript : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class FormationsScript : MonoBehaviour
     GameObject[] pcs, UIelements;
     bool openedBefore = false;
     float offsetX = 0, offsetY = 0;
+    GameObject pcManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,12 +36,19 @@ public class FormationsScript : MonoBehaviour
             pcs[i].GetComponent<PersonalMovement>().relativePosNonRotated = relativePos;
             pcs[i].GetComponent<PersonalMovement>().relativePos = relativePos;
         }
+        pcManager.GetComponent<CharacterMovement>().drawBox = true;
     }
+    
 
     public void OpenFormation()
     {
         if (openedBefore)
+        {
+            pcManager.GetComponent<CharacterMovement>().drawBox = false;
             return;
+        }
+        pcManager = GameObject.Find("PCManager");
+        pcManager.GetComponent<CharacterMovement>().drawBox = false;
         pcs = GameObject.FindGameObjectsWithTag("Character");
         UIelements = new GameObject[pcs.Length];
         int j = 0;
@@ -54,6 +63,7 @@ public class FormationsScript : MonoBehaviour
             go.transform.SetParent(parent.transform);
             go.transform.position = new Vector3(gameObject.GetComponentInParent<Transform>().transform.position.x + offsetX + 50 * i,
                 gameObject.GetComponentInParent<Transform>().transform.position.y + offsetY + 50 * j, 0);
+            go.GetComponentInChildren<Text>().text = pcs[i].GetComponent<CharacterScript>().strName;
             UIelements[i] = go;
             j++;
         }

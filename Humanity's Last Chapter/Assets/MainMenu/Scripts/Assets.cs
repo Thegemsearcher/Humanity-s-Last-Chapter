@@ -9,6 +9,7 @@ public class Assets {
     public WeaponObject[] weaponTemp;
     public HealingItemObject[] healingTemp;
     public CombatItemObject[] combatTemp;
+    public ClothItemObject[] clothTemp;
 
     //Quest
     public ScriptableQuest[] questTemp; //Har alla quests som mall
@@ -25,7 +26,7 @@ public class Assets {
         weaponTemp = GetAtPath<WeaponObject>("WeaponFolder");
         healingTemp = GetAtPath<HealingItemObject>("ItemsFolder/HealingItems");
         combatTemp = GetAtPath<CombatItemObject>("ItemsFolder/CombatItems");
-
+        clothTemp = GetAtPath<ClothItemObject>("ItemsFolder/Cloths");
         
 
         questTemp = GetAtPath<ScriptableQuest>("MissionFolder/Quests");

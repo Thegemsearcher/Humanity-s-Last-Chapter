@@ -110,10 +110,11 @@ MonoBehaviour:
   id: 0
   inventorySize: 0
   rangedId: 
-  meleeId: 
+  combatId: 
+  healingId: 
   clothId: 
   headId: 
-  itemID: []
+  inventory: []
   inHospital: 0
   isEnlisted: 0
 --- !u!222 &2606361138494507684
@@ -271,6 +272,7 @@ MonoBehaviour:
   health: 200
   speed: 1.5
   id: 
+  inventorySize: 0
   pcs: []
   aggroRange: 4
   atkRange: 0.75
@@ -280,7 +282,10 @@ MonoBehaviour:
     m_Bits: 1024
   attackTimer: 0
   timeBetweenAttack: 2
+  animator: {fileID: 0}
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}
-  iCombatTree: 0
-  closestPC: 0
+  hasSeenEnemy: 0
+  EnemyCorpse: {fileID: 9007655463013522353, guid: 298a45655b5dd084d8399b036e874fd2,
+    type: 3}
+  ranged: 1

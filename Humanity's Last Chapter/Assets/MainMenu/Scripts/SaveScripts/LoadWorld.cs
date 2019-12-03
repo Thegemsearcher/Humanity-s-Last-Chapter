@@ -7,11 +7,13 @@ using UnityEditor;
 using UnityEngine.UI;
 
 public class LoadWorld : MonoBehaviour { //Heta LoadHub?
-    private GameObject characterO;
-    public GameObject character;
+    private GameObject holder;
+    public GameObject character, CampName, CreationWindow, WindowParent;
+    public List<ScriptableQuest> startQuests;
     private Vector2 characterPos;
     private string path;
     private int randomQuirk;
+
 
     private Transform transParent;
 
@@ -27,13 +29,20 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
             Assets.assets.GetAssets();
         }
 
-        if (WorldScript.world == null) { //Kollar om det finns en world (Borde bara vara falsk om man startar nytt game eller startar från hubben dirr)
+        if (WorldScript.world == null) {                                    //Kollar om det finns en world (Om true är det ett nytt sparning)
             WorldScript.world = new WorldScript();
-            WorldScript.world.Reset();
+            WorldScript.world.Reset();                                      //Sätter startvärden på spelet (t.ex. hur mycket guld man startar med etc)
+
+            foreach (ScriptableQuest quest in startQuests) {
+                WorldScript.world.avalibleQuests.Add(quest);                //De quests man har satt in i startQuests kommer in som valbara quests
+            }
+
+            holder = Instantiate(CreationWindow);                           //Skapar fönstret där man kan skapa de tre första karaktärena
+            holder.transform.SetParent(WindowParent.transform, false);
         } else {
             LoadCharacters();
         }
-        
+        CampName.GetComponent<CommunityTitle>().title.text = WorldScript.world.saveName;
     }
 
     public void LoadCharacters() { //Ser till att alla karaktärer ritas ut med rätt världen
@@ -43,22 +52,19 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
         int i = 0;
         foreach (CharacterScript characterScript in characterScriptList) {
-            characterO = Instantiate(character);
-            characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
-            characterO.GetComponent<Stats>().LoadPlayer(statsList[i]);
-            //Debug.Log("hp is: " + statsList[i].hp);
-            Debug.Log("hp is: " + WorldScript.world.statsList[i].hp);
-            characterO.GetComponent<CharacterScript>().isEnlisted = false;
+            holder = Instantiate(character);
+            holder.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+            holder.GetComponent<Stats>().LoadPlayer(statsList[i]);
+            holder.GetComponent<CharacterScript>().isEnlisted = false;
             //randomQuirk = Random.Range(0, 9);   //picks out the quirk.
             //randomQuirk *= 2;
             //characterO.GetComponent<Stats>().AddQuirk(Assets.assets.quirkArray[randomQuirk]);
             //statsList.Remove(statsList[i]);
-            characterO.transform.SetParent(transParent, false);
+            holder.transform.SetParent(transParent, false);
             i++;
             
         }
         characterScriptList.Clear(); //Rensar listan
-       
     }
 
     private void InstantiateLists() {

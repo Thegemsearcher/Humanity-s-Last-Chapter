@@ -105,6 +105,7 @@ public class PlayerAttack : MonoBehaviour {
             }
         } else {
             tWeapon = GetComponentInChildren<WeaponAttack>();
+            
         }
         return NodeStates.fail;
     }
@@ -122,6 +123,7 @@ public class PlayerAttack : MonoBehaviour {
     public NodeStates RangeAttack() {
         tWeapon = GetComponentInChildren<WeaponAttack>();
         tWeapon.CreateBullet();
+        GetComponentInChildren<Animator>().SetTrigger("flash");
         return NodeStates.success;
     }
 

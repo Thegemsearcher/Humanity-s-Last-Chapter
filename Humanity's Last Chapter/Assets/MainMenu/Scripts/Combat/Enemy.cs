@@ -22,8 +22,14 @@ public class Enemy : MonoBehaviour {
     public float attackTimer;
     public float timeBetweenAttack;
 
+    public Animator animator;
+
     public ParticleSystem bloodEffect;
     public bool hasSeenEnemy = false;
+
+    public GameObject EnemyCorpse;
+
+    public bool ranged;
     // Start is called before the first frame update
     void Start() {
         target = transform.position;
@@ -34,7 +40,11 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (health <= 0) {
-            GetInventory();
+            GameObject corpse = Instantiate(EnemyCorpse);
+            corpse.transform.position = transform.position;
+            corpse.transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 180);
+            if (!ranged)
+                GetInventory();
             Destroy(gameObject);
         }
         if (attackTimer > 0)
@@ -90,15 +100,19 @@ public class Enemy : MonoBehaviour {
         if (attackTimer > 0) {
             return NodeStates.fail;
         }
+
         attackTimer = timeBetweenAttack;
         Collider2D[] pcsToDamage = Physics2D.OverlapCircleAll(transform.position, atkRange, pcLayer);
         bool hitPc = false;
         for (int i = 0; i < pcsToDamage.Length; i++) {
+            animator.SetBool("Attacking", true);
             hitPc = true;
             pcsToDamage[i].GetComponent<Stats>().TakeDamage(dmg);
         }
         if (hitPc)
             return NodeStates.success;
+
+        animator.SetBool("Attacking", false);
         return NodeStates.fail;
     }
     void MovementForTest() {

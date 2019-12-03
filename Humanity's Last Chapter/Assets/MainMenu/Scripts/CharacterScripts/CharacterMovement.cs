@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+
     private Vector3 mousePosition;
     public float moveSpeed = 1000f;
 
@@ -26,12 +27,13 @@ public class CharacterMovement : MonoBehaviour
     Vector3 startPos = Vector3.zero, endPos = Vector3.zero;
     //För att rita ut rutan som vi selectar
     Vector3 startDrawPos = Vector3.zero, endDrawPos = Vector3.zero;
-    bool drawBox = false;
+    public bool drawBox = true;
     public Texture semiTransBox;
     Rect drawBoxRect = Rect.zero;
     // Start is called before the first frame update
     void Start()
     {
+        drawBox = true;
         GetComponent<LineRenderer>().alignment = LineAlignment.View;
         GetComponent<LineRenderer>().useWorldSpace = true;
         waypoints.Add(new Vector3(1, 0, 0));
@@ -41,12 +43,13 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(drawBox);
         pcs = GameObject.FindGameObjectsWithTag("Character").ToList<GameObject>();
         if (selectedCharacters == null)
             selectedCharacters = pcs;
         AddSelectedCharacters();
-        if (drawBox)
-            OnGUI();
+        //if (drawBox)
+            //OnGUI();
         InputMovement();
         //Movement();
         InputRotation();
@@ -89,7 +92,7 @@ public class CharacterMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.Mouse0))
         {
-            drawBox = true;
+            //drawBox = true;
             endDrawPos = Input.mousePosition;
             endPos = mousePosition;
             CreateRectFromMouse();
@@ -97,7 +100,7 @@ public class CharacterMovement : MonoBehaviour
         }
         if (Input.GetKeyUp(KeyCode.Mouse0))
         {
-            drawBox = false;
+            //drawBox = false;
             startPos = Vector3.zero;
             endPos = Vector3.zero;
             startDrawPos = Vector3.zero;
@@ -137,9 +140,10 @@ public class CharacterMovement : MonoBehaviour
         drawBoxRect = toDrawBox;
     }
 
-    void OnGUI() //Vad händer här
+    void OnGUI() //Det är så rutan ritas ut när man klickar vänstterklick och håller inne, jag vet inte varför jag får ett error
     {
-        //GUI.DrawTexture(drawBoxRect, semiTransBox);
+        if (drawBox)
+            GUI.DrawTexture(drawBoxRect, semiTransBox);
     }
 
     public void SelectChars(Rect toSelect)
@@ -181,13 +185,25 @@ public class CharacterMovement : MonoBehaviour
     {
         Vector3 difference = rotDirection - rotStart;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        Quaternion rot = Quaternion.Euler(0f, 0f, rotZ);
-        foreach (GameObject pc in pcs)
+        Quaternion rot = Quaternion.Euler(0f, 0f, rotZ + 270);
+        if (!posForFormation)
         {
-            Vector3 toSet = pc.GetComponent<PersonalMovement>().relativePosNonRotated;
-            toSet = rot * toSet;
-            pc.GetComponent<PersonalMovement>().relativePos = toSet;
+            foreach (GameObject pc in selectedCharacters)
+            {
+                Vector3 toSet = pc.GetComponent<PersonalMovement>().relativePosNonRotated;
+                toSet = rot * toSet;
+                pc.GetComponent<PersonalMovement>().relativePos = toSet;
+            }
+        }else
+        {
+            foreach (GameObject pc in pcs)
+            {
+                Vector3 toSet = pc.GetComponent<PersonalMovement>().relativePosNonRotated;
+                toSet = rot * toSet;
+                pc.GetComponent<PersonalMovement>().relativePos = toSet;
+            }
         }
+        
         //Vector3 to = new Vector3(rotateTowards.x, rotateTowards.y, 0);
         //Vector3 from = new Vector3(transform.position.x, transform.position.y, 0);
         //float angle = Vector3.Angle(from, to);

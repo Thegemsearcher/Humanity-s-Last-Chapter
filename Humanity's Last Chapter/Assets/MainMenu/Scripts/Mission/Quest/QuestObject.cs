@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class QuestObject : MonoBehaviour {
 
-    public string titel;
-    private string id, objective;
+    public string titel, id;
+    private string objective;
     public bool isCompleted;
-    private int objectiveCounter;
-    //public Object[] objectives;
+    public int questStage;
     private ScriptableQuest quest;
     private GameObject MissionManager;
 
@@ -18,72 +17,60 @@ public class QuestObject : MonoBehaviour {
     private LocationObjective loObjective;
     private InteractionObjective ioObjective;
 
-    //private float textTimer, timeStamp;
-    //public Text txtQuest, txtObjective;
+    public QuestObject() { 
+    }
 
-    public QuestObject(ScriptableQuest quest, GameObject MissionManager) {
+    public void GetData(ScriptableQuest quest, GameObject MissionManager) {
         this.quest = quest;
         this.MissionManager = MissionManager;
         titel = quest.missionName;
+        id = quest.name;
         isCompleted = false;
         coObjective = MissionManager.GetComponent<CollectionObjective>();
         loObjective = MissionManager.GetComponent<LocationObjective>();
         ioObjective = MissionManager.GetComponent<InteractionObjective>();
         NextObjective();
-        //txtQuest = GameObject.FindGameObjectWithTag("QuestStarted").GetComponent<Text>();
-        //txtObjective = GameObject.FindGameObjectWithTag("ObjectiveStarted").GetComponent<Text>();
-        //txtQuest.text = "";
-        //txtObjective.text = "";
     }
 
-    //public void GetQuest(ScriptableQuest quest) {
-    //    this.quest = quest;
-    //    //txtQuest = GameObject.FindGameObjectWithTag("QuestStarted").GetComponent<Text>();
-    //    //txtObjective = GameObject.FindGameObjectWithTag("ObjectiveStarted").GetComponent<Text>();
-    //    //txtQuest.text = "";
-    //    //txtObjective.text = "";
-    //    //Funderar på att ha texterna som en prefab så att de skapar en text som sen förstör sig själv
-
-
-    //    //textTimer = 1;
-    //    //if (!isActive) {
-    //    //    txtQuest.text = quest.missionName;
-    //    //}
-    //    NextObjective();
-    //}
+    public void UpdateQuest(GameObject MissionManager) {
+        this.MissionManager = MissionManager;
+        coObjective = MissionManager.GetComponent<CollectionObjective>();
+        loObjective = MissionManager.GetComponent<LocationObjective>();
+        ioObjective = MissionManager.GetComponent<InteractionObjective>();
+    }
 
     //Alla objectives borde skapas samtidigt, men de blir checkade i ordning! Borde isåfall ha coQuest etc som array så att den vet vilken den ska kolla in inte srkiver över varandra...
 
     public void NextObjective() {
         
-        if (objectiveCounter >= quest.objectives.Length) {
+        if (questStage >= quest.objectives.Length) {
             CompletedQuest();
             objective = "Quest Completed!";
         }
         else {
-            id = quest.objectives[objectiveCounter].name[0].ToString();
+            id = quest.objectives[questStage].name[0].ToString();
 
             switch (id) {
                 case "c":
                     //MissionManager.GetComponent<CollectionObjective>().GetData(quest.objectives[objectiveCounter] as ScriptableCollection);
-                    coObjective.GetData(quest.objectives[objectiveCounter] as ScriptableCollection);
+                    coObjective.GetData(quest.objectives[questStage] as ScriptableCollection);
                     objective = coObjective.title;
                     break;
 
                 case "l":
-                    loObjective.GetData(quest.objectives[objectiveCounter] as LocationObject);
+                    loObjective.GetData(quest.objectives[questStage] as LocationObject);
                     objective = loObjective.title;
                     break;
 
                 case "i":
-                    ioObjective.GetData(quest.objectives[objectiveCounter] as InteractObject);
+                    ioObjective.GetData(quest.objectives[questStage] as InteractObject);
                     objective = ioObjective.title;
                     break;
                 case "":
                     objective = "Error! no more Objectives";
                     break;
             }
-            objectiveCounter++;
+            questStage++;
             MissionManager.GetComponent<MissionManagerScript>().NewObjective(objective);
         }
     }
@@ -94,11 +81,22 @@ public class QuestObject : MonoBehaviour {
         isCompleted = true;
         WorldScript.world.gold += quest.goldReward;
         WorldScript.world.rs += quest.rsReward;
+        WorldScript.world.completedQuests.Add(quest);
+        WorldScript.world.RemoveAvalible(quest);
 
         if (quest.isChainMission) { //Kan ändras så at det finns flera olika missions som startar beroend på hur questen går
-            MissionManager.GetComponent<MissionManagerScript>().StartQuest(quest.nextMission);
+            WorldScript.world.avalibleQuests.Add(quest.nextMission);
+            
+            //MissionManager.GetComponent<MissionManagerScript>().StartQuest(quest.nextMission);
         }
     }
+
+    //private void OnDestroy() {
+    //    if(!isCompleted) {
+    //        WorldScript.world.failedQuests.Add(quest);
+    //        WorldScript.world.RemoveAvalible(quest);
+    //    }
+    //}
 
     private void Update() {
         //timeStamp += Time.deltaTime;

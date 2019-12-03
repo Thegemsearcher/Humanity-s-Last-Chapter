@@ -6,33 +6,58 @@ using System.Collections.Generic;
 
 public static class SaveSystem {
 
-    public static List<CharacterData> dataList = new List<CharacterData>(); //Serialize all characters
+    public static List<CharacterData> characterDataList = new List<CharacterData>(); //Serialize all characters
+    public static List<QuestData> questDataList = new List<QuestData>(); //Serialize all quests
     public static WorldData worldData; //Serialize world stats
     public static SaveData saveData; //Everything that will be saved should bi added to this one!
 
+    private static string path;
+
     //Uppdateras vid varje scenbyte
-    public static void SaveWorld(WorldScript saveWorld) {
+    public static void SaveWorld(WorldScript saveWorld, bool isAuto) {
         int i = 0;
-        dataList.Clear();
+        characterDataList.Clear();
+        questDataList.Clear();
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/Saves/save" + saveWorld.saveNr + ".save"; //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
+        if(isAuto) {
+            path = Application.persistentDataPath + "/Saves/AutoSave.save";
+        } else {
+            path = Application.persistentDataPath + "/Saves/" + saveWorld.saveId + ".save";
+        }
+         //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
         FileStream stream = new FileStream(path, FileMode.Create);
         
         foreach (CharacterScript character in saveWorld.characterList) {
             CharacterData data = new CharacterData(character, saveWorld.statsList[i]);
-            dataList.Add(data);
+            characterDataList.Add(data);
             i++;
+        }
+        foreach (ScriptableQuest avalibleQuest in saveWorld.avalibleQuests) {
+            QuestData questData = new QuestData(avalibleQuest.name, false, false);
+            questDataList.Add(questData);
+        }
+        foreach (ScriptableQuest completedQuest in saveWorld.completedQuests) {
+            QuestData questData = new QuestData(completedQuest.name, true, false);
+            questDataList.Add(questData);
+        }
+        foreach (ScriptableQuest failedQuest in saveWorld.failedQuests) {
+            QuestData questData = new QuestData(failedQuest.name, false, true);
+            questDataList.Add(questData);
         }
 
         worldData = new WorldData(saveWorld);
-        saveData = new SaveData(dataList, worldData);
+        saveData = new SaveData(characterDataList, questDataList, worldData);
         formatter.Serialize(stream, saveData);
 
         stream.Close();
     }
 
-    public static SaveData LoadWorld(int SaveSlot) {
-        string path = Application.persistentDataPath + "/Saves/save"+SaveSlot+".save";
+    public static SaveData LoadWorld(string saveId, bool isAuto) {
+        if (isAuto) {
+            path = Application.persistentDataPath + "/Saves/AutoSave.save";
+        } else {
+            path = Application.persistentDataPath + "/Saves/"+saveId+".save";
+        }
 
         if (File.Exists(path)) {
             BinaryFormatter formatter = new BinaryFormatter();

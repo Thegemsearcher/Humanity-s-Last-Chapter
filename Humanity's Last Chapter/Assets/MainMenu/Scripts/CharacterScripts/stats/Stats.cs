@@ -19,22 +19,24 @@ public class Stats : MonoBehaviour {
     public bool shit;
     public ParticleSystem bloodEffect;
     public List<string> quirkIDList;
+    public GameObject PCCorpse;
+
     // Start is called before the first frame update
     void Start() {
         if (maxHp == 0) {
-            maxHp = Random.Range(6, 11);//Just for show.
+            maxHp = 60;//Just for show.
             hp = maxHp;
         }
 
         if (shit == false) {
             quirkIDList = new List<string>();
             shit = true;
-            str = Random.Range(1, 3);
-            def = Random.Range(1, 3);
-            Int = Random.Range(1, 3);
-            dex = Random.Range(1, 3);
-            cha = Random.Range(1, 3);
-            ldr = Random.Range(1, 3);
+            str = 10;
+            def = 10;
+            Int = 10;
+            dex = 10;
+            cha = 10;
+            ldr = 10;
             snt = 100;
 
             nextLevel = 10 + (5 * level);
@@ -43,6 +45,7 @@ public class Stats : MonoBehaviour {
             AddQuirk(Assets.assets.quirkArray[randomQuirk]);
 
         }
+        #region Gammal kod
         //Debug.Log("Str is " + str);
         //characterUI = Instantiate(prefabCharacterUI, new Vector3(0, 0, 0), Quaternion.identity);
         //characterUI.GetComponent<Canvas>().worldCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
@@ -93,16 +96,33 @@ public class Stats : MonoBehaviour {
         //        j++;
         //    }
         //}
+        #endregion
     }
 
     public int GetCost() {
-        cost = (maxHp * 10) + (str * 3) + (def * 3);
+        cost = (maxHp) + (str) + (def);
         return cost;
     }
 
     public void BringUpStats() {
         //GetComponentInParent<AddToPlayerRoster>().controller.GetComponent<HubCharController>().CloseAllWindows();
         //characterUI.SetActive(true);
+    }
+
+    public void NewCharacter(Stats stats) {
+        if(stats == null) {
+            Debug.Log("Error");
+        }
+        maxHp = stats.maxHp;
+        str = stats.str;
+        def = stats.def;
+        Int = stats.Int;
+        dex = stats.dex;
+        cha = stats.cha;
+        ldr = stats.ldr;
+        nrg = stats.nrg;
+        snt = stats.snt;
+        hp = maxHp;
     }
 
     //public void GetStats(int maxHp, int hp) { //Orkar inte skriva över alla stats... Senare kommer character scripts och stats vara samma script så detta steg kommer inte behövas!
@@ -126,6 +146,7 @@ public class Stats : MonoBehaviour {
         dex += quirk.dex;
         cha += quirk.cha;
         ldr += quirk.ldr;
+        hp = maxHp;
 
     }
 
@@ -150,6 +171,9 @@ public class Stats : MonoBehaviour {
         }
         hp -= damage;
         if (hp <= 0) {
+            GameObject corpse = Instantiate(PCCorpse);
+            corpse.transform.position = transform.position;
+            corpse.transform.rotation = transform.rotation * Quaternion.Euler(0f, 0f, 180);
             GetComponent<CharacterScript>().OnDeath();
             gameObject.SetActive(false);
         }

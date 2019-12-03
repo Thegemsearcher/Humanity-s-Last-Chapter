@@ -6,14 +6,15 @@ using System.IO;
 
 public class PartyScript : MonoBehaviour {
     private GameObject characterO;
-    public GameObject character, UIHealth;
+    public GameObject character, UIHealth, MissionManager;
     private int partyMember;                //Används för att bestämma vilken position karaktären spawnar på
     private UIHealthBoi uiHealth;
     private List<CharacterScript> characterScriptList;
+    //private List<QuestObject> questList;
+    private ScriptableQuest activeQuest;
     private List<Stats> statsList;
     //private WorldScript worldScript;
     private Transform transParent;
-
 
     public GameObject weapon;
     private GameObject weaponO;
@@ -39,14 +40,15 @@ public class PartyScript : MonoBehaviour {
 
     public void SpawnCharacters() {
         characterScriptList = WorldScript.world.characterList;
-        Debug.Log(characterScriptList);
-        foreach (CharacterScript characterScript in characterScriptList) {
-            Debug.Log(characterScript);
-        }
         statsList = WorldScript.world.statsList;
+        activeQuest = WorldScript.world.activeQuest;
 
         partyMember = 0;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
+
+        //foreach (QuestObject quest in questList) {
+            MissionManager.GetComponent<MissionManagerScript>().StartQuest(activeQuest);
+        //}
 
         GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
 
@@ -63,8 +65,6 @@ public class PartyScript : MonoBehaviour {
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
             SpawnWeapon(characterScript.rangedId, characterO.transform);
-
-            CreateUI(characterScript, statsList[partyMember]);
 
 
 
@@ -128,18 +128,18 @@ public class PartyScript : MonoBehaviour {
 
         //Ability test
         //Debug.Log("skapa en turret ability");
-        GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
-        GameObject go = Instantiate(AbilityToInstantiate);
-        go.transform.SetParent(abilitySlots[0].transform, false);
-        go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[0];
-        go.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.turret;
-        abilitySlots[0].GetComponent<AbilitySlotScript>().AttachedAbility = go;
+        //GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
+        //GameObject go = Instantiate(AbilityToInstantiate);
+        //go.transform.SetParent(abilitySlots[0].transform, false);
+        //go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[0];
+        //go.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.turret;
+        //abilitySlots[0].GetComponent<AbilitySlotScript>().AttachedAbility = go;
 
-        GameObject go2 = Instantiate(AbilityToInstantiate);
-        go2.transform.SetParent(abilitySlots[1].transform, false);
-        go2.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[1];
-        go2.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.grenade;
-        abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
+        //GameObject go2 = Instantiate(AbilityToInstantiate);
+        //go2.transform.SetParent(abilitySlots[1].transform, false);
+        //go2.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[1];
+        //go2.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.grenade;
+        //abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
 
         for (int i = 0; i < 3; i++) {
             characterO = Instantiate(character);
@@ -148,20 +148,10 @@ public class PartyScript : MonoBehaviour {
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
             characterO.GetComponent<PersonalMovement>().relativePosNonRotated = new Vector3(i, i);
             SpawnWeapon("wp" + Random.Range(0, Assets.assets.weaponTemp.Length), characterO.transform);
-
-            //CreateUI(characterO.GetComponent<CharacterScript>(), statsList[i]);
-
             characterO.transform.SetParent(transParent, false);
         }
 
         transform.position = new Vector3(3,3,0);
-    }
-
-    public void CreateUI(CharacterScript characterScript, Stats characterStats) {
-        characterO = Instantiate(UIHealth);
-        uiHealth = characterO.GetComponent<UIHealthBoi>();
-        uiHealth.GetData(characterScript.strName, characterScript.id, characterStats.hp, characterStats.maxHp); //Måste gå att kunna göra snyggare!
-        //characterO.transform.SetParent(GameObject.Find("forCharacter").transform, false);
     }
 
     public void SpawnWeapon(string wpId, Transform parent) {

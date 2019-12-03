@@ -9,16 +9,23 @@ public class DataHolder {
 
     public static DataHolder dataHolder;
 
-    public int activeSave;
+    public int activeSave, saveCounter;
 
-    private string path;
+    private string path, saveName, saveId;
 
     private List<CharacterScript> characterList;
     private List<Stats> statsList;
+    private List<ScriptableQuest> avalibleQuests;
+    private List<ScriptableQuest> completedQuests;
+    private List<ScriptableQuest> failedQuests;
+    public GameObject btnContinue;
 
     public void NewHolder() {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
+        avalibleQuests = new List<ScriptableQuest>();
+        completedQuests = new List<ScriptableQuest>();
+        failedQuests = new List<ScriptableQuest>();
 
         if(Assets.assets == null) {
             Assets.assets = new Assets();
@@ -26,17 +33,20 @@ public class DataHolder {
         }
 
         path = Application.persistentDataPath + "/Saves/";
+        saveCounter = Directory.GetFiles(path).Length;
+
+        if (!File.Exists(path + "AutoSave.save")) {
+            btnContinue.SetActive(false);
+        } else {
+            saveCounter++;
+        }
     }
 
     public void BtnContinue() {
-        //foreach (int saveNr in saveNrArr) {
-        //    if(save.isActive) {
-        //        WorldScript.world = save;
-        //        Debug.Log("Loaded: save" + save.saveNr);
-        //        StartGame();
-        //    }
-        //}
-        Debug.Log("To be fixed!");
+        if (File.Exists(path + "AutoSave.save")) {
+            WorldData("AutoSave", true);
+            StartGame();
+        }
     }
 
     public void BtnNewGame() {
@@ -46,7 +56,7 @@ public class DataHolder {
             if(!File.Exists(path + "save"+testSave+".save")) {
                 WorldScript.world = new WorldScript();
                 WorldScript.world.Reset();
-                WorldScript.world.saveNr = testSave;
+                WorldScript.world.saveId = "save" + testSave;
                 isFree = false;
             }
             else {
@@ -57,11 +67,14 @@ public class DataHolder {
     }
 
     public void BtnPlay() {
-        if (File.Exists(path + "save" + activeSave + ".save")) {
-            WorldData(activeSave);
+        if (File.Exists(path + "save" + saveId + ".save")) {
+            WorldData(saveId, false);
             StartGame();
-        } else {
-            Debug.Log("Can't find Save" + activeSave);
+        } else if (File.Exists(path + "AutoSave.save")) {
+            WorldData("AutoSave", true);
+            StartGame();
+        } else { 
+            Debug.Log("Can't find Save" + saveId);
         }
         
     }
@@ -71,18 +84,19 @@ public class DataHolder {
             FileUtil.DeleteFileOrDirectory(path + "save" + activeSave + ".save");
             Debug.Log("Deleted: save" + activeSave);
         } else {
-            Debug.Log("Can't find Save" + activeSave);
+            //Debug.Log("Can't find Save" + activeSave);
         }
         
     }
 
-    private void WorldData(int saveNr) {
-        SaveData data = SaveSystem.LoadWorld(saveNr);
+    private void WorldData(string saveId, bool isAuto) {
+
+        SaveData data = SaveSystem.LoadWorld(saveId, isAuto);
 
         WorldScript.world = new WorldScript();
         WorldScript.world.gold = data.worldData.gold;
         WorldScript.world.rs = data.worldData.rs;
-        WorldScript.world.saveNr = data.worldData.saveNr;
+        WorldScript.world.saveId = data.worldData.saveId;
         WorldScript.world.storageSize = data.worldData.storageSize;
         WorldScript.world.shopSize = data.worldData.shopSize;
         WorldScript.world.shopLevel = data.worldData.shopLevel;
@@ -91,9 +105,10 @@ public class DataHolder {
         WorldScript.world.isActive = data.worldData.isActive;
 
         foreach (CharacterData characterData in data.characterDataList) {
-            
             CharacterScript character = new CharacterScript();
             character.id = characterData.id;
+            character.clothId = characterData.clothId;
+            character.headId = characterData.headId;
             character.strName = characterData.strName;
             character.rangedId = characterData.wpId;
             character.inventory = characterData.itemID;
@@ -102,12 +117,8 @@ public class DataHolder {
             Stats stats = new Stats();
             stats.hp = characterData.hp;
             stats.maxHp = characterData.maxHp;
-
-           
             stats.quirkIDList = characterData.quirkID;
-
             stats.shit = characterData.shit;
-
             stats.str = characterData.str;
             stats.def = characterData.def;
             stats.Int = characterData.Int;
@@ -118,9 +129,31 @@ public class DataHolder {
             stats.exp = characterData.exp;
             statsList.Add(stats);
         }
-        
+
+        foreach (QuestData questData in data.questDataList) {
+            ScriptableQuest quest = FindQuest(questData.id);
+            if (questData.isComplet) {
+                completedQuests.Add(quest);
+            } else if (questData.isFailed) {
+                failedQuests.Add(quest);
+            } else {
+                avalibleQuests.Add(quest);
+            }
+        }
+        WorldScript.world.avalibleQuests = avalibleQuests;
+        WorldScript.world.completedQuests = completedQuests;
         WorldScript.world.characterList = characterList;
         WorldScript.world.statsList = statsList;
+    }
+
+    private ScriptableQuest FindQuest(string questId) {
+        foreach (ScriptableQuest quest in Assets.assets.questTemp) {
+            if (quest.name == questId) {
+                return quest;
+            }
+        }
+        Debug.Log("Error! Quest: " + questId + " not found!");
+        return null;
     }
 
     private void StartGame() {
