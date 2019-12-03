@@ -47,6 +47,7 @@ public class QuestObject : MonoBehaviour {
         if (questStage >= quest.objectives.Length) {
             CompletedQuest();
             objective = "Quest Completed!";
+            MissionManager.GetComponent<MissionManagerScript>().NewObjective(objective);
         }
         else {
             id = quest.objectives[questStage].name[0].ToString();
@@ -85,7 +86,7 @@ public class QuestObject : MonoBehaviour {
         WorldScript.world.completedQuests.Add(quest);
         WorldScript.world.RemoveAvalible(quest);
 
-        if (nextMissionComplete.Count > 0) {
+        if (nextMissionComplete != null) {
             foreach (ScriptableQuest quest in nextMissionComplete) {
                 WorldScript.world.avalibleQuests.Add(quest);
             }

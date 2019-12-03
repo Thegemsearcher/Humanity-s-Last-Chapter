@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo1
   m_EditorClassIdentifier: 
-  titel: keep searching
-  description: they have to be somewhere
-  id: lo1
-  Location: {fileID: 4534570335597916122, guid: 9d7f1387226fd8040a658ae2ce9bc0a5,
+  titel: Find the well
+  description: The well must be close to the start zone
+  id: l01
+  Location: {fileID: 4560324561953636126, guid: a8ce8bfcc1f071145995c1dcd28e9fae,
     type: 3}
   clearOutTarget: []
   isComlete: 0

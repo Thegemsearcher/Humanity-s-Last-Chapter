@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90252cbfb3ca9dd4f81777c952bef8e4, type: 3}
   m_Name: co0
   m_EditorClassIdentifier: 
-  verb: Kill
-  description: Kill the targets
-  collectionAmount: 1
+  verb: Supprise Attack... Kill
+  description: Kill the targets before they kill the man!
+  collectionAmount: 6
   currentAmount: 0
   isComplete: 0
   isBonus: 0
@@ -23,3 +23,5 @@ MonoBehaviour:
     type: 3}
   spawnPos:
   - {fileID: 1943524694652590488, guid: 00b628ae92377154f8924c33c565f8e6, type: 3}
+  - {fileID: 8949826124042094106, guid: 78d55ffdc19a46249a640417aaeade8b, type: 3}
+  - {fileID: 6883591007713819995, guid: b246b16a8a79c5044860af8cd96c9e23, type: 3}

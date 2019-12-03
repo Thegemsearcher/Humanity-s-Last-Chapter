@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56457c48b8671fb4bad3e70584dc33b4, type: 3}
   m_Name: io0
   m_EditorClassIdentifier: 
-  title: Talk to the interactor
+  title: Talk to the man
   verb: talk
   id: qg0
-  description: A man has information about what to do
+  description: He must be the man that made the distress call! Talk to him
   spawnPos: {fileID: 1943524694652590488, guid: 00b628ae92377154f8924c33c565f8e6,
     type: 3}
   isComplete: 0

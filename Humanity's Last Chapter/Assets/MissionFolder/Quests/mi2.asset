@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: mi2
   m_EditorClassIdentifier: 
-  missionName: save the civillian
-  description: We have found a survivor, lets save him before he dies
-  hint: 
-  dialog: 
-  nextMission: {fileID: 0}
-  isChainMission: 0
+  missionName: Secure House
+  description: "The man has an id\xE9 where to keep civilans safe"
+  hint: Talk to the man
+  nextMissionsComplete: []
+  nextMissionsFail: []
   goldReward: 0
   rsReward: 0
   avalible: 0
@@ -25,4 +24,9 @@ MonoBehaviour:
   completed: 0
   bonusObjective: []
   missionEvents: []
-  objectives: []
+  objectives:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}

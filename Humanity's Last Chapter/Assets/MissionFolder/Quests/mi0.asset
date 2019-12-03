@@ -12,21 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: mi0
   m_EditorClassIdentifier: 
-  missionName: An Unexpected Attack
-  description: Creatures from all around you have moved for an attack!
+  missionName: Contact with a survivor
+  description: A signal from the town has been made. If the source can be found perhaps
+    some information about the situation can be aquired.
   hint: Kill the creatures
-  dialog: 
-  nextMission: {fileID: 11400000, guid: e68f79900c77a3d4e86f7a6ace5868fa, type: 2}
-  isChainMission: 1
-  goldReward: 40
-  rsReward: 5
+  nextMissionsComplete:
+  - {fileID: 11400000, guid: e68f79900c77a3d4e86f7a6ace5868fa, type: 2}
+  - {fileID: 11400000, guid: 1147b8d7306402848a324ee82e0314df, type: 2}
+  - {fileID: 11400000, guid: 02921ba211bd25442b39d463d151f9e0, type: 2}
+  nextMissionsFail: []
+  goldReward: 200
+  rsReward: 50
   avalible: 0
   active: 0
   completed: 0
   bonusObjective: []
   missionEvents: []
   objectives:
-  - {fileID: 11400000, guid: aaf11d48cf6b37d4cb694b5136f7589d, type: 2}
   - {fileID: 11400000, guid: 3918d2ef6d44dc34a960a465090e2e5d, type: 2}
-  - {fileID: 11400000, guid: 468cd5ddd14b2db418ab2f3426ba0e90, type: 2}
+  - {fileID: 11400000, guid: 3fd2c47bd7874154cac89ab04c019cb5, type: 2}
+  - {fileID: 11400000, guid: aaf11d48cf6b37d4cb694b5136f7589d, type: 2}
   - {fileID: 11400000, guid: 5a6f8c6a7df11f742bd9ef73383aa95a, type: 2}

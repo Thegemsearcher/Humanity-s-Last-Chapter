@@ -12,17 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: mi1
   m_EditorClassIdentifier: 
-  missionName: Did it get here?
-  description: 
-  hint: 
-  dialog: 
-  nextMission: {fileID: 11400000, guid: 1147b8d7306402848a324ee82e0314df, type: 2}
-  isChainMission: 1
-  goldReward: 0
+  missionName: Monster Hunt
+  description: The man has offerd some gold if we kill the monsters close to his house
+  hint: The house is House0102
+  nextMissionsComplete: []
+  nextMissionsFail: []
+  goldReward: 250
   rsReward: 0
   avalible: 0
   active: 0
   completed: 0
   bonusObjective: []
   missionEvents: []
-  objectives: []
+  objectives:
+  - {fileID: 11400000, guid: 3fd2c47bd7874154cac89ab04c019cb5, type: 2}
+  - {fileID: 11400000, guid: f79abcf802af60444a8766d020fd861e, type: 2}
+  - {fileID: 11400000, guid: 91c0063c7111e674f83000f417740aaa, type: 2}
+  - {fileID: 11400000, guid: 74b730b05abb5744eb765b6d78338684, type: 2}
+  - {fileID: 11400000, guid: 74b730b05abb5744eb765b6d78338684, type: 2}
