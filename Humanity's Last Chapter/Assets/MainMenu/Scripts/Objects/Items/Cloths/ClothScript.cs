@@ -52,20 +52,23 @@ public class ClothScript : MonoBehaviour {
     }
 
     private ClothItemObject FindItem(string id) {
-        foreach (ClothItemObject clothItem in Assets.assets.clothTemp) {
-            if (clothItem.name == id) {
-                return clothItem;
-                //switch (clothItem.clothType) {
-                //    case ClothType.HeadGear:
-                //        item = clothItem;
-                //        break;
-                //    case ClothType.Cloth:
-                //        cloth = clothItem;
-                //        break;
-                //}
-                //break;
+        if(id != "" || id != null) {
+            foreach (ClothItemObject clothItem in Assets.assets.clothTemp) {
+                if (clothItem.name == id) {
+                    return clothItem;
+                    //switch (clothItem.clothType) {
+                    //    case ClothType.HeadGear:
+                    //        item = clothItem;
+                    //        break;
+                    //    case ClothType.Cloth:
+                    //        cloth = clothItem;
+                    //        break;
+                    //}
+                    //break;
+                }
             }
         }
+        
         return null;
     }
 

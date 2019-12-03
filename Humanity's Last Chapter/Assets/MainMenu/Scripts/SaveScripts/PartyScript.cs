@@ -43,7 +43,7 @@ public class PartyScript : MonoBehaviour {
         statsList = WorldScript.world.statsList;
         activeQuest = WorldScript.world.activeQuest;
 
-        partyMember = 0;
+        partyMember = 1;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
 
         //foreach (QuestObject quest in questList) {
@@ -57,6 +57,7 @@ public class PartyScript : MonoBehaviour {
             //if(characterScript.GetComponent<CharacterScript>().isEnlisted) {
             characterO = Instantiate(character);
             characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+            characterO.GetComponent<CharacterScript>().partyMember = partyMember;
             characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
 
             //Annan kod
@@ -141,8 +142,9 @@ public class PartyScript : MonoBehaviour {
         //go2.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.grenade;
         //abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 1; i <= 3; i++) {
             characterO = Instantiate(character);
+            characterO.GetComponent<CharacterScript>().partyMember = i;
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i, i);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
