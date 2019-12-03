@@ -12,17 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: mi3
   m_EditorClassIdentifier: 
-  missionName: Mission name Here
-  description: 
+  missionName: Find Rations
+  description: we succesfully defended our outpost but sadly we don't seem to have
+    much rations left. If we don't find more soon then we will be done for
   hint: 
-  dialog: 
-  nextMission: {fileID: 0}
-  isChainMission: 0
-  goldReward: 0
-  rsReward: 0
+  nextMissionsComplete: []
+  nextMissionsFail: []
+  goldReward: 40
+  rsReward: 100
   avalible: 0
   active: 0
   completed: 0
   bonusObjective: []
   missionEvents: []
-  objectives: []
+  objectives:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
