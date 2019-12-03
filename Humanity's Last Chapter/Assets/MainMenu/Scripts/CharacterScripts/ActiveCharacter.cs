@@ -15,6 +15,7 @@ public class ActiveCharacter : MonoBehaviour {
         this.pivotCharacter = pivotCharacter;
         GetComponent<CharacterScript>().LoadPlayer(activeCharacter.GetComponent<CharacterScript>());
         characterScript = GetComponent<CharacterScript>();
+        GetComponent<PortraitScript>().UpdatePortrait();
         abilities = activeCharacter.GetComponent<Abilities>();
         UpdateEquipment();
     }

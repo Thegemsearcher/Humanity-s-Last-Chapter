@@ -216,6 +216,7 @@
     <Compile Include="Assets\MapLoading\RoadScript.cs" />
     <Compile Include="Assets\MapLoading\WallScript.cs" />
     <Compile Include="Assets\MissionBoxScript.cs" />
+    <Compile Include="Assets\MissionListScript.cs" />
     <Compile Include="Assets\MissionLog.cs" />
     <Compile Include="Assets\PauseMenuScript.cs" />
     <Compile Include="Assets\PortraitScript.cs" />
