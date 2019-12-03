@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ActiveMissionScript.cs" />
     <Compile Include="Assets\ChangeNameScript.cs" />
     <Compile Include="Assets\CharacterCreation.cs" />
     <Compile Include="Assets\CommunityTitle.cs" />
@@ -215,9 +216,11 @@
     <Compile Include="Assets\MapLoading\RoadScript.cs" />
     <Compile Include="Assets\MapLoading\WallScript.cs" />
     <Compile Include="Assets\MissionBoxScript.cs" />
+    <Compile Include="Assets\MissionListScript.cs" />
     <Compile Include="Assets\MissionLog.cs" />
     <Compile Include="Assets\PauseMenuScript.cs" />
     <Compile Include="Assets\PortraitScript.cs" />
+    <Compile Include="Assets\QuestDescScript.cs" />
     <Compile Include="Assets\SaveBoxScript.cs" />
     <Compile Include="Assets\SaveGameScript.cs" />
     <Compile Include="Assets\TurretAttack.cs" />
