@@ -16,8 +16,12 @@ MonoBehaviour:
   description: The man said that he heard screams from the house... look if you can
     find someone, perhaps it's someone who knows what happend
   id: lo0
+<<<<<<< HEAD
   Location: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
     type: 3}
+=======
+  Location: {fileID: 779119792316737776, guid: bbf045e79601f9440b39471822106096, type: 3}
+>>>>>>> 9eeab176d6ef4b606dbba2c0208aa7599e5f205e
   clearOutTarget: []
   isComlete: 0
   isBonus: 0
