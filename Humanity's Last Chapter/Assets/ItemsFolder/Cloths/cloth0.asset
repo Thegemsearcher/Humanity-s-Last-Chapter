@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74897974057d054caa3febebaef8137, type: 3}
   m_Name: cloth0
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: bc5c6d71c68de234ab8acf8e25e99c17, type: 3}
   portrait: {fileID: 21300000, guid: fda3947da53c71b468f8030854861548, type: 3}
   itemName: Blue Clean Shirt
   description: It's blue and clean
@@ -22,7 +22,7 @@ MonoBehaviour:
   maxHp: 0
   str: 0
   def: 0
-  Int: 0
+  Int: 10
   dex: 0
   cha: 0
   ldr: 0

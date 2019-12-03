@@ -26,7 +26,7 @@ public class Assets {
         weaponTemp = GetAtPath<WeaponObject>("WeaponFolder");
         healingTemp = GetAtPath<HealingItemObject>("ItemsFolder/HealingItems");
         combatTemp = GetAtPath<CombatItemObject>("ItemsFolder/CombatItems");
-
+        clothTemp = GetAtPath<ClothItemObject>("ItemsFolder/Cloths");
         
 
         questTemp = GetAtPath<ScriptableQuest>("MissionFolder/Quests");

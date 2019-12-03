@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6366701181722784426}
   - component: {fileID: 825734689268298081}
   m_Layer: 5
-  m_Name: UICharacterRole
+  m_Name: UI(Role)Character
   m_TagString: UICharacterRole
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
