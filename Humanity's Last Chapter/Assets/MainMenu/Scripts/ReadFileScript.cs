@@ -17,7 +17,7 @@ public static class ReadFileScript
     private static GameObject wallsPrefab;
     public static void ReadString(Sprite roadSprite, Sprite wallSprite)
     {
-        mapID = 2;
+        mapID = 3;
         mapPath = "MapFiles/pcgmap" + mapID + ".txt";
         savePath = "Assets/MainMenu/Scenes/Map" + mapID;
         StreamReader sr = new StreamReader(mapPath);
