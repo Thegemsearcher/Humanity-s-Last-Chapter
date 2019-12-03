@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/MainMenu/Scenes/MissionMap.unity
+- path: C:/Users/Jack/Downloads/MapTool-master/MapTool-master/MapTool/Assets/Scenes/Poop.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
