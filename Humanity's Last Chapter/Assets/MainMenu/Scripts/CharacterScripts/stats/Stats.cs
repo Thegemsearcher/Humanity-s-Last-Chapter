@@ -145,6 +145,7 @@ public class Stats : MonoBehaviour {
         dex += quirk.dex;
         cha += quirk.cha;
         ldr += quirk.ldr;
+        hp = maxHp;
 
     }
 
