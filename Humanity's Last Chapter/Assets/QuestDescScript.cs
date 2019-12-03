@@ -52,6 +52,8 @@ public class QuestDescScript : MonoBehaviour {
 
     public void QuestReset() {
         activeQuest = WorldScript.world.activeQuest;
-        QuestInfo(activeQuest);
+        if(activeQuest != null) {
+            QuestInfo(activeQuest);
+        }
     }
 }
