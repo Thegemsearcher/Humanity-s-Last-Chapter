@@ -681,7 +681,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e83ec956bac424abc2ed07dc815f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MissionManager: {fileID: 0}
 --- !u!4 &143892911
 Transform:
   m_ObjectHideFlags: 0
@@ -2653,7 +2652,6 @@ RectTransform:
   m_Children:
   - {fileID: 1279343731}
   - {fileID: 1392273276}
-  - {fileID: 585023694}
   - {fileID: 1030797924}
   - {fileID: 571743170}
   - {fileID: 1145254742}
@@ -3921,7 +3919,7 @@ RectTransform:
   m_Children:
   - {fileID: 449717390}
   m_Father: {fileID: 366465467}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4120,8 +4118,8 @@ RectTransform:
   m_Children:
   - {fileID: 1113643374}
   - {fileID: 1138248435}
-  m_Father: {fileID: 366465467}
-  m_RootOrder: 2
+  m_Father: {fileID: 1269001879}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6883,7 +6881,7 @@ RectTransform:
   - {fileID: 143892911}
   - {fileID: 1269001879}
   m_Father: {fileID: 366465467}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7109,7 +7107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8e83ec956bac424abc2ed07dc815f3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MissionManager: {fileID: 0}
 --- !u!1 &1087662104
 GameObject:
   m_ObjectHideFlags: 0
@@ -8212,7 +8209,7 @@ RectTransform:
   - {fileID: 1297663244}
   - {fileID: 1878315673}
   m_Father: {fileID: 366465467}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9240,6 +9237,7 @@ RectTransform:
   - {fileID: 1947091323}
   - {fileID: 777295896}
   - {fileID: 1130196496}
+  - {fileID: 585023694}
   m_Father: {fileID: 1030797924}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9889,7 +9887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551c49ea25499ce4bb118eb588e2e350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  character: {fileID: 9011984161932067652, guid: fe52b8ba56ec8bd499ac0565862ce0e5,
+  character: {fileID: 3871096854192054890, guid: 2f55af40be4350449bfa02eef043f8b0,
     type: 3}
   CampName: {fileID: 571743169}
   CreationWindow: {fileID: 5757282712392598054, guid: d7796c7084889a043a279692d0b63153,
