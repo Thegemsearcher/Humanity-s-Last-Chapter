@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>latest</LangVersion>
-    <CscToolPath>C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Tools\RoslynScripts</CscToolPath>
-    <CscToolExe>unity_csc.bat</CscToolExe>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -54,6 +52,9 @@
     <UnityVersion>2019.2.5f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
@@ -62,13 +63,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ActiveMissionScript.cs" />
-    <Compile Include="Assets\ChangeNameScript.cs" />
-    <Compile Include="Assets\CharacterCreation.cs" />
-    <Compile Include="Assets\CommunityTitle.cs" />
-    <Compile Include="Assets\CreationWindow.cs" />
-    <Compile Include="Assets\FootAnim.cs" />
-    <Compile Include="Assets\LoadQuests.cs" />
     <Compile Include="Assets\LootInfoScript.cs" />
     <Compile Include="Assets\LootItemScript.cs" />
     <Compile Include="Assets\LootScript.cs" />
@@ -101,6 +95,7 @@
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\ActiveCharacter.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\AddToPlayerRoster.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterBox.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterData.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterMovement.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterStatWriter.cs" />
@@ -158,9 +153,6 @@
     <Compile Include="Assets\MainMenu\Scripts\Mission\SelectedMissionScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Spawner.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MoveItem.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Objects\Items\Cloths\ClothItemObject.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Objects\Items\Cloths\ClothScript.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\Objects\Items\Cloths\MakeClothItem.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Objects\Items\CombatItems\CombatItem.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Objects\Items\CombatItems\CombatItemObject.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Objects\Items\CombatItems\MakeCombatItem.cs" />
@@ -181,12 +173,10 @@
     <Compile Include="Assets\MainMenu\Scripts\ReadFileScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\ResourceText.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\AssetsData.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\SaveScripts\CharacterData.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\DataHolder.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\LoadSceneOnClick.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\LoadWorld.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\PartyScript.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\SaveScripts\QuestData.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SaveData.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SaveSlotManager.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SaveSystem.cs" />
@@ -210,21 +200,13 @@
     <Compile Include="Assets\MainMenu\Scripts\Weapon\WeaponScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\weaponStats.cs" />
     <Compile Include="Assets\MainMenu\Scripts\WorldScript.cs" />
-    <Compile Include="Assets\MakeCharacterScript.cs" />
     <Compile Include="Assets\MapLoading\GameObjectList.cs" />
     <Compile Include="Assets\MapLoading\LoadMapButtonScript.cs" />
     <Compile Include="Assets\MapLoading\RoadScript.cs" />
     <Compile Include="Assets\MapLoading\WallScript.cs" />
-    <Compile Include="Assets\MissionBoxScript.cs" />
     <Compile Include="Assets\MissionLog.cs" />
-    <Compile Include="Assets\PauseMenuScript.cs" />
-    <Compile Include="Assets\PortraitScript.cs" />
-    <Compile Include="Assets\QuestDescScript.cs" />
-    <Compile Include="Assets\SaveBoxScript.cs" />
-    <Compile Include="Assets\SaveGameScript.cs" />
     <Compile Include="Assets\TurretAttack.cs" />
     <Compile Include="Assets\UICharacter.cs" />
-    <Compile Include="Assets\WorldManagerScript.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
@@ -244,37 +226,45 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="Unity.Timeline.Editor">
+<<<<<<< HEAD
       <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+=======
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+>>>>>>> fdb5ed20655481d11e26df0ac40580112d48657f
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
-      <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Timeline">
-      <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Rider.Editor">
-      <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.Rider.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Tilemap.Editor">
-      <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.UI">
+<<<<<<< HEAD
       <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+=======
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+>>>>>>> fdb5ed20655481d11e26df0ac40580112d48657f
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -454,7 +444,11 @@
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll</HintPath>
     </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+<<<<<<< HEAD
       <HintPath>C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+=======
+      <HintPath>C:/Users/Patrik/Documents/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+>>>>>>> fdb5ed20655481d11e26df0ac40580112d48657f
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
