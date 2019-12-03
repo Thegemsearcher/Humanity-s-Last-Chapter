@@ -14,9 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verb: 
   description: 
-  collectionAmount: 0
+  collectionAmount: 20
   currentAmount: 0
   isComplete: 0
   isBonus: 0
-  itemsToCollect: {fileID: 0}
-  spawnPos: []
+  isRandomSpawn: 0
+  itemsToCollect: {fileID: 4090975341072565159, guid: ecf8ee21bade51a48891cccceee6b009,
+    type: 3}
+  spawnPos:
+  - {fileID: 2842653041877065163, guid: 499d317a4fcfa6f4aa3792c36fc40d88, type: 3}
+  - {fileID: 3865771086563346771, guid: d980bf47be7ddd34895d551a36c72e4d, type: 3}
+  - {fileID: 8095087595878350041, guid: 36ca9508206afca4ba9c47a9c946961a, type: 3}
+  - {fileID: 9176002737392371862, guid: e56b7e1b1a3949d4c9a6ac4a4d42900f, type: 3}
+  - {fileID: 6472701651959903789, guid: 683eb040de2efaa42ac1407ce5d51c0a, type: 3}
