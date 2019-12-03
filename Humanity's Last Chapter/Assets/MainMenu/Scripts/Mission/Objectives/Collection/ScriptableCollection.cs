@@ -9,7 +9,7 @@ public class ScriptableCollection : ScriptableObject {
     public string description;
     public int collectionAmount; //Ammout of things that will be collected
     public int currentAmount; //starts at 0
-    public bool isComplete, isBonus;
+    public bool isComplete, isBonus, isRandomSpawn;
     public GameObject itemsToCollect; //Kanske ska bytas till något annat
     public Transform[] spawnPos;
 
