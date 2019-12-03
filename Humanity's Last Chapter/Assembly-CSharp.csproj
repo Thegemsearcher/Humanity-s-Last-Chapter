@@ -63,6 +63,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\ActiveMissionScript.cs" />
+    <Compile Include="Assets\ChangeNameScript.cs" />
+    <Compile Include="Assets\CharacterCreation.cs" />
+    <Compile Include="Assets\CommunityTitle.cs" />
+    <Compile Include="Assets\CreationWindow.cs" />
+    <Compile Include="Assets\FootAnim.cs" />
+    <Compile Include="Assets\LoadQuests.cs" />
     <Compile Include="Assets\LootInfoScript.cs" />
     <Compile Include="Assets\LootItemScript.cs" />
     <Compile Include="Assets\LootScript.cs" />
@@ -95,7 +102,6 @@
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\ActiveCharacter.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\AddToPlayerRoster.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterBox.cs" />
-    <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterData.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterMovement.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\CharacterStatWriter.cs" />
@@ -153,6 +159,9 @@
     <Compile Include="Assets\MainMenu\Scripts\Mission\SelectedMissionScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Mission\Spawner.cs" />
     <Compile Include="Assets\MainMenu\Scripts\MoveItem.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Objects\Items\Cloths\ClothItemObject.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Objects\Items\Cloths\ClothScript.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\Objects\Items\Cloths\MakeClothItem.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Objects\Items\CombatItems\CombatItem.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Objects\Items\CombatItems\CombatItemObject.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Objects\Items\CombatItems\MakeCombatItem.cs" />
@@ -173,10 +182,12 @@
     <Compile Include="Assets\MainMenu\Scripts\ReadFileScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\ResourceText.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\AssetsData.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\SaveScripts\CharacterData.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\DataHolder.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\LoadSceneOnClick.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\LoadWorld.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\PartyScript.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\SaveScripts\QuestData.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SaveData.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SaveSlotManager.cs" />
     <Compile Include="Assets\MainMenu\Scripts\SaveScripts\SaveSystem.cs" />
@@ -200,13 +211,21 @@
     <Compile Include="Assets\MainMenu\Scripts\Weapon\WeaponScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\Weapon\weaponStats.cs" />
     <Compile Include="Assets\MainMenu\Scripts\WorldScript.cs" />
+    <Compile Include="Assets\MakeCharacterScript.cs" />
     <Compile Include="Assets\MapLoading\GameObjectList.cs" />
     <Compile Include="Assets\MapLoading\LoadMapButtonScript.cs" />
     <Compile Include="Assets\MapLoading\RoadScript.cs" />
     <Compile Include="Assets\MapLoading\WallScript.cs" />
+    <Compile Include="Assets\MissionBoxScript.cs" />
     <Compile Include="Assets\MissionLog.cs" />
+    <Compile Include="Assets\PauseMenuScript.cs" />
+    <Compile Include="Assets\PortraitScript.cs" />
+    <Compile Include="Assets\QuestDescScript.cs" />
+    <Compile Include="Assets\SaveBoxScript.cs" />
+    <Compile Include="Assets\SaveGameScript.cs" />
     <Compile Include="Assets\TurretAttack.cs" />
     <Compile Include="Assets\UICharacter.cs" />
+    <Compile Include="Assets\WorldManagerScript.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Properties.cginc" />
