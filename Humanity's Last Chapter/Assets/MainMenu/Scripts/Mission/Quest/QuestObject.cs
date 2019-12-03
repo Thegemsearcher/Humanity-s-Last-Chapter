@@ -84,9 +84,11 @@ public class QuestObject : MonoBehaviour {
         WorldScript.world.rs += quest.rsReward;
         WorldScript.world.completedQuests.Add(quest);
         WorldScript.world.RemoveAvalible(quest);
-        foreach(ScriptableQuest quest in nextMissionComplete)
-        {
-            WorldScript.world.avalibleQuests.Add(quest);
+
+        if (nextMissionComplete.Count > 0) {
+            foreach (ScriptableQuest quest in nextMissionComplete) {
+                WorldScript.world.avalibleQuests.Add(quest);
+            }
         }
     }
 

@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo0
   m_EditorClassIdentifier: 
-  titel: Search For His Family
-  description: The guy asked if we could look for his family
+  titel: Enter the house to the right!
+  description: The man said that he heard screams from the house... look if you can
+    find someone, perhaps it's someone who knows what happend
   id: lo0
-  Location: {fileID: 4560324561953636126, guid: a8ce8bfcc1f071145995c1dcd28e9fae,
+  Location: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
     type: 3}
   clearOutTarget: []
   isComlete: 0

@@ -8,19 +8,41 @@ namespace QuestSystem {
         private string verb = "t.ex. talk";
         private string id = "qg0";
         private string description = "It must have been that guy that made the distress call!";
-        private bool isComplete, isBonus;
+        private bool isComplete, isBonus, isSpawned;
+        private Transform spawnPos;
         private GameObject interactObjective; //Object to interact with
+        private GameObject holder;
+        private GameObject[] gameObjects;
 
         private InteractObject data;
 
         public void GetData(InteractObject ioQuest) {
             data = ioQuest;
             title = data.title;
-            interactObjective = GameObject.FindGameObjectWithTag(data.interactObjective.tag);
+            id = ioQuest.id;
+            isSpawned = ioQuest.isSpawned;
+            interactObjective = ioQuest.interactObjective;
+            spawnPos = ioQuest.spawnPos;
+
+            if(isSpawned) {
+                holder = Instantiate(interactObjective);
+                holder.transform.position = spawnPos.position;
+                holder.GetComponent<InteractiveScript>().id = id;
+                //holder.transform.SetParent();
+            } else {
+                gameObjects = GameObject.FindGameObjectsWithTag(data.interactObjective.tag);
+                foreach (GameObject objects in gameObjects) {
+                    if (objects.GetComponent<InteractiveScript>().id == id) {
+                        holder = objects;
+                    }
+                }
+            }
+            holder.GetComponent<InteractiveScript>().SetActive();
+            //interactObjective = GameObject.FindGameObjectWithTag(data.interactObjective.tag);
         }
 
         public bool CheckProgress() {
-            isComplete = interactObjective.GetComponent<QuestGiver>().isInteracted;
+            isComplete = holder.GetComponent<InteractiveScript>().isInteracted;
             return isComplete;
         }
     }

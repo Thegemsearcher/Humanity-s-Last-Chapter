@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verb: Kill
   description: Kill the targets
-  collectionAmount: 9
+  collectionAmount: 1
   currentAmount: 0
   isComplete: 0
   isBonus: 0
@@ -23,11 +23,3 @@ MonoBehaviour:
     type: 3}
   spawnPos:
   - {fileID: 1943524694652590488, guid: 00b628ae92377154f8924c33c565f8e6, type: 3}
-  - {fileID: 8949826124042094106, guid: 78d55ffdc19a46249a640417aaeade8b, type: 3}
-  - {fileID: 6883591007713819995, guid: b246b16a8a79c5044860af8cd96c9e23, type: 3}
-  - {fileID: 332356399530041231, guid: 2523017ab8a7345449baf9248c35e58c, type: 3}
-  - {fileID: 332356399530041231, guid: 2523017ab8a7345449baf9248c35e58c, type: 3}
-  - {fileID: 1287607238137707540, guid: a5d8b3399cb6b7743a3972d86ffff9be, type: 3}
-  - {fileID: 4836950227948916205, guid: 8bb76bedc9eec9a49a12a62152ec2334, type: 3}
-  - {fileID: 8863563095231443319, guid: 68c179c2ad7126d4d8ea25c1c2069035, type: 3}
-  - {fileID: 7264915705102326655, guid: 3c7396be1dd49c949a5aaa8d7da6b057, type: 3}

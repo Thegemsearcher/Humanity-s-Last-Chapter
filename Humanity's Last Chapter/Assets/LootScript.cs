@@ -8,7 +8,7 @@ public class LootScript : MonoBehaviour
     public string[] inventory;
     private GameObject[] characters;
     private float distance;
-    private int range;
+    private float range;
     private int charactersInRange;
     private int inventorySize;
     private bool isActive;
@@ -20,7 +20,7 @@ public class LootScript : MonoBehaviour
 
     private void Start()
     {
-        range = 20;
+        range = 0.3f;
     }
 
     private void OnMouseEnter()
