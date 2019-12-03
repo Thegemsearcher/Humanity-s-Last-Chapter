@@ -59,15 +59,15 @@ public class CharacterBox : MonoBehaviour {
             rangedId = "";
         }
         
-        inventoryArr = new string[itemSlots.Length];
-        for (int i = 0; i < inventoryArr.Length; i++) {
-            if(itemSlots[i].GetComponentInChildren<ItemInfo>() != null) {
-                inventoryArr[i] = itemSlots[i].GetComponentInChildren<ItemInfo>().id;
-                characterScript.inventory[i] = inventoryArr[i];
-                Debug.Log("ID: " + inventoryArr[i]);
-            }
+        //inventoryArr = new string[itemSlots.Length];
+        //for (int i = 0; i < inventoryArr.Length; i++) {
+        //    if(itemSlots[i].GetComponentInChildren<ItemInfo>() != null) {
+        //        inventoryArr[i] = itemSlots[i].GetComponentInChildren<ItemInfo>().id;
+        //        characterScript.inventory[i] = inventoryArr[i];
+        //        Debug.Log("ID: " + inventoryArr[i]);
+        //    }
             
-        }
+        //}
         characterScript.rangedId = rangedId;
         //Updaterar characterScript;
     }

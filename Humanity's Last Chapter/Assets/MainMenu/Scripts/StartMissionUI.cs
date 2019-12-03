@@ -17,12 +17,11 @@ public class StartMissionUI : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menuOn)
-                menuOn = false;
-            else
-                menuOn = true;
             escMenu.SetActive(menuOn);
-            
         }
+        if (escMenu.activeSelf)
+            menuOn = false;
+        else
+            menuOn = true;
     }
 }

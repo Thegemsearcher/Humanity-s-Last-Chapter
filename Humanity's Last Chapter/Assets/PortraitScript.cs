@@ -20,6 +20,16 @@ public class PortraitScript : MonoBehaviour {
         clothScript.GetHolder(characterScript, stats, characterScript.clothId);
     }
 
+    public void UpdatePortrait() {
+        characterScript = GetComponent<CharacterScript>();
+        stats = GetComponent<Stats>();
+        headScript = HeadGear.GetComponent<ClothScript>();
+        clothScript = Cloth.GetComponent<ClothScript>();
+
+        headScript.GetHolder(characterScript, stats, characterScript.headId);
+        clothScript.GetHolder(characterScript, stats, characterScript.clothId);
+    }
+
     public void ChangeCloth(ClothItemObject newCloth) {
         if (characterScript == null) {
             stats = GetComponent<Stats>();
