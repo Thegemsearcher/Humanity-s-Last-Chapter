@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class FormationsScript : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class FormationsScript : MonoBehaviour
             go.transform.SetParent(parent.transform);
             go.transform.position = new Vector3(gameObject.GetComponentInParent<Transform>().transform.position.x + offsetX + 50 * i,
                 gameObject.GetComponentInParent<Transform>().transform.position.y + offsetY + 50 * j, 0);
+            go.GetComponentInChildren<Text>().text = pcs[i].GetComponent<CharacterScript>().strName;
             UIelements[i] = go;
             j++;
         }

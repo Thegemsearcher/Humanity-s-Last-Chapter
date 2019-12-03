@@ -185,7 +185,7 @@ public class CharacterMovement : MonoBehaviour
     {
         Vector3 difference = rotDirection - rotStart;
         float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        Quaternion rot = Quaternion.Euler(0f, 0f, rotZ + 90);
+        Quaternion rot = Quaternion.Euler(0f, 0f, rotZ + 270);
         if (!posForFormation)
         {
             foreach (GameObject pc in selectedCharacters)
