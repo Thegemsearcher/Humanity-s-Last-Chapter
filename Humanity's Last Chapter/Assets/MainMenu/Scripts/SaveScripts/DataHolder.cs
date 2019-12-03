@@ -107,6 +107,8 @@ public class DataHolder {
         foreach (CharacterData characterData in data.characterDataList) {
             CharacterScript character = new CharacterScript();
             character.id = characterData.id;
+            character.clothId = characterData.clothId;
+            character.headId = characterData.headId;
             character.strName = characterData.strName;
             character.rangedId = characterData.wpId;
             character.inventory = characterData.itemID;

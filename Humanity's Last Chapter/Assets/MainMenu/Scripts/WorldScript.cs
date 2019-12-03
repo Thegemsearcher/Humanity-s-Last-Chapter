@@ -17,7 +17,6 @@ public class WorldScript {
 
     public List<CharacterScript> characterList;
     public List<Stats> statsList;
-    
 
     public ScriptableQuest activeQuest;
     public List<ScriptableQuest> avalibleQuests;

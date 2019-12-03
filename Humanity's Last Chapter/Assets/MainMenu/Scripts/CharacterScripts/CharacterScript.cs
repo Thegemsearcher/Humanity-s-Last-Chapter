@@ -77,6 +77,8 @@ public class CharacterScript : MonoBehaviour {
         strName = data.strName;
         id = data.id;
         rangedId = data.rangedId;
+        clothId = data.clothId;
+        headId = data.headId;
         inventory = data.inventory;
         inHospital = data.inHospital;
         isEnlisted = data.isEnlisted;
