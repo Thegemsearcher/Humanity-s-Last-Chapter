@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
-  m_Name: lo0
+  m_Name: lo1
   m_EditorClassIdentifier: 
-  titel: Search For His Family
-  description: The guy asked if we could look for his family
-  id: lo0
-  Location: {fileID: 779119792316737776, guid: bbf045e79601f9440b39471822106096, type: 3}
+  titel: keep searching
+  description: they have to be somewhere
+  id: lo1
+  Location: {fileID: 4534570335597916122, guid: 9d7f1387226fd8040a658ae2ce9bc0a5,
+    type: 3}
   clearOutTarget: []
   isComlete: 0
   isBonus: 0
