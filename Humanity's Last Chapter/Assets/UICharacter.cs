@@ -2,17 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UICharacter : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+public class UICharacter : MonoBehaviour {
+    private CharacterScript characterScript;
+    private Stats stats;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Start() {
+        characterScript = GetComponent<CharacterScript>();
+        stats = GetComponent<Stats>();
     }
 }

@@ -91,6 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa0725d91db9b8644a5e7973f24f3e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pivotCharacter: {fileID: 0}
   weapon: {fileID: 0}
   healingItem: {fileID: 0}
   combatItem: {fileID: 0}
@@ -113,12 +114,11 @@ MonoBehaviour:
   id: 0
   inventorySize: 0
   rangedId: 
-  meleeId: 
   combatId: 
   healingId: 
   clothId: 
   headId: 
-  itemID: []
+  inventory: []
   inHospital: 0
   isEnlisted: 0
 --- !u!114 &5856801309094642175
@@ -153,6 +153,7 @@ MonoBehaviour:
   shit: 0
   bloodEffect: {fileID: 0}
   quirkIDList: []
+  PCCorpse: {fileID: 0}
 --- !u!114 &5856801309094642168
 MonoBehaviour:
   m_ObjectHideFlags: 0

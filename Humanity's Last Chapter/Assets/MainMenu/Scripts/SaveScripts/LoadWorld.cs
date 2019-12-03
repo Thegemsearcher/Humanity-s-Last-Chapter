@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class LoadWorld : MonoBehaviour { //Heta LoadHub?
     private GameObject holder;
-    public GameObject character, CampName;
+    public GameObject character, CampName, CreationWindow, WindowParent;
     private Vector2 characterPos;
     private string path;
     private int randomQuirk;
@@ -30,6 +30,8 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
         if (WorldScript.world == null) { //Kollar om det finns en world (Borde bara vara falsk om man startar nytt game eller startar från hubben dirr)
             WorldScript.world = new WorldScript();
             WorldScript.world.Reset();
+            holder = Instantiate(CreationWindow);
+            holder.transform.SetParent(WindowParent.transform, false);
         } else {
             LoadCharacters();
         }

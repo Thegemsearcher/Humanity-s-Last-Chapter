@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClothScript : MonoBehaviour {
 
-    private ClothItemObject headGear, cloth;
+    public GameObject Character;
+    private ClothItemObject item;
     private string headId, clothId;
     private ClothType clothType;
     private CharacterScript characterScript;
@@ -24,70 +26,70 @@ public class ClothScript : MonoBehaviour {
     }
 
     private void Start() {
-        characterScript = GetComponent<CharacterScript>();
-        stats = GetComponent<Stats>();
+        
+        
 
-        headId = characterScript.headId;
-        clothId = characterScript.clothId;
+        //headId = characterScript.headId;
+        //clothId = characterScript.clothId;
 
-        if (headId != null) {
-            FindItem(headId);
-        }
-        if (clothId != null) {
-            FindItem(clothId);
+        //if (headId != null) {
+        //    FindItem(headId);
+        //}
+        //if (clothId != null) {
+        //    FindItem(clothId);
+        //}
+    }
+
+    public void GetHolder(CharacterScript characterScript, Stats stats, string itemId) {
+        this.characterScript = characterScript;
+        this.stats = stats;
+        item = FindItem(itemId);
+        if(item != null) {
+            GetComponent<Image>().sprite = item.portrait;
+        } else {
+            Debug.Log("Error, can't find item: " + itemId);
         }
     }
 
-    private void FindItem(string id) {
+    private ClothItemObject FindItem(string id) {
         foreach (ClothItemObject clothItem in Assets.assets.clothTemp) {
             if (clothItem.name == id) {
-                switch (clothItem.clothType) {
-                    case ClothType.HeadGear:
-                        headGear = clothItem;
-                        break;
-                    case ClothType.Cloth:
-                        cloth = clothItem;
-                        break;
-                }
-                break;
+                return clothItem;
+                //switch (clothItem.clothType) {
+                //    case ClothType.HeadGear:
+                //        item = clothItem;
+                //        break;
+                //    case ClothType.Cloth:
+                //        cloth = clothItem;
+                //        break;
+                //}
+                //break;
             }
         }
+        return null;
     }
 
-    private void ChangeCloth(ClothItemObject item) {
-        switch (item.clothType) { //Kollar vilken typ som blir ersatt
-            case ClothType.HeadGear:
-                characterScript.headId = item.name; //Ändrar id så character har rätt? Onödigt?
-                changeStats(headGear, -1); //Tar bort all boost som gamla itemet hade
-                changeStats(item, 1); //Lägger till boost som den nya itemet har
-                headGear = item; //Updaterar så att den har det nya itemet som old
-                break;
-            case ClothType.Cloth:
-                characterScript.clothId = item.name;
-                changeStats(cloth, -1);
-                changeStats(cloth, 1);
-                cloth = item;
-                break;
+    public void ChangeCloth(ClothItemObject NewItem) {
+        if(item != null) {
+            changeStats(item, -1);
+        }                        //Tar bort all boost som gamla itemet hade
+        changeStats(NewItem, 1);                        //Lägger till boost som den nya itemet har
+        item = NewItem;                                 //Updaterar så att den har det nya itemet som old
+        GetComponent<Image>().sprite = item.portrait;   //Updaterar Bilden
+    }
+    private void changeStats(ClothItemObject item, int modifier) { //Ändrar statsen beroende på plaggets värde
+        if(stats == null) {
+            stats = Character.GetComponent<Stats>();
         }
-    }
-    private void changeStats(ClothItemObject item, int modifier) {
+
         stats.maxHp += (item.maxHp * modifier);
-        stats.str = (item.maxHp * modifier);
-        stats.def = (item.maxHp * modifier);
-        stats.Int = (item.maxHp * modifier);
-        stats.dex = (item.maxHp * modifier);
-        stats.cha = (item.maxHp * modifier);
-        stats.ldr = (item.maxHp * modifier);
-        stats.nrg = (item.maxHp * modifier);
-        stats.snt = (item.maxHp * modifier);
-    }
-
-    private void EquipItem(ClothItemObject NewItem) {
-
-
-    }
-
-    private void OnRectTransformRemoved() {
-        
+        stats.str += (item.str * modifier);
+        stats.def += (item.def * modifier);
+        stats.Int += (item.Int * modifier);
+        stats.dex += (item.dex * modifier);
+        stats.cha += (item.cha * modifier);
+        stats.ldr += (item.ldr * modifier);
+        stats.nrg += (item.nrg * modifier);
+        stats.snt += (item.snt * modifier);
     }
 }

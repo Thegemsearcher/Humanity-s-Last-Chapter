@@ -28,6 +28,12 @@ public class CharacterScript : MonoBehaviour {
         
     }
 
+    public void NewCharacter(string strName, string clothId, string headId) {
+        this.strName = strName;
+        this.clothId = clothId;
+        this.headId = headId;
+    }
+
     private string NameGenerator() {
         strName = firstName[(int)Random.Range(0, firstName.Length)] + " " + lastName[(int)Random.Range(0, lastName.Length)];
         return strName;
