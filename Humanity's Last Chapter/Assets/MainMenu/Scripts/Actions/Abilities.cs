@@ -15,19 +15,21 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
 
     private string weaponId, healingId, combatId;
     public bool weaponReady, healingReady, combatReady;
-    private int weaponTimer, healingTimer, combatTimer;
+    private int weaponTimer, healingTimer, combatTimer, partyMember;
     private float weaponStamp, healingStamp, combatStamp;
+    private KeyCode key;
 
     private void Start() {
         ActiveCharacter = GameObject.FindGameObjectWithTag("ActiveCharacter");
         characterScript = pivotCharacter.GetComponent<CharacterScript>();
+        partyMember = characterScript.partyMember;
 
-        if(healingId == null) {
+        if (healingId == null) {
             healingId = "hi0";
         }
 
         GetEquipment();
-
+        //key = partyMember;
         weaponTimer = weapon.coolDownTimer;
         healingTimer = healingItem.coolDownTimer;
         combatTimer = combatItem.coolDownTimer;
@@ -40,7 +42,11 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
     }
 
     private void Update() {
-        //Debug.Log("WeaponStamp: " + weaponStamp);
+        
+        //Debug.Log("partyMember: " + partyMember);
+        if(Input.GetKeyDown(partyMember.ToString())) {
+            ActiveCharacter.GetComponent<ActiveCharacter>().SwitchCharacter(gameObject, pivotCharacter);
+        }
         Timer();
     }
 

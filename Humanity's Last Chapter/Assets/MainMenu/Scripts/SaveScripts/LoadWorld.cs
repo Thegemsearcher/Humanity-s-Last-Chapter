@@ -9,9 +9,11 @@ using UnityEngine.UI;
 public class LoadWorld : MonoBehaviour { //Heta LoadHub?
     private GameObject holder;
     public GameObject character, CampName, CreationWindow, WindowParent;
+    public List<ScriptableQuest> startQuests;
     private Vector2 characterPos;
     private string path;
     private int randomQuirk;
+
 
     private Transform transParent;
 
@@ -27,10 +29,15 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
             Assets.assets.GetAssets();
         }
 
-        if (WorldScript.world == null) { //Kollar om det finns en world (Borde bara vara falsk om man startar nytt game eller startar från hubben dirr)
+        if (WorldScript.world == null) {                                    //Kollar om det finns en world (Om true är det ett nytt sparning)
             WorldScript.world = new WorldScript();
-            WorldScript.world.Reset();
-            holder = Instantiate(CreationWindow);
+            WorldScript.world.Reset();                                      //Sätter startvärden på spelet (t.ex. hur mycket guld man startar med etc)
+
+            foreach (ScriptableQuest quest in startQuests) {
+                WorldScript.world.avalibleQuests.Add(quest);                //De quests man har satt in i startQuests kommer in som valbara quests
+            }
+
+            holder = Instantiate(CreationWindow);                           //Skapar fönstret där man kan skapa de tre första karaktärena
             holder.transform.SetParent(WindowParent.transform, false);
         } else {
             LoadCharacters();
@@ -48,8 +55,6 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
             holder = Instantiate(character);
             holder.GetComponent<CharacterScript>().LoadPlayer(characterScript);
             holder.GetComponent<Stats>().LoadPlayer(statsList[i]);
-            //Debug.Log("hp is: " + statsList[i].hp);
-            Debug.Log("hp is: " + WorldScript.world.statsList[i].hp);
             holder.GetComponent<CharacterScript>().isEnlisted = false;
             //randomQuirk = Random.Range(0, 9);   //picks out the quirk.
             //randomQuirk *= 2;

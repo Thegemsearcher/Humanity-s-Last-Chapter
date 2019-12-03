@@ -6,7 +6,7 @@ using UnityEngine;
 public class CharacterData {
 
     public int id, hp, maxHp, str, def, Int, dex, cha, ldr, nrg, snt, exp;
-    public string strName, wpId;
+    public string strName, wpId, headId, clothId;
     public string[] itemID;
     public bool shit;
     public List<string> quirkID;
@@ -16,6 +16,8 @@ public class CharacterData {
         quirkID = new List<string>();
         
         id = character.id;
+        headId = character.headId;
+        clothId = character.clothId;
         strName = character.strName;
         wpId = character.rangedId;
         itemID = character.inventory;

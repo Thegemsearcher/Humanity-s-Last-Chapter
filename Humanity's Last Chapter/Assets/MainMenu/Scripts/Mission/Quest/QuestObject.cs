@@ -81,11 +81,22 @@ public class QuestObject : MonoBehaviour {
         isCompleted = true;
         WorldScript.world.gold += quest.goldReward;
         WorldScript.world.rs += quest.rsReward;
+        WorldScript.world.completedQuests.Add(quest);
+        WorldScript.world.RemoveAvalible(quest);
 
         if (quest.isChainMission) { //Kan ändras så at det finns flera olika missions som startar beroend på hur questen går
-            MissionManager.GetComponent<MissionManagerScript>().StartQuest(quest.nextMission);
+            WorldScript.world.avalibleQuests.Add(quest.nextMission);
+            
+            //MissionManager.GetComponent<MissionManagerScript>().StartQuest(quest.nextMission);
         }
     }
+
+    //private void OnDestroy() {
+    //    if(!isCompleted) {
+    //        WorldScript.world.failedQuests.Add(quest);
+    //        WorldScript.world.RemoveAvalible(quest);
+    //    }
+    //}
 
     private void Update() {
         //timeStamp += Time.deltaTime;

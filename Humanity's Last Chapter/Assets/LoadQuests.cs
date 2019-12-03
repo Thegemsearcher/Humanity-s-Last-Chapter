@@ -8,9 +8,9 @@ public class LoadQuests : MonoBehaviour {
     public GameObject MissionBox, MissionHolder;
 
     void Start() {
-        foreach (QuestObject quest in WorldScript.world.questList) {
+        foreach (ScriptableQuest quest in WorldScript.world.avalibleQuests) {
             holder = Instantiate(MissionBox);
-            holder.GetComponent<MissionBoxScript>().GetQuest(quest.titel);
+            holder.GetComponent<MissionBoxScript>().GetQuest(quest);
             holder.transform.SetParent(MissionHolder.transform, false);
         }
     }

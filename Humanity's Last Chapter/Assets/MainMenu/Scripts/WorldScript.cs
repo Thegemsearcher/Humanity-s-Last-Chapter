@@ -17,14 +17,22 @@ public class WorldScript {
 
     public List<CharacterScript> characterList;
     public List<Stats> statsList;
-    public List<QuestObject> questList;
+
+    public ScriptableQuest activeQuest;
+    public List<ScriptableQuest> avalibleQuests;
+    public List<ScriptableQuest> completedQuests;
+    public List<ScriptableQuest> failedQuests;
 
     private GameObject[] characterArr;
 
     public void Reset() {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
-        questList = new List<QuestObject>();
+
+        avalibleQuests = new List<ScriptableQuest>();
+        completedQuests = new List<ScriptableQuest>();
+        failedQuests = new List<ScriptableQuest>();
+
         storageSize = 64;
         shopSize = 10;
         shopLevel = 1;
@@ -120,6 +128,7 @@ public class WorldScript {
 
         characterArr = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject character in characterArr) {
+            Debug.Log("character.hp : " + character.GetComponent<Stats>().hp);
             if (character.GetComponent<Stats>().hp > 0) {
                 characterList.Add(character.GetComponent<CharacterScript>());
                 statsList.Add(character.GetComponent<Stats>());
@@ -128,8 +137,19 @@ public class WorldScript {
         SaveSystem.SaveWorld(this, isAuto);
     }
 
-    public void GetQuests(List<QuestObject> questList) {
-        this.questList = questList;
+    public void RemoveAvalible(ScriptableQuest quest) {
+        foreach (ScriptableQuest avalibleQuest in avalibleQuests) {
+            if (quest.name == avalibleQuest.name) {
+                avalibleQuests.Remove(avalibleQuest);
+                break;
+            }
+        }
     }
+
+    //public void GetQuests(List<ScriptableQuest> avalibleQuests, List<ScriptableQuest> completedQuests, List<ScriptableQuest> failedQuests) {
+    //    this.avalibleQuests = avalibleQuests;
+    //    this.completedQuests = completedQuests;
+    //    this.failedQuests = failedQuests;
+    //}
 
 }

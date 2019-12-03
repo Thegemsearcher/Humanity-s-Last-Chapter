@@ -28,6 +28,7 @@ public class CreationWindow : MonoBehaviour {
         foreach (GameObject character in Characters) {
             characterScript = character.GetComponent<CharacterScript>();
             stats = character.GetComponent<Stats>();
+            stats.hp = stats.maxHp;
             holder = Instantiate(UICharacter);
             holder.GetComponent<CharacterScript>().NewCharacter(characterScript.strName, characterScript.clothId, characterScript.headId);
             holder.GetComponent<Stats>().NewCharacter(stats);
