@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CharacterScript : MonoBehaviour {
     public string strName = "";
-    public int id, inventorySize;
+    public int id, inventorySize, partyMember;
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
     public string rangedId, combatId, healingId, clothId, headId;

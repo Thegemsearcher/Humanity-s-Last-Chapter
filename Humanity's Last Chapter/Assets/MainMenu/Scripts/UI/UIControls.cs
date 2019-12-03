@@ -31,7 +31,8 @@ public class UIControls : MonoBehaviour
         CurrentUiRepresentation = Instantiate(UiRepresentation);
         CurrentUiRepresentation.transform.SetParent(ParentForUiRepresentation.transform, false);
         CurrentUiRepresentation.GetComponent<CharacterScript>().LoadPlayer(GetComponent<CharacterScript>());
-        CurrentUiRepresentation.GetComponent<Stats>().LoadPlayer(GetComponent<Stats>());
+        CurrentUiRepresentation.GetComponent<CharacterScript>().partyMember = GetComponent<CharacterScript>().partyMember;
+       CurrentUiRepresentation.GetComponent<Stats>().LoadPlayer(GetComponent<Stats>());
         CurrentUiRepresentation.GetComponent<Abilities>().pivotCharacter = gameObject;
 
         //CurrentUiRepresentation.GetComponent<UIBoiScript>().GetPos(ParentForUiRepresentation.GetComponentsInChildren<UIBoiScript>().Length);
