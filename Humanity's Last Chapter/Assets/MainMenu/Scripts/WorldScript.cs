@@ -8,7 +8,7 @@ public class WorldScript {
     public static WorldScript world;
 
     public int gold, rs, storageSize, shopSize, shopLevel, date;
-    public bool isActive; //Den sparningen som startar om man klickar continue
+    public bool isActive, isNewGame; //Den sparningen som startar om man klickar continue
     public string saveName, saveId;
     private bool isChoosing;
     private int itemTest;
@@ -33,6 +33,7 @@ public class WorldScript {
         completedQuests = new List<ScriptableQuest>();
         failedQuests = new List<ScriptableQuest>();
 
+        isNewGame = true;
         storageSize = 64;
         shopSize = 10;
         shopLevel = 1;

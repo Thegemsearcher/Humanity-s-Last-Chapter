@@ -36,11 +36,13 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
             foreach (ScriptableQuest quest in startQuests) {
                 WorldScript.world.avalibleQuests.Add(quest);                //De quests man har satt in i startQuests kommer in som valbara quests
             }
-
-            holder = Instantiate(CreationWindow);                           //Skapar fönstret där man kan skapa de tre första karaktärena
-            holder.transform.SetParent(WindowParent.transform, false);
         } else {
             LoadCharacters();
+        }
+        if (WorldScript.world.isNewGame) {
+            holder = Instantiate(CreationWindow);                           //Skapar fönstret där man kan skapa de tre första karaktärena
+            holder.transform.SetParent(WindowParent.transform, false);
+            WorldScript.world.isNewGame = false;
         }
         CampName.GetComponent<CommunityTitle>().title.text = WorldScript.world.saveName;
     }
