@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StartMissionUI : MonoBehaviour
 {
+    public GameObject escMenu;
+    bool menuOn = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,14 @@ public class StartMissionUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (menuOn)
+                menuOn = false;
+            else
+                menuOn = true;
+            escMenu.SetActive(menuOn);
+            
+        }
     }
 }

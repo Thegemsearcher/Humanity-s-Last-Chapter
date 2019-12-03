@@ -20,7 +20,7 @@ public class clickAndDrag : MonoBehaviour
         //när man hoverar över en karaktärs cirkel så blir den gul, när man klickar, håller inne och flyttra musen så följer den efter
         if (gameObject.GetComponent<CircleCollider2D>().OverlapPoint(mousePos) || gameObject.GetComponent<CircleCollider2D>().OverlapPoint(lastMousePos))
         {
-            gameObject.GetComponent<Image>().color = Color.yellow;
+            gameObject.GetComponent<Image>().color = Color.gray;
 
             if (Input.GetKey(KeyCode.Mouse0))
             {
@@ -29,7 +29,7 @@ public class clickAndDrag : MonoBehaviour
 
         } else
         {
-            gameObject.GetComponent<Image>().color = Color.red;
+            gameObject.GetComponent<Image>().color = Color.white;
         }
     }
 }
