@@ -10,4 +10,6 @@ public class UICharacter : MonoBehaviour {
         characterScript = GetComponent<CharacterScript>();
         stats = GetComponent<Stats>();
     }
+
+
 }

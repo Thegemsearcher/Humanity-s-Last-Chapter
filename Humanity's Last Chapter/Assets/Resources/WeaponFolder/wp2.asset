@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Minigun
   description: BAM BAM BAM BAM
+  soundEffect: AR
   cost: 300
-  damage: 2
+  damage: 4
   bullets: 1
   wpLevel: 2
   fireRate: 0.05

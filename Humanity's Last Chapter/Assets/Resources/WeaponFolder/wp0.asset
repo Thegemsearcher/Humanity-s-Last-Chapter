@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Pistol
   description: Small and weak but can still hurt
+  soundEffect: pistol
   cost: 20
-  damage: 4
+  damage: 10
   bullets: 1
   wpLevel: 0
   fireRate: 1

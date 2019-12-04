@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class QuestObject : MonoBehaviour {
 
     public string titel, id;
-    private string objective;
+    private string objective, objDesc;
     public bool isCompleted;
     public int questStage;
     private ScriptableQuest quest;
@@ -61,7 +61,8 @@ public class QuestObject : MonoBehaviour {
         if (questStage >= quest.objectives.Length) {
             CompletedQuest();
             objective = "Quest Completed!";
-            MissionManager.GetComponent<MissionManagerScript>().NewObjective(objective);
+            objDesc = "Quest is finished, return to the hub!";
+            MissionManager.GetComponent<MissionManagerScript>().NewObjective(objective, objDesc);
         }
         else {
             id = quest.objectives[questStage].name[0].ToString();
@@ -71,23 +72,26 @@ public class QuestObject : MonoBehaviour {
                     //MissionManager.GetComponent<CollectionObjective>().GetData(quest.objectives[objectiveCounter] as ScriptableCollection);
                     coObjective.GetData(quest.objectives[questStage] as ScriptableCollection, waveEvent);
                     objective = coObjective.title;
+                    objDesc = coObjective.description;
                     break;
 
                 case "l":
                     loObjective.GetData(quest.objectives[questStage] as LocationObject, waveEvent);
                     objective = loObjective.title;
+                    objDesc = loObjective.description;
                     break;
 
                 case "i":
                     ioObjective.GetData(quest.objectives[questStage] as InteractObject, waveEvent);
                     objective = ioObjective.title;
+                    objDesc = ioObjective.description;
                     break;
                 case "":
                     objective = "Error! no more Objectives";
                     break;
             }
             questStage++;
-            MissionManager.GetComponent<MissionManagerScript>().NewObjective(objective);
+            MissionManager.GetComponent<MissionManagerScript>().NewObjective(objective, objDesc);
         }
     }
 

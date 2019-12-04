@@ -114,7 +114,6 @@ GameObject:
   - component: {fileID: 4739883335938604941}
   - component: {fileID: -1517981695887567796}
   - component: {fileID: 8658573829318196213}
-  - component: {fileID: 8460625342677450066}
   - component: {fileID: 4327539020883183433}
   - component: {fileID: 7120935731847993643}
   - component: {fileID: 5230496633669514308}
@@ -207,6 +206,7 @@ MonoBehaviour:
   strName: 
   id: 0
   inventorySize: 0
+  partyMember: 0
   rangedId: 
   combatId: 
   healingId: 
@@ -215,6 +215,7 @@ MonoBehaviour:
   inventory: []
   inHospital: 0
   isEnlisted: 0
+  faction: 0
 --- !u!114 &3017468683588421300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,19 +422,6 @@ MonoBehaviour:
     type: 3}
   projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
     type: 3}
---- !u!114 &8460625342677450066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1464683741798525680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f7196b83e14e75459b443ca1136049c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weapon: {fileID: 7626715680820893389, guid: 27a00eca5e3d49b46b5b9c0796c93edb, type: 3}
 --- !u!114 &4327539020883183433
 MonoBehaviour:
   m_ObjectHideFlags: 0

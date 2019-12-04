@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på alla missions som finns och dess progression
 
     public bool isTesting;
+    public GameObject UIInfoMission;
     public ScriptableQuest testQuest;
     public List<QuestObject> activeQuestList;
 
@@ -38,6 +39,7 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
         if (isTesting) {
             StartQuest(testQuest); //for test
         }
+        
     }
 
     public void LoadQuests() {
@@ -54,6 +56,7 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
         quest = new QuestObject();
         quest.GetData(startedQuest, gameObject);
         activeQuestList.Add(quest);
+        UIInfoMission.GetComponent<UIActiveMission>().txtMissionName.text = startedQuest.missionName;
     }
 
     private void Update() {
@@ -66,10 +69,11 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
         }
     }
 
-    public void NewObjective(string objective) {
+    public void NewObjective(string objective, string objDesc) {
         this.objective = "Objective: " + objective;
         announceOrder.Add(this.objective);
         isAnnounced = true;
+        UIInfoMission.GetComponent<UIActiveMission>().txtObjectiveDesc.text = objDesc;
     }
 
     private void UpdateQuests() {
