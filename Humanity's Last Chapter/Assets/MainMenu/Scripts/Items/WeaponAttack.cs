@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponAttack : MonoBehaviour
-{
+public class WeaponAttack : MonoBehaviour {
     public float offset;
     public GameObject projectile;
 
@@ -15,32 +14,26 @@ public class WeaponAttack : MonoBehaviour
     private PlayerAttack playerAttack;
     private WeaponObject wo;
 
-    private void Start()
-    {
+    private void Start() {
         playerAttack = GetComponent<PlayerAttack>();
         //transform.position = new Vector3(0, 0, 1);
     }
 
-    public void GetData(WeaponObject wo)
-    {
+    public void GetData(WeaponObject wo) {
         this.wo = wo;
         GetComponent<SpriteRenderer>().sprite = wo.sprite;
         gameObject.name = wo.weaponName;
         //transform.position = Vector2.zero;
     }
 
-    private void Update()
-    {
+    private void Update() {
         timeStamp += Time.deltaTime;
         Rotation();
     }
 
-    public void Rotation()
-    {
-        if (closestEnemy != null)
-        {
-            if (Vector2.Distance(transform.position, closestEnemy.transform.position) < wo.range)
-            {
+    public void Rotation() {
+        if (closestEnemy != null) {
+            if (Vector2.Distance(transform.position, closestEnemy.transform.position) < wo.range) {
                 Vector3 difference = closestEnemy.transform.position - transform.position;
                 rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
                 gameObject.transform.parent.rotation = Quaternion.Euler(0f, 0f, rotZ + offset);
@@ -52,13 +45,10 @@ public class WeaponAttack : MonoBehaviour
     }
 
     //For tha nöds
-    public bool InCombat(float aggroRange)
-    {
-        if (timeStamp >= wo.fireRate)
-        {
+    public bool InCombat(float aggroRange) {
+        if (timeStamp >= wo.fireRate) {
             GetClosestEnemy();
-            if (closest <= aggroRange)
-            {
+            if (closest <= aggroRange) {
                 timeStamp = 0;
                 return true;
             }
@@ -67,57 +57,43 @@ public class WeaponAttack : MonoBehaviour
     }
 
     //For tha nöds
-    public bool IsRange()
-    {
+    public bool IsRange() {
         GetClosestEnemy();
-        if (closest <= wo.range && closest >= minRange)
-        { //Min range är avståndet då den byter till melee attack
+        if (closest <= wo.range && closest >= minRange) { //Min range är avståndet då den byter till melee attack
             return true;
         }
         return false;
     }
 
-    public void GetClosestEnemy()
-    {
+    public void GetClosestEnemy() {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         closest = Mathf.Infinity;
 
-        foreach (GameObject enemy in enemies)
-        {
+        foreach (GameObject enemy in enemies) {
             testClosest = (Vector3.Distance(transform.position, enemy.transform.position));
 
-            if (testClosest < closest)
-            {
+            if (testClosest < closest) {
                 closest = testClosest;
                 closestEnemy = enemy;
             }
         }
     }
 
-    public void CreateBullet()
-    {
-        if (wo.weaponName == "Pistol")
-        {
-            SoundManagerScript.PlaySound("pistol");
-        }
-        else if (wo.weaponName == "Rifle")
-        {
-            SoundManagerScript.PlaySound("rifle");
-        }
-        else if (wo.weaponName == "Minigun")
-        {
-            SoundManagerScript.PlaySound("AR");
-        }
-        else if (wo.weaponName == "Shotgun")
-        {
-            SoundManagerScript.PlaySound("shotgun");
-        }
-        else if (wo.weaponName == "Padde Killer")
-        {
-            SoundManagerScript.PlaySound("rifle");
-        }
-        for (int i = 0; i < wo.bullets; i++)
-        {
+    public void CreateBullet() {
+        //if (wo.weaponName == "Pistol") {
+        //    SoundManagerScript.PlaySound("pistol");
+        //} else if (wo.weaponName == "Rifle") {
+        //    SoundManagerScript.PlaySound("rifle");
+        //} else if (wo.weaponName == "Minigun") {
+        //    SoundManagerScript.PlaySound("AR");
+        //} else if (wo.weaponName == "Shotgun") {
+        //    SoundManagerScript.PlaySound("shotgun");
+        //} else if (wo.weaponName == "Padde Killer") {
+        //    SoundManagerScript.PlaySound("rifle");
+        //}
+
+        SoundManagerScript.PlaySound(wo.soundEffect);
+        for (int i = 0; i < wo.bullets; i++) {
             projectileO = Instantiate(projectile, transform.position, Quaternion.identity);
             projectileO.GetComponent<BulletM>().CreateProjectile(wo, closestEnemy);
         }

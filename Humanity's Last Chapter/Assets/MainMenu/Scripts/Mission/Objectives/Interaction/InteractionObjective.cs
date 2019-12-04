@@ -7,7 +7,7 @@ namespace QuestSystem {
         public string title = "t.ex. Talk with this person";
         private string verb = "t.ex. talk";
         private string id = "qg0";
-        private string description = "It must have been that guy that made the distress call!";
+        public string description = "It must have been that guy that made the distress call!";
         private bool isComplete, isBonus, isSpawned;
         private Transform spawnPos;
         private GameObject interactObjective; //Object to interact with
@@ -21,6 +21,7 @@ namespace QuestSystem {
 
         public void GetData(InteractObject ioQuest, WaveEvent waveEvent) {
             this.waveEvent = waveEvent;
+            description = ioQuest.description;
             startEvents = ioQuest.startEvents;
             endEvents = ioQuest.endEvents;
             data = ioQuest;

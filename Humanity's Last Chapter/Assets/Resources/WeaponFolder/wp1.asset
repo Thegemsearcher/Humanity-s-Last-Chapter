@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Rifle
   description: Simple rifle with slow fire and high damage
+  soundEffect: rifle
   cost: 80
-  damage: 12
+  damage: 30
   bullets: 1
   wpLevel: 1
   fireRate: 2

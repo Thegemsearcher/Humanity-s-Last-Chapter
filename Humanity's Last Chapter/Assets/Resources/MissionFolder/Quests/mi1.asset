@@ -15,6 +15,7 @@ MonoBehaviour:
   missionName: Monster Hunt
   description: The man has offerd some gold if we kill the monsters close to his house
   hint: The house is House0102
+  missionNummer: 1
   nextMissionsComplete: []
   nextMissionsFail: []
   goldReward: 250

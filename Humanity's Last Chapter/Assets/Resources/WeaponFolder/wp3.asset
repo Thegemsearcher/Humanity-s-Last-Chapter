@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponName: Shotgun
   description: "Varf\xF6r skjuta ett skott n\xE4r man kan skjuta m\xE5nga?"
+  soundEffect: shotgun
   cost: 120
-  damage: 6
+  damage: 8
   bullets: 5
   wpLevel: 1
   fireRate: 3

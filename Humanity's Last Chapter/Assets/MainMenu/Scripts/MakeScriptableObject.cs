@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class MakeScriptableObject {
 
+    #region ScriptableObjects
     [MenuItem("Assets/Create/Mission/Quest Giver")]
     public static void CreateQuestGiver() {
         GiverObject asset = ScriptableObject.CreateInstance<GiverObject>();
@@ -184,6 +185,6 @@ public class MakeScriptableObject {
         EditorUtility.FocusProjectWindow();
         Selection.activeObject = asset;
     }
-
+    #endregion
     
 }

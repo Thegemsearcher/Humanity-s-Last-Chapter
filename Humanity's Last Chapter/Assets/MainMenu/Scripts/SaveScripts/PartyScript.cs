@@ -53,12 +53,11 @@ public class PartyScript : MonoBehaviour {
         GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
 
         foreach (CharacterScript characterScript in characterScriptList) {
-
             //if(characterScript.GetComponent<CharacterScript>().isEnlisted) {
             characterO = Instantiate(character);
             characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
             characterO.GetComponent<CharacterScript>().partyMember = partyMember;
-            characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
+            characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember - 1]);
 
             //Annan kod
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember * 0.5f, partyMember * 0.5f);
@@ -157,6 +156,7 @@ public class PartyScript : MonoBehaviour {
     }
 
     public void SpawnWeapon(string wpId, Transform parent) {
+        Debug.Log("Yes");
         weaponO = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
         weaponO.transform.SetParent(parent, false);
         weaponO.transform.localScale = new Vector3(1, 1, 1);

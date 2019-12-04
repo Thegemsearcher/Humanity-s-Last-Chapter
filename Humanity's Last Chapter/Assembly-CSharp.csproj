@@ -68,6 +68,7 @@
     <Compile Include="Assets\ChangeNameScript.cs" />
     <Compile Include="Assets\CharacterCreation.cs" />
     <Compile Include="Assets\CharacterInfo.cs" />
+    <Compile Include="Assets\CommandCenterScript.cs" />
     <Compile Include="Assets\CommunityTitle.cs" />
     <Compile Include="Assets\CreationWindow.cs" />
     <Compile Include="Assets\FootAnim.cs" />
@@ -235,6 +236,7 @@
     <Compile Include="Assets\SaveGameScript.cs" />
     <Compile Include="Assets\SoundManagerScript.cs" />
     <Compile Include="Assets\TurretAttack.cs" />
+    <Compile Include="Assets\UIActiveMission.cs" />
     <Compile Include="Assets\UICharacter.cs" />
     <Compile Include="Assets\WorldManagerScript.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />

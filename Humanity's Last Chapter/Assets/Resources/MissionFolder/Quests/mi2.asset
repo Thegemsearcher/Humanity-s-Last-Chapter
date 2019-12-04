@@ -15,6 +15,7 @@ MonoBehaviour:
   missionName: Secure House
   description: "The man has an id\xE9 where to keep civilans safe"
   hint: Talk to the man
+  missionNummer: 1
   nextMissionsComplete: []
   nextMissionsFail: []
   goldReward: 400

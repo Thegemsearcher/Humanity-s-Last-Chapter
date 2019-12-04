@@ -16,6 +16,7 @@ MonoBehaviour:
   description: we succesfully defended our outpost but sadly we don't seem to have
     much rations left. If we don't find more soon then we will be done for
   hint: 
+  missionNummer: 1
   nextMissionsComplete: []
   nextMissionsFail: []
   goldReward: 40

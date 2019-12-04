@@ -5,7 +5,7 @@ using UnityEngine;
 namespace QuestSystem {
     public class LocationObjective : MonoBehaviour {
         public string title = "t.ex. Enter the Kitchen";
-        private string description = "t.ex. A distress call from the Dinner Room calls for an investigation";
+        public string description = "t.ex. A distress call from the Dinner Room calls for an investigation";
         private string id = "t.ex. lo0";
         private GameObject Location;
         private GameObject[] clearOutTarget; //I fall man vill ha en quest som handlar om att rensa rum av fiender
