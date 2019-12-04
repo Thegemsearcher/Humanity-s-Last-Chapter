@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode]
+//[ExecuteInEditMode]
 public class CurvedText : Text {
 
     public float radius = 0.5f;
@@ -28,15 +28,15 @@ public class CurvedText : Text {
         }
     }
 
-    protected override void OnValidate() {
-        base.OnValidate();
-        if (radius <= 0.0f) {
-            radius = 0.001f;
-        }
-        if (scaleFactor <= 0.0f) {
-            scaleFactor = 0.001f;
-        }
-    }
+    //protected override void OnValidate() {
+    //    base.OnValidate();
+    //    if (radius <= 0.0f) {
+    //        radius = 0.001f;
+    //    }
+    //    if (scaleFactor <= 0.0f) {
+    //        scaleFactor = 0.001f;
+    //    }
+    //}
 
     protected override void OnPopulateMesh(VertexHelper vh) {
         base.OnPopulateMesh(vh);

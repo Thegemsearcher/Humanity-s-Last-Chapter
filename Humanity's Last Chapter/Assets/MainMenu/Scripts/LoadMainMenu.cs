@@ -11,6 +11,7 @@ public class LoadMainMenu : MonoBehaviour {
             Directory.CreateDirectory(Application.persistentDataPath + "/Saves");
         }
 
+        Debug.Log("noooo");
         if (DataHolder.dataHolder == null) {
             DataHolder.dataHolder = new DataHolder();
             DataHolder.dataHolder.NewHolder();

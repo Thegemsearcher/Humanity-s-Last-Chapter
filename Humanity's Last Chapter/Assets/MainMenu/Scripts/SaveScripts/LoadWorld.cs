@@ -32,16 +32,16 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
         if (WorldScript.world == null) {                                    //Kollar om det finns en world (Om true är det ett nytt sparning)
             WorldScript.world = new WorldScript();
             WorldScript.world.Reset();                                      //Sätter startvärden på spelet (t.ex. hur mycket guld man startar med etc)
-
-            foreach (ScriptableQuest quest in startQuests) {
-                WorldScript.world.avalibleQuests.Add(quest);                //De quests man har satt in i startQuests kommer in som valbara quests
-            }
         } else {
             LoadCharacters();
         }
         if (WorldScript.world.isNewGame) {
             holder = Instantiate(CreationWindow);                           //Skapar fönstret där man kan skapa de tre första karaktärena
             holder.transform.SetParent(WindowParent.transform, false);
+            foreach (ScriptableQuest quest in startQuests) {
+                WorldScript.world.avalibleQuests.Add(quest);                //De quests man har satt in i startQuests kommer in som valbara quests
+            }
+
             WorldScript.world.isNewGame = false;
         }
         CampName.GetComponent<CommunityTitle>().title.text = WorldScript.world.saveName;

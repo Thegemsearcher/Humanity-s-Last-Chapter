@@ -21,15 +21,19 @@ public class DataHolder {
     public GameObject btnContinue;
 
     public void NewHolder() {
+        Debug.Log("hmmmm");
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
         avalibleQuests = new List<ScriptableQuest>();
         completedQuests = new List<ScriptableQuest>();
         failedQuests = new List<ScriptableQuest>();
 
-        if(Assets.assets == null) {
+        if (Assets.assets == null) {
+           
             Assets.assets = new Assets();
+            
             Assets.assets.GetAssets();
+            
         }
 
         path = Application.persistentDataPath + "/Saves/";
