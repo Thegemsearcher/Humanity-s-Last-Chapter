@@ -14,24 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Find Rations
   description: we succesfully defended our outpost but sadly we don't seem to have
-    much rations left. If we don't find more soon then we will be done for
+    much rations left. If we don't find more soon, we will be done for
   hint: 
   missionNummer: 1
   nextMissionsComplete: []
   nextMissionsFail: []
-  goldReward: 40
-  rsReward: 100
+  goldReward: 400
+  rsReward: 0
   avalible: 0
   active: 0
   completed: 0
   bonusObjective: []
   objectives:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  startEvents:
-  - {fileID: 11400000, guid: fd237bb8b8414d34e8351ca434db56db, type: 2}
+  - {fileID: 11400000, guid: 144b9a782e1177041a33ff7125e528aa, type: 2}
+  - {fileID: 11400000, guid: 35a07e037478bcc4686020397a3301e5, type: 2}
+  - {fileID: 11400000, guid: 084d13e4868f1674592eea3eabe852c7, type: 2}
+  - {fileID: 11400000, guid: 6f0ed88ea03c95c4d86f613497797be4, type: 2}
+  - {fileID: 11400000, guid: ed0067405815bf04ab15c0138a5d0fd4, type: 2}
+  - {fileID: 11400000, guid: 87766006558ccd74b98079c93ceaf096, type: 2}
+  startEvents: []
   endEvents: []
