@@ -12,6 +12,7 @@ public class GameObjectList : MonoBehaviour
     {
         prefabType = newType;
     }
+
     public void Add(params float[] values)
     {
         objects.Add(new GameObject());
