@@ -664,6 +664,7 @@ MonoBehaviour:
   inventory: []
   inHospital: 0
   isEnlisted: 0
+  faction: 0
 --- !u!114 &153294536600894748
 MonoBehaviour:
   m_ObjectHideFlags: 0

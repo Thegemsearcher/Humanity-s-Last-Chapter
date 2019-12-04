@@ -24,7 +24,6 @@ MonoBehaviour:
   active: 0
   completed: 0
   bonusObjective: []
-  missionEvents: []
   objectives:
   - {fileID: 0}
   - {fileID: 0}
@@ -32,3 +31,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  startEvents:
+  - {fileID: 11400000, guid: fd237bb8b8414d34e8351ca434db56db, type: 2}
+  endEvents: []

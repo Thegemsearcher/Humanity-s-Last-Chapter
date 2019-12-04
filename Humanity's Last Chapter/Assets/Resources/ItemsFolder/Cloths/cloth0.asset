@@ -22,7 +22,7 @@ MonoBehaviour:
   maxHp: 0
   str: 0
   def: 0
-  Int: 10
+  Int: 5
   dex: 0
   cha: 0
   ldr: 0

@@ -36,6 +36,7 @@ public class InteractiveScript : MonoBehaviour {
     //}
 
     private void OnMouseDown() {
+       
         CheckRange();
     }
 

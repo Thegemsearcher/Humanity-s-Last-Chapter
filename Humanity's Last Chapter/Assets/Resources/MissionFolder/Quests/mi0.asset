@@ -27,9 +27,11 @@ MonoBehaviour:
   active: 0
   completed: 0
   bonusObjective: []
-  missionEvents: []
   objectives:
   - {fileID: 11400000, guid: 3918d2ef6d44dc34a960a465090e2e5d, type: 2}
   - {fileID: 11400000, guid: 3fd2c47bd7874154cac89ab04c019cb5, type: 2}
   - {fileID: 11400000, guid: aaf11d48cf6b37d4cb694b5136f7589d, type: 2}
   - {fileID: 11400000, guid: 5a6f8c6a7df11f742bd9ef73383aa95a, type: 2}
+  startEvents:
+  - {fileID: 11400000, guid: fd237bb8b8414d34e8351ca434db56db, type: 2}
+  endEvents: []

@@ -13,10 +13,16 @@ namespace QuestSystem {
         private GameObject interactObjective; //Object to interact with
         private GameObject holder;
         private GameObject[] gameObjects;
+        private WaveEvent waveEvent;
 
         private InteractObject data;
+        private Object[] startEvents;
+        private Object[] endEvents;
 
-        public void GetData(InteractObject ioQuest) {
+        public void GetData(InteractObject ioQuest, WaveEvent waveEvent) {
+            this.waveEvent = waveEvent;
+            startEvents = ioQuest.startEvents;
+            endEvents = ioQuest.endEvents;
             data = ioQuest;
             title = data.title;
             id = ioQuest.id;
@@ -39,12 +45,31 @@ namespace QuestSystem {
             }
             holder.GetComponent<InteractiveScript>().SetActive();
             //interactObjective = GameObject.FindGameObjectWithTag(data.interactObjective.tag);
+
+            if (startEvents != null) {
+                StartEvent(startEvents);
+            }
         }
 
         public bool CheckProgress() {
             isComplete = holder.GetComponent<InteractiveScript>().isInteracted;
+            if (isComplete) {
+                if (endEvents != null) {
+                    StartEvent(endEvents);
+                }
+            }
             return isComplete;
         }
+        private void StartEvent(Object[] eventObj) {
+            foreach (Object obj in eventObj) {
+                switch (obj.name[0]) {
+                    case 'w':
+                        waveEvent.GetEvent(obj as WaveObject);
+                        break;
+                }
+            }
+        }
+
     }
 }
 

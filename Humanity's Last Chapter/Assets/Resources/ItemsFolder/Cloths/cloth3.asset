@@ -18,7 +18,7 @@ MonoBehaviour:
   description: A Cap used by the military
   cost: 80
   clothType: 0
-  clothCategory: 0
+  clothCategory: 1
   maxHp: 5
   str: 0
   def: 0

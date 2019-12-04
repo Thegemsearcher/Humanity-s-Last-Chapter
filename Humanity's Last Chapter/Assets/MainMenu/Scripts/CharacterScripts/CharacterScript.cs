@@ -11,10 +11,45 @@ public class CharacterScript : MonoBehaviour {
     public string rangedId, combatId, healingId, clothId, headId;
     public string[] inventory;
     public bool inHospital, isEnlisted;
+    public Faction faction;
+
+    public enum Faction {
+        playerFaction,      //Styrs av karaktären och kommer in i hubben
+        neutralFaction,     //Attackerar ingen, kan ha quests, bara aktiva på missions
+        enemyFaction,       //Attackerar character av player faction och alliedFaction
+        alliedFaction,      //Attackerar enemyFaction
+        UI,                 //Blir untagged (för UI(Mission)Character och ActiveCharacter
+        activeCharacter
+    }
 
     private Stats statsScript;
 
     void Start() {
+
+        switch (faction) {
+            case Faction.playerFaction:
+                gameObject.tag = "Character";
+                break;
+            case Faction.neutralFaction:
+                gameObject.tag = "NeutralFaction";
+                break;
+            case Faction.enemyFaction:
+                gameObject.tag = "Enemy";
+                break;
+            case Faction.alliedFaction:
+                gameObject.tag = "AlliedFaction";
+                break;
+            case Faction.UI:
+                gameObject.tag = "UI";
+                break;
+            case Faction.activeCharacter:
+                gameObject.tag = "ActiveCharacter";
+                break;
+            default:
+                gameObject.tag = "Untagged";
+                break;
+        } //Sätter tag beroende på vilken sorts karaktär det är
+
         statsScript = GetComponent<Stats>();
         combatId = "ci" + Random.Range(0, Assets.assets.combatTemp.Length);
         healingId = "hi" + Random.Range(0, Assets.assets.healingTemp.Length);
@@ -43,34 +78,6 @@ public class CharacterScript : MonoBehaviour {
         int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount;
         id = characterCounter - 1;
         return id;
-    }
-
-    public void SavePlayer() {
-        if (statsScript.hp > 0) {
-            int i = 0;
-            foreach (Transform item in gameObject.GetComponent<Stats>().characterUI.transform.GetChild(3).transform) {
-                if (item.tag == "Item") {
-                    if (item.GetComponent<ItemScript>().IsActive()) {
-                        inventory[i] = item.GetComponent<ItemScript>().ItemID;
-                        i++;
-                    }
-                }
-            }
-
-            if (inHospital) {
-                statsScript.hp += 5;
-                if (statsScript.hp > statsScript.maxHp) {
-                    statsScript.hp = statsScript.maxHp;
-                }
-            }
-
-            if (isEnlisted) {
-                statsScript.hp -= 2;
-            }
-            SaveSystem.SaveCharacter(this, GetComponent<Stats>());
-        } else {
-            SaveSystem.DeleteCharacter(this);
-        }
     }
 
     public void LoadPlayer(CharacterScript data) {
@@ -136,5 +143,35 @@ public class CharacterScript : MonoBehaviour {
             inventory[i] = "";
         }
     }
-    
+
+    #region thingsToRemove
+    //public void SavePlayer() {
+    //    if (statsScript.hp > 0) {
+    //        int i = 0;
+    //        foreach (Transform item in gameObject.GetComponent<Stats>().characterUI.transform.GetChild(3).transform) {
+    //            if (item.tag == "Item") {
+    //                if (item.GetComponent<ItemScript>().IsActive()) {
+    //                    inventory[i] = item.GetComponent<ItemScript>().ItemID;
+    //                    i++;
+    //                }
+    //            }
+    //        }
+
+    //        if (inHospital) {
+    //            statsScript.hp += 5;
+    //            if (statsScript.hp > statsScript.maxHp) {
+    //                statsScript.hp = statsScript.maxHp;
+    //            }
+    //        }
+
+    //        if (isEnlisted) {
+    //            statsScript.hp -= 2;
+    //        }
+    //        SaveSystem.SaveCharacter(this, GetComponent<Stats>());
+    //    } else {
+    //        SaveSystem.DeleteCharacter(this);
+    //    }
+    //}
+    #endregion
+
 }

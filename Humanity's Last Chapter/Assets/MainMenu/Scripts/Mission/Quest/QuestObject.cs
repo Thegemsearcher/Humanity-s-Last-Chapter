@@ -16,20 +16,34 @@ public class QuestObject : MonoBehaviour {
     private CollectionObjective coObjective;
     private LocationObjective loObjective;
     private InteractionObjective ioObjective;
+    private WaveEvent waveEvent;
     private List<ScriptableQuest> nextMissionComplete;
 
+    private Object[] startEvents;
+    private Object[] endEvents;
+
     public QuestObject() { 
+
     }
 
     public void GetData(ScriptableQuest quest, GameObject MissionManager) {
         this.quest = quest;
         this.MissionManager = MissionManager;
+
+        startEvents = quest.startEvents;
+        endEvents = quest.endEvents;
         titel = quest.missionName;
         id = quest.name;
+
         isCompleted = false;
         coObjective = MissionManager.GetComponent<CollectionObjective>();
         loObjective = MissionManager.GetComponent<LocationObjective>();
         ioObjective = MissionManager.GetComponent<InteractionObjective>();
+        waveEvent = MissionManager.GetComponent<WaveEvent>();
+
+        if (startEvents != null) {
+            StartEvent(startEvents);
+        }
         NextObjective();
     }
 
@@ -55,17 +69,17 @@ public class QuestObject : MonoBehaviour {
             switch (id) {
                 case "c":
                     //MissionManager.GetComponent<CollectionObjective>().GetData(quest.objectives[objectiveCounter] as ScriptableCollection);
-                    coObjective.GetData(quest.objectives[questStage] as ScriptableCollection);
+                    coObjective.GetData(quest.objectives[questStage] as ScriptableCollection, waveEvent);
                     objective = coObjective.title;
                     break;
 
                 case "l":
-                    loObjective.GetData(quest.objectives[questStage] as LocationObject);
+                    loObjective.GetData(quest.objectives[questStage] as LocationObject, waveEvent);
                     objective = loObjective.title;
                     break;
 
                 case "i":
-                    ioObjective.GetData(quest.objectives[questStage] as InteractObject);
+                    ioObjective.GetData(quest.objectives[questStage] as InteractObject, waveEvent);
                     objective = ioObjective.title;
                     break;
                 case "":
@@ -91,14 +105,21 @@ public class QuestObject : MonoBehaviour {
                 WorldScript.world.avalibleQuests.Add(quest);
             }
         }
+
+        if (endEvents != null) {
+            StartEvent(endEvents);
+        }
     }
 
-    //private void OnDestroy() {
-    //    if(!isCompleted) {
-    //        WorldScript.world.failedQuests.Add(quest);
-    //        WorldScript.world.RemoveAvalible(quest);
-    //    }
-    //}
+    private void StartEvent(Object[] eventObj) {
+        foreach (Object obj in eventObj) {
+            switch (obj.name[0]) {
+                case 'w':
+                    waveEvent.GetEvent(obj as WaveObject);
+                    break;
+            }
+        }
+    }
 
     private void Update() {
         //timeStamp += Time.deltaTime;

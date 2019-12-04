@@ -54,6 +54,15 @@ public class QuestDescScript : MonoBehaviour {
         activeQuest = WorldScript.world.activeQuest;
         if(activeQuest != null) {
             QuestInfo(activeQuest);
+        } else {
+            Clear();
         }
+    }
+
+    private void Clear() {
+        txtQuestName.text = "";
+        txtQuestDesc.text = "";
+        reward = "";
+        txtReward.text = reward;
     }
 }

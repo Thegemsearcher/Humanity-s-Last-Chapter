@@ -201,6 +201,7 @@ MonoBehaviour:
   strName: 
   id: 0
   inventorySize: 0
+  partyMember: 0
   rangedId: 
   combatId: 
   healingId: 
@@ -209,6 +210,7 @@ MonoBehaviour:
   inventory: []
   inHospital: 0
   isEnlisted: 0
+  faction: 4
 --- !u!114 &5856801309094642175
 MonoBehaviour:
   m_ObjectHideFlags: 0

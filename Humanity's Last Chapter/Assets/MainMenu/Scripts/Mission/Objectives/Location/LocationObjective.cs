@@ -13,11 +13,16 @@ namespace QuestSystem {
         private bool isComlete;
         private bool isBonus;
         private LocationScript loScript;
+        private WaveEvent waveEvent;
+
+        private Object[] startEvents;
+        private Object[] endEvents;
 
         LocationObject data;
 
-        public void GetData(LocationObject data) {
+        public void GetData(LocationObject data, WaveEvent waveEvent) {
             this.data = data;
+            this.waveEvent = waveEvent;
             title = data.titel;
             description = data.description;
             id = data.id;
@@ -29,11 +34,15 @@ namespace QuestSystem {
             characters = GameObject.FindGameObjectsWithTag("Character");
 
             GameObject[] Locations = GameObject.FindGameObjectsWithTag("Location");
-            foreach(GameObject location in Locations) {
-                if(location.name == data.Location.name) {
+            foreach (GameObject location in Locations) {
+                if (location.name == data.Location.name) {
                     Location = location;
                     break;
                 }
+            }
+
+            if (startEvents != null) {
+                StartEvent(startEvents);
             }
         }
 
@@ -49,8 +58,23 @@ namespace QuestSystem {
                 //    }
                 //}
             }
+            if (isComlete) {
+                if (endEvents != null) {
+                    StartEvent(endEvents);
+                }
+            }
             return isComlete;
         }
+        private void StartEvent(Object[] eventObj) {
+            foreach (Object obj in eventObj) {
+                switch (obj.name[0]) {
+                    case 'w':
+                        waveEvent.GetEvent(obj as WaveObject);
+                        break;
+                }
+            }
+        }
+
     }
 }
 

@@ -43,8 +43,8 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(drawBox);
         pcs = GameObject.FindGameObjectsWithTag("Character").ToList<GameObject>();
+        Debug.Log("pcs: " + pcs.Count);
         if (selectedCharacters == null)
             selectedCharacters = pcs;
         AddSelectedCharacters();

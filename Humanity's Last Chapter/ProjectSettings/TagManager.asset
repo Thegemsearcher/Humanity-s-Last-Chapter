@@ -44,6 +44,10 @@ TagManager:
   - ForMission
   - ForActiveQuest
   - QuestDesc
+  - AlliedFaction
+  - NeutralFaction
+  - EnemyFaction
+  - UI
   layers:
   - Default
   - TransparentFX

@@ -111,6 +111,7 @@ MonoBehaviour:
   strName: 
   id: 0
   inventorySize: 0
+  partyMember: 0
   rangedId: 
   combatId: 
   healingId: 
@@ -119,6 +120,7 @@ MonoBehaviour:
   inventory: []
   inHospital: 0
   isEnlisted: 0
+  faction: 2
 --- !u!222 &4090975341072565149
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -158,6 +160,7 @@ MonoBehaviour:
   hasSeenEnemy: 0
   EnemyCorpse: {fileID: 9007655463013522353, guid: 298a45655b5dd084d8399b036e874fd2,
     type: 3}
+  ranged: 0
 --- !u!61 &4090975341072565151
 BoxCollider2D:
   m_ObjectHideFlags: 0

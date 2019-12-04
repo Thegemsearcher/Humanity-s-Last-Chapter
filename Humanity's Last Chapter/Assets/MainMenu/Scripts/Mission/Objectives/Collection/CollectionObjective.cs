@@ -14,12 +14,19 @@ namespace QuestSystem {
         private List<GameObject> toCollectList;
         private Transform[] spawnPos;
         private ScriptableCollection data;
+        private Object[] startEvents;
+        private Object[] endEvents;
 
-        public void GetData(ScriptableCollection coQuest) {
+        private WaveEvent waveEvent;
+
+        public void GetData(ScriptableCollection coQuest, WaveEvent waveEvent) {
+            this.waveEvent = waveEvent;
             data = coQuest;
             isRandomSpawn = coQuest.isRandomSpawn;
             toCollectList = new List<GameObject>();
             collectionAmount = data.collectionAmount;
+            startEvents = data.startEvents;
+            endEvents = data.endEvents;
             title = data.verb + " " + collectionAmount + " " + data.itemsToCollect.name;
             verb = data.verb;
             description = data.description;
@@ -33,6 +40,10 @@ namespace QuestSystem {
         }
 
         private void SpawnTarget() {
+            if (startEvents != null) {
+                StartEvent(startEvents);
+            }
+
             if(isRandomSpawn) {
                 for (int i = 0; i < collectionAmount; i++) {
                     counter = Random.Range(0, spawnPos.Length);
@@ -58,22 +69,32 @@ namespace QuestSystem {
             
         }
 
+        private void StartEvent(Object[] eventObj) {
+            foreach (Object obj in eventObj) {
+                switch (obj.name[0]) {
+                    case 'w':
+                        waveEvent.GetEvent(obj as WaveObject);
+                        break;
+                }
+            }
+        }
+
         public bool CheckProgress() {
             //objectiveList = GameObject.FindGameObjectsWithTag("Enemy");
-            targetsLeft = 0;
+            //bool isDone = true;
             foreach(GameObject toCollect in toCollectList) {
                 if(toCollect == null) {
                     toCollectList.Remove(toCollect);
+                    //isDone = false;
                     break;
                 } else {
-                    targetsLeft++;
                 }
                 
             }
-            if(targetsLeft > 0) {
-                return false;
+            if(toCollectList.Count <= 0) {
+                return true;
             }
-            return true;
+            return false;
         }
 
         public void UpdateProgress() {

@@ -28,15 +28,11 @@ public class Assets {
         combatTemp = GetAtPath<CombatItemObject>("ItemsFolder/CombatItems");
         clothTemp = GetAtPath<ClothItemObject>("ItemsFolder/Cloths");
 
-        
-        
-
         questTemp = GetAtPath<ScriptableQuest>("MissionFolder/Quests");
         loTemp = GetAtPath<LocationObject>("MissionFolder/LocationObjectives");
         coTemp = GetAtPath<ScriptableCollection>("MissionFolder/CollectionObjectives");
         ioTemp = GetAtPath<InteractObject>("MissionFolder/InteractObjectives");
-
-        Debug.Log("questTemp: " + questTemp.Length);
+        
         //Debug.Log("healingTemP Lenght: " + weaponTemp.Length);
 
         quirkArray = GetAtPath<QuirkObject>("QuirkFolder");
