@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LoadMapButtonScript : MonoBehaviour
 {
+    public Sprite emptyroadSprite;
     public Sprite roadSprite;
     public Sprite wallSprite;
     public void OnClick()
@@ -12,7 +13,7 @@ public class LoadMapButtonScript : MonoBehaviour
         Debug.Log("Mapload started");
         //Thread thread = new Thread(ReadString);
         //thread.Start();
-        ReadFileScript.ReadString(roadSprite, wallSprite);
+        ReadFileScript.ReadString(emptyroadSprite, emptyroadSprite, wallSprite);
         Debug.Log("Mapload finished");
     }
 

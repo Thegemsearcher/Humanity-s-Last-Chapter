@@ -14,7 +14,7 @@ public static class ReadFileScript //Rad 93 & 94 är bortkommenterad
     private static string[] words;
     private static GameObject roadsPrefab;
     private static GameObject wallsPrefab;
-    public static void ReadString(Sprite roadSprite, Sprite wallSprite)
+    public static void ReadString(Sprite emptyroadSprite, Sprite roadSprite, Sprite wallSprite)
     {
         mapID = 10;
         mapPath = "MapFiles/pcgmap" + mapID + ".txt";
@@ -23,7 +23,7 @@ public static class ReadFileScript //Rad 93 & 94 är bortkommenterad
         words = sr.ReadToEnd().Split(' ', '\n');
         sr.Close();
         PreparePrefabs();
-        MapLoader(roadSprite, wallSprite);
+        MapLoader(emptyroadSprite, roadSprite, wallSprite);
     }
 
     private static void PreparePrefabs()
@@ -37,7 +37,7 @@ public static class ReadFileScript //Rad 93 & 94 är bortkommenterad
     }
 
 
-    public static void MapLoader(Sprite roadSprite, Sprite wallSprite)
+    public static void MapLoader(Sprite emptyroadSprite, Sprite roadSprite, Sprite wallSprite)
     {
         for (int i = 0; i < words.Length; i++)
         {
@@ -51,7 +51,14 @@ public static class ReadFileScript //Rad 93 & 94 är bortkommenterad
             //}
             //else if (words[i] == "r")
             //{
-            //    NewRoad(Convert.ToSingle(words[i + 1].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 2].Replace(',', '.')) * 2);
+            //    if (words[i + 4] == "h")
+            //        NewRoad(Convert.ToSingle(words[i + 1].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 2].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 3].Replace(',', '.')) * 2);
+            //    else
+            //        NewRoad(Convert.ToSingle(words[i + 1].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 2].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 3].Replace(',', '.')) * 2);
+            //}
+            //else if (words[i] == "j")
+            //{
+            //    NewJunction(Convert.ToSingle(words[i + 1].Replace(',', '.')) * 2, Convert.ToSingle(words[i + 2].Replace(',', '.')) * 2);
             //}
             //Davids dator
             if (words[i] == "b")
@@ -64,11 +71,18 @@ public static class ReadFileScript //Rad 93 & 94 är bortkommenterad
             }
             else if (words[i] == "r")
             {
-                NewRoad(Convert.ToSingle(words[i + 1]) * 2, Convert.ToSingle(words[i + 2]) * 2);
+                if (words[i + 4].Contains("h"))
+                {
+                    NewRoad(Convert.ToSingle(words[i + 1]) * 2, Convert.ToSingle(words[i + 2]) * 2, 1);
+                }
+                else
+                {
+                    NewRoad(Convert.ToSingle(words[i + 1]) * 2, Convert.ToSingle(words[i + 2]) * 2, 2);
+                }
             }
             else if(words[i] == "j")
             {
-                NewRoad(Convert.ToSingle(words[i + 1]) * 2, Convert.ToSingle(words[i + 2]) * 2);
+                NewJunction(Convert.ToSingle(words[i + 1]) * 2, Convert.ToSingle(words[i + 2]) * 2);
             }
         }
 
@@ -85,13 +99,20 @@ public static class ReadFileScript //Rad 93 & 94 är bortkommenterad
         foreach (GameObject road in roadsPrefab.GetComponent<GameObjectList>().GetObjects())
         {
             road.AddComponent<SpriteRenderer>();
-            road.GetComponent<SpriteRenderer>().sprite = roadSprite;
             road.GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Tiled;
             road.GetComponent<SpriteRenderer>().size = new Vector2(2, 2);
+            if (road.GetComponent<RoadScript>().ValuesCount() > 2)
+            {
+                road.GetComponent<SpriteRenderer>().sprite = roadSprite;
+            }
+            else
+            {
+                road.GetComponent<SpriteRenderer>().sprite = emptyroadSprite;
+            }
             road.transform.position = new Vector3(road.GetComponent<RoadScript>().GetValue(0), road.GetComponent<RoadScript>().GetValue(1), 0);
         }
-        //PrefabUtility.SaveAsPrefabAsset(roadsPrefab, savePath + ".roads.prefab");
-        //PrefabUtility.SaveAsPrefabAsset(wallsPrefab, savePath + ".walls.prefab");
+        PrefabUtility.SaveAsPrefabAsset(roadsPrefab, savePath + ".roads.prefab");
+        PrefabUtility.SaveAsPrefabAsset(wallsPrefab, savePath + ".walls.prefab");
     }
 
     private static void NewBuilding(int ID)
@@ -104,7 +125,12 @@ public static class ReadFileScript //Rad 93 & 94 är bortkommenterad
         wallsPrefab.GetComponent<GameObjectList>().Add(posX, posY, width, height);
     }
 
-    private static void NewRoad(float posX, float posY)
+    private static void NewRoad(float posX, float posY, float alignment)
+    {
+        roadsPrefab.GetComponent<GameObjectList>().Add(posX, posY, alignment);
+    }
+
+    private static void NewJunction(float posX, float posY)
     {
         roadsPrefab.GetComponent<GameObjectList>().Add(posX, posY);
     }

@@ -13,4 +13,8 @@ public class RoadScript : MonoBehaviour
     {
         return values[x];
     }
+    public int ValuesCount()
+    {
+        return values.Count;
+    }
 }
