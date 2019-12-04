@@ -6,7 +6,7 @@ using UnityEditor;
 using System.IO;
 using System;
 
-public static class ReadFileScript
+public static class ReadFileScript //Rad 93 & 94 är bortkommenterad
 {
     private static string mapPath;
     private static string savePath;
@@ -90,8 +90,8 @@ public static class ReadFileScript
             road.GetComponent<SpriteRenderer>().size = new Vector2(2, 2);
             road.transform.position = new Vector3(road.GetComponent<RoadScript>().GetValue(0), road.GetComponent<RoadScript>().GetValue(1), 0);
         }
-        PrefabUtility.SaveAsPrefabAsset(roadsPrefab, savePath + ".roads.prefab");
-        PrefabUtility.SaveAsPrefabAsset(wallsPrefab, savePath + ".walls.prefab");
+        //PrefabUtility.SaveAsPrefabAsset(roadsPrefab, savePath + ".roads.prefab");
+        //PrefabUtility.SaveAsPrefabAsset(wallsPrefab, savePath + ".walls.prefab");
     }
 
     private static void NewBuilding(int ID)

@@ -85,7 +85,7 @@ public class DataHolder {
 
     public void BtnDelete() {
         if(File.Exists(path + "save" + activeSave + ".save")) {
-            FileUtil.DeleteFileOrDirectory(path + "save" + activeSave + ".save");
+            File.Delete(path + "save" + activeSave + ".save");
             Debug.Log("Deleted: save" + activeSave);
         } else {
             //Debug.Log("Can't find Save" + activeSave);
