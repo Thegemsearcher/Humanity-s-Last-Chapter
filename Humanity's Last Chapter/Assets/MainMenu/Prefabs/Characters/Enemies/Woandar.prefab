@@ -148,10 +148,10 @@ MonoBehaviour:
   pcs: []
   aggroRange: 6
   atkRange: 0.5
-  dmg: 3
+  dmg: 20
   pcLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 256
   attackTimer: 0
   timeBetweenAttack: 2
   animator: {fileID: 4090975341072565158}

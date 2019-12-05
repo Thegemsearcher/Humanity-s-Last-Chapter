@@ -64,10 +64,10 @@ public class PlayerAttack : MonoBehaviour {
     }
 
     public NodeStates MeleeAttack() {
-        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsEnemy);
-
+        Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(transform.position, attackRange);
         for (int i = 0; i < enemiesToDamage.Length; i++) {
-            enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
+            if (enemiesToDamage[i].CompareTag("Enemy"))
+                enemiesToDamage[i].GetComponent<Enemy>().TakeDamage(damage);
         }
         return NodeStates.success;
     }

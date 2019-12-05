@@ -102,12 +102,15 @@ public class Enemy : MonoBehaviour {
         }
 
         attackTimer = timeBetweenAttack;
-        Collider2D[] pcsToDamage = Physics2D.OverlapCircleAll(transform.position, atkRange, pcLayer);
+        Collider2D[] pcsToDamage = Physics2D.OverlapCircleAll(transform.position, atkRange/*, pcLayer*/);
         bool hitPc = false;
         for (int i = 0; i < pcsToDamage.Length; i++) {
-            animator.SetBool("Attacking", true);
-            hitPc = true;
-            pcsToDamage[i].GetComponent<Stats>().TakeDamage(dmg);
+            if (pcsToDamage[i].CompareTag("Character"))
+            {
+                animator.SetBool("Attacking", true);
+                hitPc = true;
+                pcsToDamage[i].GetComponent<Stats>().TakeDamage(dmg);
+            }
         }
         if (hitPc)
             return NodeStates.success;
