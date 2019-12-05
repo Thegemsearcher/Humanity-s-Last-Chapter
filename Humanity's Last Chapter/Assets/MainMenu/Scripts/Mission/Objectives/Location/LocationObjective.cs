@@ -31,9 +31,10 @@ namespace QuestSystem {
             clearOutTarget = data.clearOutTarget;
             isComlete = false;
             isBonus = data.isBonus;
-            loScript = Location.GetComponent<LocationScript>();
+            
             characters = GameObject.FindGameObjectsWithTag("Character");
 
+            
             GameObject[] Locations = GameObject.FindGameObjectsWithTag("Location");
             foreach (GameObject location in Locations) {
                 if (location.name == data.Location.name) {
@@ -41,15 +42,13 @@ namespace QuestSystem {
                     break;
                 }
             }
-
+            loScript = Location.GetComponent<LocationScript>();
+            
             if (data.spawnLo) {
-                //Debug.Log("Location(1): " + data.locationPos.position);
                 Location.transform.position = data.locationPos.position;
-                //Debug.Log("Location(2): " + Location.transform.position);
             } else {
                 
             }
-
             if (startEvents != null) {
                 StartEvent(startEvents);
             }
@@ -57,7 +56,9 @@ namespace QuestSystem {
 
         public bool CheckProgress() {
             foreach (GameObject character in characters) {
+                //isComlete = loScript.OnTriggerEnter2D(character.GetComponent<BoxCollider2D>());
                 isComlete = Location.GetComponent<LocationScript>().isInRoom;
+                Debug.Log("isColplete: " + isComlete);
                 //Debug.Log("LocationPos: " + loScript.GetComponent<BoxCollider2D>().bounds);
                 //if (loScript.GetComponent<BoxCollider2D>().bounds.Contains(character.transform.position)) {
                 //    Debug.Log("It works now!");
@@ -65,13 +66,16 @@ namespace QuestSystem {
                 //        return true;
                 //    }
                 //}
-            }
-            if (isComlete) {
-                if (endEvents != null) {
+                if (isComlete) {
+                    Debug.Log("yes");
                     Location.GetComponent<LocationScript>().isInRoom = false;
-                    StartEvent(endEvents);
+                    if (endEvents != null) {
+                        StartEvent(endEvents);
+                    }
+                    break;
                 }
             }
+            
             return isComlete;
         }
         private void StartEvent(Object[] eventObj) {

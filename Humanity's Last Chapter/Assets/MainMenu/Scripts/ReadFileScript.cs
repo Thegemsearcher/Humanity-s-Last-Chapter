@@ -111,8 +111,8 @@ public static class ReadFileScript //Rad 93 & 94 är bortkommenterad
             }
             road.transform.position = new Vector3(road.GetComponent<RoadScript>().GetValue(0), road.GetComponent<RoadScript>().GetValue(1), 0);
         }
-        PrefabUtility.SaveAsPrefabAsset(roadsPrefab, savePath + ".roads.prefab");
-        PrefabUtility.SaveAsPrefabAsset(wallsPrefab, savePath + ".walls.prefab");
+        //PrefabUtility.SaveAsPrefabAsset(roadsPrefab, savePath + ".roads.prefab");
+        //PrefabUtility.SaveAsPrefabAsset(wallsPrefab, savePath + ".walls.prefab");
     }
 
     private static void NewBuilding(int ID)
