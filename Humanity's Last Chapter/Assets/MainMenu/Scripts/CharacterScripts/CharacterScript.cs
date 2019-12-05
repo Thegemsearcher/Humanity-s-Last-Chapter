@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CharacterScript : MonoBehaviour {
     public string strName = "";
+    public string title;
     public int id, inventorySize, partyMember;
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
@@ -12,6 +13,7 @@ public class CharacterScript : MonoBehaviour {
     public string[] inventory;
     public bool inHospital, isEnlisted;
     public Faction faction;
+    public RoleObject role;
 
     public enum Faction {
         playerFaction,      //Styrs av karaktären och kommer in i hubben

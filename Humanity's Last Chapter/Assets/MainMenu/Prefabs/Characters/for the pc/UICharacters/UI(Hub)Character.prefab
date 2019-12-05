@@ -562,6 +562,7 @@ GameObject:
   - component: {fileID: 153294536600894748}
   - component: {fileID: 1124000639610959738}
   - component: {fileID: 1453262448103118604}
+  - component: {fileID: 3390843313862419491}
   m_Layer: 5
   m_Name: UI(Hub)Character
   m_TagString: Character
@@ -640,6 +641,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeadGear: {fileID: 3120959378102888311}
   Cloth: {fileID: 9074519387624161996}
+  Background: {fileID: 0}
+  defultPortrait: {fileID: 0}
 --- !u!114 &803051288016177569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -653,6 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strName: 
+  title: 
   id: 0
   inventorySize: 0
   partyMember: 0
@@ -665,6 +669,7 @@ MonoBehaviour:
   inHospital: 0
   isEnlisted: 0
   faction: 0
+  role: {fileID: 0}
 --- !u!114 &153294536600894748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -728,6 +733,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Stats: {fileID: 7554690017283453362}
+--- !u!114 &3390843313862419491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3871096854192054890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5681981a6eaa44aa55cedda8c2a69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3955811426709833112
 GameObject:
   m_ObjectHideFlags: 0

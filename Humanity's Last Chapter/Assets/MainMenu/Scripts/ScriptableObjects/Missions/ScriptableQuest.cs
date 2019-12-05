@@ -9,7 +9,8 @@ public class ScriptableQuest : ScriptableObject {
 
     public string missionName = "Mission name Here";    //Name
     public string description;                          //Description
-    public int missionNummer;
+    public int missionNummer;                           //Vilken missionMap som det ska spela på
+    public List<RoleObject> requiredRoles;              //Vilka roles som måste vara med
     public List<ScriptableQuest> nextMissionsComplete;  //Next mission if the mission was sucessfull
     public List<ScriptableQuest> nextMissionsFail;      //Next mission if the mission was failed
     public int goldReward, rsReward, supplies;          //Reward

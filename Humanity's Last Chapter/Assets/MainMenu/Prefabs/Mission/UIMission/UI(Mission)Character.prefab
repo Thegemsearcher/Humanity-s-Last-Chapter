@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 5856801309094642168}
   - component: {fileID: -2696632208542646354}
   - component: {fileID: 4470988522731441354}
+  - component: {fileID: -4739703024588617871}
   m_Layer: 5
   m_Name: UI(Mission)Character
   m_TagString: Untagged
@@ -199,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strName: 
+  title: 
   id: 0
   inventorySize: 0
   partyMember: 0
@@ -211,6 +213,7 @@ MonoBehaviour:
   inHospital: 0
   isEnlisted: 0
   faction: 4
+  role: {fileID: 0}
 --- !u!114 &5856801309094642175
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +327,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeadGear: {fileID: 4585908983350226278}
   Cloth: {fileID: 5856801309379680187}
+  Background: {fileID: 0}
+  defultPortrait: {fileID: 0}
+--- !u!114 &-4739703024588617871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5856801309094642161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5681981a6eaa44aa55cedda8c2a69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5856801309379680187
 GameObject:
   m_ObjectHideFlags: 0

@@ -116,6 +116,8 @@
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\Recruit.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\stats\MakeQuirk.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\stats\QuirkScript.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\stats\RoleObject.cs" />
+    <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\stats\RoleScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\stats\Stats.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\UIBoiScript.cs" />
     <Compile Include="Assets\MainMenu\Scripts\CharacterScripts\UICharacterRole.cs" />

@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static ClothScript;
 
 public class PortraitScript : MonoBehaviour {
 
-    public GameObject HeadGear, Cloth;
+    public GameObject HeadGear, Cloth, Background;
     private CharacterScript characterScript;
     private Stats stats;
     private ClothScript headScript, clothScript;
+    public Sprite defultPortrait;
 
     private void Start() {
         characterScript = GetComponent<CharacterScript>();
@@ -18,6 +20,9 @@ public class PortraitScript : MonoBehaviour {
 
         headScript.GetHolder(characterScript, stats, characterScript.headId);
         clothScript.GetHolder(characterScript, stats, characterScript.clothId);
+    }
+    public void NoRole() {
+        Background.GetComponent<Image>().sprite = defultPortrait;
     }
 
     public void UpdatePortrait() {
