@@ -10,10 +10,11 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
     private GameObject holder;
     public GameObject character, CampName, CreationWindow, WindowParent;
     public List<ScriptableQuest> startQuests;
+    public List<ScriptableQuest> saleGoodsQuests;
     private Vector2 characterPos;
     private string path;
     private int randomQuirk;
-
+    private bool hasGoodsQuest;
 
     private Transform transParent;
 
@@ -45,6 +46,25 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
             WorldScript.world.isNewGame = false;
         }
         CampName.GetComponent<CommunityTitle>().title.text = WorldScript.world.saveName;
+
+        if (WorldScript.world.goods > 0) {
+            hasGoodsQuest = false;
+            for (int i = 0; i <= saleGoodsQuests.Count; i++) {
+                foreach (ScriptableQuest quest in WorldScript.world.avalibleQuests) {
+                    if (saleGoodsQuests[i].name == quest.name) { //Det finns en saleMission bland avalibleMission
+                        hasGoodsQuest = true;
+                        break;
+                    }
+                }
+                if (hasGoodsQuest) {
+                    break;
+                }
+            } if (!hasGoodsQuest) {
+                int rand = Random.Range(0, saleGoodsQuests.Count);
+                WorldScript.world.avalibleQuests.Add(saleGoodsQuests[rand]);
+            }
+            //World
+        }
     }
 
     public void LoadCharacters() { //Ser till att alla karaktärer ritas ut med rätt världen

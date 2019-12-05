@@ -99,13 +99,21 @@ public class QuestObject : MonoBehaviour {
         //txtObjective.text = "";
         //gameObject.SetActive(false);
         isCompleted = true;
-        WorldScript.world.gold += quest.goldReward;
-        WorldScript.world.rs += quest.rsReward;
+        if (quest.isSale) {
+            WorldScript.world.gold += WorldScript.world.goods * 10;
+            WorldScript.world.goods = 0;
+        } else {
+            WorldScript.world.gold += quest.goldReward;
+            WorldScript.world.rs += quest.rsReward;
+            WorldScript.world.supplies += quest.supplies;
+        }
+        
         WorldScript.world.completedQuests.Add(quest);
         WorldScript.world.RemoveAvalible(quest);
 
-        if (nextMissionComplete != null) {
-            foreach (ScriptableQuest quest in nextMissionComplete) {
+        if (quest.nextMissionsComplete != null) {
+            foreach (ScriptableQuest quest in quest.nextMissionsComplete) {
+                Debug.Log("Hmmm");
                 WorldScript.world.avalibleQuests.Add(quest);
             }
         }
@@ -123,16 +131,6 @@ public class QuestObject : MonoBehaviour {
                     break;
             }
         }
-    }
-
-    private void Update() {
-        //timeStamp += Time.deltaTime;
-        //if(timeStamp >= textTimer) {
-        //    txtQuest.text = "";
-            
-        //}
-
-        //CheckObjective();
     }
 
     public bool CheckObjective() {

@@ -7,10 +7,10 @@ public class WorldScript {
 
     public static WorldScript world;
 
-    public int gold, rs, storageSize, shopSize, shopLevel, date;
+    public int gold, rs, storageSize, shopSize, shopLevel, date, supplies, goods;
     public bool isActive, isNewGame; //Den sparningen som startar om man klickar continue
     public string saveName, saveId;
-    private bool isChoosing;
+    private bool isChoosing, hasGoodsQuest;
     private int itemTest;
 
     public string[] storageArr, shopArr;
@@ -146,10 +146,21 @@ public class WorldScript {
         }
     }
 
-    //public void GetQuests(List<ScriptableQuest> avalibleQuests, List<ScriptableQuest> completedQuests, List<ScriptableQuest> failedQuests) {
-    //    this.avalibleQuests = avalibleQuests;
-    //    this.completedQuests = completedQuests;
-    //    this.failedQuests = failedQuests;
-    //}
+    public void GetQuests(List<ScriptableQuest> avalibleQuests, List<ScriptableQuest> completedQuests, List<ScriptableQuest> failedQuests) {
+        this.avalibleQuests = avalibleQuests;
+        this.completedQuests = completedQuests;
+        this.failedQuests = failedQuests;
+    }
 
+    public void RefreshHub() {
+        FillShop();
+
+        if (supplies >= 20) {
+            supplies -= 20;
+            goods += 10;
+        } else {
+            goods += (supplies / 2);
+            supplies = 0;
+        }
+    }
 }

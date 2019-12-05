@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01491bd84ec5fa54baaf881e5f1165b6, type: 3}
   m_Name: we3
   m_EditorClassIdentifier: 
-  WaveInfo: T.ex. fyller missionMap1, wave runt start etc..
-  spawnPosArr: []
-  prefab: {fileID: 0}
+  WaveInfo: Woandar at start zone
+  spawnPosArr:
+  - {fileID: 3939163579847472891, guid: 281051de428ed4344a55c8278818b695, type: 3}
+  - {fileID: 8441431556315283445, guid: 8b44a6b0ea60b77459aac1960ca5af73, type: 3}
+  - {fileID: 166741446758298731, guid: 153a5681fae120646a30918f9890ac24, type: 3}
+  prefab: {fileID: 4090975341072565159, guid: ecf8ee21bade51a48891cccceee6b009, type: 3}
   isTimerBased: 0
   spawnRate: 0
   waveDuration: 0
-  enemiesAmmount: 0
+  enemiesAmmount: 6

@@ -12,11 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01491bd84ec5fa54baaf881e5f1165b6, type: 3}
   m_Name: we1
   m_EditorClassIdentifier: 
-  WaveInfo: 
+  WaveInfo: Sprinter Wave at drop zone 1
   spawnPosArr:
-  - {fileID: 4080911073647491580, guid: dee388eda8cdeb54f8979569c291b005, type: 3}
-  prefab: {fileID: 0}
-  isTimerBased: 0
-  spawnRate: 0
-  waveDuration: 0
-  enemiesAmmount: 5
+  - {fileID: 6081717972478600145, guid: 8874767a75d49a248a6686b5a28ee617, type: 3}
+  - {fileID: 4959364557625312877, guid: 86c4b77928373814a8bf5a4ba3962b4e, type: 3}
+  - {fileID: 1235070036092473632, guid: 06e9006afd399874f9f229b71275d04b, type: 3}
+  - {fileID: 5978552546341452215, guid: 6d7c9a3ec7c6e1f43aa53713b79c7d21, type: 3}
+  prefab: {fileID: 7354675053654000930, guid: 2982904dbaaa39443b4782a856815cb9, type: 3}
+  isTimerBased: 1
+  spawnRate: 3
+  waveDuration: 20
+  enemiesAmmount: 0

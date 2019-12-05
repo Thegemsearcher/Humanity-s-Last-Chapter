@@ -15,16 +15,15 @@ MonoBehaviour:
   missionName: Remove the threat!
   description: Why the hell did you draw all of them here!? kill them before they
     kill us
-  hint: KILL KILL KILL KILL KILL KILL KILL KILL KILL KILL KILL KILL
-  missionNummer: 0
-  nextMissionsComplete: []
+  missionNummer: 1
+  nextMissionsComplete:
+  - {fileID: 11400000, guid: a7b56ee09fe8b86479c26e562206d339, type: 2}
   nextMissionsFail: []
   goldReward: 600
   rsReward: 0
-  avalible: 0
-  active: 0
+  supplies: 0
   completed: 0
-  bonusObjective: []
+  isSale: 0
   objectives:
   - {fileID: 11400000, guid: 33241a184d5b16141b669fa0401ac83d, type: 2}
   startEvents: []

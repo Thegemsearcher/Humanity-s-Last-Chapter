@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90252cbfb3ca9dd4f81777c952bef8e4, type: 3}
   m_Name: co1
   m_EditorClassIdentifier: 
-  verb: 
-  description: 
+  verb: Kill
+  description: Kill the Woandars
   collectionAmount: 20
   currentAmount: 0
   isComplete: 0
@@ -27,3 +27,5 @@ MonoBehaviour:
   - {fileID: 8095087595878350041, guid: 36ca9508206afca4ba9c47a9c946961a, type: 3}
   - {fileID: 9176002737392371862, guid: e56b7e1b1a3949d4c9a6ac4a4d42900f, type: 3}
   - {fileID: 6472701651959903789, guid: 683eb040de2efaa42ac1407ce5d51c0a, type: 3}
+  startEvents: []
+  endEvents: []

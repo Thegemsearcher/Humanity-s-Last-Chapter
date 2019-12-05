@@ -156,7 +156,6 @@ public class PartyScript : MonoBehaviour {
     }
 
     public void SpawnWeapon(string wpId, Transform parent) {
-        Debug.Log("Yes");
         weaponO = Instantiate(weapon, gameObject.transform.position, Quaternion.identity);
         weaponO.transform.SetParent(parent, false);
         weaponO.transform.localScale = new Vector3(1, 1, 1);

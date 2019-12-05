@@ -8,6 +8,7 @@ namespace QuestSystem {
         public string description = "t.ex. A distress call from the Dinner Room calls for an investigation";
         private string id = "t.ex. lo0";
         private GameObject Location;
+        private GameObject holder;
         private GameObject[] clearOutTarget; //I fall man vill ha en quest som handlar om att rensa rum av fiender
         private GameObject[] characters;
         private bool isComlete;
@@ -41,13 +42,20 @@ namespace QuestSystem {
                 }
             }
 
+            if (data.spawnLo) {
+                //Debug.Log("Location(1): " + data.locationPos.position);
+                Location.transform.position = data.locationPos.position;
+                //Debug.Log("Location(2): " + Location.transform.position);
+            } else {
+                
+            }
+
             if (startEvents != null) {
                 StartEvent(startEvents);
             }
         }
 
         public bool CheckProgress() {
-            
             foreach (GameObject character in characters) {
                 isComlete = Location.GetComponent<LocationScript>().isInRoom;
                 //Debug.Log("LocationPos: " + loScript.GetComponent<BoxCollider2D>().bounds);
@@ -60,6 +68,7 @@ namespace QuestSystem {
             }
             if (isComlete) {
                 if (endEvents != null) {
+                    Location.GetComponent<LocationScript>().isInRoom = false;
                     StartEvent(endEvents);
                 }
             }

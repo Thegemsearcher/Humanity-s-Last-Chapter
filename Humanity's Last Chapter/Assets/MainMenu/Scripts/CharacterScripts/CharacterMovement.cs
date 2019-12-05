@@ -44,7 +44,6 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         pcs = GameObject.FindGameObjectsWithTag("Character").ToList<GameObject>();
-        Debug.Log("pcs: " + pcs.Count);
         if (selectedCharacters == null)
             selectedCharacters = pcs;
         AddSelectedCharacters();

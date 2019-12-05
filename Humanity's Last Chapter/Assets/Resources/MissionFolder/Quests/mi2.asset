@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Secure House
   description: "The man has an id\xE9 where to keep civilans safe"
-  hint: Talk to the man
   missionNummer: 1
-  nextMissionsComplete: []
+  nextMissionsComplete:
+  - {fileID: 11400000, guid: f88180ec28d83e6489ffab534bfe1258, type: 2}
+  - {fileID: 11400000, guid: 559e3acad5e6d2b4da8e607970383fad, type: 2}
   nextMissionsFail: []
   goldReward: 400
   rsReward: 0
-  avalible: 0
-  active: 0
+  supplies: 0
   completed: 0
-  bonusObjective: []
+  isSale: 0
   objectives:
   - {fileID: 11400000, guid: 73bde22e109e34842b81e27d6c891af2, type: 2}
   - {fileID: 11400000, guid: 73bde22e109e34842b81e27d6c891af2, type: 2}

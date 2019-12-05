@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01491bd84ec5fa54baaf881e5f1165b6, type: 3}
   m_Name: we2
   m_EditorClassIdentifier: 
-  WaveInfo: T.ex. fyller missionMap1, wave runt start etc..
-  spawnPosArr: []
-  prefab: {fileID: 0}
+  WaveInfo: Spitters at drop zone 1
+  spawnPosArr:
+  - {fileID: 4959364557625312877, guid: 86c4b77928373814a8bf5a4ba3962b4e, type: 3}
+  - {fileID: 5978552546341452215, guid: 6d7c9a3ec7c6e1f43aa53713b79c7d21, type: 3}
+  prefab: {fileID: 7146514785514354983, guid: 1bedd59abca17f64cad4cb6f2343ae94, type: 3}
   isTimerBased: 0
   spawnRate: 0
   waveDuration: 0
-  enemiesAmmount: 0
+  enemiesAmmount: 2

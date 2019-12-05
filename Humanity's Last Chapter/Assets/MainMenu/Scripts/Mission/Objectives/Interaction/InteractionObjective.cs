@@ -59,6 +59,7 @@ namespace QuestSystem {
                     StartEvent(endEvents);
                 }
             }
+            holder.GetComponent<InteractiveScript>().isInteracted = false;
             return isComplete;
         }
         private void StartEvent(Object[] eventObj) {

@@ -14,16 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: make sure it's safe
   description: good job out there now all you have to do is scout the area
-  hint: check corners of town
-  missionNummer: 0
+  missionNummer: 1
   nextMissionsComplete: []
   nextMissionsFail: []
   goldReward: 0
   rsReward: 0
-  avalible: 0
-  active: 0
+  supplies: 0
   completed: 0
-  bonusObjective: []
+  isSale: 0
   objectives:
   - {fileID: 11400000, guid: 762289ad79f210f41b74f25dedb80fa7, type: 2}
   - {fileID: 11400000, guid: 64c91ca1452453647883867956d5734b, type: 2}
