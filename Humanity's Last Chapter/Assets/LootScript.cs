@@ -20,7 +20,7 @@ public class LootScript : MonoBehaviour
 
     private void Start()
     {
-        range = 0.3f;
+        range = 99.3f;
     }
 
     private void OnMouseEnter()

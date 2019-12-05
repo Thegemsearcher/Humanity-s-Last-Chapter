@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour
 {
-    public static AudioClip pistolSound, shotgunSound, ARSound, rifleSound, deathSound, pickupSound, clickSound, BGM;
-    private static AudioSource audioSrc;
+    public static AudioClip pistolSound, shotgunSound, ARSound, rifleSound, deathSound, pickupSound, clickSound;
+    private static AudioSource pistolSrc, shotgunSrc, ARSrc, rifleSrc, deathSrc, pickupSrc, clickSrc;
 
     // Start is called before the first frame update
     void Start()
@@ -17,42 +17,51 @@ public class SoundManagerScript : MonoBehaviour
         deathSound = Resources.Load<AudioClip>("fart");
         pickupSound = Resources.Load<AudioClip>("pickup");
         clickSound = Resources.Load<AudioClip>("click");
-        BGM = Resources.Load<AudioClip>("HLCBGM");
 
-        audioSrc = GetComponent<AudioSource>();
+        pistolSrc = GetComponent<AudioSource>();
+        shotgunSrc = GetComponent<AudioSource>();
+        ARSrc = GetComponent<AudioSource>();
+        rifleSrc = GetComponent<AudioSource>();
+        deathSrc = GetComponent<AudioSource>();
+        pickupSrc = GetComponent<AudioSource>();
+        clickSrc = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public static void PlaySound(string clip)
     {
-        switch (clip)
+        if (clip == "pistol")
         {
-            case "pistol":
-                audioSrc.PlayOneShot(pistolSound);
-                break;
-            case "shotgun":
-                audioSrc.PlayOneShot(shotgunSound);
-                break;
-            case "AR":
-                audioSrc.PlayOneShot(ARSound);
-                break;
-            case "rifle":
-                audioSrc.PlayOneShot(rifleSound);
-                break;
-            case "death":
-                audioSrc.PlayOneShot(deathSound);
-                break;
-            case "pickup":
-                audioSrc.PlayOneShot(pickupSound);
-                break;
-            case "click":
-                audioSrc.PlayOneShot(clickSound);
-                break;
+            pistolSrc.PlayOneShot(pistolSound);
+        }
+        if (clip == "shotgun")
+        {
+            shotgunSrc.PlayOneShot(shotgunSound);
+        }
+        if (clip == "AR")
+        {
+            ARSrc.PlayOneShot(ARSound);
+        }
+        if (clip == "rifle")
+        {
+            rifleSrc.PlayOneShot(rifleSound);
+        }
+        if (clip == "death")
+        {
+            deathSrc.PlayOneShot(deathSound);
+        }
+        if (clip == "pickup")
+        {
+            pickupSrc.PlayOneShot(pickupSound);
+        }
+        if (clip == "click")
+        {
+            clickSrc.PlayOneShot(clickSound);
         }
     }
 }
