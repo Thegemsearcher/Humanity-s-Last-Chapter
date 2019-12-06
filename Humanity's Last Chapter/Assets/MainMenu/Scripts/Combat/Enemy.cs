@@ -92,8 +92,13 @@ public class Enemy : MonoBehaviour {
                 }
             }
         }
-        GetComponent<AIDestinationSetter>().SetPosTarget(closestPc.transform.position);
-        return NodeStates.success;
+        Debug.Log("Distance: " + Vector2.Distance(transform.position, closestPc.transform.position));
+        if (Vector2.Distance(transform.position, closestPc.transform.position) >= 1f)
+        {
+            GetComponent<AIDestinationSetter>().SetPosTarget(closestPc.transform.position);
+            return NodeStates.success;
+        }
+        return NodeStates.fail;
     }
 
     public NodeStates InMeleeRange() {
