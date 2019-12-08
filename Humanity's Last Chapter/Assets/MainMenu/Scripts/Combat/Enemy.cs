@@ -94,10 +94,7 @@ public class Enemy : MonoBehaviour {
         }
 
         //calculate direction between origin and target
-        Vector3 difference = closestPc.transform.position - this.transform.position;
-        //calculate rotation
-        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + 270);
+       
 
         if (Vector2.Distance(transform.position, closestPc.transform.position) > 1)
         {
@@ -122,6 +119,10 @@ public class Enemy : MonoBehaviour {
         for (int i = 0; i < pcsToDamage.Length; i++) {
             if (pcsToDamage[i].CompareTag("Character"))
             {
+                Vector3 difference = pcsToDamage[i].transform.position - this.transform.position;
+                //calculate rotation
+                float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+                transform.rotation = Quaternion.Euler(0f, 0f, rotZ + 270);
                 Debug.Log("attackerar");
                 animator.SetTrigger("Attack");
                 hitPc = true;

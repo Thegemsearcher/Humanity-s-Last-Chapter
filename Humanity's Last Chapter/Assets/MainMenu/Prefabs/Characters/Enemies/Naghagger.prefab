@@ -143,7 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a426da5dc25f854ba7e362468ca9f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 2000
   speed: 1.5
   id: 
   inventorySize: 1

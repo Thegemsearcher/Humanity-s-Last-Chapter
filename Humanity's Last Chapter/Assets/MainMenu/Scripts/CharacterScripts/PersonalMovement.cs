@@ -34,11 +34,7 @@ public class PersonalMovement : MonoBehaviour
     void Update()
     {
         //GetComponentInChildren<Animator>().SetBool("flashAAA", false);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            ByFormation = true;
-            GetComponent<SpriteRenderer>().color = Color.white;
-        }
+       
         if (debugger && positionBy)
             Debug.DrawLine(manager.transform.position, positionBy.point);
         BT.Start();
