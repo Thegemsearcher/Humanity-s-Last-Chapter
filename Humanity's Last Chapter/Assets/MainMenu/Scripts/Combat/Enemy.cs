@@ -15,11 +15,11 @@ public class Enemy : MonoBehaviour {
 
     public GameObject[] pcs;
     public float aggroRange = 4f;
-    public float atkRange = 0.75f;
+    public float atkRange = 1f;
     public int dmg = 1;
     public LayerMask pcLayer;
 
-    public float attackTimer;
+    public float attackTimer = 0;
     public float timeBetweenAttack;
 
     public Animator animator;
@@ -92,17 +92,27 @@ public class Enemy : MonoBehaviour {
                 }
             }
         }
-        Debug.Log("Distance: " + Vector2.Distance(transform.position, closestPc.transform.position));
-        if (Vector2.Distance(transform.position, closestPc.transform.position) >= 1f)
+
+        //calculate direction between origin and target
+        Vector3 difference = closestPc.transform.position - this.transform.position;
+        //calculate rotation
+        float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, rotZ + 270);
+
+        if (Vector2.Distance(transform.position, closestPc.transform.position) > 1)
         {
-            GetComponent<AIDestinationSetter>().SetPosTarget(closestPc.transform.position);
+            Vector3 d = transform.position - closestPc.transform.position;
+            d.Normalize();
+            GetComponent<AIDestinationSetter>().SetPosTarget(closestPc.transform.position + d);
             return NodeStates.success;
         }
+        //Debug.Log("Distance: " + Vector2.Distance(transform.position, closestPc.transform.position));
         return NodeStates.fail;
     }
 
     public NodeStates InMeleeRange() {
         if (attackTimer > 0) {
+            //animator.SetBool("Attacking", false);
             return NodeStates.fail;
         }
 
@@ -112,7 +122,8 @@ public class Enemy : MonoBehaviour {
         for (int i = 0; i < pcsToDamage.Length; i++) {
             if (pcsToDamage[i].CompareTag("Character"))
             {
-                animator.SetBool("Attacking", true);
+                Debug.Log("attackerar");
+                animator.SetTrigger("Attack");
                 hitPc = true;
                 pcsToDamage[i].GetComponent<Stats>().TakeDamage(dmg);
             }
@@ -120,7 +131,7 @@ public class Enemy : MonoBehaviour {
         if (hitPc)
             return NodeStates.success;
 
-        animator.SetBool("Attacking", false);
+        
         return NodeStates.fail;
     }
     void MovementForTest() {

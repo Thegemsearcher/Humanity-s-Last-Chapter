@@ -64,9 +64,11 @@ public class BehaviourTree : MonoBehaviour
         List<Node> nodes = new List<Node>();
 
         #region Movement
+        LeafNode inAggroRangeMovement = new LeafNode(GetComponent<Enemy>().InAggroRange);
         LeafNode closeToWaypoint = new LeafNode(GetComponent<WanderingEnemy>().CloseToWaypoint);
         LeafNode nextWaypoint = new LeafNode(GetComponent<WanderingEnemy>().NextWaypoint);
         List<Node> forWanderSequence = new List<Node>();
+        forWanderSequence.Add(new Inverter(inAggroRangeMovement));
         forWanderSequence.Add(closeToWaypoint);
         forWanderSequence.Add(nextWaypoint);
         Sequence wanderSequence = new Sequence(forWanderSequence);
