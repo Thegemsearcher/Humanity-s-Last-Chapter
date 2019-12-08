@@ -67,12 +67,12 @@ public class CharacterMovement : MonoBehaviour
     void InputRotation()
     {
         mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetKeyDown(KeyCode.Mouse1))
+        if (Input.GetKeyDown(KeyCode.Mouse1) && !Input.GetKey(KeyCode.LeftAlt))
         {
             rotStart = mousePosition;
             GetComponent<LineRenderer>().enabled = true;
         }
-        if (Input.GetKey(KeyCode.Mouse1))
+        if (Input.GetKey(KeyCode.Mouse1) && !Input.GetKey(KeyCode.LeftAlt))
         {
             rotDirection = mousePosition;
             Vector3[] v = new Vector3[2];
@@ -84,7 +84,7 @@ public class CharacterMovement : MonoBehaviour
             
             //Debug.Log(v + "" + rotStart +""+ rotDirection);
         }
-        if (Input.GetKeyUp(KeyCode.Mouse1))
+        if (Input.GetKeyUp(KeyCode.Mouse1) && !Input.GetKey(KeyCode.LeftAlt))
         {
             GetComponent<LineRenderer>().enabled = false;
             RotateFormation();
@@ -238,7 +238,7 @@ public class CharacterMovement : MonoBehaviour
         //}
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        if (Input.GetKeyDown(KeyCode.Mouse1)/*&& !Input.GetKey(KeyCode.LeftShift)*/ && posForFormation)
+        if (Input.GetKeyDown(KeyCode.Mouse1)/*&& !Input.GetKey(KeyCode.LeftShift)*/ && !Input.GetKey(KeyCode.LeftAlt) && posForFormation)
         {
             waypoints.Clear();
             
@@ -247,7 +247,7 @@ public class CharacterMovement : MonoBehaviour
             
 
             //RotateFormation(mousePosition);
-        }else if (!posForFormation && Input.GetKeyDown(KeyCode.Mouse1))
+        }else if (!posForFormation && Input.GetKeyDown(KeyCode.Mouse1) && !Input.GetKey(KeyCode.LeftAlt))
         {
             foreach (GameObject go in selectedCharacters)
             {

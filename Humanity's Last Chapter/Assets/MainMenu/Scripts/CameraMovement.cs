@@ -10,6 +10,7 @@ public class CameraMovement : MonoBehaviour
     private float zoom = 5;
     public bool edgeScrollEnabled = true;
     private float zoomSpeed = 2f;
+    private Vector3 previousPosition;
 
     private Camera myCam;
     // Start is called before the first frame update
@@ -23,6 +24,16 @@ public class CameraMovement : MonoBehaviour
     {
         ScrollZoom();
         EdgeScroll();
+        if (Input.GetMouseButton(1) && Input.GetKey(KeyCode.LeftAlt))
+        {
+            if (Input.GetMouseButtonDown(1))
+            {
+                previousPosition = Input.mousePosition;
+            }
+            Vector3 distance = Input.mousePosition - previousPosition;
+            transform.position -= distance * 0.1f;
+            previousPosition = Input.mousePosition;
+        }
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             transform.Translate(new Vector3(speed * Time.deltaTime, 0, 0));
