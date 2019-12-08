@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strName: 
+  title: 
   id: 0
   inventorySize: 0
   partyMember: 0
@@ -121,6 +122,7 @@ MonoBehaviour:
   inHospital: 0
   isEnlisted: 0
   faction: 2
+  role: {fileID: 0}
 --- !u!222 &4238669593420774116
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -141,14 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a426da5dc25f854ba7e362468ca9f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
+  health: 2000
   speed: 1.5
   id: 
   inventorySize: 1
   pcs: []
   aggroRange: 20
-  atkRange: 0.5
-  dmg: 10
+  atkRange: 1.1
+  dmg: 50
   pcLayer:
     serializedVersion: 2
     m_Bits: 1024

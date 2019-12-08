@@ -43,6 +43,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         pcs = GameObject.FindGameObjectsWithTag("Character").ToList<GameObject>();
         if (selectedCharacters == null)
             selectedCharacters = pcs;
@@ -52,6 +53,15 @@ public class CharacterMovement : MonoBehaviour
         InputMovement();
         //Movement();
         InputRotation();
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach (GameObject go in pcs)
+            {
+                go.GetComponent<PersonalMovement>().ByFormation = true;
+                go.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+            selectedCharacters = pcs;
+        }
     }
 
     void InputRotation()
