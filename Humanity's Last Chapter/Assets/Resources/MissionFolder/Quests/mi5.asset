@@ -15,7 +15,9 @@ MonoBehaviour:
   missionName: make sure it's safe
   description: good job out there now all you have to do is scout the area
   missionNummer: 1
-  nextMissionsComplete: []
+  requiredRoles: []
+  nextMissionsComplete:
+  - {fileID: 11400000, guid: 559e3acad5e6d2b4da8e607970383fad, type: 2}
   nextMissionsFail: []
   goldReward: 0
   rsReward: 0

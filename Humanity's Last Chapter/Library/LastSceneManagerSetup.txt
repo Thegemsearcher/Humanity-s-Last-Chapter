@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/MainMenu/Scenes/MissionMap1.unity
+- path: Assets/MainMenu/Scenes/MissionMap2.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

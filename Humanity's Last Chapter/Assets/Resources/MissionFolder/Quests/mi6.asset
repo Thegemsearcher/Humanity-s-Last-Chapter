@@ -15,8 +15,9 @@ MonoBehaviour:
   missionName: Supply run
   description: Find and collect the supplies and turn it into goods!
   missionNummer: 1
+  requiredRoles: []
   nextMissionsComplete:
-  - {fileID: 11400000}
+  - {fileID: 11400000, guid: 1a551d1919d675b4b9383034655864ef, type: 2}
   nextMissionsFail: []
   goldReward: 0
   rsReward: 0
