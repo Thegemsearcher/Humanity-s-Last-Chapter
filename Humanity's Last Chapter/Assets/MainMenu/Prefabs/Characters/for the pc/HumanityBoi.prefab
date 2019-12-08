@@ -118,6 +118,7 @@ GameObject:
   - component: {fileID: 7120935731847993643}
   - component: {fileID: 5230496633669514308}
   - component: {fileID: 8702118172551665094}
+  - component: {fileID: 8901323618530212322}
   m_Layer: 8
   m_Name: HumanityBoi
   m_TagString: Character
@@ -204,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   strName: 
+  title: 
   id: 0
   inventorySize: 0
   partyMember: 0
@@ -216,6 +218,7 @@ MonoBehaviour:
   inHospital: 0
   isEnlisted: 0
   faction: 0
+  role: {fileID: 0}
 --- !u!114 &3017468683588421300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,6 +492,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootBox: {fileID: 4150398682782584063, guid: 46d1dacedbe07f543a7429112eac4bfb, type: 3}
   inventory: []
+--- !u!114 &8901323618530212322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1464683741798525680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ebbc3074bffa6249823fe87994175b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ViewRadius: 10
+  OriginalTexture: {fileID: 21300000, guid: abcd10f77c392294fb7ff91069bfe66e, type: 3}
+  Mask: {fileID: 0}
 --- !u!1 &6228243941158322820
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +609,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4863826873556499796}
     m_Modifications:
+    - target: {fileID: 5672863385016149924, guid: 5ac762b1ae059f94284fd2d845a2f444,
+        type: 3}
+      propertyPath: m_Name
+      value: muzzleFlash
+      objectReference: {fileID: 0}
     - target: {fileID: 5672863385016149925, guid: 5ac762b1ae059f94284fd2d845a2f444,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -645,11 +668,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 177.173
-      objectReference: {fileID: 0}
-    - target: {fileID: 5672863385016149924, guid: 5ac762b1ae059f94284fd2d845a2f444,
-        type: 3}
-      propertyPath: m_Name
-      value: muzzleFlash
       objectReference: {fileID: 0}
     - target: {fileID: 5672863385016149927, guid: 5ac762b1ae059f94284fd2d845a2f444,
         type: 3}
