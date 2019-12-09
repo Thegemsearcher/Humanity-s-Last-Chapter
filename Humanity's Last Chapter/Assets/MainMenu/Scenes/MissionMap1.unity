@@ -3592,11 +3592,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 15
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 6144
+    m_Bits: 2048
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 0ee4bb0f6acc25848bdd4bd49ad4af68, type: 2}
   m_TargetDisplay: 0
@@ -5465,7 +5465,7 @@ GameObject:
   - component: {fileID: 1275486443}
   - component: {fileID: 1275486442}
   m_Layer: 5
-  m_Name: Image
+  m_Name: MissionmapMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15464,6 +15464,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426506401081956366, guid: 08c209d3dc1276b47b9127e0de6e1613,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426506401081956366, guid: 08c209d3dc1276b47b9127e0de6e1613,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08c209d3dc1276b47b9127e0de6e1613, type: 3}
