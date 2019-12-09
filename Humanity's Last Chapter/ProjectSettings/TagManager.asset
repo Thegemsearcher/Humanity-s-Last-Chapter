@@ -48,6 +48,7 @@ TagManager:
   - NeutralFaction
   - EnemyFaction
   - UI
+  - Mask
   layers:
   - Default
   - TransparentFX
@@ -58,7 +59,7 @@ TagManager:
   - 
   - 
   - PCLayer
-  - 
+  - MiniMap
   - 
   - 
   - 
