@@ -43,7 +43,9 @@ public class PartyScript : MonoBehaviour {
         statsList = WorldScript.world.statsList;
         activeQuest = WorldScript.world.activeQuest;
 
-        partyMember = 1;
+        Debug.Log("Characters(Party): " + characterScriptList.Count);
+
+        partyMember = 0;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
 
         //foreach (QuestObject quest in questList) {
@@ -53,67 +55,69 @@ public class PartyScript : MonoBehaviour {
         GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
 
         foreach (CharacterScript characterScript in characterScriptList) {
-            //if(characterScript.GetComponent<CharacterScript>().isEnlisted) {
-            characterO = Instantiate(character);
-            characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
-            characterO.GetComponent<CharacterScript>().partyMember = partyMember;
-            characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember - 1]);
+            if (characterScript.isEnlisted) {
+                characterO = Instantiate(character);
+                characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+                characterO.GetComponent<CharacterScript>().partyMember = partyMember + 1;
+                characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
 
-            //Annan kod
-            characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember * 0.5f, partyMember * 0.5f);
-            characterO.GetComponent<PersonalMovement>().relativePosNonRotated = new Vector3(partyMember * 0.5f, partyMember * 0.5f);
-            characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
-            gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
-            SpawnWeapon(characterScript.rangedId, characterO.transform);
+                //Annan kod
+                characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember * 0.2f, partyMember * 0.2f);
+                characterO.GetComponent<PersonalMovement>().relativePosNonRotated = new Vector3(partyMember * 0.2f, partyMember * 0.2f);
+                characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
+                gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
+                SpawnWeapon(characterScript.rangedId, characterO.transform);
+
+                #region removeCode?
+                //characterO.transform.SetParent(transParent, false);
+
+                //if (characterO == null)
+                //Debug.Log("wat");
+                //if (characterO.GetComponent<CharacterScript>() != null) {
+                //    if (characterO.GetComponent<CharacterScript>().inventory != null) {
+                //        if (characterO.GetComponent<CharacterScript>().inventory.Length > 0) {
+                //            GameObject go = Instantiate(AbilityToInstantiate);
+                //            go.transform.SetParent(abilitySlots[partyMember].transform, false);
+                //            go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
+
+                //            //Assets.assets.combatTemp
+                //            string id = characterO.GetComponent<CharacterScript>().inventory[0];
+                //            if (id.Contains("ci")) {
+                //                foreach (CombatItemObject item in Assets.assets.combatTemp) {
+                //                    if (id == item.name) {
+                //                        //weapon har all info man vill ha
+                //                    }
+                //                }
+                //            }
+                //            if (id.Contains("hi")) {
+                //                foreach (HealingItemObject item in Assets.assets.healingTemp) {
+                //                    if (id == item.name) {
+                //                        //weapon har all info man vill ha
+                //                    }
+                //                }
+                //            }
+
+                //            abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
+                //        }
 
 
-
-            //characterO.transform.SetParent(transParent, false);
-
-            if (characterO == null)
-                Debug.Log("wat");
-            //if (characterO.GetComponent<CharacterScript>() != null) {
-            //    if (characterO.GetComponent<CharacterScript>().inventory != null) {
-            //        if (characterO.GetComponent<CharacterScript>().inventory.Length > 0) {
-            //            GameObject go = Instantiate(AbilityToInstantiate);
-            //            go.transform.SetParent(abilitySlots[partyMember].transform, false);
-            //            go.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[partyMember];
-
-            //            //Assets.assets.combatTemp
-            //            string id = characterO.GetComponent<CharacterScript>().inventory[0];
-            //            if (id.Contains("ci")) {
-            //                foreach (CombatItemObject item in Assets.assets.combatTemp) {
-            //                    if (id == item.name) {
-            //                        //weapon har all info man vill ha
-            //                    }
-            //                }
-            //            }
-            //            if (id.Contains("hi")) {
-            //                foreach (HealingItemObject item in Assets.assets.healingTemp) {
-            //                    if (id == item.name) {
-            //                        //weapon har all info man vill ha
-            //                    }
-            //                }
-            //            }
-
-            //            abilitySlots[partyMember].GetComponent<AbilitySlotScript>().AttachedAbility = go;
-            //        }
-
-
-                    //CombatItemObject c = new CombatItemObject();
-                    //if (characterO.GetComponent<CharacterScript>().itemID[0].TryGetComponent<CombatItemObject>(out c))
-                    //{
-                    //    go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<CharacterScript>().itemID[0].GetComponent<CombatItemObject>().abilityType;
-                    //} else
-                    //{
-                    //    go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<CharacterScript>().itemID[0].GetComponent<HealingItemObject>().abilityType;
-                    //}
+                //CombatItemObject c = new CombatItemObject();
+                //if (characterO.GetComponent<CharacterScript>().itemID[0].TryGetComponent<CombatItemObject>(out c))
+                //{
+                //    go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<CharacterScript>().itemID[0].GetComponent<CombatItemObject>().abilityType;
+                //} else
+                //{
+                //    go.GetComponent<AbilityScript>().abilityType = characterO.GetComponent<CharacterScript>().itemID[0].GetComponent<HealingItemObject>().abilityType;
+                //}
 
                 //}
-            //}
-            partyMember++;
-            //}
+                //}
+                #endregion
 
+                WorldScript.world.characterList.Remove(characterScript);
+                WorldScript.world.statsList.Remove(statsList[partyMember]);
+                partyMember++;
+            }
         }
         characterScriptList.Clear(); //Rensar listan
         transform.position = new Vector3(3, 3, 0);

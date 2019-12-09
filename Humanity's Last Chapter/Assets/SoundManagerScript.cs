@@ -31,67 +31,67 @@ public class SoundManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            pistolSrc.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            shotgunSrc.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            ARSrc.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            rifleSrc.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            deathSrc.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            pickupSrc.Play();
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            clickSrc.Play();
-        }
+        //For sound testing
+
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    pistolSrc.Play();
+        //}
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    shotgunSrc.Play();
+        //}
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    ARSrc.Play();
+        //}
+        //if (Input.GetKeyDown(KeyCode.U))
+        //{
+        //    rifleSrc.Play();
+        //}
+        //if (Input.GetKeyDown(KeyCode.I))
+        //{
+        //    deathSrc.Play();
+        //}
+        //if (Input.GetKeyDown(KeyCode.O))
+        //{
+        //    pickupSrc.Play();
+        //}
+        //if (Input.GetKeyDown(KeyCode.P))
+        //{
+        //    clickSrc.Play();
+        //}
     }
 
     public static void PlaySound(string clip)
     {
-        //For sound testing
-
-        //if (clip == "pistol")
-        //{
-        //    pistolSrc.Play();
-        //}
-        //if (clip == "shotgun")
-        //{
-        //    shotgunSrc.Play();
-        //}
-        //if (clip == "AR")
-        //{
-        //    ARSrc.Play();
-        //}
-        //if (clip == "rifle")
-        //{
-        //    rifleSrc.Play();
-        //}
-        //if (clip == "death")
-        //{
-        //    deathSrc.Play();
-        //}
-        //if (clip == "pickup")
-        //{
-        //    pickupSrc.Play();
-        //}
-        //if (clip == "click")
-        //{
-        //    clickSrc.Play();
-        //}
+        if (clip == "pistol")
+        {
+            pistolSrc.Play();
+        }
+        if (clip == "shotgun")
+        {
+            shotgunSrc.Play();
+        }
+        if (clip == "AR")
+        {
+            ARSrc.Play();
+        }
+        if (clip == "rifle")
+        {
+            rifleSrc.Play();
+        }
+        if (clip == "death")
+        {
+            deathSrc.Play();
+        }
+        if (clip == "pickup")
+        {
+            pickupSrc.Play();
+        }
+        if (clip == "click")
+        {
+            clickSrc.Play();
+        }
     }
 }

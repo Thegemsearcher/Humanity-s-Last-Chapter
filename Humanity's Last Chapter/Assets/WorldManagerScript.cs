@@ -17,7 +17,7 @@ public class WorldManagerScript : MonoBehaviour {
         }
 
         if (Input.GetKeyDown(KeyCode.F5)) {
-            WorldScript.world.Save(true);
+            WorldScript.world.SaveHub(true);
         }
     }
 }

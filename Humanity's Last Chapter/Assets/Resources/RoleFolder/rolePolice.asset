@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 160d6ec47a9b0e0498fd3199089cd90c, type: 3}
   m_Name: rolePolice
   m_EditorClassIdentifier: 
-  roleCategory: 0
+  roleCategory: 2
   portraitBackground: {fileID: 0}
   roleName: Police
   title: 
   roleRank: 3
-  maxHp: 5
+  maxHp: 0
   str: 0
   def: 0
   Int: 5
