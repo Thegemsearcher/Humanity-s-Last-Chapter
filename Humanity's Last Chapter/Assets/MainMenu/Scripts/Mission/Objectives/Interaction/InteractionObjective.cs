@@ -19,6 +19,10 @@ namespace QuestSystem {
         private Object[] startEvents;
         private Object[] endEvents;
 
+        public Transform SpawnPos()
+        {
+            return spawnPos;
+        }
         public void GetData(InteractObject ioQuest, WaveEvent waveEvent) {
             this.waveEvent = waveEvent;
             description = ioQuest.description;
