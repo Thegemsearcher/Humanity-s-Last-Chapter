@@ -19,7 +19,7 @@ public class LocationScript : MonoBehaviour {
         //txtLocation.text = location;
         //return true;
         isInRoom = true;
-        Debug.Log("Location name: " + gameObject.name);
+        //Debug.Log("Location name: " + gameObject.name);
         //Enter room
         //If boss room, boos music?
     }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour {
 
     public void GoToHub() {
+        Debug.Log("Characters(SceneSave): " + WorldScript.world.characterList.Count);
         WorldScript.world.date++;
         WorldScript.world.activeQuest = null;
         WorldScript.world.SaveMission(true);

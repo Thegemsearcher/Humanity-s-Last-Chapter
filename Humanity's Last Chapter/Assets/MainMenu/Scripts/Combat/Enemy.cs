@@ -123,7 +123,7 @@ public class Enemy : MonoBehaviour {
                 //calculate rotation
                 float rotZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
                 transform.rotation = Quaternion.Euler(0f, 0f, rotZ + 270);
-                Debug.Log("attackerar");
+                //Debug.Log("attackerar");
                 animator.SetTrigger("Attack");
                 hitPc = true;
                 pcsToDamage[i].GetComponent<Stats>().TakeDamage(dmg);

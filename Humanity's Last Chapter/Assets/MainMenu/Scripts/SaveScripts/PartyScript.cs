@@ -9,10 +9,10 @@ public class PartyScript : MonoBehaviour {
     public GameObject character, UIHealth, MissionManager;
     private int partyMember;                //Används för att bestämma vilken position karaktären spawnar på
     private UIHealthBoi uiHealth;
-    private List<CharacterScript> characterScriptList;
+    private List<CharacterScript> characterScriptList, toRemoveC;
     //private List<QuestObject> questList;
     private ScriptableQuest activeQuest;
-    private List<Stats> statsList;
+    private List<Stats> statsList, toRemoveS;
     //private WorldScript worldScript;
     private Transform transParent;
 
@@ -43,7 +43,7 @@ public class PartyScript : MonoBehaviour {
         statsList = WorldScript.world.statsList;
         activeQuest = WorldScript.world.activeQuest;
 
-        Debug.Log("Characters(Party): " + characterScriptList.Count);
+        //Debug.Log("Characters(Party): " + characterScriptList.Count);
 
         partyMember = 0;
         transParent = GameObject.FindGameObjectWithTag("CharacterManager").transform;
@@ -53,6 +53,8 @@ public class PartyScript : MonoBehaviour {
         //}
 
         GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
+        toRemoveC = new List<CharacterScript>();
+        toRemoveS = new List<Stats>();
 
         foreach (CharacterScript characterScript in characterScriptList) {
             if (characterScript.isEnlisted) {
@@ -114,12 +116,23 @@ public class PartyScript : MonoBehaviour {
                 //}
                 #endregion
 
-                WorldScript.world.characterList.Remove(characterScript);
-                WorldScript.world.statsList.Remove(statsList[partyMember]);
+                toRemoveC.Add(characterScript);
+                toRemoveS.Add(statsList[partyMember]);
+                
                 partyMember++;
             }
         }
-        characterScriptList.Clear(); //Rensar listan
+
+        Debug.Log("Characters(Party): " + WorldScript.world.characterList.Count);
+        for (int i = 0; i < toRemoveC.Count; i++) {
+            WorldScript.world.characterList.Remove(toRemoveC[i]);
+            WorldScript.world.statsList.Remove(toRemoveS[i]);
+        }
+        Debug.Log("Characters(Party) (2): " + WorldScript.world.characterList.Count);
+
+        //characterScriptList.Clear(); //Rensar listan
+
+        Debug.Log("Characters(Party) (3): " + WorldScript.world.characterList.Count);
         transform.position = new Vector3(3, 3, 0);
     }
 
@@ -130,6 +143,7 @@ public class PartyScript : MonoBehaviour {
     //Ska bort sen när vi är klara med att testa saker
     private void TestCharacters() { //Spawnar tre gubbar ifall man inte kommer från huben
 
+        #region toRemove
         //Ability test
         //Debug.Log("skapa en turret ability");
         //GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
@@ -144,6 +158,7 @@ public class PartyScript : MonoBehaviour {
         //go2.GetComponent<AbilityScript>().AttachedSlot = abilitySlots[1];
         //go2.GetComponent<AbilityScript>().abilityType = AbilityScript.AbilityType.grenade;
         //abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
+        #endregion
 
         for (int i = 1; i <= 3; i++) {
             characterO = Instantiate(character);
