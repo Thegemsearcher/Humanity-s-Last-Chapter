@@ -17,17 +17,15 @@ public class UICharacterRole : MonoBehaviour {
         roles = GameObject.FindGameObjectsWithTag("role");
     }
 
-    public void GetData(string characterName, int characterID, int roleID) {
-        this.characterName = characterName;
-        this.characterID = characterID;
-        this.roleID = roleID;
+    public void GetData(CharacterScript characterScript) {
+        this.characterScript = characterScript;
         txtName.text = characterName;
     }
 
     public void Enlist() {
         foreach (GameObject role in roles) {
             if(role.GetComponent<btnAppointScript>().roleId == roleID) {
-                role.GetComponent<btnAppointScript>().GetEnlist(characterName, 0, characterID);
+                role.GetComponent<btnAppointScript>().GetEnlist(characterScript);
 
                 foreach (GameObject character in characters) {
                     characterScript = character.GetComponent<CharacterScript>();

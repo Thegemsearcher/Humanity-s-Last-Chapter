@@ -7,7 +7,7 @@ public class WorldScript {
 
     public static WorldScript world;
 
-    public int gold, rs, storageSize, shopSize, shopLevel, date, supplies, goods;
+    public int gold, rs, storageSize, shopSize, shopLevel, date, supplies, goods, partySize;
     public bool isActive, isNewGame; //Den sparningen som startar om man klickar continue
     public string saveName, saveId;
     private bool isChoosing, hasGoodsQuest;
@@ -18,10 +18,12 @@ public class WorldScript {
     public List<CharacterScript> characterList;
     public List<Stats> statsList;
 
+
     public ScriptableQuest activeQuest;
     public List<ScriptableQuest> avalibleQuests;
     public List<ScriptableQuest> completedQuests;
     public List<ScriptableQuest> failedQuests;
+    public List<RoleObject> activeRoles;
 
     private GameObject[] characterArr;
 
@@ -32,6 +34,7 @@ public class WorldScript {
         avalibleQuests = new List<ScriptableQuest>();
         completedQuests = new List<ScriptableQuest>();
         failedQuests = new List<ScriptableQuest>();
+        activeRoles = new List<RoleObject>();
 
         isNewGame = true;
         storageSize = 64;
@@ -39,6 +42,7 @@ public class WorldScript {
         shopLevel = 1;
         storageArr = new string[storageSize];
         shopArr = new string[shopSize];
+        partySize = 4;
 
         gold = 400;
         isActive = true;
@@ -91,7 +95,6 @@ public class WorldScript {
                     shopArr[i] = "ci" + Random.Range(0, Assets.assets.combatTemp.Length);
                     break;
             }
-            
         }
     }
 
@@ -123,7 +126,7 @@ public class WorldScript {
         //Create Item igen
     }
 
-    public void Save(bool isAuto) {
+    public void SaveHub(bool isAuto) {
         characterList.Clear();
         statsList.Clear();
 
@@ -132,6 +135,19 @@ public class WorldScript {
             if (character.GetComponent<Stats>().hp > 0) {
                 characterList.Add(character.GetComponent<CharacterScript>());
                 statsList.Add(character.GetComponent<Stats>());
+            }
+        }
+        SaveSystem.SaveWorld(this, isAuto);
+    }
+
+    public void SaveMission(bool isAuto) {
+        characterArr = GameObject.FindGameObjectsWithTag("Character");
+        foreach (GameObject character in characterArr) {
+            if (character.GetComponent<CharacterScript>().isEnlisted) {
+                if (character.GetComponent<Stats>().hp > 0) {
+                    characterList.Add(character.GetComponent<CharacterScript>());
+                    statsList.Add(character.GetComponent<Stats>());
+                }
             }
         }
         SaveSystem.SaveWorld(this, isAuto);

@@ -75,10 +75,9 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
         }
     }
 
-    public void GetEnlist(string enlistName, int skill, int characterID) {
-        txtName.text = enlistName;
-        txtSkill.text = skill.ToString();
-        this.characterID = characterID;
+    public void GetEnlist(CharacterScript characterScript) {
+        txtName.text = characterScript.strName;
+        //txtSkill.text = skill.ToString();
         partyView.GetComponent<partySelectorScript>().AppointCharacter(roleId, characterID);
         isAppointed = true;
         ShowBtn();

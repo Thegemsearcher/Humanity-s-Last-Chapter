@@ -46,8 +46,6 @@ public class ClothScript : MonoBehaviour {
         item = FindItem(itemId);
         if(item != null) {
             GetComponent<Image>().sprite = item.portrait;
-        } else {
-            Debug.Log("Error, can't find item: " + itemId);
         }
     }
 

@@ -11,6 +11,7 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
     public GameObject character, CampName, CreationWindow, WindowParent;
     public List<ScriptableQuest> startQuests;
     public List<ScriptableQuest> saleGoodsQuests;
+    public List<RoleObject> startRoles;
     private Vector2 characterPos;
     private string path;
     private int randomQuirk;
@@ -41,6 +42,10 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
             holder.transform.SetParent(WindowParent.transform, false);
             foreach (ScriptableQuest quest in startQuests) {
                 WorldScript.world.avalibleQuests.Add(quest);                //De quests man har satt in i startQuests kommer in som valbara quests
+            }
+
+            foreach (RoleObject role in startRoles) {
+                WorldScript.world.activeRoles.Add(role);
             }
 
             WorldScript.world.isNewGame = false;

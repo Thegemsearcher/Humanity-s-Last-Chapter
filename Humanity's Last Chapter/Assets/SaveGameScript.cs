@@ -39,16 +39,16 @@ public class SaveGameScript : MonoBehaviour { //Markus Wilroth
     public void BtnSave() {
         inSaveName = input.text;
         if (inSaveName == WorldScript.world.saveName) {
-            WorldScript.world.Save(false);
+            WorldScript.world.SaveHub(false);
         } else {
             if (CheckSaves()) { //Finns inget annat save med det namnet
                 WorldScript.world.saveName = inSaveName;
                 //WorldScript.world.saveId = "save" + saveCounter;
-                WorldScript.world.Save(false);
+                WorldScript.world.SaveHub(false);
             } else {
                 WorldScript.world.saveName = inSaveName;
                 WorldScript.world.saveId = "save" + saveCounter;
-                WorldScript.world.Save(false);
+                WorldScript.world.SaveHub(false);
             }
             //WorldScript.world.saveName = inSaveName;
             //WorldScript.world.saveId = "save" + saveCounter;

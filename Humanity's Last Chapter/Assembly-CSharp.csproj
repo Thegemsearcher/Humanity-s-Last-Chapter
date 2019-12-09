@@ -63,6 +63,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ActiveMissionScript.cs" />
+    <Compile Include="Assets\AppointCharacterScript.cs" />
+    <Compile Include="Assets\AppointedRoleScript.cs" />
     <Compile Include="Assets\BringUpStats.cs" />
     <Compile Include="Assets\ChangeNameScript.cs" />
     <Compile Include="Assets\CharacterCreation.cs" />
@@ -233,6 +235,8 @@
     <Compile Include="Assets\PauseMenuScript.cs" />
     <Compile Include="Assets\PortraitScript.cs" />
     <Compile Include="Assets\QuestDescScript.cs" />
+    <Compile Include="Assets\RoleBoxScript.cs" />
+    <Compile Include="Assets\RoleManagerScript.cs" />
     <Compile Include="Assets\SaveBoxScript.cs" />
     <Compile Include="Assets\SaveGameScript.cs" />
     <Compile Include="Assets\SoundManagerScript.cs" />

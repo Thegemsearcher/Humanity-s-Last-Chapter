@@ -24,7 +24,7 @@ public class PauseMenuScript : MonoBehaviour {
     }
 
     public void BtnQuit() {
-        WorldScript.world.Save(true);
+        WorldScript.world.SaveHub(true);
         Application.Quit();
     }
 
