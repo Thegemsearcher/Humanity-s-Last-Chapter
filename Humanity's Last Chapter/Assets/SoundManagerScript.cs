@@ -60,7 +60,7 @@ public class SoundManagerScript : MonoBehaviour
         //if (Input.GetKeyDown(KeyCode.P))
         //{
         //    clickSrc.PlayOneShot(clickSound);
-        }
+        //}
     }
 
     public static void PlaySound(string clip)
