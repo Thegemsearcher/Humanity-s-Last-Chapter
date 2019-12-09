@@ -20,7 +20,10 @@ namespace QuestSystem {
         private Object[] endEvents;
 
         LocationObject data;
-
+        public Transform SpawnPos()
+        {
+            return Location.transform;
+        }
         public void GetData(LocationObject data, WaveEvent waveEvent) {
             this.data = data;
             this.waveEvent = waveEvent;

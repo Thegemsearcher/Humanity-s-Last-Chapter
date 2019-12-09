@@ -38,6 +38,10 @@ namespace QuestSystem {
             SpawnTarget();
             CheckProgress();
         }
+        public Transform[] SpawnPos()
+        {
+            return spawnPos;
+        }
 
         private void SpawnTarget() {
             if (startEvents != null) {

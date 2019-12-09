@@ -26,6 +26,35 @@ public class QuestObject : MonoBehaviour {
 
     }
 
+    public Transform[] GetQuestLocation()
+    {
+        
+        switch (id)
+        {
+            case "c":
+             
+                CollectionObjective col = quest.objectives[questStage] as CollectionObjective;
+                return col.SpawnPos();
+                
+
+            case "l":
+                LocationObjective loc = quest.objectives[questStage] as LocationObjective;
+                Transform[] loco = { loc.SpawnPos() };
+                return loco;
+
+
+            case "i":
+                InteractionObjective ico = quest.objectives[questStage] as InteractionObjective;
+                Transform[] icoco = { ico.SpawnPos() };
+                return icoco;
+
+            case "":
+                return null;
+               
+        }
+        return null;
+    }
+
     public void GetData(ScriptableQuest quest, GameObject MissionManager) {
         this.quest = quest;
         this.MissionManager = MissionManager;
