@@ -129,7 +129,7 @@ public class WorldScript {
     public void SaveHub(bool isAuto) {
         characterList.Clear();
         statsList.Clear();
-
+        Debug.Log("Characters(HubSave): " + characterList.Count);
         characterArr = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject character in characterArr) {
             if (character.GetComponent<Stats>().hp > 0) {
@@ -141,6 +141,7 @@ public class WorldScript {
     }
 
     public void SaveMission(bool isAuto) {
+        Debug.Log("Characters(MissionSave): " + characterList.Count);
         characterArr = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject character in characterArr) {
             if (character.GetComponent<CharacterScript>().isEnlisted) {

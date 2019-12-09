@@ -83,6 +83,7 @@ public class CharacterScript : MonoBehaviour {
     }
 
     public void LoadPlayer(CharacterScript data) {
+        role = data.role;
         strName = data.strName;
         id = data.id;
         rangedId = data.rangedId;

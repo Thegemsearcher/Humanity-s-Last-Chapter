@@ -9,6 +9,7 @@ public class RoleObject : ScriptableObject {
     public Sprite portraitBackground;
     public string roleName = "Commander";
     public string title = "Cmd";
+    public string desc = "Commander, the leader in arms";
     public int roleRank = 1;
 
     public int maxHp = 0;

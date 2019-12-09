@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class SoundManagerScript : MonoBehaviour
 {
-    //public static AudioClip pistolSound, shotgunSound, ARSound, rifleSound, deathSound, pickupSound, clickSound;
+    public static AudioClip pistolSound, shotgunSound, ARSound, rifleSound, deathSound, pickupSound, clickSound;
     private static AudioSource pistolSrc, shotgunSrc, ARSrc, rifleSrc, deathSrc, pickupSrc, clickSrc;
 
     // Start is called before the first frame update
     void Start()
     {
-        //pistolSound = Resources.Load<AudioClip>("pistol");
-        //shotgunSound = Resources.Load<AudioClip>("shotgun");
-        //ARSound = Resources.Load<AudioClip>("AR");
-        //rifleSound = Resources.Load<AudioClip>("rifle");
-        //deathSound = Resources.Load<AudioClip>("fart");
-        //pickupSound = Resources.Load<AudioClip>("pickup");
-        //clickSound = Resources.Load<AudioClip>("click");
+        pistolSound = Resources.Load<AudioClip>("pistol");
+        shotgunSound = Resources.Load<AudioClip>("shotgun");
+        ARSound = Resources.Load<AudioClip>("AR");
+        rifleSound = Resources.Load<AudioClip>("rifle");
+        deathSound = Resources.Load<AudioClip>("fart");
+        pickupSound = Resources.Load<AudioClip>("pickup");
+        clickSound = Resources.Load<AudioClip>("click");
 
         AudioSource[] audios = GetComponents<AudioSource>();
         pistolSrc = audios[0];
@@ -35,31 +35,31 @@ public class SoundManagerScript : MonoBehaviour
 
         //if (Input.GetKeyDown(KeyCode.R))
         //{
-        //    pistolSrc.Play();
+        //    pistolSrc.PlayOneShot(pistolSound);
         //}
         //if (Input.GetKeyDown(KeyCode.T))
         //{
-        //    shotgunSrc.Play();
+        //    shotgunSrc.PlayOneShot(shotgunSound);
         //}
         //if (Input.GetKeyDown(KeyCode.Y))
         //{
-        //    ARSrc.Play();
+        //    ARSrc.PlayOneShot(ARSound);
         //}
         //if (Input.GetKeyDown(KeyCode.U))
         //{
-        //    rifleSrc.Play();
+        //    rifleSrc.PlayOneShot(rifleSound);
         //}
         //if (Input.GetKeyDown(KeyCode.I))
         //{
-        //    deathSrc.Play();
+        //    deathSrc.PlayOneShot(deathSound);
         //}
         //if (Input.GetKeyDown(KeyCode.O))
         //{
-        //    pickupSrc.Play();
+        //    pickupSrc.PlayOneShot(pickupSound);
         //}
         //if (Input.GetKeyDown(KeyCode.P))
         //{
-        //    clickSrc.Play();
+        //    clickSrc.PlayOneShot(clickSound);
         //}
     }
 
@@ -67,31 +67,31 @@ public class SoundManagerScript : MonoBehaviour
     {
         if (clip == "pistol")
         {
-            pistolSrc.Play();
+            pistolSrc.PlayOneShot(pistolSound);
         }
         if (clip == "shotgun")
         {
-            shotgunSrc.Play();
+            shotgunSrc.PlayOneShot(shotgunSound);
         }
         if (clip == "AR")
         {
-            ARSrc.Play();
+            ARSrc.PlayOneShot(ARSound);
         }
         if (clip == "rifle")
         {
-            rifleSrc.Play();
+            rifleSrc.PlayOneShot(rifleSound);
         }
         if (clip == "death")
         {
-            deathSrc.Play();
+            deathSrc.PlayOneShot(deathSound);
         }
         if (clip == "pickup")
         {
-            pickupSrc.Play();
+            pickupSrc.PlayOneShot(pickupSound);
         }
         if (clip == "click")
         {
-            clickSrc.Play();
+            clickSrc.PlayOneShot(clickSound);
         }
     }
 }
