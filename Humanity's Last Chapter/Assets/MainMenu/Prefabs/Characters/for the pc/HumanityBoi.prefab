@@ -505,7 +505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebbc3074bffa6249823fe87994175b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ViewRadius: 30
+  ViewRadius: 200
   OriginalTexture: {fileID: 21300000, guid: abcd10f77c392294fb7ff91069bfe66e, type: 3}
 --- !u!1 &5199158326168283662
 GameObject:
