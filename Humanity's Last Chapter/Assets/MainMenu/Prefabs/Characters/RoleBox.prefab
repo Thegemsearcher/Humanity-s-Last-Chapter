@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 2902274030432805062}
   - component: {fileID: 2902274030432805061}
   - component: {fileID: 2902274030432805060}
+  - component: {fileID: 1961087634597769197}
   m_Layer: 5
   m_Name: Portrait
   m_TagString: Untagged
@@ -328,6 +329,18 @@ MonoBehaviour:
   bloodEffect: {fileID: 0}
   quirkIDList: []
   PCCorpse: {fileID: 0}
+--- !u!114 &1961087634597769197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2902274030432805066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b5681981a6eaa44aa55cedda8c2a69f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2902274030784004794
 GameObject:
   m_ObjectHideFlags: 0

@@ -237,6 +237,7 @@
     <Compile Include="Assets\PortraitScript.cs" />
     <Compile Include="Assets\QuestDescScript.cs" />
     <Compile Include="Assets\RoleBoxScript.cs" />
+    <Compile Include="Assets\RoleDescScript.cs" />
     <Compile Include="Assets\RoleManagerScript.cs" />
     <Compile Include="Assets\SaveBoxScript.cs" />
     <Compile Include="Assets\SaveGameScript.cs" />
