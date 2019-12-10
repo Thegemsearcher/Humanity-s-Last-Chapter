@@ -5,19 +5,21 @@ using UnityEngine;
 public class QuestMarkerScript : MonoBehaviour
 {
     Transform[] position;
-    QuestObject missionpos;
+    GameObject test;
     // Start is called before the first frame update
     void Start()
     {
         //GetComponent<MissionMarker>
-        position = missionpos.GetQuestLocation();
-        transform.position = position[0].position;
+      
+
+        position = GameObject.FindGameObjectWithTag("Marker").GetComponent<QuestObject>().GetQuestLocation();
+       transform.position = position[0].position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        position = missionpos.GetQuestLocation();
+        position = GameObject.FindGameObjectWithTag("Marker").GetComponent<QuestObject>().GetQuestLocation();
         transform.position = position[0].position;
     }
 }
