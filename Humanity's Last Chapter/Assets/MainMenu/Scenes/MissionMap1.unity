@@ -1160,6 +1160,7 @@ GameObject:
   - component: {fileID: 276580201}
   - component: {fileID: 276580203}
   - component: {fileID: 276580202}
+  - component: {fileID: 276580204}
   m_Layer: 5
   m_Name: ImageForCharacters
   m_TagString: FuckingFindThisPieceOfShitPlease
@@ -1222,6 +1223,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 276580200}
   m_CullTransparentMesh: 0
+--- !u!61 &276580204
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 276580200}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -1.2512283, y: -2.2016811}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 92.90578, y: 92.07402}
+  m_EdgeRadius: 0
 --- !u!1 &277188343
 GameObject:
   m_ObjectHideFlags: 0
@@ -48260,6 +48287,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   titel: 
   id: 
+  ID: 
   isCompleted: 0
   questStage: 0
 --- !u!114 &1471797291
@@ -58333,6 +58361,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1076251950}
     m_Modifications:
+    - target: {fileID: 327687627221258207, guid: 219e035fa22578c41a9eb748379049be,
+        type: 3}
+      propertyPath: m_Name
+      value: Locationobjetive (17)
+      objectReference: {fileID: 0}
     - target: {fileID: 4589153207160398579, guid: 219e035fa22578c41a9eb748379049be,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58388,11 +58421,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 327687627221258207, guid: 219e035fa22578c41a9eb748379049be,
-        type: 3}
-      propertyPath: m_Name
-      value: Locationobjetive (17)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 219e035fa22578c41a9eb748379049be, type: 3}
 --- !u!4 &1174436656567103038 stripped
@@ -58408,26 +58436,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 336668641}
     m_Modifications:
-    - target: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
-        type: 3}
-      propertyPath: m_Name
-      value: LoHouse0102
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
-        type: 3}
-      propertyPath: m_TagString
-      value: Location
-      objectReference: {fileID: 0}
-    - target: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7971577642530205801, guid: 0058e21c43193774e9b7e6c5d86e28fc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58481,6 +58489,26 @@ PrefabInstance:
     - target: {fileID: 7971577642530205801, guid: 0058e21c43193774e9b7e6c5d86e28fc,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
+        type: 3}
+      propertyPath: m_Name
+      value: LoHouse0102
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
+        type: 3}
+      propertyPath: m_TagString
+      value: Location
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971577642593276465, guid: 0058e21c43193774e9b7e6c5d86e28fc,
+        type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7971577642593276471, guid: 0058e21c43193774e9b7e6c5d86e28fc,
@@ -58766,6 +58794,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1076251950}
     m_Modifications:
+    - target: {fileID: 8225951622352261559, guid: 9e185a53ce78586448b7cc7aa351313c,
+        type: 3}
+      propertyPath: m_Name
+      value: Locationobjetive (13)
+      objectReference: {fileID: 0}
     - target: {fileID: 5263493849093340315, guid: 9e185a53ce78586448b7cc7aa351313c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58820,11 +58853,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8225951622352261559, guid: 9e185a53ce78586448b7cc7aa351313c,
-        type: 3}
-      propertyPath: m_Name
-      value: Locationobjetive (13)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e185a53ce78586448b7cc7aa351313c, type: 3}
@@ -60997,6 +61025,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1076251950}
     m_Modifications:
+    - target: {fileID: 6632619237922656657, guid: 0094d4a8ddcbea548a731abcb952998d,
+        type: 3}
+      propertyPath: m_Name
+      value: Locationobjetive (11)
+      objectReference: {fileID: 0}
     - target: {fileID: 7433209466029276349, guid: 0094d4a8ddcbea548a731abcb952998d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -61051,11 +61084,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6632619237922656657, guid: 0094d4a8ddcbea548a731abcb952998d,
-        type: 3}
-      propertyPath: m_Name
-      value: Locationobjetive (11)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0094d4a8ddcbea548a731abcb952998d, type: 3}
