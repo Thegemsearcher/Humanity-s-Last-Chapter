@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class clickAndDrag : MonoBehaviour
 {
-    Vector3 mousePos, lastMousePos;
-    bool held = false;
+    Vector3 mousePos, lastMousePos, lastValidMousePos;
+    bool held = false, firstRun = true;
     GameObject[] UIElementList;
+    GameObject parentUI;
     // Start is called before the first frame update
     void Start()
     {
-        
+        parentUI = GameObject.Find("ImageForCharacters");
     }
     private void Awake()
     {
@@ -20,9 +21,14 @@ public class clickAndDrag : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!parentUI.GetComponent<BoxCollider2D>().OverlapPoint(mousePos) && held)
+        {
+            held = false;
+            transform.position = lastValidMousePos;
+            return;
+        }
         lastMousePos = mousePos;
         mousePos = Input.mousePosition;
-
         //när man hoverar över en karaktärs cirkel så blir den gul, när man klickar, håller inne och flyttra musen så följer den efter
         if (gameObject.GetComponent<CircleCollider2D>().OverlapPoint(mousePos) || gameObject.GetComponent<CircleCollider2D>().OverlapPoint(lastMousePos))
         {
@@ -43,6 +49,8 @@ public class clickAndDrag : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0) && held)
             {
                 transform.position = mousePos;
+                if (parentUI.GetComponent<BoxCollider2D>().OverlapPoint(mousePos))
+                    lastValidMousePos = mousePos;
             }
             if (Input.GetKeyUp(KeyCode.Mouse0))
             {
