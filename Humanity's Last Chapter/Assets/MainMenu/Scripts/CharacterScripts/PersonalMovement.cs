@@ -67,8 +67,8 @@ public class PersonalMovement : MonoBehaviour
             GetComponent<AIDestinationSetter>().SetPosTarget(rngPos);
         } else
         {
-            float newX = Random.Range(0.5f, 2);
-            float newY = Random.Range(0.5f, 2);
+            float newX = Random.Range(-1, 1);
+            float newY = Random.Range(-1, 1);
             rngPos = new Vector3(transform.position.x + newX, transform.position.y + newY);
             movingToRngPos = true;
         }
@@ -77,6 +77,16 @@ public class PersonalMovement : MonoBehaviour
             movingToRngPos = false;
         }
         return NodeStates.success;
+    }
+    public NodeStates HasCommander()
+    {
+        //return NodeStates.success;
+        if (manager.GetComponent<CharacterMovement>().hasCommander)
+        {
+            return NodeStates.success;
+        }
+        GetComponent<AIPath>().maxSpeed = 2;
+        return NodeStates.fail;
     }
 
     public void FlushWaypoints()
@@ -91,6 +101,8 @@ public class PersonalMovement : MonoBehaviour
 
     private void Movement()
     {
+        if (movingToRngPos)
+            return;
         moving = true;
         positionBy = Physics2D.Raycast(posNotFormation, relativePos, relativePos.magnitude, buildingLayer);
         if (!ByFormation)

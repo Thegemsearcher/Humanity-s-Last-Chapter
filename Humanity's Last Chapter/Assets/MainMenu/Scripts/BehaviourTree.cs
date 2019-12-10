@@ -20,9 +20,12 @@ public class BehaviourTree : MonoBehaviour
         List<Node> nodes = new List<Node>();
 
         #region Movement without commander
-
-
-
+        LeafNode cmdDead = new LeafNode(GetComponent<PersonalMovement>().HasCommander);
+        LeafNode rngPos = new LeafNode(GetComponent<PersonalMovement>().RngPos);
+        List<Node> listForSel = new List<Node>();
+        listForSel.Add(cmdDead);
+        listForSel.Add(rngPos);
+        Selector moveSel = new Selector(listForSel);
         #endregion
 
         #region combat
@@ -58,8 +61,8 @@ public class BehaviourTree : MonoBehaviour
         Selector forCombat = new Selector(forCombatSelector);
         #endregion
 
+        nodes.Add(moveSel);
         nodes.Add(forCombat);
-
 
         RootNode toReturn = new RootNode(nodes);
         return toReturn;

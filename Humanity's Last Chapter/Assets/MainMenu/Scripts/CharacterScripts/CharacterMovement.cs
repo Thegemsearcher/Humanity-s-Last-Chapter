@@ -24,7 +24,7 @@ public class CharacterMovement : MonoBehaviour
 
     public GameObject toDrawForRotation;
 
-    public bool hasCommander;
+    public bool hasCommander = false;
     //For strategygame select units
     Vector3 startPos = Vector3.zero, endPos = Vector3.zero;
     //För att rita ut rutan som vi selectar
@@ -65,14 +65,7 @@ public class CharacterMovement : MonoBehaviour
             selectedCharacters = pcs;
         }
     }
-    public NodeStates HasCommander()
-    {
-        if (hasCommander)
-        {
-            return NodeStates.success;
-        }
-        return NodeStates.fail;
-    }
+   
 
     void InputRotation()
     {
