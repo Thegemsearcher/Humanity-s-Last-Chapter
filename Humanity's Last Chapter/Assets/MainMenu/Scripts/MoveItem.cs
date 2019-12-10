@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
     private string id;
     private int slotNr, newSlotNr;
 
@@ -14,7 +16,8 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private ItemInfo itemInfo;
     private GameObject[] ItemSlots, WeaponSlots, ClothSlots, InventorySlots;
 
-    void Start() {
+    void Start()
+    {
         //moveParent = GameObject.FindGameObjectWithTag("LoadManager").transform;
         oldParent = transform.parent;
         InventorySlots = GameObject.FindGameObjectsWithTag("InventorySlot");
@@ -28,124 +31,99 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         id = GetComponent<ItemInfo>().id;
     }
 
-    private void Update() {
+    private void Update()
+    {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        if (held) {
+        if (held)
+        {
             gameObject.transform.position = mousePos;
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0))
+            {
                 Place();
             }
-        } else {
-            if (Input.GetMouseButtonDown(0) && GetComponent<Collider2D>().OverlapPoint(mousePos)) {//inside) {
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0) && GetComponent<Collider2D>().OverlapPoint(mousePos)) //inside) {
+            {
                 held = true;
-                //transform.SetParent(moveParent.transform, true);
+                GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
             }
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData) {
-        Debug.Log("true!");
+    public void OnPointerEnter(PointerEventData eventData)
+    {
         inside = true;
     }
 
-    public void OnPointerExit(PointerEventData eventData) {
+    public void OnPointerExit(PointerEventData eventData)
+    {
         inside = false;
     }
 
-    public void Place() {
+    public void Place()
+    {
         held = false;
-        foreach (GameObject itemSlot in ItemSlots) {
-
-            if (itemSlot.GetComponent<ItemSlotScript>().inside) {
-                if (!itemSlot.GetComponent<ItemSlotScript>().isActive) {
-                    itemSlot.GetComponent<ItemSlotScript>().isActive = true;
-                    itemSlot.GetComponent<ItemSlotScript>().GetItem(itemInfo.strName, itemInfo.strDesc, oldParent.GetComponent<ItemSlotScript>().Parent);
-                    slotNr = newSlotNr;
-                    gameObject.transform.SetParent(itemSlot.transform, false);
-                    transform.position = transform.parent.position;
-                    oldParent = transform.parent;
-                } else {
-                    Debug.Log("Slot[" + newSlotNr + "] is taken");
-                    gameObject.transform.SetParent(oldParent, false);
-                    transform.position = transform.parent.position;
-                }
+        //Check Inventory Slots
+        foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot"))
+        {
+            if (Move(itemSlot))
+            {
                 break;
             }
         }
-        if (id[0] == 'w') {
-            foreach (GameObject weaponSlot in WeaponSlots) {
-                if (weaponSlot.GetComponent<ItemSlotScript>().inside) {
-                    if (!weaponSlot.GetComponent<ItemSlotScript>().isActive) {
-                        weaponSlot.GetComponent<ItemSlotScript>().isActive = true;
-                        weaponSlot.GetComponent<ItemSlotScript>().GetItem(itemInfo.strName, itemInfo.strDesc, oldParent.GetComponent<ItemSlotScript>().Parent);
-                        slotNr = newSlotNr;
-                        gameObject.transform.SetParent(weaponSlot.transform, false);
-                        transform.position = transform.parent.position;
-                        oldParent = transform.parent;
-                    } else {
-                        Debug.Log("Slot[" + newSlotNr + "] is taken");
-                        gameObject.transform.SetParent(oldParent, false);
-                        transform.position = transform.parent.position;
-                    }
+        //Check Weapon Slots
+        if (id[0] == 'w')
+        {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("WeaponSlot"))
+            {
+                if (Move(weaponSlot))
+                {
                     break;
                 }
             }
         }
-        
-        //foreach (GameObject clothSlot in ClothSlots) {
-        //    if (clothSlot.GetComponent<ItemSlotScript>().inside) {
-        //        if (WorldScript.world.storageArr[slotNr] == "") {
-        //            Move(clothSlot);
-        //        }
-        //        break;
-        //    }
-        //}
-        foreach (GameObject inventorySlot in InventorySlots) {
-            if (inventorySlot.GetComponent<ItemSlotScript>().inside /*&& inventorySlot.GetComponent<ItemSlotScript>().slotNr != slotNr*/) {
-                newSlotNr = inventorySlot.GetComponent<ItemSlotScript>().slotNr;
-
-                Debug.Log("Slot[" + newSlotNr + ": " + WorldScript.world.storageArr[newSlotNr]);
-                if (WorldScript.world.storageArr[newSlotNr] == "" || WorldScript.world.storageArr[newSlotNr] == null) {
-                    Move(inventorySlot);
-                } else {
-                    Debug.Log("Slot[" + newSlotNr + "] is taken");
-                    
-                }
-                break;
-            }
-        }
-
-        gameObject.transform.SetParent(oldParent, false);
         transform.position = transform.parent.position;
-
-
-        //for (int i = 0; i < ItemSlots.Length; i++) {
-        //    if (ItemSlots[i].GetComponent<ItemSlotScript>().inside) {
-        //        Debug.Log("Slot[" + i + "]: " + WorldScript.world.storageArr[i]);
-        //        if (WorldScript.world.storageArr[i] == null || WorldScript.world.storageArr[i] == "") {
-        //            WorldScript.world.MoveItem(slotNr, i, id);
-        //            slotNr = i;
-
-        //        } else {
-        //            Debug.Log("Slot[" + i + "] is taken");
-        //            break;
-        //        }
-
-        //    }
-        //}
-
     }
 
-    private void Move(GameObject slot) {
-        WorldScript.world.MoveItem(slotNr, newSlotNr, id);
-        slotNr = newSlotNr;
-        //if(oldParent.transform.tag == "WeaponSlot") {
-            
-        //}
-        oldParent.GetComponent<ItemSlotScript>().isActive = false;
-        gameObject.transform.SetParent(slot.transform, false);
-        transform.position = transform.parent.position;
-        oldParent = transform.parent;
+
+    private bool Move(GameObject itemSlot)
+    {
+        //If we are inside the slot with the mouse...
+        if (itemSlot.GetComponent<ItemSlotScript>().inside)
+        {
+            if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
+            {
+                //Set old slot to inactive
+                oldParent.GetComponent<ItemSlotScript>().isActive = false;
+                //Make new slot active
+                itemSlot.GetComponent<ItemSlotScript>().isActive = true;
+                //Set the slot this this item's info
+                itemSlot.GetComponent<ItemSlotScript>().GetItem(itemInfo.strName, itemInfo.strDesc, oldParent.GetComponent<ItemSlotScript>().Parent);
+                //Set this item's parent to the new slot
+                gameObject.transform.SetParent(itemSlot.transform, false);
+                //Set the new slot to this item's "old" parent, I guess...
+                oldParent = transform.parent;
+                //Put the item on the new slot
+                transform.position = transform.parent.position;
+            }
+            else
+            {
+                //Set old slot to inactive
+                oldParent.GetComponent<ItemSlotScript>().isActive = false;
+                //Make new slot active
+                itemSlot.GetComponent<ItemSlotScript>().isActive = true;
+                //Set this item's parent to the new slot
+                gameObject.transform.SetParent(itemSlot.transform, false);
+                //Set the new slot to this item's "old" parent, I guess...
+                oldParent = transform.parent;
+                //Put the item on the new slot
+                transform.position = transform.parent.position;
+            }
+            GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+            return true;
+        }
+        return false;
     }
 }

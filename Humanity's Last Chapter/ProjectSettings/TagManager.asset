@@ -49,6 +49,8 @@ TagManager:
   - EnemyFaction
   - UI
   - Mask
+  - Loot
+  - StorageItemSlot
   layers:
   - Default
   - TransparentFX
