@@ -15,6 +15,6 @@ public class ItemInfo : MonoBehaviour { //Markus - Används för att enkelt få 
         this.strDesc = strDesc;
         this.id = id;
         this.cost = cost;
-        GetComponent<Image>().sprite = texture;
+        GetComponent<SpriteRenderer>().sprite = texture;
     }
 }
