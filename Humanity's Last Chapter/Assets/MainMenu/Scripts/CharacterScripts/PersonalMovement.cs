@@ -1,6 +1,7 @@
 ﻿using Pathfinding;
 using System.Collections.Generic;
 using UnityEngine;
+using static Node;
 
 public class PersonalMovement : MonoBehaviour
 {
@@ -18,16 +19,19 @@ public class PersonalMovement : MonoBehaviour
     public LayerMask buildingLayer;
     private int currentWaypoint = 0;
    // public Vector2 direction = Vector2.zero;
-    private GameObject manager;
+    public GameObject manager;
     public bool ByFormation = true;
     public Vector3 posNotFormation = Vector3.zero;
-
+    bool movingToRngPos = false;
+    Vector3 rngPos = Vector3.zero;
     // Start is called before the first frame update
     void Start()
     {
         BT = GetComponent<BehaviourTree>().GetPcBt();
         manager = GameObject.FindGameObjectWithTag("CharacterManager");
         waypoint = transform.position;
+        if (GetComponent<CharacterScript>().role != null && GetComponent<CharacterScript>().role.roleName.Equals("Commander"))
+            manager.GetComponent<CharacterMovement>().hasCommander = true;
     }
 
     // Update is called once per frame
@@ -39,35 +43,9 @@ public class PersonalMovement : MonoBehaviour
             Debug.DrawLine(manager.transform.position, positionBy.point);
         BT.Start();
         Movement();
-
-      
     }
-    /*float width, height;
-        if (startPos.x > endPos.x)
-            width = startPos.x - endPos.x;
-        else
-            width = endPos.x - startPos.x;
-
-        if (startPos.y > endPos.y)
-            height = startPos.y - endPos.y;
-        else
-            height = endPos.y - startPos.y;
-        Rect toSelect;
-
-        if (endPos.x > startPos.x)
-        {
-            if (endPos.y > startPos.y)
-                toSelect = new Rect(startPos.x, Screen.height - endPos.y, width, height);
-            else
-                toSelect = new Rect(startPos.x, Screen.height - startPos.y, width, height);
-        } else
-        {
-            if (endPos.y > startPos.y)
-                toSelect = new Rect(endPos.x, Screen.height - endPos.y, width, height);
-            else
-                toSelect = new Rect(endPos.x, Screen.height - startPos.y, width, height);
-        }
-     */
+    
+   
     public void AddWaypoint(Vector3 pos)
     {
         waypoints.Add(new Vector3(pos.x, pos.y, 0));
@@ -78,6 +56,37 @@ public class PersonalMovement : MonoBehaviour
         //Debug.Log("adding: " + toAdd);
         posPlusRel = toAdd + relativePos;
         waypoints.Add(posPlusRel);
+    }
+
+    public NodeStates RngPos()
+    {
+        if (moving)
+            return NodeStates.fail;
+        if (movingToRngPos)
+        {
+            GetComponent<AIDestinationSetter>().SetPosTarget(rngPos);
+        } else
+        {
+            float newX = Random.Range(-1, 1);
+            float newY = Random.Range(-1, 1);
+            rngPos = new Vector3(transform.position.x + newX, transform.position.y + newY);
+            movingToRngPos = true;
+        }
+        if (Vector2.Distance(rngPos, transform.position) < 0.5f)
+        {
+            movingToRngPos = false;
+        }
+        return NodeStates.success;
+    }
+    public NodeStates HasCommander()
+    {
+        //return NodeStates.success;
+        if (manager.GetComponent<CharacterMovement>().hasCommander)
+        {
+            return NodeStates.success;
+        }
+        GetComponent<AIPath>().maxSpeed = 2;
+        return NodeStates.fail;
     }
 
     public void FlushWaypoints()
@@ -92,6 +101,8 @@ public class PersonalMovement : MonoBehaviour
 
     private void Movement()
     {
+        if (movingToRngPos)
+            return;
         moving = true;
         positionBy = Physics2D.Raycast(posNotFormation, relativePos, relativePos.magnitude, buildingLayer);
         if (!ByFormation)

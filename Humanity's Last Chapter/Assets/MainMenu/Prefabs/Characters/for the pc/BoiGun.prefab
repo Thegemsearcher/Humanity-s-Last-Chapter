@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -3057197027856591342}
   - component: {fileID: 2435637664238410056}
   - component: {fileID: -597067488482449966}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: BoiGun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
