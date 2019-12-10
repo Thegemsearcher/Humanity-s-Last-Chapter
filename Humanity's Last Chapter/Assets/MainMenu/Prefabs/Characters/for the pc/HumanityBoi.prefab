@@ -414,7 +414,7 @@ MonoBehaviour:
   damage: 0
   aggroDistance: 10
   attackRange: 0.18
-  humansAndBuildings:
+  Buildings:
     serializedVersion: 2
     m_Bits: 512
   whatIsEnemy:
