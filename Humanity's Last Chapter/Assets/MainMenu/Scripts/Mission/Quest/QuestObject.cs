@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class QuestObject : MonoBehaviour {
 
-    public string titel, id;
+    public string titel, id, ID;
     private string objective, objDesc;
     public bool isCompleted;
     public int questStage;
@@ -26,34 +26,7 @@ public class QuestObject : MonoBehaviour {
 
     }
 
-    public Transform[] GetQuestLocation()
-    {
-        
-        switch (id)
-        {
-            case "c":
-             
-                CollectionObjective col = quest.objectives[questStage] as CollectionObjective;
-                return col.SpawnPos();
-                
 
-            case "l":
-                LocationObjective loc = quest.objectives[questStage] as LocationObjective;
-                Transform[] loco = { loc.SpawnPos() };
-                return loco;
-
-
-            case "i":
-                InteractionObjective ico = quest.objectives[questStage] as InteractionObjective;
-                Transform[] icoco = { ico.SpawnPos() };
-                return icoco;
-
-            case "":
-                return null;
-               
-        }
-        return null;
-    }
 
     public void GetData(ScriptableQuest quest, GameObject MissionManager) {
         this.quest = quest;
@@ -95,7 +68,7 @@ public class QuestObject : MonoBehaviour {
         }
         else {
             id = quest.objectives[questStage].name[0].ToString();
-
+            ID = quest.objectives[questStage].name[0].ToString();
             switch (id) {
                 case "c":
                     //MissionManager.GetComponent<CollectionObjective>().GetData(quest.objectives[objectiveCounter] as ScriptableCollection);
@@ -124,6 +97,34 @@ public class QuestObject : MonoBehaviour {
         }
     }
 
+    public Transform[] GetQuestLocation()
+    {
+        //id = quest.objectives[questStage].name[0].ToString();
+        switch (ID)
+        {
+            case "c":
+
+                CollectionObjective col = quest.objectives[questStage] as CollectionObjective;
+                return col.SpawnPos();
+
+
+            case "l":
+                LocationObjective loc = quest.objectives[questStage] as LocationObjective;
+                Transform[] loco = { loc.SpawnPos() };
+                return loco;
+
+
+            case "i":
+                InteractionObjective ico = quest.objectives[questStage] as InteractionObjective;
+                Transform[] icoco = { ico.SpawnPos() };
+                return icoco;
+
+            case "":
+                return null;
+
+        }
+        return null;
+    }
     private void CompletedQuest() {
         //txtObjective.text = "";
         //gameObject.SetActive(false);

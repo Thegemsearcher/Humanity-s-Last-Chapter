@@ -49,6 +49,7 @@ TagManager:
   - EnemyFaction
   - UI
   - Mask
+  - Marker
   layers:
   - Default
   - TransparentFX
