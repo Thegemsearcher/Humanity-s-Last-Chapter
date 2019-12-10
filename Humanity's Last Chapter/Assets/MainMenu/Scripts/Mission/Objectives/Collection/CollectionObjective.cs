@@ -53,6 +53,7 @@ namespace QuestSystem {
                     counter = Random.Range(0, spawnPos.Length);
                     itemO = Instantiate(itemsToCollect, spawnPos[counter].position, Quaternion.identity);
                     itemO.transform.SetParent(GameObject.Find("SpawnHolder").transform, false);
+                    //Initiera quest marker här och sätt parent som item0
                     toCollectList.Add(itemO);
                 }
             }
