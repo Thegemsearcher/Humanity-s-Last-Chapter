@@ -19,6 +19,12 @@ public class BehaviourTree : MonoBehaviour
     {
         List<Node> nodes = new List<Node>();
 
+        #region Movement without commander
+
+
+
+        #endregion
+
         #region combat
         LeafNode inCombatRange = new LeafNode(GetComponent<PlayerAttack>().InCombatRange);
         LeafNode isRanged = new LeafNode(GetComponent<PlayerAttack>().IsRanged);
