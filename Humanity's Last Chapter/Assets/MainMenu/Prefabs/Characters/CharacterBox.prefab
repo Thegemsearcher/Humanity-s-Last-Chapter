@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6432592027301857595}
   - component: {fileID: 1405830791591228967}
   m_Layer: 0
-  m_Name: New Sprite (3)
-  m_TagString: ItemSlot
+  m_Name: MeleeSlot
+  m_TagString: MeleeSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 4325747468635492280}
   - component: {fileID: 6789341246932187338}
   m_Layer: 0
-  m_Name: New Sprite (5)
+  m_Name: ItemSlot
   m_TagString: ItemSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -549,7 +549,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Clothes
+  m_Text: Ranged
 --- !u!1 &3577851889217686265
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,7 +584,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.002, y: 1.079}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 83.5806, y: 17.3414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6175716164729636204
@@ -1077,7 +1077,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Melee?
+  m_Text: Melee
 --- !u!1 &5203021457050292034
 GameObject:
   m_ObjectHideFlags: 0
@@ -1409,7 +1409,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.001953125, y: -1.098}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 83.5806, y: 17.3414}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8228279290647067162
@@ -1451,7 +1451,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hat?
+  m_Text: Hat
 --- !u!1 &5893124386645037263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1528,7 +1528,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Grenade?
+  m_Text: Item
 --- !u!1 &6071583354798683534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,8 +1619,8 @@ GameObject:
   - component: {fileID: 7856954548595345646}
   - component: {fileID: 937469359379497659}
   m_Layer: 0
-  m_Name: New Sprite (4)
-  m_TagString: ItemSlot
+  m_Name: HealSlot
+  m_TagString: HealSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1847,8 +1847,8 @@ GameObject:
   - component: {fileID: 7085093582293619827}
   - component: {fileID: 569979504302978067}
   m_Layer: 0
-  m_Name: New Sprite (1)
-  m_TagString: ItemSlot
+  m_Name: HatSlot
+  m_TagString: HatSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1861,7 +1861,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8487273391547861204}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 40, z: 0}
+  m_LocalPosition: {x: 0, y: -40, z: 0}
   m_LocalScale: {x: 75, y: 75, z: 1}
   m_Children:
   - {fileID: 4753925736412444916}
@@ -1977,7 +1977,7 @@ GameObject:
   - component: {fileID: 814657867126648136}
   m_Layer: 0
   m_Name: ClothSlot
-  m_TagString: ItemSlot
+  m_TagString: ClothSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1990,7 +1990,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8562279997112346807}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -40, z: 0}
+  m_LocalPosition: {x: 0, y: 40, z: 0}
   m_LocalScale: {x: 75, y: 75, z: 1}
   m_Children:
   - {fileID: 4838205736782956447}
@@ -2174,7 +2174,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 3f46dff8b9e37e34f80428c63dfadaf5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

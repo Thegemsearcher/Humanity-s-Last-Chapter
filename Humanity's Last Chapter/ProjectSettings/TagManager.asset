@@ -51,6 +51,12 @@ TagManager:
   - Mask
   - Loot
   - StorageItemSlot
+  - FormationUiItem
+  - CharacterHolder
+  - HatSlot
+  - MeleeSlot
+  - HealSlot
+  - WindowManager
   layers:
   - Default
   - TransparentFX

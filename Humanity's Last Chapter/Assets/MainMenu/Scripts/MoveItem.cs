@@ -64,13 +64,15 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void Place()
     {
+        //Stop holding this item
         held = false;
+
         //Check Inventory Slots
         foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot"))
         {
             if (Move(itemSlot))
             {
-                break;
+                return;
             }
         }
         //Check Weapon Slots
@@ -80,11 +82,80 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 if (Move(weaponSlot))
                 {
-                    break;
+                    return;
                 }
             }
         }
-        transform.position = transform.parent.position;
+        //Check Clothes Slots
+        else if (id[0] == 'c')
+        {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("ClothSlot"))
+            {
+                if (Move(weaponSlot))
+                {
+                    return;
+                }
+            }
+        }
+        //Check Hat Slots??
+        else if (id[0] == 't')
+        {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("HatSlot"))
+            {
+                if (Move(weaponSlot))
+                {
+                    return;
+                }
+            }
+        }
+        //Check Heal Slot
+        else if (id[0] == 'h')
+        {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("HealSlot"))
+            {
+                if (Move(weaponSlot))
+                {
+                    return;
+                }
+            }
+        }
+        //Check Melee Weapon Slot
+        else if (id[0] == 'm')
+        {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("MeleeSlot"))
+            {
+                if (Move(weaponSlot))
+                {
+                    return;
+                }
+            }
+        }
+
+        if (oldParent.GetComponent<ItemSlotScript>().isActive)
+        {
+            Debug.Log("It tried now!");
+            foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot"))
+            {
+                if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
+                {
+                    //Make new slot active
+                    itemSlot.GetComponent<ItemSlotScript>().isActive = true;
+                    //Set the slot this this item's info
+                    itemSlot.GetComponent<ItemSlotScript>().GetItem(itemInfo.strName, itemInfo.strDesc, oldParent.GetComponent<ItemSlotScript>().Parent);
+                    //Set this item's parent to the new slot
+                    gameObject.transform.SetParent(itemSlot.transform, false);
+                    //Set the new slot to this item's "old" parent, I guess...
+                    oldParent = transform.parent;
+                    //Put the item on the new slot
+                    transform.position = transform.parent.position;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("It does this instead....");
+            transform.position = transform.parent.position;
+        }
     }
 
 
@@ -95,8 +166,8 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
             {
-                //Set old slot to inactive
                 oldParent.GetComponent<ItemSlotScript>().isActive = false;
+
                 //Make new slot active
                 itemSlot.GetComponent<ItemSlotScript>().isActive = true;
                 //Set the slot this this item's info
@@ -110,8 +181,8 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             else
             {
-                //Set old slot to inactive
                 oldParent.GetComponent<ItemSlotScript>().isActive = false;
+
                 //Make new slot active
                 itemSlot.GetComponent<ItemSlotScript>().isActive = true;
                 //Set this item's parent to the new slot

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateCharacterBox : MonoBehaviour {
 
@@ -33,6 +34,7 @@ public class CreateCharacterBox : MonoBehaviour {
         }
     }
     public void Return() {
+        GameObject.FindGameObjectWithTag("CharacterHolder").GetComponent<Mask>().enabled = true;
         Destroy(gameObject);
     }
 }
