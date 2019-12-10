@@ -37,7 +37,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 Place();
             }
         } else {
-            if (Input.GetMouseButtonDown(0) && inside) {
+            if (Input.GetMouseButtonDown(0) && GetComponent<Collider2D>().OverlapPoint(mousePos)) {//inside) {
                 held = true;
                 //transform.SetParent(moveParent.transform, true);
             }
@@ -45,6 +45,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
+        Debug.Log("true!");
         inside = true;
     }
 

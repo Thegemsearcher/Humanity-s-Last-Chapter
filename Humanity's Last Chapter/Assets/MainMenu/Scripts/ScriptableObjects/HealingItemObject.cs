@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static AbilityScript;
 
 [System.Serializable]
 public class HealingItemObject : ScriptableObject {
@@ -12,6 +11,5 @@ public class HealingItemObject : ScriptableObject {
     public int healPower; //Hur mycket extra hp den ger när den används
     public int cost;
     public int coolDownTimer;
-    public AbilityType abilityType;
-    public Sprite sprite;
+    public Sprite icon;
 }
