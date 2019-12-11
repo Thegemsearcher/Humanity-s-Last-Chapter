@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateCharacterBox : MonoBehaviour {
 
@@ -11,25 +12,29 @@ public class CreateCharacterBox : MonoBehaviour {
 
     private void Start() {
 
-        //Skapar Character boxes
-        CharacterArr = GameObject.FindGameObjectsWithTag("Character");
-        foreach (GameObject Character in CharacterArr) {
-            Holder = Instantiate(CharacterBox);
-            Holder.transform.SetParent(BoxDad.transform, false);
-            Holder.GetComponent<CharacterBox>().GetData(Character, gameObject);
-        }
-
         //Skapar Inventory
         for (int i = 0; i < WorldScript.world.storageSize; i++) {
             Holder = Instantiate(ItemSlot);
             Holder.transform.SetParent(InventoryParent.transform, false);
             Holder.GetComponent<ItemSlotScript>().slotNr = i;
-            Holder.transform.tag = "InventorySlot";
+            Holder.transform.tag = "ItemSlot";
         }
-        itemSlots = GameObject.FindGameObjectsWithTag("InventorySlot");
+        
+        //Fyller inventory med items
+        itemSlots = GameObject.FindGameObjectsWithTag("ItemSlot");
         GetComponent<CreateItems>().FillSlots(WorldScript.world.storageArr, itemSlots, gameObject);
+        
+        //Skapar Character boxes
+        CharacterArr = GameObject.FindGameObjectsWithTag("Character");
+        foreach (GameObject Character in CharacterArr)
+        {
+            Holder = Instantiate(CharacterBox);
+            Holder.transform.SetParent(BoxDad.transform, false);
+            Holder.GetComponent<CharacterBox>().GetData(Character, gameObject);
+        }
     }
     public void Return() {
+        GameObject.FindGameObjectWithTag("CharacterHolder").GetComponent<Mask>().enabled = true;
         Destroy(gameObject);
     }
 }

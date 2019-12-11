@@ -35,7 +35,7 @@ public class LootInfoScript : MonoBehaviour
                 {
                     if (hi.name == itemID)
                     {
-                        itemSprite = hi.sprite;
+                        itemSprite = hi.icon;
                         itemName = hi.itemName;
                     }
                 }

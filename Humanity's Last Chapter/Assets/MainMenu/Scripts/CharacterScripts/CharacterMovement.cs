@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static Node;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class CharacterMovement : MonoBehaviour
 
     public GameObject toDrawForRotation;
 
+    public bool hasCommander = false;
     //For strategygame select units
     Vector3 startPos = Vector3.zero, endPos = Vector3.zero;
     //För att rita ut rutan som vi selectar
@@ -63,6 +65,7 @@ public class CharacterMovement : MonoBehaviour
             selectedCharacters = pcs;
         }
     }
+   
 
     void InputRotation()
     {

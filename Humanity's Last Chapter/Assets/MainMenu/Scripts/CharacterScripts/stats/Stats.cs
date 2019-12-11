@@ -170,7 +170,9 @@ public class Stats : MonoBehaviour {
             damage = 0;
         }
         hp -= damage;
-        if (hp <= 0) {
+        if (hp <= 0) {//ded
+            if (GetComponent<CharacterScript>().role != null && GetComponent<CharacterScript>().role.roleName.Equals("Commander"))//om commandern dog
+                GetComponent<PersonalMovement>().manager.GetComponent<CharacterMovement>().hasCommander = false;
             GameObject corpse = Instantiate(PCCorpse);
             corpse.transform.position = transform.position;
             corpse.transform.rotation = transform.rotation * Quaternion.Euler(0f, 0f, 180);

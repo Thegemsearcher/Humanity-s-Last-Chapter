@@ -123,16 +123,10 @@ public class PartyScript : MonoBehaviour {
             }
         }
 
-        Debug.Log("Characters(Party): " + WorldScript.world.characterList.Count);
         for (int i = 0; i < toRemoveC.Count; i++) {
             WorldScript.world.characterList.Remove(toRemoveC[i]);
             WorldScript.world.statsList.Remove(toRemoveS[i]);
         }
-        Debug.Log("Characters(Party) (2): " + WorldScript.world.characterList.Count);
-
-        //characterScriptList.Clear(); //Rensar listan
-
-        Debug.Log("Characters(Party) (3): " + WorldScript.world.characterList.Count);
         transform.position = new Vector3(3, 3, 0);
     }
 
