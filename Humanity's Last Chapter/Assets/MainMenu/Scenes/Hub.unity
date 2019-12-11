@@ -12449,6 +12449,7 @@ MonoBehaviour:
   CreationWindow: {fileID: 5757282712392598054, guid: d7796c7084889a043a279692d0b63153,
     type: 3}
   WindowParent: {fileID: 1145254741}
+  CharacterParent: {fileID: 1481677029}
   startQuests:
   - {fileID: 11400000, guid: 904efdca9bb25024d8a546946f2e1a7e, type: 2}
   saleGoodsQuests: []
@@ -12461,6 +12462,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: cdcb03e9685c01940ba76c10837876b6, type: 2}
   - {fileID: 11400000, guid: 0c64a2d4feb5b0646bd4c6ed8ce8b162, type: 2}
   - {fileID: 11400000, guid: 1d6af9ca009a2da4285272be7b46eb82, type: 2}
+  startCharacters:
+  - {fileID: 1162056123051030407, guid: 28eb93a26bd02b748819fbd9599f5e83, type: 3}
 --- !u!4 &1392273276
 Transform:
   m_ObjectHideFlags: 0

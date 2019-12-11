@@ -8,10 +8,11 @@ using UnityEngine.UI;
 
 public class LoadWorld : MonoBehaviour { //Heta LoadHub?
     private GameObject holder;
-    public GameObject character, CampName, CreationWindow, WindowParent;
+    public GameObject character, CampName, CreationWindow, WindowParent, CharacterParent;
     public List<ScriptableQuest> startQuests;
     public List<ScriptableQuest> saleGoodsQuests;
     public List<RoleObject> startRoles;
+    public GameObject[] startCharacters;
     private Vector2 characterPos;
     private string path;
     private int randomQuirk;
@@ -46,6 +47,11 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
 
             foreach (RoleObject role in startRoles) {
                 WorldScript.world.activeRoles.Add(role);
+            }
+
+            foreach (GameObject startCharacter in startCharacters) {
+                holder = Instantiate(startCharacter);
+                holder.transform.SetParent(CharacterParent.transform, false);
             }
 
             WorldScript.world.isNewGame = false;

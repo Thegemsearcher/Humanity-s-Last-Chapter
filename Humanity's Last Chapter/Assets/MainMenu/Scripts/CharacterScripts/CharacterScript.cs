@@ -11,7 +11,7 @@ public class CharacterScript : MonoBehaviour {
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
     public string rangedId, combatId, healingId, clothId, headId;
     public string[] inventory;
-    public bool inHospital, isEnlisted;
+    public bool inHospital, isEnlisted, isYou, isEssential; //Hospital är ifall man är i hospital, enlisted är ifall man ska på uppdrag, you är ifall karaktären är spelaren, essential är ifall karaktären är odödlig
     public Faction faction;
     public RoleObject role;
 
