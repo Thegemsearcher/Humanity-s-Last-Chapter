@@ -16,7 +16,10 @@ MonoBehaviour:
   portraitBackground: {fileID: 21300000, guid: e98a3fcb12c5f834192b64b5ea7a9f64, type: 3}
   roleName: Privat
   title: 'Pvt. '
-  roleRank: 5
+  desc: Trained and ready to defend the community! Privates are armed and ready to
+    be the front line of defence and with the extra STRENGTH will enemies have trouble
+    taking them down!
+  roleRank: 1
   maxHp: 0
   str: 10
   def: 5

@@ -10,14 +10,14 @@ public class QuestMarkerScript : MonoBehaviour
     void Start()
     {
         //GetComponent<MissionMarker>
-        position = missionpos.GetQuestLocation();
-        transform.position = position[0].position;
+        //position = missionpos.GetQuestLocation();
+        //transform.position = position[0].position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        position = missionpos.GetQuestLocation();
-        transform.position = position[0].position;
+        //position = missionpos.GetQuestLocation();
+        //transform.position = position[0].position;
     }
 }

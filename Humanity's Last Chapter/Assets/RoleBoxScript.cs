@@ -5,17 +5,20 @@ using UnityEngine.UI;
 
 public class RoleBoxScript : MonoBehaviour {
 
-    public Text txtName, txtStr, txtDef, txtDex, txtLdr, txtHp;
+    public Text txtName,txtRole, txtHp;
     public Scrollbar healthBar;
     public GameObject AppointBtn, Portrait;
+    private GameObject Manager, Character;
     private GameObject[] characters;
     private RoleObject role;
     private CharacterScript characterScript;
     private Stats stats;
     private bool isAppointed, roleTaken;
 
-    public void GetRole(RoleObject role) {
+    public void GetRole(RoleObject role, GameObject Manager) {
         this.role = role;
+        this.Manager = Manager;
+
         roleTaken = false;
         characters = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject character in characters) {
@@ -38,12 +41,31 @@ public class RoleBoxScript : MonoBehaviour {
         }
     }
 
+    public void GetCharacter(GameObject Character, GameObject Manager) {
+        this.Character = Character;
+        this.Manager = Manager;
+
+        characterScript = Character.GetComponent<CharacterScript>();
+        stats = Character.GetComponent<Stats>();
+
+        Portrait.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+        Portrait.GetComponent<Stats>().LoadPlayer(stats);
+
+        role = characterScript.role;
+        if (role != null) {
+            txtRole.text = role.roleName;
+        } else {
+            txtRole.text = "-No Role-";
+        }
+
+        txtName.text = characterScript.title + characterScript.strName;
+
+        SetStats();
+        characterScript.isEnlisted = false;
+    }
+
     private void EmptyRole() {
         txtName.text = "Role: " + role.roleName;
-        txtStr.text = "";
-        txtDef.text = "";
-        txtDex.text = "";
-        txtLdr.text = "";
         txtHp.text = "";
 
         float barSize = 0;
@@ -52,10 +74,6 @@ public class RoleBoxScript : MonoBehaviour {
 
     private void SetStats() {
         txtName.text = characterScript.title + characterScript.strName;
-        txtStr.text = "Str: " + stats.str;
-        txtDef.text = "Def: " + stats.def;
-        txtDex.text = "Dex: " + stats.dex;
-        txtLdr.text = "Ldr: " + stats.ldr;
         txtHp.text = "Hp: " + stats.hp + "/" + stats.maxHp;
 
         float barSize = stats.maxHp / stats.hp;
@@ -76,8 +94,10 @@ public class RoleBoxScript : MonoBehaviour {
                 //Göra karaktären enlisted
             }
         }
-        
+    }
 
+    public void BtnChangeRole() {
+        Manager.GetComponent<CommandCenterScript>().ChangeRole(Character);
     }
 }
  /* ToDo:

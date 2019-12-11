@@ -16,13 +16,14 @@ MonoBehaviour:
   portraitBackground: {fileID: 21300000, guid: e98a3fcb12c5f834192b64b5ea7a9f64, type: 3}
   roleName: Governor
   title: 'Governor '
-  roleRank: 1
+  desc: Governor, the leader of the Hub.
+  roleRank: 10
   maxHp: 30
   str: -5
   def: 10
   Int: 10
   dex: -5
   cha: 10
-  ldr: 0
+  ldr: 30
   nrg: 0
   snt: 0

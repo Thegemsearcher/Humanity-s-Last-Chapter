@@ -5,23 +5,28 @@ using UnityEngine.UI;
 
 public class QuestDescScript : MonoBehaviour {
 
-    public Text txtQuestName, txtQuestDesc, txtReward;
+    public Text txtName, txtDesc, txtReward, txtHp, txtStr, txtDef, txtDex, txtInt, txtLdr, txtSnt, txtCha;
     private List<string> rewardList;
     private string reward;
     private int rewardCount, i;
     private ScriptableQuest activeQuest;
+    CharacterScript characterScript;
+    Stats stats ;
+    public GameObject StatsBox, RewardBox;
 
     private void Start() {
-        txtQuestName.text = "";
-        txtQuestDesc.text = "";
+        txtName.text = "";
+        txtDesc.text = "";
         rewardList = new List<string>();
         reward = "";
         txtReward.text = reward;
     }
 
     public void QuestInfo(ScriptableQuest quest) {
-        txtQuestName.text = quest.missionName;
-        txtQuestDesc.text = quest.description;
+        RewardBox.SetActive(true);
+        StatsBox.SetActive(false);
+        txtName.text = quest.missionName;
+        txtDesc.text = quest.description;
         rewardList.Clear();
 
         reward = "Reward: ";
@@ -55,14 +60,63 @@ public class QuestDescScript : MonoBehaviour {
         if(activeQuest != null) {
             QuestInfo(activeQuest);
         } else {
-            Clear();
+            ClearQuest();
         }
     }
 
-    private void Clear() {
-        txtQuestName.text = "";
-        txtQuestDesc.text = "";
+    private void ClearQuest() {
+        txtName.text = "";
+        txtDesc.text = "";
         reward = "";
         txtReward.text = reward;
+    }
+    
+
+    public void ClearRole() {
+        txtName.text = "";
+        txtDesc.text = "";
+        txtHp.text = "";
+        txtStr.text = "";
+        txtDef.text = "";
+        txtDex.text = "";
+        txtInt.text = "";
+        txtLdr.text = "";
+        txtSnt.text = "";
+        txtCha.text = "";
+    }
+
+    public void RoleInfo(RoleObject role) {
+        RewardBox.SetActive(false);
+        StatsBox.SetActive(true);
+
+        txtName.text = role.roleName;
+        txtDesc.text = role.desc;
+        txtHp.text = "Hp: +" + role.maxHp;
+        txtStr.text = "Str: +" + role.str;
+        txtDef.text = "Def: +" + role.def;
+        txtDex.text = "Dex: +" + role.dex;
+        txtInt.text = "Int: +" + role.Int;
+        txtLdr.text = "Ldr: +" + role.ldr;
+        txtSnt.text = "Snt: +" + role.snt;
+        txtCha.text = "Cha: +" + role.cha;
+    }
+
+    public void CharacterInfo(GameObject Character) {
+        this.characterScript = Character.GetComponent<CharacterScript>();
+        this.stats = Character.GetComponent<Stats>();
+
+        RewardBox.SetActive(false);
+        StatsBox.SetActive(true);
+
+        txtName.text = characterScript.strName;
+        txtDesc.text = "";
+        txtHp.text = "Hp: " + stats.hp;
+        txtStr.text = "Str: " + stats.str;
+        txtDef.text = "Def: " + stats.def;
+        txtDex.text = "Dex: " + stats.dex;
+        txtInt.text = "Int: " + stats.Int;
+        txtLdr.text = "Ldr: " + stats.ldr;
+        txtSnt.text = "Snt: " + stats.snt;
+        txtCha.text = "Cha: " + stats.cha;
     }
 }

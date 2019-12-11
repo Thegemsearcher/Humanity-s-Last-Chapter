@@ -16,6 +16,7 @@ MonoBehaviour:
   portraitBackground: {fileID: 21300000, guid: e98a3fcb12c5f834192b64b5ea7a9f64, type: 3}
   roleName: Sergent
   title: 'Sgt. '
+  desc: The Sergent make sure that the soldiers stay in line and doing their job!
   roleRank: 3
   maxHp: 5
   str: 0
@@ -23,6 +24,6 @@ MonoBehaviour:
   Int: 0
   dex: 0
   cha: 0
-  ldr: 0
+  ldr: 10
   nrg: 0
   snt: 0

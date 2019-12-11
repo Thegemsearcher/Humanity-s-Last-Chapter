@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class RoleDescScript : MonoBehaviour {
     public Text txtRoleName, txtRoleDesc, txtHp, txtStr, txtDef, txtDex, txtInt, txtLdr, txtSnt, txtCha;
     private string desc;
-    private RoleObject role;
 
     private void Start() {
         Clear();
@@ -14,7 +13,6 @@ public class RoleDescScript : MonoBehaviour {
 
     public void Clear() {
         desc = "";
-        role = null;
         txtRoleName.text = "";
         txtRoleDesc.text = "";
         txtHp.text = "";
@@ -28,7 +26,6 @@ public class RoleDescScript : MonoBehaviour {
     }
 
     public void RoleInfo(RoleObject role) {
-        this.role = role;
         txtRoleName.text = role.roleName;
         txtRoleDesc.text = role.desc;
         txtHp.text = "Hp: +" + role.maxHp;
