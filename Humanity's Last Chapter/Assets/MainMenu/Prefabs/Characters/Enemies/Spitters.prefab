@@ -200,6 +200,8 @@ MonoBehaviour:
   inventory: []
   inHospital: 0
   isEnlisted: 0
+  isYou: 0
+  isEssential: 0
   faction: 0
   role: {fileID: 0}
 --- !u!222 &2606361138494507684
@@ -361,7 +363,7 @@ MonoBehaviour:
   pcs: []
   aggroRange: 4
   atkRange: 0.75
-  dmg: 20
+  dmg: 1
   pcLayer:
     serializedVersion: 2
     m_Bits: 256

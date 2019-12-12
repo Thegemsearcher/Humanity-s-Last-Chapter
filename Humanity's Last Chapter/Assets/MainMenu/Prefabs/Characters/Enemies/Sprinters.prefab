@@ -202,6 +202,8 @@ MonoBehaviour:
   inventory: []
   inHospital: 0
   isEnlisted: 0
+  isYou: 0
+  isEssential: 0
   faction: 2
   role: {fileID: 0}
 --- !u!222 &7354675053654000920
@@ -234,7 +236,7 @@ MonoBehaviour:
   dmg: 1
   pcLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 256
   attackTimer: 0
   timeBetweenAttack: 1
   animator: {fileID: 7354675053654000931}

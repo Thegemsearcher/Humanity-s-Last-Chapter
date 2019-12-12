@@ -15,7 +15,7 @@ public class InteractiveScript : MonoBehaviour {
 
     private void Start() {
         isInteracted = false;
-        range = 2f;
+        range = 20f;
         characters = GameObject.FindGameObjectsWithTag("Character");
     }
 
@@ -35,9 +35,9 @@ public class InteractiveScript : MonoBehaviour {
     //    }
     //}
 
-    private void OnMouseDown() {
-       
+    private void OnMouseDown() {        
         CheckRange();
+        Debug.Log("Distance: " + distance);
     }
 
     private void CheckRange() {

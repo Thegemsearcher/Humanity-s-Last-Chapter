@@ -80,18 +80,6 @@ public class WeaponAttack : MonoBehaviour {
     }
 
     public void CreateBullet() {
-        //if (wo.weaponName == "Pistol") {
-        //    SoundManagerScript.PlaySound("pistol");
-        //} else if (wo.weaponName == "Rifle") {
-        //    SoundManagerScript.PlaySound("rifle");
-        //} else if (wo.weaponName == "Minigun") {
-        //    SoundManagerScript.PlaySound("AR");
-        //} else if (wo.weaponName == "Shotgun") {
-        //    SoundManagerScript.PlaySound("shotgun");
-        //} else if (wo.weaponName == "Padde Killer") {
-        //    SoundManagerScript.PlaySound("rifle");
-        //}
-
         SoundManagerScript.PlaySound(wo.soundEffect);
         for (int i = 0; i < wo.bullets; i++) {
             projectileO = Instantiate(projectile, transform.position, Quaternion.identity);

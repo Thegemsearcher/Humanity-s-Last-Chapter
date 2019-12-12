@@ -57,6 +57,7 @@ TagManager:
   - MeleeSlot
   - HealSlot
   - WindowManager
+  - Marker
   layers:
   - Default
   - TransparentFX
@@ -78,7 +79,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - NPC
   - 
   - 
   - 

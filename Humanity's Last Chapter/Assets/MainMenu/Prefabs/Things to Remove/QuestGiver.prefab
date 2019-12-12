@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8816298202239859257}
   - component: {fileID: -1387923153381205922}
   - component: {fileID: -5278712336582756470}
-  m_Layer: 5
+  m_Layer: 20
   m_Name: QuestGiver
   m_TagString: QuestGiver
   m_Icon: {fileID: 0}
