@@ -109,4 +109,8 @@ public class CommandCenterScript : MonoBehaviour {
         CharacterToAlter = null;
         CreateCharacterList();
     }
+
+    public void BtnExit() {
+        Destroy(gameObject);
+    }
 }

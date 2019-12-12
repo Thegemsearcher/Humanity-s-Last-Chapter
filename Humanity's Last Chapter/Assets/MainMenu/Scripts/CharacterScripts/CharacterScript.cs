@@ -111,6 +111,11 @@ public class CharacterScript : MonoBehaviour {
     }
 
     private void PrepareInventory() {
+        if (inventory != null) {
+            inventorySize = 5;
+            inventory = new string[inventorySize];
+            Debug.Log("inventory var null!");
+        }
         int i = 0;
         if (rangedId != null) {
             inventory[i] = rangedId;

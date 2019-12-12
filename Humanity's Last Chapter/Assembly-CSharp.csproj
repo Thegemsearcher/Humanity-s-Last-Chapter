@@ -73,6 +73,7 @@
     <Compile Include="Assets\CharacterToAppoint.cs" />
     <Compile Include="Assets\CommandCenterScript.cs" />
     <Compile Include="Assets\CommunityTitle.cs" />
+    <Compile Include="Assets\CreateCharacter.cs" />
     <Compile Include="Assets\CreationWindow.cs" />
     <Compile Include="Assets\DescCharacterScript.cs" />
     <Compile Include="Assets\FootAnim.cs" />

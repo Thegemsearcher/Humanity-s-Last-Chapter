@@ -7,11 +7,13 @@ public class WorldScript {
 
     public static WorldScript world;
 
-    public int gold, rs, storageSize, shopSize, shopLevel, date, supplies, goods, partySize;
+    public int gold, rs, storageSize, shopSize, shopLevel, date, supplies, goods, partySize, year;
     public bool isActive, isNewGame; //Den sparningen som startar om man klickar continue
     public string saveName, saveId;
     private bool isChoosing, hasGoodsQuest;
     private int itemTest;
+
+    public List<GameObject> BarrackPepList;
 
     public string[] storageArr, shopArr;
 
@@ -30,12 +32,14 @@ public class WorldScript {
     public void Reset() {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
+        BarrackPepList = new List<GameObject>();
 
         avalibleQuests = new List<ScriptableQuest>();
         completedQuests = new List<ScriptableQuest>();
         failedQuests = new List<ScriptableQuest>();
         activeRoles = new List<RoleObject>();
 
+        year = 2065;
         isNewGame = true;
         storageSize = 64;
         shopSize = 10;

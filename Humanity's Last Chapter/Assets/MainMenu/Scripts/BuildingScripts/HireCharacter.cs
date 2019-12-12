@@ -4,48 +4,37 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HireCharacter : MonoBehaviour {
-    public GameObject HireBTN, UICharacter;
-    public Text txtHire;
-    private GameObject Manager, World, holder;
+    public GameObject UICharacter, WorldObject;
+    public Text txtCost;
+    private GameObject Manager, holder;
     public int cost;
-    private int childCounter;
     private CharacterScript characterScript;
-    private UIBoiScript boiScript;
-    private Stats statsScript;
+    private Stats stats;
 
     private void Start() {
         Manager = GameObject.FindGameObjectWithTag("CharacterManager");
-        World = GameObject.Find("WorldManager");
-        statsScript = GetComponent<Stats>();
+        stats = GetComponent<Stats>();
 
-        cost = statsScript.GetCost();
-        txtHire.text = "Hire! (" + cost + ")";
+        cost = stats.GetCost();
+        txtCost.text = "Cost: " + cost;
     }
 
     public void btnHire() {
         characterScript = GetComponent<CharacterScript>();
-        boiScript = GetComponent<UIBoiScript>();
 
         if (cost <= WorldScript.world.gold) {
+            WorldScript.world.BarrackPepList.Remove(WorldObject);
             WorldScript.world.gold -= cost;
             holder = Instantiate(UICharacter);
             holder.transform.SetParent(Manager.transform, false);
+            holder.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+            holder.GetComponent<Stats>().LoadPlayer(stats);
+            
             Destroy(gameObject);
-            //childCounter = Manager.transform.childCount;
-            //transform.SetParent(Manager.transform, false);
-            //characterScript.GetID();
-            //boiScript.GetPos(childCounter);
-            //GetComponent<UIBoiScript>().isOwned = true;
-            //HireBTN.SetActive(false);
         } else {
             Debug.Log("Not enough gold!");
         }
 
 
     }
-
-    public void ShowBTN() {
-        HireBTN.SetActive(true);
-    }
-
 }

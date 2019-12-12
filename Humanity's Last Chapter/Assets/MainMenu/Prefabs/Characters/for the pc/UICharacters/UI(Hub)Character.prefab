@@ -668,6 +668,8 @@ MonoBehaviour:
   inventory: []
   inHospital: 0
   isEnlisted: 0
+  isYou: 0
+  isEssential: 0
   faction: 0
   role: {fileID: 0}
 --- !u!114 &153294536600894748

@@ -6,22 +6,12 @@ public class buildingScript : MonoBehaviour { //Borde heta barrackScript
 
     public string buildingName;
     public int level;
-    public bool active;
 
-    public GameObject BuildingWindow;
-    private GameObject[] buildings;
-
-    private void Start() {
-        buildings = GameObject.FindGameObjectsWithTag("Building");
-    }
+    public GameObject BuildingWindow, WindowParent;
+    private GameObject holder;
 
     public void btnEnterBuilding() {
-        BuildingWindow.SetActive(true);
-        //foreach (GameObject building in buildings) {
-        //    if(!(building.GetComponent<buildingScript>().buildingName == buildingName)) {
-        //        building.SetActive(false);
-        //    }
-    //}
-        
+        holder = Instantiate(BuildingWindow);
+        holder.transform.SetParent(WindowParent.transform, false);
     }
 }

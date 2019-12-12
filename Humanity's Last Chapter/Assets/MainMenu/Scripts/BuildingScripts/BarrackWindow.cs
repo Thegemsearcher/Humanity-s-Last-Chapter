@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class BarrackWindow : MonoBehaviour {
 
-    private GameObject[] buildings;
+    private GameObject holder;
 
     private void Start() {
-        buildings = GameObject.FindGameObjectsWithTag("Building");
+        foreach (GameObject character in WorldScript.world.BarrackPepList) {
+            Debug.Log("It get here");
+            holder = Instantiate(character);
+            holder.GetComponent<HireCharacter>().WorldObject = character;
+            holder.transform.SetParent(gameObject.transform, false);
+        }
     }
 
-    public void btnExit() {
-        //foreach (GameObject building in buildings) {
-        //    building.SetActive(true);
-        //}
-        gameObject.SetActive(false);
+    public void BtnExit() {
+        Destroy(gameObject);
     }
 }
