@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4442605805270870775}
   - component: {fileID: 7168528032059102972}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: MiniMapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 849753420141661392}
   - component: {fileID: 1888244029043153764}
   - component: {fileID: 3714644390309531196}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Spitters
   m_TagString: Enemy
   m_Icon: {fileID: 0}

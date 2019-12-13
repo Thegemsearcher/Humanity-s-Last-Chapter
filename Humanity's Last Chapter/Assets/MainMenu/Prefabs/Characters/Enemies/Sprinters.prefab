@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7148889665916236704}
   - component: {fileID: 1180406677146700605}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: MiniMapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   - component: {fileID: 7354675053654000929}
   - component: {fileID: 7354675053654000928}
   - component: {fileID: 7354675053654000931}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Sprinters
   m_TagString: Enemy
   m_Icon: {fileID: 0}
