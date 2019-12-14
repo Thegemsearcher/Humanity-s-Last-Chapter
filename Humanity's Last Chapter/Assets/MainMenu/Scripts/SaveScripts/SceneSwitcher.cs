@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneSwitcher : MonoBehaviour {
+public class SceneSwitcher : MonoBehaviour {    //ansvarig för att byta scen!
 
     public void GoToHub() {
         Debug.Log("Characters(SceneSave): " + WorldScript.world.characterList.Count);

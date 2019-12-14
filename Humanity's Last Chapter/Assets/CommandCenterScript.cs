@@ -1,30 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CommandCenterScript : MonoBehaviour {
 
-    public GameObject ForMission, ForRoles, ForCharacterChange, MissionBox, CharacterBox, RoleBox, AppointedRole;
-    private GameObject holder, CharacterToAlter;
-    private GameObject[] characters;
-    private List<GameObject> characterList;
-    public RoleObject citizenRole;
+    public GameObject ForMission, ForRoles, ForCharacterChange, MissionBox, CharacterBox, RoleBox, AppointedRole, BtnStartMission;   //De med for fungerar som parents, de med Box är prefabs (Borde ha samma namn)
+    public Text txtStartMission; //För att ändra texten till startMission knappen så man kan se om den är redo att starta mission
+    private GameObject holder, CharacterToAlter;    //holder används för att simpelt komma åt värden från instansierat object | CharacterToAlter är karaktären som ska byta roll
+    private GameObject[] characters;    //Alla karaktärer som har tag "Character"
+    private List<GameObject> characterList; //Håller koll så att den inte ger samma karaktär till olika roller
+    public RoleObject citizenRole;  //Standarad roll som ges till karaktärer (Borde inte behövas, alla karaktärer skapas med en roll)
+    public int appointedCharacters; //Hur många karaktärer som ska gå på mission
 
     private void Start() {
         characterList = new List<GameObject>();
-        CreateQuestList();
-        CreateCharacterList();
+        CreateQuestList();  //Skapar listan av alla valbara quests
+        CreateCharacterList();  //Skapar listan av alla karaktärer som kan gå på mission
+        CheckMissionReady();
     }
 
     private void CreateQuestList() {
         foreach (ScriptableQuest quest in WorldScript.world.avalibleQuests) {
             holder = Instantiate(MissionBox);
-            holder.GetComponent<MissionBoxScript>().GetQuest(quest);
+            holder.GetComponent<MissionBoxScript>().GetQuest(quest, gameObject);
             holder.transform.SetParent(ForMission.transform, false);
         }
     }
 
-    private void ClearRoleList() {
+    private void ClearRoleList() {  //Ser till så att alla barn till ForRole försvinner (Byter man till att välja role ska inte karaktärer synas etc)
         foreach (Transform child in ForRoles.transform) {
             Destroy(child.gameObject);
         }
@@ -81,6 +85,7 @@ public class CommandCenterScript : MonoBehaviour {
             }
         }
     }
+
     public void ChangeRole(GameObject Character) {  //När man klickar på knappen BtnChangeRole i RoleBox kommer karaktären att sparas som CharacterToAlter för att sen kunna ändras samt
         CharacterToAlter = Character;               //ändras det så att man ser roller och inte karaktärer
         holder = Instantiate(CharacterBox);
@@ -112,5 +117,27 @@ public class CommandCenterScript : MonoBehaviour {
 
     public void BtnExit() {
         Destroy(gameObject);
+    }
+
+    public void BtnGoToMission() {
+        if (WorldScript.world.activeQuest != null && appointedCharacters > 0 && appointedCharacters <= WorldScript.world.partySize) {
+            GetComponent<SceneSwitcher>().GoToMission();
+        }
+    }
+
+    public void CheckMissionReady() {   //Används för att kolla om mission är ready och för att visa varför den inte är det
+        if (WorldScript.world.activeQuest == null) {
+            BtnStartMission.GetComponent<Image>().color = Color.red;
+            txtStartMission.text = "Start Mission\n(Need an active quest!)";
+        } else if (appointedCharacters <= 0) {
+            BtnStartMission.GetComponent<Image>().color = Color.red;
+            txtStartMission.text = "Start Mission\n(Appoint people!)";
+        } else if (appointedCharacters > WorldScript.world.partySize) {
+            BtnStartMission.GetComponent<Image>().color = Color.red;
+            txtStartMission.text = "Start Mission\n(Too small partyBus!)";
+        } else {
+            BtnStartMission.GetComponent<Image>().color = Color.green;
+            txtStartMission.text = "Start Mission";
+        }
     }
 }

@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
-{
+public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
     private string id;
     private int slotNr, newSlotNr;
 
@@ -16,8 +15,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private ItemInfo itemInfo;
     private GameObject[] ItemSlots, WeaponSlots, ClothSlots, InventorySlots;
 
-    void Start()
-    {
+    void Start() {
         //moveParent = GameObject.FindGameObjectWithTag("LoadManager").transform;
         oldParent = transform.parent;
         InventorySlots = GameObject.FindGameObjectsWithTag("InventorySlot");
@@ -31,19 +29,14 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         id = GetComponent<ItemInfo>().id;
     }
 
-    private void Update()
-    {
+    private void Update() {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (held)
-        {
+        if (held) {
             gameObject.transform.position = mousePos;
-            if (Input.GetMouseButtonDown(0))
-            {
+            if (Input.GetMouseButtonDown(0)) {
                 Place();
             }
-        }
-        else
-        {
+        } else {
             if (Input.GetMouseButtonDown(0) && GetComponent<Collider2D>().OverlapPoint(mousePos)) //inside) {
             {
                 held = true;
@@ -52,92 +45,69 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
+    public void OnPointerEnter(PointerEventData eventData) {
         inside = true;
     }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
+    public void OnPointerExit(PointerEventData eventData) {
         inside = false;
     }
 
-    public void Place()
-    {
+    public void Place() {
         //Stop holding this item
         held = false;
 
         //Check Inventory Slots
-        foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot"))
-        {
-            if (Move(itemSlot))
-            {
+        foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot")) {
+            if (Move(itemSlot)) {
                 return;
             }
         }
         //Check Weapon Slots
-        if (id[0] == 'w')
-        {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("WeaponSlot"))
-            {
-                if (Move(weaponSlot))
-                {
+        if (id[0] == 'w') {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("WeaponSlot")) {
+                if (Move(weaponSlot)) {
                     return;
                 }
             }
         }
         //Check Clothes Slots
-        else if (id[0] == 'c')
-        {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("ClothSlot"))
-            {
-                if (Move(weaponSlot))
-                {
+        else if (id[0] == 'c') {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("ClothSlot")) {
+                if (Move(weaponSlot)) {
                     return;
                 }
             }
         }
         //Check Hat Slots??
-        else if (id[0] == 't')
-        {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("HatSlot"))
-            {
-                if (Move(weaponSlot))
-                {
+        else if (id[0] == 't') {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("HatSlot")) {
+                if (Move(weaponSlot)) {
                     return;
                 }
             }
         }
         //Check Heal Slot
-        else if (id[0] == 'h')
-        {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("HealSlot"))
-            {
-                if (Move(weaponSlot))
-                {
+        else if (id[0] == 'h') {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("HealSlot")) {
+                if (Move(weaponSlot)) {
                     return;
                 }
             }
         }
         //Check Melee Weapon Slot
-        else if (id[0] == 'm')
-        {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("MeleeSlot"))
-            {
-                if (Move(weaponSlot))
-                {
+        else if (id[0] == 'm') {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("MeleeSlot")) {
+                if (Move(weaponSlot)) {
                     return;
                 }
             }
         }
 
-        if (oldParent.GetComponent<ItemSlotScript>().isActive)
-        {
+        if (oldParent.GetComponent<ItemSlotScript>().isActive) {
             Debug.Log("It tried now!");
-            foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot"))
-            {
-                if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
-                {
+            foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot")) {
+                if (!itemSlot.GetComponent<ItemSlotScript>().isActive) {
                     //Make new slot active
                     itemSlot.GetComponent<ItemSlotScript>().isActive = true;
                     //Set the slot this this item's info
@@ -150,22 +120,17 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     transform.position = transform.parent.position;
                 }
             }
-        }
-        else
-        {
+        } else {
             Debug.Log("It does this instead....");
             transform.position = transform.parent.position;
         }
     }
 
 
-    private bool Move(GameObject itemSlot)
-    {
+    private bool Move(GameObject itemSlot) {
         //If we are inside the slot with the mouse...
-        if (itemSlot.GetComponent<ItemSlotScript>().inside)
-        {
-            if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
-            {
+        if (itemSlot.GetComponent<ItemSlotScript>().inside) {
+            if (!itemSlot.GetComponent<ItemSlotScript>().isActive) {
                 oldParent.GetComponent<ItemSlotScript>().isActive = false;
 
                 //Make new slot active
@@ -178,9 +143,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 oldParent = transform.parent;
                 //Put the item on the new slot
                 transform.position = transform.parent.position;
-            }
-            else
-            {
+            } else {
                 oldParent.GetComponent<ItemSlotScript>().isActive = false;
 
                 //Make new slot active

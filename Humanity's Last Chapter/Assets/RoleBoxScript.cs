@@ -86,13 +86,16 @@ public class RoleBoxScript : MonoBehaviour {
                 AppointBtn.GetComponent<Image>().color = Color.red;
                 characterScript.isEnlisted = false;
                 isAppointed = false;
+                Manager.GetComponent<CommandCenterScript>().appointedCharacters--;
                 //Göra karaktären notEnlisted
             } else {
                 AppointBtn.GetComponent<Image>().color = Color.green;
                 characterScript.isEnlisted = true;
                 isAppointed = true;
+                Manager.GetComponent<CommandCenterScript>().appointedCharacters++;
                 //Göra karaktären enlisted
             }
+            Manager.GetComponent<CommandCenterScript>().CheckMissionReady();
         }
     }
 

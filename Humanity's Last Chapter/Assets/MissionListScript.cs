@@ -8,10 +8,10 @@ public class MissionListScript : MonoBehaviour {
     private GameObject holder;
 
     private void Start() {
-        foreach(ScriptableQuest quest in WorldScript.world.avalibleQuests) {
-            holder = Instantiate(MissionBox);
-            holder.GetComponent<MissionBoxScript>().GetQuest(quest);
-            holder.transform.SetParent(gameObject.transform, false);
-        }
+        //foreach(ScriptableQuest quest in WorldScript.world.avalibleQuests) {
+        //    holder = Instantiate(MissionBox);
+        //    holder.GetComponent<MissionBoxScript>().GetQuest(quest);
+        //    holder.transform.SetParent(gameObject.transform, false);
+        //}
     }
 }

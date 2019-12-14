@@ -8,7 +8,7 @@ public class MissionBoxScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
 
     public Text txtName;
     private ScriptableQuest quest;
-    private GameObject ActiveQuest, QuestDesc, forRoles, holder;
+    private GameObject ActiveQuest, QuestDesc, forRoles, holder, Manager;
     public GameObject Role;
     private bool findingRole;
     private List<RoleObject> avalibleMilitaryRoles;
@@ -21,8 +21,9 @@ public class MissionBoxScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
         avalibleMilitaryRoles = new List<RoleObject>();
     }
 
-    public void GetQuest(ScriptableQuest quest) {
+    public void GetQuest(ScriptableQuest quest, GameObject Manager) {
         this.quest = quest;
+        this.Manager = Manager;
         txtName.text = quest.missionName;
     }
 
@@ -30,6 +31,7 @@ public class MissionBoxScript : MonoBehaviour, IPointerEnterHandler, IPointerExi
         WorldScript.world.activeQuest = quest;
         GetRoles();
         ActiveQuest.GetComponent<ActiveMissionScript>().GetActiveQuest();
+        Manager.GetComponent<CommandCenterScript>().CheckMissionReady();
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
