@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4090975341072565156}
   - component: {fileID: 4090975341072565157}
   - component: {fileID: 4090975341072565158}
-  m_Layer: 8
+  m_Layer: 13
   m_Name: Woandar
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -340,7 +340,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4624797410472353740}
   - component: {fileID: 4051044360738031252}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: MiniMapIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

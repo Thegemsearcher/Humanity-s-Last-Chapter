@@ -218,6 +218,8 @@ MonoBehaviour:
   inventory: []
   inHospital: 0
   isEnlisted: 0
+  isYou: 0
+  isEssential: 0
   faction: 0
   role: {fileID: 0}
 --- !u!114 &3017468683588421300
@@ -416,7 +418,7 @@ MonoBehaviour:
   attackRange: 0.18
   Buildings:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8704
   whatIsEnemy:
     serializedVersion: 2
     m_Bits: 256

@@ -9,7 +9,7 @@ public class PlayerAttack : MonoBehaviour {
     public int damage;
     public float aggroDistance;
     public float attackRange;
-    public LayerMask Buildings;
+    public LayerMask BuildingsAnEnemies;
     public LayerMask whatIsEnemy;
 
     private Vector3 enemyPos;
@@ -50,16 +50,18 @@ public class PlayerAttack : MonoBehaviour {
     //Gemensama funktioner behöver inte ändras för att markus eller toro kod ska fungera
     #region Gemensama funktioner
     public NodeStates LineOfSight() {
-        hitInfo = Physics2D.Raycast(transform.position, enemyPos - transform.position, aggroDistance, Buildings);
-        if (hitInfo.collider) {
+        hitInfo = Physics2D.Raycast(transform.position, enemyPos - transform.position, aggroDistance, BuildingsAnEnemies);
+        if (!hitInfo.collider)
+        {
             return NodeStates.fail;
-        }
-        else /*(hitInfo.collider.CompareTag("Enemy"))*/
+        } else if (hitInfo.collider.gameObject.CompareTag("Enemy"))
+        /*(hitInfo.collider.CompareTag("Enemy"))*/
         {
             //Debug.Log(enemyPos);
             Debug.DrawLine(transform.position, hitInfo.point);
             return NodeStates.success;
-        }
+        } else
+            return NodeStates.fail;
         //return NodeStates.fail;
     }
 
