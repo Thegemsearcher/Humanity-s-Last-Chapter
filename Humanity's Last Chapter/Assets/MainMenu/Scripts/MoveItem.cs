@@ -72,33 +72,47 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
         }
         //Check Clothes Slots
-        else if (id[0] == 'c') {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("ClothSlot")) {
-                if (Move(weaponSlot)) {
-                    return;
+        else if (id[0] == 'c' && id[1] == 'l') { //ClothSlot
+            ClothItemObject[] clothTemp = Assets.assets.clothTemp;
+            foreach (ClothItemObject cloth in clothTemp) {
+                if (id == cloth.name) {
+                    if (cloth.clothType == ClothScript.ClothType.Cloth) {
+                        foreach (GameObject ClothSlot in GameObject.FindGameObjectsWithTag("ClothSlot")) {
+                            if (Move(ClothSlot)) {
+                                return;
+                            }
+                        }
+                    } else {
+                        foreach (GameObject hatSlot in GameObject.FindGameObjectsWithTag("HatSlot")) {
+                            if (Move(hatSlot)) {
+                                return;
+                            }
+                        }
+                    }
+                    break;
                 }
             }
+            
         }
         //Check Hat Slots??
-        else if (id[0] == 't') {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("HatSlot")) {
-                if (Move(weaponSlot)) {
-                    return;
-                }
-            }
-        }
+        //else if (id[0] == 'c') {
+        //    foreach (GameObject hatSlot in GameObject.FindGameObjectsWithTag("HatSlot")) {
+        //        if (Move(hatSlot)) {
+        //            return;
+        //        }
+        //    }
+        //}
         //Check Heal Slot
         else if (id[0] == 'h') {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("HealSlot")) {
-                if (Move(weaponSlot)) {
+            foreach (GameObject healSlot in GameObject.FindGameObjectsWithTag("HealSlot")) {
+                if (Move(healSlot)) {
                     return;
                 }
             }
         }
-        //Check Melee Weapon Slot
-        else if (id[0] == 'm') {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("MeleeSlot")) {
-                if (Move(weaponSlot)) {
+        else if (id[0] == 'c' && id[1] == 'i') { //CombatItem
+            foreach (GameObject CombatItem in GameObject.FindGameObjectsWithTag("CombatSlot")) {
+                if (Move(CombatItem)) {
                     return;
                 }
             }
