@@ -24,24 +24,40 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         this.cost = cost;
         this.itemName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
         this.itemDesc = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
+        //Debug.Log("itemDesc: " + itemDesc);
         GetComponent<SpriteRenderer>().sprite = texture;
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        if (itemName != null && itemDesc != null) {
-            itemName.text = strName;
-            itemDesc.text = strDesc;
-        } else {
-            Debug.Log("Can't find textBox!");
-        }
+        Debug.Log("hjmmm");
+        itemName.text = strName;
+        itemDesc.text = strDesc;
+        //if (itemName != null && itemDesc != null) {
+        //    itemName.text = strName;
+        //    itemDesc.text = strDesc;
+        //} else {
+        //    Debug.Log("Can't find textBox!");
+        //}
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        if (itemName != null && itemDesc != null) {
-            itemName.text = "";
-            itemDesc.text = "";
-        } else {
-            Debug.Log("Can't find textBox!");
-        }
+        itemName.text = "";
+        itemDesc.text = "";
+        //if (itemName != null && itemDesc != null) {
+        //    itemName.text = "";
+        //    itemDesc.text = "";
+        //} else {
+        //    Debug.Log("Can't find textBox!");
+        //}
+    }
+
+    public void OnMouseOver() {
+        itemName.text = strName;
+        itemDesc.text = strDesc;
+    }
+
+    public void OnMouseExit() {
+        itemName.text = "";
+        itemDesc.text = "";
     }
 }
