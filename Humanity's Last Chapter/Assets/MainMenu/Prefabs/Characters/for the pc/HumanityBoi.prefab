@@ -418,10 +418,10 @@ MonoBehaviour:
   attackRange: 0.18
   BuildingsAnEnemies:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8704
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8192
   loadout: 1
   speed: 1.5
   timeBetweenAttack: 3
