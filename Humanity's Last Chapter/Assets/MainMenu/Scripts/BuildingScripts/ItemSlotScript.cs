@@ -68,4 +68,15 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         this.Parent = Parent;
         isActive = true;
     }
+    private void OnDestroy() {
+        if (transform.tag == "ItemSlot") { //Kollar om den är av typen ItemSlot, Alla ItemSlots i storage har taggen ItemSlots, characters ItemSlots har ett mer specefik tag
+            if (transform.childCount > 0) { //Kollar så att det har ett barn/item
+                WorldScript.world.storageArr[slotNr] = GetComponentInChildren<ItemInfo>().id; //Sätter så att Storage sparas
+            } else {
+                WorldScript.world.storageArr[slotNr] = ""; //Om den inte har ett barn är slotten null
+            }
+        }
+        
+        
+    }
 }

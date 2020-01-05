@@ -58,6 +58,7 @@ TagManager:
   - HealSlot
   - WindowManager
   - Marker
+  - CombatSlot
   layers:
   - Default
   - TransparentFX
@@ -94,4 +95,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2684328627
+    locked: 0
+  - name: StationaryObjects
+    uniqueID: 2955432065
+    locked: 0
+  - name: MovingObjects
+    uniqueID: 3140514397
+    locked: 0
+  - name: Walls
+    uniqueID: 3285008397
     locked: 0

@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CreateItems : MonoBehaviour {
-    
+
+    public Text txtDescName, txtDescDesc; //Info rutornas text i StorageWindow
     public GameObject Item;
     private GameObject ItemO;
 
@@ -23,7 +25,7 @@ public class CreateItems : MonoBehaviour {
                                 ItemO = Instantiate(Item);
                                 ItemO.transform.SetParent(itemSlots[i].transform, false);
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
-                                itemInfo.GetData(healing.texture, healing.itemName, healing.description, healing.name, healing.cost);
+                                itemInfo.GetData(healing.texture, healing.itemName, healing.description, healing.name, healing.cost, txtDescName, txtDescDesc);
                                 iss.GetComponent<ItemSlotScript>().GetItem(healing.itemName, healing.description, DescParent);
                                 break;
                             }
@@ -36,7 +38,7 @@ public class CreateItems : MonoBehaviour {
                                 ItemO = Instantiate(Item);
                                 ItemO.transform.SetParent(itemSlots[i].transform, false);
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
-                                itemInfo.GetData(combat.icon, combat.itemName, combat.description, combat.name, combat.cost);
+                                itemInfo.GetData(combat.icon, combat.itemName, combat.description, combat.name, combat.cost, txtDescName, txtDescDesc);
                                 iss.GetComponent<ItemSlotScript>().GetItem(combat.itemName, combat.description, DescParent);
                                 break;
                             }
@@ -49,7 +51,7 @@ public class CreateItems : MonoBehaviour {
                                 ItemO = Instantiate(Item);
                                 ItemO.transform.SetParent(itemSlots[i].transform, false);
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
-                                itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost);
+                                itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost, txtDescName, txtDescDesc);
                                 iss.GetComponent<ItemSlotScript>().GetItem(weapon.weaponName, weapon.description, DescParent);
                                 break;
                             }

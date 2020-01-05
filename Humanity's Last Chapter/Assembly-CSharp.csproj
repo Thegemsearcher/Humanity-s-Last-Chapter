@@ -247,6 +247,7 @@
     <Compile Include="Assets\SaveBoxScript.cs" />
     <Compile Include="Assets\SaveGameScript.cs" />
     <Compile Include="Assets\SoundManagerScript.cs" />
+    <Compile Include="Assets\StorageWindowScript.cs" />
     <Compile Include="Assets\TurretAttack.cs" />
     <Compile Include="Assets\UIActiveMission.cs" />
     <Compile Include="Assets\UICharacter.cs" />

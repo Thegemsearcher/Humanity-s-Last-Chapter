@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WaveInfo: 'Fyller Missionmap1 '
   spawnPosArr:
-  - {fileID: 3939163579847472891, guid: 281051de428ed4344a55c8278818b695, type: 3}
-  - {fileID: 8441431556315283445, guid: 8b44a6b0ea60b77459aac1960ca5af73, type: 3}
-  - {fileID: 166741446758298731, guid: 153a5681fae120646a30918f9890ac24, type: 3}
+  - {fileID: 6063382750004415654, guid: 9730cedb99df85a49a073e9770c7faa1, type: 3}
+  - {fileID: 3782376440984684182, guid: 221fa8f5fc1760e4884923a5b3b7f0eb, type: 3}
+  - {fileID: 3782376440984684182, guid: 221fa8f5fc1760e4884923a5b3b7f0eb, type: 3}
   - {fileID: 1723464163768333921, guid: 8b582b2b89e6a144ab31de671da8a3f8, type: 3}
   - {fileID: 8985247812892840510, guid: 23a51dacaf3760b4a815f9d49a4e608e, type: 3}
   - {fileID: 1678608515540421983, guid: 4d7bee2da54ab5c4fa728aa413413288, type: 3}
@@ -37,9 +37,6 @@ MonoBehaviour:
   - {fileID: 3215872999159232531, guid: cd5976f4ac24f1f47a5a792a6304f8b0, type: 3}
   - {fileID: 1209726552976253989, guid: 8e217ab8cb47d554ea51a8fbead3ff17, type: 3}
   - {fileID: 4146174082549689635, guid: f24c67fe83f69484fb8b5aa929d037d4, type: 3}
-  - {fileID: 6063382750004415654, guid: 9730cedb99df85a49a073e9770c7faa1, type: 3}
-  - {fileID: 3782376440984684182, guid: 221fa8f5fc1760e4884923a5b3b7f0eb, type: 3}
-  - {fileID: 4912324353958736056, guid: 0eee8f45069213045a7834aead8f1be1, type: 3}
   prefab: {fileID: 4090975341072565159, guid: ecf8ee21bade51a48891cccceee6b009, type: 3}
   isTimerBased: 0
   spawnRate: 0

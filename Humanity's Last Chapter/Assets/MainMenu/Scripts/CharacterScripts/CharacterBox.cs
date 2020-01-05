@@ -6,55 +6,113 @@ using UnityEngine.UI;
 public class CharacterBox : MonoBehaviour {
 
     private CharacterScript characterScript;
+    private Text txtDescName, txtDescDesc;
     public Text txtName;
     public Sprite cloth;
 
     public GameObject[] itemSlots;
-    public GameObject clothSlot;
-    public GameObject rangedSlot;
+    public GameObject weaponSlot, clothSlot, headSlot, healingSlot, combatSlot;
 
     private GameObject ItemO;
 
-    public GameObject Item;
+    public GameObject Item, Portrait;
     private ItemSlotScript iss;
     private GameObject Character, DescParent;
 
-    private string rangedId, clothId;
+    private string rangedId, clothId, headId, healingId, combatId;
     private string[] inventoryArr;
     private ItemInfo itemInfo;
 
-    public void GetData(GameObject Character, GameObject DescParent) {
+    public void GetData(GameObject Character, GameObject DescParent, Text txtDescName, Text txtDescDesc) {
         this.Character = Character;
         this.DescParent = DescParent;
+        //this.txtDescName = txtDescName;
+        //this.txtDescDesc = txtDescDesc;
         characterScript = Character.GetComponent<CharacterScript>();
-        txtName.text = characterScript.strName;
+        //txtName.text = characterScript.strName;
 
-        //for (int i = 0; i < itemSlots.Length; i++) {
-        //    if(characterScript.inventory[i] != "") {
-        //        CreateItem(characterScript.inventory[i], itemSlots[i]);
-        //    }
-        //}
+        Portrait.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+        Portrait.GetComponent<Stats>().LoadPlayer(Character.GetComponent<Stats>());
+
+        PrepareSlots(); //Sätter det karaktären har på sig till slots i characterBox
+    }
+
+    private void PrepareSlots() {
 
         if (characterScript.rangedId != "") { //Spawnar vapen i weaponSlot
             ItemO = Instantiate(Item);
-            ItemO.transform.SetParent(rangedSlot.transform, false);
+            ItemO.transform.SetParent(weaponSlot.transform, false);
 
             rangedId = characterScript.rangedId;
             foreach (WeaponObject weapon in Assets.assets.weaponTemp) {
-                if(weapon.name == rangedId) {
+                if (weapon.name == rangedId) {
                     itemInfo = ItemO.GetComponent<ItemInfo>();
-                    itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost);
-                    rangedSlot.GetComponent<ItemSlotScript>().GetItem(weapon.weaponName, weapon.description, DescParent);
+                    itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost, txtDescName, txtDescDesc);
+                    weaponSlot.GetComponent<ItemSlotScript>().GetItem(weapon.weaponName, weapon.description, DescParent);
                 }
             }
         }
 
-        //För att ändra kläder!
+        if (characterScript.clothId != "") {
+            ItemO = Instantiate(Item);
+            ItemO.transform.SetParent(clothSlot.transform, false);
+
+            clothId = characterScript.clothId;
+            foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
+                if (cloth.name == clothId) {
+                    itemInfo = ItemO.GetComponent<ItemInfo>();
+                    itemInfo.GetData(cloth.icon, cloth.itemName, cloth.description, cloth.name, cloth.cost, txtDescName, txtDescDesc);
+                    clothSlot.GetComponent<ItemSlotScript>().GetItem(cloth.itemName, cloth.description, DescParent);
+                }
+            }
+        }
+
+        if (characterScript.headId != "") {
+            ItemO = Instantiate(Item);
+            ItemO.transform.SetParent(headSlot.transform, false);
+
+            headId = characterScript.headId;
+            foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
+                if (cloth.name == headId) {
+                    itemInfo = ItemO.GetComponent<ItemInfo>();
+                    itemInfo.GetData(cloth.icon, cloth.itemName, cloth.description, cloth.name, cloth.cost, txtDescName, txtDescDesc);
+                    headSlot.GetComponent<ItemSlotScript>().GetItem(cloth.itemName, cloth.description, DescParent);
+                }
+            }
+        }
+
+        if (characterScript.healingId != "") {
+            ItemO = Instantiate(Item);
+            ItemO.transform.SetParent(healingSlot.transform, false);
+
+            healingId = characterScript.healingId;
+            foreach (HealingItemObject healingItem in Assets.assets.healingTemp) {
+                if (healingItem.name == healingId) {
+                    itemInfo = ItemO.GetComponent<ItemInfo>();
+                    itemInfo.GetData(healingItem.icon, healingItem.itemName, healingItem.description, healingItem.name, healingItem.cost, txtDescName, txtDescDesc);
+                    healingSlot.GetComponent<ItemSlotScript>().GetItem(healingItem.itemName, healingItem.description, DescParent);
+                }
+            }
+        }
+
+        if (characterScript.combatId != "") {
+            ItemO = Instantiate(Item);
+            ItemO.transform.SetParent(combatSlot.transform, false);
+
+            combatId = characterScript.combatId;
+            foreach (CombatItemObject combatItem in Assets.assets.combatTemp) {
+                if (combatItem.name == combatId) {
+                    itemInfo = ItemO.GetComponent<ItemInfo>();
+                    itemInfo.GetData(combatItem.icon, combatItem.itemName, combatItem.description, combatItem.name, combatItem.cost, txtDescName, txtDescDesc);
+                    combatSlot.GetComponent<ItemSlotScript>().GetItem(combatItem.itemName, combatItem.description, DescParent);
+                }
+            }
+        }
     }
 
     private void OnDestroy() {
-        if (rangedSlot.GetComponentInChildren<ItemInfo>() != null) {
-            rangedId = rangedSlot.GetComponentInChildren<ItemInfo>().id;
+        if (weaponSlot.GetComponentInChildren<ItemInfo>() != null) {
+            rangedId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
         } else {
             rangedId = "";
         }
@@ -81,7 +139,7 @@ public class CharacterBox : MonoBehaviour {
                         ItemO = Instantiate(Item);
                         ItemO.transform.SetParent(Slot.transform, false);
                         itemInfo = ItemO.GetComponent<ItemInfo>();
-                        itemInfo.GetData(healing.texture, healing.itemName, healing.description, healing.name, healing.cost);
+                        itemInfo.GetData(healing.texture, healing.itemName, healing.description, healing.name, healing.cost, txtDescName, txtDescDesc);
                         iss.GetComponent<ItemSlotScript>().GetItem(healing.itemName, healing.description, DescParent);
                         break;
                     }
@@ -94,7 +152,7 @@ public class CharacterBox : MonoBehaviour {
                         ItemO = Instantiate(Item);
                         ItemO.transform.SetParent(Slot.transform, false);
                         itemInfo = ItemO.GetComponent<ItemInfo>();
-                        itemInfo.GetData(combat.icon, combat.itemName, combat.description, combat.name, combat.cost);
+                        itemInfo.GetData(combat.icon, combat.itemName, combat.description, combat.name, combat.cost, txtDescName, txtDescDesc);
                         iss.GetComponent<ItemSlotScript>().GetItem(combat.itemName, combat.description, DescParent);
                         break;
                     }
@@ -107,7 +165,7 @@ public class CharacterBox : MonoBehaviour {
                         ItemO = Instantiate(Item);
                         ItemO.transform.SetParent(Slot.transform, false);
                         itemInfo = ItemO.GetComponent<ItemInfo>();
-                        itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost);
+                        itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost, txtDescName, txtDescDesc);
                         iss.GetComponent<ItemSlotScript>().GetItem(weapon.weaponName, weapon.description, DescParent);
                         break;
                     }

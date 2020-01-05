@@ -357,8 +357,8 @@ GameObject:
   - component: {fileID: 4325747468635492280}
   - component: {fileID: 6789341246932187338}
   m_Layer: 0
-  m_Name: ItemSlot
-  m_TagString: ItemSlot
+  m_Name: CombatSlot
+  m_TagString: CombatSlot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -645,7 +645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1159439691328609365
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1528,7 +1528,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Item
+  m_Text: Combat
 --- !u!1 &6071583354798683534
 GameObject:
   m_ObjectHideFlags: 0
@@ -2434,8 +2434,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  clothSlot: {fileID: 8562279997112346807}
   rangedSlot: {fileID: 355122495475346635}
+  clothSlot: {fileID: 8562279997112346807}
+  headSlot: {fileID: 6890005680444730121}
+  healingSlot: {fileID: 2966476345040510533}
+  combatSlot: {fileID: 2966476345040510533}
   Item: {fileID: 5041903545893433407, guid: 6ced4e0a1472ff94f86805c0eb940e46, type: 3}
 --- !u!212 &2203623242199952533
 SpriteRenderer:

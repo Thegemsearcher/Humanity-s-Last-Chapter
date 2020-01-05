@@ -9,9 +9,13 @@ public class CommunityTitle : MonoBehaviour {
     public GameObject ChangeWindow, parent;
     private GameObject holder;
 
+    private void Start() {
+        //title.text = WorldScript.world.saveName;
+    }
+
     public void BtnChangeName() {
-        holder = Instantiate(ChangeWindow);
-        holder.transform.SetParent(parent.transform, false);
+        //holder = Instantiate(ChangeWindow);
+        //holder.transform.SetParent(parent.transform, false);
     }
 
     private void Update() {

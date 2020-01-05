@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CreateCharacterBox : MonoBehaviour {
 
+    public Text txtDescName, txtDescDesc;
     public GameObject CharacterBox, InventoryParent;
     public GameObject BoxDad, ItemSlot;
     private GameObject Holder;
@@ -30,7 +31,7 @@ public class CreateCharacterBox : MonoBehaviour {
         {
             Holder = Instantiate(CharacterBox);
             Holder.transform.SetParent(BoxDad.transform, false);
-            Holder.GetComponent<CharacterBox>().GetData(Character, gameObject);
+            Holder.GetComponent<CharacterBox>().GetData(Character, gameObject, txtDescName, txtDescDesc);
         }
     }
     public void Return() {
