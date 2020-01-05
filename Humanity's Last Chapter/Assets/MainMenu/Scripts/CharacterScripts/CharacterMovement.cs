@@ -18,6 +18,7 @@ public class CharacterMovement : MonoBehaviour
 
     private List<GameObject> selectedCharacters;
     bool posForFormation = true;
+    public bool updateFormation = true;
 
     public List<Vector3> waypoints = new List<Vector3>();
     private int currentWaypoint = 0;
@@ -168,10 +169,12 @@ public class CharacterMovement : MonoBehaviour
             v.y = Screen.height - v.y;
             if (toSelect.Contains(v))
             {
+                go.GetComponent<PersonalMovement>().ByFormation = true;
                 selectedCharacters.Add(go);
                 go.GetComponent<SpriteRenderer>().color = Color.green;
             } else
             {
+                go.GetComponent<PersonalMovement>().ByFormation = false;
                 selectedCharacters.Remove(go);
                 go.GetComponent<SpriteRenderer>().color = Color.white;
             }
@@ -181,6 +184,11 @@ public class CharacterMovement : MonoBehaviour
             posForFormation = false;
         }else
         {
+            foreach (GameObject go in pcs)
+            {
+                go.GetComponent<PersonalMovement>().ByFormation = true;
+            }
+            selectedCharacters = pcs;
             posForFormation = true;
         }
     }
@@ -215,50 +223,33 @@ public class CharacterMovement : MonoBehaviour
                 pc.GetComponent<PersonalMovement>().relativePos = toSet;
             }
         }
-        
-        //Vector3 to = new Vector3(rotateTowards.x, rotateTowards.y, 0);
-        //Vector3 from = new Vector3(transform.position.x, transform.position.y, 0);
-        //float angle = Vector3.Angle(from, to);
-        //foreach (GameObject pc in pcs)
-        //{
-        //    Debug.Log("gnasl");
-        //    Vector3 toSet = pc.GetComponent<PersonalMovement>().relativePos;
-        //    toSet = Quaternion.Euler(new Vector3(0, 0, angle)) * toSet;
-        //    pc.GetComponent<PersonalMovement>().relativePos = toSet;
-        //}
+    
     }
 
     private void InputMovement()
     {
-        //if (Input.GetMouseButtonDown(1) && Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    mousePosition = Input.mousePosition;
-        //    mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        //    waypoints.Add(mousePosition);
-
-
-        //    RotateFormation(mousePosition);
-        //}
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        if (Input.GetKeyDown(KeyCode.Mouse1)/*&& !Input.GetKey(KeyCode.LeftShift)*/ && !Input.GetKey(KeyCode.LeftAlt) && posForFormation)
+        if (Input.GetKeyDown(KeyCode.Mouse1)/*&& !Input.GetKey(KeyCode.LeftShift)*/ && !Input.GetKey(KeyCode.LeftAlt) /*&& posForFormation*/)
         {
             waypoints.Clear();
-            
+
             waypoints.Add(mousePosition);
             transform.position = mousePosition;
-            
+            updateFormation = true;
 
             //RotateFormation(mousePosition);
-        }else if (!posForFormation && Input.GetKeyDown(KeyCode.Mouse1) && !Input.GetKey(KeyCode.LeftAlt))
-        {
-            foreach (GameObject go in selectedCharacters)
-            {
-                go.GetComponent<PersonalMovement>().ByFormation = false;
-                go.GetComponent<PersonalMovement>().posNotFormation = mousePosition;
+            //}else if (!posForFormation && Input.GetKeyDown(KeyCode.Mouse1) && !Input.GetKey(KeyCode.LeftAlt))
+            //{
+            //    foreach (GameObject go in selectedCharacters)
+            //    {
+            //        go.GetComponent<PersonalMovement>().ByFormation = false;
+            //        go.GetComponent<PersonalMovement>().posNotFormation = mousePosition;
 
-            }
-        }
+            //    }
+            //}
+        } else
+            updateFormation = false;
     }
 
     //private void Movement()

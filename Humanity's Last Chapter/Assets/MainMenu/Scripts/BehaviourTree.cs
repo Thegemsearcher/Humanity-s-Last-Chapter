@@ -61,7 +61,7 @@ public class BehaviourTree : MonoBehaviour
         Selector forCombat = new Selector(forCombatSelector);
         #endregion
 
-        nodes.Add(moveSel);
+        //nodes.Add(moveSel);
         nodes.Add(forCombat);
 
         RootNode toReturn = new RootNode(nodes);
