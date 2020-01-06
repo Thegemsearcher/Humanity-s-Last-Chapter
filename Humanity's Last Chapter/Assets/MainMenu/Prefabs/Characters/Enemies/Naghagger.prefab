@@ -233,7 +233,7 @@ MonoBehaviour:
   pcs: []
   aggroRange: 20
   atkRange: 1.1
-  dmg: 1
+  dmg: 15
   pcLayer:
     serializedVersion: 2
     m_Bits: 256
