@@ -95,6 +95,13 @@ public class PersonalMovement : MonoBehaviour
         return NodeStates.fail;
     }
 
+    public NodeStates IsMoving()
+    {
+        if (moving)
+            return NodeStates.success;
+        return NodeStates.fail;
+    }
+
     public void FlushWaypoints()
     {
         waypoints.Clear();
