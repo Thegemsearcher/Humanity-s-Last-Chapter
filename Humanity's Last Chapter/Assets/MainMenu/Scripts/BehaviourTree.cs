@@ -338,5 +338,18 @@ public class LeafNode : Node
         }
     }
 }
+public class AlwaysFalse : Node
+{
+    Node child;
+    public AlwaysFalse(Node child)
+    {
+        this.child = child;
+    }
+    public override NodeStates Evaluate()
+    {
+        child.Evaluate();
+        return NodeStates.success;
+    }
+}
     
 

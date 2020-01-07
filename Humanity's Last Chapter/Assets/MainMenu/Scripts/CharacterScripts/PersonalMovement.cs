@@ -46,6 +46,11 @@ public class PersonalMovement : MonoBehaviour
             Debug.DrawLine(manager.transform.position, positionBy.point);
         BT.Start();
         Movement();
+        if (GetComponent<AIPath>().reachedDestination)
+            moving = false;
+        else
+            moving = true;
+
 
         //Debug.Log(relativePosNonRotated);
     }
@@ -99,6 +104,18 @@ public class PersonalMovement : MonoBehaviour
     {
         if (moving)
             return NodeStates.success;
+        return NodeStates.fail;
+    }
+
+    public NodeStates OwnPos()
+    {
+        if (!ByFormation)
+        {
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+
+            return NodeStates.success;
+        }
+
         return NodeStates.fail;
     }
 
