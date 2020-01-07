@@ -22,10 +22,19 @@ public class BehaviourTree : MonoBehaviour
         #region Movement without commander
         LeafNode cmdDead = new LeafNode(GetComponent<PersonalMovement>().HasCommander);
         LeafNode rngPos = new LeafNode(GetComponent<PersonalMovement>().RngPos);
-        List<Node> listForSel = new List<Node>();
-        listForSel.Add(cmdDead);
-        listForSel.Add(rngPos);
-        Selector moveSel = new Selector(listForSel);
+        List<Node> listForCommSel = new List<Node>();
+        listForCommSel.Add(cmdDead);
+        listForCommSel.Add(rngPos);
+        Selector CommSel = new Selector(listForCommSel);
+        LeafNode moving = new LeafNode(GetComponent<PersonalMovement>().IsMoving);
+        List<Node> listforCommSeq = new List<Node>();
+        listforCommSeq.Add(moving);
+        listforCommSeq.Add(CommSel);
+        Sequence commSeq = new Sequence(listforCommSeq);
+
+
+
+        //Selector moveSel = new Selector(listForSel);
         #endregion
 
         #region combat

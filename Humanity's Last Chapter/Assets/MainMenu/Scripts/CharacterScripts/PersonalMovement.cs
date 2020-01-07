@@ -45,7 +45,7 @@ public class PersonalMovement : MonoBehaviour
         if (debugger && positionBy)
             Debug.DrawLine(manager.transform.position, positionBy.point);
         BT.Start();
-        Movement();
+        //Movement();
         if (GetComponent<AIPath>().reachedDestination)
             moving = false;
         else
@@ -71,8 +71,8 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates RngPos()
     {
-        if (moving)
-            return NodeStates.fail;
+        //if (moving)
+        //    return NodeStates.fail;
         if (movingToRngPos)
         {
             GetComponent<AIDestinationSetter>().SetPosTarget(rngPos);
@@ -104,6 +104,7 @@ public class PersonalMovement : MonoBehaviour
     {
         if (moving)
             return NodeStates.success;
+        //if (manager.GetComponent<CharacterMovement>().updateFormation && )
         return NodeStates.fail;
     }
 
@@ -117,6 +118,25 @@ public class PersonalMovement : MonoBehaviour
         }
 
         return NodeStates.fail;
+    }
+
+    public NodeStates PosByFormation()
+    {
+        if (manager.GetComponent<CharacterMovement>().updateFormation)
+        {
+            positionBy = Physics2D.Raycast(manager.transform.position, manager.transform.position + relativePos, relativePos.magnitude, buildingLayer);
+            waypoint = manager.transform.position + relativePos;
+            if (positionBy != false)
+            {
+                Vector2 v = positionBy.point - (Vector2)transform.position;
+                v.Normalize();
+                v *= 0.1f;
+                waypoint = positionBy.point + v;
+                GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+            }
+        }
+
+        return NodeStates.success;
     }
 
     public void FlushWaypoints()
