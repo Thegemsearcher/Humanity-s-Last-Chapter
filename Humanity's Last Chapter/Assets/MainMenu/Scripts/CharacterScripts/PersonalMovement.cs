@@ -71,6 +71,7 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates RngPos()
     {
+        Debug.Log("rngpos");
         //if (moving)
         //    return NodeStates.fail;
         if (movingToRngPos)
@@ -110,6 +111,7 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates OwnPos()
     {
+        Debug.Log("ownpos");
         if (!ByFormation)
         {
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
@@ -122,18 +124,32 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates PosByFormation()
     {
-        if (manager.GetComponent<CharacterMovement>().updateFormation)
+        Debug.Log("posbyform");
+        //if (manager.GetComponent<CharacterMovement>().updateFormation)
+        //{
+        //    positionBy = Physics2D.Raycast(manager.transform.position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);
+        //    waypoint = manager.transform.position + relativePos;
+        //    if (positionBy != false)
+        //    {
+        //        Vector2 v = positionBy.point - (Vector2)transform.position;
+        //        v.Normalize();
+        //        v *= 0.1f;
+        //        waypoint = positionBy.point + v;
+        //        GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+        //    }
+        //}
+        positionBy = Physics2D.Raycast(manager.transform.position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);
+        waypoint = manager.transform.position + relativePos;
+        if (positionBy != false)
         {
-            positionBy = Physics2D.Raycast(manager.transform.position, manager.transform.position + relativePos, relativePos.magnitude, buildingLayer);
-            waypoint = manager.transform.position + relativePos;
-            if (positionBy != false)
-            {
-                Vector2 v = positionBy.point - (Vector2)transform.position;
-                v.Normalize();
-                v *= 0.1f;
-                waypoint = positionBy.point + v;
-                GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-            }
+            Vector2 v = positionBy.point - (Vector2)transform.position;
+            v.Normalize();
+            v *= 0.1f;
+            waypoint = positionBy.point + v;
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+        } else
+        {
+            GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
         }
 
         return NodeStates.success;

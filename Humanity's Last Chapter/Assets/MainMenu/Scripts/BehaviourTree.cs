@@ -19,24 +19,29 @@ public class BehaviourTree : MonoBehaviour
     {
         List<Node> nodes = new List<Node>();
 
-        #region Movement without commander
+        #region Movement 
+        //if not moving, checks for commander, if no commander rngpos
         LeafNode cmdDead = new LeafNode(GetComponent<PersonalMovement>().HasCommander);
         LeafNode rngPos = new LeafNode(GetComponent<PersonalMovement>().RngPos);
         List<Node> listForCommSel = new List<Node>();
         listForCommSel.Add(cmdDead);
         listForCommSel.Add(rngPos);
         Selector CommSel = new Selector(listForCommSel);
+        //
         LeafNode moving = new LeafNode(GetComponent<PersonalMovement>().IsMoving);
+        //Inverter invMove = new Inverter(moving);
         List<Node> listforCommSeq = new List<Node>();
         listforCommSeq.Add(moving);
         listforCommSeq.Add(CommSel);
         Sequence commSeq = new Sequence(listforCommSeq);
+
         LeafNode ownPos = new LeafNode(GetComponent<PersonalMovement>().OwnPos);
         LeafNode byFormation = new LeafNode(GetComponent<PersonalMovement>().PosByFormation);
         List<Node> forFormSel = new List<Node>();
         forFormSel.Add(ownPos);
         forFormSel.Add(byFormation);
         Selector formSel = new Selector(forFormSel);
+
         List<Node> forMovementSel = new List<Node>();
         AlwaysFalse forCommSeq = new AlwaysFalse(commSeq);
         forMovementSel.Add(forCommSeq);
@@ -364,7 +369,7 @@ public class AlwaysFalse : Node
     public override NodeStates Evaluate()
     {
         child.Evaluate();
-        return NodeStates.success;
+        return NodeStates.fail;
     }
 }
     
