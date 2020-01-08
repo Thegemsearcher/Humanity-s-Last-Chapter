@@ -31,10 +31,17 @@ public class BehaviourTree : MonoBehaviour
         listforCommSeq.Add(moving);
         listforCommSeq.Add(CommSel);
         Sequence commSeq = new Sequence(listforCommSeq);
-
-
-
-        //Selector moveSel = new Selector(listForSel);
+        LeafNode ownPos = new LeafNode(GetComponent<PersonalMovement>().OwnPos);
+        LeafNode byFormation = new LeafNode(GetComponent<PersonalMovement>().PosByFormation);
+        List<Node> forFormSel = new List<Node>();
+        forFormSel.Add(ownPos);
+        forFormSel.Add(byFormation);
+        Selector formSel = new Selector(forFormSel);
+        List<Node> forMovementSel = new List<Node>();
+        AlwaysFalse forCommSeq = new AlwaysFalse(commSeq);
+        forMovementSel.Add(forCommSeq);
+        forMovementSel.Add(formSel);
+        Selector moveSel = new Selector(forMovementSel);
         #endregion
 
         #region combat
@@ -70,7 +77,7 @@ public class BehaviourTree : MonoBehaviour
         Selector forCombat = new Selector(forCombatSelector);
         #endregion
 
-        //nodes.Add(moveSel);
+        nodes.Add(moveSel);
         nodes.Add(forCombat);
 
         RootNode toReturn = new RootNode(nodes);
