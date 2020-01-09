@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace QuestSystem {
-    public class LocationObjective : MonoBehaviour {
+namespace QuestSystem
+{
+    public class LocationObjective : MonoBehaviour
+    {
         public string title = "t.ex. Enter the Kitchen";
         public string description = "t.ex. A distress call from the Dinner Room calls for an investigation";
         private string id = "t.ex. lo0";
@@ -15,16 +17,20 @@ namespace QuestSystem {
         private bool isBonus;
         private LocationScript loScript;
         private WaveEvent waveEvent;
-
+        private List<Transform> spawnList;
         private Object[] startEvents;
         private Object[] endEvents;
 
         LocationObject data;
-        public Transform SpawnPos()
+        public List<Transform> SpawnPos()
         {
-            return Location.transform;
+
+            return spawnList;
+
         }
-        public void GetData(LocationObject data, WaveEvent waveEvent) {
+        public void GetData(LocationObject data, WaveEvent waveEvent)
+        {
+            spawnList = new List<Transform>();
             this.data = data;
             this.waveEvent = waveEvent;
             title = data.titel;
@@ -34,31 +40,42 @@ namespace QuestSystem {
             clearOutTarget = data.clearOutTarget;
             isComlete = false;
             isBonus = data.isBonus;
-            
+
+            spawnList.Add(Location.transform);
+
+
             characters = GameObject.FindGameObjectsWithTag("Character");
 
-            
+
             GameObject[] Locations = GameObject.FindGameObjectsWithTag("Location");
-            foreach (GameObject location in Locations) {
-                if (location.name == data.Location.name) {
+            foreach (GameObject location in Locations)
+            {
+                if (location.name == data.Location.name)
+                {
                     Location = location;
                     break;
                 }
             }
             loScript = Location.GetComponent<LocationScript>();
-            
-            if (data.spawnLo) {
+
+            if (data.spawnLo)
+            {
                 Location.transform.position = data.locationPos.position;
-            } else {
-                
             }
-            if (startEvents != null) {
+            else
+            {
+
+            }
+            if (startEvents != null)
+            {
                 StartEvent(startEvents);
             }
         }
 
-        public bool CheckProgress() {
-            foreach (GameObject character in characters) {
+        public bool CheckProgress()
+        {
+            foreach (GameObject character in characters)
+            {
                 //isComlete = loScript.OnTriggerEnter2D(character.GetComponent<BoxCollider2D>());
                 isComlete = Location.GetComponent<LocationScript>().isInRoom;
                 Debug.Log("isColplete: " + isComlete);
@@ -69,21 +86,26 @@ namespace QuestSystem {
                 //        return true;
                 //    }
                 //}
-                if (isComlete) {
+                if (isComlete)
+                {
                     Debug.Log("yes");
                     Location.GetComponent<LocationScript>().isInRoom = false;
-                    if (endEvents != null) {
+                    if (endEvents != null)
+                    {
                         StartEvent(endEvents);
                     }
                     break;
                 }
             }
-            
+
             return isComlete;
         }
-        private void StartEvent(Object[] eventObj) {
-            foreach (Object obj in eventObj) {
-                switch (obj.name[0]) {
+        private void StartEvent(Object[] eventObj)
+        {
+            foreach (Object obj in eventObj)
+            {
+                switch (obj.name[0])
+                {
                     case 'w':
                         waveEvent.GetEvent(obj as WaveObject);
                         break;

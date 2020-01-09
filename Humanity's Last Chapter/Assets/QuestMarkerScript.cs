@@ -4,17 +4,32 @@ using UnityEngine;
 
 public class QuestMarkerScript : MonoBehaviour
 {
-    Transform[] position;
+    List<Transform> position;
     QuestObject missionpos;
     // Start is called before the first frame update
+    private void Awake()
+    {
+        //missionpos = new QuestObject();
+        
+        missionpos = GameObject.Find("MissionManager2").GetComponent<QuestObject>();
+    }
     void Start()
     {
-        //GetComponent<MissionMarker>
+        position = new List<Transform>();
+        //GetComponent<MissionMarker>;
+        
         //position = missionpos.GetQuestLocation();
         //transform.position = position[0].position;
     }
 
     // Update is called once per frame
+    public void MarkerPos(List<Transform> positions)
+    {
+        Debug.Log("postion: " + positions[0]);
+        position = positions;
+        transform.position = position[0].position;
+    }
+
     void Update()
     {
         //position = missionpos.GetQuestLocation();

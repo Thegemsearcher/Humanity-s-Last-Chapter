@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace QuestSystem {
-    public class InteractionObjective : MonoBehaviour {
+namespace QuestSystem
+{
+    public class InteractionObjective : MonoBehaviour
+    {
         public string title = "t.ex. Talk with this person";
         private string verb = "t.ex. talk";
         private string id = "qg0";
@@ -14,17 +16,20 @@ namespace QuestSystem {
         private GameObject holder;
         private GameObject[] gameObjects;
         private WaveEvent waveEvent;
-
+        private List<Transform> spawnList;
         private InteractObject data;
         private Object[] startEvents;
         private Object[] endEvents;
 
-        public Transform SpawnPos()
+        public List<Transform> SpawnPos()
         {
-            return spawnPos;
+
+            return spawnList;
         }
-        public void GetData(InteractObject ioQuest, WaveEvent waveEvent) {
+        public void GetData(InteractObject ioQuest, WaveEvent waveEvent)
+        {
             this.waveEvent = waveEvent;
+            spawnList = new List<Transform>();
             description = ioQuest.description;
             startEvents = ioQuest.startEvents;
             endEvents = ioQuest.endEvents;
@@ -35,15 +40,23 @@ namespace QuestSystem {
             interactObjective = ioQuest.interactObjective;
             spawnPos = ioQuest.spawnPos;
 
-            if(isSpawned) {
+            spawnList.Add(spawnPos);
+
+
+            if (isSpawned)
+            {
                 holder = Instantiate(interactObjective);
                 holder.transform.position = spawnPos.position;
                 holder.GetComponent<InteractiveScript>().id = id;
                 //holder.transform.SetParent();
-            } else {
+            }
+            else
+            {
                 gameObjects = GameObject.FindGameObjectsWithTag(data.interactObjective.tag);
-                foreach (GameObject objects in gameObjects) {
-                    if (objects.GetComponent<InteractiveScript>().id == id) {
+                foreach (GameObject objects in gameObjects)
+                {
+                    if (objects.GetComponent<InteractiveScript>().id == id)
+                    {
                         holder = objects;
                     }
                 }
@@ -51,24 +64,31 @@ namespace QuestSystem {
             holder.GetComponent<InteractiveScript>().SetActive();
             //interactObjective = GameObject.FindGameObjectWithTag(data.interactObjective.tag);
 
-            if (startEvents != null) {
+            if (startEvents != null)
+            {
                 StartEvent(startEvents);
             }
         }
 
-        public bool CheckProgress() {
+        public bool CheckProgress()
+        {
             isComplete = holder.GetComponent<InteractiveScript>().isInteracted;
-            if (isComplete) {
-                if (endEvents != null) {
+            if (isComplete)
+            {
+                if (endEvents != null)
+                {
                     StartEvent(endEvents);
                 }
             }
             holder.GetComponent<InteractiveScript>().isInteracted = false;
             return isComplete;
         }
-        private void StartEvent(Object[] eventObj) {
-            foreach (Object obj in eventObj) {
-                switch (obj.name[0]) {
+        private void StartEvent(Object[] eventObj)
+        {
+            foreach (Object obj in eventObj)
+            {
+                switch (obj.name[0])
+                {
                     case 'w':
                         waveEvent.GetEvent(obj as WaveObject);
                         break;

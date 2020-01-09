@@ -16,11 +16,12 @@ namespace QuestSystem {
         private ScriptableCollection data;
         private Object[] startEvents;
         private Object[] endEvents;
-
+        private List<Transform> spawnList;
         private WaveEvent waveEvent;
 
         public void GetData(ScriptableCollection coQuest, WaveEvent waveEvent) {
             this.waveEvent = waveEvent;
+            spawnList = new List<Transform>();
             data = coQuest;
             isRandomSpawn = coQuest.isRandomSpawn;
             toCollectList = new List<GameObject>();
@@ -34,13 +35,18 @@ namespace QuestSystem {
             currentAmount = 0;
             isBonus = data.isBonus;
             spawnPos = data.spawnPos;
+            foreach (Transform spawn in spawnPos)
+            {
+                spawnList.Add(spawn);
+            }
             targetsLeft = 0;
             SpawnTarget();
             CheckProgress();
         }
-        public Transform[] SpawnPos()
+        public List<Transform> SpawnPos()
         {
-            return spawnPos;
+            
+            return spawnList;
         }
 
         private void SpawnTarget() {

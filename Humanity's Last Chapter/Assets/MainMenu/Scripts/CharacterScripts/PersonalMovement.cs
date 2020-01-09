@@ -71,7 +71,7 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates RngPos()
     {
-        Debug.Log("rngpos");
+        //Debug.Log("rngpos");
         //if (moving)
         //    return NodeStates.fail;
         if (movingToRngPos)
@@ -111,7 +111,7 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates OwnPos()
     {
-        Debug.Log("ownpos");
+        //Debug.Log("ownpos");
         if (!ByFormation)
         {
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
@@ -124,7 +124,7 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates PosByFormation()
     {
-        Debug.Log("posbyform");
+        //Debug.Log("posbyform");
         //if (manager.GetComponent<CharacterMovement>().updateFormation)
         //{
         //    positionBy = Physics2D.Raycast(manager.transform.position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);

@@ -9,10 +9,10 @@ using UnityEngine.UI;
 public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på alla missions som finns och dess progression
 
     public bool isTesting;
-    public GameObject UIInfoMission;
+    public GameObject UIInfoMission, MissionMarker;
     public ScriptableQuest testQuest;
     public List<QuestObject> activeQuestList;
-
+    private List<GameObject> questMarkerList;
     private int missionCounter;
     private float timer, timeStamp;
     private bool isAnnounced;
@@ -20,20 +20,28 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
     private QuestObject quest;
     private Text txtQuest, txtObjective;
     private List<string> announceOrder;
+    private GameObject markerObject;
 
     private void Awake() {
         activeQuestList = new List<QuestObject>();
         announceOrder = new List<string>();
+        questMarkerList = new List<GameObject>();
     }
 
+    void CreateQuestMarker()
+    {
+      
+        
+    }
     private void Start() {
+
         txtQuest = GameObject.FindGameObjectWithTag("QuestStarted").GetComponent<Text>();
         txtObjective = GameObject.FindGameObjectWithTag("ObjectiveStarted").GetComponent<Text>();
         announceOrder = new List<string>();
         txtQuest.text = "";
         txtObjective.text = "";
         timer = 4f;
-
+        markerObject = Instantiate(MissionMarker);
         LoadQuests();
         
         if (isTesting) {
@@ -79,6 +87,8 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
     private void UpdateQuests() {
         foreach (QuestObject activeQuest in activeQuestList) {
             if(!activeQuest.isCompleted) {
+                //Debug.Log("spawn Length is " + activeQuest.GetQuestLocation().Count);
+                markerObject.GetComponent<QuestMarkerScript>().MarkerPos(activeQuest.GetQuestLocation());
                 if (activeQuest.CheckObjective()) {
                     activeQuest.NextObjective();
                     isAnnounced = true;
