@@ -124,20 +124,6 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates PosByFormation()
     {
-        //Debug.Log("posbyform");
-        //if (manager.GetComponent<CharacterMovement>().updateFormation)
-        //{
-        //    positionBy = Physics2D.Raycast(manager.transform.position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);
-        //    waypoint = manager.transform.position + relativePos;
-        //    if (positionBy != false)
-        //    {
-        //        Vector2 v = positionBy.point - (Vector2)transform.position;
-        //        v.Normalize();
-        //        v *= 0.1f;
-        //        waypoint = positionBy.point + v;
-        //        GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-        //    }
-        //}
         positionBy = Physics2D.Raycast(manager.transform.position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);
         waypoint = manager.transform.position + relativePos;
         if (positionBy != false)
@@ -165,28 +151,28 @@ public class PersonalMovement : MonoBehaviour
         waypoints.Add(manager.transform.position + relativePos);
     }
 
-    private void Movement()
-    {
-        //if (movingToRngPos)
-        //    return;
+    //private void Movement()
+    //{
+    //    //if (movingToRngPos)
+    //    //    return;
 
-        if (manager.GetComponent<CharacterMovement>().updateFormation && ByFormation)
-        {
-            positionBy = Physics2D.Raycast(manager.transform.position, relativePos, relativePos.magnitude, buildingLayer);
-            waypoint = manager.transform.position + relativePos;
-            if (positionBy != false)
-            {
-                Vector2 v = positionBy.point - (Vector2)transform.position;
-                v.Normalize();
-                v *= 0.1f;
-                waypoint = positionBy.point + v;
-                GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-            } else
-            {
-                GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-            }
-        }
-
+    //    if (manager.GetComponent<CharacterMovement>().updateFormation && ByFormation)
+    //    {
+    //        positionBy = Physics2D.Raycast(manager.transform.position, relativePos, relativePos.magnitude, buildingLayer);
+    //        waypoint = manager.transform.position + relativePos;
+    //        if (positionBy != false)
+    //        {
+    //            Vector2 v = positionBy.point - (Vector2)transform.position;
+    //            v.Normalize();
+    //            v *= 0.1f;
+    //            waypoint = positionBy.point + v;
+    //            GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+    //        } else
+    //        {
+    //            GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+    //        }
+    //    }
+    //}
 
 
         //moving = true;
@@ -239,5 +225,5 @@ public class PersonalMovement : MonoBehaviour
 
             //}
 
-    }
+   // }
 }
