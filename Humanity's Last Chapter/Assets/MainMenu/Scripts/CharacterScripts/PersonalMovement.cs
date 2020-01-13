@@ -58,7 +58,7 @@ public class PersonalMovement : MonoBehaviour
    
     public void AddWaypoint(Vector3 pos)
     {
-        waypoints.Add(new Vector3(pos.x, pos.y, 0));
+        waypoint = pos;
     }
 
     public void AddRelativeWaypoint(Vector3 toAdd)
@@ -115,7 +115,7 @@ public class PersonalMovement : MonoBehaviour
         if (!ByFormation)
         {
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-
+            //Debug.Log("here we are");
             return NodeStates.success;
         }
 
@@ -124,6 +124,7 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates PosByFormation()
     {
+        //Debug.Log("why here");
         positionBy = Physics2D.Raycast(manager.transform.position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);
         waypoint = manager.transform.position + relativePos;
         if (positionBy != false)
