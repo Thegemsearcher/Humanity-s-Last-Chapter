@@ -65,6 +65,17 @@ public class CharacterMovement : MonoBehaviour
             }
             selectedCharacters = pcs;
         }
+        if (posForFormation && updateFormation)
+        {
+            foreach (GameObject go in pcs)
+            {
+                go.GetComponent<PersonalMovement>().ByFormation = true;
+            }
+            updateFormation = false;
+        }//else if (updateFormation)
+        //{
+
+        //}
     }
    
 
@@ -184,10 +195,6 @@ public class CharacterMovement : MonoBehaviour
             posForFormation = false;
         }else
         {
-            foreach (GameObject go in pcs)
-            {
-                go.GetComponent<PersonalMovement>().ByFormation = true;
-            }
             selectedCharacters = pcs;
             posForFormation = true;
         }
