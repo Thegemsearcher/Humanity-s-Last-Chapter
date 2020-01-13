@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7133539072739020476}
   - component: {fileID: 1747034359494536480}
-  - component: {fileID: 469100533155000311}
+  - component: {fileID: -2512879414119299157}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: EnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 5896227133096651869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.3, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -67,12 +67,12 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1254150543
-  m_SortingLayer: 0
+  m_SortingLayerID: -1154452899
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 7310888435165062932, guid: fb48aec9f9bd622499ff4e42a9b25681,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.24519646, g: 0.24528301, b: 0.17702028, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &469100533155000311
+--- !u!114 &-2512879414119299157
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -94,6 +94,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e9703a9d1232824c99b7dcd136a558b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  bulletSpeed: 10
+  damage: 2
+  bulletSpeed: 8
   bulletEndPos: {x: 0, y: 0}
