@@ -115,7 +115,7 @@ public class PersonalMovement : MonoBehaviour
         if (!ByFormation)
         {
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-            //Debug.Log("here we are");
+            Debug.Log("here we are");
             return NodeStates.success;
         }
 

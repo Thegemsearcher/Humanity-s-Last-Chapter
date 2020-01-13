@@ -179,7 +179,7 @@ public class CharacterMovement : MonoBehaviour
                 go.GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
-        if (selectedCharacters.Count > 0 || selectedCharacters.Count == pcs.Count)
+        if (selectedCharacters.Count > 0 /*|| !(selectedCharacters.Count == pcs.Count)*/)
         {
             posForFormation = false;
         }else
@@ -252,6 +252,7 @@ public class CharacterMovement : MonoBehaviour
         {
             foreach (GameObject go in selectedCharacters)
             {
+                go.GetComponent<PersonalMovement>().ByFormation = false;
                 if (selectedCharacters.Count > 1)
                 {
                     go.GetComponent<PersonalMovement>().AddWaypoint(mousePosition + go.GetComponent<PersonalMovement>().relativePos);
