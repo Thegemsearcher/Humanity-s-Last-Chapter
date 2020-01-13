@@ -94,6 +94,10 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
                     isAnnounced = true;
                 }
             }
+            else
+            {
+                Destroy(markerObject);
+            }
             
         }
     }

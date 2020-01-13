@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace QuestSystem
-{
-    public class InteractionObjective : MonoBehaviour
-    {
+namespace QuestSystem {
+    public class InteractionObjective : MonoBehaviour {
         public string title = "t.ex. Talk with this person";
         private string verb = "t.ex. talk";
         private string id = "qg0";
@@ -21,13 +19,11 @@ namespace QuestSystem
         private Object[] startEvents;
         private Object[] endEvents;
 
-        public List<Transform> SpawnPos()
-        {
+        public List<Transform> SpawnPos() {
 
             return spawnList;
         }
-        public void GetData(InteractObject ioQuest, WaveEvent waveEvent)
-        {
+        public void GetData(InteractObject ioQuest, WaveEvent waveEvent) {
             this.waveEvent = waveEvent;
             spawnList = new List<Transform>();
             description = ioQuest.description;
@@ -43,52 +39,41 @@ namespace QuestSystem
             spawnList.Add(spawnPos);
 
 
-            if (isSpawned)
-            {
-                holder = Instantiate(interactObjective);
-                holder.transform.position = spawnPos.position;
-                holder.GetComponent<InteractiveScript>().id = id;
-                //holder.transform.SetParent();
-            }
-            else
-            {
+            if (!isSpawned) {   //Om den inte ska spawnas (Den redan finns) ska den gamla raderas
                 gameObjects = GameObject.FindGameObjectsWithTag(data.interactObjective.tag);
-                foreach (GameObject objects in gameObjects)
-                {
-                    if (objects.GetComponent<InteractiveScript>().id == id)
-                    {
-                        holder = objects;
+                foreach (GameObject objects in gameObjects) {
+                    if (objects.GetComponent<InteractiveScript>().id == id) {
+                        Destroy(objects);
                     }
                 }
-            }
+            } 
+            holder = Instantiate(interactObjective);    //Skapar ett nytt interactive object
+            holder.transform.position = spawnPos.position;
+            holder.GetComponent<InteractiveScript>().id = id;
+            holder.name = "InteractiveObject(" + id + ")";
+
             holder.GetComponent<InteractiveScript>().SetActive();
             //interactObjective = GameObject.FindGameObjectWithTag(data.interactObjective.tag);
 
-            if (startEvents != null)
-            {
+            if (startEvents != null) {
                 StartEvent(startEvents);
             }
         }
 
-        public bool CheckProgress()
-        {
+        public bool CheckProgress() {   //Blir kollad ifall objectivet är intergerat med
             isComplete = holder.GetComponent<InteractiveScript>().isInteracted;
-            if (isComplete)
-            {
-                if (endEvents != null)
-                {
+            if (isComplete) {
+                if (endEvents != null) {
                     StartEvent(endEvents);
                 }
             }
             holder.GetComponent<InteractiveScript>().isInteracted = false;
             return isComplete;
         }
-        private void StartEvent(Object[] eventObj)
-        {
-            foreach (Object obj in eventObj)
-            {
-                switch (obj.name[0])
-                {
+
+        private void StartEvent(Object[] eventObj) {    //Kollar om det finns något event som ska starta när denna del av questen börjar
+            foreach (Object obj in eventObj) {
+                switch (obj.name[0]) {
                     case 'w':
                         waveEvent.GetEvent(obj as WaveObject);
                         break;

@@ -58,7 +58,7 @@ public class PersonalMovement : MonoBehaviour
    
     public void AddWaypoint(Vector3 pos)
     {
-        waypoints.Add(new Vector3(pos.x, pos.y, 0));
+        waypoint = pos;
     }
 
     public void AddRelativeWaypoint(Vector3 toAdd)
@@ -115,7 +115,7 @@ public class PersonalMovement : MonoBehaviour
         if (!ByFormation)
         {
             GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-
+            //bug.Log("here we are");
             return NodeStates.success;
         }
 
@@ -124,20 +124,7 @@ public class PersonalMovement : MonoBehaviour
 
     public NodeStates PosByFormation()
     {
-        //Debug.Log("posbyform");
-        //if (manager.GetComponent<CharacterMovement>().updateFormation)
-        //{
-        //    positionBy = Physics2D.Raycast(manager.transform.position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);
-        //    waypoint = manager.transform.position + relativePos;
-        //    if (positionBy != false)
-        //    {
-        //        Vector2 v = positionBy.point - (Vector2)transform.position;
-        //        v.Normalize();
-        //        v *= 0.1f;
-        //        waypoint = positionBy.point + v;
-        //        GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-        //    }
-        //}
+        //Debug.Log("why here");
         positionBy = Physics2D.Raycast(manager.transform.position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);
         waypoint = manager.transform.position + relativePos;
         if (positionBy != false)
@@ -165,28 +152,28 @@ public class PersonalMovement : MonoBehaviour
         waypoints.Add(manager.transform.position + relativePos);
     }
 
-    private void Movement()
-    {
-        //if (movingToRngPos)
-        //    return;
+    //private void Movement()
+    //{
+    //    //if (movingToRngPos)
+    //    //    return;
 
-        if (manager.GetComponent<CharacterMovement>().updateFormation && ByFormation)
-        {
-            positionBy = Physics2D.Raycast(manager.transform.position, relativePos, relativePos.magnitude, buildingLayer);
-            waypoint = manager.transform.position + relativePos;
-            if (positionBy != false)
-            {
-                Vector2 v = positionBy.point - (Vector2)transform.position;
-                v.Normalize();
-                v *= 0.1f;
-                waypoint = positionBy.point + v;
-                GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-            } else
-            {
-                GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
-            }
-        }
-
+    //    if (manager.GetComponent<CharacterMovement>().updateFormation && ByFormation)
+    //    {
+    //        positionBy = Physics2D.Raycast(manager.transform.position, relativePos, relativePos.magnitude, buildingLayer);
+    //        waypoint = manager.transform.position + relativePos;
+    //        if (positionBy != false)
+    //        {
+    //            Vector2 v = positionBy.point - (Vector2)transform.position;
+    //            v.Normalize();
+    //            v *= 0.1f;
+    //            waypoint = positionBy.point + v;
+    //            GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+    //        } else
+    //        {
+    //            GetComponent<AIDestinationSetter>().SetPosTarget(waypoint);
+    //        }
+    //    }
+    //}
 
 
         //moving = true;
@@ -239,5 +226,5 @@ public class PersonalMovement : MonoBehaviour
 
             //}
 
-    }
+   // }
 }

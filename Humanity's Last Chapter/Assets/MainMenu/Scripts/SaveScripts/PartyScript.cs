@@ -64,8 +64,8 @@ public class PartyScript : MonoBehaviour {
                 characterO.GetComponent<Stats>().LoadPlayer(statsList[partyMember]);
 
                 //Annan kod
-                characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember * 0.2f, partyMember * 0.2f);
-                characterO.GetComponent<PersonalMovement>().relativePosNonRotated = new Vector3(partyMember * 0.2f, partyMember * 0.2f);
+                characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(partyMember * 0.4f, partyMember * 0.4f);
+                characterO.GetComponent<PersonalMovement>().relativePosNonRotated = new Vector3(partyMember * 0.4f, partyMember * 0.4f);
                 characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
                 gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
                 SpawnWeapon(characterScript.rangedId, characterO.transform);
@@ -154,9 +154,9 @@ public class PartyScript : MonoBehaviour {
         //abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
         #endregion
 
-        for (int i = 1; i <= 3; i++) {
+        for (int i = 0; i <= 3; i++) {
             characterO = Instantiate(character);
-            characterO.GetComponent<CharacterScript>().partyMember = i;
+            characterO.GetComponent<CharacterScript>().partyMember = i + 1;
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i, i);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);

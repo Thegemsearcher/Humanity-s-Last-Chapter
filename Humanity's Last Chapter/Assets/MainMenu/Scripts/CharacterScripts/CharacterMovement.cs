@@ -65,6 +65,17 @@ public class CharacterMovement : MonoBehaviour
             }
             selectedCharacters = pcs;
         }
+        if (posForFormation && updateFormation)
+        {
+            foreach (GameObject go in pcs)
+            {
+                go.GetComponent<PersonalMovement>().ByFormation = true;
+            }
+            updateFormation = false;
+        }//else if (updateFormation)
+        //{
+
+        //}
     }
    
 
@@ -179,15 +190,11 @@ public class CharacterMovement : MonoBehaviour
                 go.GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
-        if (selectedCharacters.Count > 0)
+        if (selectedCharacters.Count > 0 /*|| !(selectedCharacters.Count == pcs.Count)*/)
         {
             posForFormation = false;
         }else
         {
-            foreach (GameObject go in pcs)
-            {
-                go.GetComponent<PersonalMovement>().ByFormation = true;
-            }
             selectedCharacters = pcs;
             posForFormation = true;
         }
@@ -230,7 +237,7 @@ public class CharacterMovement : MonoBehaviour
     {
         mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        if (Input.GetKeyDown(KeyCode.Mouse1)/*&& !Input.GetKey(KeyCode.LeftShift)*/ && !Input.GetKey(KeyCode.LeftAlt) /*&& posForFormation*/)
+        if (Input.GetKeyDown(KeyCode.Mouse1)/*&& !Input.GetKey(KeyCode.LeftShift)*/ && !Input.GetKey(KeyCode.LeftAlt) && posForFormation)
         {
             waypoints.Clear();
 
@@ -248,8 +255,21 @@ public class CharacterMovement : MonoBehaviour
 
             //    }
             //}
-        } else
-            updateFormation = false;
+        } else if (Input.GetKeyDown(KeyCode.Mouse1))
+        {
+            foreach (GameObject go in selectedCharacters)
+            {
+                go.GetComponent<PersonalMovement>().ByFormation = false;
+                if (selectedCharacters.Count > 1)
+                {
+                    go.GetComponent<PersonalMovement>().AddWaypoint(mousePosition + go.GetComponent<PersonalMovement>().relativePos);
+                }
+                else
+                {
+                    go.GetComponent<PersonalMovement>().AddWaypoint(mousePosition);
+                }
+            }
+        }  
     }
 
     //private void Movement()

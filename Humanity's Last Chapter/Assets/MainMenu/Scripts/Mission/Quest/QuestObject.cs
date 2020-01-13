@@ -148,7 +148,6 @@ public class QuestObject : MonoBehaviour
 
                
             case "i": //InteractiveObjective
-                Debug.Log("POSITION: " + ioObjective.SpawnPos().Count);
                 return(ioObjective.SpawnPos());
 
                
