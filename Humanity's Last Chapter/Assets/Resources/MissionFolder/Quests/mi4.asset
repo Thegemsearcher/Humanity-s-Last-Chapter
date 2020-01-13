@@ -15,7 +15,7 @@ MonoBehaviour:
   missionName: Remove the threat!
   description: Why the hell did you draw all of them here!? kill them before they
     kill us
-  missionNummer: 1
+  missionMap: 1
   nextMissionsComplete:
   - {fileID: 11400000, guid: a7b56ee09fe8b86479c26e562206d339, type: 2}
   nextMissionsFail: []

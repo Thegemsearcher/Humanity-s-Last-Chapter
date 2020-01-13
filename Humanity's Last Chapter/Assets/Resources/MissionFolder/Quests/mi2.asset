@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Secure House
   description: "The man has an id\xE9 where to keep civilans safe"
-  missionNummer: 1
+  missionMap: 1
   nextMissionsComplete:
   - {fileID: 11400000, guid: f88180ec28d83e6489ffab534bfe1258, type: 2}
   - {fileID: 11400000, guid: 559e3acad5e6d2b4da8e607970383fad, type: 2}

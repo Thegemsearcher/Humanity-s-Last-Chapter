@@ -16,7 +16,7 @@ public class SceneSwitcher : MonoBehaviour {    //ansvarig för att byta scen!
         if(WorldScript.world.activeQuest != null) {
             WorldScript.world.RefreshHub();
             WorldScript.world.SaveHub(true);
-            SceneManager.LoadScene("MissionMap" + WorldScript.world.activeQuest.missionNummer);
+            SceneManager.LoadScene("MissionMap" + WorldScript.world.activeQuest.missionMap);
         } else {
             Debug.Log("No active mission");
         }

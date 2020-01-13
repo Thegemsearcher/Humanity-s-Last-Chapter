@@ -11,6 +11,10 @@ public class CameraMovement : MonoBehaviour
     public bool edgeScrollEnabled = true;
     public float zoomSpeed = 2f;
     private Vector3 previousPosition;
+    float xBoundary = 8.0f;
+    float yBoundary = 4.04f;
+    float maxYBoundary = 73.88f;
+    float maxXBoundary = 70.0f;
 
     private Camera myCam;
     // Start is called before the first frame update
@@ -29,6 +33,24 @@ public class CameraMovement : MonoBehaviour
             PullScroll();
         else
             EdgeScroll();
+
+        if (transform.position.x < xBoundary)
+        {
+            transform.position = new Vector3(xBoundary, transform.position.y, transform.position.z);
+        }
+        if (transform.position.y < yBoundary)
+        {
+            transform.position = new Vector3(transform.position.x, yBoundary, transform.position.z);
+        }
+        if (transform.position.x > maxXBoundary)
+        {
+            transform.position = new Vector3(maxXBoundary, transform.position.y, transform.position.z);
+        }
+        if (transform.position.y > maxYBoundary)
+        {
+            transform.position = new Vector3(transform.position.x, maxYBoundary, transform.position.z);
+        }
+
     }
     private void ScrollZoom()
     {

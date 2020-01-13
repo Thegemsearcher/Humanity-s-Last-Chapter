@@ -15,8 +15,7 @@ MonoBehaviour:
   missionName: information gathering
   description: there seems to be someone who want to give us information about how
     this has happened
-  missionNummer: 0
-  requiredRoles: []
+  missionMap: 1
   nextMissionsComplete: []
   nextMissionsFail: []
   goldReward: 100

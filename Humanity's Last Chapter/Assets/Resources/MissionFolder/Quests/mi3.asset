@@ -15,16 +15,14 @@ MonoBehaviour:
   missionName: Find Rations
   description: we succesfully defended our outpost but sadly we don't seem to have
     much rations left. If we don't find more soon, we will be done for
-  hint: 
-  missionNummer: 1
+  missionMap: 1
   nextMissionsComplete: []
   nextMissionsFail: []
   goldReward: 400
   rsReward: 0
-  avalible: 0
-  active: 0
+  supplies: 0
   completed: 0
-  bonusObjective: []
+  isSale: 0
   objectives:
   - {fileID: 11400000, guid: 144b9a782e1177041a33ff7125e528aa, type: 2}
   - {fileID: 11400000, guid: 35a07e037478bcc4686020397a3301e5, type: 2}

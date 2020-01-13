@@ -16,8 +16,7 @@ MonoBehaviour:
   description: I don't know how but as it is now, our position is compromised and
     not safe anymore. We should run to find a new home especially since our enemy
     seems to be able to control those monsters somehow
-  missionNummer: 0
-  requiredRoles: []
+  missionMap: 2
   nextMissionsComplete:
   - {fileID: 11400000, guid: 5d15b00bfd439d04c914a6ee5179d3c6, type: 2}
   nextMissionsFail: []

@@ -15,8 +15,7 @@ MonoBehaviour:
   missionName: Contact with a survivor
   description: A signal from the town has been made. If the source can be found perhaps
     some information about the situation can be aquired.
-  hint: Kill the creatures
-  missionNummer: 1
+  missionMap: 1
   nextMissionsComplete:
   - {fileID: 11400000, guid: e68f79900c77a3d4e86f7a6ace5868fa, type: 2}
   - {fileID: 11400000, guid: 1147b8d7306402848a324ee82e0314df, type: 2}
@@ -24,10 +23,9 @@ MonoBehaviour:
   nextMissionsFail: []
   goldReward: 200
   rsReward: 50
-  avalible: 0
-  active: 0
+  supplies: 0
   completed: 0
-  bonusObjective: []
+  isSale: 0
   objectives:
   - {fileID: 11400000, guid: 3918d2ef6d44dc34a960a465090e2e5d, type: 2}
   - {fileID: 11400000, guid: 3fd2c47bd7874154cac89ab04c019cb5, type: 2}

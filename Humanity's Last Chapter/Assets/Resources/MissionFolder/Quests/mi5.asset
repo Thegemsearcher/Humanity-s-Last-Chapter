@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: make sure it's safe
   description: good job out there now all you have to do is scout the area
-  missionNummer: 1
-  requiredRoles: []
+  missionMap: 1
   nextMissionsComplete:
   - {fileID: 11400000, guid: 559e3acad5e6d2b4da8e607970383fad, type: 2}
   nextMissionsFail: []

@@ -14,16 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: Monster Hunt
   description: The man has offerd some gold if we kill the monsters close to his house
-  hint: The house is House0102
-  missionNummer: 1
+  missionMap: 1
   nextMissionsComplete: []
   nextMissionsFail: []
   goldReward: 250
   rsReward: 0
-  avalible: 0
-  active: 0
+  supplies: 0
   completed: 0
-  bonusObjective: []
+  isSale: 0
   objectives:
   - {fileID: 11400000, guid: 3fd2c47bd7874154cac89ab04c019cb5, type: 2}
   - {fileID: 11400000, guid: f79abcf802af60444a8766d020fd861e, type: 2}

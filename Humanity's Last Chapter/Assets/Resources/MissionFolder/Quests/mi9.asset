@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missionName: there are people we need to save
   description: with the new threat
-  missionNummer: 0
-  requiredRoles: []
+  missionMap: 1
   nextMissionsComplete: []
   nextMissionsFail: []
   goldReward: 1000
