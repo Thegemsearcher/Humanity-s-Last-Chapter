@@ -45,10 +45,9 @@ public class ViewDistanceScript : MonoBehaviour
         if (Mask.GetComponent<Collider2D>().OverlapPoint(transform.position))
         {
             //Normalize to the texture coodinates
-            int y = (int)(((Mask.transform.position.y + transform.position.y) - 38) * scaleY);
-            int x = (int)(((Mask.transform.position.x + transform.position.x) - 38) * scaleX);
-            //Draw onto the Mask
-            DrawOnMask(x, y, ViewRadius);
+            int x = (int)(((Mask.transform.position.x + transform.position.x) - (Mask.transform.position.x * 2 - Mask.transform.localScale.x)) * scaleX);
+            int y = (int)(((Mask.transform.position.y + transform.position.y) - (Mask.transform.position.y * 2 - Mask.transform.localScale.y)) * scaleY);
+            DrawOnMask(x, y, (int)(ViewRadius * scaleX));
         }
     }
 
