@@ -142,6 +142,22 @@ public class PersonalMovement : MonoBehaviour
         return NodeStates.success;
     }
 
+    public Vector3 GetPositionBy(Vector3 position)
+    {
+        positionBy = Physics2D.Raycast(position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);
+        if (positionBy != false)
+        {
+            Vector2 v = positionBy.point - (Vector2)transform.position;
+            v.Normalize();
+            v *= 0.1f;
+            position = positionBy.point + v;
+            return position;
+        } else
+        {
+            return position + relativePos;
+        }
+    }
+
     public void FlushWaypoints()
     {
         waypoints.Clear();
