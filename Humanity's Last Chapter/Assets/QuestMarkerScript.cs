@@ -25,7 +25,6 @@ public class QuestMarkerScript : MonoBehaviour
     // Update is called once per frame
     public void MarkerPos(List<Transform> positions)
     {
-        Debug.Log("postion: " + positions[0]);
         position = positions;
         transform.position = position[0].position;
     }
