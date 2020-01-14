@@ -14,6 +14,7 @@ public class CharacterScript : MonoBehaviour {
     public bool inHospital, isEnlisted, isYou, isEssential; //Hospital är ifall man är i hospital, enlisted är ifall man ska på uppdrag, you är ifall karaktären är spelaren, essential är ifall karaktären är odödlig
     public Faction faction;
     public RoleObject role;
+    public List<QuirkObject> quirkList;
 
     public enum Faction {
         playerFaction,      //Styrs av karaktären och kommer in i hubben
@@ -150,6 +151,11 @@ public class CharacterScript : MonoBehaviour {
         } else {
             inventory[i] = "";
         }
+    }
+
+    public void AddQuirk(QuirkObject quirk) {   //Får in en quirk som ska läggas till
+        quirkList.Add(quirk);                   //Lägger tukk quirken i quirkList
+        statsScript.AddQuirk(quirk);            //Updaterar de stats som ändras av quirken
     }
 
     #region thingsToRemove

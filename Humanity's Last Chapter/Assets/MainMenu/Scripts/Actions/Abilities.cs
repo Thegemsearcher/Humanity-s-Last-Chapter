@@ -87,7 +87,7 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
         if (weaponId != "" || weaponId != null) {
             foreach (WeaponObject weapon in Assets.assets.weaponTemp) {
                 if (weapon.name == weaponId) {
-                    Debug.Log("Character: " + characterScript.strName + "\nWeaponId: " + characterScript.rangedId + "\n");
+                    //Debug.Log("Character: " + characterScript.strName + "\nWeaponId: " + characterScript.rangedId + "\n");
                     this.weapon = weapon;
                 }
             }

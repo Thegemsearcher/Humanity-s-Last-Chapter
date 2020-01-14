@@ -31,6 +31,10 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
             Assets.assets = new Assets();
             Assets.assets.GetAssets();
         }
+        if (QuirkScript.quirkScript == null) {
+            QuirkScript.quirkScript = new QuirkScript();
+            QuirkScript.quirkScript.PrepareQuirks();
+        }
 
         if (WorldScript.world == null) {                                    //Kollar om det finns en world (Om true är det ett nytt sparning)
             WorldScript.world = new WorldScript();

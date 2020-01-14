@@ -8,7 +8,6 @@ public class BarrackWindow : MonoBehaviour {
 
     private void Start() {
         foreach (GameObject character in WorldScript.world.BarrackPepList) {
-            Debug.Log("It get here");
             holder = Instantiate(character);
             holder.GetComponent<HireCharacter>().WorldObject = character;
             holder.transform.SetParent(gameObject.transform, false);

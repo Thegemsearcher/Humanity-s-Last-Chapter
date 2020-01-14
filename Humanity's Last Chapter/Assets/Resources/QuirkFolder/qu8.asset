@@ -23,4 +23,8 @@ MonoBehaviour:
   ldr: 4
   nrg: 0
   snt: 0
-  quirk: {fileID: 0}
+  quirkPair:
+  - {fileID: 11400000, guid: 4e24eb2d0ab1ecd4e94f5c12a12c7745, type: 2}
+  quirkLevel: 0
+  quirkType: 0
+  bodyPart: 0
