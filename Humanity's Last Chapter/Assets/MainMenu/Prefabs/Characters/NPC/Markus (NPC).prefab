@@ -355,7 +355,7 @@ MonoBehaviour:
   id: 0
   inventorySize: 0
   partyMember: 0
-  rangedId: wp2
+  rangedId: wp1
   combatId: 
   healingId: 
   clothId: cloth2
@@ -367,6 +367,7 @@ MonoBehaviour:
   isEssential: 1
   faction: 0
   role: {fileID: 11400000, guid: cdcb03e9685c01940ba76c10837876b6, type: 2}
+  quirkList: []
 --- !u!114 &2862047899077011697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +400,7 @@ MonoBehaviour:
   ItemPrefab: {fileID: 7328032005007390068, guid: fa1004ad50eeca94bb9b683b33e5a063,
     type: 3}
   items: []
+  quirkList: []
   shit: 0
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}
