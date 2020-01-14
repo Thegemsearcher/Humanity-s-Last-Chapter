@@ -62,6 +62,7 @@ namespace QuestSystem {
                     itemO.transform.SetParent(spawnHolder.transform, false);
                     itemO.name = "CollectionObject(" + i + ")";
                     itemO.tag = "Enemy";
+                    itemO.GetComponent<SpriteRenderer>().color = itemO.GetComponent<SpriteRenderer>().color + Color.cyan;
                     //Initiera quest marker här och sätt parent som item0
                     toCollectList.Add(itemO);
                 }
@@ -74,7 +75,7 @@ namespace QuestSystem {
                     toCollectList.Add(itemO);
                     itemO.name = "CollectionObject(" + i + ")";
                     itemO.tag = "Enemy";
-
+                    itemO.GetComponent<SpriteRenderer>().color = itemO.GetComponent<SpriteRenderer>().color + Color.cyan;
                     counter++;
                     if (counter >= spawnPos.Length) {
                         counter = 0;
