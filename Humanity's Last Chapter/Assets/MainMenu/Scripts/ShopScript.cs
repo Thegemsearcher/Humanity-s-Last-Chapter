@@ -5,16 +5,16 @@ using UnityEngine.UI;
 
 public class ShopScript : MonoBehaviour {
 
-    private HealingItemObject[] hio;
-    private CombatItemObject[] cio;
-    private WeaponObject[] wpo;
+    private HealingItemObject[] hio;    //Samling av all healingItems
+    private CombatItemObject[] cio;     //Samling av alla combatItems
+    private WeaponObject[] wpo;         //Samling av alla weapons
 
     public Text txtDescName, txtDescDesc; //Info rutornas text i StorageWindow
 
-    private GameObject[] shopSlots, itemSlots, shopArr;
+    private GameObject[] shopSlots, itemSlots; //ShopSlots och itemSlots är respektiva slots där items kan finnas
     private GameObject LoadManager, ItemO, ShopParent, InventoryParent, slotO;
     public Text txtGold, txtName, txtDesc, txtCost;
-    private string strGold, strName, strDesc, strCost;
+    private string strGold;
     private string[] strShopArr, strInventoryArr;
     private List<Object> itemIDO;
 
@@ -51,20 +51,20 @@ public class ShopScript : MonoBehaviour {
 
         strShopArr = WorldScript.world.shopArr;
         strInventoryArr = WorldScript.world.storageArr;
-        FillShop(strShopArr, shopSlots);
-        FillShop(strInventoryArr, itemSlots);
+        FillShop(strShopArr, shopSlots, WorldScript.world.shopSize);
+        FillShop(strInventoryArr, itemSlots, WorldScript.world.storageSize);
     }
 
     private void Update() {
-        strGold = "Gold: " + WorldScript.world.gold;
+        strGold = "Gold: " + WorldScript.world.gold; //Uppdaterar så att txtGold kan rita ut hur mycket guld som finns
         txtGold.text = strGold;
 
     }
-    public void UpdateList() {
+    public void UpdateList() {  //Uppdaterar de olika arrayes som finns
         strShopArr = WorldScript.world.shopArr;
         strInventoryArr = WorldScript.world.storageArr;
-        FillShop(strShopArr, shopSlots);
-        FillShop(strInventoryArr, itemSlots);
+        FillShop(strShopArr, shopSlots, WorldScript.world.shopSize);
+        FillShop(strInventoryArr, itemSlots, WorldScript.world.storageSize);
     }
 
     public void GetInfo(string strName, string strDesc, int cost) {
@@ -96,9 +96,9 @@ public class ShopScript : MonoBehaviour {
         }
     }
 
-    private void FillShop(string[] inventory, GameObject[] shopSlots) {
-        for (int i = 0; i < inventory.Length; i++) {
-            if(inventory[i] != "") {
+    private void FillShop(string[] inventory, GameObject[] shopSlots, int size) {
+        for (int i = 0; i < size; i++) {
+            if(inventory[i] != "" && inventory[i] != null) {
                 sss = shopSlots[i].GetComponent<ShopSlotScript>();
                 switch (inventory[i][0]) {
                     case 'h':
