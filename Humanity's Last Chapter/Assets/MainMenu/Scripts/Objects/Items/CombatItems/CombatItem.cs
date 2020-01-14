@@ -9,7 +9,6 @@ public class CombatItem : MonoBehaviour {
     public string id;
     public string itemName;
     public string itemDescrip;
-    
 
     public void GetData(CombatItemObject cio) {
         GetComponent<Image>().sprite = cio.icon; //Ändrar bilden till den som är vald i assets

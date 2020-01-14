@@ -9,6 +9,8 @@ public class CombatItemObject : ScriptableObject {
 
     public Sprite icon;
     public Sprite sprite;
+    //den är för att kunna rita ut itemets range
+    public Sprite rangeThingy;
     public string itemName = "t.ex. Strong Cookie";
     public string description = "t.ex. This cookie will give you strong power!!!";
     public int cost;

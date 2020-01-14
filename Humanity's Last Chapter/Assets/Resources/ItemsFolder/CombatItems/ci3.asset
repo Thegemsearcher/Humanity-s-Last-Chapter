@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: de3a3fec5c42678459fe7c230c93e7b5, type: 3}
   sprite: {fileID: 21300000, guid: de3a3fec5c42678459fe7c230c93e7b5, type: 3}
+  rangeThingy: {fileID: 21300000, guid: 216ed7fd64ea927419f0ddbb3bd4e0e8, type: 3}
   itemName: MKV Grenade
   description: A explosive on a stick!
   cost: 50
