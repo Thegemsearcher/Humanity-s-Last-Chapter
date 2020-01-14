@@ -138,9 +138,6 @@ public class Stats : MonoBehaviour {
         quirkIDList.Add(quirk.name);
         quirkList.Add(quirk);
 
-        Debug.Log("A quirk was added! Character: " + GetComponent<CharacterScript>().strName + "\nQuirk: " + quirk.quirkName + "\n");
-
-
         quirkName = quirk.quirkName;
         maxHp += quirk.hp;
         str += quirk.str;

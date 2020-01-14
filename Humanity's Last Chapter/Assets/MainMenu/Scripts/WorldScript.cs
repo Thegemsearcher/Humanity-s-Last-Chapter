@@ -7,7 +7,7 @@ public class WorldScript {
 
     public static WorldScript world;
 
-    public int gold, rs, storageSize, shopSize, shopLevel, date, supplies, goods, partySize, year;
+    public int gold, rs, storageSize, stockSize, shopSize, shopLevel, date, supplies, goods, partySize, year; //gold - guld som finns
     public bool isActive, isNewGame; //Den sparningen som startar om man klickar continue
     public string saveName, saveId;
     private bool isChoosing, hasGoodsQuest;
@@ -41,8 +41,9 @@ public class WorldScript {
 
         year = 2065;
         isNewGame = true;
-        storageSize = 64;
-        shopSize = 10;
+        storageSize = 64;   //Hur många slots det finns i storage
+        shopSize = 32;      //Hur många slots det finns i shop
+        stockSize = 5;     //Hur många items shopen spawnar
         shopLevel = 1;
         storageArr = new string[storageSize];
         shopArr = new string[shopSize];
@@ -58,11 +59,9 @@ public class WorldScript {
         ClearInventory();
         ClearShop();
 
-        AddItem("hi0", 3);
-        AddItem("hi1", 2);
-
-        AddItem("wp1", 2);
-        AddItem("wp2", 1);
+        AddItem("hi0", 2);
+        
+        AddItem("wp0", 1);
 
         FillShop();
     }
@@ -74,13 +73,13 @@ public class WorldScript {
     }
 
     public void ClearShop() {
-        for (int i = 0; i < shopSize; i++) {
+        for (int i = 0; i < stockSize; i++) {
             shopArr[i] = "";
         }
     }
 
     public void FillShop() {
-        for (int i = 0; i < shopSize; i++) {
+        for (int i = 0; i < stockSize; i++) {
             isChoosing = true;
             switch (Random.Range(0,2)) {
                 case 0: //Weapon
@@ -105,7 +104,7 @@ public class WorldScript {
     public void AddToStore(string id, int amount) {
         for (int i = 0; i < amount; i++) {
             for (int j = 0; j < shopSize; j++) {
-                if (shopArr[j] == "") {
+                if (shopArr[j] == "" || shopArr[j] == null) {
                     shopArr[j] = id;
                     break;
                 }

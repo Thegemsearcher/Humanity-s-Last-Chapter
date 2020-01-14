@@ -17,7 +17,7 @@ public class UpgradeShop : MonoBehaviour {
     public void BtnUpgrade() {
         if (upgradeCost * shopLevel <= WorldScript.world.gold) {
             WorldScript.world.gold -= upgradeCost * shopLevel;
-            WorldScript.world.shopSize += 3;
+            WorldScript.world.stockSize += 3;
             WorldScript.world.shopLevel += 1;
 
             shopLevel = WorldScript.world.shopLevel;

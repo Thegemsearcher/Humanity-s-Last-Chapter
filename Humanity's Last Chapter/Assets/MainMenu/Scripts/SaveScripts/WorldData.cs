@@ -16,7 +16,7 @@ public class WorldData {
         rs = world.rs;
         saveId = world.saveId;
         storageSize = world.storageSize;
-        shopSize = world.shopSize;
+        shopSize = world.stockSize;
         shopLevel = world.shopLevel;
         storageArr = world.storageArr;
         shopArr = world.shopArr;

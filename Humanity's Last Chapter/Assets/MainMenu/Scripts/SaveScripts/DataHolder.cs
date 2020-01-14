@@ -101,7 +101,7 @@ public class DataHolder {
         WorldScript.world.rs = data.worldData.rs;
         WorldScript.world.saveId = data.worldData.saveId;
         WorldScript.world.storageSize = data.worldData.storageSize;
-        WorldScript.world.shopSize = data.worldData.shopSize;
+        WorldScript.world.stockSize = data.worldData.shopSize;
         WorldScript.world.shopLevel = data.worldData.shopLevel;
         WorldScript.world.storageArr = data.worldData.storageArr;
         WorldScript.world.shopArr = data.worldData.shopArr;
