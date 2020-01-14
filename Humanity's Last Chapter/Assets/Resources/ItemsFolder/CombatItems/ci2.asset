@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 21300000, guid: ecbe4bb3a11720b4c956f399f3498903, type: 3}
   sprite: {fileID: 21300000, guid: 877ae97b727269146b4a514a147f20b8, type: 3}
+  rangeThingy: {fileID: 21300000, guid: 216ed7fd64ea927419f0ddbb3bd4e0e8, type: 3}
   itemName: Antique Grenade
   description: It worked before, why wouldn't it work now?
   cost: 10
