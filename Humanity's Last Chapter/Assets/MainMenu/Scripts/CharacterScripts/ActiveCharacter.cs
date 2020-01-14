@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ActiveCharacter : MonoBehaviour {
 
     private GameObject activeCharacter, pivotCharacter;
     public GameObject WeaponAbility, HealingAbility, CombatAbility;
+
+    public GameObject ActiveCharacterName;
 
     private CharacterScript characterScript;
     private Abilities abilities; //Används för att veta vilka abilities karaktären har och veta när de är redo
@@ -18,6 +21,8 @@ public class ActiveCharacter : MonoBehaviour {
         GetComponent<PortraitScript>().UpdatePortrait();
         abilities = activeCharacter.GetComponent<Abilities>();
         UpdateEquipment();
+
+        ActiveCharacterName.GetComponent<Text>().text = activeCharacter.GetComponent<CharacterScript>().strName;
     }
 
     private void Update() {
