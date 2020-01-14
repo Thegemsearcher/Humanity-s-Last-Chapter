@@ -54,13 +54,13 @@ public class CharacterScript : MonoBehaviour {
         } //Sätter tag beroende på vilken sorts karaktär det är
 
         statsScript = GetComponent<Stats>();
-        combatId = "ci" + Random.Range(0, Assets.assets.combatTemp.Length);
-        healingId = "hi" + Random.Range(0, Assets.assets.healingTemp.Length);
+        combatId = "";
+        healingId = "";
         if (strName == "") {
             inventorySize = 5;
             strName = NameGenerator();
             id = GetId();
-            rangedId = "wp" + Random.Range(0, Assets.assets.weaponTemp.Length);
+            rangedId = "wp0";
             inventory = new string[inventorySize];
         }
         
