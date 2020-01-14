@@ -4,14 +4,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using static Node;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
     public int health;
     public float speed = 1.5f;
     private Vector3 target;
-    public string id;
 
-    public int inventorySize;
-    private string[] inventory;
+    private int lootSize;
+    private string lootType;
+    private int lootTypeNumber;
+    private string[] lootDrop;
 
     public GameObject[] pcs;
     public float aggroRange = 4f;
@@ -29,22 +31,27 @@ public class Enemy : MonoBehaviour {
 
     public GameObject EnemyCorpse;
 
-    public bool ranged;
     // Start is called before the first frame update
-    void Start() {
+    void Start()
+    {
         target = transform.position;
         pcs = GameObject.FindGameObjectsWithTag("Character");
-        inventory = new string[inventorySize];
+        lootSize = Random.Range(0, 3);
+        lootDrop = new string[lootSize];
     }
 
     // Update is called once per frame
-    void Update() {
-        if (health <= 0) {
+    void Update()
+    {
+        if (health <= 0)
+        {
             GameObject corpse = Instantiate(EnemyCorpse);
             corpse.transform.position = transform.position;
             corpse.transform.rotation = transform.rotation * Quaternion.Euler(0, 0, 180);
-            if (!ranged)
+            if (lootDrop.Length > 0)
+            {
                 GetInventory();
+            }
             Destroy(gameObject);
         }
         if (attackTimer > 0)
@@ -52,26 +59,56 @@ public class Enemy : MonoBehaviour {
         RemovePcFromList();
     }
 
-    private void GetInventory() {
-        for (int i = 0; i < inventory.Length; i++) {
-            inventory[i] = "hi0";
+    private void LootRandomizer()
+    {
+        int value = Random.Range(0, 3);
+
+        if (value == 0)
+        {
+            lootTypeNumber = Random.Range(0, 2);
+            lootType = "hi" + lootTypeNumber;
         }
-        GetComponent<InventoryScript>().GetInventory(inventory, gameObject.name);
+        else if (value == 1)
+        {
+            lootTypeNumber = Random.Range(0, 4);
+            lootType = "ci" + lootTypeNumber;
+        }
+        else if (value == 2)
+        {
+            lootTypeNumber = Random.Range(0, 5);
+            lootType = "wp" + lootTypeNumber;
+        }
     }
 
-    public void RemovePcFromList() {
+    private void GetInventory()
+    {
+        for (int i = 0; i < lootDrop.Length; i++)
+        {
+            LootRandomizer();
+            Debug.Log("Size: " + lootSize + ", loot name: " + lootType + "");
+            lootDrop[i] = lootType;
+        }
+        GetComponent<InventoryScript>().GetInventory(lootDrop, gameObject.name);
+    }
+
+    public void RemovePcFromList()
+    {
         pcs = GameObject.FindGameObjectsWithTag("Character");
     }
 
-    public void TakeDamage(int damage) {
+    public void TakeDamage(int damage)
+    {
         health -= damage;
         Instantiate(bloodEffect, transform.position, Quaternion.identity);
     }
 
-    public NodeStates InAggroRange() {
-        foreach (GameObject pc in pcs) {
+    public NodeStates InAggroRange()
+    {
+        foreach (GameObject pc in pcs)
+        {
             //Debug.Log(""+ Vector3.Distance(transform.position, pc.transform.position));
-            if (Vector3.Distance(transform.position, pc.transform.position) < aggroRange) {
+            if (Vector3.Distance(transform.position, pc.transform.position) < aggroRange)
+            {
                 //closestPC = Vector3.Distance(transform.position, pc.transform.position);
                 //Debug.Log("pcn är inom aggrorangen");
                 //iCombatTree = true;
@@ -83,18 +120,22 @@ public class Enemy : MonoBehaviour {
         return NodeStates.fail;
     }
 
-    public NodeStates MoveTowardsClosestPc() {
+    public NodeStates MoveTowardsClosestPc()
+    {
         GameObject closestPc = pcs[0];
-        foreach (GameObject pc in pcs) {
-            if (Vector3.Distance(transform.position, pc.transform.position) < Vector3.Distance(transform.position, closestPc.transform.position)) {
-                if (pc.gameObject.activeInHierarchy) {
+        foreach (GameObject pc in pcs)
+        {
+            if (Vector3.Distance(transform.position, pc.transform.position) < Vector3.Distance(transform.position, closestPc.transform.position))
+            {
+                if (pc.gameObject.activeInHierarchy)
+                {
                     closestPc = pc;
                 }
             }
         }
 
         //calculate direction between origin and target
-       
+
 
         if (Vector2.Distance(transform.position, closestPc.transform.position) > 1)
         {
@@ -107,8 +148,10 @@ public class Enemy : MonoBehaviour {
         return NodeStates.fail;
     }
 
-    public NodeStates InMeleeRange() {
-        if (attackTimer > 0) {
+    public NodeStates InMeleeRange()
+    {
+        if (attackTimer > 0)
+        {
             //animator.SetBool("Attacking", false);
             return NodeStates.fail;
         }
@@ -116,7 +159,8 @@ public class Enemy : MonoBehaviour {
         attackTimer = timeBetweenAttack;
         Collider2D[] pcsToDamage = Physics2D.OverlapCircleAll(transform.position, atkRange/*, pcLayer*/);
         bool hitPc = false;
-        for (int i = 0; i < pcsToDamage.Length; i++) {
+        for (int i = 0; i < pcsToDamage.Length; i++)
+        {
             if (pcsToDamage[i].CompareTag("Character"))
             {
                 Vector3 difference = pcsToDamage[i].transform.position - this.transform.position;
@@ -132,10 +176,11 @@ public class Enemy : MonoBehaviour {
         if (hitPc)
             return NodeStates.success;
 
-        
+
         return NodeStates.fail;
     }
-    void MovementForTest() {
+    void MovementForTest()
+    {
         //if (Input.GetMouseButtonDown(0))
         //{
         //    target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
