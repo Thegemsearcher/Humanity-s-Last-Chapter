@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour
 
     public float speed = 2f;
     public float edgeScrollSpeed = 0.5f;
+    public float maxZoom = 3;
     private float zoom = 5;
     public bool edgeScrollEnabled = true;
     public float zoomSpeed = 2f;
@@ -70,8 +71,8 @@ public class CameraMovement : MonoBehaviour
         {
             zoom += zoomSpeed * Time.deltaTime * 10;
         }
-        if (zoom < 5)
-            zoom = 5;
+        if (zoom < maxZoom)
+            zoom = maxZoom;
         else if (zoom > 15)
             zoom = 15;
         myCam.orthographicSize = zoom;
