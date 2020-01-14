@@ -30,13 +30,13 @@ public class ActiveCharacter : MonoBehaviour {
     }
 
     private void UpdateEquipment() {
-        WeaponAbility.GetComponent<WeaponAbility>().GetItem(activeCharacter);
+        WeaponAbility.GetComponent<WeaponAbility>().GetItem(activeCharacter, pivotCharacter);
         HealingAbility.GetComponent<HealingAbility>().GetItem(activeCharacter, pivotCharacter);
         CombatAbility.GetComponent<CombatAbility>().GetItem(activeCharacter, pivotCharacter);
     } 
 
     private void ClearEquipment() {
-        WeaponAbility.GetComponent<WeaponAbility>().GetItem(null);
+        WeaponAbility.GetComponent<WeaponAbility>().GetItem(null, null);
         HealingAbility.GetComponent<HealingAbility>().GetItem(null, null);
         CombatAbility.GetComponent<CombatAbility>().GetItem(null, null);
     }

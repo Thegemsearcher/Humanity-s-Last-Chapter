@@ -23,4 +23,5 @@ MonoBehaviour:
   range: 6
   spread: 0.2
   sprite: {fileID: 21300000, guid: 976aded171e841945877d8e57f1cb927, type: 3}
+  icon: {fileID: 21300000, guid: 2ef090a08b451054c889dca72819020e, type: 3}
   coolDownTimer: 300

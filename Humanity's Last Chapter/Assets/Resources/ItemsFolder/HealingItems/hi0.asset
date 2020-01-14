@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e692bf36fcd8dcf4780fb614ef95bda0, type: 3}
   m_Name: hi0
   m_EditorClassIdentifier: 
-  texture: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  texture: {fileID: 21300000, guid: 415789639d14136428f89e44ac220b8c, type: 3}
   itemName: Weak Bandage
   description: A bandage to coverup small wounds!!!
   healPower: 2
   cost: 30
   coolDownTimer: 5
-  abilityType: 3
-  sprite: {fileID: 21300000, guid: 415789639d14136428f89e44ac220b8c, type: 3}
+  icon: {fileID: 21300000, guid: 415789639d14136428f89e44ac220b8c, type: 3}

@@ -47,7 +47,7 @@ public class CharacterBox : MonoBehaviour {
             foreach (WeaponObject weapon in Assets.assets.weaponTemp) {
                 if (weapon.name == rangedId) {
                     itemInfo = ItemO.GetComponent<ItemInfo>();
-                    itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost, txtDescName, txtDescDesc);
+                    itemInfo.GetData(weapon.icon, weapon.weaponName, weapon.description, weapon.name, weapon.cost, txtDescName, txtDescDesc);
                     weaponSlot.GetComponent<ItemSlotScript>().GetItem(weapon.weaponName, weapon.description, DescParent);
                 }
             }
@@ -56,6 +56,7 @@ public class CharacterBox : MonoBehaviour {
         if (characterScript.clothId != "") {
             ItemO = Instantiate(Item);
             ItemO.transform.SetParent(clothSlot.transform, false);
+            ItemO.transform.localScale = new Vector3(50, 50, 1);
 
             clothId = characterScript.clothId;
             foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
@@ -84,6 +85,7 @@ public class CharacterBox : MonoBehaviour {
         if (characterScript.healingId != "") {
             ItemO = Instantiate(Item);
             ItemO.transform.SetParent(healingSlot.transform, false);
+            ItemO.transform.localScale = new Vector3(50, 50, 1);
 
             healingId = characterScript.healingId;
             foreach (HealingItemObject healingItem in Assets.assets.healingTemp) {
@@ -98,6 +100,7 @@ public class CharacterBox : MonoBehaviour {
         if (characterScript.combatId != "") {
             ItemO = Instantiate(Item);
             ItemO.transform.SetParent(combatSlot.transform, false);
+            ItemO.transform.localScale = new Vector3(50, 50, 1);
 
             combatId = characterScript.combatId;
             foreach (CombatItemObject combatItem in Assets.assets.combatTemp) {
@@ -139,7 +142,7 @@ public class CharacterBox : MonoBehaviour {
                         ItemO = Instantiate(Item);
                         ItemO.transform.SetParent(Slot.transform, false);
                         itemInfo = ItemO.GetComponent<ItemInfo>();
-                        itemInfo.GetData(healing.texture, healing.itemName, healing.description, healing.name, healing.cost, txtDescName, txtDescDesc);
+                        itemInfo.GetData(healing.icon, healing.itemName, healing.description, healing.name, healing.cost, txtDescName, txtDescDesc);
                         iss.GetComponent<ItemSlotScript>().GetItem(healing.itemName, healing.description, DescParent);
                         break;
                     }
@@ -165,7 +168,7 @@ public class CharacterBox : MonoBehaviour {
                         ItemO = Instantiate(Item);
                         ItemO.transform.SetParent(Slot.transform, false);
                         itemInfo = ItemO.GetComponent<ItemInfo>();
-                        itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost, txtDescName, txtDescDesc);
+                        itemInfo.GetData(weapon.icon, weapon.weaponName, weapon.description, weapon.name, weapon.cost, txtDescName, txtDescDesc);
                         iss.GetComponent<ItemSlotScript>().GetItem(weapon.weaponName, weapon.description, DescParent);
                         break;
                     }

@@ -11,6 +11,7 @@ public class WeaponObject : ScriptableObject {
     public int cost, damage, bullets, wpLevel;
     public float fireRate, range, spread;
     public Sprite sprite;
+    public Sprite icon;
     public int coolDownTimer;
 
 }

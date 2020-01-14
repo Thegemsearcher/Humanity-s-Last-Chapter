@@ -106,7 +106,7 @@ public class ShopScript : MonoBehaviour {
                             if (healingItem.name == inventory[i]) {
                                 ItemO = Instantiate(shopItem, shopSlots[i].transform);
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
-                                itemInfo.GetData(healingItem.texture, healingItem.itemName, healingItem.description, healingItem.name, healingItem.cost, txtDescName, txtDescDesc);
+                                itemInfo.GetData(healingItem.icon, healingItem.itemName, healingItem.description, healingItem.name, healingItem.cost, txtDescName, txtDescDesc);
                                 sss.GetItem(itemInfo.strName, itemInfo.strDesc, inventory[i], itemInfo.cost, i, gameObject);
                                 break;
                             }
@@ -128,7 +128,7 @@ public class ShopScript : MonoBehaviour {
                             if (weapon.name == inventory[i]) {
                                 ItemO = Instantiate(shopItem, shopSlots[i].transform);
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
-                                itemInfo.GetData(weapon.sprite, weapon.weaponName, weapon.description, weapon.name, weapon.cost, txtDescName, txtDescDesc);
+                                itemInfo.GetData(weapon.icon, weapon.weaponName, weapon.description, weapon.name, weapon.cost, txtDescName, txtDescDesc);
                                 sss.GetItem(itemInfo.strName, itemInfo.strDesc, inventory[i], itemInfo.cost, i, gameObject);
                                 break;
                             }

@@ -9,15 +9,15 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private Text itemName, itemDesc;
     public string strName, strDesc, id;
     public int cost;
-    public Sprite texture;
+    public Sprite icon;
 
     private void Start() {
         //itemName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
         //itemDesc = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
     }
 
-    public void GetData(Sprite texture, string strName, string strDesc, string id, int cost, Text itemName, Text itemDesc) {
-        this.texture = texture;
+    public void GetData(Sprite icon, string strName, string strDesc, string id, int cost, Text itemName, Text itemDesc) {
+        this.icon = icon;
         this.strName = strName;
         this.strDesc = strDesc;
         this.id = id;
@@ -25,11 +25,10 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         this.itemName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
         this.itemDesc = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
         //Debug.Log("itemDesc: " + itemDesc);
-        GetComponent<SpriteRenderer>().sprite = texture;
+        GetComponent<SpriteRenderer>().sprite = icon;
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        Debug.Log("hjmmm");
         itemName.text = strName;
         itemDesc.text = strDesc;
         //if (itemName != null && itemDesc != null) {
