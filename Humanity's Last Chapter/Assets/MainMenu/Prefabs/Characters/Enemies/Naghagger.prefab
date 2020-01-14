@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.6509434, g: 0.31011927, b: 0.36224532, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.08235294, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -166,8 +166,8 @@ SpriteRenderer:
   m_SortingLayerID: -1154452899
   m_SortingLayer: 3
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 8c436986bc2b4024ab406c78efb012eb, type: 3}
-  m_Color: {r: 0.6509434, g: 0.31011927, b: 0.36224532, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8651a993264390a4185c58301ab1a468, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 1
   m_DrawMode: 0
@@ -206,6 +206,7 @@ MonoBehaviour:
   isEssential: 0
   faction: 2
   role: {fileID: 0}
+  quirkList: []
 --- !u!222 &4238669593420774116
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -228,8 +229,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 80
   speed: 1.5
-  id: 
-  inventorySize: 1
   pcs: []
   aggroRange: 20
   atkRange: 1.1
@@ -245,7 +244,6 @@ MonoBehaviour:
   hasSeenEnemy: 0
   EnemyCorpse: {fileID: 9007655463013522353, guid: 298a45655b5dd084d8399b036e874fd2,
     type: 3}
-  ranged: 0
 --- !u!61 &4238669593420774118
 BoxCollider2D:
   m_ObjectHideFlags: 0

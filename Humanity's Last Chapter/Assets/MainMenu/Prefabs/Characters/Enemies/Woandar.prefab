@@ -37,7 +37,7 @@ RectTransform:
   m_GameObject: {fileID: 4090975341072565159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4624797410472353740}
   m_Father: {fileID: 0}
@@ -149,8 +149,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 50
   speed: 2.5
-  id: 
-  inventorySize: 1
   pcs: []
   aggroRange: 6
   atkRange: 1.1
@@ -166,7 +164,6 @@ MonoBehaviour:
   hasSeenEnemy: 0
   EnemyCorpse: {fileID: 9007655463013522353, guid: 298a45655b5dd084d8399b036e874fd2,
     type: 3}
-  ranged: 0
 --- !u!61 &4090975341072565151
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -401,7 +398,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.7254902, g: 0, b: 0.07158931, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.08235294, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

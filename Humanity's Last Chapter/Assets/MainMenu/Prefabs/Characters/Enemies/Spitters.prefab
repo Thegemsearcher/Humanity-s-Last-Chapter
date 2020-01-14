@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.735849, g: 0.5717065, b: 0, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.08235294, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -99,6 +99,7 @@ GameObject:
   - component: {fileID: 849753420141661392}
   - component: {fileID: 1888244029043153764}
   - component: {fileID: 3714644390309531196}
+  - component: {fileID: 6172518198825749415}
   m_Layer: 13
   m_Name: Spitters
   m_TagString: Enemy
@@ -115,7 +116,7 @@ RectTransform:
   m_GameObject: {fileID: 7146514785514354983}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4442605805270870775}
   m_Father: {fileID: 0}
@@ -359,8 +360,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 150
   speed: 1.5
-  id: 
-  inventorySize: 0
   pcs: []
   aggroRange: 4
   atkRange: 0.75
@@ -376,4 +375,22 @@ MonoBehaviour:
   hasSeenEnemy: 0
   EnemyCorpse: {fileID: 9007655463013522353, guid: 298a45655b5dd084d8399b036e874fd2,
     type: 3}
-  ranged: 1
+--- !u!95 &6172518198825749415
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146514785514354983}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2661d6756fcf3b742a6997df76a28453, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

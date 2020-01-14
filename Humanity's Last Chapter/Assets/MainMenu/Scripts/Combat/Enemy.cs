@@ -85,7 +85,7 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < lootDrop.Length; i++)
         {
             LootRandomizer();
-            Debug.Log("Size: " + lootSize + ", loot name: " + lootType + "");
+            //Debug.Log("Size: " + lootSize + ", loot name: " + lootType + "");
             lootDrop[i] = lootType;
         }
         GetComponent<InventoryScript>().GetInventory(lootDrop, gameObject.name);
@@ -139,17 +139,20 @@ public class Enemy : MonoBehaviour
 
         if (Vector2.Distance(transform.position, closestPc.transform.position) > 1)
         {
+            animator.SetBool("Moving", true);
             Vector3 d = transform.position - closestPc.transform.position;
             d.Normalize();
             GetComponent<AIDestinationSetter>().SetPosTarget(closestPc.transform.position + d);
             return NodeStates.success;
         }
+        animator.SetBool("Moving", false);
         //Debug.Log("Distance: " + Vector2.Distance(transform.position, closestPc.transform.position));
         return NodeStates.fail;
     }
 
     public NodeStates InMeleeRange()
     {
+        animator.SetBool("Moving", false);
         if (attackTimer > 0)
         {
             //animator.SetBool("Attacking", false);
