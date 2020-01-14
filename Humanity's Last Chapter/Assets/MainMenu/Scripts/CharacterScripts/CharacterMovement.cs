@@ -174,6 +174,7 @@ public class CharacterMovement : MonoBehaviour
     {
         Vector3 v;
         Vector3 testScreen = new Vector3(Screen.width/2, Screen.height/2, 0);
+        selectedCharacters.Clear();
         foreach (GameObject go in pcs)
         {
             v = Camera.main.WorldToScreenPoint(go.transform.position);
@@ -190,7 +191,7 @@ public class CharacterMovement : MonoBehaviour
                 go.GetComponent<SpriteRenderer>().color = Color.white;
             }
         }
-        if (selectedCharacters.Count > 0 /*|| !(selectedCharacters.Count == pcs.Count)*/)
+        if (selectedCharacters.Count > 0 && !(selectedCharacters.Count == pcs.Count))
         {
             posForFormation = false;
         }else
@@ -262,10 +263,12 @@ public class CharacterMovement : MonoBehaviour
                 go.GetComponent<PersonalMovement>().ByFormation = false;
                 if (selectedCharacters.Count > 1)
                 {
-                    go.GetComponent<PersonalMovement>().AddWaypoint(mousePosition + go.GetComponent<PersonalMovement>().relativePos);
+                    Debug.Log(selectedCharacters.Count);
+                    go.GetComponent<PersonalMovement>().AddWaypoint(go.GetComponent<PersonalMovement>().GetPositionBy(mousePosition/* + go.GetComponent<PersonalMovement>().relativePos*/));
                 }
                 else
                 {
+                    Debug.Log("en karaktär");
                     go.GetComponent<PersonalMovement>().AddWaypoint(mousePosition);
                 }
             }

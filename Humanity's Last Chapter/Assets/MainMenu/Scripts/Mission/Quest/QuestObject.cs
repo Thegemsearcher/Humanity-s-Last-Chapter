@@ -182,7 +182,6 @@ public class QuestObject : MonoBehaviour
         {
             foreach (ScriptableQuest quest in quest.nextMissionsComplete)
             {
-                Debug.Log("Hmmm");
                 WorldScript.world.avalibleQuests.Add(quest);
             }
         }

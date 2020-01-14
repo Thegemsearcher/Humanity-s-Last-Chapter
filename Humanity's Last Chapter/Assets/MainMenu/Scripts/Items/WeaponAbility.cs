@@ -15,11 +15,11 @@ public class WeaponAbility : MonoBehaviour {
         isReady = false;
     }
 
-    public void GetItem(GameObject Character) {
+    public void GetItem(GameObject Character, GameObject pivotCharacter) {
         if(Character != null) {
             this.Character = Character;
             weapon = Character.GetComponent<Abilities>().weapon;
-            GetComponent<Image>().sprite = weapon.sprite;
+            GetComponent<Image>().sprite = weapon.icon;
         }else {
             GetComponent<Image>().sprite = defultSprite;
         }

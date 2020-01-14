@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.7254902, g: 0, b: 0.07158931, a: 1}
+  m_Color: {r: 0.735849, g: 0.5717065, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -161,9 +161,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingLayerID: -1154452899
+  m_SortingLayer: 3
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: 5b9c0f0deafe0a94c915e6c2dc185b73, type: 3}
   m_Color: {r: 0.735849, g: 0.5717065, b: 0, a: 1}
   m_FlipX: 0
@@ -202,7 +202,7 @@ MonoBehaviour:
   isEnlisted: 0
   isYou: 0
   isEssential: 0
-  faction: 0
+  faction: 2
   role: {fileID: 0}
 --- !u!222 &2606361138494507684
 CanvasRenderer:
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  Projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
+  Projectile: {fileID: 5896227133096651869, guid: ef75e6d0dfffbad4cb030f189e30b505,
     type: 3}
 --- !u!114 &3714644390309531196
 MonoBehaviour:

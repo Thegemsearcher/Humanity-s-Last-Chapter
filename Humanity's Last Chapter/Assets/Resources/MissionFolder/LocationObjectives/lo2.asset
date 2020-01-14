@@ -15,11 +15,14 @@ MonoBehaviour:
   titel: find rations
   description: t.ex. A distress call from the Dinner Room calls for an investigation
   id: t.ex. lo0
+  locationPos: {fileID: 1678608515540421983, guid: 4d7bee2da54ab5c4fa728aa413413288,
+    type: 3}
   Location: {fileID: 7458264659676017413, guid: 0c32d107d5830454fab582668078132a,
     type: 3}
   clearOutTarget: []
   isComlete: 0
   isBonus: 0
+  spawnLo: 0
   startEvents: []
   endEvents:
   - {fileID: 11400000, guid: fd237bb8b8414d34e8351ca434db56db, type: 2}

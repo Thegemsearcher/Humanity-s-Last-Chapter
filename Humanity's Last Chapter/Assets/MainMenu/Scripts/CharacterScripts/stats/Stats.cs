@@ -15,7 +15,7 @@ public class Stats : MonoBehaviour {
     public GameObject ItemPrefab;
     private GameObject itemGrid;
     public List<GameObject> items = new List<GameObject>();
-    List<QuirkObject> quirkList;
+    public List<QuirkObject> quirkList;
     public bool shit;
     public ParticleSystem bloodEffect;
     public List<string> quirkIDList;
@@ -40,9 +40,10 @@ public class Stats : MonoBehaviour {
             snt = 100;
 
             nextLevel = 10 + (5 * level);
-            randomQuirk = Random.Range(0, 9);
-            randomQuirk *= 2;
-            AddQuirk(Assets.assets.quirkArray[randomQuirk]);
+            //randomQuirk = Random.Range(0, 9);
+            //randomQuirk *= 2;
+            //AddQuirk(Assets.assets.quirkArray[randomQuirk]);
+            QuirkScript.quirkScript.GetBirthQuirk(this);
 
         }
         #region Gammal kod
@@ -110,7 +111,7 @@ public class Stats : MonoBehaviour {
     }
 
     public void NewCharacter(Stats stats) {
-        if(stats == null) {
+        if (stats == null) {
             Debug.Log("Error");
         }
         maxHp = stats.maxHp;
@@ -137,6 +138,8 @@ public class Stats : MonoBehaviour {
         quirkIDList.Add(quirk.name);
         quirkList.Add(quirk);
 
+        Debug.Log("A quirk was added! Character: " + GetComponent<CharacterScript>().strName + "\nQuirk: " + quirk.quirkName + "\n");
+
 
         quirkName = quirk.quirkName;
         maxHp += quirk.hp;
@@ -146,8 +149,40 @@ public class Stats : MonoBehaviour {
         dex += quirk.dex;
         cha += quirk.cha;
         ldr += quirk.ldr;
-        hp = maxHp;
 
+        if (hp > maxHp) {
+            hp = maxHp;
+        }
+        
+
+    }
+
+    public void RemoveQuirk(QuirkObject quirk) {
+
+        foreach (QuirkObject quirkTest in quirkList) {
+            if (quirkTest == quirk) {
+                quirkList.Remove(quirkTest);
+                break;
+            }
+        }
+
+        foreach (string quirkId in quirkIDList) {
+            if (quirk.name == quirkId) {
+                quirkIDList.Remove(quirkId);
+                break;
+            }
+        }
+        maxHp -= quirk.hp;
+        str -= quirk.str;
+        def -= quirk.def;
+        Int -= quirk.Int;
+        dex -= quirk.dex;
+        cha -= quirk.cha;
+        ldr -= quirk.ldr;
+        if (hp > maxHp) {
+            hp = maxHp;
+        }
+        
     }
 
     void InitiateList() {
@@ -178,6 +213,10 @@ public class Stats : MonoBehaviour {
             corpse.transform.rotation = transform.rotation * Quaternion.Euler(0f, 0f, 180);
             GetComponent<CharacterScript>().OnDeath();
             gameObject.SetActive(false);
+        } else {
+            if (damage >= 2) { //Skada som är mindre än 2 är bara ondödig att skicka in!
+                QuirkScript.quirkScript.GetWoundQuirk(GetComponent<CharacterScript>(), this, damage);
+            }
         }
     }
 
@@ -205,5 +244,16 @@ public class Stats : MonoBehaviour {
         level = data.level;
         exp = data.exp;
         nextLevel = data.nextLevel;
+
+        quirkList = new List<QuirkObject>();
+        foreach (string quirkId in quirkIDList) {
+            foreach (QuirkObject quirk in Assets.assets.quirkArray) {
+                if (quirkId == quirk.name) {
+                    quirkList.Add(quirk);
+                    break;
+                }
+            }
+        }
+        
     }
 }

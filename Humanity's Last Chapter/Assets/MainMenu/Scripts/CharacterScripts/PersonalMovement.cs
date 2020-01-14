@@ -82,12 +82,14 @@ public class PersonalMovement : MonoBehaviour
             float newX = Random.Range(-1, 1);
             float newY = Random.Range(-1, 1);
             rngPos = new Vector3(transform.position.x + newX, transform.position.y + newY);
+            //Debug.Log("rngpos : " + rngPos);
             movingToRngPos = true;
         }
         if (Vector2.Distance(rngPos, transform.position) < 0.5f)
         {
             movingToRngPos = false;
         }
+        Debug.Log(movingToRngPos);
         return NodeStates.success;
     }
     public NodeStates HasCommander()
@@ -140,6 +142,22 @@ public class PersonalMovement : MonoBehaviour
         }
 
         return NodeStates.success;
+    }
+
+    public Vector3 GetPositionBy(Vector3 position)
+    {
+        positionBy = Physics2D.Raycast(position, /*manager.transform.position + */relativePos, relativePos.magnitude, buildingLayer);
+        if (positionBy != false)
+        {
+            Vector2 v = positionBy.point - (Vector2)transform.position;
+            v.Normalize();
+            v *= 0.1f;
+            position = positionBy.point + v;
+            return position;
+        } else
+        {
+            return position + relativePos;
+        }
     }
 
     public void FlushWaypoints()

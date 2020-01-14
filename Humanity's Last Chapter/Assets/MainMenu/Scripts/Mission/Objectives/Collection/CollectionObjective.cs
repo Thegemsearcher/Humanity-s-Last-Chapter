@@ -9,7 +9,7 @@ namespace QuestSystem {
         private int collectionAmount, targetsLeft; //Ammout of things that will be collected
         private int currentAmount, counter; //starts at 0
         private bool isComplete, isBonus, isRandomSpawn;
-        private GameObject itemsToCollect, itemO; //Kanske ska bytas till något annat
+        private GameObject itemsToCollect, itemO, spawnHolder; //Kanske ska bytas till något annat
         private GameObject[] objectiveList;
         private List<GameObject> toCollectList;
         private Transform[] spawnPos;
@@ -21,6 +21,7 @@ namespace QuestSystem {
 
         public void GetData(ScriptableCollection coQuest, WaveEvent waveEvent) {
             this.waveEvent = waveEvent;
+            spawnHolder = GameObject.Find("SpawnHolder");
             spawnList = new List<Transform>();
             data = coQuest;
             isRandomSpawn = coQuest.isRandomSpawn;
@@ -58,7 +59,10 @@ namespace QuestSystem {
                 for (int i = 0; i < collectionAmount; i++) {
                     counter = Random.Range(0, spawnPos.Length);
                     itemO = Instantiate(itemsToCollect, spawnPos[counter].position, Quaternion.identity);
-                    itemO.transform.SetParent(GameObject.Find("SpawnHolder").transform, false);
+                    itemO.transform.SetParent(spawnHolder.transform, false);
+                    itemO.name = "CollectionObject(" + i + ")";
+                    itemO.tag = "Enemy";
+                    itemO.GetComponent<SpriteRenderer>().color = itemO.GetComponent<SpriteRenderer>().color + Color.cyan;
                     //Initiera quest marker här och sätt parent som item0
                     toCollectList.Add(itemO);
                 }
@@ -67,9 +71,11 @@ namespace QuestSystem {
                 counter = 0;
                 for (int i = 0; i < collectionAmount; i++) {
                     itemO = Instantiate(itemsToCollect, spawnPos[counter].position, Quaternion.identity);
-                    itemO.transform.SetParent(GameObject.Find("SpawnHolder").transform, false);
+                    itemO.transform.SetParent(spawnHolder.transform, false);
                     toCollectList.Add(itemO);
-
+                    itemO.name = "CollectionObject(" + i + ")";
+                    itemO.tag = "Enemy";
+                    itemO.GetComponent<SpriteRenderer>().color = itemO.GetComponent<SpriteRenderer>().color + Color.cyan;
                     counter++;
                     if (counter >= spawnPos.Length) {
                         counter = 0;

@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: co2
   m_EditorClassIdentifier: 
   verb: kill the new threat
-  description: 'kill '
+  description: The target are six monsters of the type "Spitters". Be aware! They
+    are known to have ranged attack. Kill them and claim the reward.
   collectionAmount: 6
   currentAmount: 0
   isComplete: 0

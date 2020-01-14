@@ -24,9 +24,9 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
         characterScript = pivotCharacter.GetComponent<CharacterScript>();
         partyMember = characterScript.partyMember;
 
-        if (healingId == null) {
-            healingId = "hi0";
-        }
+        //if (healingId == null) {
+        //    healingId = "hi0";
+        //}
 
         GetEquipment();
         //key = partyMember;
@@ -87,10 +87,12 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
         if (weaponId != "" || weaponId != null) {
             foreach (WeaponObject weapon in Assets.assets.weaponTemp) {
                 if (weapon.name == weaponId) {
+                    //Debug.Log("Character: " + characterScript.strName + "\nWeaponId: " + characterScript.rangedId + "\n");
                     this.weapon = weapon;
                 }
             }
         } else {
+            
             weapon = null;
         }
 
