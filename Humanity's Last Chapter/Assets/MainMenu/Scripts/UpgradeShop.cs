@@ -7,7 +7,7 @@ public class UpgradeShop : MonoBehaviour {
 
     public Text txtLevel;
     public int upgradeCost;
-    private int shopLevel;
+    public int shopLevel;
 
     void Start() {
         shopLevel = WorldScript.world.shopLevel;
@@ -18,7 +18,6 @@ public class UpgradeShop : MonoBehaviour {
         if (upgradeCost * shopLevel <= WorldScript.world.gold) {
             WorldScript.world.gold -= upgradeCost * shopLevel;
             WorldScript.world.shopSize += 3;
-            WorldScript.world.shopArr = new string[WorldScript.world.shopSize];
             WorldScript.world.shopLevel += 1;
 
             shopLevel = WorldScript.world.shopLevel;
