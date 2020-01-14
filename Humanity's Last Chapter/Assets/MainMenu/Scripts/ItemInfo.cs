@@ -29,8 +29,8 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     public void OnPointerEnter(PointerEventData eventData) {
-        itemName.text = strName;
-        itemDesc.text = strDesc;
+        //itemName.text = strName;
+        //itemDesc.text = strDesc;
         //if (itemName != null && itemDesc != null) {
         //    itemName.text = strName;
         //    itemDesc.text = strDesc;
@@ -40,8 +40,8 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     }
 
     public void OnPointerExit(PointerEventData eventData) {
-        itemName.text = "";
-        itemDesc.text = "";
+        //itemName.text = "";
+        //itemDesc.text = "";
         //if (itemName != null && itemDesc != null) {
         //    itemName.text = "";
         //    itemDesc.text = "";

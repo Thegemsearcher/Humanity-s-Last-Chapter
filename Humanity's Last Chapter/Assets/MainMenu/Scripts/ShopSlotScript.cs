@@ -71,5 +71,11 @@ public class ShopSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         this.arrPos = arrPos;
         this.parent = parent;
         isActive = true;
+
+        if (tag == "StoreSlot") {
+            this.cost += cost / 10;
+        } else {
+            this.cost -= cost / 10;
+        }
     }
 }
