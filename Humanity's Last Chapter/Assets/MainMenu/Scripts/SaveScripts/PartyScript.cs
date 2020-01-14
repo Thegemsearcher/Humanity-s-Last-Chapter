@@ -29,6 +29,11 @@ public class PartyScript : MonoBehaviour {
             Assets.assets.GetAssets();
         }
 
+        if (QuirkScript.quirkScript == null) {
+            QuirkScript.quirkScript = new QuirkScript();
+            QuirkScript.quirkScript.PrepareQuirks();
+        }
+
         if (WorldScript.world == null) {
             WorldScript.world = new WorldScript();
             WorldScript.world.Reset();
