@@ -30,7 +30,8 @@ public class GrenadeScript : MonoBehaviour {
             Explode();
             Destroy(gameObject);
         }
-        if (Vector2.Distance(transform.position, TargetPos) < 0.5f) {
+        if (Vector2.Distance(transform.position, TargetPos) < 0.5f)
+        {
             GetComponent<CircleCollider2D>().radius = aoe;
             explodeOnNext = true;
         }

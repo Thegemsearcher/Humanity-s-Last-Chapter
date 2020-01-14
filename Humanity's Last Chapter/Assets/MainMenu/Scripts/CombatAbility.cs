@@ -42,7 +42,7 @@ public class CombatAbility : MonoBehaviour
             combatItem = Character.GetComponent<Abilities>().combatItem;
 
             toDraw.GetComponent<SpriteRenderer>().sprite = combatItem.rangeThingy;
-            toDraw.transform.localScale = new Vector3(combatItem.placeRange, combatItem.placeRange, 1);
+            toDraw.transform.localScale = new Vector3(combatItem.placeRange * 2, combatItem.placeRange * 2, 1);
 
             GetComponent<Image>().sprite = combatItem.sprite;
         } else
