@@ -76,6 +76,7 @@
     <Compile Include="Assets\CreateCharacter.cs" />
     <Compile Include="Assets\CreationWindow.cs" />
     <Compile Include="Assets\DescCharacterScript.cs" />
+    <Compile Include="Assets\ExplosionTimer.cs" />
     <Compile Include="Assets\FootAnim.cs" />
     <Compile Include="Assets\LoadQuests.cs" />
     <Compile Include="Assets\LootInfoScript.cs" />
