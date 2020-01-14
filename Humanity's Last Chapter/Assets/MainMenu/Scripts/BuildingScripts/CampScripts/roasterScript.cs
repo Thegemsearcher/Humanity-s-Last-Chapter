@@ -12,12 +12,12 @@ public class roasterScript : MonoBehaviour {
 
     private void Start() {
         WorldScript.world.BarrackPepList.Clear();
-        roasterPos = new Vector3(-310, 120, 1); //sjukt fult måste göras snyggare!
+        roasterPos = new Vector3(-600, 180, 1); //sjukt fult måste göras snyggare!
         rand = Random.Range(4, 6); //tycker vi senare ska ha denna på ett annat sätt
         for (int i = 0; i < rand; i++) {
-            if (i == 4) {
-                roasterPos.y = 120;
-                roasterPos.x += 370;
+            if (i == 3) {
+                roasterPos.y = 180;
+                roasterPos.x += 700;
             }
             characterO = Instantiate(character, roasterPos, Quaternion.identity);
             //characterO.transform.SetParent(barrackWindow.transform, false);
@@ -25,7 +25,7 @@ public class roasterScript : MonoBehaviour {
             //characterO.GetComponent<HireCharacter>().cost = 20;
             //characterO.GetComponent<HireCharacter>().ShowBTN();
             //characterO.GetComponent<UIBoiScript>().isOwned = false;
-            roasterPos.y -= 105;
+            roasterPos.y -= 200;
             WorldScript.world.BarrackPepList.Add(characterO);
         }
     }
