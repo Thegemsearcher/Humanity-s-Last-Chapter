@@ -61,7 +61,10 @@ public class QuirkScript : MonoBehaviour {
                 if (quirk.name != birthQuirkList[randQuirk].name) {     //Om karaktären inte har samma quirk kommer den kolla sina quirks och vilka som går ihop
 
                     foreach (QuirkObject quirkPair in quirk.quirkPair) {        //Kollar alla quirks som är kopplade med quirken den har
-                        if (quirkPair.name == birthQuirkList[randQuirk].name) { //Om quirken som testas krockar med en existerande quirk måste processen börja om med en ny random quirk
+                        
+                        if (birthQuirkList[randQuirk] != null && //för att ta bort ett error
+                            quirkPair !=  null &&
+                            quirkPair.name == birthQuirkList[randQuirk].name) { //Om quirken som testas krockar med en existerande quirk måste processen börja om med en ny random quirk
                             possibleQuirk = false;  //Sätter possibleQuirk till false eftersom denna quirk inte kan användas
                             break;  
                         }

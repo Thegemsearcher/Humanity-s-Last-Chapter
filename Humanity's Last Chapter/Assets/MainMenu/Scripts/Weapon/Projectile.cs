@@ -22,7 +22,7 @@ public class Projectile : MonoBehaviour
     void Start()
     {
 
-        Debug.Log("skott på väg");
+        //Debug.Log("skott på väg");
         enemy = GetNearestTarget().transform;
         targetPos = new Vector3(targetPos.x + Random.Range(-spread, spread), targetPos.y + Random.Range(-spread, spread), targetPos.z);
         //transform.rotation = Quaternion.LookRotation(targetPos);
