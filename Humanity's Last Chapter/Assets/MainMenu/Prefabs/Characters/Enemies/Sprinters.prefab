@@ -191,7 +191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strName: 
   title: 
-  id: 0
+  id: 
   inventorySize: 0
   partyMember: 0
   rangedId: 
@@ -204,7 +204,7 @@ MonoBehaviour:
   isEnlisted: 0
   isYou: 0
   isEssential: 0
-  faction: 2
+  faction: 3
   role: {fileID: 0}
   quirkList: []
 --- !u!222 &7354675053654000920

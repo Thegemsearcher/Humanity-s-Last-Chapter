@@ -183,5 +183,27 @@ public class WorldScript {
             goods += (supplies / 2);
             supplies = 0;
         }
+
+        Hospital();
+    }
+
+    public void Hospital() {
+        characterArr = GameObject.FindGameObjectsWithTag("Character");
+        foreach (GameObject character in characterArr) {
+            CharacterScript characterScript = character.GetComponent<CharacterScript>();
+            if (characterScript.inHospital) {
+                Stats stats = character.GetComponent<Stats>();
+
+                foreach (QuirkObject quirk in stats.quirkList) {
+                    if (quirk.quirkType == QuirkScript.QuirkType.woundQuirk) {
+                        if (quirk.quirkLevel <= hospitalLevel + 1) {
+                            stats.RemoveQuirk(quirk);
+                        }
+                    }
+                }
+
+                stats.hp = stats.maxHp;
+            }
+        }
     }
 }

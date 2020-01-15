@@ -1460,7 +1460,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strName: 
   title: 
-  id: 0
+  id: 
   inventorySize: 0
   partyMember: 0
   rangedId: 
@@ -1473,7 +1473,7 @@ MonoBehaviour:
   isEnlisted: 0
   isYou: 0
   isEssential: 0
-  faction: 4
+  faction: 5
   role: {fileID: 0}
   quirkList: []
 --- !u!114 &5856801309094642175
@@ -1510,6 +1510,7 @@ MonoBehaviour:
   bloodEffect: {fileID: 0}
   quirkIDList: []
   PCCorpse: {fileID: 0}
+  isTesting: 0
 --- !u!114 &5856801309094642168
 MonoBehaviour:
   m_ObjectHideFlags: 0

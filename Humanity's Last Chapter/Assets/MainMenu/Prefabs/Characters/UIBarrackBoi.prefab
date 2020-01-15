@@ -195,7 +195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strName: 
   title: 
-  id: 0
+  id: 
   inventorySize: 0
   partyMember: 0
   rangedId: 
@@ -210,6 +210,7 @@ MonoBehaviour:
   isEssential: 0
   faction: 0
   role: {fileID: 0}
+  quirkList: []
 --- !u!114 &8023988884088185036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,10 +240,12 @@ MonoBehaviour:
   prefabCharacterUI: {fileID: 0}
   ItemPrefab: {fileID: 0}
   items: []
+  quirkList: []
   shit: 0
   bloodEffect: {fileID: 0}
   quirkIDList: []
   PCCorpse: {fileID: 0}
+  isTesting: 0
 --- !u!114 &2659122770557629610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1880,7 +1883,7 @@ GameObject:
   - component: {fileID: 1350958957347489370}
   m_Layer: 5
   m_Name: UIBarrackBoi
-  m_TagString: Character
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1955,11 +1958,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe1c148f01e731a4e84fc7347330ea8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HireBTN: {fileID: 8151887407274176277}
   UICharacter: {fileID: 3871096854192054890, guid: 2f55af40be4350449bfa02eef043f8b0,
     type: 3}
-  Character: {fileID: 2374589335405989981}
-  txtHire: {fileID: 7731755864400774002}
+  WorldObject: {fileID: 0}
+  txtCost: {fileID: 0}
   cost: 0
 --- !u!1 &6518018557056762816
 GameObject:

@@ -5,8 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class CharacterData {
 
-    public int id, hp, maxHp, str, def, Int, dex, cha, ldr, nrg, snt, exp;
-    public string strName, wpId, headId, clothId;
+    public int hp, maxHp, str, def, Int, dex, cha, ldr, nrg, snt, exp;
+    public string strName, wpId, headId, clothId, id;
     public string[] itemID;
     public bool shit;
     public List<string> quirkID;

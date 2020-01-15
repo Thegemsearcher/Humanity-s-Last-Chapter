@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class CharacterScript : MonoBehaviour {
     public string strName = "";
-    public string title;
-    public int id, inventorySize, partyMember;
+    public string title, id;
+    public int inventorySize, partyMember;
     private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
     private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
     public string rangedId, combatId, healingId, clothId, headId;
@@ -17,6 +17,7 @@ public class CharacterScript : MonoBehaviour {
     public List<QuirkObject> quirkList;
 
     public enum Faction {
+        unassigned,
         playerFaction,      //Styrs av karaktären och kommer in i hubben
         neutralFaction,     //Attackerar ingen, kan ha quests, bara aktiva på missions
         enemyFaction,       //Attackerar character av player faction och alliedFaction
@@ -30,6 +31,8 @@ public class CharacterScript : MonoBehaviour {
     void Start() {
 
         switch (faction) {
+            case Faction.unassigned:
+                break;
             case Faction.playerFaction:
                 gameObject.tag = "Character";
                 break;
@@ -50,6 +53,7 @@ public class CharacterScript : MonoBehaviour {
                 break;
             default:
                 gameObject.tag = "Untagged";
+                Debug.Log("Character has no allignment");
                 break;
         } //Sätter tag beroende på vilken sorts karaktär det är
 
@@ -59,7 +63,11 @@ public class CharacterScript : MonoBehaviour {
         if (strName == "") {
             inventorySize = 5;
             strName = NameGenerator();
-            id = GetId();
+
+            if(id == "") {
+                id = GetId();
+            }
+
             rangedId = "wp0";
             inventory = new string[inventorySize];
         }
@@ -72,14 +80,14 @@ public class CharacterScript : MonoBehaviour {
         this.headId = headId;
     }
 
-    private string NameGenerator() {
+    private string NameGenerator() { //Genererar ett namn
         strName = firstName[(int)Random.Range(0, firstName.Length)] + " " + lastName[(int)Random.Range(0, lastName.Length)];
         return strName;
     }
 
-    private int GetId() {
-        int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount;
-        id = characterCounter - 1;
+    public string GetId() {
+        int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount - 1;
+        id = "ch" + characterCounter;
         return id;
     }
 
@@ -93,10 +101,6 @@ public class CharacterScript : MonoBehaviour {
         inventory = data.inventory;
         inHospital = data.inHospital;
         isEnlisted = data.isEnlisted;
-    }
-
-    public void GetID() {
-        id = GetId();
     }
 
     public void OnDeath() {

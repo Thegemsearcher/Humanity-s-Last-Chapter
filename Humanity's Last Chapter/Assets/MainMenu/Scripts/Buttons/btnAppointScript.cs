@@ -12,7 +12,7 @@ public class btnAppointScript : MonoBehaviour { //Borde heta RoleManager
     private CharacterScript characterScript;
     string role, strName, skill;
     public int roleId;
-    private int characterID;
+    private string characterID;
     private bool isAppointed;
 
     private void Start() {

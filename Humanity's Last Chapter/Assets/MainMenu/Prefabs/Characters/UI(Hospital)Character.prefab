@@ -1431,7 +1431,7 @@ GameObject:
   - component: {fileID: 3240223993135354538}
   m_Layer: 5
   m_Name: UI(Hospital)Character
-  m_TagString: Character
+  m_TagString: UIHospitalCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1523,7 +1523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strName: 
   title: 
-  id: 0
+  id: 
   inventorySize: 0
   partyMember: 0
   rangedId: 
@@ -1578,6 +1578,7 @@ MonoBehaviour:
   quirkIDList: []
   PCCorpse: {fileID: 7977335717556039672, guid: a1c2c527c923a2646baa51bfcfd291b9,
     type: 3}
+  isTesting: 0
 --- !u!114 &7681100376880277744
 MonoBehaviour:
   m_ObjectHideFlags: 0

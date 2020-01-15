@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class RoleBoxScript : MonoBehaviour {
 
-    public Text txtName,txtRole, txtHp;
+    public Text txtName, txtRole, txtHp;
     public Scrollbar healthBar;
     public GameObject AppointBtn, Portrait;
     private GameObject Manager, Character;
@@ -57,6 +57,7 @@ public class RoleBoxScript : MonoBehaviour {
         } else {
             txtRole.text = "-No Role-";
         }
+        PrepareAppoint();
 
         txtName.text = characterScript.title + characterScript.strName;
 
@@ -81,22 +82,44 @@ public class RoleBoxScript : MonoBehaviour {
     }
 
     public void BtnAppoint() {
-        if (stats != null) {
+        if (stats != null && !characterScript.inHospital) {
             if (isAppointed) {
                 AppointBtn.GetComponent<Image>().color = Color.red;
+                AppointBtn.GetComponentInChildren<Text>().text = "A\np\np\no\ni\nn\nt";
                 characterScript.isEnlisted = false;
                 isAppointed = false;
                 Manager.GetComponent<CommandCenterScript>().appointedCharacters--;
                 //Göra karaktären notEnlisted
             } else {
                 AppointBtn.GetComponent<Image>().color = Color.green;
+                AppointBtn.GetComponentInChildren<Text>().text = "U\nn\na\np\np\no\ni\nn\nt";
                 characterScript.isEnlisted = true;
                 isAppointed = true;
                 Manager.GetComponent<CommandCenterScript>().appointedCharacters++;
                 //Göra karaktären enlisted
             }
             Manager.GetComponent<CommandCenterScript>().CheckMissionReady();
+        } else {
+            AppointBtn.GetComponent<Image>().color = Color.gray;
+            AppointBtn.GetComponentInChildren<Text>().text = "I\nn\n \nH\no\ns\np\ni\nt\na\nl";
+            characterScript.isEnlisted = false;
+            isAppointed = false;
         }
+    }
+
+    private void PrepareAppoint() {
+        if (characterScript.inHospital) {
+            AppointBtn.GetComponent<Image>().color = Color.gray;
+            AppointBtn.GetComponentInChildren<Text>().text = "I\nn\n \nH\no\ns\np\ni\nt\na\nl";
+        }
+        else if (isAppointed) {
+            AppointBtn.GetComponent<Image>().color = Color.green;
+            AppointBtn.GetComponentInChildren<Text>().text = "U\nn\na\np\np\no\ni\nn\nt";
+        } else {
+            AppointBtn.GetComponent<Image>().color = Color.red;
+            AppointBtn.GetComponentInChildren<Text>().text = "A\np\np\no\ni\nn\nt";
+        }
+        Manager.GetComponent<CommandCenterScript>().CheckMissionReady();
     }
 
     public void BtnChangeRole() {

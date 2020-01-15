@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 7226413351747392192}
   m_Layer: 5
   m_Name: UI(Hub)BarrackCharacter
-  m_TagString: Character
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strName: 
   title: 
-  id: 0
+  id: 
   inventorySize: 0
   partyMember: 0
   rangedId: 
@@ -351,7 +351,7 @@ MonoBehaviour:
   isEnlisted: 0
   isYou: 0
   isEssential: 0
-  faction: 4
+  faction: 0
   role: {fileID: 11400000, guid: c6c4868c729c1ae4ab906d2c4d615720, type: 2}
   quirkList: []
 --- !u!114 &1618544725704521491
@@ -393,6 +393,7 @@ MonoBehaviour:
   quirkIDList: []
   PCCorpse: {fileID: 7977335717556039672, guid: a1c2c527c923a2646baa51bfcfd291b9,
     type: 3}
+  isTesting: 0
 --- !u!114 &7226413351747392192
 MonoBehaviour:
   m_ObjectHideFlags: 0

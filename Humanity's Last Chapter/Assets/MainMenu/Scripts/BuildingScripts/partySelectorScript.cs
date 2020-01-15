@@ -7,25 +7,25 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
     private GameObject characterWindowO, roleWindowO;
     private GameObject[] characters, roles, windows;
     public int ammoutOfRole;
-    private int selectedCharacter;
+    private string selectedCharacter;
     private int id;
     private float contreverter; //1 här = 78.55004 i spelet av någon anledning, skriv in koordinaterna o dela de men konverteraren
     private Vector3 characterWindowPos, roleWindowPos;
     private CharacterScript characterScript;
     private CharacterWindow windowScript;
     private btnAppointScript roleScript;
-    public int[] missionParty; //Denna intArray ska spara id för karaktärena som ska på mission
+    public string[] missionParty; //Denna intArray ska spara id för karaktärena som ska på mission
 
     void Start() {
         //Skriva ut character rutor för varje karaktär
         contreverter = 78.55004f;
         characters = GameObject.FindGameObjectsWithTag("Character");
         windows = GameObject.FindGameObjectsWithTag("CharacterWindow");
-        selectedCharacter = -1;
+        selectedCharacter = "";
         
-        missionParty = new int[ammoutOfRole]; //Femman är hur många roller som kan vara på mission... ska vi ha oändligt kommer nog inte en array att fungera
+        missionParty = new string[ammoutOfRole]; //Femman är hur många roller som kan vara på mission... ska vi ha oändligt kommer nog inte en array att fungera
         for (int i = 0; i < missionParty.Length; i++) {
-            missionParty[i] = -1;
+            missionParty[i] = "";
         }
         //CreateCharacterWindow();
         CreateRoleWindow();
@@ -56,7 +56,7 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
     }
 
 
-    public void AppointCharacter(int role, int characterID) { //Lägger till karaktärens id till arren med id för karaktärer som går på mission
+    public void AppointCharacter(int role, string characterID) { //Lägger till karaktärens id till arren med id för karaktärer som går på mission
         missionParty[role] = characterID;
     }
 
@@ -67,12 +67,12 @@ public class partySelectorScript : MonoBehaviour { //Borde kanske vara ParytSetu
 
             if (missionParty[role] == characterScript.id) {
                 characterScript.isEnlisted = false;
-                missionParty[role] = -1;
+                missionParty[role] = "";
             }
         }
     }
 
-    public void SelectCharacter(int id) {
+    public void SelectCharacter(string id) {
         selectedCharacter = id;
     }
 }

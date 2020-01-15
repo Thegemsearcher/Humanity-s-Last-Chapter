@@ -9,7 +9,7 @@ public class CharacterWindow : MonoBehaviour {
     private Texture2D imgPortrait;
     public Text txtInfo, txtName, txtTraits;
     public string info, strName, traits;
-    public int ID;
+    public string ID;
 
     private void Start() {
         partyView = GameObject.Find("selectPartyView");
@@ -19,7 +19,7 @@ public class CharacterWindow : MonoBehaviour {
         txtTraits.text = traits;
     }
 
-    public void GetInfo(string strName, int ID) {
+    public void GetInfo(string strName, string ID) {
         this.strName = strName;
         this.ID = ID;
         txtName.text = strName;

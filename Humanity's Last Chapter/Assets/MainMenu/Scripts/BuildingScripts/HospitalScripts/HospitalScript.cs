@@ -5,10 +5,10 @@ public class HospitalScript : MonoBehaviour {
 
     public GameObject UIHospital, UISlots;
     private GameObject UIHolder, forHospitalParent, forHealingParent;
-    private GameObject[] Characters;
+    private GameObject[] hubCharacters, hospitalCharacters;
     public List<GameObject> SlotList;
     private Stats statsScript;
-    private CharacterScript characterScript;
+    private CharacterScript hubCharacterScript, hospitalCharacterScript;
     public int healingSlots;
     private bool showCharacter;
 
@@ -19,12 +19,12 @@ public class HospitalScript : MonoBehaviour {
     }
 
     private void UICharacters() {
-        Characters = GameObject.FindGameObjectsWithTag("Character");
+        hubCharacters = GameObject.FindGameObjectsWithTag("Character");
         forHospitalParent = GameObject.Find("forHospital");
         showCharacter = false;
 
 
-        foreach (GameObject character in Characters) {  //Går igenom alla karaktärer
+        foreach (GameObject character in hubCharacters) {  //Går igenom alla karaktärer
             statsScript = character.GetComponent<Stats>();
 
             if (statsScript.hp <= statsScript.maxHp) { //För att bara få de skadade karaktärena
@@ -38,11 +38,11 @@ public class HospitalScript : MonoBehaviour {
                 }
             }
             if (showCharacter) {    //Om karaktären har mindre hp än max eller har en woundQuirk kommer den att ritas us i hospital
-                characterScript = character.GetComponent<CharacterScript>();
+                hubCharacterScript = character.GetComponent<CharacterScript>();
 
                 UIHolder = Instantiate(UIHospital);
                 UIHolder.transform.SetParent(forHospitalParent.transform, false);
-                UIHolder.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+                UIHolder.GetComponent<CharacterScript>().LoadPlayer(hubCharacterScript);
                 UIHolder.GetComponent<Stats>().LoadPlayer(statsScript);
                 UIHolder.GetComponent<UIHospitalBoi>().Hospital = gameObject;
                 statsScript.maxHp++;
@@ -58,23 +58,12 @@ public class HospitalScript : MonoBehaviour {
         healingSlots = WorldScript.world.hospitalLevel + 1;
     }
 
-    public void HealCharacter(CharacterScript characterScript, Stats stats) {
-        characterScript.isEnlisted = false;
-        characterScript.inHospital = true;
-        UIHolder = Instantiate(UIHospital);
-        UIHolder.transform.SetParent(forHealingParent.transform, false);
-        //UIHolder.GetComponent<CharacterScript>().LoadPlayer(characterScript);
-        //UIHolder.GetComponent<Stats>().LoadPlayer(stats);
-        UIHolder.GetComponent<UIHospitalBoi>().Hospital = gameObject;
+    public void HealCharacter(GameObject character) {
+        character.transform.SetParent(forHealingParent.transform, false);
     }
 
-    public void RemoveCharacter(CharacterScript characterScript, Stats stats) {
-        characterScript.inHospital = false;
-        UIHolder = Instantiate(UIHospital);
-        UIHolder.transform.SetParent(forHospitalParent.transform, false);
-        UIHolder.GetComponent<CharacterScript>().LoadPlayer(characterScript);
-        UIHolder.GetComponent<Stats>().LoadPlayer(stats);
-        UIHolder.GetComponent<UIHospitalBoi>().Hospital = gameObject;
+    public void RemoveCharacter(GameObject character) {
+        character.transform.SetParent(forHospitalParent.transform, false);
     }
 
     public List<GameObject> GetSlot() { //Vet inte varför detta behövs...
@@ -82,6 +71,20 @@ public class HospitalScript : MonoBehaviour {
     }
 
     public void Exit() {
+        hospitalCharacters = GameObject.FindGameObjectsWithTag("UIHospitalCharacter"); //Tar fram alla som är i hospital
+        foreach (GameObject hospitalCharacter in hospitalCharacters) { //Kollar alla i hospital
+            hospitalCharacterScript = hospitalCharacter.GetComponent<CharacterScript>();
+
+            foreach (GameObject hubCharacter in hubCharacters) { //Kollar alla karaktärer i hubben
+                hubCharacterScript = hubCharacter.GetComponent<CharacterScript>();
+                
+                if (hospitalCharacterScript.id == hubCharacterScript.id) { //Samma boi
+                    hubCharacterScript.LoadPlayer(hospitalCharacterScript);
+                    break;
+                }
+
+            }
+        }
         Destroy(gameObject);
     }
 }

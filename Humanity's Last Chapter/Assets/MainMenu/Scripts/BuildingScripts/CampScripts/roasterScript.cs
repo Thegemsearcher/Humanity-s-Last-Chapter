@@ -20,6 +20,7 @@ public class roasterScript : MonoBehaviour {
                 roasterPos.x += 700;
             }
             characterO = Instantiate(character, roasterPos, Quaternion.identity);
+            characterO.GetComponent<CharacterScript>().id = "hire" + i;
             //characterO.transform.SetParent(barrackWindow.transform, false);
             //characterO.transform.localScale.Scale(new Vector3(1, 1, 1));
             //characterO.GetComponent<HireCharacter>().cost = 20;

@@ -19,14 +19,19 @@ public class UIHospitalBoi : MonoBehaviour {
         if (/*isHealable && */!characterScript.inHospital) {
             if (hospitalScript.healingSlots > 0) {
                 hospitalScript.healingSlots--;
-                stats.maxHp += 2;
-                hospitalScript.HealCharacter(characterScript, stats);
-                Destroy(gameObject);
+                characterScript.isEnlisted = false;
+                characterScript.inHospital = true;
+                txtHeal.text = "Remove";
+                txtHeal.transform.parent.GetComponent<Image>().color = healUnpossible;
+                hospitalScript.HealCharacter(gameObject);
             }
         } else if (characterScript.inHospital) {
+            txtHeal.text = "Heal";
+            txtHeal.transform.parent.GetComponent<Image>().color = healPossible;
+
             hospitalScript.healingSlots++;
-            hospitalScript.RemoveCharacter(characterScript, stats);
-            Destroy(gameObject);
+            characterScript.inHospital = false;
+            hospitalScript.RemoveCharacter(gameObject);
         }
     }
 

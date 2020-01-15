@@ -29,6 +29,7 @@ public class HireCharacter : MonoBehaviour {
             holder.transform.SetParent(Manager.transform, false);
             holder.GetComponent<CharacterScript>().LoadPlayer(characterScript);
             holder.GetComponent<Stats>().LoadPlayer(stats);
+            holder.GetComponent<CharacterScript>().GetId();
             
             Destroy(gameObject);
         } else {

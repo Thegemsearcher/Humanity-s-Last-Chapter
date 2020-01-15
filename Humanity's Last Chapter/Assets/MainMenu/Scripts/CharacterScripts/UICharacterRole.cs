@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class UICharacterRole : MonoBehaviour {
 
-    private string characterName;
-    private int characterID, roleID;
+    private string characterName, characterID;
+    private int roleID;
     private GameObject[] roles, characters;
     private CharacterScript characterScript;
     public TextMeshProUGUI txtName;

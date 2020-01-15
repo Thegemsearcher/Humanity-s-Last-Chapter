@@ -352,7 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strName: Markus
   title: 
-  id: 0
+  id: sp0
   inventorySize: 0
   partyMember: 0
   rangedId: wp1
@@ -407,6 +407,7 @@ MonoBehaviour:
   quirkIDList: []
   PCCorpse: {fileID: 7977335717556039672, guid: a1c2c527c923a2646baa51bfcfd291b9,
     type: 3}
+  isTesting: 0
 --- !u!114 &3026934995314500247
 MonoBehaviour:
   m_ObjectHideFlags: 0
