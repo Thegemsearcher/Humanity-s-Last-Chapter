@@ -5508,7 +5508,7 @@ MonoBehaviour:
   isEnlisted: 0
   isYou: 0
   isEssential: 0
-  faction: 5
+  faction: 0
   role: {fileID: 0}
   quirkList: []
 --- !u!1 &974203395
