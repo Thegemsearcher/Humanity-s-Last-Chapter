@@ -114,6 +114,7 @@ public class CharacterBox : MonoBehaviour {
     }
 
     public void FinalInfo() {
+        characterScript = Portrait.GetComponent<CharacterScript>();
         if (weaponSlot.GetComponentInChildren<ItemInfo>() != null) {
             rangedId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
         } else {
@@ -139,34 +140,25 @@ public class CharacterBox : MonoBehaviour {
         } else {
             combatId = "";
         }
-
-        //inventoryArr = new string[itemSlots.Length];
-        //for (int i = 0; i < inventoryArr.Length; i++) {
-        //    if(itemSlots[i].GetComponentInChildren<ItemInfo>() != null) {
-        //        inventoryArr[i] = itemSlots[i].GetComponentInChildren<ItemInfo>().id;
-        //        characterScript.inventory[i] = inventoryArr[i];
-        //        Debug.Log("ID: " + inventoryArr[i]);
-        //    }
-
-        //}
-        Debug.Log("RangedId: " + rangedId);
+        
         characterScript.rangedId = rangedId;
-        Debug.Log("characterScript.rangedId: " + characterScript.rangedId);
         if (headId != characterScript.headId) {
             foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
                 if (cloth.name == headId) {
-                    GetComponent<ClothScript>().ChangeCloth(cloth);
+                    Portrait.GetComponent<PortraitScript>().ChangeCloth(cloth);
                 }
             }
         }
         if (clothId != characterScript.clothId) {
             foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
                 if (cloth.name == clothId) {
-                    GetComponent<ClothScript>().ChangeCloth(cloth);
+                    Portrait.GetComponent<PortraitScript>().ChangeCloth(cloth);
                 }
             }
         }
+        Debug.Log("HealingId: " + healingId);
         characterScript.healingId = healingId;
+        Debug.Log("CharacterHealing: " + characterScript.healingId);
         characterScript.combatId = combatId;
         //Updaterar characterScript;
     }

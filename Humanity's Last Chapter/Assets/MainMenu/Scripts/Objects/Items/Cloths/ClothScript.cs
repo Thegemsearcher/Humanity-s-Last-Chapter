@@ -84,6 +84,7 @@ public class ClothScript : MonoBehaviour {
         }
 
         stats.maxHp += (item.maxHp * modifier);
+        stats.hp += (item.maxHp * modifier);
         stats.str += (item.str * modifier);
         stats.def += (item.def * modifier);
         stats.Int += (item.Int * modifier);

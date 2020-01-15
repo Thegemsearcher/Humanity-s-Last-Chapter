@@ -367,7 +367,6 @@ MonoBehaviour:
   isEssential: 1
   faction: 0
   role: {fileID: 11400000, guid: cdcb03e9685c01940ba76c10837876b6, type: 2}
-  quirkList: []
 --- !u!114 &2862047899077011697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -380,8 +379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc10bab95e63aaa428b191abb3c44eb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  maxHp: 0
+  hp: 70
+  maxHp: 70
   str: 0
   def: 0
   Int: 0

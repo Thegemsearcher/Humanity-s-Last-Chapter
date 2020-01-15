@@ -14,7 +14,6 @@ public class CharacterScript : MonoBehaviour {
     public bool inHospital, isEnlisted, isYou, isEssential; //Hospital är ifall man är i hospital, enlisted är ifall man ska på uppdrag, you är ifall karaktären är spelaren, essential är ifall karaktären är odödlig
     public Faction faction;
     public RoleObject role;
-    public List<QuirkObject> quirkList;
 
     public enum Faction {
         unassigned,
@@ -25,8 +24,7 @@ public class CharacterScript : MonoBehaviour {
         UI,                 //Blir untagged (för UI(Mission)Character och ActiveCharacter
         activeCharacter
     }
-
-    private Stats statsScript;
+    
 
     void Start() {
 
@@ -56,11 +54,9 @@ public class CharacterScript : MonoBehaviour {
                 Debug.Log("Character has no allignment");
                 break;
         } //Sätter tag beroende på vilken sorts karaktär det är
-
-        statsScript = GetComponent<Stats>();
-        combatId = "";
-        healingId = "";
+        
         if (strName == "") {
+
             inventorySize = 5;
             strName = NameGenerator();
 
@@ -68,6 +64,8 @@ public class CharacterScript : MonoBehaviour {
                 id = GetId();
             }
 
+            combatId = "";
+            healingId = "";
             rangedId = "wp0";
             inventory = new string[inventorySize];
         }
@@ -96,6 +94,8 @@ public class CharacterScript : MonoBehaviour {
         strName = data.strName;
         id = data.id;
         rangedId = data.rangedId;
+        healingId = data.healingId;
+        combatId = data.combatId;
         clothId = data.clothId;
         headId = data.headId;
         inventory = data.inventory;
@@ -149,40 +149,4 @@ public class CharacterScript : MonoBehaviour {
             inventory[i] = "";
         }
     }
-
-    public void AddQuirk(QuirkObject quirk) {   //Får in en quirk som ska läggas till
-        quirkList.Add(quirk);                   //Lägger tukk quirken i quirkList
-        statsScript.AddQuirk(quirk);            //Updaterar de stats som ändras av quirken
-    }
-
-    #region thingsToRemove
-    //public void SavePlayer() {
-    //    if (statsScript.hp > 0) {
-    //        int i = 0;
-    //        foreach (Transform item in gameObject.GetComponent<Stats>().characterUI.transform.GetChild(3).transform) {
-    //            if (item.tag == "Item") {
-    //                if (item.GetComponent<ItemScript>().IsActive()) {
-    //                    inventory[i] = item.GetComponent<ItemScript>().ItemID;
-    //                    i++;
-    //                }
-    //            }
-    //        }
-
-    //        if (inHospital) {
-    //            statsScript.hp += 5;
-    //            if (statsScript.hp > statsScript.maxHp) {
-    //                statsScript.hp = statsScript.maxHp;
-    //            }
-    //        }
-
-    //        if (isEnlisted) {
-    //            statsScript.hp -= 2;
-    //        }
-    //        SaveSystem.SaveCharacter(this, GetComponent<Stats>());
-    //    } else {
-    //        SaveSystem.DeleteCharacter(this);
-    //    }
-    //}
-    #endregion
-
 }
