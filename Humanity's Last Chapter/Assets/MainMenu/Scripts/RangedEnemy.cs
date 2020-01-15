@@ -17,6 +17,7 @@ public class RangedEnemy : MonoBehaviour
     public GameObject Projectile;
     GameObject projectile;
     public Animator animator;
+    public LayerMask walls;
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +33,7 @@ public class RangedEnemy : MonoBehaviour
         toAdd = new Vector3(Random.Range(transform.position.x - offset, transform.position.x + offset),
             Random.Range(transform.position.y - offset, transform.position.y + offset), 0);
         waypoints[2] = toAdd;
-
+        animator = GetComponent<Animator>();
         foreach (GameObject go in walls)
         {
             for (int i = 0; i < waypoints.Length; i++)
@@ -103,7 +104,7 @@ public class RangedEnemy : MonoBehaviour
         foreach (GameObject go in GetComponent<Enemy>().pcs)
         {
             Vector2 v = go.transform.position - transform.position;
-            RaycastHit2D ray = Physics2D.Raycast(transform.position, v, range, 9);
+            RaycastHit2D ray = Physics2D.Raycast(transform.position, v, range, walls);
             if (targetedPc == null)
             {
                 if (!ray && Vector2.Distance(go.transform.position, transform.position) < range)

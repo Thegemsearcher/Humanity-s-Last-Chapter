@@ -285,6 +285,10 @@ MonoBehaviour:
   waypoints: []
   Projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
     type: 3}
+  animator: {fileID: 0}
+  walls:
+    serializedVersion: 2
+    m_Bits: 512
 --- !u!114 &7760463779966258979
 MonoBehaviour:
   m_ObjectHideFlags: 0
