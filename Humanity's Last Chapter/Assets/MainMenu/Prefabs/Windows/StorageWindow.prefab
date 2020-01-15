@@ -1034,7 +1034,7 @@ GameObject:
   - component: {fileID: 1331534567034510238}
   m_Layer: 5
   m_Name: txtCharacters
-  m_TagString: TextItemName
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 1331534567150905247}
   m_Layer: 5
   m_Name: txtInventory
-  m_TagString: TextItemName
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

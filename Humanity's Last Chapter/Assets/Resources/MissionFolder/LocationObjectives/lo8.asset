@@ -15,10 +15,13 @@ MonoBehaviour:
   titel: check for safety
   description: lets start with the lower right corner of town
   id: t.ex. lo0
+  locationPos: {fileID: 8441431556315283445, guid: 8b44a6b0ea60b77459aac1960ca5af73,
+    type: 3}
   Location: {fileID: 4082475626449074292, guid: dc4aa1de4d17d23489862112224961b4,
     type: 3}
   clearOutTarget: []
   isComlete: 0
   isBonus: 0
+  spawnLo: 0
   startEvents: []
   endEvents: []

@@ -31,6 +31,7 @@ public class UIHospitalBoi : MonoBehaviour {
 
             hospitalScript.healingSlots++;
             characterScript.inHospital = false;
+            characterScript.isEnlisted = false;
             hospitalScript.RemoveCharacter(gameObject);
         }
     }
