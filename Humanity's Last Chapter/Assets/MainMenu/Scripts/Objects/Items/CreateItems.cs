@@ -34,6 +34,7 @@ public class CreateItems : MonoBehaviour {
                         break;
 
                     case 'c':
+                        bool isCombat = false;
                         foreach (CombatItemObject combat in Assets.assets.combatTemp) {
                             if (combat.name == inventory[i]) {
                                 ItemO = Instantiate(Item);
@@ -42,10 +43,25 @@ public class CreateItems : MonoBehaviour {
                                 itemInfo = ItemO.GetComponent<ItemInfo>();
                                 itemInfo.GetData(combat.icon, combat.itemName, combat.description, combat.name, combat.cost, txtDescName, txtDescDesc);
                                 iss.GetComponent<ItemSlotScript>().GetItem(combat.itemName, combat.description, DescParent);
+                                isCombat = true;
                                 break;
                             }
                         }
+                        if (!isCombat) {
+                            foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
+                                if (cloth.name == inventory[i]) {
+                                    ItemO = Instantiate(Item);
+                                    ItemO.transform.SetParent(itemSlots[i].transform, false);
+                                    itemInfo = ItemO.GetComponent<ItemInfo>();
+                                    itemInfo.GetData(cloth.icon, cloth.itemName, cloth.description, cloth.name, cloth.cost, txtDescName, txtDescDesc);
+                                    iss.GetComponent<ItemSlotScript>().GetItem(cloth.itemName, cloth.description, DescParent);
+                                    break;
+                                }
+                            }
+                            
+                        }
                         break;
+
 
                     case 'w':
                         foreach (WeaponObject weapon in Assets.assets.weaponTemp) {

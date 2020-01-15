@@ -7,7 +7,7 @@ public class WorldScript {
 
     public static WorldScript world;
 
-    public int gold, rs, storageSize, stockSize, shopSize, shopLevel, date, supplies, goods, partySize, year; //gold - guld som finns
+    public int gold, rs, storageSize, stockSize, shopSize, shopLevel, hospitalLevel, date, supplies, goods, partySize, year; //gold - guld som finns
     public bool isActive, isNewGame; //Den sparningen som startar om man klickar continue
     public string saveName, saveId;
     private bool isChoosing, hasGoodsQuest;
@@ -45,6 +45,7 @@ public class WorldScript {
         shopSize = 32;      //Hur många slots det finns i shop
         stockSize = 5;     //Hur många items shopen spawnar
         shopLevel = 1;
+        hospitalLevel = 1;
         storageArr = new string[storageSize];
         shopArr = new string[shopSize];
         partySize = 4;

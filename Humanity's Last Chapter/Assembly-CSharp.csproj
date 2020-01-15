@@ -77,6 +77,7 @@
     <Compile Include="Assets\CreationWindow.cs" />
     <Compile Include="Assets\DescCharacterScript.cs" />
     <Compile Include="Assets\FootAnim.cs" />
+    <Compile Include="Assets\HospitalInfo.cs" />
     <Compile Include="Assets\LoadQuests.cs" />
     <Compile Include="Assets\LootInfoScript.cs" />
     <Compile Include="Assets\LootItemScript.cs" />
@@ -252,6 +253,7 @@
     <Compile Include="Assets\TurretAttack.cs" />
     <Compile Include="Assets\UIActiveMission.cs" />
     <Compile Include="Assets\UICharacter.cs" />
+    <Compile Include="Assets\UIHospitalBoi.cs" />
     <Compile Include="Assets\WorldManagerScript.cs" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />

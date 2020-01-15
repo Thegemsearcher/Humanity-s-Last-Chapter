@@ -119,7 +119,27 @@ public class CharacterBox : MonoBehaviour {
         } else {
             rangedId = "";
         }
-        
+        if (headSlot.GetComponentInChildren<ItemInfo>() != null) {
+            headId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
+        } else {
+            headId = "";
+        }
+        if (clothSlot.GetComponentInChildren<ItemInfo>() != null) {
+            clothId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
+        } else {
+            clothId = "";
+        }
+        if (healingSlot.GetComponentInChildren<ItemInfo>() != null) {
+            healingId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
+        } else {
+            healingId = "";
+        }
+        if (combatSlot.GetComponentInChildren<ItemInfo>() != null) {
+            combatId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
+        } else {
+            combatId = "";
+        }
+
         //inventoryArr = new string[itemSlots.Length];
         //for (int i = 0; i < inventoryArr.Length; i++) {
         //    if(itemSlots[i].GetComponentInChildren<ItemInfo>() != null) {
@@ -127,9 +147,25 @@ public class CharacterBox : MonoBehaviour {
         //        characterScript.inventory[i] = inventoryArr[i];
         //        Debug.Log("ID: " + inventoryArr[i]);
         //    }
-            
+
         //}
         characterScript.rangedId = rangedId;
+        if (headId != characterScript.headId) {
+            foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
+                if (cloth.name == headId) {
+                    GetComponent<ClothScript>().ChangeCloth(cloth);
+                }
+            }
+        }
+        if (clothId != characterScript.clothId) {
+            foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
+                if (cloth.name == clothId) {
+                    GetComponent<ClothScript>().ChangeCloth(cloth);
+                }
+            }
+        }
+        characterScript.healingId = healingId;
+        characterScript.combatId = combatId;
         //Updaterar characterScript;
     }
 
