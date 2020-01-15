@@ -16,6 +16,7 @@ public class RangedEnemy : MonoBehaviour
     float range = 3;
     public GameObject Projectile;
     GameObject projectile;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +87,7 @@ public class RangedEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("Moving", true);
         if (BT == null)
         {
             //Debug.Log("inget BT");
@@ -133,6 +135,7 @@ public class RangedEnemy : MonoBehaviour
     {
         if (GetComponent<Enemy>().attackTimer > 0)
             return NodeStates.fail;
+        animator.SetTrigger("Attack");
         projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
         projectile.GetComponent<Projectile>().CreateProjectile(0f);
         projectile.GetComponent<Projectile>().damage = GetComponent<Enemy>().dmg;
