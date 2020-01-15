@@ -116,6 +116,10 @@ public class RangedEnemy : MonoBehaviour
 
         if (targetedPc != null)
         {
+            Vector3 towards = targetedPc.transform.position - transform.position;
+            float angle = Mathf.Atan2(towards.y, towards.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            transform.rotation = q;
             //Debug.Log("ser en karaktär");
             GetComponent<Enemy>().hasSeenEnemy = true;
             return NodeStates.success;
@@ -131,6 +135,7 @@ public class RangedEnemy : MonoBehaviour
             return NodeStates.fail;
         projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
         projectile.GetComponent<Projectile>().CreateProjectile(0f);
+        projectile.GetComponent<Projectile>().damage = GetComponent<Enemy>().dmg;
         projectile.GetComponent<Projectile>().SetTargetPos(targetedPc.transform.position);
 
         projectile.GetComponent<Projectile>().whatIsSolid = GetComponent<Enemy>().pcLayer;

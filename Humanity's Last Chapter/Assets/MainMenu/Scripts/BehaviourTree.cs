@@ -165,6 +165,7 @@ public class BehaviourTree : MonoBehaviour
         List<Node> forCombatSequence = new List<Node>();
         forCombatSequence.Add(rangeAndLineOfSight);
         forCombatSequence.Add(rangedAttack);
+
         LeafNode hasSeenPc = new LeafNode(GetComponent<RangedEnemy>().HasSeenPc);
         LeafNode moveToLastSeen = new LeafNode(GetComponent<RangedEnemy>().TowardsLastSeenPc);
         List<Node> forMoveTowardsSequence = new List<Node>();

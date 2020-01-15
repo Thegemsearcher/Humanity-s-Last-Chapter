@@ -89,7 +89,7 @@ public class PersonalMovement : MonoBehaviour
         {
             movingToRngPos = false;
         }
-        Debug.Log(movingToRngPos);
+        //Debug.Log(movingToRngPos);
         return NodeStates.success;
     }
     public NodeStates HasCommander()

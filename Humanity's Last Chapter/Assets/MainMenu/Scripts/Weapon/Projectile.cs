@@ -21,6 +21,8 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        Debug.Log("skott på väg");
         enemy = GetNearestTarget().transform;
         targetPos = new Vector3(targetPos.x + Random.Range(-spread, spread), targetPos.y + Random.Range(-spread, spread), targetPos.z);
         //transform.rotation = Quaternion.LookRotation(targetPos);
@@ -50,24 +52,13 @@ public class Projectile : MonoBehaviour
         //        DestroyProjectile();
         //    }
         //}
-        if (LayerMaskContains(whatIsSolid, 10))
-        {
-            //Debug.Log("bör träffa spelaren");
-        }
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, direction/*targetPos*/, distance, whatIsSolid);
         if (hitInfo.collider != null)
         {
             if (hitInfo != false/*hitInfo.collider.CompareTag("Enemy")*/)
             {
-                //Debug.Log(LayerMask.LayerToName(whatIsSolid.value));
-                if (LayerMaskContains(whatIsSolid, 8))
-                {
-                    hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
-                }
-                else if (LayerMaskContains(whatIsSolid, 10))
-                {
-                    hitInfo.collider.GetComponent<Stats>().TakeDamage(damage);
-                }
+                hitInfo.collider.GetComponent<Stats>().TakeDamage(damage);
+                Debug.Log("ska ta dmg");
             }
             DestroyProjectile();
         }

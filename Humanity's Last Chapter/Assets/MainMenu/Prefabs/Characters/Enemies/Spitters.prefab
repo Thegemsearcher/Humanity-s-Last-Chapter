@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
-  Projectile: {fileID: 5896227133096651869, guid: ef75e6d0dfffbad4cb030f189e30b505,
+  Projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
     type: 3}
 --- !u!114 &3714644390309531196
 MonoBehaviour:
@@ -358,12 +358,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a426da5dc25f854ba7e362468ca9f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 150
+  health: 200
   speed: 1.5
   pcs: []
   aggroRange: 4
   atkRange: 0.75
-  dmg: 20
+  dmg: 25
   pcLayer:
     serializedVersion: 2
     m_Bits: 256
