@@ -203,6 +203,7 @@ public class WorldScript {
                 }
 
                 stats.hp = stats.maxHp;
+                characterScript.inHospital = false;
             }
         }
     }
