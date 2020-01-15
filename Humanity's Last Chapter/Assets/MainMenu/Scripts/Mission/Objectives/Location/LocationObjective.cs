@@ -70,6 +70,10 @@ namespace QuestSystem {
         }
 
         public bool CheckProgress() {
+            if (characters == null || characters.Length == 0) {
+                characters = GameObject.FindGameObjectsWithTag("Character");
+            }
+
             foreach (GameObject character in characters) {
                 //isComlete = loScript.OnTriggerEnter2D(character.GetComponent<BoxCollider2D>());
                 isComlete = holder.GetComponent<LocationScript>().isInRoom;
@@ -81,7 +85,8 @@ namespace QuestSystem {
                 //    }
                 //}
                 if (isComlete) {
-                    Location.GetComponent<LocationScript>().isInRoom = false;
+                    Debug.Log("IsComplete: " + isComlete);
+                    holder.GetComponent<LocationScript>().isInRoom = false;
                     if (endEvents != null) {
                         StartEvent(endEvents);
                     }
@@ -89,7 +94,7 @@ namespace QuestSystem {
                     break;
                 }
             }
-
+            
             return isComlete;
         }
         private void StartEvent(Object[] eventObj) {
