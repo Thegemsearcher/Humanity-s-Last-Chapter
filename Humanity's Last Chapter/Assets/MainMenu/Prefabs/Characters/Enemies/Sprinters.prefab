@@ -206,7 +206,6 @@ MonoBehaviour:
   isEssential: 0
   faction: 3
   role: {fileID: 0}
-  quirkList: []
 --- !u!222 &7354675053654000920
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -231,7 +230,7 @@ MonoBehaviour:
   speed: 10
   pcs: []
   aggroRange: 6
-  atkRange: 0.5
+  atkRange: 1.1
   dmg: 20
   pcLayer:
     serializedVersion: 2
