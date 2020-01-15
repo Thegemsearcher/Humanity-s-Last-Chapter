@@ -92,13 +92,14 @@ GameObject:
   - component: {fileID: 1204661229296254495}
   - component: {fileID: 6959747118467952524}
   - component: {fileID: 2606361138494507684}
+  - component: {fileID: 3714644390309531196}
   - component: {fileID: 1116336420718931678}
+  - component: {fileID: 1888244029043153764}
   - component: {fileID: 7760463779966258979}
   - component: {fileID: 1405737685388727458}
   - component: {fileID: 5266396166482147255}
   - component: {fileID: 849753420141661392}
-  - component: {fileID: 1888244029043153764}
-  - component: {fileID: 3714644390309531196}
+  - component: {fileID: -3092396739559897435}
   - component: {fileID: 6172518198825749415}
   m_Layer: 13
   m_Name: Spitters
@@ -214,6 +215,35 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7146514785514354983}
   m_CullTransparentMesh: 0
+--- !u!114 &3714644390309531196
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146514785514354983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a426da5dc25f854ba7e362468ca9f43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 200
+  speed: 1.5
+  pcs: []
+  aggroRange: 4
+  atkRange: 0.75
+  dmg: 25
+  pcLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  attackTimer: 0
+  timeBetweenAttack: 2
+  animator: {fileID: 0}
+  bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
+    type: 3}
+  hasSeenEnemy: 0
+  EnemyCorpse: {fileID: 9007655463013522353, guid: 298a45655b5dd084d8399b036e874fd2,
+    type: 3}
 --- !u!61 &1116336420718931678
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -240,6 +270,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
+--- !u!114 &1888244029043153764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7146514785514354983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 010ed41325438114ebc527b067fc374e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  Projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
+    type: 3}
 --- !u!114 &7760463779966258979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +376,7 @@ MonoBehaviour:
   version: 1
   target: {fileID: 0}
   posToTarget: {x: 0, y: 0, z: 0}
---- !u!114 &1888244029043153764
+--- !u!114 &-3092396739559897435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -340,41 +385,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7146514785514354983}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 010ed41325438114ebc527b067fc374e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d4794782651f40428951df246a182c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints: []
-  Projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
-    type: 3}
---- !u!114 &3714644390309531196
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7146514785514354983}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a426da5dc25f854ba7e362468ca9f43, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 200
-  speed: 1.5
-  pcs: []
-  aggroRange: 4
-  atkRange: 0.75
-  dmg: 25
-  pcLayer:
-    serializedVersion: 2
-    m_Bits: 256
-  attackTimer: 0
-  timeBetweenAttack: 2
-  animator: {fileID: 0}
-  bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
-    type: 3}
-  hasSeenEnemy: 0
-  EnemyCorpse: {fileID: 9007655463013522353, guid: 298a45655b5dd084d8399b036e874fd2,
-    type: 3}
+  lootBox: {fileID: 4150398682782584063, guid: 46d1dacedbe07f543a7429112eac4bfb, type: 3}
+  inventory: []
 --- !u!95 &6172518198825749415
 Animator:
   serializedVersion: 3

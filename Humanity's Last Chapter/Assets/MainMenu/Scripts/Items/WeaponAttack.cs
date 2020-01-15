@@ -29,6 +29,7 @@ public class WeaponAttack : MonoBehaviour {
     private void Update() {
         timeStamp += Time.deltaTime;
         Rotation();
+        Debug.Log(IsRange());
     }
 
     public void Rotation() {
@@ -59,7 +60,7 @@ public class WeaponAttack : MonoBehaviour {
     //For tha nöds
     public bool IsRange() {
         GetClosestEnemy();
-        if (closest <= wo.range && closest >= minRange) { //Min range är avståndet då den byter till melee attack
+        if (closest <= wo.range /*&& closest >= minRange*/) { //Min range är avståndet då den byter till melee attack
             return true;
         }
         return false;

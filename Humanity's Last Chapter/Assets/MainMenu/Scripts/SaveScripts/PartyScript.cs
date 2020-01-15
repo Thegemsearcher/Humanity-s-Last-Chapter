@@ -159,14 +159,16 @@ public class PartyScript : MonoBehaviour {
         //abilitySlots[1].GetComponent<AbilitySlotScript>().AttachedAbility = go2;
         #endregion
 
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i <= 0; i++)
+        {
             characterO = Instantiate(character);
             characterO.GetComponent<CharacterScript>().partyMember = i + 1;
             characterO.GetComponent<PersonalMovement>().relativePos = new Vector3(i, i);
             characterO.GetComponent<PersonalMovement>().AddRelativeWaypoint(transform.position);
             gameObject.GetComponent<CharacterMovement>().AddPc(characterO);
             characterO.GetComponent<PersonalMovement>().relativePosNonRotated = new Vector3(i, i);
-            SpawnWeapon("wp" + Random.Range(0, Assets.assets.weaponTemp.Length), characterO.transform);
+            SpawnWeapon("wp0", characterO.transform);
+            //SpawnWeapon("wp" + Random.Range(0, Assets.assets.weaponTemp.Length), characterO.transform);
             characterO.transform.SetParent(transParent, false);
         }
 

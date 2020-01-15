@@ -24,7 +24,7 @@ public class Stats : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         if (maxHp == 0) {
-            maxHp = 60;
+            maxHp = 60000;
             hp = maxHp;
         }
 

@@ -7,7 +7,7 @@ public class BulletM : MonoBehaviour { //Markus
     public float lifeTime;
     public float aoe; //Hur stor träffyta?
     private float range; //Hur långt skottet kan flyga
-    private float bulletTravel; //Hur långt skottet har flygit
+    private float travelDistance; //Hur långt skottet har flygit
     public LayerMask whatIsSolid;
 
     private Vector3 targetPos; //Positionen målet är på
@@ -18,17 +18,21 @@ public class BulletM : MonoBehaviour { //Markus
 
     // Start is called before the first frame update
     void Start() {
-        aimPos = new Vector3(targetPos.x + Random.Range(-wo.spread, wo.spread), targetPos.y + Random.Range(-wo.spread, wo.spread), targetPos.z);
+        aimPos = new Vector3(targetPos.x + Random.Range(-wo.spread, wo.spread), targetPos.y + Random.Range(-wo.spread, wo.spread), 0);
         startPos = transform.position;
         //transform.rotation = Quaternion.LookRotation(targetPos);
-        direction = aimPos - transform.position;
+        direction.x = aimPos.x - transform.position.x;
+        direction.y = aimPos.y - transform.position.y;
+        direction.z = aimPos.z;
         //Invoke("DestroyProjectile", lifeTime);
     }
 
     public void CreateProjectile(WeaponObject wo, GameObject target) {
         this.wo = wo;
         range = wo.range + Random.Range(-wo.spread, wo.spread);
-        targetPos = target.transform.position;
+        targetPos.x = target.transform.position.x;
+        targetPos.y = target.transform.position.y;
+        targetPos.z = 0;
     }
 
     // Update is called once per frame
@@ -52,9 +56,9 @@ public class BulletM : MonoBehaviour { //Markus
     }
 
     private void CheckDistance() { //Kollar om skottet har flygit tillräckligt långt
-        bulletTravel = Vector3.Distance(startPos, transform.position);
+        travelDistance = Vector3.Distance(startPos, transform.position);
         //Debug.Log("BulletTravel: " + bulletTravel);
-        if (bulletTravel >= range) {
+        if (travelDistance >= range + 1000) {
             Destroy(gameObject);
         }
     }

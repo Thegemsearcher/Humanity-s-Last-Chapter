@@ -99,4 +99,4 @@ MonoBehaviour:
   aoe: 0.1
   whatIsSolid:
     serializedVersion: 2
-    m_Bits: 8759
+    m_Bits: 8704

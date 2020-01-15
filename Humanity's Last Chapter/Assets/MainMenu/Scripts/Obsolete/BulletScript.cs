@@ -20,9 +20,9 @@ public class BulletScript : MonoBehaviour {
         }
     }
 
-    public void BulletLand(Vector2 targetPos, int accurecy) {
+    public void BulletLand(Vector2 targetPos, int accuracy) {
         //Ska använda accurecy för att se om skottet kommer träffa eller missa
-        if(Random.Range(0,100) <= accurecy) {
+        if(Random.Range(0,100) <= accuracy) {
             //Hit
         }
         else {
