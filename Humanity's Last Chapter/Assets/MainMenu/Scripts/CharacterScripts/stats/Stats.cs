@@ -31,7 +31,7 @@ public class Stats : MonoBehaviour {
 
         if (maxHp == 0)
         {
-            maxHp = 30;
+            maxHp = 60;
             hp = maxHp;
         }
 

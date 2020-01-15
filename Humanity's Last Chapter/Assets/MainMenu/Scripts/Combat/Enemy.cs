@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        target = transform.position;
+        //target = transform.position;
         pcs = GameObject.FindGameObjectsWithTag("Character");
         lootSize = Random.Range(0, 3);
         lootDrop = new string[lootSize];

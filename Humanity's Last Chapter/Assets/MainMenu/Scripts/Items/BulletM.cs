@@ -29,7 +29,7 @@ public class BulletM : MonoBehaviour { //Markus
 
     public void CreateProjectile(WeaponObject wo, GameObject target) {
         this.wo = wo;
-        range = wo.range + Random.Range(-wo.spread, wo.spread);
+        range = wo.range /*+ Random.Range(-wo.spread, wo.spread)*/;
         targetPos.x = target.transform.position.x;
         targetPos.y = target.transform.position.y;
         targetPos.z = 0;
@@ -46,9 +46,10 @@ public class BulletM : MonoBehaviour { //Markus
     }
 
     private void CheckHit() { //Kollar om skottet har träffat något
-        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, aimPos, aoe, whatIsSolid);
+        RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, direction, aoe, whatIsSolid);
         if (hitInfo.collider != null) {
             if (hitInfo.collider.CompareTag("Enemy")) { //Kommer inte fungera bra om vi ska ha flera "factions"
+                Debug.Log(hitInfo.collider);
                 hitInfo.collider.GetComponent<Enemy>().TakeDamage(wo.damage);
             }
             Destroy(gameObject);
@@ -58,7 +59,7 @@ public class BulletM : MonoBehaviour { //Markus
     private void CheckDistance() { //Kollar om skottet har flygit tillräckligt långt
         travelDistance = Vector3.Distance(startPos, transform.position);
         //Debug.Log("BulletTravel: " + bulletTravel);
-        if (travelDistance >= range + 1000) {
+        if (travelDistance >= range + 5) {
             Destroy(gameObject);
         }
     }
