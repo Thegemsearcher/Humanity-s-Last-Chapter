@@ -59,6 +59,7 @@ TagManager:
   - WindowManager
   - Marker
   - CombatSlot
+  - HospitalBuilding
   layers:
   - Default
   - TransparentFX

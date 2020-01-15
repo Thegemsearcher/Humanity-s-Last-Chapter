@@ -93,13 +93,6 @@ public class CharacterScript : MonoBehaviour {
         inventory = data.inventory;
         inHospital = data.inHospital;
         isEnlisted = data.isEnlisted;
-        //Stats ändringar
-        if (inHospital) {
-            statsScript.hp += 5;
-            if (statsScript.hp > statsScript.maxHp) {
-                statsScript.hp = statsScript.maxHp;
-            }
-        }
     }
 
     public void GetID() {
