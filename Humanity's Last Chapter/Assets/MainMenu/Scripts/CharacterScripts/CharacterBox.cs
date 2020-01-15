@@ -113,29 +113,29 @@ public class CharacterBox : MonoBehaviour {
         }
     }
 
-    private void OnDestroy() {
+    public void FinalInfo() {
         if (weaponSlot.GetComponentInChildren<ItemInfo>() != null) {
             rangedId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
         } else {
             rangedId = "";
         }
         if (headSlot.GetComponentInChildren<ItemInfo>() != null) {
-            headId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
+            headId = headSlot.GetComponentInChildren<ItemInfo>().id;
         } else {
             headId = "";
         }
         if (clothSlot.GetComponentInChildren<ItemInfo>() != null) {
-            clothId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
+            clothId = clothSlot.GetComponentInChildren<ItemInfo>().id;
         } else {
             clothId = "";
         }
         if (healingSlot.GetComponentInChildren<ItemInfo>() != null) {
-            healingId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
+            healingId = healingSlot.GetComponentInChildren<ItemInfo>().id;
         } else {
             healingId = "";
         }
         if (combatSlot.GetComponentInChildren<ItemInfo>() != null) {
-            combatId = weaponSlot.GetComponentInChildren<ItemInfo>().id;
+            combatId = combatSlot.GetComponentInChildren<ItemInfo>().id;
         } else {
             combatId = "";
         }
@@ -149,7 +149,9 @@ public class CharacterBox : MonoBehaviour {
         //    }
 
         //}
+        Debug.Log("RangedId: " + rangedId);
         characterScript.rangedId = rangedId;
+        Debug.Log("characterScript.rangedId: " + characterScript.rangedId);
         if (headId != characterScript.headId) {
             foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
                 if (cloth.name == headId) {

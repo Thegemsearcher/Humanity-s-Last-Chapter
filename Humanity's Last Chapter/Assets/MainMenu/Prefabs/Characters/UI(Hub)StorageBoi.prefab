@@ -601,7 +601,7 @@ GameObject:
   - component: {fileID: 134008832315383498}
   m_Layer: 5
   m_Name: UI(Hub)StorageBoi
-  m_TagString: Character
+  m_TagString: UIHospitalCharacter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -971,6 +971,7 @@ MonoBehaviour:
   isEssential: 0
   faction: 0
   role: {fileID: 0}
+  quirkList: []
 --- !u!114 &7925095400945885961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,10 +1001,12 @@ MonoBehaviour:
   prefabCharacterUI: {fileID: 0}
   ItemPrefab: {fileID: 0}
   items: []
+  quirkList: []
   shit: 0
   bloodEffect: {fileID: 0}
   quirkIDList: []
   PCCorpse: {fileID: 0}
+  isTesting: 0
 --- !u!114 &6304264593419016964
 MonoBehaviour:
   m_ObjectHideFlags: 0
