@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: co1
   m_EditorClassIdentifier: 
   verb: Kill
-  description: Kill the Woandars
+  description: Kill the Sprinters
   collectionAmount: 20
   currentAmount: 0
   isComplete: 0
   isBonus: 0
   isRandomSpawn: 0
-  itemsToCollect: {fileID: 4090975341072565159, guid: ecf8ee21bade51a48891cccceee6b009,
+  itemsToCollect: {fileID: 7354675053654000930, guid: 2982904dbaaa39443b4782a856815cb9,
     type: 3}
   spawnPos:
   - {fileID: 2842653041877065163, guid: 499d317a4fcfa6f4aa3792c36fc40d88, type: 3}

@@ -15,10 +15,13 @@ MonoBehaviour:
   titel: almost done
   description: good, now there is only the upper left corner left
   id: t.ex. lo0
+  locationPos: {fileID: 8661802037534502608, guid: 7ee716cadea2e3c4eb2b7789832531b9,
+    type: 3}
   Location: {fileID: 1316906722059668210, guid: 77c7026fc5e2a864a95f5478e3e42ec3,
     type: 3}
   clearOutTarget: []
   isComlete: 0
   isBonus: 0
+  spawnLo: 0
   startEvents: []
   endEvents: []

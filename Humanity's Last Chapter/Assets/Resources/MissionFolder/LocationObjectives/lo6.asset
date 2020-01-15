@@ -15,10 +15,13 @@ MonoBehaviour:
   titel: not much more now
   description: t.ex. A distress call from the Dinner Room calls for an investigation
   id: t.ex. lo0
+  locationPos: {fileID: 966367887264413249, guid: 67215994067b73b4c9a1d5d9e7c361af,
+    type: 3}
   Location: {fileID: 119666939902242241, guid: ff0d8c5a0e5d54f408e54a91cb0d9f37, type: 3}
   clearOutTarget: []
   isComlete: 0
   isBonus: 0
+  spawnLo: 0
   startEvents:
   - {fileID: 11400000, guid: fd237bb8b8414d34e8351ca434db56db, type: 2}
   endEvents: []

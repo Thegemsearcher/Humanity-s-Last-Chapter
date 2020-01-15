@@ -15,7 +15,7 @@ MonoBehaviour:
   missionName: Time to scout
   description: phew, this will work perfectly as our base and lucky for us we have
     enough recources for now. So our main priority is to scout the area
-  missionMap: 2
+  missionMap: 1
   nextMissionsComplete: []
   nextMissionsFail: []
   goldReward: 150

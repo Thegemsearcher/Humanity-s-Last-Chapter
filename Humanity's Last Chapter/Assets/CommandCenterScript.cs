@@ -139,5 +139,7 @@ public class CommandCenterScript : MonoBehaviour {
             BtnStartMission.GetComponent<Image>().color = Color.green;
             txtStartMission.text = "Start Mission";
         }
+
+        Debug.Log("hmmm");
     }
 }

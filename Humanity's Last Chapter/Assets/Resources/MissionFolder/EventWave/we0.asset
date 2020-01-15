@@ -38,7 +38,8 @@ MonoBehaviour:
   - {fileID: 1209726552976253989, guid: 8e217ab8cb47d554ea51a8fbead3ff17, type: 3}
   - {fileID: 4146174082549689635, guid: f24c67fe83f69484fb8b5aa929d037d4, type: 3}
   prefab: {fileID: 4090975341072565159, guid: ecf8ee21bade51a48891cccceee6b009, type: 3}
+  isRandomSpawn: 1
   isTimerBased: 0
   spawnRate: 0
   waveDuration: 0
-  enemiesAmmount: 26
+  enemiesAmmount: 10

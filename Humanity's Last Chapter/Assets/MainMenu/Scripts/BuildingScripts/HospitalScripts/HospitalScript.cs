@@ -21,6 +21,7 @@ public class HospitalScript : MonoBehaviour {
     private void UICharacters() {
         hubCharacters = GameObject.FindGameObjectsWithTag("Character");
         forHospitalParent = GameObject.Find("forHospital");
+        forHealingParent = GameObject.Find("forHealingSlots");
         showCharacter = false;
 
 
@@ -41,11 +42,16 @@ public class HospitalScript : MonoBehaviour {
                 hubCharacterScript = character.GetComponent<CharacterScript>();
 
                 UIHolder = Instantiate(UIHospital);
-                UIHolder.transform.SetParent(forHospitalParent.transform, false);
+                
                 UIHolder.GetComponent<CharacterScript>().LoadPlayer(hubCharacterScript);
                 UIHolder.GetComponent<Stats>().LoadPlayer(statsScript);
                 UIHolder.GetComponent<UIHospitalBoi>().Hospital = gameObject;
-                statsScript.maxHp++;
+
+                if (UIHolder.GetComponent<CharacterScript>().inHospital) {
+                    UIHolder.transform.SetParent(forHealingParent.transform, false);
+                } else {
+                    UIHolder.transform.SetParent(forHospitalParent.transform, false);
+                }
             }
 
             
@@ -54,7 +60,6 @@ public class HospitalScript : MonoBehaviour {
     }
 
     private void HealingSlots() {
-        forHealingParent = GameObject.Find("forHealingSlots");
         healingSlots = WorldScript.world.hospitalLevel + 1;
     }
 

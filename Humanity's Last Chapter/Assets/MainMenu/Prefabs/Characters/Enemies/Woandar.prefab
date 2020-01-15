@@ -147,7 +147,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  speed: 2.5
   pcs: []
   aggroRange: 6
   atkRange: 1.1

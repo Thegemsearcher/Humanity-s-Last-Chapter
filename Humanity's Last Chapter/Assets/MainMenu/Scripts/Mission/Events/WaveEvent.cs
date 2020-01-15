@@ -8,13 +8,14 @@ public class WaveEvent : MonoBehaviour { //Markus - Spawnar massor med fiender m
     private GameObject prefab;          //Vad som ska spawna
     private GameObject holder;
     private bool isActive;              //Håller koll på om den ska spawna saker
+    private bool isRandomSpawn;
     private bool isTimerBased;          //Om det ska spawna saker med timmer eller om det håller på tills x fiender är spawnade
     private float rateStamp;            //Håller koll på när nästa fiende ska spawna på spawnpointen
     private float spawnRate;            //Hur snabbt de spawnar
 
     private float waveDuration;         //Om isTimerBased hur länge vågen håller på
     private float waveStamp;            //Håller koll på tiden som gått sedan start
-    private int enemiesAmmount;         //Hur många fiender som spawnar om !isTimerBased
+    private int enemiesAmount;         //Hur många fiender som spawnar om !isTimerBased
     private int counter;                //Räknar fiender som spawnat
 
     public void GetEvent(WaveObject wave) { //Får värderna
@@ -23,11 +24,12 @@ public class WaveEvent : MonoBehaviour { //Markus - Spawnar massor med fiender m
         isTimerBased = wave.isTimerBased;
         spawnRate = wave.spawnRate;
         waveDuration = wave.waveDuration;
-        enemiesAmmount = wave.enemiesAmmount;
+        enemiesAmount = wave.enemiesAmmount;
 
         rateStamp = 0;
         waveStamp = 0;
 
+        isRandomSpawn = wave.isRandomSpawn;
         isActive = true;
     }
 
@@ -60,14 +62,27 @@ public class WaveEvent : MonoBehaviour { //Markus - Spawnar massor med fiender m
     }
 
     private void CounterSpawner() {
-        foreach (Transform spawnPos in spawnPosArr) {
-            holder = Instantiate(prefab);
-            holder.transform.position = spawnPos.position;
-            counter++;
-            if (counter >= enemiesAmmount) {
-                isActive = false;
+        if (isRandomSpawn)
+        {
+            for (int i = 0; i < enemiesAmount; i++)
+            {
+                holder = Instantiate(prefab);
+                holder.transform.position = spawnPosArr[Random.Range(0, spawnPosArr.Length)].position;
             }
+            isActive = false;
         }
-        
+        else
+        {
+            foreach (Transform spawnPos in spawnPosArr)
+            {
+                holder = Instantiate(prefab);
+                holder.transform.position = spawnPos.position;
+                counter++;
+                if (counter >= enemiesAmount)
+                {
+                    isActive = false;
+                }
+            }
+        }       
     }
 }

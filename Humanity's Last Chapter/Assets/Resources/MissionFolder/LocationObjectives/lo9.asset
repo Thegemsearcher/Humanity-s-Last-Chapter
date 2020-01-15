@@ -15,10 +15,13 @@ MonoBehaviour:
   titel: lets keep it going
   description: upper right corner of the city next
   id: t.ex. lo0
+  locationPos: {fileID: 4912324353958736056, guid: 0eee8f45069213045a7834aead8f1be1,
+    type: 3}
   Location: {fileID: 5344416251922481727, guid: 5faa8afc04c967a47b8c9c4968bcdf70,
     type: 3}
   clearOutTarget: []
   isComlete: 0
   isBonus: 0
+  spawnLo: 0
   startEvents: []
   endEvents: []
