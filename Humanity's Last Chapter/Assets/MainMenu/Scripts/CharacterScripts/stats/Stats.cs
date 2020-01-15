@@ -20,10 +20,11 @@ public class Stats : MonoBehaviour {
     public ParticleSystem bloodEffect;
     public List<string> quirkIDList;
     public GameObject PCCorpse;
+    public bool isTesting = false;
 
     // Start is called before the first frame update
     void Start() {
-        if (maxHp == 0) {
+        if (isTesting) {
             maxHp = 60000;
             hp = maxHp;
         }
