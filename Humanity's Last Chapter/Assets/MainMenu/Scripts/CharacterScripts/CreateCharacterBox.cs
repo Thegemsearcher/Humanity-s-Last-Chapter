@@ -9,7 +9,9 @@ public class CreateCharacterBox : MonoBehaviour {
     public GameObject CharacterBox, InventoryParent;
     public GameObject BoxDad, ItemSlot;
     private GameObject Holder;
-    private GameObject[] CharacterArr, itemSlots;
+    private GameObject[] CharacterArr, itemSlots, hubCharacters, storageCharacters;
+    private CharacterScript hubCharacterScript, storageCharacterScript;
+    private Stats hubStats, storageStats;
 
     private void Start() {
 
@@ -35,7 +37,28 @@ public class CreateCharacterBox : MonoBehaviour {
         }
     }
     public void Return() {
-        GameObject.FindGameObjectWithTag("CharacterHolder").GetComponent<Mask>().enabled = true;
+        storageCharacters = GameObject.FindGameObjectsWithTag("UIHospitalCharacter"); //Tar fram alla som är i hospital
+        hubCharacters = GameObject.FindGameObjectsWithTag("Character");
+
+        foreach (GameObject storageCharacter in storageCharacters) { //Kollar alla i hospital
+            
+            storageCharacter.GetComponent<CharacterBox>().FinalInfo();
+            storageCharacterScript = storageCharacter.GetComponentInChildren<CharacterScript>();
+            Debug.Log("storageCharacterScript.wp: " + storageCharacterScript.rangedId);
+            storageStats = storageCharacter.GetComponentInChildren<Stats>();
+
+            foreach (GameObject hubCharacter in hubCharacters) { //Kollar alla karaktärer i hubben
+                hubCharacterScript = hubCharacter.GetComponent<CharacterScript>();
+
+                if (storageCharacterScript.id == hubCharacterScript.id) { //Samma boi
+                    hubStats = hubCharacter.GetComponent<Stats>();
+                    hubStats.LoadPlayer(storageStats);
+                    hubCharacterScript.LoadPlayer(storageCharacterScript);
+                    break;
+                }
+
+            }
+        }
         Destroy(gameObject);
     }
 }
