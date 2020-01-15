@@ -51,6 +51,9 @@ namespace QuestSystem {
             holder.transform.position = spawnPos.position;
             holder.GetComponent<InteractiveScript>().id = id;
             holder.name = "InteractiveObject(" + id + ")";
+            foreach (Transform child in holder.transform) {
+                child.GetComponent<SpriteRenderer>().color = Color.yellow;
+            }
 
             holder.GetComponent<InteractiveScript>().SetActive();
             //interactObjective = GameObject.FindGameObjectWithTag(data.interactObjective.tag);
@@ -63,6 +66,9 @@ namespace QuestSystem {
         public bool CheckProgress() {   //Blir kollad ifall objectivet är intergerat med
             isComplete = holder.GetComponent<InteractiveScript>().isInteracted;
             if (isComplete) {
+                foreach (Transform child in holder.transform) {
+                    child.GetComponent<SpriteRenderer>().color = Color.blue;
+                }
                 if (endEvents != null) {
                     StartEvent(endEvents);
                 }

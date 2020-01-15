@@ -29,7 +29,6 @@ public class WeaponAttack : MonoBehaviour {
     private void Update() {
         timeStamp += Time.deltaTime;
         Rotation();
-        Debug.Log(IsRange());
     }
 
     public void Rotation() {

@@ -16,7 +16,7 @@ public class UIHospitalBoi : MonoBehaviour {
     private CharacterScript characterScript;
 
     public void BtnHeal() {
-        if (/*isHealable && */!characterScript.inHospital) {
+        if (isHealable && !characterScript.inHospital) {
             if (hospitalScript.healingSlots > 0) {
                 hospitalScript.healingSlots--;
                 characterScript.isEnlisted = false;
