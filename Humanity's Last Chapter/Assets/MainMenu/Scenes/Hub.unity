@@ -6325,7 +6325,7 @@ MonoBehaviour:
   roleWindow: {fileID: 7333235405804412502, guid: c151156310384c641a6f9403ac6fb574,
     type: 3}
   ammoutOfRole: 5
-  missionParty: 
+  missionParty: []
 --- !u!1 &1113643373
 GameObject:
   m_ObjectHideFlags: 0
