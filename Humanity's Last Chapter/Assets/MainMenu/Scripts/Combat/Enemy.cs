@@ -7,7 +7,6 @@ using static Node;
 public class Enemy : MonoBehaviour
 {
     public int health;
-    public float speed = 1.5f;
     private Vector3 target;
 
     private int lootSize;

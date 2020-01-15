@@ -5510,7 +5510,6 @@ MonoBehaviour:
   isEssential: 0
   faction: 0
   role: {fileID: 0}
-  quirkList: []
 --- !u!1 &974203395
 GameObject:
   m_ObjectHideFlags: 0

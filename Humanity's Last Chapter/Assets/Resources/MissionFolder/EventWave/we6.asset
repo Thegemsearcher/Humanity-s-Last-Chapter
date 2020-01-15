@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01491bd84ec5fa54baaf881e5f1165b6, type: 3}
-  m_Name: we0
+  m_Name: we6
   m_EditorClassIdentifier: 
   WaveInfo: 'Fyller Missionmap1 '
   spawnPosArr:
@@ -42,4 +42,4 @@ MonoBehaviour:
   isTimerBased: 0
   spawnRate: 0
   waveDuration: 0
-  enemiesAmmount: 10
+  enemiesAmmount: 17
