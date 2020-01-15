@@ -16,6 +16,7 @@ public class RangedEnemy : MonoBehaviour
     float range = 3;
     public GameObject Projectile;
     GameObject projectile;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -86,6 +87,7 @@ public class RangedEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("Moving", true);
         if (BT == null)
         {
             //Debug.Log("inget BT");
@@ -116,6 +118,10 @@ public class RangedEnemy : MonoBehaviour
 
         if (targetedPc != null)
         {
+            Vector3 towards = targetedPc.transform.position - transform.position;
+            float angle = Mathf.Atan2(towards.y, towards.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle - 90, Vector3.forward);
+            transform.rotation = q;
             //Debug.Log("ser en karaktär");
             GetComponent<Enemy>().hasSeenEnemy = true;
             return NodeStates.success;
@@ -129,8 +135,10 @@ public class RangedEnemy : MonoBehaviour
     {
         if (GetComponent<Enemy>().attackTimer > 0)
             return NodeStates.fail;
+        animator.SetTrigger("Attack");
         projectile = Instantiate(Projectile, transform.position, Quaternion.identity);
         projectile.GetComponent<Projectile>().CreateProjectile(0f);
+        projectile.GetComponent<Projectile>().damage = GetComponent<Enemy>().dmg;
         projectile.GetComponent<Projectile>().SetTargetPos(targetedPc.transform.position);
 
         projectile.GetComponent<Projectile>().whatIsSolid = GetComponent<Enemy>().pcLayer;

@@ -97,6 +97,8 @@ MonoBehaviour:
   TargetPos: {x: 0, y: 0, z: 0}
   damage: 40
   aoe: 6
+  Explosion: {fileID: 3822354785958373027, guid: a74a4c3ff530932418aaec3afa0fdab1,
+    type: 3}
 --- !u!58 &-1280249664271321885
 CircleCollider2D:
   m_ObjectHideFlags: 0

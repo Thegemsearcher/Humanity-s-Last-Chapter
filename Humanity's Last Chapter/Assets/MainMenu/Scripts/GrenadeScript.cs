@@ -10,6 +10,8 @@ public class GrenadeScript : MonoBehaviour {
     private int speed = 4;
     bool explodeOnNext = false;
     GameObject[] enemies;
+
+    public GameObject Explosion;
     // Start is called before the first frame update
     void Start() {
         direction = TargetPos - transform.position;
@@ -47,5 +49,10 @@ public class GrenadeScript : MonoBehaviour {
                 }
             }
         }
+
+        GameObject go = Instantiate(Explosion);
+        go.transform.position = TargetPos;
+        go.transform.localScale = new Vector3(0.25f,0.25f,1);
+        //go.transform.localScale = new Vector3(aoe, aoe, 1);
     }
 }
