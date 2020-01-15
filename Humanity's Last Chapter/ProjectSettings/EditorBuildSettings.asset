@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MainMenu/Scenes/MissionMap1.unity
     guid: 4441cebb62bc5ed47b269dd1996491c3
+  - enabled: 1
+    path: Assets/MainMenu/Scenes/MissionMap2.unity
+    guid: f8bb6691d1906e044a7de123bbc87a1c
   - enabled: 0
     path: Assets/MainMenu/Scenes/Main menu.unity
     guid: a36eb2a7ca594874dacb04f5eeeaf687
