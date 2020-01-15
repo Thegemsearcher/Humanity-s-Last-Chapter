@@ -29,6 +29,12 @@ public class Stats : MonoBehaviour {
             hp = maxHp;
         }
 
+        if (maxHp == 0)
+        {
+            maxHp = 30;
+            hp = maxHp;
+        }
+
         if (shit == false) {
             quirkIDList = new List<string>();
             shit = true;
