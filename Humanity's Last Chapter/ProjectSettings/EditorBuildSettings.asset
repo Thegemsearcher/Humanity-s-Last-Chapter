@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/MainMenu/Scenes/SaveScreen.unity
     guid: d244a1655286452459c80221b2bcf7c9
   - enabled: 1
+    path: Assets/MainMenu/Scenes/Tutorial.unity
+    guid: a5eb8562d9e93fc40ac96ed1275d146a
+  - enabled: 1
     path: Assets/MainMenu/Scenes/Hub.unity
     guid: 767a24386cb34444cb3dc61e80b9b7ad
   - enabled: 1
