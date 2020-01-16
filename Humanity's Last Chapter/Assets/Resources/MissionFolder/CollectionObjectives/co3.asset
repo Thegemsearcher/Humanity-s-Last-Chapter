@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verb: we need to remove as many as possible
   description: do or die babyyyyyyyyyyyyyyyyyyy
-  collectionAmount: 80
+  collectionAmount: 1
   currentAmount: 0
   isComplete: 0
   isBonus: 0

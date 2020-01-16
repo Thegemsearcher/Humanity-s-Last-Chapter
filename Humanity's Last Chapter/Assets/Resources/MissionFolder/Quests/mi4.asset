@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: mi4
   m_EditorClassIdentifier: 
-  missionName: Remove the threat!
+  missionName: Remove the threat! *FUNKAR INTE*
   description: Why the hell did you draw all of them here!? kill them before they
     kill us
   missionMap: 1
   nextMissionsComplete:
-  - {fileID: 11400000, guid: a7b56ee09fe8b86479c26e562206d339, type: 2}
+  - {fileID: 11400000, guid: 559e3acad5e6d2b4da8e607970383fad, type: 2}
   nextMissionsFail: []
   goldReward: 600
   rsReward: 0

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: lo16
   m_EditorClassIdentifier: 
   titel: return before more enemies comes
-  description: go back to start point
+  description: go back
   id: t.ex. lo0
-  locationPos: {fileID: 8798802441293611154, guid: 8248a542f0e643345a3ff52319265134,
+  locationPos: {fileID: 7948302374238168062, guid: 241dc2dfc9d0731459416a58b6d7cf92,
     type: 3}
-  Location: {fileID: 4699643228928273854, guid: 8248a542f0e643345a3ff52319265134,
+  Location: {fileID: 6155811885891423954, guid: 241dc2dfc9d0731459416a58b6d7cf92,
     type: 3}
   clearOutTarget: []
   isComlete: 0

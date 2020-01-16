@@ -16,8 +16,7 @@ MonoBehaviour:
   description: The man has an idea where to keep civilans safe
   missionMap: 1
   nextMissionsComplete:
-  - {fileID: 11400000, guid: f88180ec28d83e6489ffab534bfe1258, type: 2}
-  - {fileID: 11400000, guid: 559e3acad5e6d2b4da8e607970383fad, type: 2}
+  - {fileID: 11400000, guid: a7b56ee09fe8b86479c26e562206d339, type: 2}
   nextMissionsFail: []
   goldReward: 400
   rsReward: 0
