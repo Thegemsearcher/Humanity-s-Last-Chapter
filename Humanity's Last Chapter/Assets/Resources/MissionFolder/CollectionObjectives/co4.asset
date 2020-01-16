@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   verb: there we have some
   description: kill them!!!
-  collectionAmount: 0
+  collectionAmount: 2
   currentAmount: 0
   isComplete: 0
   isBonus: 0
@@ -22,6 +22,6 @@ MonoBehaviour:
   itemsToCollect: {fileID: 4090975341072565159, guid: ecf8ee21bade51a48891cccceee6b009,
     type: 3}
   spawnPos:
-  - {fileID: 4853051588591491082, guid: 4b0e50f559539af46a1f3e06ffd49ef4, type: 3}
+  - {fileID: 8661802037534502608, guid: 7ee716cadea2e3c4eb2b7789832531b9, type: 3}
   startEvents: []
   endEvents: []
