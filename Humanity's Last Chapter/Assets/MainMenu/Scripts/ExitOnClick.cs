@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 public class ExitOnClick : MonoBehaviour
 {
-    public void ExitGame()
+    private void Update()
     {
-        Application.Quit();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 }
