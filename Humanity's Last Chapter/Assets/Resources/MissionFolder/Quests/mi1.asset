@@ -17,7 +17,7 @@ MonoBehaviour:
   missionMap: 1
   nextMissionsComplete: []
   nextMissionsFail: []
-  goldReward: 250
+  goldReward: 300
   rsReward: 0
   supplies: 0
   completed: 0

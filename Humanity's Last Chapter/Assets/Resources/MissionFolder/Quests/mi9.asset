@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: mi9
   m_EditorClassIdentifier: 
-  missionName: there are people we need to save
+  missionName: there are people we need to save *FUNKAR INTE*
   description: with the new threat
   missionMap: 1
   nextMissionsComplete: []

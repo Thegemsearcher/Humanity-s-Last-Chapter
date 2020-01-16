@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: mi8
   m_EditorClassIdentifier: 
-  missionName: a new home
+  missionName: "a new home *POSITIONEN EJ N\xC5BAR*"
   description: I don't know how but as it is now, our position is compromised and
     not safe anymore. We should run to find a new home especially since our enemy
     seems to be able to control those monsters somehow
