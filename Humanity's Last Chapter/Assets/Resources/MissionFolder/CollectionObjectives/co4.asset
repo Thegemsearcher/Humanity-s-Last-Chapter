@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90252cbfb3ca9dd4f81777c952bef8e4, type: 3}
   m_Name: co4
   m_EditorClassIdentifier: 
-  verb: there we have some
-  description: kill them!!!
-  collectionAmount: 2
+  verb: There, we have some enemies!
+  description: Kill them!!!
+  collectionAmount: 15
   currentAmount: 0
   isComplete: 0
   isBonus: 0
