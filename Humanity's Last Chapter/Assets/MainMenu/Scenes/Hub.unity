@@ -8374,16 +8374,6 @@ MonoBehaviour:
   CharacterParent: {fileID: 1481677029}
   startQuests:
   - {fileID: 11400000, guid: 904efdca9bb25024d8a546946f2e1a7e, type: 2}
-  - {fileID: 11400000, guid: e68f79900c77a3d4e86f7a6ace5868fa, type: 2}
-  - {fileID: 11400000, guid: 1147b8d7306402848a324ee82e0314df, type: 2}
-  - {fileID: 11400000, guid: 02921ba211bd25442b39d463d151f9e0, type: 2}
-  - {fileID: 11400000, guid: f88180ec28d83e6489ffab534bfe1258, type: 2}
-  - {fileID: 11400000, guid: a7b56ee09fe8b86479c26e562206d339, type: 2}
-  - {fileID: 11400000, guid: 559e3acad5e6d2b4da8e607970383fad, type: 2}
-  - {fileID: 11400000, guid: 1a551d1919d675b4b9383034655864ef, type: 2}
-  - {fileID: 11400000, guid: b931d211c5944884d9b0cd4f3f913968, type: 2}
-  - {fileID: 11400000, guid: 2b547578874344143bbdc43573f84abf, type: 2}
-  - {fileID: 11400000, guid: 5d15b00bfd439d04c914a6ee5179d3c6, type: 2}
   saleGoodsQuests: []
   startRoles:
   - {fileID: 11400000, guid: 5ab94a63f65948d4f863c7009d37d53c, type: 2}

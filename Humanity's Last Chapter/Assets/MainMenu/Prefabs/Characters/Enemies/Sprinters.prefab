@@ -230,12 +230,12 @@ MonoBehaviour:
   pcs: []
   aggroRange: 6
   atkRange: 1.1
-  dmg: 25
+  dmg: 12
   pcLayer:
     serializedVersion: 2
     m_Bits: 256
   attackTimer: 0
-  timeBetweenAttack: 1
+  timeBetweenAttack: 0.8
   animator: {fileID: 7354675053654000931}
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}

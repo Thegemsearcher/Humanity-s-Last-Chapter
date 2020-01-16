@@ -30,5 +30,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6f0ed88ea03c95c4d86f613497797be4, type: 2}
   - {fileID: 11400000, guid: ed0067405815bf04ab15c0138a5d0fd4, type: 2}
   - {fileID: 11400000, guid: 87766006558ccd74b98079c93ceaf096, type: 2}
-  startEvents: []
+  startEvents:
+  - {fileID: 11400000, guid: 1f48d2bce5db65f4fa65b3d088145b55, type: 2}
   endEvents: []

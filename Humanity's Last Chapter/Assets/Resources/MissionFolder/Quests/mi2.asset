@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: mi2
   m_EditorClassIdentifier: 
   missionName: Secure House
-  description: "The man has an id\xE9 where to keep civilans safe"
+  description: The man has an idea where to keep civilans safe
   missionMap: 1
   nextMissionsComplete:
   - {fileID: 11400000, guid: f88180ec28d83e6489ffab534bfe1258, type: 2}
@@ -25,7 +25,7 @@ MonoBehaviour:
   completed: 0
   isSale: 0
   objectives:
-  - {fileID: 11400000, guid: 73bde22e109e34842b81e27d6c891af2, type: 2}
+  - {fileID: 11400000, guid: 567d8763a3ebba043a55386d68bdf24a, type: 2}
   - {fileID: 11400000, guid: 73bde22e109e34842b81e27d6c891af2, type: 2}
   - {fileID: 11400000, guid: 73bde22e109e34842b81e27d6c891af2, type: 2}
   startEvents:

@@ -10,22 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90252cbfb3ca9dd4f81777c952bef8e4, type: 3}
-  m_Name: co1
+  m_Name: co12
   m_EditorClassIdentifier: 
   verb: Kill
-  description: Kill the Sprinters
-  collectionAmount: 15
+  description: Kill the Naghagger
+  collectionAmount: 1
   currentAmount: 0
   isComplete: 0
   isBonus: 0
   isRandomSpawn: 0
-  itemsToCollect: {fileID: 7354675053654000930, guid: 2982904dbaaa39443b4782a856815cb9,
+  itemsToCollect: {fileID: 4238669593420774110, guid: 08c209d3dc1276b47b9127e0de6e1613,
     type: 3}
   spawnPos:
   - {fileID: 2842653041877065163, guid: 499d317a4fcfa6f4aa3792c36fc40d88, type: 3}
-  - {fileID: 3865771086563346771, guid: d980bf47be7ddd34895d551a36c72e4d, type: 3}
-  - {fileID: 8095087595878350041, guid: 36ca9508206afca4ba9c47a9c946961a, type: 3}
-  - {fileID: 9176002737392371862, guid: e56b7e1b1a3949d4c9a6ac4a4d42900f, type: 3}
-  - {fileID: 6472701651959903789, guid: 683eb040de2efaa42ac1407ce5d51c0a, type: 3}
   startEvents: []
   endEvents: []
