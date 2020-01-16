@@ -80,6 +80,8 @@ public class WeaponAttack : MonoBehaviour {
     }
 
     public void CreateBullet() {
+        //if (closestEnemy == null)
+        //    return;
         SoundManagerScript.PlaySound(wo.soundEffect);
         for (int i = 0; i < wo.bullets; i++) {
             projectileO = Instantiate(projectile, transform.position, Quaternion.identity);
