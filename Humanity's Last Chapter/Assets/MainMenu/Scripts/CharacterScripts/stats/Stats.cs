@@ -108,7 +108,7 @@ public class Stats : MonoBehaviour {
     }
 
     public int GetCost() {
-        cost = (maxHp) + (str) + (def);
+        cost = (maxHp) +  (def);
         return cost;
     }
 

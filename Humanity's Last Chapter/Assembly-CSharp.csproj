@@ -241,6 +241,7 @@
     <Compile Include="Assets\MissionListScript.cs" />
     <Compile Include="Assets\MissionLog.cs" />
     <Compile Include="Assets\PauseMenuScript.cs" />
+    <Compile Include="Assets\PauseScript.cs" />
     <Compile Include="Assets\PortraitScript.cs" />
     <Compile Include="Assets\QuestDescScript.cs" />
     <Compile Include="Assets\QuestMarkerScript.cs" />
