@@ -1,12 +1,13 @@
 /target:library
 /nowarn:0169
-/out:Temp/Unity.2D.Sprite.Editor.dll
-/unsafe
+/out:Temp/AstarPathfindingProjectEditor.dll
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
+/reference:Library/ScriptAssemblies/AstarPathfindingProject.dll
+/reference:Library/ScriptAssemblies/PackageToolsEditor.dll
 /reference:Library/ScriptAssemblies/UnityEditor.UI.dll
 /reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
 /reference:Library/ScriptAssemblies/UnityEngine.UI.dll
@@ -76,8 +77,10 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll"
+/reference:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
 /reference:Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll
-/reference:"H:/Spacement/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll"
+/reference:"D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll"
@@ -281,6 +284,7 @@
 /define:ENABLE_UNITY_COLLECTIONS_CHECKS
 /define:ENABLE_BURST_AOT
 /define:UNITY_TEAM_LICENSE
+/define:ENABLE_VSTU
 /define:ENABLE_CUSTOM_RENDER_TEXTURE
 /define:ENABLE_DIRECTOR
 /define:ENABLE_LOCALIZATION
@@ -290,33 +294,20 @@
 /define:ENABLE_TIMELINE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\AssemblyInfo.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\Interface\IAssetDatabase.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\Interface\IEvent.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\Interface\IGL.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\Interface\IGUIUtility.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\Interface\IHandles.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\Interface\ISpriteEditorDataProvider.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\Interface\ITexture.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\Interface\IUndoSystem.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\ShapeEditor\ShapeEditor.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\ShapeEditor\ShapeEditorRectSelection.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditor\SpriteEditorHandles.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditor\SpriteEditorMenu.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditor\SpriteEditorUtility.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditor\SpriteEditorWindow.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditor\SpriteRect.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditor\SpriteUtilityWindow.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\ISpriteEditorModule.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpriteEditorData.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpriteFrameModule\SpriteFrameModule.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpriteFrameModule\SpriteFrameModuleBase.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpriteFrameModule\SpriteFrameModuleBaseView.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpriteFrameModule\SpriteFrameModuleView.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpriteFrameModule\SpritePolygonModeModule.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpriteFrameModule\SpritePolygonModeModuleView.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpriteOutlineModule.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpritePhysicsShapeModule.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\SpriteSecondaryTexturesModule.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\TextureImporterDataProvider.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.sprite\Editor\SpriteEditorModule\TextureImporterDataProviderImplementation.cs"
+Assets\AstarPathfindingProject\Editor\AIBaseEditor.cs
+Assets\AstarPathfindingProject\Editor\AILerpEditor.cs
+Assets\AstarPathfindingProject\Editor\AnimationLinkEditor.cs
+Assets\AstarPathfindingProject\Editor\AstarPathEditor.cs
+Assets\AstarPathfindingProject\Editor\AstarUpdateChecker.cs
+Assets\AstarPathfindingProject\Editor\AstarUpdateWindow.cs
+Assets\AstarPathfindingProject\Editor\CustomGraphEditorAttribute.cs
+Assets\AstarPathfindingProject\Editor\GraphEditors\GraphEditor.cs
+Assets\AstarPathfindingProject\Editor\GraphEditors\GridGeneratorEditor.cs
+Assets\AstarPathfindingProject\Editor\GraphEditors\NavMeshGeneratorEditor.cs
+Assets\AstarPathfindingProject\Editor\GraphEditors\PointGeneratorEditor.cs
+Assets\AstarPathfindingProject\Editor\GraphUpdateSceneEditor.cs
+Assets\AstarPathfindingProject\Editor\Legacy\LegacyAIPathEditor2.cs
+Assets\AstarPathfindingProject\Editor\Legacy\LegacyEditorHelper2.cs
+Assets\AstarPathfindingProject\Editor\ModifierEditors\RaycastModifierEditor.cs
+Assets\AstarPathfindingProject\Editor\ModifierEditors\SmoothModifierEditor.cs
+Assets\AstarPathfindingProject\Editor\SeekerEditor.cs

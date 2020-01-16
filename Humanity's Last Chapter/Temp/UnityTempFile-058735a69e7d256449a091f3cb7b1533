@@ -1,11 +1,14 @@
 /target:library
 /nowarn:0169
-/out:Temp/Unity.2D.Tilemap.Editor.dll
+/out:Temp/Unity.CollabProxy.Editor.dll
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
+/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
 /reference:Library/ScriptAssemblies/UnityEditor.TestRunner.dll
 /reference:Library/ScriptAssemblies/UnityEngine.TestRunner.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll"
@@ -72,8 +75,10 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll"
+/reference:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
 /reference:Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll
-/reference:"H:/Spacement/GitHub/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll"
+/reference:"D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll"
@@ -277,6 +282,7 @@
 /define:ENABLE_UNITY_COLLECTIONS_CHECKS
 /define:ENABLE_BURST_AOT
 /define:UNITY_TEAM_LICENSE
+/define:ENABLE_VSTU
 /define:ENABLE_CUSTOM_RENDER_TEXTURE
 /define:ENABLE_DIRECTOR
 /define:ENABLE_LOCALIZATION
@@ -286,37 +292,20 @@
 /define:ENABLE_TIMELINE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\AssemblyInfo.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\CreateTileFromPaletteAttribute.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\EditorTools\BoxTool.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\EditorTools\EraseTool.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\EditorTools\FillTool.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\EditorTools\MoveTool.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\EditorTools\PaintTool.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\EditorTools\PickingTool.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\EditorTools\SelectTool.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\EditorTools\TilemapEditorTool.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridBrush.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridBrushEditor.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridBrushEditorBase.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridBrushesDropdown.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridEditorUtility.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPaintingState.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPaintPaletteClipboard.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPaintPaletteWindow.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPaintPaletteWindowPreferences.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPaintSortingAttribute.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPaintTargetsDropdown.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPaletteAddPopup.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPaletteBrushes.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPalettes.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPalettesDropdown.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridPaletteUtility.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridSelection.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\GridSelectionEditor.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\PaintableGrid.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\PaintableSceneViewGrid.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\SceneViewGridManager.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\TileDragAndDrop.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\TileDragAndDropManager.cs"
-"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.2d.tilemap\Editor\TileUtility.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\AssemblyInfo.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Bootstrap.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\CollabAnalytics.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\CollabHistoryWindow.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\CollabToolbarButton.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\CollabToolbarWindow.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Presenters\CollabHistoryPresenter.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\BuildStatusButton.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryDropDown.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryDropDownItem.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryItem.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryItemFactory.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryRevisionLine.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\HistoryProgressSpinner.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\ICollabHistoryItemFactory.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\PagedListView.cs"
+"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\StatusView.cs"
