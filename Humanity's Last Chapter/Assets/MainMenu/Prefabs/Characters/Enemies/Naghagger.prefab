@@ -235,7 +235,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackTimer: 0
-  timeBetweenAttack: 5
+  timeBetweenAttack: 3
   animator: {fileID: 4238669593420774111}
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}

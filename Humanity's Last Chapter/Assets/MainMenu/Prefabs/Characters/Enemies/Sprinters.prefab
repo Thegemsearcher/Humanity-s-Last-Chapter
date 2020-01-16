@@ -226,8 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a426da5dc25f854ba7e362468ca9f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
-  speed: 10
+  health: 80
   pcs: []
   aggroRange: 6
   atkRange: 1.1
@@ -341,7 +340,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 1
+  maxSpeed: 3
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
