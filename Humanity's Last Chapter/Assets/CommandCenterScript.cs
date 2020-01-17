@@ -37,6 +37,7 @@ public class CommandCenterScript : MonoBehaviour {
     }
 
     public void CreateCharacterList() {
+        appointedCharacters = 0;
         ClearRoleList();
 
         foreach (Transform child in ForCharacterChange.transform) {
@@ -89,6 +90,24 @@ public class CommandCenterScript : MonoBehaviour {
     }
 
     public void ChangeRole(GameObject Character) {  //När man klickar på knappen BtnChangeRole i RoleBox kommer karaktären att sparas som CharacterToAlter för att sen kunna ändras samt
+        commandCharacters = GameObject.FindGameObjectsWithTag("UIHospitalCharacter"); //Tar fram alla som är i hospital
+        hubCharacters = GameObject.FindGameObjectsWithTag("Character");
+        foreach (GameObject hospitalCharacter in commandCharacters) { //Kollar alla i hospital
+            commandCharacterScript = hospitalCharacter.GetComponent<CharacterScript>();
+
+
+            foreach (GameObject hubCharacter in hubCharacters) { //Kollar alla karaktärer i hubben
+                hubCharacterScript = hubCharacter.GetComponent<CharacterScript>();
+
+                if (commandCharacterScript.id == hubCharacterScript.id) { //Samma boi
+
+                    hubCharacterScript.LoadPlayer(commandCharacterScript);
+                    break;
+                }
+
+            }
+        }
+
         CharacterToAlter = Character;               //ändras det så att man ser roller och inte karaktärer
         holder = Instantiate(CharacterBox);
         holder.GetComponent<CharacterToAppoint>().GetCharacter(Character, gameObject);
