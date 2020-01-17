@@ -19,20 +19,15 @@ public class PauseScript : MonoBehaviour
             if (pause)
             {
                 pause = false;
+                Time.timeScale = 1;
             }
             else
             {
                 pause = true;
+                Time.timeScale = 0;
             }
         }
 
-        if (pause)
-        {
-            Time.timeScale = 0;
-        }
-        else
-        {
-            Time.timeScale = 1;
-        }
+     
     }
 }
