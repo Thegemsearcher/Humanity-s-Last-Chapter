@@ -135,11 +135,8 @@ public class WorldScript {
         statsList.Clear();
         
         characterArr = GameObject.FindGameObjectsWithTag("Character");
-        //Debug.Log("Characters(HubSave): " + characterArr.Length);
         foreach (GameObject character in characterArr) {
-            Debug.Log("HP: " + character.GetComponent<Stats>().hp);
             if (character.GetComponent<Stats>().hp > 0) {
-                Debug.Log("Character is Enlisted (World): " + character.GetComponent<CharacterScript>().isEnlisted);
                 characterList.Add(character.GetComponent<CharacterScript>());
                 statsList.Add(character.GetComponent<Stats>());
             }
@@ -148,7 +145,6 @@ public class WorldScript {
     }
 
     public void SaveMission(bool isAuto) {
-        Debug.Log("Characters(MissionSave): " + characterList.Count);
         characterArr = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject character in characterArr) {
             if (character.GetComponent<CharacterScript>().isEnlisted) {
@@ -197,17 +193,33 @@ public class WorldScript {
             if (characterScript.inHospital) {
                 Stats stats = character.GetComponent<Stats>();
 
-                foreach (QuirkObject quirk in stats.quirkList) {
-                    if (quirk.quirkType == QuirkScript.QuirkType.woundQuirk) {
-                        if (quirk.quirkLevel <= hospitalLevel + 1) {
-                            stats.RemoveQuirk(quirk);
+                bool isWounded = true;
+
+                while (isWounded) {
+                    isWounded = false;
+
+                    for (int i = 0; i < stats.quirkList.Count; i++) {
+                        if (stats.quirkList[i].quirkType == QuirkScript.QuirkType.woundQuirk) {
+                            if (stats.quirkList[i].quirkLevel <= hospitalLevel + 1) {
+                                stats.RemoveQuirk(stats.quirkList[i]);
+                                isWounded = true;
+                            }
                         }
                     }
                 }
 
-                Debug.Log("(Before)HP: " + stats.hp + "\nmaxHP: " + stats.maxHp);
+                
+
+                //foreach (QuirkObject quirk in stats.quirkList) {
+                //    if (quirk.quirkType == QuirkScript.QuirkType.woundQuirk) {
+                //        if (quirk.quirkLevel <= hospitalLevel + 1) {
+                //            stats.RemoveQuirk(quirk);
+                //            break;
+                //        }
+                //    }
+                //}
+                
                 stats.hp = stats.maxHp;
-                Debug.Log("(After)HP: " + stats.hp + "\nmaxHP: " + stats.maxHp);
                 characterScript.inHospital = false;
             }
         }

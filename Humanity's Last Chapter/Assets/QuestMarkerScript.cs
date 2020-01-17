@@ -27,6 +27,7 @@ public class QuestMarkerScript : MonoBehaviour
     {
         position = positions;
         transform.position = position[0].position;
+        
     }
 
     void Update()

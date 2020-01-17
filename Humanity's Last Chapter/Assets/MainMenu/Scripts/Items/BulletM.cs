@@ -49,7 +49,7 @@ public class BulletM : MonoBehaviour { //Markus
         RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, direction, aoe, whatIsSolid);
         if (hitInfo.collider != null) {
             if (hitInfo.collider.CompareTag("Enemy")) { //Kommer inte fungera bra om vi ska ha flera "factions"
-                Debug.Log(hitInfo.collider);
+                //Debug.Log(hitInfo.collider);
                 hitInfo.collider.GetComponent<Enemy>().TakeDamage(wo.damage);
             }
             Destroy(gameObject);
