@@ -5,21 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenuScript : MonoBehaviour {
 
-    public GameObject saveWindow;
+    public GameObject saveWindow, hub;
     private GameObject holder;
     private Transform parent;
 
-    private void Start() {
-        parent = transform.parent;
+    public void GetHub(GameObject hub) {
+        this.hub = hub;
     }
 
     public void BtnSave() {
         holder = Instantiate(saveWindow);
-        holder.transform.SetParent(parent, false);
+        holder.transform.SetParent(gameObject.transform.parent.transform, false);
+        holder.GetComponent<SaveGameScript>().hub = hub;
         Destroy(gameObject);
     }
 
     public void BtnResume() {
+        hub.SetActive(true);
         Destroy(gameObject);
     }
 

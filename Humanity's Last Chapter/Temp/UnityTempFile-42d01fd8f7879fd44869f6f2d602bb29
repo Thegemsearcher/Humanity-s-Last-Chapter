@@ -295,6 +295,7 @@
 Assets\ActiveMissionScript.cs
 Assets\AppointCharacterScript.cs
 Assets\AppointedRoleScript.cs
+Assets\BringUpMenu.cs
 Assets\BringUpStats.cs
 Assets\BuildingNameTagScript.cs
 Assets\ChangeNameScript.cs

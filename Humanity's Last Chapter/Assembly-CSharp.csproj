@@ -65,6 +65,7 @@
     <Compile Include="Assets\ActiveMissionScript.cs" />
     <Compile Include="Assets\AppointCharacterScript.cs" />
     <Compile Include="Assets\AppointedRoleScript.cs" />
+    <Compile Include="Assets\BringUpMenu.cs" />
     <Compile Include="Assets\BringUpStats.cs" />
     <Compile Include="Assets\BuildingNameTagScript.cs" />
     <Compile Include="Assets\ChangeNameScript.cs" />

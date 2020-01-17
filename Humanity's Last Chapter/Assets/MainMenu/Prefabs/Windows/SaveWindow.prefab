@@ -1143,6 +1143,7 @@ MonoBehaviour:
   input: {fileID: 148512342080868812}
   savesParent: {fileID: 9200886787069688859}
   saveBox: {fileID: 356759717592316696, guid: 76b90abd2c468ec4d97dcb33efa96635, type: 3}
+  Menu: {fileID: 5861829136698060529, guid: 6133beb4eaa591b4291af88a9a753ee7, type: 3}
 --- !u!1 &9200886787069688859
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class SaveGameScript : MonoBehaviour { //Markus Wilroth
 
     public InputField input;
-    public GameObject savesParent, saveBox;
+    public GameObject savesParent, saveBox, Menu, hub;
     private GameObject holder;
     private Transform windowParent;
     private string path, inSaveName;
@@ -59,6 +59,8 @@ public class SaveGameScript : MonoBehaviour { //Markus Wilroth
     }
 
     public void BtnReturn() {
+        holder = Instantiate(Menu, transform.parent.transform);
+        holder.GetComponent<PauseMenuScript>().GetHub(hub);
         Destroy(gameObject);
     }
 
