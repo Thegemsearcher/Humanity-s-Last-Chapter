@@ -10,7 +10,7 @@ public class roasterScript : MonoBehaviour {
     private int rand;
     private Vector3 roasterPos;
 
-    private void Start() {
+    public void CreateBarrackBoiz() {
         WorldScript.world.BarrackPepList.Clear();
         roasterPos = new Vector3(-600, 180, 1); //sjukt fult måste göras snyggare!
         rand = Random.Range(4, 6); //tycker vi senare ska ha denna på ett annat sätt

@@ -1,6 +1,6 @@
 /target:library
 /nowarn:0169
-/out:Temp/Assembly-CSharp.dll
+/out:Temp/UnityEngine.TestRunner.dll
 /debug:portable
 /optimize-
 /nostdlib+
@@ -67,21 +67,11 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEditor.dll"
-/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.VSCode.Editor.dll
-/reference:Library/ScriptAssemblies/AstarPathfindingProject.dll
-/reference:Library/ScriptAssemblies/PackageToolsEditor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
-/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
-/reference:Library/ScriptAssemblies/Unity.Timeline.dll
-/reference:Library/ScriptAssemblies/AstarPathfindingProjectEditor.dll
-/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.Rider.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
-/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
-/reference:Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll
+/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
+/reference:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
+/reference:"C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/Microsoft.Win32.Primitives.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/System.AppContext.dll"
@@ -292,201 +282,100 @@
 /define:ENABLE_TIMELINE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-Assets\ActiveMissionScript.cs
-Assets\AppointCharacterScript.cs
-Assets\AppointedRoleScript.cs
-Assets\BringUpStats.cs
-Assets\BuildingNameTagScript.cs
-Assets\ChangeNameScript.cs
-Assets\CharacterCreation.cs
-Assets\CharacterInfo.cs
-Assets\CharacterToAppoint.cs
-Assets\CommandCenterScript.cs
-Assets\CommunityTitle.cs
-Assets\CreateCharacter.cs
-Assets\CreationWindow.cs
-Assets\DescCharacterScript.cs
-Assets\ExitGameScript.cs
-Assets\ExplosionTimer.cs
-Assets\FootAnim.cs
-Assets\HospitalInfo.cs
-Assets\LoadQuests.cs
-Assets\LootInfoScript.cs
-Assets\LootItemScript.cs
-Assets\LootScript.cs
-Assets\LootScrollScript.cs
-Assets\MainMenu\Scripts\AbilitySlotScript.cs
-Assets\MainMenu\Scripts\Actions\Abilities.cs
-Assets\MainMenu\Scripts\Actions\AbilityScript.cs
-Assets\MainMenu\Scripts\Assets.cs
-Assets\MainMenu\Scripts\BehaviourTree.cs
-Assets\MainMenu\Scripts\BuildingScripts\BarrackWindow.cs
-Assets\MainMenu\Scripts\BuildingScripts\buildingScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\CampScripts\CampScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\CampScripts\roasterScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\CampScripts\roasterWindowScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\clickAndDrag.cs
-Assets\MainMenu\Scripts\BuildingScripts\clickOnBuilding.cs
-Assets\MainMenu\Scripts\BuildingScripts\GlowScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\HireCharacter.cs
-Assets\MainMenu\Scripts\BuildingScripts\HospitalScripts\HealingSlotScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\HospitalScripts\HospitalScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\HubCharController.cs
-Assets\MainMenu\Scripts\BuildingScripts\ItemSlotScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\partySelectorScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\ItemScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\MouseData.cs
-Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\StorageLoader.cs
-Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\StorageScript.cs
-Assets\MainMenu\Scripts\Buttons\btnAppointScript.cs
-Assets\MainMenu\Scripts\CameraMovement.cs
-Assets\MainMenu\Scripts\CharacterScripts\ActiveCharacter.cs
-Assets\MainMenu\Scripts\CharacterScripts\AddToPlayerRoster.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterBox.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterMovement.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterStatWriter.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterWindow.cs
-Assets\MainMenu\Scripts\CharacterScripts\CreateCharacterBox.cs
-Assets\MainMenu\Scripts\CharacterScripts\FormationsScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\MakeCharacter\QuestGiver\MakeQuestGiver.cs
-Assets\MainMenu\Scripts\CharacterScripts\MakeCharacter\QuestGiver\QuestGiver.cs
-Assets\MainMenu\Scripts\CharacterScripts\PersonalMovement.cs
-Assets\MainMenu\Scripts\CharacterScripts\Recruit.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\MakeQuirk.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\QuirkScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\RoleObject.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\RoleScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\Stats.cs
-Assets\MainMenu\Scripts\CharacterScripts\UIBoiScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\UICharacterRole.cs
-Assets\MainMenu\Scripts\CharacterScripts\UIHealthBoi.cs
-Assets\MainMenu\Scripts\CharacterScripts\ViewDistanceScript.cs
-Assets\MainMenu\Scripts\Combat\DestroyBlood.cs
-Assets\MainMenu\Scripts\Combat\Enemy.cs
-Assets\MainMenu\Scripts\Combat\PlayerAttack.cs
-Assets\MainMenu\Scripts\Combat\SpawnWeapon.cs
-Assets\MainMenu\Scripts\Combat\WanderingEnemy.cs
-Assets\MainMenu\Scripts\CombatAbility.cs
-Assets\MainMenu\Scripts\EnlistList.cs
-Assets\MainMenu\Scripts\ExitOnClick.cs
-Assets\MainMenu\Scripts\GrenadeScript.cs
-Assets\MainMenu\Scripts\HealingAbility.cs
-Assets\MainMenu\Scripts\HPinCombat.cs
-Assets\MainMenu\Scripts\ItemInfo.cs
-Assets\MainMenu\Scripts\Items\BulletM.cs
-Assets\MainMenu\Scripts\Items\InventoryScript.cs
-Assets\MainMenu\Scripts\Items\WeaponAbility.cs
-Assets\MainMenu\Scripts\Items\WeaponAttack.cs
-Assets\MainMenu\Scripts\Items\WeaponDisplay.cs
-Assets\MainMenu\Scripts\LoadMainMenu.cs
-Assets\MainMenu\Scripts\LocationScript.cs
-Assets\MainMenu\Scripts\MakeScriptableObject.cs
-Assets\MainMenu\Scripts\MapPrefabFinisher.cs
-Assets\MainMenu\Scripts\Mission\Events\DialogEvent.cs
-Assets\MainMenu\Scripts\Mission\Events\MoveEvent.cs
-Assets\MainMenu\Scripts\Mission\Events\WaveEvent.cs
-Assets\MainMenu\Scripts\Mission\MissionManagerScript.cs
-Assets\MainMenu\Scripts\Mission\MissionScript.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Collection\CollectionObjective.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Collection\makeCollection.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Interaction\InteractionObjective.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Interaction\InteractiveScript.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Interaction\MakeInteraction.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Location\LocationObjective.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Location\MakeLocation.cs
-Assets\MainMenu\Scripts\Mission\Quest.cs
-Assets\MainMenu\Scripts\Mission\Quest\MakeQuestObject.cs
-Assets\MainMenu\Scripts\Mission\Quest\QuestObject.cs
-Assets\MainMenu\Scripts\Mission\Quest\QuestStarter.cs
-Assets\MainMenu\Scripts\Mission\SelectedMissionScript.cs
-Assets\MainMenu\Scripts\Mission\Spawner.cs
-Assets\MainMenu\Scripts\MoveItem.cs
-Assets\MainMenu\Scripts\Objects\Items\Cloths\ClothScript.cs
-Assets\MainMenu\Scripts\Objects\Items\Cloths\MakeClothItem.cs
-Assets\MainMenu\Scripts\Objects\Items\CombatItems\CombatItem.cs
-Assets\MainMenu\Scripts\Objects\Items\CombatItems\MakeCombatItem.cs
-Assets\MainMenu\Scripts\Objects\Items\CreateItems.cs
-Assets\MainMenu\Scripts\Objects\Items\HealingItems\HealingItem.cs
-Assets\MainMenu\Scripts\Objects\Items\HealingItems\MakeHealingItem.cs
-Assets\MainMenu\Scripts\Obsolete\BulletScript.cs
-Assets\MainMenu\Scripts\Obsolete\charDebug.cs
-Assets\MainMenu\Scripts\Obsolete\CreateCharacter.cs
-Assets\MainMenu\Scripts\Obsolete\DestroyGameObject.cs
-Assets\MainMenu\Scripts\Obsolete\EnemyMovement.cs
-Assets\MainMenu\Scripts\Obsolete\LoadedAssets.cs
-Assets\MainMenu\Scripts\Obsolete\MarkusEnemy.cs
-Assets\MainMenu\Scripts\Obsolete\MarkusMovement.cs
-Assets\MainMenu\Scripts\Obsolete\SliderScript.cs
-Assets\MainMenu\Scripts\RangedEnemy.cs
-Assets\MainMenu\Scripts\ReadFileScript.cs
-Assets\MainMenu\Scripts\ResourceText.cs
-Assets\MainMenu\Scripts\SaveScripts\AssetsData.cs
-Assets\MainMenu\Scripts\SaveScripts\CharacterData.cs
-Assets\MainMenu\Scripts\SaveScripts\DataHolder.cs
-Assets\MainMenu\Scripts\SaveScripts\LoadSceneOnClick.cs
-Assets\MainMenu\Scripts\SaveScripts\LoadWorld.cs
-Assets\MainMenu\Scripts\SaveScripts\PartyScript.cs
-Assets\MainMenu\Scripts\SaveScripts\QuestData.cs
-Assets\MainMenu\Scripts\SaveScripts\SaveData.cs
-Assets\MainMenu\Scripts\SaveScripts\SaveSlotManager.cs
-Assets\MainMenu\Scripts\SaveScripts\SaveSystem.cs
-Assets\MainMenu\Scripts\SaveScripts\SceneSwitcher.cs
-Assets\MainMenu\Scripts\SaveScripts\SetLevelScripts.cs
-Assets\MainMenu\Scripts\SaveScripts\WorldData.cs
-Assets\MainMenu\Scripts\SaveSlot.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Characters\ObjectCharacter.cs
-Assets\MainMenu\Scripts\ScriptableObjects\ClothItemObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\CombatItemObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\HealingItemObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\GiverObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\InteractObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\LocationObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\MoveObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\ScriptableCollection.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\ScriptableQuest.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\WaveObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\QuirkObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\WeaponObject.cs
-Assets\MainMenu\Scripts\ShopScript.cs
-Assets\MainMenu\Scripts\ShopSlotScript.cs
-Assets\MainMenu\Scripts\StartMissionUI.cs
-Assets\MainMenu\Scripts\TurretScript.cs
-Assets\MainMenu\Scripts\UI\TextEditor\CurvedText.cs
-Assets\MainMenu\Scripts\UI\TextEditor\CurvedTextEditor.cs
-Assets\MainMenu\Scripts\UI\UIControls.cs
-Assets\MainMenu\Scripts\UpdateInfo.cs
-Assets\MainMenu\Scripts\UpgradeShop.cs
-Assets\MainMenu\Scripts\Weapon\MakeWeaponObject.cs
-Assets\MainMenu\Scripts\Weapon\Projectile.cs
-Assets\MainMenu\Scripts\Weapon\WeaponRotation.cs
-Assets\MainMenu\Scripts\Weapon\weaponStats.cs
-Assets\MainMenu\Scripts\WorldScript.cs
-Assets\MakeCharacterScript.cs
-Assets\MapLoading\GameObjectList.cs
-Assets\MapLoading\LoadMapButtonScript.cs
-Assets\MapLoading\RoadScript.cs
-Assets\MapLoading\WallScript.cs
-Assets\MissionBoxScript.cs
-Assets\MissionListScript.cs
-Assets\MissionLog.cs
-Assets\PauseMenuScript.cs
-Assets\PauseScript.cs
-Assets\PortraitScript.cs
-Assets\QuestDescScript.cs
-Assets\QuestMarkerScript.cs
-Assets\RoleBoxScript.cs
-Assets\RoleDescScript.cs
-Assets\RoleManagerScript.cs
-Assets\SaveBoxScript.cs
-Assets\SaveGameScript.cs
-Assets\SceneSwitch.cs
-Assets\ShowShopInfo.cs
-Assets\SoundManagerScript.cs
-Assets\StorageWindowScript.cs
-Assets\ToTutorialScript.cs
-Assets\TurretAttack.cs
-Assets\UIActiveMission.cs
-Assets\UICharacter.cs
-Assets\UIHospitalBoi.cs
-Assets\WorldManagerScript.cs
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\AssemblyInfo.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\AllocatingGCMemoryConstraint.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\ConstraintsExtensions.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\InvalidSignatureException.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\Is.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogAssert.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogScope\ILogScope.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogScope\LogEvent.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogScope\LogMatch.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\LogScope\LogScope.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\UnexpectedLogMessageException.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\UnhandledLogMessageException.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Assertions\UnityTestTimeoutException.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\ActionDelegator.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\TestEnumerator.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityCombinatorialStrategy.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityPlatformAttribute.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnitySetUpAttribute.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityTearDownAttribute.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Attributes\UnityTestAttribute.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\BaseDelegator.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\BeforeAfterTestCommandBase.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\BeforeAfterTestCommandState.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableApplyChangesToContextCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableSetUpTearDownCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\EnumerableTestMethodCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\ImmediateEnumerableCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\OuterUnityTestActionCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\SetUpTearDownCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\TestActionCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Commands\TestCommandPcHelper.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\ConstructDelegator.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Filters\AssemblyNameFilter.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Filters\CategoryFilterExtended.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\IStateSerializer.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\CompositeWorkItem.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\CoroutineTestWorkItem.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\DefaultTestWorkItem.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\FailCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\IEnumerableTestMethodCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\PlaymodeWorkItemFactory.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\RestoreTestContextAfterDomainReload.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityLogCheckDelegatingCommand.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityTestAssemblyRunner.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityTestExecutionContext.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityWorkItem.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\UnityWorkItemDataHolder.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\Runner\WorkItemFactory.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\TestExtensions.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\TestResultExtensions.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\NUnitExtensions\UnityTestAssemblyBuilder.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Callbacks\PlayModeRunnerCallback.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Callbacks\RemoteTestResultSender.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRenderer.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Callbacks\TestResultRendererCallback.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\ITestRunnerListener.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\Messages\IEditModeTestYieldInstruction.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\PlaymodeTestsController.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\PlaymodeTestsControllerSettings.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\IRemoteTestResultDataFactory.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\PlayerConnectionMessageIds.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestData.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestResultData.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestResultDataFactory.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\RemoteHelpers\RemoteTestResultDataWithTestData.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\TestEnumeratorWrapper.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\TestListenerWrapper.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\TestPlatform.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\TestRunner\TestRunnerFilter.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\AssemblyLoadProxy.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\AssemblyWrapper.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\IAssemblyLoadProxy.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\IAssemblyWrapper.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\IScriptingRuntimeProxy.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\ITestAssemblyProvider.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\PlayerTestAssemblyProvider.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AssemblyProvider\ScriptingRuntimeProxy.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\AttributeHelper.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\ColorEqualityComparer.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\CoroutineRunner.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\FloatEqualityComparer.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\IOuterUnityTestAction.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\IPostBuildCleanup.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\IPrebuildSceneSetup.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\MonoBehaviourTest\IMonoBehaviourTest.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\MonoBehaviourTest\MonoBehaviourTest.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\PostBuildCleanupAttribute.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\PrebuildSceneSetupAttribute.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\QuaternionEqualityComparer.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\StacktraceFilter.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Utils.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector2ComparerWithEqualsOperator.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector2EqualityComparer.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector3ComparerWithEqualsOperator.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector3EqualityComparer.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector4ComparerWithEqualsOperator.cs"
+"C:\Users\Flugan\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.test-framework@1.0.13\UnityEngine.TestRunner\Utils\Vector4EqualityComparer.cs"

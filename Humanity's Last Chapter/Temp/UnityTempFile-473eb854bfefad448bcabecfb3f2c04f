@@ -1,11 +1,12 @@
 /target:library
 /nowarn:0169
-/out:Temp/Unity.CollabProxy.Editor.dll
+/out:Temp/PackageToolsEditor.dll
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
+/reference:Library/ScriptAssemblies/AstarPathfindingProject.dll
 /reference:Library/ScriptAssemblies/UnityEditor.UI.dll
 /reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
 /reference:Library/ScriptAssemblies/UnityEngine.UI.dll
@@ -75,10 +76,9 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll"
 /reference:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
 /reference:Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll
-/reference:"D:/Unity/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll"
+/reference:"C:/Users/Flugan/Humanity-s-Last-Chapter/Humanity's Last Chapter/Library/PackageCache/com.unity.ext.nunit@1.0.0/net35/unity-custom/nunit.framework.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/System.Core.dll"
@@ -292,20 +292,6 @@
 /define:ENABLE_TIMELINE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\AssemblyInfo.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Bootstrap.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\CollabAnalytics.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\CollabHistoryWindow.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\CollabToolbarButton.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\CollabToolbarWindow.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Presenters\CollabHistoryPresenter.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\BuildStatusButton.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryDropDown.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryDropDownItem.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryItem.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryItemFactory.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\CollabHistoryRevisionLine.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\HistoryProgressSpinner.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\ICollabHistoryItemFactory.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\PagedListView.cs"
-"D:\Unity\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.collab-proxy@1.2.16\Editor\Collab\Views\StatusView.cs"
+Assets\AstarPathfindingProject\PackageTools\Editor\EditorBase.cs
+Assets\AstarPathfindingProject\PackageTools\Editor\EditorGUIx.cs
+Assets\AstarPathfindingProject\PackageTools\Editor\EnumFlagDrawer.cs

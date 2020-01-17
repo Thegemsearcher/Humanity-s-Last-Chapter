@@ -23,11 +23,9 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
     private GameObject[] characterArr; //Används som en holder för att hålla alla karaktärer som finns så den kan spara dem  
     private List<CharacterScript> characterScriptList;  //Håller alla characterScripts som finns i sparfilen
     private List<Stats> statsList;  //Håller alla stats som finns i sparfilen
-    
-    void Start() {
 
-        InstantiateLists(); //Skapar alla listor, kan man ha den som awake?
-        if(Assets.assets == null) {
+    private void Awake() {
+        if (Assets.assets == null) {
             Assets.assets = new Assets();
             Assets.assets.GetAssets();
         }
@@ -42,6 +40,12 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
         } else {
             LoadCharacters();
         }
+    }
+
+    void Start() {
+
+        InstantiateLists(); //Skapar alla listor, kan man ha den som awake?
+        
         if (WorldScript.world.isNewGame) {
             holder = Instantiate(CreationWindow);                           //Skapar fönstret där man kan skapa de tre första karaktärena
             holder.transform.SetParent(WindowParent.transform, false);
@@ -78,6 +82,8 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
                 int rand = Random.Range(0, saleGoodsQuests.Count);
                 WorldScript.world.avalibleQuests.Add(saleGoodsQuests[rand]);
             }
+
+            GetComponent<roasterScript>().CreateBarrackBoiz();
             //World
         }
     }
