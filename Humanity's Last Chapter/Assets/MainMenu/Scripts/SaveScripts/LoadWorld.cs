@@ -83,9 +83,10 @@ public class LoadWorld : MonoBehaviour { //Heta LoadHub?
                 WorldScript.world.avalibleQuests.Add(saleGoodsQuests[rand]);
             }
 
-            GetComponent<roasterScript>().CreateBarrackBoiz();
+            
             //World
         }
+        GetComponent<roasterScript>().CreateBarrackBoiz();
     }
 
     public void LoadCharacters() { //Ser till att alla karaktärer ritas ut med rätt världen

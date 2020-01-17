@@ -130,7 +130,6 @@ public class CommandCenterScript : MonoBehaviour {
                 if (commandCharacterScript.id == hubCharacterScript.id) { //Samma boi
                     
                     hubCharacterScript.LoadPlayer(commandCharacterScript);
-                    Debug.Log("Is Character enlisted - " + hubCharacterScript.isEnlisted);
                     break;
                 }
 

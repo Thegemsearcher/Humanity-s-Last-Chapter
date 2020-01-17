@@ -205,7 +205,9 @@ public class WorldScript {
                     }
                 }
 
+                Debug.Log("(Before)HP: " + stats.hp + "\nmaxHP: " + stats.maxHp);
                 stats.hp = stats.maxHp;
+                Debug.Log("(After)HP: " + stats.hp + "\nmaxHP: " + stats.maxHp);
                 characterScript.inHospital = false;
             }
         }
