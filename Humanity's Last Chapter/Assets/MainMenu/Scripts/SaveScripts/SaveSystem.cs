@@ -9,7 +9,7 @@ public static class SaveSystem {
     public static List<CharacterData> characterDataList = new List<CharacterData>(); //Serialize all characters
     public static List<QuestData> questDataList = new List<QuestData>(); //Serialize all quests
     public static WorldData worldData; //Serialize world stats
-    public static SaveData saveData; //Everything that will be saved should bi added to this one!
+    public static SaveData saveData; //Everything that will be saved should be added to this one!
 
     private static string path;
 

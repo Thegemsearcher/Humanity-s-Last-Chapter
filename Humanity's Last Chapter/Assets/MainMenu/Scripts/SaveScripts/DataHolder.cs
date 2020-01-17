@@ -106,6 +106,8 @@ public class DataHolder {
         WorldScript.world.storageArr = data.worldData.storageArr;
         WorldScript.world.shopArr = data.worldData.shopArr;
         WorldScript.world.isActive = data.worldData.isActive;
+        WorldScript.world.saveName = data.worldData.saveName;
+        WorldScript.world.partySize = data.worldData.partySize;
 
         foreach (CharacterData characterData in data.characterDataList) {
             CharacterScript character = new CharacterScript();

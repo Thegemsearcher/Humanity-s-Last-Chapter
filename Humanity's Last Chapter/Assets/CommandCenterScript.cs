@@ -16,6 +16,7 @@ public class CommandCenterScript : MonoBehaviour {
 
     private void Start() {
         characterList = new List<GameObject>();
+        appointedCharacters = 0;
         CreateQuestList();  //Skapar listan av alla valbara quests
         CreateCharacterList();  //Skapar listan av alla karaktärer som kan gå på mission
         CheckMissionReady();
@@ -118,15 +119,18 @@ public class CommandCenterScript : MonoBehaviour {
 
     public void BtnExit() {
         commandCharacters = GameObject.FindGameObjectsWithTag("UIHospitalCharacter"); //Tar fram alla som är i hospital
+        hubCharacters = GameObject.FindGameObjectsWithTag("Character");
         foreach (GameObject hospitalCharacter in commandCharacters) { //Kollar alla i hospital
             commandCharacterScript = hospitalCharacter.GetComponent<CharacterScript>();
-            Debug.Log("Is Character enlisted - " + commandCharacterScript.isEnlisted);
+            
 
             foreach (GameObject hubCharacter in hubCharacters) { //Kollar alla karaktärer i hubben
                 hubCharacterScript = hubCharacter.GetComponent<CharacterScript>();
 
                 if (commandCharacterScript.id == hubCharacterScript.id) { //Samma boi
+                    
                     hubCharacterScript.LoadPlayer(commandCharacterScript);
+                    Debug.Log("Is Character enlisted - " + hubCharacterScript.isEnlisted);
                     break;
                 }
 
@@ -136,6 +140,24 @@ public class CommandCenterScript : MonoBehaviour {
     }
 
     public void BtnGoToMission() {
+        commandCharacters = GameObject.FindGameObjectsWithTag("UIHospitalCharacter"); //Tar fram alla som är i hospital
+        hubCharacters = GameObject.FindGameObjectsWithTag("Character");
+        foreach (GameObject hospitalCharacter in commandCharacters) { //Kollar alla i hospital
+            commandCharacterScript = hospitalCharacter.GetComponent<CharacterScript>();
+
+
+            foreach (GameObject hubCharacter in hubCharacters) { //Kollar alla karaktärer i hubben
+                hubCharacterScript = hubCharacter.GetComponent<CharacterScript>();
+
+                if (commandCharacterScript.id == hubCharacterScript.id) { //Samma boi
+
+                    hubCharacterScript.LoadPlayer(commandCharacterScript);
+                    Debug.Log("Is Character enlisted - " + hubCharacterScript.isEnlisted);
+                    break;
+                }
+
+            }
+        }
         if (WorldScript.world.activeQuest != null && appointedCharacters > 0 && appointedCharacters <= WorldScript.world.partySize) {
             GetComponent<SceneSwitcher>().GoToMission();
         }

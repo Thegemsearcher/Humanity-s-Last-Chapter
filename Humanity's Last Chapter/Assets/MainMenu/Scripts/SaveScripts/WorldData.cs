@@ -6,7 +6,7 @@ using UnityEngine;
 public class WorldData {
 
     //public List<CharacterScript> characterList;
-    public int gold, rs, storageSize, shopSize, shopLevel;
+    public int gold, rs, storageSize, shopSize, shopLevel, partySize;
     public string saveId, saveName;
     public string[] storageArr, shopArr;
     public bool isActive; //Den sparningen som startar om man klickar continue
@@ -22,5 +22,6 @@ public class WorldData {
         shopArr = world.shopArr;
         isActive = world.isActive;
         saveName = world.saveName;
+        partySize = world.partySize;
     }
 }

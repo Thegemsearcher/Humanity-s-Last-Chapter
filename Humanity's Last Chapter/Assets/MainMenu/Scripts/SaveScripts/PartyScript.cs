@@ -62,6 +62,7 @@ public class PartyScript : MonoBehaviour {
         toRemoveS = new List<Stats>();
 
         foreach (CharacterScript characterScript in characterScriptList) {
+            Debug.Log("character is Enlisted - " + characterScript.isEnlisted);
             if (characterScript.isEnlisted) {
                 characterO = Instantiate(character);
                 characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);

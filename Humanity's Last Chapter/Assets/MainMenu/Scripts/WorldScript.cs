@@ -133,10 +133,13 @@ public class WorldScript {
     public void SaveHub(bool isAuto) {
         characterList.Clear();
         statsList.Clear();
-        Debug.Log("Characters(HubSave): " + characterList.Count);
+        
         characterArr = GameObject.FindGameObjectsWithTag("Character");
+        //Debug.Log("Characters(HubSave): " + characterArr.Length);
         foreach (GameObject character in characterArr) {
+            Debug.Log("HP: " + character.GetComponent<Stats>().hp);
             if (character.GetComponent<Stats>().hp > 0) {
+                Debug.Log("Character is Enlisted (World): " + character.GetComponent<CharacterScript>().isEnlisted);
                 characterList.Add(character.GetComponent<CharacterScript>());
                 statsList.Add(character.GetComponent<Stats>());
             }
