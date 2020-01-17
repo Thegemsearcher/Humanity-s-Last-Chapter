@@ -9,9 +9,9 @@ public class RoleBoxScript : MonoBehaviour {
     public Scrollbar healthBar;
     public GameObject AppointBtn, Portrait;
     private GameObject Manager, Character;
-    private GameObject[] characters;
+    private GameObject[] hubCharacters, boxCharacters;
     private RoleObject role;
-    private CharacterScript characterScript;
+    private CharacterScript hubCharacterScript, boxCharacterScript;
     private Stats stats;
     private bool isAppointed, roleTaken;
 
@@ -20,17 +20,17 @@ public class RoleBoxScript : MonoBehaviour {
         this.Manager = Manager;
 
         roleTaken = false;
-        characters = GameObject.FindGameObjectsWithTag("Character");
-        foreach (GameObject character in characters) {
-            characterScript = character.GetComponent<CharacterScript>();
-            if (characterScript.role == role) {
+        hubCharacters = GameObject.FindGameObjectsWithTag("Character");
+        foreach (GameObject character in hubCharacters) {
+            hubCharacterScript = character.GetComponent<CharacterScript>();
+            if (hubCharacterScript.role == role) {
                 stats = character.GetComponent<Stats>();
 
-                Portrait.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+                Portrait.GetComponent<CharacterScript>().LoadPlayer(hubCharacterScript);
                 Portrait.GetComponent<Stats>().LoadPlayer(stats);
 
                 SetStats();
-                characterScript.isEnlisted = false;
+                hubCharacterScript.isEnlisted = false;
                 roleTaken = true;
                 break;
             }
@@ -45,13 +45,15 @@ public class RoleBoxScript : MonoBehaviour {
         this.Character = Character;
         this.Manager = Manager;
 
-        characterScript = Character.GetComponent<CharacterScript>();
+        hubCharacterScript = Character.GetComponent<CharacterScript>();
         stats = Character.GetComponent<Stats>();
 
-        Portrait.GetComponent<CharacterScript>().LoadPlayer(characterScript);
+        Portrait.GetComponent<CharacterScript>().LoadPlayer(hubCharacterScript);
         Portrait.GetComponent<Stats>().LoadPlayer(stats);
 
-        role = characterScript.role;
+        boxCharacterScript = Portrait.GetComponent<CharacterScript>();
+
+        role = boxCharacterScript.role;
         if (role != null) {
             txtRole.text = role.roleName;
         } else {
@@ -59,10 +61,10 @@ public class RoleBoxScript : MonoBehaviour {
         }
         PrepareAppoint();
 
-        txtName.text = characterScript.title + characterScript.strName;
+        txtName.text = boxCharacterScript.title + boxCharacterScript.strName;
 
         SetStats();
-        characterScript.isEnlisted = false;
+        //boxCharacterScript.isEnlisted = false;
     }
 
     private void EmptyRole() {
@@ -74,7 +76,7 @@ public class RoleBoxScript : MonoBehaviour {
     }
 
     private void SetStats() {
-        txtName.text = characterScript.title + characterScript.strName;
+        txtName.text = hubCharacterScript.title + hubCharacterScript.strName;
         txtHp.text = "Hp: " + stats.hp + "/" + stats.maxHp;
 
         float barSize = stats.maxHp / stats.hp;
@@ -82,18 +84,18 @@ public class RoleBoxScript : MonoBehaviour {
     }
 
     public void BtnAppoint() {
-        if (stats != null && !characterScript.inHospital) {
+        if (stats != null && !boxCharacterScript.inHospital) {
             if (isAppointed) {
                 AppointBtn.GetComponent<Image>().color = Color.red;
                 AppointBtn.GetComponentInChildren<Text>().text = "A\np\np\no\ni\nn\nt";
-                characterScript.isEnlisted = false;
+                boxCharacterScript.isEnlisted = false;
                 isAppointed = false;
                 Manager.GetComponent<CommandCenterScript>().appointedCharacters--;
                 //Göra karaktären notEnlisted
             } else {
                 AppointBtn.GetComponent<Image>().color = Color.green;
                 AppointBtn.GetComponentInChildren<Text>().text = "U\nn\na\np\np\no\ni\nn\nt";
-                characterScript.isEnlisted = true;
+                boxCharacterScript.isEnlisted = true;
                 isAppointed = true;
                 Manager.GetComponent<CommandCenterScript>().appointedCharacters++;
                 //Göra karaktären enlisted
@@ -102,19 +104,20 @@ public class RoleBoxScript : MonoBehaviour {
         } else {
             AppointBtn.GetComponent<Image>().color = Color.gray;
             AppointBtn.GetComponentInChildren<Text>().text = "I\nn\n \nH\no\ns\np\ni\nt\na\nl";
-            characterScript.isEnlisted = false;
+            boxCharacterScript.isEnlisted = false;
             isAppointed = false;
         }
     }
 
     private void PrepareAppoint() {
-        if (characterScript.inHospital) {
+        if (hubCharacterScript.inHospital) {
             AppointBtn.GetComponent<Image>().color = Color.gray;
             AppointBtn.GetComponentInChildren<Text>().text = "I\nn\n \nH\no\ns\np\ni\nt\na\nl";
         }
-        else if (isAppointed) {
+        else if (hubCharacterScript.isEnlisted) {
             AppointBtn.GetComponent<Image>().color = Color.green;
             AppointBtn.GetComponentInChildren<Text>().text = "U\nn\na\np\np\no\ni\nn\nt";
+            Manager.GetComponent<CommandCenterScript>().appointedCharacters++;
         } else {
             AppointBtn.GetComponent<Image>().color = Color.red;
             AppointBtn.GetComponentInChildren<Text>().text = "A\np\np\no\ni\nn\nt";

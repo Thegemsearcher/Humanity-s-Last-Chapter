@@ -8,10 +8,11 @@ public class CommandCenterScript : MonoBehaviour {
     public GameObject ForMission, ForRoles, ForCharacterChange, MissionBox, CharacterBox, RoleBox, AppointedRole, BtnStartMission;   //De med for fungerar som parents, de med Box är prefabs (Borde ha samma namn)
     public Text txtStartMission; //För att ändra texten till startMission knappen så man kan se om den är redo att starta mission
     private GameObject holder, CharacterToAlter;    //holder används för att simpelt komma åt värden från instansierat object | CharacterToAlter är karaktären som ska byta roll
-    private GameObject[] characters;    //Alla karaktärer som har tag "Character"
+    private GameObject[] hubCharacters, commandCharacters;    //Alla karaktärer som har tag "Character"
     private List<GameObject> characterList; //Håller koll så att den inte ger samma karaktär till olika roller
     public RoleObject citizenRole;  //Standarad roll som ges till karaktärer (Borde inte behövas, alla karaktärer skapas med en roll)
     public int appointedCharacters; //Hur många karaktärer som ska gå på mission
+    private CharacterScript hubCharacterScript, commandCharacterScript;
 
     private void Start() {
         characterList = new List<GameObject>();
@@ -41,11 +42,11 @@ public class CommandCenterScript : MonoBehaviour {
             Destroy(child.gameObject);
         }
 
-        if (characters == null) {
-            characters = GameObject.FindGameObjectsWithTag("Character");
+        if (hubCharacters == null) {
+            hubCharacters = GameObject.FindGameObjectsWithTag("Character");
         }
 
-        foreach (GameObject character in characters) {
+        foreach (GameObject character in hubCharacters) {
             holder = Instantiate(RoleBox);
             if (character.GetComponent<CharacterScript>().role == null) {
                 character.GetComponent<CharacterScript>().role = citizenRole;
@@ -60,11 +61,11 @@ public class CommandCenterScript : MonoBehaviour {
         ClearRoleList();
         characterList.Clear();
 
-        if (characters == null) {
-            characters = GameObject.FindGameObjectsWithTag("Character");
+        if (hubCharacters == null) {
+            hubCharacters = GameObject.FindGameObjectsWithTag("Character");
         }
 
-        foreach (GameObject character in characters) {
+        foreach (GameObject character in hubCharacters) {
             characterList.Add(character);
         }
 
@@ -116,6 +117,21 @@ public class CommandCenterScript : MonoBehaviour {
     }
 
     public void BtnExit() {
+        commandCharacters = GameObject.FindGameObjectsWithTag("UIHospitalCharacter"); //Tar fram alla som är i hospital
+        foreach (GameObject hospitalCharacter in commandCharacters) { //Kollar alla i hospital
+            commandCharacterScript = hospitalCharacter.GetComponent<CharacterScript>();
+            Debug.Log("Is Character enlisted - " + commandCharacterScript.isEnlisted);
+
+            foreach (GameObject hubCharacter in hubCharacters) { //Kollar alla karaktärer i hubben
+                hubCharacterScript = hubCharacter.GetComponent<CharacterScript>();
+
+                if (commandCharacterScript.id == hubCharacterScript.id) { //Samma boi
+                    hubCharacterScript.LoadPlayer(commandCharacterScript);
+                    break;
+                }
+
+            }
+        }
         Destroy(gameObject);
     }
 
@@ -139,7 +155,5 @@ public class CommandCenterScript : MonoBehaviour {
             BtnStartMission.GetComponent<Image>().color = Color.green;
             txtStartMission.text = "Start Mission";
         }
-
-        Debug.Log("hmmm");
     }
 }
