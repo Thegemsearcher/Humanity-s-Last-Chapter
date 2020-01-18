@@ -46,6 +46,7 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
         
         if (isTesting) {
             StartQuest(testQuest); //for test
+            WorldScript.world.activeQuest = testQuest;
         }
         
     }
