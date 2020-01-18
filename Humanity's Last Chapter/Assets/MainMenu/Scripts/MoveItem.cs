@@ -94,15 +94,6 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             
         }
-        //Check Hat Slots??
-        //else if (id[0] == 'c') {
-        //    foreach (GameObject hatSlot in GameObject.FindGameObjectsWithTag("HatSlot")) {
-        //        if (Move(hatSlot)) {
-        //            return;
-        //        }
-        //    }
-        //}
-        //Check Heal Slot
         else if (id[0] == 'h') {
             foreach (GameObject healSlot in GameObject.FindGameObjectsWithTag("HealSlot")) {
                 if (Move(healSlot)) {
@@ -135,8 +126,23 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 }
             }
         } else {
-            Debug.Log("It does this instead....");
+            //Debug.Log("It does this instead....");
+            if (transform.parent.tag == "ItemSlot") {
+                if (transform.parent.childCount > 1) {
+                    held = true;
+                    return;
+                }
+
+            } else if (transform.parent.childCount > 2)  { // cred till LINNEA 
+                //Om det finns fler än 2 barn betyder det att det finns 2 potensiella items på samma ruta + texten
+                    held = true;
+                    return;
+                
+            }
+
             transform.position = transform.parent.position;
+
+
         }
     }
 

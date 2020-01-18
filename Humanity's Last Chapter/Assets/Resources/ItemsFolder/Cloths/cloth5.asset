@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74897974057d054caa3febebaef8137, type: 3}
   m_Name: cloth5
   m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  portrait: {fileID: 0}
-  itemName: Red Jacket
-  description: A warm red jacket
-  cost: 10
-  clothType: 0
-  clothCategory: 0
+  icon: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  portrait: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  itemName: Naked
+  description: Naked, cover the nipples!
+  cost: 0
+  clothType: 1
+  clothCategory: 4
   maxHp: 0
   str: 0
   def: 0
