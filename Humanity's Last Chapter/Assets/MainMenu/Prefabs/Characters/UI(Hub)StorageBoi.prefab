@@ -164,6 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 1593647777378515523}
+  UIMask: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &1015298098412011394
 GameObject:
   m_ObjectHideFlags: 0
@@ -2553,6 +2554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 1593647777378515523}
+  UIMask: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &6854633967865973885
 GameObject:
   m_ObjectHideFlags: 0

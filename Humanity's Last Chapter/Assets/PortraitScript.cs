@@ -54,4 +54,12 @@ public class PortraitScript : MonoBehaviour {
                 break;
         }
     }
+    public void RemoveCloth() {
+        characterScript.clothId = "";
+        clothScript.ChangeCloth(null);
+    }
+    public void RemoveHeadGear() {
+        characterScript.headId = "";
+        headScript.ChangeCloth(null);
+    }
 }

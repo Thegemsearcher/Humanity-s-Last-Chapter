@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class ClothScript : MonoBehaviour {
 
     public GameObject Character;
+    public Sprite UIMask;
+
     private ClothItemObject item;
     private string headId, clothId;
     private ClothType clothType;
@@ -46,6 +48,8 @@ public class ClothScript : MonoBehaviour {
         item = FindItem(itemId);
         if(item != null) {
             GetComponent<Image>().sprite = item.portrait;
+        } else {
+            GetComponent<Image>().sprite = UIMask;
         }
     }
 
@@ -74,9 +78,13 @@ public class ClothScript : MonoBehaviour {
         if(item != null) {
             changeStats(item, -1);
         }                        //Tar bort all boost som gamla itemet hade
-        changeStats(NewItem, 1);                        //Lägger till boost som den nya itemet har
-        item = NewItem;                                 //Updaterar så att den har det nya itemet som old
-        GetComponent<Image>().sprite = item.portrait;   //Updaterar Bilden
+
+        if (NewItem != null) {
+            changeStats(NewItem, 1);                        //Lägger till boost som den nya itemet har
+            item = NewItem;                                 //Updaterar så att den har det nya itemet som old
+            GetComponent<Image>().sprite = item.portrait;   //Updaterar Bilden
+        }
+        
     }
     private void changeStats(ClothItemObject item, int modifier) { //Ändrar statsen beroende på plaggets värde
         if(stats == null) {

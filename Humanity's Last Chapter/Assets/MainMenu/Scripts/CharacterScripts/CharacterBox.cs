@@ -142,23 +142,32 @@ public class CharacterBox : MonoBehaviour {
         }
         
         characterScript.rangedId = rangedId;
+        
         if (headId != characterScript.headId) {
-            foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
-                if (cloth.name == headId) {
-                    Portrait.GetComponent<PortraitScript>().ChangeCloth(cloth);
+            if (headId == null || headId == "") {
+                Portrait.GetComponent<PortraitScript>().RemoveHeadGear();
+            } else {
+                foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
+                    if (cloth.name == headId) {
+                        Portrait.GetComponent<PortraitScript>().ChangeCloth(cloth);
+                    }
                 }
             }
+            
         }
         if (clothId != characterScript.clothId) {
-            foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
-                if (cloth.name == clothId) {
-                    Portrait.GetComponent<PortraitScript>().ChangeCloth(cloth);
+            if (clothId == null || clothId == "") {
+                Portrait.GetComponent<PortraitScript>().RemoveCloth();
+            } else {
+                foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
+                    if (cloth.name == clothId) {
+                        Portrait.GetComponent<PortraitScript>().ChangeCloth(cloth);
+                    }
                 }
             }
+            
         }
-        Debug.Log("HealingId: " + healingId);
         characterScript.healingId = healingId;
-        Debug.Log("CharacterHealing: " + characterScript.healingId);
         characterScript.combatId = combatId;
         //Updaterar characterScript;
     }

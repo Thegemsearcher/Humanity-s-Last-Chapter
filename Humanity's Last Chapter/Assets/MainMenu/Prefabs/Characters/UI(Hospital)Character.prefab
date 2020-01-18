@@ -412,6 +412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 5816793286647234016}
+  UIMask: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &2140273410699893186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1411,6 +1412,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 5816793286647234016}
+  UIMask: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1 &5816793286647234016
 GameObject:
   m_ObjectHideFlags: 0
@@ -1538,7 +1540,6 @@ MonoBehaviour:
   isEssential: 0
   faction: 0
   role: {fileID: 0}
-  quirkList: []
 --- !u!114 &7431251824626721430
 MonoBehaviour:
   m_ObjectHideFlags: 0
