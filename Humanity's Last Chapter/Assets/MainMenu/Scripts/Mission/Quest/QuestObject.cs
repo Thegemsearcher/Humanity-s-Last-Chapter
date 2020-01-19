@@ -4,8 +4,7 @@ using UnityEngine;
 using QuestSystem;
 using UnityEngine.UI;
 
-public class QuestObject : MonoBehaviour
-{
+public class QuestObject : MonoBehaviour {
 
     public string titel, id, ID;
     private string objective, objDesc;
@@ -23,15 +22,11 @@ public class QuestObject : MonoBehaviour
     private Object[] startEvents;
     private Object[] endEvents;
 
-    public QuestObject()
-    {
+    public QuestObject() {
 
     }
 
-
-
-    public void GetData(ScriptableQuest quest, GameObject MissionManager)
-    {
+    public void GetData(ScriptableQuest quest, GameObject MissionManager) {
         this.quest = quest;
         this.MissionManager = MissionManager;
 
@@ -46,15 +41,13 @@ public class QuestObject : MonoBehaviour
         ioObjective = MissionManager.GetComponent<InteractionObjective>();
         waveEvent = MissionManager.GetComponent<WaveEvent>();
 
-        if (startEvents != null)
-        {
+        if (startEvents != null) {
             StartEvent(startEvents);
         }
         NextObjective();
     }
 
-    public void UpdateQuest(GameObject MissionManager)
-    {
+    public void UpdateQuest(GameObject MissionManager) {
         this.MissionManager = MissionManager;
         coObjective = MissionManager.GetComponent<CollectionObjective>();
         loObjective = MissionManager.GetComponent<LocationObjective>();
@@ -63,22 +56,17 @@ public class QuestObject : MonoBehaviour
 
     //Alla objectives borde skapas samtidigt, men de blir checkade i ordning! Borde isåfall ha coQuest etc som array så att den vet vilken den ska kolla in inte srkiver över varandra...
 
-    public void NextObjective()
-    {
+    public void NextObjective() {
 
-        if (questStage >= quest.objectives.Length)
-        {
+        if (questStage >= quest.objectives.Length) {
             CompletedQuest();
             objective = "Quest Completed!";
             objDesc = "Quest is finished, return to the hub!";
             MissionManager.GetComponent<MissionManagerScript>().NewObjective(objective, objDesc);
-        }
-        else
-        {
+        } else {
             id = quest.objectives[questStage].name[0].ToString();
             ID = quest.objectives[questStage].name[0].ToString();
-            switch (id)
-            {
+            switch (id) {
                 case "c":
                     //MissionManager.GetComponent<CollectionObjective>().GetData(quest.objectives[objectiveCounter] as ScriptableCollection);
                     coObjective.GetData(quest.objectives[questStage] as ScriptableCollection, waveEvent);
@@ -106,9 +94,8 @@ public class QuestObject : MonoBehaviour
         }
     }
 
-    public List<Transform> GetQuestLocation()
-    {
- 
+    public List<Transform> GetQuestLocation() {
+
         //switch (ID)
         //{
         //    case "c":
@@ -133,24 +120,23 @@ public class QuestObject : MonoBehaviour
 
         //}
         //return null;
-        switch (id)
-        { //Jättefult, I know... kommer någon på bättre lösning vi kan använda?
+        switch (id) { //Jättefult, I know... kommer någon på bättre lösning vi kan använda?
             case "c": //CollectionObjective
-               
 
-                return(coObjective.SpawnPos());
 
-                
+                return (coObjective.SpawnPos());
+
+
             case "l": //LocationObjective
-      
 
-                return(loObjective.SpawnPos());
 
-               
+                return (loObjective.SpawnPos());
+
+
             case "i": //InteractiveObjective
-                return(ioObjective.SpawnPos());
+                return (ioObjective.SpawnPos());
 
-               
+
             case "":
                 Debug.Log("Id error! " + id);
                 break;
@@ -158,18 +144,14 @@ public class QuestObject : MonoBehaviour
         Debug.Log("Fuck you i'M NULL");
         return null;
     }
-    private void CompletedQuest()
-    {
+    private void CompletedQuest() {
         //txtObjective.text = "";
         //gameObject.SetActive(false);
         isCompleted = true;
-        if (quest.isSale)
-        {
+        if (quest.isSale) {
             WorldScript.world.gold += WorldScript.world.goods * 10;
             WorldScript.world.goods = 0;
-        }
-        else
-        {
+        } else {
             WorldScript.world.gold += quest.goldReward;
             WorldScript.world.rs += quest.rsReward;
             WorldScript.world.supplies += quest.supplies;
@@ -178,26 +160,21 @@ public class QuestObject : MonoBehaviour
         WorldScript.world.completedQuests.Add(quest);
         WorldScript.world.RemoveAvalible(quest);
 
-        if (quest.nextMissionsComplete != null)
-        {
-            foreach (ScriptableQuest quest in quest.nextMissionsComplete)
-            {
+        if (quest.nextMissionsComplete != null) {
+            foreach (ScriptableQuest quest in quest.nextMissionsComplete) {
                 WorldScript.world.avalibleQuests.Add(quest);
             }
         }
 
-        if (endEvents != null)
-        {
+        if (endEvents != null) {
             StartEvent(endEvents);
         }
+        WorldScript.world.activeQuest.completed = isCompleted;
     }
 
-    private void StartEvent(Object[] eventObj)
-    {
-        foreach (Object obj in eventObj)
-        {
-            switch (obj.name[0])
-            {
+    private void StartEvent(Object[] eventObj) {
+        foreach (Object obj in eventObj) {
+            switch (obj.name[0]) {
                 case 'w':
                     waveEvent.GetEvent(obj as WaveObject);
                     break;
@@ -205,25 +182,20 @@ public class QuestObject : MonoBehaviour
         }
     }
 
-    public bool CheckObjective()
-    {
-        switch (id)
-        { //Jättefult, I know... kommer någon på bättre lösning vi kan använda?
+    public bool CheckObjective() {
+        switch (id) { //Jättefult, I know... kommer någon på bättre lösning vi kan använda?
             case "c": //CollectionObjective
-                if (coObjective.CheckProgress())
-                {
+                if (coObjective.CheckProgress()) {
                     return true;
                 }
                 break;
             case "l": //LocationObjective
-                if (loObjective.CheckProgress())
-                {
+                if (loObjective.CheckProgress()) {
                     return true;
                 }
                 break;
             case "i": //InteractiveObjective
-                if (ioObjective.CheckProgress())
-                {
+                if (ioObjective.CheckProgress()) {
                     return true;
                 }
                 break;

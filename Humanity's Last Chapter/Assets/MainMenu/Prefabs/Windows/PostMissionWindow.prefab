@@ -252,7 +252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   colourSuccess: {r: 0.7134632, g: 0.754717, b: 0.33819866, a: 1}
   colourFail: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
-  PostRewardWindow: {fileID: 0}
+  PostRewardWindow: {fileID: 4874197931883397986, guid: 33eaa799eee4cc0489fa5d63bdcfb82b,
+    type: 3}
   isSuccess: 0
   txtMissionOutcome: {fileID: 905061993407365697}
   txtMissionName: {fileID: 905061991556400942}

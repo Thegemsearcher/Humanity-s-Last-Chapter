@@ -47,7 +47,8 @@ public class LootScript : MonoBehaviour
             {
                 if (inventory[i] != "")
                 {
-                    WorldScript.world.AddItem(inventory[i], 1);
+                    //WorldScript.world.AddItem(inventory[i], 1);
+                    WorldScript.world.LootList.Add(inventory[i]);
                 }
             }
             Destroy(gameObject);
