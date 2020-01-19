@@ -62,7 +62,6 @@ TagManager:
   - HospitalBuilding
   - UIHospitalCharacter
   - Hub
-  - SceneSwitcher
   layers:
   - Default
   - TransparentFX

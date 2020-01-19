@@ -216,14 +216,7 @@ public class Stats : MonoBehaviour {
             corpse.transform.position = transform.position;
             corpse.transform.rotation = transform.rotation * Quaternion.Euler(0f, 0f, 180);
             GetComponent<CharacterScript>().OnDeath();
-
-            //För att se ifall alla karaktärer är döda
-            GameObject SceneSwitcher = GameObject.FindGameObjectWithTag("SceneSwitcher");
-            if (SceneSwitcher != null) {
-                SceneSwitcher.GetComponent<MissionStatusScript>().CheckBoiz(); //Kollar ifall det finns några levande karaktärer
-            }
-            //gameObject.SetActive(false);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         } else {
             if (damage >= 2) { //Skada som är mindre än 2 är bara ondödig att skicka in!
                 QuirkScript.quirkScript.GetWoundQuirk(GetComponent<CharacterScript>(), this, damage);
