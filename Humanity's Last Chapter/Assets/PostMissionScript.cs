@@ -67,7 +67,7 @@ public class PostMissionScript : MonoBehaviour {
 
     public void BtnContinue() {
         if (isSuccess) {
-            Instantiate(PostRewardWindow, transform.parent.transform); //Skapa PostReward
+            Instantiate(PostRewardWindow); //Skapa PostReward
             Destroy(gameObject);
         } else {
             GameObject.FindGameObjectWithTag("SceneSwitcher").GetComponent<SceneSwitcher>().GoToHub(); //Gå till hubben

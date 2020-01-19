@@ -15,7 +15,7 @@ public class InteractiveScript : MonoBehaviour {
 
     private void Start() {
         isInteracted = false;
-        range = 3f;
+        range = 10f;
         characters = GameObject.FindGameObjectsWithTag("Character");
     }
 

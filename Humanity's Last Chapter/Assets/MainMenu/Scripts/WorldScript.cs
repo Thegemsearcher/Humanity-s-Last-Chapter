@@ -14,7 +14,6 @@ public class WorldScript {
     private int itemTest;
 
     public List<GameObject> BarrackPepList;
-    public List<string> LootList;
 
     public string[] storageArr, shopArr;
 
@@ -34,7 +33,6 @@ public class WorldScript {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
         BarrackPepList = new List<GameObject>();
-        LootList = new List<string>();
 
         avalibleQuests = new List<ScriptableQuest>();
         completedQuests = new List<ScriptableQuest>();
@@ -175,7 +173,6 @@ public class WorldScript {
     }
 
     public void RefreshHub() {
-        LootList.Clear();
         FillShop();
 
         if (supplies >= 20) {

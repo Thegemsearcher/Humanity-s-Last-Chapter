@@ -5524,7 +5524,7 @@ MonoBehaviour:
   HeadGear: {fileID: 1400256736}
   Cloth: {fileID: 1439405508}
   Background: {fileID: 0}
-  defultPortrait: {fileID: 21300000, guid: e98a3fcb12c5f834192b64b5ea7a9f64, type: 3}
+  defultPortrait: {fileID: 0}
 --- !u!114 &966240323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47802,7 +47802,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 966240317}
-  UIMask: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  UIMask: {fileID: 0}
 --- !u!114 &1400256739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48006,7 +48006,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Character: {fileID: 966240317}
-  UIMask: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+  UIMask: {fileID: 0}
 --- !u!1 &1457831042
 GameObject:
   m_ObjectHideFlags: 0
@@ -48320,7 +48320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd9d51eb9102e3469a32e1ab96ff705, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTesting: 0
+  isTesting: 1
   UIInfoMission: {fileID: 1656390130}
   MissionMarker: {fileID: 2128487094240360996, guid: fb74f1897653fa147ad97f9e0586de73,
     type: 3}
