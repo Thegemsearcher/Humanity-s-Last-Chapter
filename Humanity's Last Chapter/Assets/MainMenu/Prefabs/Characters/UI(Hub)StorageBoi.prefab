@@ -415,6 +415,7 @@ MonoBehaviour:
   txtName: {fileID: 0}
   txtDescrip: {fileID: 0}
   Parent: {fileID: 0}
+  defaultColor: {r: 0.7137255, g: 0.5294118, b: 0.3137255, a: 1}
 --- !u!61 &4331217776760492726
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2164,6 +2165,7 @@ MonoBehaviour:
   txtName: {fileID: 0}
   txtDescrip: {fileID: 0}
   Parent: {fileID: 0}
+  defaultColor: {r: 0.7176471, g: 0.5294118, b: 0.3137255, a: 1}
 --- !u!61 &8197094582309760377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2441,6 +2443,7 @@ MonoBehaviour:
   txtName: {fileID: 0}
   txtDescrip: {fileID: 0}
   Parent: {fileID: 0}
+  defaultColor: {r: 0.5176471, g: 0.14117648, b: 0.14117648, a: 1}
 --- !u!61 &4376351112165154466
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2799,6 +2802,7 @@ MonoBehaviour:
   txtName: {fileID: 0}
   txtDescrip: {fileID: 0}
   Parent: {fileID: 0}
+  defaultColor: {r: 0.54901963, g: 0.54901963, b: 0.54901963, a: 1}
 --- !u!61 &5092148396634234282
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3611,6 +3615,7 @@ MonoBehaviour:
   txtName: {fileID: 0}
   txtDescrip: {fileID: 0}
   Parent: {fileID: 0}
+  defaultColor: {r: 0.23137257, g: 0.4156863, b: 0.2509804, a: 1}
 --- !u!61 &8609336853535375254
 BoxCollider2D:
   m_ObjectHideFlags: 0

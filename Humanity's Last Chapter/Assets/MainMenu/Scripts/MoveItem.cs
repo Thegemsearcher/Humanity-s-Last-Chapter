@@ -39,6 +39,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         } else {
             if (Input.GetMouseButtonDown(0) && GetComponent<Collider2D>().OverlapPoint(mousePos)) //inside) {
             {
+                oldParent.GetComponent<Image>().color = Color.green;
                 held = true;
                 GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
             }
@@ -110,7 +111,6 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
 
         if (oldParent.GetComponent<ItemSlotScript>().isActive) {
-            Debug.Log("It tried now!");
             foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot")) {
                 if (!itemSlot.GetComponent<ItemSlotScript>().isActive) {
                     //Make new slot active
@@ -150,7 +150,8 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private bool Move(GameObject itemSlot) {
         //If we are inside the slot with the mouse...
         if (itemSlot.GetComponent<ItemSlotScript>().inside) {
-            if (!itemSlot.GetComponent<ItemSlotScript>().isActive) {
+            if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
+            {
                 oldParent.GetComponent<ItemSlotScript>().isActive = false;
 
                 //Make new slot active
@@ -163,7 +164,9 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 oldParent = transform.parent;
                 //Put the item on the new slot
                 transform.position = transform.parent.position;
-            } else {
+            }
+            else
+            {
                 oldParent.GetComponent<ItemSlotScript>().isActive = false;
 
                 //Make new slot active
@@ -178,6 +181,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             return true;
         }
+        oldParent.GetComponent<ItemSlotScript>().SetDefaultColor();
         return false;
     }
 }

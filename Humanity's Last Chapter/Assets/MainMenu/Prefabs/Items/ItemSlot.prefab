@@ -69,6 +69,7 @@ MonoBehaviour:
   txtName: {fileID: 0}
   txtDescrip: {fileID: 0}
   Parent: {fileID: 0}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &6013160258395918323
 SpriteRenderer:
   m_ObjectHideFlags: 0

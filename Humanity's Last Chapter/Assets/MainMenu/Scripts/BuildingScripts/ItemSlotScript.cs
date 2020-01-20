@@ -12,6 +12,7 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public int slotNr;
     public Text txtName, txtDescrip;
     public GameObject Parent;
+    public Color defaultColor;
 
     void Start()
     {
@@ -43,6 +44,19 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
             inside = false;
         }
     }
+
+    public void SetDefaultColor()
+    {
+        if(defaultColor != null)
+        {
+            this.GetComponent<Image>().color = defaultColor;
+        }
+        else
+        {
+            this.GetComponent<Image>().color = Color.white;
+        }
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (isActive)
@@ -68,6 +82,7 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         this.Parent = Parent;
         isActive = true;
     }
+
     private void OnDestroy() {
         if (transform.tag == "ItemSlot") { //Kollar om den är av typen ItemSlot, Alla ItemSlots i storage har taggen ItemSlots, characters ItemSlots har ett mer specefik tag
             if (transform.childCount > 0) { //Kollar så att det har ett barn/item
