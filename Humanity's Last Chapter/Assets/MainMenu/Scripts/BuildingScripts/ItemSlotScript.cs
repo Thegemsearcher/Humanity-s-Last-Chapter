@@ -29,19 +29,19 @@ public class ItemSlotScript : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     public void Update()
     {
-        if (GetComponent<Collider2D>().OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
-        {
-            if (!isActive)
-            {
-                isActive = true;
-                inside = true;
-            }
-        }
-        else if (isActive)
-        {
-            isActive = false;
-            inside = false;
-        }
+        //if (GetComponent<Collider2D>().OverlapPoint(Camera.main.ScreenToWorldPoint(Input.mousePosition)))
+        //{
+        //    if (!isActive)
+        //    {
+        //        isActive = true;
+        //        inside = true;
+        //    }
+        //}
+        //else if (isActive)
+        //{
+        //    isActive = false;
+        //    inside = false;
+        //}
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

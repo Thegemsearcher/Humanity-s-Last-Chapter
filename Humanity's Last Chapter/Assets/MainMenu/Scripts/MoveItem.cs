@@ -108,7 +108,22 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 }
             }
         }
+        if (transform.parent.tag == "ItemSlot") {
+            if (transform.parent.childCount > 1) {
+                held = true;
+                return;
+            }
 
+        } else if (transform.parent.childCount > 2) { // cred till LINNEA 
+                                                      //Om det finns fler än 2 barn betyder det att det finns 2 potensiella items på samma ruta + texten
+            held = true;
+            return;
+        }
+        transform.position = transform.parent.position;
+        //OldSlotCheck();
+    }
+
+    private void OldSlotCheck() { //Kollar ifall det är möjligt att skicka tillbaka där den är
         if (oldParent.GetComponent<ItemSlotScript>().isActive) {
             Debug.Log("It tried now!");
             foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot")) {
@@ -123,34 +138,39 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     oldParent = transform.parent;
                     //Put the item on the new slot
                     transform.position = transform.parent.position;
+                    break;
                 }
             }
         } else {
-            //Debug.Log("It does this instead....");
             if (transform.parent.tag == "ItemSlot") {
                 if (transform.parent.childCount > 1) {
                     held = true;
                     return;
                 }
 
-            } else if (transform.parent.childCount > 2)  { // cred till LINNEA 
-                //Om det finns fler än 2 barn betyder det att det finns 2 potensiella items på samma ruta + texten
-                    held = true;
-                    return;
-                
+            } else if (transform.parent.childCount > 2) { // cred till LINNEA 
+                                                          //Om det finns fler än 2 barn betyder det att det finns 2 potensiella items på samma ruta + texten
+                held = true;
+                return;
             }
-
             transform.position = transform.parent.position;
-
-
         }
     }
 
 
     private bool Move(GameObject itemSlot) {
         //If we are inside the slot with the mouse...
-        if (itemSlot.GetComponent<ItemSlotScript>().inside) {
-            if (!itemSlot.GetComponent<ItemSlotScript>().isActive) {
+        bool isMoveable = false;
+        if (itemSlot.GetComponent<ItemSlotScript>().inside) { //Ifall musen är innanför en ruta
+            if (itemSlot.tag == "ItemSlot") {
+                if (itemSlot.transform.childCount <= 0) { //Har inga barn i sig
+                    isMoveable = true;
+                }
+            } else if (itemSlot.transform.childCount <= 1) { //Har endast text i sig
+                isMoveable = true;
+            }
+            if (isMoveable) {
+                Debug.Log("Hmmm");
                 oldParent.GetComponent<ItemSlotScript>().isActive = false;
 
                 //Make new slot active
@@ -164,16 +184,18 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 //Put the item on the new slot
                 transform.position = transform.parent.position;
             } else {
-                oldParent.GetComponent<ItemSlotScript>().isActive = false;
+                held = true;
+                //oldParent.GetComponent<ItemSlotScript>().isActive = false;
+                //OldSlotCheck();
 
-                //Make new slot active
-                itemSlot.GetComponent<ItemSlotScript>().isActive = true;
-                //Set this item's parent to the new slot
-                gameObject.transform.SetParent(itemSlot.transform, false);
-                //Set the new slot to this item's "old" parent, I guess...
-                oldParent = transform.parent;
-                //Put the item on the new slot
-                transform.position = transform.parent.position;
+                ////Make new slot active
+                //itemSlot.GetComponent<ItemSlotScript>().isActive = true;
+                ////Set this item's parent to the new slot
+                //gameObject.transform.SetParent(itemSlot.transform, false);
+                ////Set the new slot to this item's "old" parent, I guess...
+                //oldParent = transform.parent;
+                ////Put the item on the new slot
+                //transform.position = transform.parent.position;
             }
             GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             return true;
