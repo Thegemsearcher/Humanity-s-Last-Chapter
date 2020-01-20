@@ -25,9 +25,9 @@ public class LootScript : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        holder = Instantiate(lootInfo);
+        //holder = Instantiate(lootInfo);
         //holder.transform.position = new Vector2(transform.position.x + 25, transform.position.y + 25);
-        holder.GetComponent<LootInfoScript>().GetData(strName, inventory);
+        //holder.GetComponent<LootInfoScript>().GetData(strName, inventory);
     }
 
     private void OnMouseExit()
@@ -37,6 +37,7 @@ public class LootScript : MonoBehaviour
 
     private void OnMouseDown()
     {
+        Debug.Log("Hmmmm");
         CheckRange();
 
         if (isActive)
@@ -77,10 +78,13 @@ public class LootScript : MonoBehaviour
 
     public void GetItems(string[] inventory, string strName)
     {
+        Debug.Log("Yes it does");
         this.inventory = inventory;
         this.strName = strName;
         inventorySize = inventory.Length;
         characters = GameObject.FindGameObjectsWithTag("Character");
+        Vector3 lootPos = new Vector3(transform.position.x, transform.position.y, -1);
+        transform.position = lootPos;
     }
 
     #region CheckRange

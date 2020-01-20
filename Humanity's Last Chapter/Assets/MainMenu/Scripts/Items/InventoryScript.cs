@@ -16,6 +16,7 @@ public class InventoryScript : MonoBehaviour
         holder = Instantiate(lootBox);
         holder.transform.position = transform.position;
         holder.GetComponent<LootScript>().GetItems(inventory, strName);
+        holder.name = strName + "'s Loot";
     }
 
     void OnDestroy() //Den kommer hit när man stänger av...
