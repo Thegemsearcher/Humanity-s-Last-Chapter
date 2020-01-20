@@ -64,12 +64,12 @@ public class BarrackWindow : MonoBehaviour {
 
         if (startClothList.Count > 0) {
             rand = Random.Range(0, startClothList.Count);
-            holder.GetComponent<CharacterScript>().clothId = startClothList[rand].name;
+            holder.GetComponent<PortraitScript>().ChangeCloth(startClothList[rand]);
         }
 
         if (startHeadList.Count > 0) {
             rand = Random.Range(0, startHeadList.Count);
-            holder.GetComponent<CharacterScript>().headId = startHeadList[rand].name;
+            holder.GetComponent<PortraitScript>().ChangeCloth(startHeadList[rand]);
         }
     }
 }
