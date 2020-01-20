@@ -41,10 +41,14 @@ public class CombatAbility : MonoBehaviour
             this.pivotCharacter = pivotCharacter;
             combatItem = Character.GetComponent<Abilities>().combatItem;
 
-            toDraw.GetComponent<SpriteRenderer>().sprite = combatItem.rangeThingy;
-            toDraw.transform.localScale = new Vector3(combatItem.placeRange * 2, combatItem.placeRange * 2, 1);
-
-            GetComponent<Image>().sprite = combatItem.sprite;
+            if (combatItem != null) {
+                toDraw.GetComponent<SpriteRenderer>().sprite = combatItem.rangeThingy;
+                toDraw.transform.localScale = new Vector3(combatItem.placeRange * 2, combatItem.placeRange * 2, 1);
+                GetComponent<Image>().sprite = combatItem.sprite;
+            } else {
+                GetComponent<Image>().sprite = defultSprite;
+            }
+            
         } else
         {
             GetComponent<Image>().sprite = defultSprite;
