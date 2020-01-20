@@ -115,10 +115,12 @@ public class RoleBoxScript : MonoBehaviour {
             AppointBtn.GetComponentInChildren<Text>().text = "I\nn\n \nH\no\ns\np\ni\nt\na\nl";
         }
         else if (hubCharacterScript.isEnlisted) {
+            isAppointed = true;
             AppointBtn.GetComponent<Image>().color = Color.green;
             AppointBtn.GetComponentInChildren<Text>().text = "U\nn\na\np\np\no\ni\nn\nt";
             Manager.GetComponent<CommandCenterScript>().appointedCharacters++;
         } else {
+            isAppointed = false;
             AppointBtn.GetComponent<Image>().color = Color.red;
             AppointBtn.GetComponentInChildren<Text>().text = "A\np\np\no\ni\nn\nt";
         }

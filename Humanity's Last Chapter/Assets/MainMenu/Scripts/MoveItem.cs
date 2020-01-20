@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler {
+public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
     private string id;
     private int slotNr, newSlotNr;
 
@@ -15,7 +16,8 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private ItemInfo itemInfo;
     private GameObject[] ItemSlots, WeaponSlots, ClothSlots, InventorySlots;
 
-    void Start() {
+    void Start()
+    {
         //moveParent = GameObject.FindGameObjectWithTag("LoadManager").transform;
         oldParent = transform.parent;
         InventorySlots = GameObject.FindGameObjectsWithTag("InventorySlot");
@@ -29,14 +31,19 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         id = GetComponent<ItemInfo>().id;
     }
 
-    private void Update() {
+    private void Update()
+    {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (held) {
+        if (held)
+        {
             gameObject.transform.position = mousePos;
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0))
+            {
                 Place();
             }
-        } else {
+        }
+        else
+        {
             if (Input.GetMouseButtonDown(0) && GetComponent<Collider2D>().OverlapPoint(mousePos)) //inside) {
             {
                 oldParent.GetComponent<Image>().color = Color.green;
@@ -46,46 +53,64 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         }
     }
 
-    public void OnPointerEnter(PointerEventData eventData) {
+    public void OnPointerEnter(PointerEventData eventData)
+    {
         inside = true;
     }
 
-    public void OnPointerExit(PointerEventData eventData) {
+    public void OnPointerExit(PointerEventData eventData)
+    {
         inside = false;
     }
 
-    public void Place() {
+    public void Place()
+    {
         //Stop holding this item
         held = false;
 
         //Check Inventory Slots
-        foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot")) {
-            if (Move(itemSlot)) {
+        foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot"))
+        {
+            if (Move(itemSlot))
+            {
                 return;
             }
         }
         //Check Weapon Slots
-        if (id[0] == 'w') {
-            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("WeaponSlot")) {
-                if (Move(weaponSlot)) {
+        if (id[0] == 'w')
+        {
+            foreach (GameObject weaponSlot in GameObject.FindGameObjectsWithTag("WeaponSlot"))
+            {
+                if (Move(weaponSlot))
+                {
                     return;
                 }
             }
         }
         //Check Clothes Slots
-        else if (id[0] == 'c' && id[1] == 'l') { //ClothSlot
+        else if (id[0] == 'c' && id[1] == 'l')
+        { //ClothSlot
             ClothItemObject[] clothTemp = Assets.assets.clothTemp;
-            foreach (ClothItemObject cloth in clothTemp) {
-                if (id == cloth.name) {
-                    if (cloth.clothType == ClothScript.ClothType.Cloth) {
-                        foreach (GameObject ClothSlot in GameObject.FindGameObjectsWithTag("ClothSlot")) {
-                            if (Move(ClothSlot)) {
+            foreach (ClothItemObject cloth in clothTemp)
+            {
+                if (id == cloth.name)
+                {
+                    if (cloth.clothType == ClothScript.ClothType.Cloth)
+                    {
+                        foreach (GameObject ClothSlot in GameObject.FindGameObjectsWithTag("ClothSlot"))
+                        {
+                            if (Move(ClothSlot))
+                            {
                                 return;
                             }
                         }
-                    } else {
-                        foreach (GameObject hatSlot in GameObject.FindGameObjectsWithTag("HatSlot")) {
-                            if (Move(hatSlot)) {
+                    }
+                    else
+                    {
+                        foreach (GameObject hatSlot in GameObject.FindGameObjectsWithTag("HatSlot"))
+                        {
+                            if (Move(hatSlot))
+                            {
                                 return;
                             }
                         }
@@ -93,26 +118,55 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     break;
                 }
             }
-            
-        }
-        else if (id[0] == 'h') {
-            foreach (GameObject healSlot in GameObject.FindGameObjectsWithTag("HealSlot")) {
-                if (Move(healSlot)) {
-                    return;
-                }
-            }
-        }
-        else if (id[0] == 'c' && id[1] == 'i') { //CombatItem
-            foreach (GameObject CombatItem in GameObject.FindGameObjectsWithTag("CombatSlot")) {
-                if (Move(CombatItem)) {
-                    return;
-                }
-            }
-        }
 
-        if (oldParent.GetComponent<ItemSlotScript>().isActive) {
-            foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot")) {
-                if (!itemSlot.GetComponent<ItemSlotScript>().isActive) {
+        }
+        else if (id[0] == 'h')
+        {
+            foreach (GameObject healSlot in GameObject.FindGameObjectsWithTag("HealSlot"))
+            {
+                if (Move(healSlot))
+                {
+                    return;
+                }
+            }
+        }
+        else if (id[0] == 'c' && id[1] == 'i')
+        { //CombatItem
+            foreach (GameObject CombatItem in GameObject.FindGameObjectsWithTag("CombatSlot"))
+            {
+                if (Move(CombatItem))
+                {
+                    return;
+                }
+            }
+        }
+        if (transform.parent.tag == "ItemSlot")
+        {
+            if (transform.parent.childCount > 1)
+            {
+                held = true;
+                return;
+            }
+
+        }
+        else if (transform.parent.childCount > 2)
+        { // cred till LINNEA 
+          //Om det finns fler än 2 barn betyder det att det finns 2 potensiella items på samma ruta + texten
+            held = true;
+            return;
+        }
+        transform.position = transform.parent.position;
+        //OldSlotCheck();
+    }
+
+    private void OldSlotCheck()
+    { //Kollar ifall det är möjligt att skicka tillbaka där den är
+        if (oldParent.GetComponent<ItemSlotScript>().isActive)
+        {
+            foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot"))
+            {
+                if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
+                {
                     //Make new slot active
                     itemSlot.GetComponent<ItemSlotScript>().isActive = true;
                     //Set the slot this this item's info
@@ -123,35 +177,57 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                     oldParent = transform.parent;
                     //Put the item on the new slot
                     transform.position = transform.parent.position;
+                    break;
                 }
             }
-        } else {
-            //Debug.Log("It does this instead....");
-            if (transform.parent.tag == "ItemSlot") {
-                if (transform.parent.childCount > 1) {
+        }
+        else
+        {
+            if (transform.parent.tag == "ItemSlot")
+            {
+                if (transform.parent.childCount > 1)
+                {
                     held = true;
                     return;
                 }
 
-            } else if (transform.parent.childCount > 2)  { // cred till LINNEA 
-                //Om det finns fler än 2 barn betyder det att det finns 2 potensiella items på samma ruta + texten
-                    held = true;
-                    return;
-                
             }
-
+            else if (transform.parent.childCount > 2)
+            { // cred till LINNEA 
+              //Om det finns fler än 2 barn betyder det att det finns 2 potensiella items på samma ruta + texten
+                held = true;
+                return;
+            }
             transform.position = transform.parent.position;
-
-
         }
     }
 
 
-    private bool Move(GameObject itemSlot) {
+    private bool Move(GameObject itemSlot)
+    {
         //If we are inside the slot with the mouse...
-        if (itemSlot.GetComponent<ItemSlotScript>().inside) {
-            if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
+        //<<<<<<< HEAD
+        //        if (itemSlot.GetComponent<ItemSlotScript>().inside) {
+        //            if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
+        //            {
+        //=======
+        bool isMoveable = false;
+        if (itemSlot.GetComponent<ItemSlotScript>().inside)
+        { //Ifall musen är innanför en ruta
+            if (itemSlot.tag == "ItemSlot")
             {
+                if (itemSlot.transform.childCount <= 0)
+                { //Har inga barn i sig
+                    isMoveable = true;
+                }
+            }
+            else if (itemSlot.transform.childCount <= 1)
+            { //Har endast text i sig
+                isMoveable = true;
+            }
+            if (isMoveable)
+            {
+                //>>>>>>> 8c3ef8242b597e61e60f106e29f443632089c096
                 oldParent.GetComponent<ItemSlotScript>().isActive = false;
 
                 //Make new slot active
@@ -164,19 +240,37 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 oldParent = transform.parent;
                 //Put the item on the new slot
                 transform.position = transform.parent.position;
+                //<<<<<<< HEAD
+                //            }
+                //            else
+                //            {
+                //                oldParent.GetComponent<ItemSlotScript>().isActive = false;
+
+                //                //Make new slot active
+                //                itemSlot.GetComponent<ItemSlotScript>().isActive = true;
+                //                //Set this item's parent to the new slot
+                //                gameObject.transform.SetParent(itemSlot.transform, false);
+                //                //Set the new slot to this item's "old" parent, I guess...
+                //                oldParent = transform.parent;
+                //                //Put the item on the new slot
+                //                transform.position = transform.parent.position;
+                //=======
             }
             else
             {
-                oldParent.GetComponent<ItemSlotScript>().isActive = false;
+                held = true;
+                //oldParent.GetComponent<ItemSlotScript>().isActive = false;
+                //OldSlotCheck();
 
-                //Make new slot active
-                itemSlot.GetComponent<ItemSlotScript>().isActive = true;
-                //Set this item's parent to the new slot
-                gameObject.transform.SetParent(itemSlot.transform, false);
-                //Set the new slot to this item's "old" parent, I guess...
-                oldParent = transform.parent;
-                //Put the item on the new slot
-                transform.position = transform.parent.position;
+                ////Make new slot active
+                //itemSlot.GetComponent<ItemSlotScript>().isActive = true;
+                ////Set this item's parent to the new slot
+                //gameObject.transform.SetParent(itemSlot.transform, false);
+                ////Set the new slot to this item's "old" parent, I guess...
+                //oldParent = transform.parent;
+                ////Put the item on the new slot
+                //transform.position = transform.parent.position;
+                //>>>>>>> 8c3ef8242b597e61e60f106e29f443632089c096
             }
             GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             return true;
