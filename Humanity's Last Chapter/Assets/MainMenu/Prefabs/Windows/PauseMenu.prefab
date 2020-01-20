@@ -934,7 +934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5861829136698060528
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1006,6 +1006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveWindow: {fileID: 8759621481047553685, guid: c94760c44c949c54889fcfea80c6bc81,
     type: 3}
+  hub: {fileID: 0}
 --- !u!1 &5861829137099689634
 GameObject:
   m_ObjectHideFlags: 0
