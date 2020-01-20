@@ -20,8 +20,11 @@ public class HealingAbility : MonoBehaviour {
             this.Character = Character;
             this.pivotCharacter = pivotCharacter;
             healingItem = Character.GetComponent<Abilities>().healingItem;
-
-            GetComponent<Image>().sprite = healingItem.icon;
+            if (healingItem != null) {
+                GetComponent<Image>().sprite = healingItem.icon;
+            } else {
+                GetComponent<Image>().sprite = defultSprite;
+            }
         } else {
             GetComponent<Image>().sprite = defultSprite;
         }

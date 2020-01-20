@@ -24,26 +24,24 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
         characterScript = pivotCharacter.GetComponent<CharacterScript>();
         partyMember = characterScript.partyMember;
 
-        //if (healingId == null) {
-        //    healingId = "hi0";
-        //}
-
         GetEquipment();
-        //key = partyMember;
-        weaponTimer = weapon.coolDownTimer;
-        healingTimer = healingItem.coolDownTimer;
-        combatTimer = combatItem.coolDownTimer;
+
+        if (weapon != null) {
+            weaponTimer = weapon.coolDownTimer;
+        }
+        if (healingItem != null) {
+            healingTimer = healingItem.coolDownTimer;
+        }
+        if (combatItem != null) {
+            combatTimer = combatItem.coolDownTimer;
+        }
     }
-
-
 
     public void BtnSelect() {
         ActiveCharacter.GetComponent<ActiveCharacter>().SwitchCharacter(gameObject, pivotCharacter);
     }
 
     private void Update() {
-        
-        //Debug.Log("partyMember: " + partyMember);
         if(Input.GetKeyDown(partyMember.ToString())) {
             ActiveCharacter.GetComponent<ActiveCharacter>().SwitchCharacter(gameObject, pivotCharacter);
         }
@@ -87,7 +85,6 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
         if (weaponId != "" || weaponId != null) {
             foreach (WeaponObject weapon in Assets.assets.weaponTemp) {
                 if (weapon.name == weaponId) {
-                    //Debug.Log("Character: " + characterScript.strName + "\nWeaponId: " + characterScript.rangedId + "\n");
                     this.weapon = weapon;
                 }
             }
@@ -96,8 +93,7 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
             weapon = null;
         }
 
-        //healingId = characterScript.healingId;
-        healingId = "hi" + Random.Range(0, Assets.assets.healingTemp.Length);
+        healingId = characterScript.healingId;
         if (healingId != "" || healingId != null) {
             foreach (HealingItemObject healingItem in Assets.assets.healingTemp) {
                 if (healingItem.name == healingId) {
@@ -109,8 +105,7 @@ public class Abilities : MonoBehaviour { //Markus - Håller koll på vilka abili
             healingItem = null;
         }
 
-        //combatId = characterScript.combatId;
-        combatId = "ci" + Random.Range(0, Assets.assets.combatTemp.Length);
+        combatId = characterScript.combatId;
         if (combatId != "" || combatId != null) {
             foreach (CombatItemObject combatItem in Assets.assets.combatTemp) {
                 if (combatItem.name == combatId) {
