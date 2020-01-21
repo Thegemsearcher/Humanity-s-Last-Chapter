@@ -36,7 +36,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (held)
         {
-            gameObject.transform.position = mousePos;
+            //gameObject.transform.position = mousePos;
             if (Input.GetMouseButtonDown(0))
             {
                 Place();
@@ -48,6 +48,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             {
                 oldParent.GetComponent<Image>().color = Color.green;
                 held = true;
+                moveParent.GetComponent<ItemGrabberScript>().NewItem(this.GetComponent<SpriteRenderer>().sprite);
                 GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
             }
         }
@@ -67,6 +68,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         //Stop holding this item
         held = false;
+        moveParent.GetComponent<ItemGrabberScript>().Release();
 
         //Check Inventory Slots
         foreach (GameObject itemSlot in GameObject.FindGameObjectsWithTag("ItemSlot"))
@@ -145,6 +147,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (transform.parent.childCount > 1)
             {
                 held = true;
+                moveParent.GetComponent<ItemGrabberScript>().NewItem(this.GetComponent<SpriteRenderer>().sprite);
                 return;
             }
 
@@ -153,6 +156,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         { // cred till LINNEA 
           //Om det finns fler än 2 barn betyder det att det finns 2 potensiella items på samma ruta + texten
             held = true;
+            moveParent.GetComponent<ItemGrabberScript>().NewItem(this.GetComponent<SpriteRenderer>().sprite);
             return;
         }
         transform.position = transform.parent.position;
@@ -188,6 +192,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 if (transform.parent.childCount > 1)
                 {
                     held = true;
+                    moveParent.GetComponent<ItemGrabberScript>().NewItem(this.GetComponent<SpriteRenderer>().sprite);
                     return;
                 }
 
@@ -196,6 +201,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             { // cred till LINNEA 
               //Om det finns fler än 2 barn betyder det att det finns 2 potensiella items på samma ruta + texten
                 held = true;
+                moveParent.GetComponent<ItemGrabberScript>().NewItem(this.GetComponent<SpriteRenderer>().sprite);
                 return;
             }
             transform.position = transform.parent.position;
@@ -259,6 +265,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             else
             {
                 held = true;
+                moveParent.GetComponent<ItemGrabberScript>().NewItem(this.GetComponent<SpriteRenderer>().sprite);
                 //oldParent.GetComponent<ItemSlotScript>().isActive = false;
                 //OldSlotCheck();
 
