@@ -17,12 +17,12 @@ public class CharacterInfo : MonoBehaviour {
         stats = Character.GetComponent<Stats>();
 
         txtName.text = characterScript.strName;
-        txtInt.text = "Int: " + stats.Int;
+        //txtInt.text = "Int: " + stats.Int;
         txtDex.text = "Dex: " + stats.dex;
-        txtCha.text = "Cha: " + stats.cha;
-        txtLdr.text = "Ldr: " + stats.ldr;
-        txtSnt.text = "Snt: " + stats.snt;
-        txtStr.text = "Str: " + stats.str;
+        //txtCha.text = "Cha: " + stats.cha;
+        //txtLdr.text = "Ldr: " + stats.ldr;
+        //txtSnt.text = "Snt: " + stats.snt;
+        //txtStr.text = "Str: " + stats.str;
         txtDef.text = "Def: " + stats.def;
         txtHp.text = "HP: " + stats.hp + "/" + stats.maxHp;
         txtLevel.text = stats.level.ToString();

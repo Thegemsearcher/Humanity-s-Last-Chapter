@@ -76,13 +76,13 @@ public class QuestDescScript : MonoBehaviour {
         txtName.text = "";
         txtDesc.text = "";
         txtHp.text = "";
-        txtStr.text = "";
+        //txtStr.text = "";
         txtDef.text = "";
         txtDex.text = "";
-        txtInt.text = "";
-        txtLdr.text = "";
-        txtSnt.text = "";
-        txtCha.text = "";
+        //txtInt.text = "";
+        //txtLdr.text = "";
+        //txtSnt.text = "";
+        //txtCha.text = "";
     }
 
     public void RoleInfo(RoleObject role) {
@@ -92,13 +92,13 @@ public class QuestDescScript : MonoBehaviour {
         txtName.text = role.roleName;
         txtDesc.text = role.desc;
         txtHp.text = "Hp: +" + role.maxHp;
-        txtStr.text = "Str: +" + role.str;
+        //txtStr.text = "Str: +" + role.str;
         txtDef.text = "Def: +" + role.def;
         txtDex.text = "Dex: +" + role.dex;
-        txtInt.text = "Int: +" + role.Int;
-        txtLdr.text = "Ldr: +" + role.ldr;
-        txtSnt.text = "Snt: +" + role.snt;
-        txtCha.text = "Cha: +" + role.cha;
+        //txtInt.text = "Int: +" + role.Int;
+        //txtLdr.text = "Ldr: +" + role.ldr;
+        //txtSnt.text = "Snt: +" + role.snt;
+        //txtCha.text = "Cha: +" + role.cha;
     }
 
     public void CharacterInfo(GameObject Character) {
