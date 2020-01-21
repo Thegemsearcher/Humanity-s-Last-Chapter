@@ -9,6 +9,5 @@ public class ResourceText : MonoBehaviour {
 
     void Update() {
         tGold.text = WorldScript.world.gold.ToString();
-        tRs.text = WorldScript.world.rs.ToString();
     }
 }

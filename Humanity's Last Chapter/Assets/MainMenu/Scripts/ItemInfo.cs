@@ -25,7 +25,7 @@ public class ItemInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         this.itemName = GameObject.FindGameObjectWithTag("TextItemName").GetComponent<Text>();
         this.itemDesc = GameObject.FindGameObjectWithTag("TextItemDescrip").GetComponent<Text>();
         //Debug.Log("itemDesc: " + itemDesc);
-        GetComponent<SpriteRenderer>().sprite = icon;
+        GetComponent<Image>().sprite = icon;
     }
 
     public void OnPointerEnter(PointerEventData eventData) {

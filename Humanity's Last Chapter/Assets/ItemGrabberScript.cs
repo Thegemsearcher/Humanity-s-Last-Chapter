@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemGrabberScript : MonoBehaviour
 {
-    bool holding;
+    public bool holding { get; private set; }
     public Vector2 SpriteSize;
     // Start is called before the first frame update
     void Start()
@@ -24,6 +24,8 @@ public class ItemGrabberScript : MonoBehaviour
 
     public void NewItem(Sprite newItem)
     {
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = mousePos;
         this.GetComponent<SpriteRenderer>().sprite = newItem;
         this.GetComponent<SpriteRenderer>().size = SpriteSize;
         holding = true;
