@@ -1,14 +1,11 @@
 /target:library
 /nowarn:0169
-/out:Temp/Unity.TextMeshPro.dll
+/out:Temp/Assembly-CSharp.dll
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
-/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
-/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
-/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -70,10 +67,20 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEditor.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
-/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
-/reference:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
+/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.VSCode.Editor.dll
+/reference:Library/ScriptAssemblies/AstarPathfindingProject.dll
+/reference:Library/ScriptAssemblies/PackageToolsEditor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
+/reference:Library/ScriptAssemblies/Unity.Timeline.dll
+/reference:Library/ScriptAssemblies/AstarPathfindingProjectEditor.dll
+/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.Rider.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
+/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
+/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
 /reference:Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/Microsoft.Win32.Primitives.dll"
@@ -285,59 +292,205 @@
 /define:ENABLE_TIMELINE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\AssemblyInfo.cs.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\FastAction.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\MaterialReferenceManager.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TextContainer.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TextMeshPro.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TextMeshProUGUI.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_Asset.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_Character.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_CharacterInfo.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_ColorGradient.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_CoroutineTween.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_DefaultControls.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_Dropdown.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_EditorResourceManager.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_FontAsset.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_FontAssetCommon.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_FontAssetUtilities.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_FontFeaturesCommon.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_FontFeatureTable.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_InputField.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_InputValidator.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_LineInfo.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_ListPool.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_MaterialManager.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_MeshInfo.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_ObjectPool.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_PackageResourceImporter.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_RichTextTagsCommon.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_RichTextTagStack.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_ScrollbarEventHandler.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_SelectionCaret.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_Settings.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_ShaderUtilities.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_Sprite.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_SpriteAnimator.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_SpriteAsset.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_SpriteAssetImportFormats.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_SpriteCharacter.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_SpriteGlyph.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_Style.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_StyleSheet.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_SubMesh.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_SubMeshUI.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_Text.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_TextElement.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_TextElement_Legacy.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_TextInfo.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_TextParsingUtilities.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_TextUtilities.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_UpdateManager.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMP_UpdateRegistery.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMPro_EventManager.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMPro_ExtensionMethods.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMPro_MeshUtilities.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMPro_Private.cs"
-"C:\Users\Jack\Documents\GitHub\Humanity-s-Last-Chapter\Humanity's Last Chapter\Library\PackageCache\com.unity.textmeshpro@2.0.1\Scripts\Runtime\TMPro_UGUI_Private.cs"
+Assets\ActiveMissionScript.cs
+Assets\AppointCharacterScript.cs
+Assets\AppointedRoleScript.cs
+Assets\BringUpMenu.cs
+Assets\BringUpStats.cs
+Assets\BuildingNameTagScript.cs
+Assets\ChangeNameScript.cs
+Assets\CharacterCreation.cs
+Assets\CharacterInfo.cs
+Assets\CharacterToAppoint.cs
+Assets\CommandCenterScript.cs
+Assets\CommunityTitle.cs
+Assets\CreateCharacter.cs
+Assets\CreationWindow.cs
+Assets\DescCharacterScript.cs
+Assets\ExitGameScript.cs
+Assets\ExplosionTimer.cs
+Assets\FootAnim.cs
+Assets\HospitalInfo.cs
+Assets\ItemGrabberScript.cs
+Assets\LoadQuests.cs
+Assets\LootInfoScript.cs
+Assets\LootItemScript.cs
+Assets\LootScript.cs
+Assets\LootScrollScript.cs
+Assets\MainMenu\Scripts\AbilitySlotScript.cs
+Assets\MainMenu\Scripts\Actions\Abilities.cs
+Assets\MainMenu\Scripts\Actions\AbilityScript.cs
+Assets\MainMenu\Scripts\Assets.cs
+Assets\MainMenu\Scripts\BehaviourTree.cs
+Assets\MainMenu\Scripts\BuildingScripts\BarrackWindow.cs
+Assets\MainMenu\Scripts\BuildingScripts\buildingScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\CampScripts\CampScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\CampScripts\roasterScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\CampScripts\roasterWindowScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\clickAndDrag.cs
+Assets\MainMenu\Scripts\BuildingScripts\clickOnBuilding.cs
+Assets\MainMenu\Scripts\BuildingScripts\GlowScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\HireCharacter.cs
+Assets\MainMenu\Scripts\BuildingScripts\HospitalScripts\HealingSlotScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\HospitalScripts\HospitalScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\HubCharController.cs
+Assets\MainMenu\Scripts\BuildingScripts\ItemSlotScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\partySelectorScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\ItemScript.cs
+Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\MouseData.cs
+Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\StorageLoader.cs
+Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\StorageScript.cs
+Assets\MainMenu\Scripts\Buttons\btnAppointScript.cs
+Assets\MainMenu\Scripts\CameraMovement.cs
+Assets\MainMenu\Scripts\CharacterScripts\ActiveCharacter.cs
+Assets\MainMenu\Scripts\CharacterScripts\AddToPlayerRoster.cs
+Assets\MainMenu\Scripts\CharacterScripts\CharacterBox.cs
+Assets\MainMenu\Scripts\CharacterScripts\CharacterMovement.cs
+Assets\MainMenu\Scripts\CharacterScripts\CharacterScript.cs
+Assets\MainMenu\Scripts\CharacterScripts\CharacterStatWriter.cs
+Assets\MainMenu\Scripts\CharacterScripts\CharacterWindow.cs
+Assets\MainMenu\Scripts\CharacterScripts\CreateCharacterBox.cs
+Assets\MainMenu\Scripts\CharacterScripts\FormationsScript.cs
+Assets\MainMenu\Scripts\CharacterScripts\MakeCharacter\QuestGiver\MakeQuestGiver.cs
+Assets\MainMenu\Scripts\CharacterScripts\MakeCharacter\QuestGiver\QuestGiver.cs
+Assets\MainMenu\Scripts\CharacterScripts\PersonalMovement.cs
+Assets\MainMenu\Scripts\CharacterScripts\Recruit.cs
+Assets\MainMenu\Scripts\CharacterScripts\stats\MakeQuirk.cs
+Assets\MainMenu\Scripts\CharacterScripts\stats\QuirkScript.cs
+Assets\MainMenu\Scripts\CharacterScripts\stats\RoleObject.cs
+Assets\MainMenu\Scripts\CharacterScripts\stats\RoleScript.cs
+Assets\MainMenu\Scripts\CharacterScripts\stats\Stats.cs
+Assets\MainMenu\Scripts\CharacterScripts\UIBoiScript.cs
+Assets\MainMenu\Scripts\CharacterScripts\UICharacterRole.cs
+Assets\MainMenu\Scripts\CharacterScripts\UIHealthBoi.cs
+Assets\MainMenu\Scripts\CharacterScripts\ViewDistanceScript.cs
+Assets\MainMenu\Scripts\Combat\DestroyBlood.cs
+Assets\MainMenu\Scripts\Combat\Enemy.cs
+Assets\MainMenu\Scripts\Combat\PlayerAttack.cs
+Assets\MainMenu\Scripts\Combat\SpawnWeapon.cs
+Assets\MainMenu\Scripts\Combat\WanderingEnemy.cs
+Assets\MainMenu\Scripts\CombatAbility.cs
+Assets\MainMenu\Scripts\EnlistList.cs
+Assets\MainMenu\Scripts\ExitOnClick.cs
+Assets\MainMenu\Scripts\GrenadeScript.cs
+Assets\MainMenu\Scripts\HealingAbility.cs
+Assets\MainMenu\Scripts\HPinCombat.cs
+Assets\MainMenu\Scripts\ItemInfo.cs
+Assets\MainMenu\Scripts\Items\BulletM.cs
+Assets\MainMenu\Scripts\Items\InventoryScript.cs
+Assets\MainMenu\Scripts\Items\WeaponAbility.cs
+Assets\MainMenu\Scripts\Items\WeaponAttack.cs
+Assets\MainMenu\Scripts\Items\WeaponDisplay.cs
+Assets\MainMenu\Scripts\LoadMainMenu.cs
+Assets\MainMenu\Scripts\LocationScript.cs
+Assets\MainMenu\Scripts\MakeScriptableObject.cs
+Assets\MainMenu\Scripts\MapPrefabFinisher.cs
+Assets\MainMenu\Scripts\Mission\Events\DialogEvent.cs
+Assets\MainMenu\Scripts\Mission\Events\MoveEvent.cs
+Assets\MainMenu\Scripts\Mission\Events\WaveEvent.cs
+Assets\MainMenu\Scripts\Mission\MissionManagerScript.cs
+Assets\MainMenu\Scripts\Mission\MissionScript.cs
+Assets\MainMenu\Scripts\Mission\Objectives\Collection\CollectionObjective.cs
+Assets\MainMenu\Scripts\Mission\Objectives\Collection\makeCollection.cs
+Assets\MainMenu\Scripts\Mission\Objectives\Interaction\InteractionObjective.cs
+Assets\MainMenu\Scripts\Mission\Objectives\Interaction\InteractiveScript.cs
+Assets\MainMenu\Scripts\Mission\Objectives\Interaction\MakeInteraction.cs
+Assets\MainMenu\Scripts\Mission\Objectives\Location\LocationObjective.cs
+Assets\MainMenu\Scripts\Mission\Objectives\Location\MakeLocation.cs
+Assets\MainMenu\Scripts\Mission\Quest.cs
+Assets\MainMenu\Scripts\Mission\Quest\MakeQuestObject.cs
+Assets\MainMenu\Scripts\Mission\Quest\QuestObject.cs
+Assets\MainMenu\Scripts\Mission\Quest\QuestStarter.cs
+Assets\MainMenu\Scripts\Mission\SelectedMissionScript.cs
+Assets\MainMenu\Scripts\Mission\Spawner.cs
+Assets\MainMenu\Scripts\MoveItem.cs
+Assets\MainMenu\Scripts\Objects\Items\Cloths\ClothScript.cs
+Assets\MainMenu\Scripts\Objects\Items\Cloths\MakeClothItem.cs
+Assets\MainMenu\Scripts\Objects\Items\CombatItems\CombatItem.cs
+Assets\MainMenu\Scripts\Objects\Items\CombatItems\MakeCombatItem.cs
+Assets\MainMenu\Scripts\Objects\Items\CreateItems.cs
+Assets\MainMenu\Scripts\Objects\Items\HealingItems\HealingItem.cs
+Assets\MainMenu\Scripts\Objects\Items\HealingItems\MakeHealingItem.cs
+Assets\MainMenu\Scripts\Obsolete\BulletScript.cs
+Assets\MainMenu\Scripts\Obsolete\charDebug.cs
+Assets\MainMenu\Scripts\Obsolete\CreateCharacter.cs
+Assets\MainMenu\Scripts\Obsolete\DestroyGameObject.cs
+Assets\MainMenu\Scripts\Obsolete\EnemyMovement.cs
+Assets\MainMenu\Scripts\Obsolete\LoadedAssets.cs
+Assets\MainMenu\Scripts\Obsolete\MarkusEnemy.cs
+Assets\MainMenu\Scripts\Obsolete\MarkusMovement.cs
+Assets\MainMenu\Scripts\Obsolete\SliderScript.cs
+Assets\MainMenu\Scripts\RangedEnemy.cs
+Assets\MainMenu\Scripts\ReadFileScript.cs
+Assets\MainMenu\Scripts\ResourceText.cs
+Assets\MainMenu\Scripts\SaveScripts\AssetsData.cs
+Assets\MainMenu\Scripts\SaveScripts\CharacterData.cs
+Assets\MainMenu\Scripts\SaveScripts\DataHolder.cs
+Assets\MainMenu\Scripts\SaveScripts\LoadSceneOnClick.cs
+Assets\MainMenu\Scripts\SaveScripts\LoadWorld.cs
+Assets\MainMenu\Scripts\SaveScripts\PartyScript.cs
+Assets\MainMenu\Scripts\SaveScripts\QuestData.cs
+Assets\MainMenu\Scripts\SaveScripts\SaveData.cs
+Assets\MainMenu\Scripts\SaveScripts\SaveSlotManager.cs
+Assets\MainMenu\Scripts\SaveScripts\SaveSystem.cs
+Assets\MainMenu\Scripts\SaveScripts\SceneSwitcher.cs
+Assets\MainMenu\Scripts\SaveScripts\SetLevelScripts.cs
+Assets\MainMenu\Scripts\SaveScripts\WorldData.cs
+Assets\MainMenu\Scripts\SaveSlot.cs
+Assets\MainMenu\Scripts\ScriptableObjects\Characters\ObjectCharacter.cs
+Assets\MainMenu\Scripts\ScriptableObjects\ClothItemObject.cs
+Assets\MainMenu\Scripts\ScriptableObjects\CombatItemObject.cs
+Assets\MainMenu\Scripts\ScriptableObjects\HealingItemObject.cs
+Assets\MainMenu\Scripts\ScriptableObjects\Missions\GiverObject.cs
+Assets\MainMenu\Scripts\ScriptableObjects\Missions\InteractObject.cs
+Assets\MainMenu\Scripts\ScriptableObjects\Missions\LocationObject.cs
+Assets\MainMenu\Scripts\ScriptableObjects\Missions\MoveObject.cs
+Assets\MainMenu\Scripts\ScriptableObjects\Missions\ScriptableCollection.cs
+Assets\MainMenu\Scripts\ScriptableObjects\Missions\ScriptableQuest.cs
+Assets\MainMenu\Scripts\ScriptableObjects\Missions\WaveObject.cs
+Assets\MainMenu\Scripts\ScriptableObjects\QuirkObject.cs
+Assets\MainMenu\Scripts\ScriptableObjects\WeaponObject.cs
+Assets\MainMenu\Scripts\ShopScript.cs
+Assets\MainMenu\Scripts\ShopSlotScript.cs
+Assets\MainMenu\Scripts\StartMissionUI.cs
+Assets\MainMenu\Scripts\TurretScript.cs
+Assets\MainMenu\Scripts\UI\TextEditor\CurvedText.cs
+Assets\MainMenu\Scripts\UI\TextEditor\CurvedTextEditor.cs
+Assets\MainMenu\Scripts\UI\UIControls.cs
+Assets\MainMenu\Scripts\UpdateInfo.cs
+Assets\MainMenu\Scripts\UpgradeShop.cs
+Assets\MainMenu\Scripts\Weapon\MakeWeaponObject.cs
+Assets\MainMenu\Scripts\Weapon\Projectile.cs
+Assets\MainMenu\Scripts\Weapon\WeaponRotation.cs
+Assets\MainMenu\Scripts\Weapon\weaponStats.cs
+Assets\MainMenu\Scripts\WorldScript.cs
+Assets\MakeCharacterScript.cs
+Assets\MapLoading\GameObjectList.cs
+Assets\MapLoading\LoadMapButtonScript.cs
+Assets\MapLoading\RoadScript.cs
+Assets\MapLoading\WallScript.cs
+Assets\MissionBoxScript.cs
+Assets\MissionListScript.cs
+Assets\MissionLog.cs
+Assets\PauseMenuScript.cs
+Assets\PauseScript.cs
+Assets\PortraitScript.cs
+Assets\QuestDescScript.cs
+Assets\QuestMarkerScript.cs
+Assets\RemoveTextScript.cs
+Assets\RoleBoxScript.cs
+Assets\RoleDescScript.cs
+Assets\RoleManagerScript.cs
+Assets\SaveBoxScript.cs
+Assets\SaveGameScript.cs
+Assets\SceneSwitch.cs
+Assets\ShowShopInfo.cs
+Assets\SoundManagerScript.cs
+Assets\StorageWindowScript.cs
+Assets\ToTutorialScript.cs
+Assets\TurretAttack.cs
+Assets\TutorialScript.cs
+Assets\UIActiveMission.cs
+Assets\UICharacter.cs
+Assets\UIHospitalBoi.cs
+Assets\WorldManagerScript.cs
