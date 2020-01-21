@@ -114,7 +114,7 @@ public class CameraMovement : MonoBehaviour
 
     private void EdgeScroll() //if your mouse goes towards the edge of the screen the screen will go that way
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.L))
         {
             if (!edgeScrollEnabled)
                 edgeScrollEnabled = true;
