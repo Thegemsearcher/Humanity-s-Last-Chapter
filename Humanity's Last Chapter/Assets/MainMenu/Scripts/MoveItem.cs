@@ -36,10 +36,18 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         if (held)
         {
-            gameObject.transform.position = mousePos;
+            //gameObject.transform.position = mousePos;
             if (Input.GetMouseButtonDown(0))
             {
-                Place();
+                if (oldParent.GetComponent<ItemSlotScript>().inside)
+                {
+                    oldParent.GetComponent<ItemSlotScript>().SetDefaultColor();
+                    held = false;
+                }
+                else
+                {
+                    Place();
+                }
             }
         }
         else
@@ -144,6 +152,7 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             if (transform.parent.childCount > 1)
             {
+                //This should switch them.
                 held = true;
                 return;
             }
@@ -205,12 +214,6 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     private bool Move(GameObject itemSlot)
     {
-        //If we are inside the slot with the mouse...
-        //<<<<<<< HEAD
-        //        if (itemSlot.GetComponent<ItemSlotScript>().inside) {
-        //            if (!itemSlot.GetComponent<ItemSlotScript>().isActive)
-        //            {
-        //=======
         bool isMoveable = false;
         if (itemSlot.GetComponent<ItemSlotScript>().inside)
         { //Ifall musen är innanför en ruta
@@ -227,9 +230,8 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             if (isMoveable)
             {
-                //>>>>>>> 8c3ef8242b597e61e60f106e29f443632089c096
+                oldParent.GetComponent<ItemSlotScript>().SetDefaultColor();
                 oldParent.GetComponent<ItemSlotScript>().isActive = false;
-
                 //Make new slot active
                 itemSlot.GetComponent<ItemSlotScript>().isActive = true;
                 //Set the slot this this item's info
@@ -240,42 +242,15 @@ public class MoveItem : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 oldParent = transform.parent;
                 //Put the item on the new slot
                 transform.position = transform.parent.position;
-                //<<<<<<< HEAD
-                //            }
-                //            else
-                //            {
-                //                oldParent.GetComponent<ItemSlotScript>().isActive = false;
-
-                //                //Make new slot active
-                //                itemSlot.GetComponent<ItemSlotScript>().isActive = true;
-                //                //Set this item's parent to the new slot
-                //                gameObject.transform.SetParent(itemSlot.transform, false);
-                //                //Set the new slot to this item's "old" parent, I guess...
-                //                oldParent = transform.parent;
-                //                //Put the item on the new slot
-                //                transform.position = transform.parent.position;
-                //=======
             }
             else
             {
                 held = true;
-                //oldParent.GetComponent<ItemSlotScript>().isActive = false;
-                //OldSlotCheck();
-
-                ////Make new slot active
-                //itemSlot.GetComponent<ItemSlotScript>().isActive = true;
-                ////Set this item's parent to the new slot
-                //gameObject.transform.SetParent(itemSlot.transform, false);
-                ////Set the new slot to this item's "old" parent, I guess...
-                //oldParent = transform.parent;
-                ////Put the item on the new slot
-                //transform.position = transform.parent.position;
-                //>>>>>>> 8c3ef8242b597e61e60f106e29f443632089c096
             }
             GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleOutsideMask;
             return true;
         }
-        oldParent.GetComponent<ItemSlotScript>().SetDefaultColor();
+        held = false;
         return false;
     }
 }
