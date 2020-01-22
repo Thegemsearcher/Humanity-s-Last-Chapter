@@ -24,6 +24,6 @@ MonoBehaviour:
   aoe: 0
   abilityType: 0
   combatType: 0
-  attachedWeapon: {fileID: 11400000, guid: 105bc5f1113698143bb556d8b798b3ef, type: 2}
+  attachedWeapon: {fileID: 11400000, guid: 586e749e1a8960244a3deddb6749682e, type: 2}
   AttachedAbility: {fileID: 1248578579405061495, guid: 1018b2abd21f8104386c461bc159aef4,
     type: 3}
