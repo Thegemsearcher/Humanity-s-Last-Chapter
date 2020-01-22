@@ -57,8 +57,14 @@ public class Projectile : MonoBehaviour
         {
             if (hitInfo != false/*hitInfo.collider.CompareTag("Enemy")*/)
             {
-                hitInfo.collider.GetComponent<Stats>().TakeDamage(damage);
-                Debug.Log("ska ta dmg");
+                if (hitInfo.collider.CompareTag("Enemy"))
+                {
+                    hitInfo.collider.GetComponent<Enemy>().TakeDamage(damage);
+                } else
+                {
+                    hitInfo.collider.GetComponent<Stats>().TakeDamage(damage);
+                    Debug.Log("ska ta dmg");
+                }
             }
             DestroyProjectile();
         }

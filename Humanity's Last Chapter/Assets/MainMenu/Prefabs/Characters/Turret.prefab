@@ -101,12 +101,12 @@ MonoBehaviour:
   range: 25
   dmg: 1
   attackTimer: 0
-  fireRate: 0
+  fireRate: 1
   Projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
     type: 3}
   whatIsEnemy:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 8192
 --- !u!114 &4686303609022878945
 MonoBehaviour:
   m_ObjectHideFlags: 0
