@@ -7,8 +7,8 @@ public class CharacterScript : MonoBehaviour {
     public string strName = "";
     public string title, id;
     public int inventorySize, partyMember;
-    private string[] firstName = { "Fred", "Greg", "Meg", "Yrg" };
-    private string[] lastName = { "McGreg", "SaintYeet", "SoonDed" };
+    private string[] firstName = { "Fred", "Greg", "Mike", "George", "Steve", "Philip", "Tom", "Benjamin", "Samuel", "Conrad", "Tristan", "Jan", "Igor", "Leif", "Kevin", "Lorens", "Alberto", "Michael", "Johan", "Adam", "Daniel", "Matteo" };
+    private string[] lastName = { "McGreg", "Harris", "Jackson", "Smith", "Lang", "Thomson", "Williams", "Jones", "Davis", "Brown", "Miller", "Wilson", "Black", "White", "Taylor", "Carter", "Cox", "Hughes", "Perry", "Jenkins", "Bell", "Hernandez", "Hill", "Lopez", "Bryant" };
     public string rangedId, combatId, healingId, clothId, headId;
     public string[] inventory;
     public bool inHospital, isEnlisted, isYou, isEssential; //Hospital är ifall man är i hospital, enlisted är ifall man ska på uppdrag, you är ifall karaktären är spelaren, essential är ifall karaktären är odödlig

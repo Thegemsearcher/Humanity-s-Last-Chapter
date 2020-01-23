@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 200
   pcs: []
-  aggroRange: 4
+  aggroRange: 7
   atkRange: 10
   dmg: 25
   pcLayer:

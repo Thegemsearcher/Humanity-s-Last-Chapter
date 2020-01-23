@@ -27,5 +27,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 48a107721cef3d944b038d0e2ab3f3e8, type: 2}
   - {fileID: 11400000, guid: 579190eab105a634e81235d8ac3b974c, type: 2}
   - {fileID: 11400000, guid: 3da334a74f722ed4992ced1ae8b2b795, type: 2}
-  startEvents: []
+  startEvents:
+  - {fileID: 11400000, guid: 9210a67b66f2bf843bf28c53a68c97ea, type: 2}
   endEvents: []

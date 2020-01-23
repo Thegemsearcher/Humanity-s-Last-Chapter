@@ -27,7 +27,9 @@ MonoBehaviour:
   objectives:
   - {fileID: 11400000, guid: 762289ad79f210f41b74f25dedb80fa7, type: 2}
   - {fileID: 11400000, guid: 64c91ca1452453647883867956d5734b, type: 2}
+  - {fileID: 11400000, guid: 294e016dce3db54468ba2bf663aeab03, type: 2}
   - {fileID: 11400000, guid: ad7d59668012ac74984bfd34a21a0979, type: 2}
+  - {fileID: 11400000, guid: a42e988048b11454bac58695cfc52f60, type: 2}
   - {fileID: 11400000, guid: c9789c7cb5eed3c4eac22d67a51a9ac6, type: 2}
   - {fileID: 11400000, guid: cd9ef19088bfeb4428f7185a3b65b221, type: 2}
   startEvents: []

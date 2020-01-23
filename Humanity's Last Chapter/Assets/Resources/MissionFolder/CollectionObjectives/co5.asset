@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: co5
   m_EditorClassIdentifier: 
   verb: Kill
-  description: The man told us that he will give the information if we kill a Naghagger
+  description: The man told us that he will give us the information if we kill a Naghagger
   collectionAmount: 1
   currentAmount: 0
   isComplete: 0

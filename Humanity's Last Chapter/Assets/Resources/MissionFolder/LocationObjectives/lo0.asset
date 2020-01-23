@@ -13,8 +13,7 @@ MonoBehaviour:
   m_Name: lo0
   m_EditorClassIdentifier: 
   titel: Enter the house to the right!
-  description: The man said that he heard screams from the house, perhaps there is
-    a survivor there who knows what happened
+  description: Enter the house
   id: l0
   locationPos: {fileID: 7971577642530205801, guid: 0058e21c43193774e9b7e6c5d86e28fc,
     type: 3}

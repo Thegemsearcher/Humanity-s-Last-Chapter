@@ -15,8 +15,8 @@ MonoBehaviour:
   title: Return with the news
   verb: return to
   id: qg0
-  description: We have killed the Naghagger and the man will now tell us about the
-    supplies
+  description: We have finally killed the Naghagger and the man will now tell us about
+    the supplies
   spawnPos: {fileID: 1723464163768333921, guid: 8b582b2b89e6a144ab31de671da8a3f8,
     type: 3}
   isComplete: 0

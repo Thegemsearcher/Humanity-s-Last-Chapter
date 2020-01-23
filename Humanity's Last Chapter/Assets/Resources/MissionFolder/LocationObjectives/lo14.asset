@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: lo14
   m_EditorClassIdentifier: 
   titel: Collect the supplies
-  description: 'The supplies are at coord '
+  description: The supplies are at the marked area
   id: t.ex. lo0
   locationPos: {fileID: 3939163579847472891, guid: 281051de428ed4344a55c8278818b695,
     type: 3}

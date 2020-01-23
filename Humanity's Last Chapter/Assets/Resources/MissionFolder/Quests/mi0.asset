@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: mi0
   m_EditorClassIdentifier: 
   missionName: Contact with a survivor
-  description: A signal from the town has been made. If the source can be found perhaps
+  description: A signal from the town has been seen. If the source can be found, perhaps
     some information about the situation can be aquired.
   missionMap: 1
   nextMissionsComplete:

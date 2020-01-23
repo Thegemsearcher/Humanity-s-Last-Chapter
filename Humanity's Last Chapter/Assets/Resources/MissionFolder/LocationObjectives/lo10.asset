@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo10
   m_EditorClassIdentifier: 
-  titel: almost done
-  description: good, now there is only the upper left corner left
+  titel: All good, check the upper left corner next
+  description: Head to the upper left corner of the map
   id: t.ex. lo0
   locationPos: {fileID: 8661802037534502608, guid: 7ee716cadea2e3c4eb2b7789832531b9,
     type: 3}

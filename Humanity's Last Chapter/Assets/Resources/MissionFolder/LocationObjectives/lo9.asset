@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo9
   m_EditorClassIdentifier: 
-  titel: lets keep it going
-  description: upper right corner of the city next
+  titel: Lets keep it going
+  description: Upper right corner of the city next
   id: t.ex. lo0
   locationPos: {fileID: 4912324353958736056, guid: 0eee8f45069213045a7834aead8f1be1,
     type: 3}

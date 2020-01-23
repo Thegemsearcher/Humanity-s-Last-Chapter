@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: co1
   m_EditorClassIdentifier: 
   verb: Kill
-  description: Kill the Sprinters
+  description: Kill the Sprinters!
   collectionAmount: 15
   currentAmount: 0
   isComplete: 0

@@ -26,6 +26,8 @@ MonoBehaviour:
   objectives:
   - {fileID: 11400000, guid: 81acc83870212124dadf2e5b847d528e, type: 2}
   - {fileID: 11400000, guid: deb1bcc0874bf144989b2b4af06a1fda, type: 2}
+  - {fileID: 11400000, guid: 2a3a8e4cac20c4c49ab22d63cbfce3f8, type: 2}
+  - {fileID: 11400000, guid: 00db76f8d60381a40a2f7ee809448ae8, type: 2}
   - {fileID: 11400000, guid: d5c32e0fdc15d7346b7042519f416349, type: 2}
   - {fileID: 11400000, guid: 44181287cb404c84a8762178d9d4d0c7, type: 2}
   - {fileID: 11400000, guid: 2a694e2d8aec0eb4090fb7139fc47a98, type: 2}

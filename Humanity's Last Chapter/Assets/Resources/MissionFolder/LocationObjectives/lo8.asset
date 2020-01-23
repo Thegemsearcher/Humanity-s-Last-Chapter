@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo8
   m_EditorClassIdentifier: 
-  titel: check for safety
-  description: lets start with the lower right corner of town
+  titel: Check for safety
+  description: Lets start with the lower right corner of town
   id: t.ex. lo0
   locationPos: {fileID: 8441431556315283445, guid: 8b44a6b0ea60b77459aac1960ca5af73,
     type: 3}

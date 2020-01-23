@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: mi1
   m_EditorClassIdentifier: 
   missionName: Monster Hunt
-  description: The man has offerd some gold if we kill the monsters close to his house
+  description: The man has offerd some gold if we kill the monsters surrounding his
+    house
   missionMap: 1
   nextMissionsComplete: []
   nextMissionsFail: []

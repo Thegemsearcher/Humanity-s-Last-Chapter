@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo15
   m_EditorClassIdentifier: 
-  titel: go to meetup point
-  description: it's in an alley around center of town
+  titel: Go to meetup point
+  description: It's in an alley around center of town
   id: t.ex. lo0
   locationPos: {fileID: 7948302374238168062, guid: 241dc2dfc9d0731459416a58b6d7cf92,
     type: 3}

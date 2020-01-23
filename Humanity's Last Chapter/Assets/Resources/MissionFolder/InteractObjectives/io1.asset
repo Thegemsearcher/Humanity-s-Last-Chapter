@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56457c48b8671fb4bad3e70584dc33b4, type: 3}
   m_Name: io1
   m_EditorClassIdentifier: 
-  title: Look if the man survived
+  title: Check if the man is alright
   verb: talk
   id: qg0
   description: Did the man survive the attack? Find him and talk to him
