@@ -59,6 +59,8 @@ public class TurretScript : MonoBehaviour {
             }
         }
         ray = Physics2D.Raycast(transform.position, closestEnemy.transform.position - transform.position);
+        if (!(Vector3.Distance(closestEnemy.transform.position,transform.position) < range))
+            return NodeStates.fail;
         if (!ray)
             return NodeStates.fail;
         else if (ray.collider.tag.Equals("Enemy")) {
