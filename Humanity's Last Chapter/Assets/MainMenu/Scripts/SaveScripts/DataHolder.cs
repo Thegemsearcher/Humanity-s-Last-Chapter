@@ -116,6 +116,8 @@ public class DataHolder {
             character.headId = characterData.headId;
             character.strName = characterData.strName;
             character.rangedId = characterData.wpId;
+            character.combatId = characterData.combatId;
+            character.healingId = characterData.healingId;
             character.inventory = characterData.itemID;
             characterList.Add(character);
 
