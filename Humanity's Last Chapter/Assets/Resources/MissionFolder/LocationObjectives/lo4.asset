@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo4
   m_EditorClassIdentifier: 
-  titel: we still need more
-  description: t.ex. A distress call from the Dinner Room calls for an investigation
+  titel: We still need more
+  description: Move to the location
   id: t.ex. lo0
   locationPos: {fileID: 1876392193715425320, guid: 456d7b31437a26741893eefd402a6f04,
     type: 3}

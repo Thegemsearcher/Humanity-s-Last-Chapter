@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo6
   m_EditorClassIdentifier: 
-  titel: not much more now
-  description: t.ex. A distress call from the Dinner Room calls for an investigation
+  titel: We don't need much more soon, but keep going
+  description: Move to the location
   id: t.ex. lo0
   locationPos: {fileID: 966367887264413249, guid: 67215994067b73b4c9a1d5d9e7c361af,
     type: 3}

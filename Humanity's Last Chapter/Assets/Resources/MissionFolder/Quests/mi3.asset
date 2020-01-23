@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: mi3
   m_EditorClassIdentifier: 
   missionName: Find Rations
-  description: we succesfully defended our outpost but sadly we don't seem to have
-    much rations left. If we don't find more soon, we will be done for
+  description: We succesfully defended our outpost but sadly we don't seem to have
+    much rations left. If we don't find more soon, we will be done for.
   missionMap: 1
   nextMissionsComplete: []
   nextMissionsFail: []
