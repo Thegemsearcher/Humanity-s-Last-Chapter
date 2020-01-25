@@ -42,4 +42,4 @@ MonoBehaviour:
   isTimerBased: 0
   spawnRate: 0
   waveDuration: 0
-  enemiesAmmount: 10
+  enemiesAmmount: 12

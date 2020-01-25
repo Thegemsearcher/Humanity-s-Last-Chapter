@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06598a3f64e05014ba45ad20c896df02, type: 3}
   m_Name: lo13
   m_EditorClassIdentifier: 
-  titel: Return to the landing zone
-  description: Head back to the marked area
+  titel: Collect the supplies
+  description: The supplies are at the marked area
   id: t.ex. lo0
   locationPos: {fileID: 166741446758298731, guid: 153a5681fae120646a30918f9890ac24,
     type: 3}

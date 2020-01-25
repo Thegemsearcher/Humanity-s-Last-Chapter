@@ -226,7 +226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a426da5dc25f854ba7e362468ca9f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 500
+  health: 650
   pcs: []
   aggroRange: 10
   atkRange: 1.1

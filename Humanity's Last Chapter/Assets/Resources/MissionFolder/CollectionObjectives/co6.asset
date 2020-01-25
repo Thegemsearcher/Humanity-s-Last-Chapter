@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: co6
   m_EditorClassIdentifier: 
   verb: A trap!?!?!?
-  description: take them down!
-  collectionAmount: 4
+  description: Take the Spitters down!
+  collectionAmount: 2
   currentAmount: 0
   isComplete: 0
   isBonus: 0
