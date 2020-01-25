@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: mi1
   m_EditorClassIdentifier: 
   missionName: Monster Hunt
-  description: The man has offerd some gold if we kill the monsters surrounding his
-    house
+  description: '"Spitters", they are strong monsters that seem to function like queen
+    bees, all the other monsters seem to settle where they are. The man is offering
+    some gold in exchange that you take them out.'
   missionMap: 1
   nextMissionsComplete: []
   nextMissionsFail: []
@@ -27,7 +28,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3fd2c47bd7874154cac89ab04c019cb5, type: 2}
   - {fileID: 11400000, guid: f79abcf802af60444a8766d020fd861e, type: 2}
   - {fileID: 11400000, guid: 91c0063c7111e674f83000f417740aaa, type: 2}
+  - {fileID: 11400000, guid: d471d620afc06f942bb0779835e6d4f9, type: 2}
   - {fileID: 11400000, guid: 74b730b05abb5744eb765b6d78338684, type: 2}
   startEvents:
-  - {fileID: 11400000, guid: 9210a67b66f2bf843bf28c53a68c97ea, type: 2}
+  - {fileID: 11400000, guid: 1f48d2bce5db65f4fa65b3d088145b55, type: 2}
   endEvents: []

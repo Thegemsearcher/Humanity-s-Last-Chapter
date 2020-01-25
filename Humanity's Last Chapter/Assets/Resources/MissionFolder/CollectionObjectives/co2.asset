@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90252cbfb3ca9dd4f81777c952bef8e4, type: 3}
   m_Name: co2
   m_EditorClassIdentifier: 
-  verb: Kill the new threat
+  verb: Eliminate the threat
   description: The target are three monsters of the type "Spitters". Be aware! They
     are known to have ranged attacks. Kill them and claim the reward.
   collectionAmount: 3

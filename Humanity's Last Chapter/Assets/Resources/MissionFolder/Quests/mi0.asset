@@ -18,7 +18,6 @@ MonoBehaviour:
   missionMap: 1
   nextMissionsComplete:
   - {fileID: 11400000, guid: e68f79900c77a3d4e86f7a6ace5868fa, type: 2}
-  - {fileID: 11400000, guid: 1147b8d7306402848a324ee82e0314df, type: 2}
   - {fileID: 11400000, guid: 02921ba211bd25442b39d463d151f9e0, type: 2}
   nextMissionsFail: []
   goldReward: 150
