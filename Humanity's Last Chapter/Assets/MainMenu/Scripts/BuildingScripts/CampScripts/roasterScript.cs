@@ -18,7 +18,6 @@ public class roasterScript : MonoBehaviour {
         if (startWeaponList == null) {
             PrepareLists();
         }
-
         roasterPos = new Vector3(-600, 180, 1); //sjukt fult måste göras snyggare!
         if (!WorldScript.world.spawnedBoiz) { //Om spawnedBoiz är false har det inte spawnar karaktärer denna runda
             SpawnNewBarrack();

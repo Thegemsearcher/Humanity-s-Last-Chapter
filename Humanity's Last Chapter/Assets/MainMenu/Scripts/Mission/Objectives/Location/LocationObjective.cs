@@ -85,7 +85,6 @@ namespace QuestSystem {
                 //    }
                 //}
                 if (isComlete) {
-                    Debug.Log("IsComplete: " + isComlete);
                     holder.GetComponent<LocationScript>().isInRoom = false;
                     if (endEvents != null) {
                         StartEvent(endEvents);

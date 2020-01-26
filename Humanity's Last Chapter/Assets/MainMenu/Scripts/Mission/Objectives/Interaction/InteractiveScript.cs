@@ -37,7 +37,6 @@ public class InteractiveScript : MonoBehaviour {
 
     private void OnMouseDown() {        
         CheckRange();
-        Debug.Log("Distance: " + distance);
     }
 
     private void CheckRange() {

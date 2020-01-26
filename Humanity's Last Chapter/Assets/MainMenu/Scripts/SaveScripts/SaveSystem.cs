@@ -16,7 +16,7 @@ public static class SaveSystem {
 
     //Uppdateras vid varje scenbyte
     public static void SaveWorld(WorldScript saveWorld, bool isAuto) {
-        int i = 0;
+        //int i = 0;
         characterDataList.Clear();
         questDataList.Clear();
         barrackDataList.Clear();
@@ -28,18 +28,27 @@ public static class SaveSystem {
         }
          //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
         FileStream stream = new FileStream(path, FileMode.Create);
-        
-        foreach (CharacterScript character in saveWorld.characterList) {
-            CharacterData data = new CharacterData(character, saveWorld.statsList[i]);
+        Debug.Log("Character(SaveSystem)---------------------------------------------------------------------------");
+        //foreach (CharacterScript character in saveWorld.characterList) {
+        //    Debug.Log("Character: " + character.strName + "\nisEnlisted: " + character.isEnlisted);
+        //    CharacterData data = new CharacterData(character, saveWorld.statsList[i]);
+        //    characterDataList.Add(data);
+        //    i++;
+        //}
+        for (int i = 0; i < saveWorld.characterList.Count; i++) {
+            Debug.Log("CharacterId: " + saveWorld.characterList[i].id + "\nisEnlisted: " + saveWorld.characterList[i].isEnlisted);
+            CharacterData data = new CharacterData(saveWorld.characterList[i], saveWorld.statsList[i]);
             characterDataList.Add(data);
-            i++;
         }
-        i = 0;
-        foreach (CharacterScript barrackBoi in saveWorld.charBarrackPepList) {
-            BarrackData data = new BarrackData(barrackBoi, saveWorld.staBarrackPepList[i]);
+        for (int i = 0; i < saveWorld.charBarrackPepList.Count; i++) {
+            BarrackData data = new BarrackData(saveWorld.charBarrackPepList[i], saveWorld.staBarrackPepList[i]);
             barrackDataList.Add(data);
-            i++;
         }
+        //foreach (CharacterScript barrackBoi in saveWorld.charBarrackPepList) {
+        //    BarrackData data = new BarrackData(barrackBoi, saveWorld.staBarrackPepList[i]);
+        //    barrackDataList.Add(data);
+        //    i++;
+        //}
 
         foreach (ScriptableQuest avalibleQuest in saveWorld.avalibleQuests) {
             QuestData questData = new QuestData(avalibleQuest.name, false, false);

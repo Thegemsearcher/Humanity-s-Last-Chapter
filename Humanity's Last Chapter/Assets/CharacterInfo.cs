@@ -30,4 +30,17 @@ public class CharacterInfo : MonoBehaviour {
         barSize = stats.maxHp / stats.hp;
         healthBar.size = barSize;
     }
+
+    public void UpdateStats() {
+        if (stats != null) {
+            txtName.text = characterScript.strName;
+            txtDex.text = "Dex: " + stats.dex;
+            txtDef.text = "Def: " + stats.def;
+            txtHp.text = "HP: " + stats.hp + "/" + stats.maxHp;
+            txtLevel.text = stats.level.ToString();
+
+            barSize = stats.maxHp / stats.hp;
+            healthBar.size = barSize;
+        }
+    }
 }

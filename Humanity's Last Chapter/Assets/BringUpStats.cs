@@ -15,6 +15,7 @@ public class BringUpStats : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     private void Update() {
         if(showStats) {
             Stats.SetActive(true);
+            Stats.GetComponent<CharacterInfo>().UpdateStats();
         }
     }
 

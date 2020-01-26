@@ -14,6 +14,7 @@ public class CharacterScript : MonoBehaviour {
     public bool inHospital, isEnlisted, isYou, isEssential; //Hospital är ifall man är i hospital, enlisted är ifall man ska på uppdrag, you är ifall karaktären är spelaren, essential är ifall karaktären är odödlig
     public Faction faction;
     public RoleObject role;
+    private GameObject[] otherCharacters;
 
     public enum Faction {
         unassigned,
@@ -84,8 +85,23 @@ public class CharacterScript : MonoBehaviour {
     }
 
     public string GetId() {
-        int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount - 1;
-        id = "ch" + characterCounter;
+        otherCharacters = GameObject.FindGameObjectsWithTag("Character");
+        int testId = 0;
+        bool isPossible = false;
+        while (!isPossible) {
+            isPossible = true;
+            foreach (GameObject character in otherCharacters) {
+                if (character.GetComponent<CharacterScript>().id == "ch" + testId) {
+                    isPossible = false;
+                    testId++;
+                    break;
+                }
+            }
+        }
+        id = "ch" + testId;
+        Debug.Log("Id: " + id);
+        //int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount - 1;
+        //id = "ch" + characterCounter;
         return id;
     }
 

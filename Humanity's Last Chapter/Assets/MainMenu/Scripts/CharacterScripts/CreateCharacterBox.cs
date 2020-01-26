@@ -44,7 +44,6 @@ public class CreateCharacterBox : MonoBehaviour {
             
             storageCharacter.GetComponent<CharacterBox>().FinalInfo();
             storageCharacterScript = storageCharacter.GetComponentInChildren<CharacterScript>();
-            Debug.Log("storageCharacterScript.healing: " + storageCharacterScript.healingId);
             storageStats = storageCharacter.GetComponentInChildren<Stats>();
 
             foreach (GameObject hubCharacter in hubCharacters) { //Kollar alla karaktärer i hubben
