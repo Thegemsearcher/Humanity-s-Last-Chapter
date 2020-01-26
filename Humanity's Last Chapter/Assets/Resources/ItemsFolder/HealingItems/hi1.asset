@@ -15,7 +15,7 @@ MonoBehaviour:
   texture: {fileID: 21300000, guid: 7bc693057669d1e45a1466a83cf193b1, type: 3}
   itemName: Drugz
   description: Don't worry it's for a school project
-  healPower: 1000
+  healPower: 20
   cost: 600
-  coolDownTimer: 10
+  coolDownTimer: 20
   icon: {fileID: 21300000, guid: 7bc693057669d1e45a1466a83cf193b1, type: 3}

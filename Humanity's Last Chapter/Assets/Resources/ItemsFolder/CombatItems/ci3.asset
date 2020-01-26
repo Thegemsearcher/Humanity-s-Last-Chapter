@@ -20,7 +20,7 @@ MonoBehaviour:
   cost: 50
   coolDownTimer: 20
   placeRange: 6
-  damage: 100
+  damage: 40
   aoe: 4
   abilityType: 1
   combatType: 1

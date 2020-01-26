@@ -20,8 +20,8 @@ MonoBehaviour:
   clothType: 1
   clothCategory: 0
   maxHp: 0
-  str: 5
-  def: 0
+  str: 0
+  def: 1
   Int: 0
   dex: 0
   cha: 0

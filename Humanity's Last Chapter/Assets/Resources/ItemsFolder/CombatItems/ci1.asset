@@ -18,7 +18,7 @@ MonoBehaviour:
   itemName: Stationary Rifle Turret
   description: Who knew milk could be spicy?
   cost: 270
-  coolDownTimer: 10
+  coolDownTimer: 30
   placeRange: 2
   damage: 0
   aoe: 0
