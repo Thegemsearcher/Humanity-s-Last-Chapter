@@ -1,11 +1,14 @@
 /target:library
 /nowarn:0169
-/out:Temp/Assembly-CSharp.dll
+/out:Temp/Unity.Timeline.dll
 /debug:portable
 /optimize-
 /nostdlib+
 /preferreduilang:en-US
 /langversion:latest
+/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
+/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
+/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.ARModule.dll"
@@ -67,20 +70,11 @@
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.WindModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEngine/UnityEngine.XRModule.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEditor.dll"
-/reference:Library/ScriptAssemblies/Unity.Timeline.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.VSCode.Editor.dll
-/reference:Library/ScriptAssemblies/AstarPathfindingProject.dll
-/reference:Library/ScriptAssemblies/PackageToolsEditor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll
-/reference:Library/ScriptAssemblies/UnityEngine.UI.dll
-/reference:Library/ScriptAssemblies/Unity.Timeline.dll
-/reference:Library/ScriptAssemblies/AstarPathfindingProjectEditor.dll
-/reference:Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.Rider.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.2D.Tilemap.Editor.dll
-/reference:Library/ScriptAssemblies/Unity.TextMeshPro.dll
-/reference:Library/ScriptAssemblies/UnityEditor.UI.dll
+/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll"
+/reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll"
+/reference:"C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/15.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll"
 /reference:Assets/AstarPathfindingProject/Plugins/DotNetZip/Pathfinding.Ionic.Zip.Reduced.dll
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll"
 /reference:"C:/Program Files/Unity/Hub/Editor/2019.2.5f1/Editor/Data/NetStandard/compat/2.0.0/shims/netstandard/Microsoft.Win32.Primitives.dll"
@@ -292,206 +286,69 @@
 /define:ENABLE_TIMELINE
 /define:CSHARP_7_OR_LATER
 /define:CSHARP_7_3_OR_NEWER
-Assets\ActiveMissionScript.cs
-Assets\AppointCharacterScript.cs
-Assets\AppointedRoleScript.cs
-Assets\BringUpMenu.cs
-Assets\BringUpStats.cs
-Assets\BuildingNameTagScript.cs
-Assets\ChangeNameScript.cs
-Assets\CharacterCreation.cs
-Assets\CharacterInfo.cs
-Assets\CharacterToAppoint.cs
-Assets\CommandCenterScript.cs
-Assets\CommunityTitle.cs
-Assets\CreateCharacter.cs
-Assets\CreationWindow.cs
-Assets\DescCharacterScript.cs
-Assets\ExitGameScript.cs
-Assets\ExplosionTimer.cs
-Assets\FootAnim.cs
-Assets\HospitalInfo.cs
-Assets\ItemGrabberScript.cs
-Assets\LoadQuests.cs
-Assets\LootInfoScript.cs
-Assets\LootItemScript.cs
-Assets\LootScript.cs
-Assets\LootScrollScript.cs
-Assets\MainMenu\Scripts\AbilitySlotScript.cs
-Assets\MainMenu\Scripts\Actions\Abilities.cs
-Assets\MainMenu\Scripts\Actions\AbilityScript.cs
-Assets\MainMenu\Scripts\Assets.cs
-Assets\MainMenu\Scripts\BehaviourTree.cs
-Assets\MainMenu\Scripts\BuildingScripts\BarrackWindow.cs
-Assets\MainMenu\Scripts\BuildingScripts\buildingScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\CampScripts\CampScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\CampScripts\roasterScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\CampScripts\roasterWindowScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\clickAndDrag.cs
-Assets\MainMenu\Scripts\BuildingScripts\clickOnBuilding.cs
-Assets\MainMenu\Scripts\BuildingScripts\GlowScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\HireCharacter.cs
-Assets\MainMenu\Scripts\BuildingScripts\HospitalScripts\HealingSlotScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\HospitalScripts\HospitalScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\HubCharController.cs
-Assets\MainMenu\Scripts\BuildingScripts\ItemSlotScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\partySelectorScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\ItemScript.cs
-Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\MouseData.cs
-Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\StorageLoader.cs
-Assets\MainMenu\Scripts\BuildingScripts\StorageScripts\StorageScript.cs
-Assets\MainMenu\Scripts\Buttons\btnAppointScript.cs
-Assets\MainMenu\Scripts\CameraMovement.cs
-Assets\MainMenu\Scripts\CharacterScripts\ActiveCharacter.cs
-Assets\MainMenu\Scripts\CharacterScripts\AddToPlayerRoster.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterBox.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterMovement.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterStatWriter.cs
-Assets\MainMenu\Scripts\CharacterScripts\CharacterWindow.cs
-Assets\MainMenu\Scripts\CharacterScripts\CreateCharacterBox.cs
-Assets\MainMenu\Scripts\CharacterScripts\FormationsScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\MakeCharacter\QuestGiver\MakeQuestGiver.cs
-Assets\MainMenu\Scripts\CharacterScripts\MakeCharacter\QuestGiver\QuestGiver.cs
-Assets\MainMenu\Scripts\CharacterScripts\PersonalMovement.cs
-Assets\MainMenu\Scripts\CharacterScripts\Recruit.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\MakeQuirk.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\QuirkScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\RoleObject.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\RoleScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\stats\Stats.cs
-Assets\MainMenu\Scripts\CharacterScripts\UIBoiScript.cs
-Assets\MainMenu\Scripts\CharacterScripts\UICharacterRole.cs
-Assets\MainMenu\Scripts\CharacterScripts\UIHealthBoi.cs
-Assets\MainMenu\Scripts\CharacterScripts\ViewDistanceScript.cs
-Assets\MainMenu\Scripts\Combat\DestroyBlood.cs
-Assets\MainMenu\Scripts\Combat\Enemy.cs
-Assets\MainMenu\Scripts\Combat\PlayerAttack.cs
-Assets\MainMenu\Scripts\Combat\SpawnWeapon.cs
-Assets\MainMenu\Scripts\Combat\WanderingEnemy.cs
-Assets\MainMenu\Scripts\CombatAbility.cs
-Assets\MainMenu\Scripts\EnlistList.cs
-Assets\MainMenu\Scripts\ExitOnClick.cs
-Assets\MainMenu\Scripts\GrenadeScript.cs
-Assets\MainMenu\Scripts\HealingAbility.cs
-Assets\MainMenu\Scripts\HPinCombat.cs
-Assets\MainMenu\Scripts\ItemInfo.cs
-Assets\MainMenu\Scripts\Items\BulletM.cs
-Assets\MainMenu\Scripts\Items\InventoryScript.cs
-Assets\MainMenu\Scripts\Items\WeaponAbility.cs
-Assets\MainMenu\Scripts\Items\WeaponAttack.cs
-Assets\MainMenu\Scripts\Items\WeaponDisplay.cs
-Assets\MainMenu\Scripts\LoadMainMenu.cs
-Assets\MainMenu\Scripts\LocationScript.cs
-Assets\MainMenu\Scripts\MakeScriptableObject.cs
-Assets\MainMenu\Scripts\MapPrefabFinisher.cs
-Assets\MainMenu\Scripts\Mission\Events\DialogEvent.cs
-Assets\MainMenu\Scripts\Mission\Events\MoveEvent.cs
-Assets\MainMenu\Scripts\Mission\Events\WaveEvent.cs
-Assets\MainMenu\Scripts\Mission\MissionManagerScript.cs
-Assets\MainMenu\Scripts\Mission\MissionScript.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Collection\CollectionObjective.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Collection\makeCollection.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Interaction\InteractionObjective.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Interaction\InteractiveScript.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Interaction\MakeInteraction.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Location\LocationObjective.cs
-Assets\MainMenu\Scripts\Mission\Objectives\Location\MakeLocation.cs
-Assets\MainMenu\Scripts\Mission\Quest.cs
-Assets\MainMenu\Scripts\Mission\Quest\MakeQuestObject.cs
-Assets\MainMenu\Scripts\Mission\Quest\QuestObject.cs
-Assets\MainMenu\Scripts\Mission\Quest\QuestStarter.cs
-Assets\MainMenu\Scripts\Mission\SelectedMissionScript.cs
-Assets\MainMenu\Scripts\Mission\Spawner.cs
-Assets\MainMenu\Scripts\MoveItem.cs
-Assets\MainMenu\Scripts\Objects\Items\Cloths\ClothScript.cs
-Assets\MainMenu\Scripts\Objects\Items\Cloths\MakeClothItem.cs
-Assets\MainMenu\Scripts\Objects\Items\CombatItems\CombatItem.cs
-Assets\MainMenu\Scripts\Objects\Items\CombatItems\MakeCombatItem.cs
-Assets\MainMenu\Scripts\Objects\Items\CreateItems.cs
-Assets\MainMenu\Scripts\Objects\Items\HealingItems\HealingItem.cs
-Assets\MainMenu\Scripts\Objects\Items\HealingItems\MakeHealingItem.cs
-Assets\MainMenu\Scripts\Obsolete\BulletScript.cs
-Assets\MainMenu\Scripts\Obsolete\charDebug.cs
-Assets\MainMenu\Scripts\Obsolete\CreateCharacter.cs
-Assets\MainMenu\Scripts\Obsolete\DestroyGameObject.cs
-Assets\MainMenu\Scripts\Obsolete\EnemyMovement.cs
-Assets\MainMenu\Scripts\Obsolete\LoadedAssets.cs
-Assets\MainMenu\Scripts\Obsolete\MarkusEnemy.cs
-Assets\MainMenu\Scripts\Obsolete\MarkusMovement.cs
-Assets\MainMenu\Scripts\Obsolete\SliderScript.cs
-Assets\MainMenu\Scripts\RangedEnemy.cs
-Assets\MainMenu\Scripts\ReadFileScript.cs
-Assets\MainMenu\Scripts\ResourceText.cs
-Assets\MainMenu\Scripts\SaveScripts\AssetsData.cs
-Assets\MainMenu\Scripts\SaveScripts\BarrackData.cs
-Assets\MainMenu\Scripts\SaveScripts\CharacterData.cs
-Assets\MainMenu\Scripts\SaveScripts\DataHolder.cs
-Assets\MainMenu\Scripts\SaveScripts\LoadSceneOnClick.cs
-Assets\MainMenu\Scripts\SaveScripts\LoadWorld.cs
-Assets\MainMenu\Scripts\SaveScripts\PartyScript.cs
-Assets\MainMenu\Scripts\SaveScripts\QuestData.cs
-Assets\MainMenu\Scripts\SaveScripts\SaveData.cs
-Assets\MainMenu\Scripts\SaveScripts\SaveSlotManager.cs
-Assets\MainMenu\Scripts\SaveScripts\SaveSystem.cs
-Assets\MainMenu\Scripts\SaveScripts\SceneSwitcher.cs
-Assets\MainMenu\Scripts\SaveScripts\SetLevelScripts.cs
-Assets\MainMenu\Scripts\SaveScripts\WorldData.cs
-Assets\MainMenu\Scripts\SaveSlot.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Characters\ObjectCharacter.cs
-Assets\MainMenu\Scripts\ScriptableObjects\ClothItemObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\CombatItemObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\HealingItemObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\GiverObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\InteractObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\LocationObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\MoveObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\ScriptableCollection.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\ScriptableQuest.cs
-Assets\MainMenu\Scripts\ScriptableObjects\Missions\WaveObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\QuirkObject.cs
-Assets\MainMenu\Scripts\ScriptableObjects\WeaponObject.cs
-Assets\MainMenu\Scripts\ShopScript.cs
-Assets\MainMenu\Scripts\ShopSlotScript.cs
-Assets\MainMenu\Scripts\StartMissionUI.cs
-Assets\MainMenu\Scripts\TurretScript.cs
-Assets\MainMenu\Scripts\UI\TextEditor\CurvedText.cs
-Assets\MainMenu\Scripts\UI\TextEditor\CurvedTextEditor.cs
-Assets\MainMenu\Scripts\UI\UIControls.cs
-Assets\MainMenu\Scripts\UpdateInfo.cs
-Assets\MainMenu\Scripts\UpgradeShop.cs
-Assets\MainMenu\Scripts\Weapon\MakeWeaponObject.cs
-Assets\MainMenu\Scripts\Weapon\Projectile.cs
-Assets\MainMenu\Scripts\Weapon\WeaponRotation.cs
-Assets\MainMenu\Scripts\Weapon\weaponStats.cs
-Assets\MainMenu\Scripts\WorldScript.cs
-Assets\MakeCharacterScript.cs
-Assets\MapLoading\GameObjectList.cs
-Assets\MapLoading\LoadMapButtonScript.cs
-Assets\MapLoading\RoadScript.cs
-Assets\MapLoading\WallScript.cs
-Assets\MissionBoxScript.cs
-Assets\MissionListScript.cs
-Assets\MissionLog.cs
-Assets\PauseMenuScript.cs
-Assets\PauseScript.cs
-Assets\PortraitScript.cs
-Assets\QuestDescScript.cs
-Assets\QuestMarkerScript.cs
-Assets\RemoveTextScript.cs
-Assets\RoleBoxScript.cs
-Assets\RoleDescScript.cs
-Assets\RoleManagerScript.cs
-Assets\SaveBoxScript.cs
-Assets\SaveGameScript.cs
-Assets\SceneSwitch.cs
-Assets\ShowShopInfo.cs
-Assets\SoundManagerScript.cs
-Assets\StorageWindowScript.cs
-Assets\ToTutorialScript.cs
-Assets\TurretAttack.cs
-Assets\TutorialScript.cs
-Assets\UIActiveMission.cs
-Assets\UICharacter.cs
-Assets\UIHospitalBoi.cs
-Assets\WorldManagerScript.cs
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Activation\ActivationMixerPlayable.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Activation\ActivationPlayableAsset.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Activation\ActivationTrack.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Animation\AnimationOutputWeightProcessor.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Animation\AnimationPlayableAsset.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Animation\AnimationTrack.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Animation\ICurvesOwner.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\AssetUpgrade\AnimationPlayableAssetUpgrade.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\AssetUpgrade\AnimationTrackUpgrade.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\AssetUpgrade\ClipUpgrade.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\AssetUpgrade\TimelineUpgrade.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\AssetUpgrade\TrackUpgrade.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Attributes\TrackColorAttribute.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Audio\AudioClipProperties.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Audio\AudioMixerProperties.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Audio\AudioPlayableAsset.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Audio\AudioTrack.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\ClipCaps.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Control\ControlPlayableAsset.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Control\ControlTrack.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\DiscreteTime.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Evaluation\InfiniteRuntimeClip.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Evaluation\IntervalTree.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Evaluation\RuntimeClip.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Evaluation\RuntimeClipBase.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Evaluation\RuntimeElement.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Evaluation\ScheduleRuntimeClip.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\IMarker.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\INotificationOptionProvider.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\Marker.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\MarkerList.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\MarkerTrack.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\Signals\CustomSignalEventDrawer.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\Signals\SignalAsset.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\Signals\SignalEmitter.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\Signals\SignalReceiver.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Events\SignalTrack.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Extensions\TrackExtensions.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\GroupTrack.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Playables\ActivationControlPlayable.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Playables\BasicScriptPlayable.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Playables\DirectorControlPlayable.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Playables\ITimeControl.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Playables\NotificationFlags.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Playables\ParticleControlPlayable.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Playables\PrefabControlPlayable.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Playables\TimeControlPlayable.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Playables\TimeNotificationBehaviour.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Properties\AssemblyInfo.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Scripting\PlayableTrack.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Timeline.deprecated.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\TimelineAsset.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\TimelineAsset_CreateRemove.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\TimelineAttributes.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\TimelineClip.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\TimelinePlayable.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\TrackAsset.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Utilities\Extrapolation.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Utilities\HashUtility.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Utilities\IPropertyCollector.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Utilities\IPropertyPreview.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Utilities\NotificationUtilities.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Utilities\TimelineCreateUtilities.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Utilities\TimelineUndo.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Utilities\TimeUtility.cs"
+"C:\Program Files\Unity\Hub\Editor\2019.2.5f1\Editor\Data\Resources\PackageManager\BuiltInPackages\com.unity.timeline\Runtime\Utilities\WeightUtility.cs"

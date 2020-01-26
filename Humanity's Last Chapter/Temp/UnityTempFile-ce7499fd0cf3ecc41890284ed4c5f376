@@ -298,6 +298,7 @@ Assets\AppointedRoleScript.cs
 Assets\BringUpMenu.cs
 Assets\BringUpStats.cs
 Assets\BuildingNameTagScript.cs
+Assets\ChangeButtonColor.cs
 Assets\ChangeNameScript.cs
 Assets\CharacterCreation.cs
 Assets\CharacterInfo.cs
@@ -479,6 +480,7 @@ Assets\PortraitScript.cs
 Assets\QuestDescScript.cs
 Assets\QuestMarkerScript.cs
 Assets\RemoveTextScript.cs
+Assets\ReturnToHubText.cs
 Assets\RoleBoxScript.cs
 Assets\RoleDescScript.cs
 Assets\RoleManagerScript.cs

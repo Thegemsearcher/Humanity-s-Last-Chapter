@@ -479,6 +479,7 @@ Assets\PortraitScript.cs
 Assets\QuestDescScript.cs
 Assets\QuestMarkerScript.cs
 Assets\RemoveTextScript.cs
+Assets\ReturnToHubText.cs
 Assets\RoleBoxScript.cs
 Assets\RoleDescScript.cs
 Assets\RoleManagerScript.cs

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på alla missions som finns och dess progression
 
     public bool isTesting;
-    public GameObject UIInfoMission, MissionMarker;
+    public GameObject UIInfoMission, MissionMarker, ReturnButton;
     public ScriptableQuest testQuest;
     public List<QuestObject> activeQuestList;
     private List<GameObject> questMarkerList;
@@ -21,11 +21,15 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
     private Text txtQuest, txtObjective;
     private List<string> announceOrder;
     private GameObject markerObject;
+    ChangeButtonColor completeQuestColor;
+    ReturnToHubText completeQuestText;
 
     private void Awake() {
         activeQuestList = new List<QuestObject>();
         announceOrder = new List<string>();
         questMarkerList = new List<GameObject>();
+        completeQuestColor = new ChangeButtonColor();
+        completeQuestText = new ReturnToHubText();
     }
 
     void CreateQuestMarker()
@@ -97,6 +101,10 @@ public class MissionManagerScript : MonoBehaviour { //Markus, håller koll på a
             else
             {
                 Destroy(markerObject);
+                ReturnButton.GetComponent<ChangeButtonColor>().ChangeColor();
+                ReturnButton.GetComponentInChildren<ReturnToHubText>().ChangeText();
+                //completeQuestText.ChangeText();
+                //completeQuestColor.ChangeColor();
             }
             
         }
