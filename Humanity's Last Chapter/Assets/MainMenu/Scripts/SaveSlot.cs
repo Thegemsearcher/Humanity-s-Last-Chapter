@@ -17,6 +17,6 @@ public class SaveSlot : MonoBehaviour {
     }
 
     public void ActivateSave() {
-        DataHolder.dataHolder.activeSave = activeSave;
+        DataHolder.dataHolder.saveId = saveId;
     }
 }

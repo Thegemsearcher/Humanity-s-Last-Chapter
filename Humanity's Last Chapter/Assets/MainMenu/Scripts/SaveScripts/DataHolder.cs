@@ -11,30 +11,32 @@ public class DataHolder {
 
     public int activeSave, saveCounter;
 
-    private string path, saveName, saveId;
+    private string path, saveName;
+    public string saveId;
 
-    private List<CharacterScript> characterList;
-    private List<Stats> statsList;
+    private List<CharacterScript> characterList, chaBarrackList;
+    private List<Stats> statsList, staBarrackList;
     private List<ScriptableQuest> avalibleQuests;
     private List<ScriptableQuest> completedQuests;
     private List<ScriptableQuest> failedQuests;
-    public GameObject btnContinue;
+    public GameObject btnContinue, btnLoad;
 
     public void NewHolder() {
         characterList = new List<CharacterScript>();
+        chaBarrackList = new List<CharacterScript>();
         statsList = new List<Stats>();
+        staBarrackList = new List<Stats>();
         avalibleQuests = new List<ScriptableQuest>();
         completedQuests = new List<ScriptableQuest>();
         failedQuests = new List<ScriptableQuest>();
 
         if (Assets.assets == null) {
-           
             Assets.assets = new Assets();
-            
             Assets.assets.GetAssets();
-            
         }
 
+        btnContinue = GameObject.FindGameObjectWithTag("BtnContinue");
+        btnLoad = GameObject.FindGameObjectWithTag("BtnLoad");
         path = Application.persistentDataPath + "/Saves/";
         saveCounter = Directory.GetFiles(path).Length;
 
@@ -43,12 +45,35 @@ public class DataHolder {
         } else {
             saveCounter++;
         }
-    }
+        
+        if (saveCounter <= 0) {
+            btnLoad.SetActive(false);
+        }
+    } //Förberreder en ny holder
 
     public void BtnContinue() {
         if (File.Exists(path + "AutoSave.save")) {
             WorldData("AutoSave", true);
             StartGame();
+        }
+    }
+
+    public void CheckButtonPossible() { //Kollar om någon knapp ska inaktiveras
+        saveCounter = Directory.GetFiles(path).Length;
+        if (btnContinue == null) {
+            btnContinue = GameObject.FindGameObjectWithTag("BtnContinue");
+            btnLoad = GameObject.FindGameObjectWithTag("BtnLoad");
+        }
+        
+        if (!File.Exists(path + "AutoSave.save")) { //Som det fungerar nu laddar man från autoSave när man klickar continue, om den inte finns... kan man inte ladda
+            btnContinue.SetActive(false); //Sätter knappen så att den är inaktiv
+        } else {
+            btnContinue.SetActive(true);
+        }
+        if (saveCounter <= 0) { //Om det inte finns några saves finns det ingen mening att ladda
+            btnLoad.SetActive(false);
+        } else {
+            btnLoad.SetActive(true);
         }
     }
 
@@ -70,7 +95,7 @@ public class DataHolder {
     }
 
     public void BtnPlay() {
-        if (File.Exists(path + "save" + saveId + ".save")) {
+        if (File.Exists(path + saveId + ".save")) {
             WorldData(saveId, false);
             StartGame();
         } else if (File.Exists(path + "AutoSave.save")) {
@@ -83,17 +108,18 @@ public class DataHolder {
     }
 
     public void BtnDelete() {
-        if(File.Exists(path + "save" + activeSave + ".save")) {
-            File.Delete(path + "save" + activeSave + ".save");
-            Debug.Log("Deleted: save" + activeSave);
+        if(File.Exists(path + saveId + ".save")) {
+            File.Delete(path + saveId + ".save");
+            Debug.Log("Deleted: " + saveId);
         } else {
-            //Debug.Log("Can't find Save" + activeSave);
+            Debug.Log("Can't find Save: " + saveId);
         }
-        
+
     }
 
     private void WorldData(string saveId, bool isAuto) {
-
+        chaBarrackList.Clear();
+        staBarrackList.Clear();
         SaveData data = SaveSystem.LoadWorld(saveId, isAuto);
 
         WorldScript.world = new WorldScript();
@@ -108,6 +134,35 @@ public class DataHolder {
         WorldScript.world.isActive = data.worldData.isActive;
         WorldScript.world.saveName = data.worldData.saveName;
         WorldScript.world.partySize = data.worldData.partySize;
+        WorldScript.world.spawnedBoiz = data.worldData.spawnedBoiz;
+
+        foreach (BarrackData barrackData in data.barrackDataList) {
+            CharacterScript character = new CharacterScript();
+            character.id = barrackData.id;
+            character.clothId = barrackData.clothId;
+            character.headId = barrackData.headId;
+            character.strName = barrackData.strName;
+            character.rangedId = barrackData.wpId;
+            character.combatId = barrackData.combatId;
+            character.healingId = barrackData.healingId;
+            character.inventory = barrackData.itemID;
+            chaBarrackList.Add(character);
+
+            Stats stats = new Stats();
+            stats.hp = barrackData.hp;
+            stats.maxHp = barrackData.maxHp;
+            stats.quirkIDList = barrackData.quirkID;
+            stats.shit = barrackData.shit;
+            stats.str = barrackData.str;
+            stats.def = barrackData.def;
+            stats.Int = barrackData.Int;
+            stats.dex = barrackData.dex;
+            stats.cha = barrackData.cha;
+            stats.ldr = barrackData.ldr;
+            stats.snt = barrackData.snt;
+            stats.exp = barrackData.exp;
+            staBarrackList.Add(stats);
+        }
 
         foreach (CharacterData characterData in data.characterDataList) {
             CharacterScript character = new CharacterScript();
@@ -147,11 +202,14 @@ public class DataHolder {
                 avalibleQuests.Add(quest);
             }
         }
+        //Sätter så att att alla listor i worldScript får som de ska ha det
         WorldScript.world.avalibleQuests = avalibleQuests;
         WorldScript.world.completedQuests = completedQuests;
         WorldScript.world.characterList = characterList;
         WorldScript.world.statsList = statsList;
-    }
+        WorldScript.world.charBarrackPepList = chaBarrackList;
+        WorldScript.world.staBarrackPepList = staBarrackList;
+    } //Förberreder WorldScript med data
 
     private ScriptableQuest FindQuest(string questId) {
         foreach (ScriptableQuest quest in Assets.assets.questTemp) {

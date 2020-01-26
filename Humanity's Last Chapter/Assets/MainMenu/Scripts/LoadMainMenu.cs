@@ -15,6 +15,8 @@ public class LoadMainMenu : MonoBehaviour {
             DataHolder.dataHolder = new DataHolder();
             DataHolder.dataHolder.NewHolder();
         }
+
+        DataHolder.dataHolder.CheckButtonPossible();
     }
 
     public void BtnContinue() {
@@ -30,6 +32,9 @@ public class LoadMainMenu : MonoBehaviour {
     }
 
     public void BtnDelete() {
-        DataHolder.dataHolder.BtnDelete();
+        DataHolder.dataHolder.BtnDelete(); //tar bort save
+
+        GameObject PlayMenu = GameObject.Find("PlayMenu");
+        PlayMenu.GetComponent<SaveSlotManager>().PrepareSlots();
     }
 }

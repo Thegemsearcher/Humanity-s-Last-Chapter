@@ -793,6 +793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveSlot: {fileID: 0}
+  save: 
 --- !u!1 &792116518
 GameObject:
   m_ObjectHideFlags: 0
@@ -1777,6 +1778,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2057436959}
+        m_MethodName: BtnReturn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1187525571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2361,7 +2373,7 @@ GameObject:
   - component: {fileID: 1440224520}
   m_Layer: 5
   m_Name: btnContinue
-  m_TagString: Untagged
+  m_TagString: BtnContinue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2566,7 +2578,7 @@ GameObject:
   - component: {fileID: 1663076585}
   m_Layer: 5
   m_Name: btnLoadGame
-  m_TagString: Untagged
+  m_TagString: BtnLoad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3392,7 +3404,7 @@ GameObject:
   - component: {fileID: 2057436959}
   m_Layer: 5
   m_Name: PlayMenu
-  m_TagString: Untagged
+  m_TagString: PlayMenu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3434,6 +3446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveSlot: {fileID: 6503706827403667993, guid: 0d1c1225cb4b5ea48a9dd0fbf73bb36d,
     type: 3}
+  save: 
 --- !u!1 &2083068746
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,12 +8,13 @@ public class WorldScript {
     public static WorldScript world;
 
     public int gold, rs, storageSize, stockSize, shopSize, shopLevel, hospitalLevel, date, supplies, goods, partySize, year; //gold - guld som finns
-    public bool isActive, isNewGame; //Den sparningen som startar om man klickar continue
+    public bool isActive, isNewGame, spawnedBoiz; //Den sparningen som startar om man klickar continue
     public string saveName, saveId;
     private bool isChoosing, hasGoodsQuest;
     private int itemTest;
 
-    public List<GameObject> BarrackPepList;
+    public List<CharacterScript> charBarrackPepList;
+    public List<Stats> staBarrackPepList;
 
     public string[] storageArr, shopArr;
 
@@ -32,7 +33,8 @@ public class WorldScript {
     public void Reset() {
         characterList = new List<CharacterScript>();
         statsList = new List<Stats>();
-        BarrackPepList = new List<GameObject>();
+        charBarrackPepList = new List<CharacterScript>();
+        staBarrackPepList = new List<Stats>();
 
         avalibleQuests = new List<ScriptableQuest>();
         completedQuests = new List<ScriptableQuest>();
@@ -184,6 +186,7 @@ public class WorldScript {
         }
 
         Hospital();
+        ClearBarrack();
     }
 
     public void Hospital() {
@@ -223,5 +226,11 @@ public class WorldScript {
                 characterScript.inHospital = false;
             }
         }
+    }
+    
+    private void ClearBarrack() {
+        spawnedBoiz = false;
+        charBarrackPepList.Clear();
+        staBarrackPepList.Clear();
     }
 }

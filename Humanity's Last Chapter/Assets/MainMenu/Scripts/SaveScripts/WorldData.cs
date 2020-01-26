@@ -9,7 +9,7 @@ public class WorldData {
     public int gold, rs, storageSize, shopSize, shopLevel, partySize;
     public string saveId, saveName;
     public string[] storageArr, shopArr;
-    public bool isActive; //Den sparningen som startar om man klickar continue
+    public bool isActive, spawnedBoiz; //Den sparningen som startar om man klickar continue
 
     public WorldData(WorldScript world) {
         gold = world.gold;
@@ -23,5 +23,6 @@ public class WorldData {
         isActive = world.isActive;
         saveName = world.saveName;
         partySize = world.partySize;
+        spawnedBoiz = world.spawnedBoiz;
     }
 }

@@ -62,6 +62,9 @@ TagManager:
   - HospitalBuilding
   - UIHospitalCharacter
   - Hub
+  - PlayMenu
+  - BtnContinue
+  - BtnLoad
   layers:
   - Default
   - TransparentFX

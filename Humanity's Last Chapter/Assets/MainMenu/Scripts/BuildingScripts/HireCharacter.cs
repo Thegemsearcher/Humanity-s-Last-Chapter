@@ -23,7 +23,14 @@ public class HireCharacter : MonoBehaviour {
         characterScript = GetComponent<CharacterScript>();
 
         if (cost <= WorldScript.world.gold) {
-            WorldScript.world.BarrackPepList.Remove(WorldObject);
+            int i = 0;
+            foreach (CharacterScript characterScript in WorldScript.world.charBarrackPepList) {
+                if (characterScript.id == gameObject.GetComponent<CharacterScript>().id) {
+                    WorldScript.world.charBarrackPepList.Remove(WorldScript.world.charBarrackPepList[i]);
+                    WorldScript.world.staBarrackPepList.Remove(WorldScript.world.staBarrackPepList[i]);
+                    break;
+                }
+            }
             WorldScript.world.gold -= cost;
             holder = Instantiate(UICharacter);
             holder.transform.SetParent(Manager.transform, false);

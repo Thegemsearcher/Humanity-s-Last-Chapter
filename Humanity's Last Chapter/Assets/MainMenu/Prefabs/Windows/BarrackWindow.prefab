@@ -372,6 +372,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ee823cda9898c14da6474713243176d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BarrackBoi: {fileID: 2444965726526007397, guid: ec25af983ec8a034cb2af345863ad3e8,
+    type: 3}
 --- !u!1 &299790673292688246
 GameObject:
   m_ObjectHideFlags: 0

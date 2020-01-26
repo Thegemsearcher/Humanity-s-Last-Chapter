@@ -7,6 +7,7 @@ using System.Collections.Generic;
 public static class SaveSystem {
 
     public static List<CharacterData> characterDataList = new List<CharacterData>(); //Serialize all characters
+    public static List<BarrackData> barrackDataList = new List<BarrackData>(); //Serialize all characters
     public static List<QuestData> questDataList = new List<QuestData>(); //Serialize all quests
     public static WorldData worldData; //Serialize world stats
     public static SaveData saveData; //Everything that will be saved should be added to this one!
@@ -18,6 +19,7 @@ public static class SaveSystem {
         int i = 0;
         characterDataList.Clear();
         questDataList.Clear();
+        barrackDataList.Clear();
         BinaryFormatter formatter = new BinaryFormatter();
         if(isAuto) {
             path = Application.persistentDataPath + "/Saves/AutoSave.save";
@@ -32,6 +34,13 @@ public static class SaveSystem {
             characterDataList.Add(data);
             i++;
         }
+        i = 0;
+        foreach (CharacterScript barrackBoi in saveWorld.charBarrackPepList) {
+            BarrackData data = new BarrackData(barrackBoi, saveWorld.staBarrackPepList[i]);
+            barrackDataList.Add(data);
+            i++;
+        }
+
         foreach (ScriptableQuest avalibleQuest in saveWorld.avalibleQuests) {
             QuestData questData = new QuestData(avalibleQuest.name, false, false);
             questDataList.Add(questData);
@@ -40,13 +49,15 @@ public static class SaveSystem {
             QuestData questData = new QuestData(completedQuest.name, true, false);
             questDataList.Add(questData);
         }
-        foreach (ScriptableQuest failedQuest in saveWorld.failedQuests) {
-            QuestData questData = new QuestData(failedQuest.name, false, true);
-            questDataList.Add(questData);
+        if(saveWorld.failedQuests != null) {
+            foreach (ScriptableQuest failedQuest in saveWorld.failedQuests) {
+                QuestData questData = new QuestData(failedQuest.name, false, true);
+                questDataList.Add(questData);
+            }
         }
-
+        
         worldData = new WorldData(saveWorld);
-        saveData = new SaveData(characterDataList, questDataList, worldData);
+        saveData = new SaveData(characterDataList, barrackDataList, questDataList, worldData);
         formatter.Serialize(stream, saveData);
 
         stream.Close();

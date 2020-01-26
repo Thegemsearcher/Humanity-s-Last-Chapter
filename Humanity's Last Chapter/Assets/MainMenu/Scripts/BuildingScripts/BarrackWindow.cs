@@ -4,72 +4,31 @@ using UnityEngine;
 
 public class BarrackWindow : MonoBehaviour {
 
+    public GameObject BarrackBoi;
     private GameObject holder;
-    private List<WeaponObject> startWeaponList;
-    private List<ClothItemObject> startClothList;
-    private List<ClothItemObject> startHeadList;
+    private Vector3 roasterPos;
 
     private int rand;
 
     private void Start() {
-        if (startWeaponList == null) {
-            PrepareLists();
-        }
-
-        foreach (GameObject character in WorldScript.world.BarrackPepList) {
-            holder = Instantiate(character);
-            holder.GetComponent<HireCharacter>().WorldObject = character;
-            holder.transform.SetParent(gameObject.transform, false);
-            GetEquipment();
+        roasterPos = new Vector3(-600, 180, 1); //sjukt fult måste göras snyggare!
+        for (int i = 0; i < WorldScript.world.charBarrackPepList.Count; i++) {
+            if (i == 3) {
+                roasterPos.y = 180;
+                roasterPos.x += 700;
+            }
+            holder = Instantiate(BarrackBoi);                                                   //Skapar rutan
+            holder.GetComponent<CharacterScript>().LoadPlayer(WorldScript.world.charBarrackPepList[i]);                       //Sätter in characterScript
+            holder.GetComponent<Stats>().LoadPlayer(WorldScript.world.staBarrackPepList[i]);    //sätter in stats
+            holder.transform.position = roasterPos;
+            //holder.GetComponent<HireCharacter>().WorldObject = holder;
+            holder.transform.SetParent(gameObject.transform, false);                            //Sätter så att den har BarrackWindow som parent
+            
+            roasterPos.y -= 200;
         }
     }
 
     public void BtnExit() {
         Destroy(gameObject);
-    }
-
-    private void PrepareLists() {
-        startWeaponList = new List<WeaponObject>();
-        startClothList = new List<ClothItemObject>();
-        startHeadList = new List<ClothItemObject>();
-
-        foreach (WeaponObject weapon in Assets.assets.weaponTemp) {
-            if (weapon.wpLevel <= 0) {
-                startWeaponList.Add(weapon);
-            }
-        }
-
-        foreach (ClothItemObject cloth in Assets.assets.clothTemp) {
-            if (cloth.clothCategory == ClothScript.ClothCategory.StartGear) {
-                switch (cloth.clothType) {
-                    case ClothScript.ClothType.Cloth:
-                        startClothList.Add(cloth);
-                        break;
-                    case ClothScript.ClothType.HeadGear:
-                        startHeadList.Add(cloth);
-                        break;
-                    default:
-                        Debug.Log("Item '" + cloth.name + "' don't have a clothType");
-                        break;
-                }
-            }
-        }
-    }
-
-    private void GetEquipment() {
-        if (startWeaponList.Count > 0) {
-            rand = Random.Range(0, startWeaponList.Count);
-            holder.GetComponent<CharacterScript>().rangedId = startWeaponList[rand].name;
-        }
-
-        if (startClothList.Count > 0) {
-            rand = Random.Range(0, startClothList.Count);
-            holder.GetComponent<PortraitScript>().ChangeCloth(startClothList[rand]);
-        }
-
-        if (startHeadList.Count > 0) {
-            rand = Random.Range(0, startHeadList.Count);
-            holder.GetComponent<PortraitScript>().ChangeCloth(startHeadList[rand]);
-        }
     }
 }

@@ -5,13 +5,23 @@ public class SaveSlotManager : MonoBehaviour {
     public GameObject saveSlot;
     private GameObject saveHolder, parent;
 
+    public string save;
+
     private int saveCounter;
     private string path;
 
-    void Start() {
+    private void Start() {
+        PrepareSlots();        
+    }
+
+    public void PrepareSlots() {
         path = Application.persistentDataPath + "/Saves/";
         saveCounter = Directory.GetFiles(path).Length;
         parent = GameObject.FindGameObjectWithTag("forSaves");
+
+        foreach (Transform child in parent.transform) { //Rensar alla barn som redan finns
+            Destroy(child.gameObject);
+        }
 
         AutoSave();
         AllSaves();
@@ -41,5 +51,9 @@ public class SaveSlotManager : MonoBehaviour {
             saveHolder.GetComponent<SaveSlot>().saveName = "AutoSave";
             saveHolder.transform.SetParent(parent.transform, false);
         }
+    }
+
+    public void BtnReturn() {
+        DataHolder.dataHolder.CheckButtonPossible();
     }
 }

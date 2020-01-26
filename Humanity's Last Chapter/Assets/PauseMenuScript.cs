@@ -21,6 +21,7 @@ public class PauseMenuScript : MonoBehaviour {
     }
 
     public void BtnResume() {
+        Debug.Log("Hub: " + hub.name);
         hub.SetActive(true);
         Destroy(gameObject);
     }
