@@ -60,10 +60,8 @@ public class PartyScript : MonoBehaviour {
         GameObject[] abilitySlots = GameObject.FindGameObjectsWithTag("AbilitySlot");
         toRemoveC = new List<CharacterScript>();
         toRemoveS = new List<Stats>();
-
-        Debug.Log("Character(PartyScript)---------------------------------------------------------------------------");
+        
         foreach (CharacterScript characterScript in characterScriptList) {
-            Debug.Log("CharacterId: " + characterScript.id + "\nisEnlisted: " + characterScript.isEnlisted);
             if (characterScript.isEnlisted) {
                 characterO = Instantiate(character);
                 characterO.GetComponent<CharacterScript>().LoadPlayer(characterScript);

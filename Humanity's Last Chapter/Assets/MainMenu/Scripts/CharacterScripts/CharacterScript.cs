@@ -99,7 +99,6 @@ public class CharacterScript : MonoBehaviour {
             }
         }
         id = "ch" + testId;
-        Debug.Log("Id: " + id);
         //int characterCounter = GameObject.FindGameObjectWithTag("CharacterManager").transform.childCount - 1;
         //id = "ch" + characterCounter;
         return id;

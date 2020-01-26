@@ -28,7 +28,6 @@ public static class SaveSystem {
         }
          //vi behöver något sätt att se till att de inte sparar över varandra.. tänkte använda id men det blir ju också raderat
         FileStream stream = new FileStream(path, FileMode.Create);
-        Debug.Log("Character(SaveSystem)---------------------------------------------------------------------------");
         //foreach (CharacterScript character in saveWorld.characterList) {
         //    Debug.Log("Character: " + character.strName + "\nisEnlisted: " + character.isEnlisted);
         //    CharacterData data = new CharacterData(character, saveWorld.statsList[i]);
@@ -36,7 +35,6 @@ public static class SaveSystem {
         //    i++;
         //}
         for (int i = 0; i < saveWorld.characterList.Count; i++) {
-            Debug.Log("CharacterId: " + saveWorld.characterList[i].id + "\nisEnlisted: " + saveWorld.characterList[i].isEnlisted);
             CharacterData data = new CharacterData(saveWorld.characterList[i], saveWorld.statsList[i]);
             characterDataList.Add(data);
         }
