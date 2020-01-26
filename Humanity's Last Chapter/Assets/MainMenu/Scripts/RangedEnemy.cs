@@ -13,7 +13,7 @@ public class RangedEnemy : MonoBehaviour
     float offset = 3f;
     RootNode BT;
     GameObject targetedPc;
-    float range = 3;
+    public float range = 3;
     public GameObject Projectile;
     GameObject projectile;
     public Animator animator;

@@ -23,6 +23,5 @@ MonoBehaviour:
   isComlete: 0
   isBonus: 0
   spawnLo: 0
-  startEvents:
-  - {fileID: 11400000, guid: 447452ccbff885146adbb6ba25298e20, type: 2}
+  startEvents: []
   endEvents: []

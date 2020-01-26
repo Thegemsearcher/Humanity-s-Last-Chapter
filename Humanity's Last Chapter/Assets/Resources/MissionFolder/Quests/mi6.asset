@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: mi6
   m_EditorClassIdentifier: 
-  missionName: Supply run
+  missionName: Supply Run (Medium)
   description: Find and collect the supplies and turn it into goods!
   missionMap: 1
   nextMissionsComplete:
-  - {fileID: 11400000, guid: 1a551d1919d675b4b9383034655864ef, type: 2}
+  - {fileID: 11400000}
   nextMissionsFail: []
   goldReward: 200
   rsReward: 0
@@ -26,11 +26,9 @@ MonoBehaviour:
   objectives:
   - {fileID: 11400000, guid: 81acc83870212124dadf2e5b847d528e, type: 2}
   - {fileID: 11400000, guid: deb1bcc0874bf144989b2b4af06a1fda, type: 2}
-  - {fileID: 11400000, guid: 2a3a8e4cac20c4c49ab22d63cbfce3f8, type: 2}
-  - {fileID: 11400000, guid: 00db76f8d60381a40a2f7ee809448ae8, type: 2}
   - {fileID: 11400000, guid: d5c32e0fdc15d7346b7042519f416349, type: 2}
-  - {fileID: 11400000, guid: 44181287cb404c84a8762178d9d4d0c7, type: 2}
   - {fileID: 11400000, guid: 2a694e2d8aec0eb4090fb7139fc47a98, type: 2}
+  - {fileID: 11400000, guid: 44181287cb404c84a8762178d9d4d0c7, type: 2}
   startEvents:
-  - {fileID: 11400000, guid: fd237bb8b8414d34e8351ca434db56db, type: 2}
+  - {fileID: 11400000, guid: 9210a67b66f2bf843bf28c53a68c97ea, type: 2}
   endEvents: []

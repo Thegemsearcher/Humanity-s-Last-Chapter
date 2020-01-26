@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b739a0e2429aaa4e99097977f6a75aa, type: 3}
   m_Name: mi1
   m_EditorClassIdentifier: 
-  missionName: Monster Hunt
+  missionName: Monster Hunt (Hard)
   description: '"Spitters", they are strong monsters that seem to function like queen
     bees, all the other monsters seem to settle where they are. The man is offering
     some gold in exchange that you take them out.'
   missionMap: 1
-  nextMissionsComplete: []
+  nextMissionsComplete:
+  - {fileID: 11400000, guid: 1147b8d7306402848a324ee82e0314df, type: 2}
   nextMissionsFail: []
   goldReward: 300
   rsReward: 0
