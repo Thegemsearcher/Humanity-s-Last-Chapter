@@ -18,7 +18,7 @@ MonoBehaviour:
   itemName: MKV Grenade
   description: A explosive on a stick!
   cost: 50
-  coolDownTimer: 20
+  coolDownTimer: 30
   placeRange: 6
   damage: 40
   aoe: 4
