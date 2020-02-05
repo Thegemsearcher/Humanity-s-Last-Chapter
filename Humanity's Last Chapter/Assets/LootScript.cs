@@ -37,7 +37,6 @@ public class LootScript : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log("Hmmmm");
         CheckRange();
 
         if (isActive)
@@ -78,7 +77,6 @@ public class LootScript : MonoBehaviour
 
     public void GetItems(string[] inventory, string strName)
     {
-        //Debug.Log("Yes it does");
         this.inventory = inventory;
         this.strName = strName;
         inventorySize = inventory.Length;

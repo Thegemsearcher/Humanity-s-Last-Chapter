@@ -19,7 +19,6 @@ public class SpawnWeapon : MonoBehaviour {
 
     public void Spawn(string wpId, GameObject parent) {
         //if(weaponCounter == 0) {
-        //    Debug.Log("Hmmmmm");
         //    Start();
         //}
 
