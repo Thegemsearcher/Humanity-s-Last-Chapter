@@ -4994,7 +4994,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   attackTimer: 0
-  timeBetweenAttack: 3
+  timeBetweenAttack: 2
   animator: {fileID: 4238669593420774111}
   bloodEffect: {fileID: 7200977568547554734, guid: c05be1537aba2f24b8655ec854bda831,
     type: 3}
@@ -5146,6 +5146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootBox: {fileID: 4150398682782584063, guid: 46d1dacedbe07f543a7429112eac4bfb, type: 3}
   inventory: []
+  lootLevel: 2
 --- !u!95 &4238669593420774111
 Animator:
   serializedVersion: 3

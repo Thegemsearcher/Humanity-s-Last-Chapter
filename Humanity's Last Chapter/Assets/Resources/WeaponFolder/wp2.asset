@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e067ec5cbd64744ad4db07c8899acd, type: 3}
   m_Name: wp2
   m_EditorClassIdentifier: 
-  weaponName: Minigun
-  description: BAM BAM BAM BAM
-  soundEffect: AR
-  cost: 300
-  damage: 4
+  weaponName: Rifle
+  weaponID: 2
+  description: Simple rifle with slow fire rate and high damage
+  soundEffect: rifle
+  cost: 80
+  damage: 35
   bullets: 1
-  wpLevel: 2
-  fireRate: 0.05
-  range: 4
-  spread: 0.5
-  sprite: {fileID: 21300000, guid: d4fb65e666e36b348a0ce58311da2ec1, type: 3}
-  icon: {fileID: 21300000, guid: f5926186d94a4474eae4bfc4490ad6d1, type: 3}
+  wpLevel: 0
+  fireRate: 2
+  range: 6
+  spread: 0.2
+  sprite: {fileID: 21300000, guid: 976aded171e841945877d8e57f1cb927, type: 3}
+  icon: {fileID: 21300000, guid: 1e92345d7d8207c4cbf51baf695e42e3, type: 3}
   coolDownTimer: 300

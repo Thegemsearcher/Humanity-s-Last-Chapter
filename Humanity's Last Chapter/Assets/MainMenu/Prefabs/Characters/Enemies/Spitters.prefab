@@ -230,7 +230,7 @@ MonoBehaviour:
   pcs: []
   aggroRange: 7
   atkRange: 10
-  dmg: 20
+  dmg: 23
   pcLayer:
     serializedVersion: 2
     m_Bits: 256
@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waypoints: []
+  range: 5
   Projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
     type: 3}
   animator: {fileID: 0}
@@ -392,6 +393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootBox: {fileID: 4150398682782584063, guid: 46d1dacedbe07f543a7429112eac4bfb, type: 3}
   inventory: []
+  lootLevel: 2
 --- !u!95 &6172518198825749415
 Animator:
   serializedVersion: 3

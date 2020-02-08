@@ -20,7 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02921ba211bd25442b39d463d151f9e0, type: 2}
   nextMissionsFail: []
   goldReward: 150
-  rsReward: 50
+  rsReward: 0
   supplies: 0
   completed: 0
   isSale: 0

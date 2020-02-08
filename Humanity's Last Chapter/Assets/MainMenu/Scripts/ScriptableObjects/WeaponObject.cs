@@ -6,6 +6,7 @@ using UnityEngine;
 public class WeaponObject : ScriptableObject {
     // Start is called before the first frame update
     public string weaponName = "Weapon name Here";
+    public string weaponID;
     public string description = "Info about the weapon";
     public string soundEffect;
     public int cost, damage, bullets, wpLevel;
@@ -13,5 +14,4 @@ public class WeaponObject : ScriptableObject {
     public Sprite sprite;
     public Sprite icon;
     public int coolDownTimer;
-
 }

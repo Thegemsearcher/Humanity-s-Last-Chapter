@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e067ec5cbd64744ad4db07c8899acd, type: 3}
   m_Name: wp1
   m_EditorClassIdentifier: 
-  weaponName: Rifle
-  description: Simple rifle with slow fire and high damage
-  soundEffect: rifle
-  cost: 80
-  damage: 30
+  weaponName: Heavy Handgun
+  weaponID: 1
+  description: A handgun that can pack a punch!
+  soundEffect: pistol
+  cost: 50
+  damage: 20
   bullets: 1
-  wpLevel: 1
-  fireRate: 2
-  range: 6
-  spread: 0.2
-  sprite: {fileID: 21300000, guid: 976aded171e841945877d8e57f1cb927, type: 3}
-  icon: {fileID: 21300000, guid: 2ef090a08b451054c889dca72819020e, type: 3}
+  wpLevel: 0
+  fireRate: 1.4
+  range: 5
+  spread: 0.4
+  sprite: {fileID: 21300000, guid: 6b72a0e88814cc3458e7c5383dd88a97, type: 3}
+  icon: {fileID: 21300000, guid: 792d0f9e36005e044988666ef4792493, type: 3}
   coolDownTimer: 300

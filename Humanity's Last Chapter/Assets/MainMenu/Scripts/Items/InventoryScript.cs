@@ -8,6 +8,7 @@ public class InventoryScript : MonoBehaviour
     private GameObject holder;
     private string strName;
     public string[] inventory;
+    public int lootLevel;
 
     public void GetInventory(string[] inventory, string strName)
     {
@@ -23,5 +24,4 @@ public class InventoryScript : MonoBehaviour
     {
         
     }
-
 }

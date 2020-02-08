@@ -20,7 +20,7 @@ MonoBehaviour:
   nextMissionsFail: []
   goldReward: 200
   rsReward: 0
-  supplies: 100
+  supplies: 0
   completed: 0
   isSale: 0
   objectives:

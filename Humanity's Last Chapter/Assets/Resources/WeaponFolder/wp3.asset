@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e067ec5cbd64744ad4db07c8899acd, type: 3}
   m_Name: wp3
   m_EditorClassIdentifier: 
-  weaponName: Shotgun
-  description: "Varf\xF6r skjuta ett skott n\xE4r man kan skjuta m\xE5nga?"
-  soundEffect: shotgun
-  cost: 120
-  damage: 8
-  bullets: 5
-  wpLevel: 1
-  fireRate: 3
-  range: 2.5
-  spread: 0.5
-  sprite: {fileID: 21300000, guid: 145c56078f22e934ab28c58e70367c6e, type: 3}
-  icon: {fileID: 21300000, guid: dc7f55b9353b0e6488ec6f1f9e4bbdf8, type: 3}
+  weaponName: Automatic Rifle
+  weaponID: 3
+  description: Quick-firing rifle
+  soundEffect: AR
+  cost: 100
+  damage: 3
+  bullets: 1
+  wpLevel: 0
+  fireRate: 0.22
+  range: 4.7
+  spread: 0.4
+  sprite: {fileID: 21300000, guid: 976aded171e841945877d8e57f1cb927, type: 3}
+  icon: {fileID: 21300000, guid: 2ef090a08b451054c889dca72819020e, type: 3}
   coolDownTimer: 300

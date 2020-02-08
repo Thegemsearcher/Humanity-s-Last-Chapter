@@ -15,9 +15,9 @@ public class Enemy : MonoBehaviour
     private string[] lootDrop;
 
     public GameObject[] pcs;
-    public float aggroRange = 4f;
-    public float atkRange = 1f;
-    public int dmg = 1;
+    public float aggroRange;
+    public float atkRange;
+    public int dmg;
     public LayerMask pcLayer;
 
     public float attackTimer = 0;
@@ -74,7 +74,18 @@ public class Enemy : MonoBehaviour
         }
         else if (value == 2)
         {
-            lootTypeNumber = Random.Range(0, 5);
+            if(GetComponent<InventoryScript>().lootLevel == 0)
+            {
+                lootTypeNumber = Random.Range(0, 4);
+            }
+            if (GetComponent<InventoryScript>().lootLevel == 1)
+            {
+                lootTypeNumber = Random.Range(0, 6);
+            }
+            if (GetComponent<InventoryScript>().lootLevel == 2)
+            {
+                lootTypeNumber = Random.Range(0, 8);
+            }            
             lootType = "wp" + lootTypeNumber;
         }
     }
