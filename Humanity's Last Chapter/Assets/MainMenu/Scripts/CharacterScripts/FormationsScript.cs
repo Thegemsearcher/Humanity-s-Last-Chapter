@@ -11,6 +11,7 @@ public class FormationsScript : MonoBehaviour
     bool openedBefore = false;
     float offsetX = 0, offsetY = 0;
     GameObject pcManager;
+    bool visible = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -25,6 +26,7 @@ public class FormationsScript : MonoBehaviour
 
     public void CloseFormations()
     {
+        visible = false;
         GameObject parentUI = GameObject.Find("ImageForCharacters");
         for (int i = 0; i < pcs.Length; i++)
         {
@@ -39,9 +41,21 @@ public class FormationsScript : MonoBehaviour
         pcManager.GetComponent<CharacterMovement>().drawBox = true;
     }
     
+    public void ClickOnFormationButton(GameObject go)
+    {
+        if (visible)
+        {
+            CloseFormations();
+            go.SetActive(false);
+        }
+        else{
+            OpenFormation();
+        }
+    }
 
     public void OpenFormation()
     {
+        visible = true;
         if (openedBefore)
         {
             pcManager.GetComponent<CharacterMovement>().drawBox = false;
