@@ -7,6 +7,9 @@ public class FormationsScript : MonoBehaviour
 {
     public GameObject panelForCharacters;
     public GameObject prefab;
+
+    public GameObject characterScrollHolder;
+
     GameObject[] pcs, UIelements;
     bool openedBefore = false;
     float offsetX = 0, offsetY = 0;
@@ -61,6 +64,7 @@ public class FormationsScript : MonoBehaviour
             pcManager.GetComponent<CharacterMovement>().drawBox = false;
             return;
         }
+
         pcManager = GameObject.Find("PCManager");
         pcManager.GetComponent<CharacterMovement>().drawBox = false;
         pcs = GameObject.FindGameObjectsWithTag("Character");
@@ -73,7 +77,8 @@ public class FormationsScript : MonoBehaviour
         {
             //Debug.Log("humanityBoi nr " + i + "finns parent?");
             GameObject go = Instantiate(prefab);
-
+            go.GetComponent<clickAndDrag>().CharacterID = pcs[i].GetComponent<CharacterScript>().id;
+            go.GetComponent<clickAndDrag>().characterScrollHolder = characterScrollHolder;
             go.transform.SetParent(parent.transform);
             go.transform.position = new Vector3(gameObject.GetComponentInParent<Transform>().transform.position.x + offsetX + 50 * i,
                 gameObject.GetComponentInParent<Transform>().transform.position.y + offsetY + 50 * j, 0);

@@ -9,6 +9,9 @@ public class clickAndDrag : MonoBehaviour
     bool held = false, firstRun = true;
     GameObject[] UIElementList;
     GameObject parentUI;
+    GameObject UIElement;
+    public string CharacterID = "DEFAULT";
+    public GameObject characterScrollHolder;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +22,23 @@ public class clickAndDrag : MonoBehaviour
         UIElementList = GameObject.FindGameObjectsWithTag("FormationUiItem");
     }
     // Update is called once per frame
+    public void SetUIElement()
+    {
+        if (!CharacterID.Equals("DEFAULT"))
+        {
+            CharacterScript[] pcUI = characterScrollHolder.GetComponentsInChildren<CharacterScript>();
+            for (int i = 0; i < characterScrollHolder.transform.childCount; i++)
+            {
+                if (pcUI[i].id.Equals(CharacterID))
+                {
+                    UIElement = pcUI[i].gameObject;
+                }
+            }
+        }
+    }
     void Update()
     {
+        SetUIElement();
         if (!parentUI.GetComponent<BoxCollider2D>().OverlapPoint(mousePos) && held)
         {
             held = false;
@@ -32,6 +50,10 @@ public class clickAndDrag : MonoBehaviour
         //när man hoverar över en karaktärs cirkel så blir den gul, när man klickar, håller inne och flyttra musen så följer den efter
         if (gameObject.GetComponent<CircleCollider2D>().OverlapPoint(mousePos) || gameObject.GetComponent<CircleCollider2D>().OverlapPoint(lastMousePos))
         {
+            if (!CharacterID.Equals("DEFAULT"))
+            {
+                UIElement.GetComponent<Image>().color = Color.green;
+            }
             gameObject.GetComponent<Image>().color = Color.gray;
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
@@ -59,6 +81,10 @@ public class clickAndDrag : MonoBehaviour
 
         } else
         {
+            if (!CharacterID.Equals("DEFAULT"))
+            {
+                UIElement.GetComponent<Image>().color = Color.white;
+            }
             gameObject.GetComponent<Image>().color = Color.white;
         }
     }
