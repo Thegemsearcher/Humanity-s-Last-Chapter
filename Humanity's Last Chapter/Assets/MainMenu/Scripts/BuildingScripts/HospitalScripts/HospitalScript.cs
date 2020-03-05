@@ -4,7 +4,7 @@ using UnityEngine;
 public class HospitalScript : MonoBehaviour {
 
     public GameObject UIHospital, UISlots;
-    private GameObject UIHolder, forHospitalParent, forHealingParent;
+    private GameObject UIHolder, forHospitalParent, forHealingParent, CoinBox;
     private GameObject[] hubCharacters, hospitalCharacters;
     public List<GameObject> SlotList;
     private Stats statsScript;
@@ -22,6 +22,9 @@ public class HospitalScript : MonoBehaviour {
         hubCharacters = GameObject.FindGameObjectsWithTag("Character");
         forHospitalParent = GameObject.Find("forHospital");
         forHealingParent = GameObject.Find("forHealingSlots");
+        CoinBox = GameObject.FindGameObjectWithTag("CoinBox");
+
+        CoinBox.SetActive(false);
         showCharacter = false;
 
 
@@ -90,6 +93,7 @@ public class HospitalScript : MonoBehaviour {
 
             }
         }
+        CoinBox.SetActive(true);
         Destroy(gameObject);
     }
 }

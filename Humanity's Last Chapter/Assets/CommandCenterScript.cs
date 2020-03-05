@@ -7,7 +7,7 @@ public class CommandCenterScript : MonoBehaviour {
 
     public GameObject ForMission, ForRoles, ForCharacterChange, MissionBox, CharacterBox, RoleBox, AppointedRole, BtnStartMission;   //De med for fungerar som parents, de med Box är prefabs (Borde ha samma namn)
     public Text txtStartMission; //För att ändra texten till startMission knappen så man kan se om den är redo att starta mission
-    private GameObject holder, CharacterToAlter;    //holder används för att simpelt komma åt värden från instansierat object | CharacterToAlter är karaktären som ska byta roll
+    private GameObject holder, CharacterToAlter, CoinBox;    //holder används för att simpelt komma åt värden från instansierat object | CharacterToAlter är karaktären som ska byta roll
     private GameObject[] hubCharacters, commandCharacters;    //Alla karaktärer som har tag "Character"
     private List<GameObject> characterList; //Håller koll så att den inte ger samma karaktär till olika roller
     public RoleObject citizenRole;  //Standarad roll som ges till karaktärer (Borde inte behövas, alla karaktärer skapas med en roll)
@@ -20,6 +20,9 @@ public class CommandCenterScript : MonoBehaviour {
         CreateQuestList();  //Skapar listan av alla valbara quests
         CreateCharacterList();  //Skapar listan av alla karaktärer som kan gå på mission
         CheckMissionReady();
+
+        CoinBox = GameObject.FindGameObjectWithTag("CoinBox");
+        CoinBox.SetActive(false);
     }
 
     private void CreateQuestList() {
@@ -154,6 +157,7 @@ public class CommandCenterScript : MonoBehaviour {
 
             }
         }
+        CoinBox.SetActive(true);
         Destroy(gameObject);
     }
 

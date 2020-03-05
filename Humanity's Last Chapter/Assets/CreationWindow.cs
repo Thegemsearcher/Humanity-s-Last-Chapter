@@ -12,9 +12,12 @@ public class CreationWindow : MonoBehaviour {
 
     private CharacterScript characterScript;
     private Stats stats;
+    private GameObject CoinBox;
 
     private void Start() {
         parent = GameObject.FindGameObjectWithTag("CharacterManager");
+        CoinBox = GameObject.FindGameObjectWithTag("CoinBox");
+        CoinBox.active = false;
     }
 
     private void Update() {
@@ -33,7 +36,8 @@ public class CreationWindow : MonoBehaviour {
         holder.GetComponent<CharacterScript>().NewCharacter(characterScript.strName, characterScript.clothId, characterScript.headId);
         holder.GetComponent<Stats>().NewCharacter(stats);
         holder.transform.SetParent(parent.transform, false);
-        
+
+        CoinBox.active = true;
         Destroy(gameObject);    //Tar bort fönstret
     }
 }

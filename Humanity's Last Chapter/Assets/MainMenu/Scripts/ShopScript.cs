@@ -139,4 +139,8 @@ public class ShopScript : MonoBehaviour {
             }
         }
     }
+
+    public void BtnExit() {
+        Destroy(gameObject);
+    }
 }
