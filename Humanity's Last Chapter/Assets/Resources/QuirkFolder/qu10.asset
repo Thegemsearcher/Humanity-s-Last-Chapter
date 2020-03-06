@@ -15,14 +15,8 @@ MonoBehaviour:
   quirkName: Brave
   quirkDescription: I will stand tall for the people I want to protect
   hp: 0
-  str: 3
-  def: -2
-  Int: 0
-  dex: 3
-  cha: 0
-  ldr: 0
-  nrg: 0
-  snt: 0
+  def: 4
+  dex: -1
   quirkPair:
   - {fileID: 11400000, guid: 0ab5f8ec49ff99d44a8e2b85be9c6939, type: 2}
   quirkLevel: 0

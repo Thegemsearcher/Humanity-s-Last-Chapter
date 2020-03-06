@@ -8,7 +8,7 @@ public class QuirkObject : ScriptableObject
 {
     public string quirkName;    //Namnet på quirken
     public string quirkDescription; //Förklaring på quirken
-    public int hp, str, def, Int, dex, cha, ldr, nrg, snt;  //Stats som ändras av quirken
+    public int hp, def, dex;  //Stats som ändras av quirken
     public QuirkObject[] quirkPair; //Quirks man inte kan ha samtidigt
     public int quirkLevel;  //Vilken nivå quirken är (vissa typer av quirk kan bli mer avancerade)
     public QuirkType quirkType; //Vilken typ av quirk det är

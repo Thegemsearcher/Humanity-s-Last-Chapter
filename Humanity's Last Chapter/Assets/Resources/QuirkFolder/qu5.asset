@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: True Rage
   quirkDescription: I will hurt anyone in my way!!!
-  hp: 0
-  str: 6
-  def: -4
-  Int: 0
-  dex: 0
-  cha: -3
-  ldr: -2
-  nrg: 0
-  snt: 0
+  hp: 7
+  def: 1
+  dex: -6
   quirkPair:
   - {fileID: 11400000, guid: 365b8437868592747837d5e819887ebc, type: 2}
   quirkLevel: 0

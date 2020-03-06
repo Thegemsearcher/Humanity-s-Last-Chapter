@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: atheist
   quirkDescription: There is no god, all there is to believe in is our will to live
-  hp: 0
-  str: 0
+  hp: 1
   def: 0
-  Int: 3
-  dex: 0
-  cha: -3
-  ldr: 3
-  nrg: 0
-  snt: 0
+  dex: -1
   quirkPair:
   - {fileID: 11400000, guid: 9784b5a487a75ca4086c25c0b8f3a5b8, type: 2}
   quirkLevel: 0

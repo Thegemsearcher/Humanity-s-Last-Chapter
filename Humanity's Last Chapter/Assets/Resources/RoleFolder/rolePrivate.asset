@@ -21,11 +21,5 @@ MonoBehaviour:
     taking them down!
   roleRank: 1
   maxHp: 0
-  str: 10
-  def: 5
-  Int: 0
-  dex: 0
-  cha: -5
-  ldr: -5
-  nrg: 0
-  snt: 0
+  def: 3
+  dex: 1

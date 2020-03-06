@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 15433e42b60a7374ba811064a6a52f95, type: 3}
   portrait: {fileID: 21300000, guid: 15433e42b60a7374ba811064a6a52f95, type: 3}
   itemName: Uniform Cap
-  description: A Cap used by the military
+  description: A cap used by the military
   cost: 80
   clothType: 0
   clothCategory: 1

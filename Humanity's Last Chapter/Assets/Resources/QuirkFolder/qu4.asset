@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: Rage
   quirkDescription: I will kill all enemies in our way
-  hp: 0
-  str: 3
-  def: -1
-  Int: 0
-  dex: 1
-  cha: -1
-  ldr: 0
-  nrg: 0
-  snt: 0
+  hp: 5
+  def: 1
+  dex: -4
   quirkPair:
   - {fileID: 11400000, guid: ce1a91f81f19f0c48ad08eb81324d770, type: 2}
   quirkLevel: 0

@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 9f0c535348bf2684595b02b1da9978d7, type: 3}
   portrait: {fileID: 21300000, guid: 9f0c535348bf2684595b02b1da9978d7, type: 3}
   itemName: HairStyle1
-  description: Har goes on way
+  description: 
   cost: 0
   clothType: 0
   clothCategory: 0

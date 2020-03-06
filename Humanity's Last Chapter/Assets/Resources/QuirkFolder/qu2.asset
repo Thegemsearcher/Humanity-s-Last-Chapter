@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: Optimist
   quirkDescription: The world is in ruins, but hey that won't ruin your day
-  hp: 2
-  str: 0
+  hp: 3
   def: -2
-  Int: 0
-  dex: 1
-  cha: 1
-  ldr: 0
-  nrg: 0
-  snt: 0
+  dex: 0
   quirkPair:
   - {fileID: 11400000, guid: 9d5ec2a911bfcce49a151f5a2cef2515, type: 2}
   quirkLevel: 0

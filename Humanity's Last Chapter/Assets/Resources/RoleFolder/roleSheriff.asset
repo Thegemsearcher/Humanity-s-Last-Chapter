@@ -16,13 +16,8 @@ MonoBehaviour:
   portraitBackground: {fileID: 21300000, guid: e98a3fcb12c5f834192b64b5ea7a9f64, type: 3}
   roleName: Sheriff
   title: 'Sheriff '
+  desc: There's a new sheriff in town
   roleRank: 2
   maxHp: 0
-  str: 0
   def: 0
-  Int: 2
   dex: 5
-  cha: -5
-  ldr: -10
-  nrg: 5
-  snt: 0

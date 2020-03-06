@@ -18,12 +18,6 @@ MonoBehaviour:
   title: 'Cpt. '
   desc: Captain, next in charge of the millitary operation!
   roleRank: 4
-  maxHp: 5
-  str: -5
+  maxHp: 0
   def: 3
-  Int: 0
   dex: 0
-  cha: 5
-  ldr: 15
-  nrg: 0
-  snt: 0

@@ -16,13 +16,8 @@ MonoBehaviour:
   portraitBackground: {fileID: 21300000, guid: e98a3fcb12c5f834192b64b5ea7a9f64, type: 3}
   roleName: Police
   title: 
+  desc: Local hero
   roleRank: 3
   maxHp: 0
-  str: 0
-  def: 0
-  Int: 5
-  dex: 0
-  cha: -10
-  ldr: 0
-  nrg: 0
-  snt: 0
+  def: 1
+  dex: 3

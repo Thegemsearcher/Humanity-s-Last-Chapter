@@ -147,12 +147,8 @@ public class Stats : MonoBehaviour {
 
         quirkName = quirk.quirkName;
         maxHp += quirk.hp;
-        str += quirk.str;
         def += quirk.def;
-        Int += quirk.Int;
         dex += quirk.dex;
-        cha += quirk.cha;
-        ldr += quirk.ldr;
 
         if (hp > maxHp) {
             hp = maxHp;
@@ -177,12 +173,8 @@ public class Stats : MonoBehaviour {
             }
         }
         maxHp -= quirk.hp;
-        str -= quirk.str;
         def -= quirk.def;
-        Int -= quirk.Int;
         dex -= quirk.dex;
-        cha -= quirk.cha;
-        ldr -= quirk.ldr;
         if (hp > maxHp) {
             hp = maxHp;
         }

@@ -13,13 +13,7 @@ public class RoleObject : ScriptableObject {
     public int roleRank = 1;
 
     public int maxHp = 0;
-    public int str = 0;
     public int def = 0;
-    public int Int = 0;
     public int dex = 0;
-    public int cha = 0;
-    public int ldr = 0;
-    public int nrg = 0;
-    public int snt = 0;
 
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: de3a3fec5c42678459fe7c230c93e7b5, type: 3}
   rangeThingy: {fileID: 21300000, guid: 216ed7fd64ea927419f0ddbb3bd4e0e8, type: 3}
   itemName: MKV Grenade
-  description: A explosive on a stick!
+  description: Toss it on your foes, there she blows!
   cost: 50
   coolDownTimer: 30
   placeRange: 6

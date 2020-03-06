@@ -29,13 +29,8 @@ public class RoleDescScript : MonoBehaviour {
         txtRoleName.text = role.roleName;
         txtRoleDesc.text = role.desc;
         txtHp.text = "Hp: +" + role.maxHp;
-        txtStr.text = "Str: +" + role.str;
         txtDef.text = "Def: +" + role.def;
         txtDex.text = "Dex: +" + role.dex;
-        txtInt.text = "Int: +" + role.Int;
-        txtLdr.text = "Ldr: +" + role.ldr;
-        txtSnt.text = "Snt: +" + role.snt;
-        txtCha.text = "Cha: +" + role.cha;
     }
 
     public void CharacterInfo(GameObject character) {

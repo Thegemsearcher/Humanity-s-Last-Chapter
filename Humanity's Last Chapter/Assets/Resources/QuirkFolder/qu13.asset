@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: Impatient
   quirkDescription: there is a time to act and that is NOW!!!!!
-  hp: 0
-  str: 0
-  def: -3
-  Int: -1
+  hp: -2
+  def: -1
   dex: 3
-  cha: 0
-  ldr: 0
-  nrg: 0
-  snt: 0
   quirkPair:
   - {fileID: 11400000, guid: 5506e8da00319054ca5d76f79e45f530, type: 2}
   quirkLevel: 0

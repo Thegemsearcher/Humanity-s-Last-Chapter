@@ -15,7 +15,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: eee8aec09dad30946a5f9d0833bcb5f5, type: 3}
   portrait: {fileID: 21300000, guid: 53061e89bd0c6874d8e9f0722be36621, type: 3}
   itemName: Red Uniform
-  description: A Uniform used by the Marine
+  description: A uniform used by the marine
   cost: 120
   clothType: 1
   clothCategory: 1

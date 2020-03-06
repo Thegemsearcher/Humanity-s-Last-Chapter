@@ -18,12 +18,6 @@ MonoBehaviour:
   title: 'Sgt. '
   desc: The Sergent make sure that the soldiers stay in line and doing their job!
   roleRank: 3
-  maxHp: 5
-  str: 0
+  maxHp: 0
   def: 2
-  Int: 0
-  dex: 0
-  cha: 0
-  ldr: 10
-  nrg: 0
-  snt: 0
+  dex: 2

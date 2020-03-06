@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: OCD
   quirkDescription: A person who won't leave a detail unturned...trust me
-  hp: 0
-  str: 0
-  def: 0
-  Int: 1
+  hp: 2
+  def: -1
   dex: -1
-  cha: -2
-  ldr: -2
-  nrg: 0
-  snt: 0
   quirkPair:
   - {fileID: 11400000, guid: d7bbbdb5d48f08d43997ab9fef698c87, type: 2}
   quirkLevel: 0

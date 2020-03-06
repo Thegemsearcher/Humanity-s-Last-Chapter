@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: Charismatic
   quirkDescription: hey, how's it going
-  hp: 0
-  str: 0
+  hp: 3
   def: -2
-  Int: 0
   dex: 0
-  cha: 3
-  ldr: 3
-  nrg: 0
-  snt: 0
   quirkPair:
   - {fileID: 11400000, guid: ebe43800080db74419a2dd87f84b1d9c, type: 2}
   quirkLevel: 0

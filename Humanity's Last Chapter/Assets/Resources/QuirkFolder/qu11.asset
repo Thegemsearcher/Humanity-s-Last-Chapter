@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: Reckless
   quirkDescription: we have to finish this as fast as possible for everyones sake
-  hp: 0
-  str: 2
+  hp: -1
   def: -3
-  Int: -1
   dex: 3
-  cha: 0
-  ldr: 0
-  nrg: 0
-  snt: 0
   quirkPair:
   - {fileID: 11400000, guid: ca870305c481cd7408d34e0eb9c37143, type: 2}
   quirkLevel: 0

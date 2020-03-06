@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: Genocider
   quirkDescription: in this world it's kill or be killed
-  hp: 0
-  str: 3
+  hp: -2
   def: 3
-  Int: 0
   dex: 2
-  cha: -6
-  ldr: -6
-  nrg: 0
-  snt: 0
   quirkPair:
   - {fileID: 11400000, guid: 70fea65963677ac4d95abfd916a6e9b4, type: 2}
   quirkLevel: 0

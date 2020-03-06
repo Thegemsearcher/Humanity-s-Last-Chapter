@@ -64,13 +64,7 @@ public class RoleScript : MonoBehaviour {
         }
         stats.maxHp += (role.maxHp * modifier);
         stats.hp += (role.maxHp * modifier);
-        stats.str += (role.str * modifier);
         stats.def += (role.def * modifier);
-        stats.Int += (role.Int * modifier);
         stats.dex += (role.dex * modifier);
-        stats.cha += (role.cha * modifier);
-        stats.ldr += (role.ldr * modifier);
-        stats.nrg += (role.nrg * modifier);
-        stats.snt += (role.snt * modifier);
     }
 }

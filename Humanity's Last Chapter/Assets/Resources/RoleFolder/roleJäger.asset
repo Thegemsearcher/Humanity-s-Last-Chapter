@@ -14,17 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roleCategory: 1
   portraitBackground: {fileID: 21300000, guid: e98a3fcb12c5f834192b64b5ea7a9f64, type: 3}
-  roleName: "J\xE4ger"
-  title: "J\xE4ger "
-  desc: "The j\xE4ger are greate to take down enemies at long range and to avoid enemies
-    if the get to close! There high INT and DEX makes it difficult to hit them!"
+  roleName: Hunter
+  title: Hunter
+  desc: The hunter are greate to take down enemies at long range and to avoid enemies
+    if the get to close! There high INT and DEX makes it difficult to hit them!
   roleRank: 2
-  maxHp: -5
-  str: -10
-  def: 5
-  Int: 20
-  dex: 20
-  cha: 0
-  ldr: -5
-  nrg: 0
-  snt: 0
+  maxHp: 0
+  def: -5
+  dex: 10

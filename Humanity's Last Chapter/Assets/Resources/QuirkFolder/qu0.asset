@@ -14,15 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quirkName: Perfectionist
   quirkDescription: A person who won't leave a detail unturned
-  hp: 0
-  str: 0
+  hp: 1
   def: 0
-  Int: 4
   dex: 0
-  cha: -1
-  ldr: -1
-  nrg: 0
-  snt: 0
   quirkPair:
   - {fileID: 11400000, guid: 391af9e103a7383458d10b70bb3a3985, type: 2}
   quirkLevel: 0
