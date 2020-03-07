@@ -13,6 +13,7 @@ public class CommandCenterScript : MonoBehaviour {
     public RoleObject citizenRole;  //Standarad roll som ges till karaktärer (Borde inte behövas, alla karaktärer skapas med en roll)
     public int appointedCharacters; //Hur många karaktärer som ska gå på mission
     private CharacterScript hubCharacterScript, commandCharacterScript;
+    private Color colorReadyGreen;
 
     private void Start() {
         characterList = new List<GameObject>();
@@ -187,16 +188,20 @@ public class CommandCenterScript : MonoBehaviour {
     public void CheckMissionReady() {   //Används för att kolla om mission är ready och för att visa varför den inte är det
         if (WorldScript.world.activeQuest == null) {
             BtnStartMission.GetComponent<Image>().color = Color.red;
-            txtStartMission.text = "Start Mission\n(Need an active quest!)";
+            txtStartMission.text = "Need an active quest!";
         } else if (appointedCharacters <= 0) {
             BtnStartMission.GetComponent<Image>().color = Color.red;
-            txtStartMission.text = "Start Mission\n(Appoint people!)";
+            txtStartMission.text = "Appoint people!";
         } else if (appointedCharacters > WorldScript.world.partySize) {
             BtnStartMission.GetComponent<Image>().color = Color.red;
-            txtStartMission.text = "Start Mission\n(Too small partyBus!)";
+            txtStartMission.text = "Too many characters! " + appointedCharacters.ToString() + "/" + WorldScript.world.partySize.ToString();
         } else {
-            BtnStartMission.GetComponent<Image>().color = Color.green;
-            txtStartMission.text = "Start Mission";
+            //if ( colorReadyGreen == null) {
+            //    colorReadyGreen = new Color32(17/255, 176/255, 0/255, 255/255);
+            //}
+            colorReadyGreen = new Color(17/255f, 176/255f, 0, 255);
+            BtnStartMission.GetComponent<Image>().color = colorReadyGreen;
+            txtStartMission.text = "Appointed Characters: " + appointedCharacters.ToString() + "/" + WorldScript.world.partySize.ToString();
         }
     }
 }
