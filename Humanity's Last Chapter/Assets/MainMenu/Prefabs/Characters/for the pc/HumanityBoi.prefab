@@ -429,7 +429,7 @@ MonoBehaviour:
   timeBetweenAttack: 3
   attackPos: {fileID: 9190761247512095196, guid: 0d1f1ab9944b4e04d96c1ef39b84d680,
     type: 3}
-  projectile: {fileID: 5858428856328893007, guid: 8e5795f3639f14c45a0d3a1e73832366,
+  projectile: {fileID: 5858428856328893007, guid: ae045345cbe811f46a4e7da229388bdd,
     type: 3}
 --- !u!114 &4327539020883183433
 MonoBehaviour:
@@ -500,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootBox: {fileID: 4150398682782584063, guid: 46d1dacedbe07f543a7429112eac4bfb, type: 3}
   inventory: []
+  lootLevel: 0
 --- !u!114 &8901323618530212322
 MonoBehaviour:
   m_ObjectHideFlags: 0
