@@ -30,7 +30,9 @@ public class HireCharacter : MonoBehaviour {
                     WorldScript.world.staBarrackPepList.Remove(WorldScript.world.staBarrackPepList[i]);
                     break;
                 }
+                i++;
             }
+
             WorldScript.world.gold -= cost;
             holder = Instantiate(UICharacter);
             holder.transform.SetParent(Manager.transform, false);
