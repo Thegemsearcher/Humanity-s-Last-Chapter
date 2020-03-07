@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < lootDrop.Length; i++)
         {
             LootRandomizer();
-            //Debug.Log("Size: " + lootSize + ", loot name: " + lootType + "");
+            //Debug.Log("Size: " + lootSize + ", loot id: " + lootType + "");
             lootDrop[i] = lootType;
         }
         GetComponent<InventoryScript>().GetInventory(lootDrop, gameObject.name);

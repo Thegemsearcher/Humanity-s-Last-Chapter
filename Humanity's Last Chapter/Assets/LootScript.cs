@@ -47,6 +47,7 @@ public class LootScript : MonoBehaviour
             {
                 if (inventory[i] != "")
                 {
+                    GameObject.FindGameObjectWithTag("LootFeed").GetComponent<LootReaderScript>().AddItem(inventory[i]);
                     WorldScript.world.AddItem(inventory[i], 1);
                 }
             }

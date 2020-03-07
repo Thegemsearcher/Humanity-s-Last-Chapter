@@ -8,7 +8,7 @@ public class LootInfoScript : MonoBehaviour
     public GameObject lootItem;
     private GameObject holder;
     private Sprite itemSprite;
-    private string itemName;
+    public string itemName;
     private string[] inventory;
     public Text txtHeader;
 

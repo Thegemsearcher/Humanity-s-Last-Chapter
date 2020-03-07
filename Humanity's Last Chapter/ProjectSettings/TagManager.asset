@@ -66,6 +66,7 @@ TagManager:
   - BtnContinue
   - BtnLoad
   - CoinBox
+  - LootFeed
   layers:
   - Default
   - TransparentFX

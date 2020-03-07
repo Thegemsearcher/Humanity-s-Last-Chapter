@@ -79,6 +79,7 @@
      <Compile Include="Assets\LoadQuests.cs" />
      <Compile Include="Assets\LootInfoScript.cs" />
      <Compile Include="Assets\LootItemScript.cs" />
+     <Compile Include="Assets\LootReaderScript.cs" />
      <Compile Include="Assets\LootScript.cs" />
      <Compile Include="Assets\LootScrollScript.cs" />
      <Compile Include="Assets\MainMenu\Scripts\AbilitySlotScript.cs" />
