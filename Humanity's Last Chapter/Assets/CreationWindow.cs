@@ -20,8 +20,10 @@ public class CreationWindow : MonoBehaviour {
         CoinBox.active = false;
     }
 
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Escape)) {
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Escape))
+        {
             BtnContinue();
         }
     }

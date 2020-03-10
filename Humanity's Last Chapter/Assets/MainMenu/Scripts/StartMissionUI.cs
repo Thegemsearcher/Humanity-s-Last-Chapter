@@ -15,13 +15,13 @@ public class StartMissionUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            escMenu.SetActive(menuOn);
-        }
-        if (escMenu.activeSelf)
-            menuOn = false;
-        else
-            menuOn = true;
+    //    if (Input.GetKeyDown(KeyCode.Escape))
+    //    {
+    //        escMenu.SetActive(menuOn);
+    //    }
+    //    if (escMenu.activeSelf)
+    //        menuOn = false;
+    //    else
+    //        menuOn = true;
     }
 }
