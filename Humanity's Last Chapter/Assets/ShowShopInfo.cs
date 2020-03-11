@@ -17,8 +17,24 @@ public class ShowShopInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData) {
         txtName.text = "Upgrade the Shop!";
-        txtDesc.text = "Upgrade the shop to level " + (shopScript.shopLevel + 1) + "! A better shop will provide better items you can buy!";
-        txtCost.text = "Cost: " + shopScript.upgradeCost * shopScript.shopLevel;
+        if (WorldScript.world.shopUpgrade){
+            txtDesc.text = "The shop is being upgraded, it will be finished tomorrow!";
+            txtCost.text = "-";
+        } else {
+            txtDesc.text = "Upgrade the shop to level " + (shopScript.shopLevel + 1) + "! A better shop will provide better items you can buy!";
+            txtCost.text = "Cost: " + shopScript.upgradeCost * shopScript.shopLevel;
+        }
+    }
+
+    public void UpdateText() {
+        if (WorldScript.world.shopUpgrade) {
+            txtDesc.text = "The shop is being upgraded, it will be finished tomorrow!";
+            txtCost.text = "-";
+        }
+        else {
+            txtDesc.text = "Upgrade the shop to level " + (shopScript.shopLevel + 1) + "! A better shop will provide better items you can buy!";
+            txtCost.text = "Cost: " + shopScript.upgradeCost * shopScript.shopLevel;
+        }
     }
 
     public void OnPointerExit(PointerEventData eventData) {

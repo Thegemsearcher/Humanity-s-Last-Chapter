@@ -8,7 +8,7 @@ public class WorldScript {
     public static WorldScript world;
 
     public int gold, rs, storageSize, stockSize, shopSize, shopLevel, hospitalLevel, date, supplies, goods, partySize, year; //gold - guld som finns
-    public bool isActive, isNewGame, spawnedBoiz; //Den sparningen som startar om man klickar continue
+    public bool isActive, isNewGame, spawnedBoiz, shopUpgrade; //Den sparningen som startar om man klickar continue
     public string saveName, saveId;
     private bool isChoosing, hasGoodsQuest;
     private int itemTest;
@@ -51,6 +51,7 @@ public class WorldScript {
         storageArr = new string[storageSize];
         shopArr = new string[shopSize];
         partySize = 4;
+        shopUpgrade = false;
 
         gold = 400;
         isActive = true;
@@ -82,6 +83,7 @@ public class WorldScript {
     }
 
     public void FillShop() {
+        shopUpgrade = false;
         for (int i = 0; i < stockSize; i++) {
             isChoosing = true;
             switch (Random.Range(0,2)) {

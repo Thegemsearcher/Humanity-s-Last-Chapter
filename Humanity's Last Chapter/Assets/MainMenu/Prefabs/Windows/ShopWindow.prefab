@@ -2689,6 +2689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cf95cfc556c1e8458339556e2295653, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  updateUpgrade: {fileID: 7058846845279864219}
   txtLevel: {fileID: 7058846845261836800}
   upgradeCost: 250
   shopLevel: 0
