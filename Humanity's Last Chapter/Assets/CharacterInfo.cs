@@ -25,7 +25,7 @@ public class CharacterInfo : MonoBehaviour {
         //txtStr.text = "Str: " + stats.str;
         txtDef.text = "Def: " + stats.def;
         txtHp.text = "HP: " + stats.hp + "/" + stats.maxHp;
-        txtLevel.text = stats.level.ToString();
+        //txtLevel.text = stats.level.ToString();
 
         barSize = stats.maxHp / stats.hp;
         healthBar.size = barSize;
@@ -37,7 +37,7 @@ public class CharacterInfo : MonoBehaviour {
             txtDex.text = "Dex: " + stats.dex;
             txtDef.text = "Def: " + stats.def;
             txtHp.text = "HP: " + stats.hp + "/" + stats.maxHp;
-            txtLevel.text = stats.level.ToString();
+            //txtLevel.text = stats.level.ToString();
 
             barSize = stats.maxHp / stats.hp;
             healthBar.size = barSize;

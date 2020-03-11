@@ -17,7 +17,7 @@ public class HospitalInfo : MonoBehaviour {
 
         txtName.text = characterScript.strName;
         txtHp.text = "HP: " + stats.hp + "/" + stats.maxHp;
-        txtLevel.text = stats.level.ToString();
+        //txtLevel.text = stats.level.ToString();
 
         barSize = stats.maxHp / stats.hp;
         healthBar.size = barSize;
